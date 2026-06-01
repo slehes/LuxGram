@@ -7213,7 +7213,7 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
             if case let .peer(peerId) = self.chatLocation, self.screenCaptureManager == nil {
                 if peerId.namespace == Namespaces.Peer.SecretChat {
                     self.screenCaptureManager = ScreenCaptureDetectionManager(check: { [weak self] in
-                        // MARK: - GLEGram - Block screenshot detection if disabled
+                        // MARK: - LuxGram - Block screenshot detection if disabled
                         #if canImport(SGSimpleSettings)
                         if SGSimpleSettings.shared.disableScreenshotDetection {
                             return false
@@ -8490,7 +8490,7 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
                         ))
                     }
                 }
-                // MARK: - GLEGram — Ghost Delay: attach GhostDelayedSendAttribute when delay > 0 and no schedule/postpone
+                // MARK: - LuxGram — Ghost Delay: attach GhostDelayedSendAttribute when delay > 0 and no schedule/postpone
                 #if canImport(SGSimpleSettings)
                 if scheduleTime == nil && !postpone {
                     let delaySeconds = SGSimpleSettings.shared.ghostModeMessageSendDelaySeconds
@@ -8500,7 +8500,7 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
                     }
                 }
                 #endif
-                // MARK: - End GLEGram
+                // MARK: - End LuxGram
                 return attributes
             }
         }

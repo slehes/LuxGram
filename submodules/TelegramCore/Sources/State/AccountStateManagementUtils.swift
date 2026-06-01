@@ -525,7 +525,7 @@ func initialStateWithPeerIds(_ transaction: Transaction, peerIds: Set<PeerId>, a
                         Logger.shared.log("State", "Peer \(peerId) (\(peer.debugDisplayTitle) has no stored inclusion, using synthesized one")
                     }
                 } else {
-                    // MARK: - GLEGram - Mark user chat as removed when it becomes notIncluded
+                    // MARK: - LuxGram - Mark user chat as removed when it becomes notIncluded
                     #if canImport(SGSimpleSettings)
                     if SGSimpleSettings.shared.keepRemovedChannels, peerId.namespace == Namespaces.Peer.CloudUser, let _ = peer as? TelegramUser {
                         let peerIdValue = peerId.id._internalGetInt64Value()
@@ -4404,7 +4404,7 @@ func replayFinalState(
                     }
                 }
             case let .DeleteMessagesWithGlobalIds(allIds):
-                // MARK: - GLEGram - Save snapshots before deleting (AyuGram-style)
+                // MARK: - LuxGram - Save snapshots before deleting (AyuGram-style)
                 #if canImport(SGDeletedMessages)
                 SGDeletedMessages.saveSnapshotsForGlobalIds(allIds, transaction: transaction, shouldSave: { id, _ in
                     #if canImport(SGSimpleSettings)
@@ -4439,13 +4439,13 @@ func replayFinalState(
                 if !resourceIds.isEmpty {
                     let _ = mediaBox.removeCachedResources(Array(Set(resourceIds)), force: true).start()
                 }
-                // MARK: GLEGram — append only actually-deleted ids; kept (saved deleted) must NOT be in deletedMessageIds (UI removes them from view)
+                // MARK: LuxGram — append only actually-deleted ids; kept (saved deleted) must NOT be in deletedMessageIds (UI removes them from view)
                 deletedMessageIds.append(contentsOf: ids.map { .global($0) })
             case let .DeleteMessages(ids):
                 let idsActuallyDeleted = _internal_deleteMessages(transaction: transaction, mediaBox: mediaBox, ids: ids, manualAddMessageThreadStatsDifference: { id, add, remove in
                     addMessageThreadStatsDifference(threadKey: id, remove: remove, addedMessagePeer: nil, addedMessageId: nil, isOutgoing: false)
                 })
-                // MARK: GLEGram — append only actually-deleted ids; marked (kept) must NOT be in deletedMessageIds (UI removes them from view)
+                // MARK: LuxGram — append only actually-deleted ids; marked (kept) must NOT be in deletedMessageIds (UI removes them from view)
                 deletedMessageIds.append(contentsOf: idsActuallyDeleted.map { .messageId($0) })
             case let .UpdateMinAvailableMessage(id):
                 if let message = transaction.getMessage(id) {
@@ -4454,7 +4454,7 @@ func replayFinalState(
                     #endif
                     updatePeerChatInclusionWithMinTimestamp(transaction: transaction, id: id.peerId, minTimestamp: message.timestamp, forceRootGroupIfNotExists: false)
                 }
-                // MARK: - GLEGram - Use safe deletion that preserves saved deleted messages
+                // MARK: - LuxGram - Use safe deletion that preserves saved deleted messages
                 _internal_deleteMessagesInRangeSafely(transaction: transaction, mediaBox: mediaBox, peerId: id.peerId, namespace: id.namespace, minId: 1, maxId: id.id, forEachMedia: nil)
             case let .UpdatePeerChatInclusion(peerId, groupId, changedGroup):
                 let currentInclusion = transaction.getPeerChatListInclusion(peerId)
@@ -4471,7 +4471,7 @@ func replayFinalState(
                 }
                 #if canImport(SGLogging)
                 SGLogger.shared.log("SGDeletedMessages", "UpdatePeerChatInclusion: peerId=\(peerId), groupId=\(groupId.rawValue), minTimestamp=\(currentMinTimestamp ?? -1)")
-                // MARK: - GLEGram - Check if there are saved deleted messages that might be affected
+                // MARK: - LuxGram - Check if there are saved deleted messages that might be affected
                 #if canImport(SGDeletedMessages)
                 if SGDeletedMessages.showDeletedMessages {
                     let topMessageId = transaction.getTopPeerMessageId(peerId: peerId, namespace: Namespaces.Message.Cloud)
@@ -4533,7 +4533,7 @@ func replayFinalState(
                         updatedMedia = previousMessage.media
                     }
                     
-                    // MARK: - GLEGram - Save original text on edit (like Nicegram)
+                    // MARK: - LuxGram - Save original text on edit (like Nicegram)
                     #if canImport(SGDeletedMessages)
                     #if canImport(SGSimpleSettings)
                     if SGSimpleSettings.shared.saveEditHistory {
@@ -4699,7 +4699,7 @@ func replayFinalState(
                     }
                 }
 
-                // MARK: - GLEGram - Bump maxKnownId if local saved-deleted top is higher
+                // MARK: - LuxGram - Bump maxKnownId if local saved-deleted top is higher
                 var effectiveMaxKnownId = maxKnownId
                 #if canImport(SGDeletedMessages)
                 if SGDeletedMessages.showDeletedMessages, namespace == Namespaces.Message.Cloud {

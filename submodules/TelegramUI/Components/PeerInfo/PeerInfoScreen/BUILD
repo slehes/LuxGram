@@ -8,9 +8,9 @@ sgdeps = [
     "//Swiftgram/SGRegDate:SGRegDate",
     "//Swiftgram/SGRegDateScheme:SGRegDateScheme",
     "//Swiftgram/SGDebugUI:SGDebugUI",
-    # MARK: GLEGram
-    "//GLEGram/SGSupporters:SGSupporters",
-    "//GLEGram/SGChatExport:SGChatExport",
+    # MARK: LuxGram
+    "//LuxGram/SGSupporters:SGSupporters",
+    "//LuxGram/SGChatExport:SGChatExport",
 ]
 
 

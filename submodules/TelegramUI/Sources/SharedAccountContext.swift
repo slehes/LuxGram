@@ -1863,12 +1863,12 @@ public final class SharedAccountContextImpl: SharedAccountContext {
         return OverlayAudioPlayerControllerImpl(context: context, chatLocation: chatLocation, type: type, initialMessageId: initialMessageId, initialOrder: initialOrder, playlistLocation: playlistLocation, parentNavigationController: parentNavigationController)
     }
     
-    // MARK: - GLEGram - Font settings notification
+    // MARK: - LuxGram - Font settings notification
     public func notifyFontSettingsChanged() {
         Display.Font.clearCache()
     }
 
-    // MARK: - GLEGram - Process overdue ghost-delayed messages for all accounts
+    // MARK: - LuxGram - Process overdue ghost-delayed messages for all accounts
     public func processOverdueGhostDelayedMessagesForAllAccounts() {
         let _ = (self.activeAccountContexts
             |> take(1)

@@ -43,7 +43,7 @@ Local Premium — это функция, которая эмулирует Premi
 var isPremium: Bool {
     switch self {
     case let user as TelegramUser:
-        // MARK: Swiftgram Local Premium - Override isPremium for current user
+        // MARK: LuxGram Local Premium - Override isPremium for current user
         if user.id.id._internalGetInt64Value() == SGLocalPremium.shared.currentAccountPeerId?.id && 
            user.id.namespace._internalGetInt32Value() == SGLocalPremium.shared.currentAccountPeerId?.namespace {
             return user.flags.contains(.isPremium) || SGLocalPremium.shared.showPremiumBadge
@@ -66,7 +66,7 @@ var isPremium: Bool {
 
 ## 📦 Модуль SGLocalPremium
 
-**Файл**: `Telegram-iOS/Swiftgram/SGLocalPremium/Sources/SGLocalPremium.swift`
+**Файл**: `Telegram-iOS/LuxGram/SGLocalPremium/Sources/SGLocalPremium.swift`
 
 ### Полный код класса
 
@@ -137,7 +137,7 @@ public class SGLocalPremium {
 **Файл**: `Telegram-iOS/submodules/TelegramUI/Sources/AccountContext.swift`
 
 ```swift
-// MARK: Swiftgram Local Premium - Set current account
+// MARK: LuxGram Local Premium - Set current account
 SGLocalPremium.shared.setAccountPeerId(
     account.peerId.id._internalGetInt64Value(),
     namespace: account.peerId.namespace._internalGetInt32Value()
@@ -156,7 +156,7 @@ SGLocalPremium.shared.setAccountPeerId(
 var isPremium: Bool {
     switch self {
     case let user as TelegramUser:
-        // MARK: Swiftgram Local Premium - Override isPremium for current user
+        // MARK: LuxGram Local Premium - Override isPremium for current user
         if user.id.id._internalGetInt64Value() == SGLocalPremium.shared.currentAccountPeerId?.id && 
            user.id.namespace._internalGetInt32Value() == SGLocalPremium.shared.currentAccountPeerId?.namespace {
             return user.flags.contains(.isPremium) || SGLocalPremium.shared.showPremiumBadge
@@ -193,7 +193,7 @@ var isPremium: Bool {
 
 ```swift
 public var maxPinnedChatCount: Int32 {
-    // MARK: Swiftgram Local Premium - Unlimited pinned chats
+    // MARK: LuxGram Local Premium - Unlimited pinned chats
     return SGLocalPremium.shared.getMaxPinnedChatCount(
         self.isPremium ? self.defaultMaxPremiumPinnedChatCount : self.defaultMaxPinnedChatCount
     )
@@ -220,7 +220,7 @@ public func getMaxPinnedChatCount(_ original: Int32) -> Int32 {
 
 ```swift
 public var maxFoldersCount: Int32 {
-    // MARK: Swiftgram Local Premium - Unlimited folders
+    // MARK: LuxGram Local Premium - Unlimited folders
     return SGLocalPremium.shared.getMaxFoldersCount(
         self.isPremium ? self.defaultMaxPremiumFoldersCount : self.defaultMaxFoldersCount
     )
@@ -237,7 +237,7 @@ public var maxFoldersCount: Int32 {
 
 ```swift
 public var maxFolderChatsCount: Int32 {
-    // MARK: Swiftgram Local Premium - Unlimited chats per folder
+    // MARK: LuxGram Local Premium - Unlimited chats per folder
     return SGLocalPremium.shared.getMaxFolderChatsCount(
         self.isPremium ? self.defaultMaxPremiumFolderChatsCount : self.defaultMaxFolderChatsCount
     )
@@ -258,7 +258,7 @@ func synchronizePinnedChats(
     transaction: Transaction,
     accountPeerId: PeerId
 ) -> Signal<Void, NoError> {
-    // MARK: Swiftgram Local Premium - Skip server sync if emulate premium is enabled
+    // MARK: LuxGram Local Premium - Skip server sync if emulate premium is enabled
     if SGLocalPremium.shared.shouldDisableServerSync {
         return .complete()
     }
@@ -290,7 +290,7 @@ public func _internal_synchronizeChatListFilters(
     stateManager: AccountStateManager,
     ignoreRemoteUpdates: Bool = false
 ) -> Signal<Void, NoError> {
-    // MARK: Swiftgram Local Premium - Skip server sync if emulate premium is enabled
+    // MARK: LuxGram Local Premium - Skip server sync if emulate premium is enabled
     if SGLocalPremium.shared.shouldDisableServerSync {
         return .complete()
     }
@@ -321,7 +321,7 @@ func _internal_requestUpdateChatListFilterOrder(
     account: Account, 
     ids: [Int32]
 ) -> Signal<Never, RequestUpdateChatListFilterOrderError> {
-    // MARK: Swiftgram Local Premium - Skip server sync if emulate premium is enabled
+    // MARK: LuxGram Local Premium - Skip server sync if emulate premium is enabled
     if SGLocalPremium.shared.shouldDisableServerSync {
         return .complete()
     }
@@ -368,7 +368,7 @@ public final class HorizontalTabsComponent: Component {
 
 **Проверка возможности переупорядочивания:**
 ```swift
-// MARK: Swiftgram Local Premium - Check if user can reorder all chats
+// MARK: LuxGram Local Premium - Check if user can reorder all chats
 if !self.canReorderAllChats, let reorderedItemIds = self.reorderedItemIds {
     if let firstReorderedId = reorderedItemIds.first,
        let firstOriginalTab = component.tabs.first,
@@ -404,7 +404,7 @@ public func canReorderAllChats(isPremium: Bool) -> Bool {
 
 ### Контроллер настроек IAppsGram
 
-**Файл**: `Telegram-iOS/Swiftgram/IAppsGramSettings/Sources/IAppsGramSettingsController.swift`
+**Файл**: `Telegram-iOS/LuxGram/IAppsGramSettings/Sources/IAppsGramSettingsController.swift`
 
 ### Секция Local Premium в UI
 
@@ -490,7 +490,7 @@ if !hasPremium && !SGLocalPremium.shared.unlimitedSavedMessageTags {
 **Файл**: `Telegram-iOS/submodules/TelegramCore/Sources/State/MessageReactions.swift`
 
 ```swift
-// MARK: Swiftgram - Skip server sync for tags in Saved Messages when Local Premium is active
+// MARK: LuxGram - Skip server sync for tags in Saved Messages when Local Premium is active
 if isTags && SGLocalPremium.shared.shouldDisableServerSync {
     return postbox.transaction { transaction -> Void in
         // 1. Отменяем pending action (не отправляем на сервер)
@@ -519,7 +519,7 @@ if isTags && SGLocalPremium.shared.shouldDisableServerSync {
 **Файл**: `Telegram-iOS/submodules/TelegramCore/Sources/State/SavedMessageTags.swift`
 
 ```swift
-// MARK: Swiftgram - Skip server sync for tags when Local Premium is active
+// MARK: LuxGram - Skip server sync for tags when Local Premium is active
 if SGLocalPremium.shared.shouldDisableServerSync {
     return .complete()  // Не делаем polling с сервером
 }
@@ -530,7 +530,7 @@ if SGLocalPremium.shared.shouldDisableServerSync {
 **Файл**: `Telegram-iOS/submodules/TelegramCore/Sources/State/ManagedConsumePersonalMessagesActions.swift`
 
 ```swift
-// MARK: Swiftgram - When Local Premium is active, skip server sync but mark as cached
+// MARK: LuxGram - When Local Premium is active, skip server sync but mark as cached
 if SGLocalPremium.shared.shouldDisableServerSync {
     return postbox.transaction { transaction -> Void in
         // Помечаем теги как закэшированные, чтобы UI их показывал
@@ -548,7 +548,7 @@ if SGLocalPremium.shared.shouldDisableServerSync {
 **Файл**: `Telegram-iOS/submodules/TelegramCore/Sources/State/Holes.swift`
 
 ```swift
-// MARK: Swiftgram - Skip server requests for customTag holes when Local Premium is active
+// MARK: LuxGram - Skip server requests for customTag holes when Local Premium is active
 if case .customTag = space {
     switch peerInput {
     case let .direct(peerId, _):
@@ -588,7 +588,7 @@ if case .customTag = space {
 
 ```python
 deps = [
-    "//Swiftgram/SGLocalPremium:SGLocalPremium",
+    "//LuxGram/SGLocalPremium:SGLocalPremium",
     # ... другие зависимости
 ]
 ```
@@ -737,7 +737,7 @@ var isPremium: Bool {
 ## 📊 Полный список измененных файлов
 
 ### Основной модуль
-1. `Telegram-iOS/Swiftgram/SGLocalPremium/Sources/SGLocalPremium.swift` - Главный менеджер
+1. `Telegram-iOS/LuxGram/SGLocalPremium/Sources/SGLocalPremium.swift` - Главный менеджер
 
 ### Core изменения
 2. `Telegram-iOS/submodules/TelegramCore/Sources/Utils/PeerUtils.swift` - **КЛЮЧЕВОЙ** - Модификация `Peer.isPremium`
@@ -773,10 +773,10 @@ var isPremium: Bool {
 27. `Telegram-iOS/submodules/TelegramUI/Components/HorizontalTabsComponent/Sources/HorizontalTabsComponent.swift` - Переупорядочивание папок
 
 ### Настройки
-28. `Telegram-iOS/Swiftgram/IAppsGramSettings/Sources/IAppsGramSettingsController.swift` - UI настроек
+28. `Telegram-iOS/LuxGram/IAppsGramSettings/Sources/IAppsGramSettingsController.swift` - UI настроек
 
 ### BUILD файлы
-29-40. BUILD файлы для всех модулей выше (добавлена зависимость `//Swiftgram/SGLocalPremium:SGLocalPremium`)
+29-40. BUILD файлы для всех модулей выше (добавлена зависимость `//LuxGram/SGLocalPremium:SGLocalPremium`)
 
 **Итого: 40+ файлов изменено**
 

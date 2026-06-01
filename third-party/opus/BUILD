@@ -11,7 +11,7 @@ libs = [
     "opus",
 ]
 
-# MARK: GLEGram — use prebuilt libopus instead of genrule (saves ~10 min)
+# MARK: LuxGram — use prebuilt libopus instead of genrule (saves ~10 min)
 config_setting(
     name = "ios_arm64",
     values = {"cpu": "ios_arm64"},
@@ -43,7 +43,7 @@ genrule(
         "//visibility:public",
     ],
 )
-# MARK: End GLEGram
+# MARK: End LuxGram
 
 cc_library(
     name = "opus_lib",

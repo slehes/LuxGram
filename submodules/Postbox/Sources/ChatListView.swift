@@ -916,7 +916,7 @@ final class MutableChatListView {
                     renderedMessages.append(contentsOf: messageGroup.compactMap(postbox.renderIntermediateMessage))
                 }
             }
-            // MARK: GLEGram - fallback to SavedDeleted namespace (1338) for chat list preview
+            // MARK: LuxGram - fallback to SavedDeleted namespace (1338) for chat list preview
             if renderedMessages.isEmpty {
                 let savedDeletedNamespace: Int32 = 1338
                 let peerId = index.messageIndex.id.peerId
@@ -940,7 +940,7 @@ final class MutableChatListView {
                     renderedMessages.append(rendered)
                 }
             }
-            // MARK: - End GLEGram
+            // MARK: - End LuxGram
 
             var peers = SimpleDictionary<PeerId, Peer>()
             var notificationSettings: PeerNotificationSettings?

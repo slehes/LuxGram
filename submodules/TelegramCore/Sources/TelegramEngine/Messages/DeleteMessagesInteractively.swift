@@ -103,7 +103,7 @@ func deleteMessagesInteractively(transaction: Transaction, stateManager: Account
             }
         }
     }
-    // MARK: - GLEGram (AyuGram-style)
+    // MARK: - LuxGram (AyuGram-style)
     // Deletion always proceeds normally; if enabled, we first save a snapshot into SavedDeleted namespace.
     // If the user deletes a SavedDeleted snapshot itself, it will just be deleted (no resave).
     let flatIds = messageIds.map(\.messageId)

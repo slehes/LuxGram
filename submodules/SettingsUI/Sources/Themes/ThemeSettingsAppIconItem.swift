@@ -451,29 +451,29 @@ class ThemeSettingsAppIconItemNode: ListViewItemNode, ItemListItemNode {
                                     name = item.strings.Appearance_AppIconBlack
                                 case "PremiumTurbo":
                                     name = item.strings.Appearance_AppIconTurbo
-                                // MARK: - GLEGram icon set
-                                case "GLEGramBlack":
+                                // MARK: - LuxGram icon set
+                                case "LuxGramBlack":
                                     name = "Black"
                                     bordered = false
-                                case "GLEGramDarkPurple":
+                                case "LuxGramDarkPurple":
                                     name = "Dark Purple"
                                     bordered = false
-                                case "GLEGramGreen":
+                                case "LuxGramGreen":
                                     name = "Green"
                                     bordered = false
-                                case "GLEGramPink":
+                                case "LuxGramPink":
                                     name = "Pink"
                                     bordered = false
-                                case "GLEGramPurple":
+                                case "LuxGramPurple":
                                     name = "Purple"
                                     bordered = false
-                                case "GLEGramRed":
+                                case "LuxGramRed":
                                     name = "Red"
                                     bordered = false
-                                case "GLEGramDuck":
+                                case "LuxGramDuck":
                                     name = "Duck"
                                     bordered = false
-                                // MARK: - End GLEGram
+                                // MARK: - End LuxGram
                                 default:
                                     name = icon.name
                             }

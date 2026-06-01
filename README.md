@@ -10,7 +10,7 @@
 [![Swift](https://img.shields.io/badge/swift-5.9-orange?style=flat-square&logo=swift)](https://swift.org)
 [![Telegram Base](https://img.shields.io/badge/Telegram-12.5-2CA5E0?style=flat-square&logo=telegram)](https://telegram.org)
 [![License](https://img.shields.io/badge/license-GPL--2.0-green?style=flat-square)](LICENSE)
-[![Build](https://img.shields.io/github/actions/workflow/status/GLEGram/GLEGram-iOS/build.yml?style=flat-square&label=IPA%20Build)](../../actions)
+[![Build](https://img.shields.io/github/actions/workflow/status/LuxGram/LuxGram-iOS/build.yml?style=flat-square&label=IPA%20Build)](../../actions)
 
 <br/>
 
@@ -69,8 +69,8 @@ Pick your notification badge in **LuxGram → Settings → Badge**:
 ### 1 — Clone
 
 ```bash
-git clone --recursive https://github.com/GLEGram/GLEGram-iOS.git
-cd GLEGram-iOS
+git clone --recursive https://github.com/LuxGram/LuxGram-iOS.git
+cd LuxGram-iOS
 ```
 
 ### 2 — Configure signing
@@ -133,13 +133,13 @@ After push — go to **Actions** tab, download IPA from the build artifacts.
 
 ```
 LuxGram-iOS/
-├── GLEGram/            LuxGram-exclusive modules
+├── LuxGram/            LuxGram-exclusive modules
 │   ├── SGLocalPremium/ Local Premium emulation
 │   ├── DoubleBottom/   Hidden accounts
 │   ├── ChatPassword/   Per-chat passwords
 │   ├── VoiceMorpher/   Voice presets
 │   └── GLESettingsUI/  18 settings controllers
-├── Swiftgram/          Base Swiftgram layer (~50 modules)
+├── LuxGram/          Base LuxGram layer (~50 modules)
 │   ├── SGSimpleSettings/ 150+ UserDefaults keys
 │   └── SGSettingsUI/   Main settings UI
 ├── submodules/         Telegram iOS (patched)
@@ -161,5 +161,5 @@ LuxGram-iOS/
 ---
 
 <div align="center">
-<sub>Based on <a href="https://github.com/Swiftgram/Telegram-iOS">Swiftgram</a> · <a href="https://github.com/TelegramMessenger/Telegram-iOS">Telegram iOS</a> · GPL-2.0</sub>
+<sub>Based on <a href="https://github.com/LuxGram/Telegram-iOS">LuxGram</a> · <a href="https://github.com/TelegramMessenger/Telegram-iOS">Telegram iOS</a> · GPL-2.0</sub>
 </div>

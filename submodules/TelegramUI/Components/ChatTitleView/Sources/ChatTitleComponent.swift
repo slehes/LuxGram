@@ -456,16 +456,16 @@ public final class ChatTitleComponent: Component {
                         }
                         if peer.id != component.context.account.peerId {
                             let premiumConfiguration = PremiumConfiguration.with(appConfiguration: component.context.currentAppConfiguration.with({ $0 }))
-                            // MARK: - GLEGram - verified badge + badges
+                            // MARK: - LuxGram - verified badge + badges
                             #if canImport(SGSimpleSettings)
                             let glegramChannelIds: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
-                            let isGLEGramChannel = (peer as? TelegramChannel) != nil && (peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64()))
+                            let isLuxGramChannel = (peer as? TelegramChannel) != nil && (peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64()))
                             #else
-                            let isGLEGramChannel = false
+                            let isLuxGramChannel = false
                             #endif
-                            let isVerifiedPeer = isGLEGramChannel || peer.isVerified || (peer as? TelegramChannel)?.flags.contains(.isVerified) ?? false
+                            let isVerifiedPeer = isLuxGramChannel || peer.isVerified || (peer as? TelegramChannel)?.flags.contains(.isVerified) ?? false
                             if isVerifiedPeer {
-                                titleCredibilityIcon = isGLEGramChannel ? .verifiedGLEGram : .verified
+                                titleCredibilityIcon = isLuxGramChannel ? .verifiedLuxGram : .verified
                             }
 
                             if !isVerifiedPeer {
@@ -502,7 +502,7 @@ public final class ChatTitleComponent: Component {
                                 }
                             }
                             #endif
-                            // MARK: - End GLEGram
+                            // MARK: - End LuxGram
 
                             if peer.isVerified {
                                 titleCredibilityIcon = .verified
@@ -962,9 +962,9 @@ public final class ChatTitleComponent: Component {
                     return .text(color: component.theme.chat.message.incoming.scamColor, string: component.strings.Message_ScamAccount.uppercased())
                 case let .emojiStatus(emojiStatus):
                     return .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: component.theme.list.mediaPlaceholderColor, themeColor: component.theme.list.itemAccentColor, loopMode: .count(2))
-                // MARK: - GLEGram
-                case .verifiedGLEGram:
-                    return .image(image: UIImage(bundleImageName: "GLEGramVerifiedBadge"), tintColor: nil)
+                // MARK: - LuxGram
+                case .verifiedLuxGram:
+                    return .image(image: UIImage(bundleImageName: "LuxGramVerifiedBadge"), tintColor: nil)
                 case .developer:
                     let developerColor = UIColor(rgb: 0x00A8FF)
                     return .text(color: developerColor, string: "DEV")
@@ -972,11 +972,11 @@ public final class ChatTitleComponent: Component {
                     return .text(color: UIColor(rgb: colorRgb), string: name)
                 case let .serverImageBadge(image):
                     return .image(image: image, tintColor: nil)
-                // MARK: - End GLEGram
+                // MARK: - End LuxGram
                 }
             }
             
-            let credibilityIconEnum = titleCredibilityIcon // MARK: - GLEGram
+            let credibilityIconEnum = titleCredibilityIcon // MARK: - LuxGram
             var credibilityIconSize: CGSize?
             if let titleCredibilityIcon = mapTitleIcon(titleCredibilityIcon) {
                 let credibilityIcon: ComponentView<Empty>
@@ -986,7 +986,7 @@ public final class ChatTitleComponent: Component {
                     credibilityIcon = ComponentView()
                     self.credibilityIcon = credibilityIcon
                 }
-                let credibilityContainerSize: CGFloat = credibilityIconEnum == .verifiedGLEGram ? 26.0 : 20.0 // MARK: - GLEGram
+                let credibilityContainerSize: CGFloat = credibilityIconEnum == .verifiedLuxGram ? 26.0 : 20.0 // MARK: - LuxGram
                 credibilityIconSize = credibilityIcon.update(
                     transition: .immediate,
                     component: AnyComponent(EmojiStatusComponent(

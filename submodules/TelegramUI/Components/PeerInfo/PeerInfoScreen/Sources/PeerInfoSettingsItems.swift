@@ -82,7 +82,7 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
         }))
     }
     
-    // MARK: Swiftgram
+    // MARK: LuxGram
     if showProfileId {
         var idText = ""
         
@@ -172,7 +172,7 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
 //                interaction.openSettings(.addAccount)
 //            }))
         }
-        // MARK: Swiftgram
+        // MARK: LuxGram
         items[.accounts]!.append(PeerInfoScreenActionItem(id: 1000, text: presentationData.strings.Settings_AddAccount, icon: PresentationResourcesItemList.plusIconImage(presentationData.theme), action: {
             interaction.openSettings(.addAccount)
         }))
@@ -200,7 +200,7 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
     }
     
     // let locale = presentationData.strings.baseLanguageCode
-    // MARK: Swiftgram
+    // MARK: LuxGram
     let hasNewSGFeatures = {
         return false
     }
@@ -224,18 +224,18 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
     
     let sgWebSettings = context.currentAppConfiguration.with({ $0 }).sgWebSettings
     if sgWebSettings.global.paymentsEnabled || context.sharedContext.immediateSGStatus.status > 1 {
-        items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 0, label: swiftgramProLabel, text: "Swiftgram Pro", icon: PresentationResourcesSettings.swiftgramPro, action: {
+        items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 0, label: swiftgramProLabel, text: "LuxGram Pro", icon: PresentationResourcesSettings.swiftgramPro, action: {
             interaction.openSettings(.swiftgramPro)
         }))
     }
-    items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 1, label: swiftgramLabel, text: "Swiftgram", icon: PresentationResourcesSettings.swiftgram, action: {
+    items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 1, label: swiftgramLabel, text: "LuxGram", icon: PresentationResourcesSettings.swiftgram, action: {
         interaction.openSettings(.swiftgram)
     }))
-    // MARK: - GLEGram
-    items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 2, label: .none, text: "GLEGram", icon: PresentationResourcesSettings.glegram, action: {
+    // MARK: - LuxGram
+    items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 2, label: .none, text: "LuxGram", icon: PresentationResourcesSettings.glegram, action: {
         interaction.openSettings(.gleGram)
     }))
-    // MARK: - End GLEGram
+    // MARK: - End LuxGram
 
     var appIndex = 1000
     if let settings = data.globalSettings {

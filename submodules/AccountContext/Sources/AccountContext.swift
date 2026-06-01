@@ -1352,13 +1352,13 @@ public protocol SharedAccountContext: AnyObject {
     var presentGlobalController: (ViewController, Any?) -> Void { get }
     var presentCrossfadeController: () -> Void { get }
 
-    // MARK: - GLEGram
+    // MARK: - LuxGram
     /// Notify that font replacement settings changed so UI refreshes immediately everywhere.
     func notifyFontSettingsChanged()
 
     /// Process ghost-delayed messages whose send time has passed (e.g. after app was backgrounded). Call when app becomes active.
     func processOverdueGhostDelayedMessagesForAllAccounts()
-    // MARK: - End GLEGram
+    // MARK: - End LuxGram
 
     func makeTempAccountContext(account: Account) -> AccountContext
     

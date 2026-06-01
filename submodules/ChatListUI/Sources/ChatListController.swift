@@ -2347,7 +2347,7 @@ public class ChatListControllerImpl: TelegramBaseController, ChatListController 
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
 
-        // MARK: - GLEGram
+        // MARK: - LuxGram
         #if canImport(SGSupporters)
         let _ = (self.context.sharedContext.activeAccountContexts
         |> take(1)
@@ -2355,14 +2355,14 @@ public class ChatListControllerImpl: TelegramBaseController, ChatListController 
             let allUserIds = accounts.map { $0.1.account.peerId.id._internalGetInt64Value() }
             DispatchQueue.global(qos: .utility).async {
                 SGSupporters.refreshSupportersCacheIfConfigured()
-                SGSupporters.refreshGLEGramStatusForAllAccounts(userIds: allUserIds)
+                SGSupporters.refreshLuxGramStatusForAllAccounts(userIds: allUserIds)
                 if let primaryId = allUserIds.first {
                     SGSupporters.refreshGatedFeaturesCache(userId: primaryId)
                 }
             }
         })
         #endif
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
 
         if self.powerSavingMonitoringDisposable == nil {
             self.powerSavingMonitoringDisposable = (self.context.sharedContext.automaticMediaDownloadSettings

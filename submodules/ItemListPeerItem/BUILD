@@ -10,8 +10,8 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        # MARK: GLEGram
-        "//GLEGram/SGSupporters:SGSupporters",
+        # MARK: LuxGram
+        "//LuxGram/SGSupporters:SGSupporters",
         "//submodules/SSignalKit/SwiftSignalKit:SwiftSignalKit",
         "//submodules/AsyncDisplayKit:AsyncDisplayKit",
         "//submodules/Display:Display",

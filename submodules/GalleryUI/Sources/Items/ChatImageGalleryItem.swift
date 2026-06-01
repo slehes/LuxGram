@@ -455,7 +455,7 @@ final class ChatImageGalleryItemNode: ZoomableContentGalleryItemNode {
         self.translateToLanguage = translateToLanguage
         self.peerIsCopyProtected = peerIsCopyProtected
         self.isSecret = isSecret
-        // MARK: - GLEGram - captureProtected bypass
+        // MARK: - LuxGram - captureProtected bypass
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.enableSavingProtectedContent {
             self.imageNode.captureProtected = message.paidContent != nil
@@ -473,7 +473,7 @@ final class ChatImageGalleryItemNode: ZoomableContentGalleryItemNode {
         #else
         self.imageNode.captureProtected = message.id.peerId.namespace == Namespaces.Peer.SecretChat || message.isCopyProtected() || peerIsCopyProtected || isSecret || message.paidContent != nil
         #endif
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
         self.updateFooter(animated: false)
         
         var title: String?

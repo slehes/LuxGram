@@ -111,7 +111,7 @@ func managedLocalTypingActivities(activities: Signal<[PeerActivitySpace: [(PeerI
 }
 
 private func actionFromActivity(_ activity: PeerInputActivity?) -> Api.SendMessageAction {
-    // MARK: - GLEGram - Ghost Mode: Block actions that are disabled
+    // MARK: - LuxGram - Ghost Mode: Block actions that are disabled
     #if canImport(SGSimpleSettings)
     if let activity = activity {
         let settings = SGSimpleSettings.shared
@@ -242,7 +242,7 @@ private func requestActivity(postbox: Postbox, network: Network, accountPeerId: 
                 }
                 let action = actionFromActivity(activity)
 
-                // MARK: - GLEGram - Ghost Mode: Check for additional blocked actions
+                // MARK: - LuxGram - Ghost Mode: Check for additional blocked actions
                 #if canImport(SGSimpleSettings)
                 let settings = SGSimpleSettings.shared
 

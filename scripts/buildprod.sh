@@ -1,5 +1,5 @@
 #!/bin/zsh
-# Продакшн-сборка GLEGram (IPA, release_arm64)
+# Продакшн-сборка LuxGram (IPA, release_arm64)
 #
 # Использование:
 #   ./scripts/buildprod.sh
@@ -39,14 +39,16 @@ if [ "$CLEAN" = 1 ]; then
   [ -x "./build-input/bazel-8.4.2-darwin-arm64" ] && ./build-input/bazel-8.4.2-darwin-arm64 clean || bazel clean
 fi
 
-echo "Building GLEGram (release_arm64, buildNumber=$BUILD_NUMBER)..."
+echo "Building LuxGram (release_arm64, buildNumber=$BUILD_NUMBER)..."
+mkdir -p build/artifacts
 python3 build-system/Make/Make.py \
   --cacheDir="$CACHE_DIR" \
   build \
   --configurationPath="$CONFIGURATION_PATH" \
   --codesigningInformationPath="$CODESIGNING_PATH" \
   --buildNumber="$BUILD_NUMBER" \
-  --target GLEGram \
-  --configuration=release_arm64
+  --target LuxGram \
+  --configuration=release_arm64 \
+  --outputBuildArtifactsPath="build/artifacts"
 
-echo "Build complete."
+echo "Build complete. IPA: build/artifacts/LuxGram.ipa"

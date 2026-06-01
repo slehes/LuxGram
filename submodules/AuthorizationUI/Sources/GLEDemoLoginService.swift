@@ -1,6 +1,6 @@
 import Foundation
 
-// MARK: - GLEGram Demo Login Service
+// MARK: - LuxGram Demo Login Service
 // Enables App Store reviewers to log in without manual SMS code entry.
 // Flow:
 //   1. User enters a special "demo" phone number (configured via demoPhonePrefix)

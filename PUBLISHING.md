@@ -4,17 +4,17 @@
 
 | Repo | URL | Branch | Content |
 |------|-----|--------|---------|
-| **Public** | `github.com/GLEGram/GLEGram-iOS` | `main` | Clean code, no secrets |
-| **Private** | `github.com/GLEGram/GLEGram-iOS-Private` | `main` | Full code with keys, codesigning |
+| **Public** | `github.com/LuxGram/LuxGram-iOS` | `main` | Clean code, no secrets |
+| **Private** | `github.com/LuxGram/LuxGram-iOS-Private` | `main` | Full code with keys, codesigning |
 
 ## Local Setup
 
 ```bash
-cd /Users/leeksov/Desktop/GLEGram-iOS-public
+cd /Users/leeksov/Desktop/LuxGram-iOS-public
 
 # Remotes:
-#   origin  → Public repo (GLEGram/GLEGram-iOS)
-#   private → Private repo (GLEGram/GLEGram-iOS-Private)
+#   origin  → Public repo (LuxGram/LuxGram-iOS)
+#   private → Private repo (LuxGram/LuxGram-iOS-Private)
 
 # Branches:
 #   main    → public code (no secrets)
@@ -63,7 +63,7 @@ git push origin main
 
 | Файл | Что содержит | Публичная замена |
 |------|-------------|-----------------|
-| `Swiftgram/SGConfig/Sources/File.swift` | AES/HMAC ключи, API URL | `nil` значения |
+| `LuxGram/SGConfig/Sources/File.swift` | AES/HMAC ключи, API URL | `nil` значения |
 | `build-system/ipa-build-configuration.json` | API ID, Hash, Team ID | `YOUR_*` placeholder |
 | `build-system/glegram-appstore-configuration.json` | То же | `YOUR_*` placeholder |
 | `build-system/real-codesigning/` | Сертификаты, профили | Пустые папки с README |

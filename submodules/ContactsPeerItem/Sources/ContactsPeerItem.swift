@@ -878,7 +878,7 @@ public class ContactsPeerItemNode: ItemListRevealOptionsItemNode {
                     if let verificationIconFileId = peer.verificationIconFileId {
                         verifiedIcon = .animation(content: .customEmoji(fileId: verificationIconFileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: item.presentationData.theme.list.mediaPlaceholderColor, themeColor: item.presentationData.theme.list.itemAccentColor, loopMode: .count(0))
                     }
-                    // MARK: - GLEGram - SGSupporters badges
+                    // MARK: - LuxGram - SGSupporters badges
                     #if canImport(SGSupporters)
                     if case let .user(user) = peer, user.id.namespace == Namespaces.Peer.CloudUser {
                         let serverBadges = SGSupporters.badges(forUserId: user.id.id._internalGetInt64Value())
@@ -894,7 +894,7 @@ public class ContactsPeerItemNode: ItemListRevealOptionsItemNode {
                         }
                     }
                     #endif
-                    // MARK: - End GLEGram
+                    // MARK: - End LuxGram
                 }
             case .deviceContact:
                 break

@@ -4,9 +4,9 @@ sgdeps = [
     "//Swiftgram/SGSimpleSettings:SGSimpleSettings",
     "//Swiftgram/SGAPIWebSettings:SGAPIWebSettings",
     "//Swiftgram/SGAPIToken:SGAPIToken",
-    # MARK: GLEGram
-    "//GLEGram/SGDeletedMessages:SGDeletedMessages",
-    "//GLEGram/SGSupporters:SGSupporters",
+    # MARK: LuxGram
+    "//LuxGram/SGDeletedMessages:SGDeletedMessages",
+    "//LuxGram/SGSupporters:SGSupporters",
 ]
 sgsrcs = [
     "//Swiftgram/SGChatListSimpleSettingsSignal:SGChatListSimpleSettingsSignal",

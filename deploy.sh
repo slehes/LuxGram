@@ -1,5 +1,5 @@
 #!/bin/bash
-# Deploy GLEGram IPA to iPhone via TrollStore over SSH
+# Deploy LuxGram IPA to iPhone via TrollStore over SSH
 # Usage: ./deploy.sh [path/to/ipa]
 
 set -e
@@ -10,7 +10,7 @@ DEVICE_PASS="1"
 REMOTE_TMP="/var/mobile/deploy.ipa"
 
 # IPA path: argument or default bazel output
-IPA_PATH="${1:-bazel-bin/Telegram/GLEGram.ipa}"
+IPA_PATH="${1:-bazel-bin/Telegram/LuxGram.ipa}"
 
 if [ ! -f "$IPA_PATH" ]; then
     echo "❌ IPA not found: $IPA_PATH"

@@ -477,7 +477,7 @@ class ChatControllerNode: ASDisplayNode, ASScrollViewDelegate {
         
         self.floatingTopicsPanelContainer = ChatControllerTitlePanelNodeContainer()
 
-        // MARK: - GLEGram - Disable screenshot blocking if enabled
+        // MARK: - LuxGram - Disable screenshot blocking if enabled
         var isSecretChat = chatLocation.peerId?.namespace == Namespaces.Peer.SecretChat
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.disableSecretChatBlurOnScreenshot {
@@ -1133,7 +1133,7 @@ class ChatControllerNode: ASDisplayNode, ASScrollViewDelegate {
             }
         }
         
-        // MARK: - GLEGram - Disable screenshot blocking if enabled
+        // MARK: - LuxGram - Disable screenshot blocking if enabled
         var isSecret = self.chatPresentationInterfaceState.copyProtectionEnabled || self.chatLocation.peerId?.namespace == Namespaces.Peer.SecretChat || self.chatLocation.peerId?.isVerificationCodes == true
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.disableSecretChatBlurOnScreenshot && self.chatLocation.peerId?.namespace == Namespaces.Peer.SecretChat {

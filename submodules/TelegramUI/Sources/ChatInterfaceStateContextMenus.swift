@@ -501,7 +501,7 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
     if case .standard(.embedded) = chatPresentationInterfaceState.mode {
         isEmbeddedMode = true
     }
-    // MARK: Swiftgram
+    // MARK: LuxGram
     var canReveal = false
     if !chatPresentationInterfaceState.copyProtectionEnabled {
         outer: for message in messages {
@@ -1408,7 +1408,7 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
             }
         }
         
-        // MARK: - GLEGram - Allow saving protected content and self-destructing messages if enabled
+        // MARK: - LuxGram - Allow saving protected content and self-destructing messages if enabled
         let canSaveSecretMedia: Bool
         #if canImport(SGSimpleSettings)
         canSaveSecretMedia = SGSimpleSettings.shared.enableSavingProtectedContent || SGSimpleSettings.shared.enableSavingSelfDestructingMessages
@@ -2107,7 +2107,7 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
         if !isPinnedMessages, !isReplyThreadHead, data.canSelect {
             sgActionsIndex = actions.count
             var didAddSeparator = false
-            // MARK: Swiftgram
+            // MARK: LuxGram
             if let authorId = message.author?.id {
                 let action: ContextMenuItem = .action(ContextMenuActionItem(text: i18n("ContextMenu.SelectFromUser", chatPresentationInterfaceState.strings.baseLanguageCode), icon: { theme in
                     return generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/SelectAll"), color: theme.actionSheet.primaryTextColor)
@@ -2229,7 +2229,7 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
             canViewStats = canViewReadStats(message: message, participantCount: infoSummaryData.participantCount, isMessageRead: isMessageRead, isPremium: isPremium, appConfig: appConfig)
         }
 
-        // MARK: Swiftgram
+        // MARK: LuxGram
         if !sgActions.isEmpty {
             if !actions.isEmpty {
                 if let sgActionsIndex = sgActionsIndex {
@@ -2247,8 +2247,8 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
             })), at: 0)
             sgActions.insert(.separator, at: 1)
             
-            let swiftgramSubMenu: ContextMenuItem = .action(ContextMenuActionItem(text: "Swiftgram", icon: { theme in
-                return generateTintedImage(image: UIImage(bundleImageName: "SwiftgramContextMenu"), color: theme.actionSheet.primaryTextColor)
+            let swiftgramSubMenu: ContextMenuItem = .action(ContextMenuActionItem(text: "LuxGram", icon: { theme in
+                return generateTintedImage(image: UIImage(bundleImageName: "LuxGramContextMenu"), color: theme.actionSheet.primaryTextColor)
             }, action: { c, f in
                 popSGItems = { [weak c] in
                     c?.popItems()

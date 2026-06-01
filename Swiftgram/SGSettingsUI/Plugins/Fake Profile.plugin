@@ -1,4 +1,4 @@
-# Fake Profile — плагин для iOS (GLEGram)
+# Fake Profile — плагин для iOS (LuxGram)
 # При __user_display__ = True приложение само применяет настройки плагина к отображению профиля (без изменения кода Telegram).
 __id__ = "FakeDataMod"
 __name__ = "Fake Profile"

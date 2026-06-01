@@ -5,11 +5,11 @@ import ChatPresentationInterfaceState
 import SwiftSignalKit
 import Postbox
 import TelegramCore
-// MARK: - GLEGram
+// MARK: - LuxGram
 #if canImport(SGDeletedMessages)
 import SGDeletedMessages
 #endif
-// MARK: - End GLEGram
+// MARK: - End LuxGram
 
 extension ChatControllerImpl {    
     func updateSearch(_ interfaceState: ChatPresentationInterfaceState) -> ChatPresentationInterfaceState? {

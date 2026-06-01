@@ -544,7 +544,7 @@ public class ChatMessageDateAndStatusNode: ASDisplayNode {
                 updatedDateText = "\(arguments.presentationData.strings.Conversation_MessageEditedLabel) \(updatedDateText)"
             }
             if let impressionCount = arguments.impressionCount {
-                // MARK: - GLEGram
+                // MARK: - LuxGram
                 let countString: String
                 if SGSimpleSettings.shared.disableCompactNumbers {
                     countString = "\(impressionCount)"
@@ -552,7 +552,7 @@ public class ChatMessageDateAndStatusNode: ASDisplayNode {
                     countString = compactNumericCountString(impressionCount, decimalSeparator: arguments.presentationData.dateTimeFormat.decimalSeparator)
                 }
                 updatedDateText = countString + " " + updatedDateText
-                // MARK: - End GLEGram
+                // MARK: - End LuxGram
             }
             
             let dateFont = Font.regular(floor(arguments.presentationData.fontSize.baseDisplaySize * 11.0 / 17.0))

@@ -170,7 +170,7 @@ public struct Font {
 
     private static let cache = Cache()
 
-    // MARK: - GLEGram - Font replacement
+    // MARK: - LuxGram - Font replacement
     #if canImport(SGSimpleSettings)
     /// Register custom font from persisted file path (so it survives app restart).
     private static func registerCustomFontFromPathIfNeeded(forFontName name: String, isBold: Bool) {

@@ -159,8 +159,8 @@ class CallKitProviderDelegate: NSObject, CXProviderDelegate {
     }
     
     private static func providerConfiguration() -> CXProviderConfiguration {
-        // MARK: Swiftgram
-        let providerConfiguration = CXProviderConfiguration(localizedName: "Swiftgram")
+        // MARK: LuxGram
+        let providerConfiguration = CXProviderConfiguration(localizedName: "LuxGram")
         
         providerConfiguration.supportsVideo = true
         providerConfiguration.maximumCallsPerCallGroup = 1

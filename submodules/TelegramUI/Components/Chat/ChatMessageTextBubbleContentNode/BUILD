@@ -10,8 +10,8 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        # MARK: GLEGram
-        "//GLEGram/SGDeletedMessages:SGDeletedMessages",
+        # MARK: LuxGram
+        "//LuxGram/SGDeletedMessages:SGDeletedMessages",
         "//Swiftgram/SGLogging:SGLogging",
         "//submodules/AsyncDisplayKit",
         "//submodules/Display",

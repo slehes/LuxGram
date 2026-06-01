@@ -2017,7 +2017,7 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                                             continuePlayingWithoutSoundOnLostAudioSession: isInlinePlayableVideo,
                                             placeholderColor: emptyColor,
                                             captureProtected: {
-                                                // MARK: - GLEGram - Allow saving self-destructing messages if enabled
+                                                // MARK: - LuxGram - Allow saving self-destructing messages if enabled
                                                 #if canImport(SGSimpleSettings)
                                                 if SGSimpleSettings.shared.enableSavingSelfDestructingMessages && message.containsSecretMedia {
                                                     return false
@@ -2280,7 +2280,7 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                             }
                             
                             if let updateImageSignal = updateImageSignal {
-                                // MARK: - GLEGram - Allow saving self-destructing messages if enabled
+                                // MARK: - LuxGram - Allow saving self-destructing messages if enabled
                                 #if canImport(SGSimpleSettings)
                                 if SGSimpleSettings.shared.enableSavingSelfDestructingMessages && message.containsSecretMedia {
                                     strongSelf.imageNode.captureProtected = false
@@ -3292,7 +3292,7 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                 if imageView.layer.contents == nil {
                     imageView.layer.contents = imageView.image?.cgImage
                 }
-                // MARK: - GLEGram - Allow screenshots for self-destructing messages if enabled
+                // MARK: - LuxGram - Allow screenshots for self-destructing messages if enabled
                 #if canImport(SGSimpleSettings)
                 let shouldDisableScreenshots = !(SGSimpleSettings.shared.enableSavingSelfDestructingMessages && strongSelf.message?.containsSecretMedia == true)
                 #else

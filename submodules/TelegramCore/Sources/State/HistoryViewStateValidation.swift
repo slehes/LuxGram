@@ -987,7 +987,7 @@ private func validateBatch(postbox: Postbox, network: Network, transaction: Tran
                                         return .update(StoreMessage(id: currentMessage.id, customStableId: nil, globallyUniqueId: currentMessage.globallyUniqueId, groupingKey: currentMessage.groupingKey, threadId: currentMessage.threadId, timestamp: currentMessage.timestamp, flags: StoreMessageFlags(currentMessage.flags), tags: updatedTags, globalTags: currentMessage.globalTags, localTags: currentMessage.localTags, forwardInfo: storeForwardInfo, authorId: currentMessage.author?.id, text: currentMessage.text, attributes: attributes, media: currentMessage.media))
                                     })
                                 } else {
-                                    // MARK: - GLEGram - Skip deleting saved-deleted messages during validation
+                                    // MARK: - LuxGram - Skip deleting saved-deleted messages during validation
                                     #if canImport(SGDeletedMessages)
                                     let msg = transaction.getMessage(id)
                                     let skip = SGDeletedMessages.showDeletedMessages && (msg?.sgDeletedAttribute.isDeleted == true)

@@ -13,7 +13,7 @@ public struct Namespaces {
         
         public static let allScheduled: Set<Int32> = Set([Namespaces.Message.ScheduledCloud, Namespaces.Message.ScheduledLocal])
         public static let allQuickReply: Set<Int32> = Set([Namespaces.Message.QuickReplyCloud, Namespaces.Message.QuickReplyLocal])
-        // MARK: - GLEGram
+        // MARK: - LuxGram
         // Local-only snapshots of deleted messages (AyuGram-style).
         // Stored separately from Cloud messages and merged into history views.
         public static let SavedDeleted: Int32 = 1338

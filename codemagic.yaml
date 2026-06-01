@@ -1,0 +1,108 @@
+# Codemagic CI/CD для LuxGram (LuxGram-iOS)
+# Сборка через Bazel + build-system/Make/Make.py (таргет //Telegram:LuxGram)
+#
+# ─────────────────────────────────────────────────────────────────────────────
+# ПЕРЕД ПЕРВЫМ ЗАПУСКОМ задай переменные окружения в Codemagic:
+#   App settings → Environment variables → группа "ios_signing" (Secure!):
+#     CM_CERTIFICATE            = <содержимое CM_CERTIFICATE.base64.txt>
+#     CM_CERTIFICATE_PASSWORD   = 1
+#     CM_PROVISIONING_PROFILE   = <содержимое CM_PROVISIONING_PROFILE.base64.txt>
+#
+# Team ID (6W9S44UXF2) и bundle id (app.luxgram.com)
+# уже прописаны в build-system/ipa-build-configuration.json.
+# ─────────────────────────────────────────────────────────────────────────────
+
+workflows:
+  luxgram-ipa:
+    name: LuxGram IPA (ad-hoc signed)
+    max_build_duration: 120
+    instance_type: mac_mini_m2
+
+    environment:
+      groups:
+        - ios_signing            # CM_CERTIFICATE / CM_CERTIFICATE_PASSWORD / CM_PROVISIONING_PROFILE
+      xcode: 26.2                # обязан совпадать с versions.json, иначе Make.py упадёт
+      java: 21                   # Bazel падает на встроенном JDK 24 — нужен ровно 21
+      vars:
+        BUNDLE_ID: "app.luxgram.com"
+        XCODE_PROJECT: "LuxGram"
+
+    triggering:
+      events:
+        - push
+        - tag
+      branch_patterns:
+        - pattern: main
+          include: true
+          source: true
+
+    scripts:
+      - name: Версии инструментов
+        script: |
+          set -e
+          echo "Xcode:"; xcodebuild -version
+          echo "Java:"; java -version 2>&1
+          echo "Python:"; python3 --version
+          /usr/libexec/java_home -v 21
+
+      - name: Импорт сертификата подписи в keychain
+        script: |
+          set -e
+          if [ -z "$CM_CERTIFICATE" ]; then
+            echo "ERROR: переменная CM_CERTIFICATE не задана (загрузи base64 .p12)"; exit 1
+          fi
+          keychain initialize
+          echo "$CM_CERTIFICATE" | base64 --decode > /tmp/cert.p12
+          keychain add-certificates \
+            --certificate /tmp/cert.p12 \
+            --certificate-password "$CM_CERTIFICATE_PASSWORD"
+          rm -f /tmp/cert.p12
+          echo "Сертификат импортирован."
+
+      - name: Раскладка provisioning-профиля
+        script: |
+          set -e
+          if [ -z "$CM_PROVISIONING_PROFILE" ]; then
+            echo "ERROR: переменная CM_PROVISIONING_PROFILE не задана"; exit 1
+          fi
+          # Make.py читает профили из build-system/real-codesigning/profiles
+          mkdir -p build-system/real-codesigning/profiles
+          echo "$CM_PROVISIONING_PROFILE" | base64 --decode \
+            > build-system/real-codesigning/profiles/Telegram.mobileprovision
+          # Дублируем в системную папку, чтобы Xcode-инструменты тоже его видели
+          PP_DIR="$HOME/Library/MobileDevice/Provisioning Profiles"
+          mkdir -p "$PP_DIR"
+          cp build-system/real-codesigning/profiles/Telegram.mobileprovision \
+             "$PP_DIR/Telegram.mobileprovision"
+          echo "Профиль установлен. application-identifier:"
+          openssl smime -inform der -verify -noverify \
+            -in build-system/real-codesigning/profiles/Telegram.mobileprovision 2>/dev/null \
+            | plutil -extract Entitlements.application-identifier raw - 2>/dev/null || true
+
+      - name: Сборка IPA (release_arm64)
+        script: |
+          set -e
+          # Номер сборки = число коммитов (как в GitHub Actions)
+          BN=$(git rev-list --count HEAD)
+          echo "Build number: $BN"
+          mkdir -p build/artifacts
+          # Вызываем Make.py напрямую, добавляя --outputBuildArtifactsPath,
+          # т.к. scripts/buildprod.sh его НЕ передаёт и IPA не копируется в build/artifacts.
+          # --disableExtensions: профиль только для основного приложения
+          # (нет отдельных профилей под Share/SiriIntents/Widget/и т.д.).
+          python3 build-system/Make/Make.py \
+            --cacheDir="$HOME/telegram-bazel-cache" \
+            build \
+            --configurationPath="build-system/ipa-build-configuration.json" \
+            --codesigningInformationPath="build-system/real-codesigning" \
+            --buildNumber="$BN" \
+            --target LuxGram \
+            --configuration=release_arm64 \
+            --disableExtensions \
+            --outputBuildArtifactsPath="build/artifacts"
+          echo "Готовые артефакты:"
+          ls -la build/artifacts
+
+    artifacts:
+      - build/artifacts/*.ipa
+      - build/artifacts/*.DSYMs.zip

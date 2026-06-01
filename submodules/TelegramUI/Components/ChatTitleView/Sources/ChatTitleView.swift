@@ -187,12 +187,12 @@ enum ChatTitleCredibilityIcon: Equatable {
     case verified
     case premium
     case emojiStatus(PeerEmojiStatus)
-    // MARK: - GLEGram
-    case verifiedGLEGram
+    // MARK: - LuxGram
+    case verifiedLuxGram
     case developer
     case serverBadge(name: String, colorRgb: UInt32)
     case serverImageBadge(image: UIImage)
-    // MARK: - End GLEGram
+    // MARK: - End LuxGram
 }
 
 public final class ChatTitleView: UIView, NavigationBarTitleView {
@@ -237,9 +237,9 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
     private var titleCredibilityIcon: ChatTitleCredibilityIcon = .none
     private var titleVerifiedIcon: ChatTitleCredibilityIcon = .none
     private var titleStatusIcon: ChatTitleCredibilityIcon = .none
-    // MARK: - GLEGram
+    // MARK: - LuxGram
     private var badgeImageObserver: NSObjectProtocol?
-    // MARK: - End GLEGram
+    // MARK: - End LuxGram
 
     private var presenceManager: PeerPresenceStatusManager?
     
@@ -323,16 +323,16 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
                                 }
                                 if peer.id != self.context.account.peerId {
                                     let premiumConfiguration = PremiumConfiguration.with(appConfiguration: self.context.currentAppConfiguration.with { $0 })
-                                    // MARK: - GLEGram - verified badge + badges
+                                    // MARK: - LuxGram - verified badge + badges
                                     #if canImport(SGSimpleSettings)
                                     let glegramChannelIds: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
-                                    let isGLEGramChannel = (peer as? TelegramChannel) != nil && (peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64()))
+                                    let isLuxGramChannel = (peer as? TelegramChannel) != nil && (peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64()))
                                     #else
-                                    let isGLEGramChannel = false
+                                    let isLuxGramChannel = false
                                     #endif
-                                    let isVerifiedPeer = isGLEGramChannel || peer.isVerified || (peer as? TelegramChannel)?.flags.contains(.isVerified) ?? false
+                                    let isVerifiedPeer = isLuxGramChannel || peer.isVerified || (peer as? TelegramChannel)?.flags.contains(.isVerified) ?? false
                                     if isVerifiedPeer {
-                                        titleCredibilityIcon = isGLEGramChannel ? .verifiedGLEGram : .verified
+                                        titleCredibilityIcon = isLuxGramChannel ? .verifiedLuxGram : .verified
                                     }
 
                                     if !isVerifiedPeer {
@@ -369,7 +369,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
                                         }
                                     }
                                     #endif
-                                    // MARK: - End GLEGram
+                                    // MARK: - End LuxGram
 
                                     if peer.isVerified {
                                         titleCredibilityIcon = .verified
@@ -389,7 +389,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
                             } else {
                                 if let notificationSettings = peerView.notificationSettings {
                                     if case let .muted(until) = notificationSettings.muteState, until >= Int32(CFAbsoluteTimeGetCurrent() + NSTimeIntervalSince1970) {
-                                        if titleCredibilityIcon != .verified && titleCredibilityIcon != .verifiedGLEGram { // MARK: - GLEGram
+                                        if titleCredibilityIcon != .verified && titleCredibilityIcon != .verifiedLuxGram { // MARK: - LuxGram
                                             titleRightIcon = .mute
                                         }
                                     }
@@ -896,23 +896,23 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
         }
         self.button.view.addGestureRecognizer(UILongPressGestureRecognizer(target: self, action: #selector(self.longPressGesture(_:))))
 
-        // MARK: - GLEGram
+        // MARK: - LuxGram
         #if canImport(SGSimpleSettings)
         self.badgeImageObserver = NotificationCenter.default.addObserver(forName: .sgBadgeImageDidCache, object: nil, queue: .main) { [weak self] _ in
             guard let self, let content = self.titleContent else { return }
             self.titleContent = content
         }
         #endif
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
     }
 
-    // MARK: - GLEGram
+    // MARK: - LuxGram
     deinit {
         if let observer = self.badgeImageObserver {
             NotificationCenter.default.removeObserver(observer)
         }
     }
-    // MARK: - End GLEGram
+    // MARK: - End LuxGram
 
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -980,9 +980,9 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
             titleCredibilityContent = .text(color: self.theme.chat.message.incoming.scamColor, string: self.strings.Message_ScamAccount.uppercased())
         case let .emojiStatus(emojiStatus):
             titleCredibilityContent = .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: self.theme.list.mediaPlaceholderColor, themeColor: self.theme.list.itemAccentColor, loopMode: .count(2))
-        // MARK: - GLEGram
-        case .verifiedGLEGram:
-            titleCredibilityContent = .image(image: UIImage(bundleImageName: "GLEGramVerifiedBadge"), tintColor: nil)
+        // MARK: - LuxGram
+        case .verifiedLuxGram:
+            titleCredibilityContent = .image(image: UIImage(bundleImageName: "LuxGramVerifiedBadge"), tintColor: nil)
         case .developer:
             let developerColor = UIColor(rgb: 0x00A8FF)
             titleCredibilityContent = .text(color: developerColor, string: "DEV")
@@ -990,7 +990,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
             titleCredibilityContent = .text(color: UIColor(rgb: colorRgb), string: name)
         case let .serverImageBadge(image):
             titleCredibilityContent = .image(image: image, tintColor: nil)
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
         }
 
         let titleVerifiedContent: EmojiStatusComponent.Content
@@ -1007,9 +1007,9 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
             titleVerifiedContent = .text(color: self.theme.chat.message.incoming.scamColor, string: self.strings.Message_ScamAccount.uppercased())
         case let .emojiStatus(emojiStatus):
             titleVerifiedContent = .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: self.theme.list.mediaPlaceholderColor, themeColor: self.theme.list.itemAccentColor, loopMode: .count(2))
-        // MARK: - GLEGram
-        case .verifiedGLEGram:
-            titleVerifiedContent = .image(image: UIImage(bundleImageName: "GLEGramVerifiedBadge"), tintColor: nil)
+        // MARK: - LuxGram
+        case .verifiedLuxGram:
+            titleVerifiedContent = .image(image: UIImage(bundleImageName: "LuxGramVerifiedBadge"), tintColor: nil)
         case .developer:
             let developerColor = UIColor(rgb: 0x00A8FF)
             titleVerifiedContent = .text(color: developerColor, string: "DEV")
@@ -1017,7 +1017,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
             titleVerifiedContent = .text(color: UIColor(rgb: colorRgb), string: name)
         case let .serverImageBadge(image):
             titleVerifiedContent = .image(image: image, tintColor: nil)
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
         }
 
         let titleStatusContent: EmojiStatusComponent.Content
@@ -1028,7 +1028,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
             if let color = emojiStatus.color {
                 titleStatusParticleColor = UIColor(rgb: UInt32(bitPattern: color))
             }
-        // MARK: - GLEGram
+        // MARK: - LuxGram
         case .developer:
             let developerColor = UIColor(rgb: 0x00A8FF)
             titleStatusContent = .text(color: developerColor, string: "DEV")
@@ -1036,7 +1036,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
             titleStatusContent = .text(color: UIColor(rgb: colorRgb), string: name)
         case let .serverImageBadge(image):
             titleStatusContent = .image(image: image, tintColor: nil)
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
         default:
             titleStatusContent = .none
         }
@@ -1052,7 +1052,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
                 action: nil
             )),
             environment: {},
-            containerSize: CGSize(width: self.titleCredibilityIcon == .verifiedGLEGram ? 26.0 : 20.0, height: self.titleCredibilityIcon == .verifiedGLEGram ? 26.0 : 20.0) // MARK: - GLEGram
+            containerSize: CGSize(width: self.titleCredibilityIcon == .verifiedLuxGram ? 26.0 : 20.0, height: self.titleCredibilityIcon == .verifiedLuxGram ? 26.0 : 20.0) // MARK: - LuxGram
         )
 
         let titleVerifiedSize = self.titleVerifiedIconView.update(
@@ -1066,7 +1066,7 @@ public final class ChatTitleView: UIView, NavigationBarTitleView {
                 action: nil
             )),
             environment: {},
-            containerSize: CGSize(width: self.titleVerifiedIcon == .verifiedGLEGram ? 26.0 : 20.0, height: self.titleVerifiedIcon == .verifiedGLEGram ? 26.0 : 20.0) // MARK: - GLEGram
+            containerSize: CGSize(width: self.titleVerifiedIcon == .verifiedLuxGram ? 26.0 : 20.0, height: self.titleVerifiedIcon == .verifiedLuxGram ? 26.0 : 20.0) // MARK: - LuxGram
         )
 
         let titleStatusSize = self.titleStatusIconView.update(

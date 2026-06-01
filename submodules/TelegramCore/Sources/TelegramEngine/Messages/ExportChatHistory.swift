@@ -1,5 +1,5 @@
 /*
- * GLEGram: Export chat history via API (like Telegram Desktop / AyuGram Desktop).
+ * LuxGram: Export chat history via API (like Telegram Desktop / AyuGram Desktop).
  * Uses messages.getHistory / messages.getReplies with pagination.
  */
 import Foundation

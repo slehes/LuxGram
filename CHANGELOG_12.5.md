@@ -1,6 +1,6 @@
-# GLEGram 12.5 — Changelog
+# LuxGram 12.5 — Changelog
 
-**Base:** Swiftgram 12.5 (Telegram iOS 12.5)
+**Base:** LuxGram 12.5 (Telegram iOS 12.5)
 **Build:** 100005
 **Date:** 2026-04-05
 
@@ -8,9 +8,9 @@
 
 ## Migration from 12.3 to 12.5
 
-Full port of all GLEGram features onto the Swiftgram 12.5 codebase.
+Full port of all LuxGram features onto the LuxGram 12.5 codebase.
 166 files changed, 8211 insertions, 77 new files.
-All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEGram` in Telegram source files.
+All LuxGram code organized in `LuxGram/` folder and marked with `// MARK: - LuxGram` in Telegram source files.
 
 ---
 
@@ -20,32 +20,32 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 - Secret passcode unlocks a single hidden account
 - Keychain-based passcode storage
 - Settings controller with enable/disable toggle
-- Module: `GLEGram/DoubleBottom/`
+- Module: `LuxGram/DoubleBottom/`
 
 ### Chat Password Protection
 - Lock individual chats/folders with device passcode or custom password
 - Keychain-based per-peer password storage
 - Settings controller with peer selection
-- Module: `GLEGram/ChatPassword/`
+- Module: `LuxGram/ChatPassword/`
 
 ### Voice Morpher
 - 6 voice presets: Disabled, Anonymous, Female, Male, Child, Robot
 - OGG processing engine (ready for OpusBinding integration)
 - UserDefaults persistence with change notifications
-- Module: `GLEGram/VoiceMorpher/`
+- Module: `LuxGram/VoiceMorpher/`
 
 ### SGLocalPremium
 - Full local Premium emulation without subscription
 - Unlimited pinned chats, folders, chats per folder
 - Saved Message Tags support
 - Server sync disabling for pinned/folders/folder order
-- Module: `GLEGram/SGLocalPremium/`
+- Module: `LuxGram/SGLocalPremium/`
 
 ### Plugin System (Extended)
 - Inline JS plugin code editor
 - Plugin metadata parsing and file management
-- GLEGramFeatures global feature flags
-- Module: `GLEGram/GLESettingsUI/`, `Swiftgram/SGSimpleSettings/`
+- LuxGramFeatures global feature flags
+- Module: `LuxGram/GLESettingsUI/`, `LuxGram/SGSimpleSettings/`
 
 ### Video Wallpapers
 - Video file picker (Files app + Gallery)
@@ -78,7 +78,7 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 - Custom first/last name, username, phone, ID
 - Premium/verified/scam/fake/support/bot badges
 - Per-user targeting
-- Module: `Swiftgram/SGSettingsUI/`
+- Module: `LuxGram/SGSettingsUI/`
 
 ### Font Replacement (A-Font style)
 - Custom font from system or imported file
@@ -90,19 +90,19 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 ### Profile Cover
 - Custom image/video cover on profile
 - AVPlayer looping playback
-- Module: `Swiftgram/SGSettingsUI/`
+- Module: `LuxGram/SGSettingsUI/`
 
 ### Chat Export
 - Export as JSON, TXT, HTML
 - AyuGram-style HTML export with CSS/JS
 - Context menu in profile "More" button
-- Module: `GLEGram/SGChatExport/`
+- Module: `LuxGram/SGChatExport/`
 
 ### Fake Location
 - CLLocationManager swizzling
 - Map picker controller
 - Persistent coordinates
-- Module: `GLEGram/SGFakeLocation/`
+- Module: `LuxGram/SGFakeLocation/`
 
 ### Supporters/Badges System
 - Encrypted API with AES-256 + HMAC-SHA256
@@ -110,7 +110,7 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 - Badge image cache
 - Server badges with custom colors/images
 - Subscription/trial tracking with expiry date display
-- Module: `GLEGram/SGSupporters/`
+- Module: `LuxGram/SGSupporters/`
 
 ### Demo Login (App Store Review)
 - Backend-driven phone number interception
@@ -128,7 +128,7 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 ### Online Status Recording
 - Track peer online/offline timestamps
 - Emulate Premium "Last seen" for hidden users
-- Module: `Swiftgram/SGSettingsUI/`
+- Module: `LuxGram/SGSettingsUI/`
 
 ### Other Ported Features
 - Hide proxy sponsor
@@ -149,17 +149,17 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 
 ## UI/Branding Changes
 
-- App name: **GLEGram**
-- Default icon: **GLEGramDarkPurple**
+- App name: **LuxGram**
+- Default icon: **LuxGramDarkPurple**
 - 7 alternate icons: DarkPurple, Black, Green, Pink, Purple, Red, Duck
-- App badges: GLEGram-branded (Sky, Night, Pro, Titanium, Day, Sparkling, Ducky)
-- Settings icons: GLEGram-branded Swiftgram/SwiftgramPro icons
-- Composer icon: GLEGram.icon with GLEGramDarkPurple.png
-- Intro sphere: GLEGram-branded telegram_sphere@2x.png
-- CFBundleDisplayName: GLEGram (all extensions)
+- App badges: LuxGram-branded (Sky, Night, Pro, Titanium, Day, Sparkling, Ducky)
+- Settings icons: LuxGram-branded LuxGram/LuxGramPro icons
+- Composer icon: LuxGram.icon with LuxGramDarkPurple.png
+- Intro sphere: LuxGram-branded telegram_sphere@2x.png
+- CFBundleDisplayName: LuxGram (all extensions)
 - URL scheme: `glegram://` added
 - Notification service: processDeletedMessages
-- GLEGram tab in Settings with subscription expiry date label
+- LuxGram tab in Settings with subscription expiry date label
 
 ---
 
@@ -167,7 +167,7 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 
 - Bazel JDK fix: `--server_javabase` for JDK 21 (fixes SIGBUS on macOS 15.7.4)
 - Prebuilt opus: instant build instead of 10min genrule
-- GLEGram BUILD target with Swiftgram alias
+- LuxGram BUILD target with LuxGram alias
 - 15 build scripts ported (buildprod, buildsim, deploy, sign, etc.)
 - Real codesigning profiles
 - Provisioning profile fallback logic
@@ -191,8 +191,8 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 
 ## Localization
 
-- 110 language files with 386 strings each (107 GLEGram-specific strings added)
-- Full Russian and English translations for all GLEGram features
+- 110 language files with 386 strings each (107 LuxGram-specific strings added)
+- Full Russian and English translations for all LuxGram features
 - 5 new 12.5 strings preserved (ChatList.Lines, CompactMessagePreview)
 
 ---
@@ -200,7 +200,7 @@ All GLEGram code organized in `GLEGram/` folder and marked with `// MARK: - GLEG
 ## File Structure
 
 ```
-GLEGram/
+LuxGram/
 ├── ChatPassword/        (chat lock)
 ├── DoubleBottom/        (hidden accounts)
 ├── GLESettingsUI/       (18 controllers + plugins)

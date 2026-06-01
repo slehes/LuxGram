@@ -3,7 +3,7 @@ import TelegramUIPreferences
 import SGSimpleSettings
 import SwiftUI
 import SGInputToolbar
-import SaveToCameraRoll // MARK: - GLEGram
+import SaveToCameraRoll // MARK: - LuxGram
 
 import Foundation
 import UniformTypeIdentifiers
@@ -4317,7 +4317,7 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
                     f(.default)
                 })))
 
-                // MARK: - GLEGram - emoji downloader
+                // MARK: - LuxGram - emoji downloader
                 if SGSimpleSettings.shared.emojiDownloaderEnabled {
                     menuItems.append(.action(ContextMenuActionItem(text: presentationData.strings.Gallery_SaveImage, icon: { theme in
                         return generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/Save"), color: theme.actionSheet.primaryTextColor)
@@ -4333,7 +4333,7 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
                         })
                     })))
                 }
-                // MARK: - End GLEGram
+                // MARK: - End LuxGram
             }
             
             if menuItems.isEmpty {

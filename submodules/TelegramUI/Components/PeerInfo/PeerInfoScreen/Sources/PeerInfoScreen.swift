@@ -1,13 +1,13 @@
-// MARK: Swiftgram
+// MARK: LuxGram
 import SGDebugUI
 import SGSimpleSettings
 import SGSettingsUI
 import SGStrings
-// MARK: - GLEGram
+// MARK: - LuxGram
 #if canImport(SGSupporters)
 import SGSupporters
 #endif
-// MARK: - End GLEGram
+// MARK: - End LuxGram
 import CountrySelectionUI
 import Foundation
 import UIKit
@@ -170,7 +170,7 @@ enum PeerInfoContextSubject {
 enum PeerInfoSettingsSection {
     case swiftgram
     case swiftgramPro
-    case gleGram // MARK: - GLEGram
+    case gleGram // MARK: - LuxGram
     case avatar
     case edit
     case proxy
@@ -282,7 +282,7 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
     
     private(set) var validLayout: (ContainerViewLayout, CGFloat)?
     private(set) var nearestChatParticipant: (String?, Int32?) = (nil, nil)
-    private(set) var showProfileId: Bool = SGSimpleSettings.shared.showProfileId // MARK: Swiftgram
+    private(set) var showProfileId: Bool = SGSimpleSettings.shared.showProfileId // MARK: LuxGram
     private(set) var data: PeerInfoScreenData?
     
     var state = PeerInfoState(
@@ -366,7 +366,7 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
     }
     private var didSetReady = false
     
-    init(hidePhoneInSettings: Bool /* MARK: Swiftgram */, controller: PeerInfoScreenImpl, context: AccountContext, peerId: PeerId, avatarInitiallyExpanded: Bool, isOpenedFromChat: Bool, nearbyPeerDistance: Int32?, reactionSourceMessageId: MessageId?, callMessages: [Message], isSettings: Bool, isMyProfile: Bool, hintGroupInCommon: PeerId?, requestsContext: PeerInvitationImportersContext?, profileGiftsContext: ProfileGiftsContext?, starsContext: StarsContext?, tonContext: StarsContext?, chatLocation: ChatLocation, chatLocationContextHolder: Atomic<ChatLocationContextHolder?>, switchToGiftsTarget: PeerInfoSwitchToGiftsTarget?, switchToStoryFolder: Int64?, switchToMediaTarget: PeerInfoSwitchToMediaTarget?, initialPaneKey: PeerInfoPaneKey?, sharedMediaFromForumTopic: (EnginePeer.Id, Int64)?) {
+    init(hidePhoneInSettings: Bool /* MARK: LuxGram */, controller: PeerInfoScreenImpl, context: AccountContext, peerId: PeerId, avatarInitiallyExpanded: Bool, isOpenedFromChat: Bool, nearbyPeerDistance: Int32?, reactionSourceMessageId: MessageId?, callMessages: [Message], isSettings: Bool, isMyProfile: Bool, hintGroupInCommon: PeerId?, requestsContext: PeerInvitationImportersContext?, profileGiftsContext: ProfileGiftsContext?, starsContext: StarsContext?, tonContext: StarsContext?, chatLocation: ChatLocation, chatLocationContextHolder: Atomic<ChatLocationContextHolder?>, switchToGiftsTarget: PeerInfoSwitchToGiftsTarget?, switchToStoryFolder: Int64?, switchToMediaTarget: PeerInfoSwitchToMediaTarget?, initialPaneKey: PeerInfoPaneKey?, sharedMediaFromForumTopic: (EnginePeer.Id, Int64)?) {
         self.controller = controller
         self.context = context
         self.peerId = peerId
@@ -2493,7 +2493,7 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
             guard let strongSelf = self else {
                 return
             }
-            // MARK: Swiftgram
+            // MARK: LuxGram
             strongSelf.showProfileId = SGSimpleSettings.shared.showProfileId
             //
             strongSelf.nearestChatParticipant = nearestChatParticipant
@@ -4173,7 +4173,7 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
         }
     }
         
-    public func openParticipantsSection(section: PeerInfoParticipantsSection) { // MARK: Swiftgram
+    public func openParticipantsSection(section: PeerInfoParticipantsSection) { // MARK: LuxGram
         guard let data = self.data, let peer = data.peer else {
             return
         }
@@ -7082,9 +7082,9 @@ public final class PeerInfoScreenImpl: ViewController, PeerInfoScreen, KeyShortc
         
         var items: [ContextMenuItem] = []
 
-        // MARK: Swiftgram
+        // MARK: LuxGram
         #if DEBUG
-        items.append(.action(ContextMenuActionItem(text: "Swiftgram Debug", icon: { theme in
+        items.append(.action(ContextMenuActionItem(text: "LuxGram Debug", icon: { theme in
             return generateTintedImage(image: nil, color: theme.contextMenu.primaryColor)
         }, action: { [weak self] _, f in
             guard let self = self else {
@@ -7484,7 +7484,7 @@ struct ClearPeerHistory {
 
 
 
-// MARK: Swiftgram
+// MARK: LuxGram
 extension PeerInfoScreenImpl {
 
     public func tabBarItemContextActionRawUIView(sourceView: UIView, gesture: ContextGesture?) {
@@ -7496,9 +7496,9 @@ extension PeerInfoScreenImpl {
         
         var items: [ContextMenuItem] = []
 
-        // MARK: Swiftgram
+        // MARK: LuxGram
         #if DEBUG
-        items.append(.action(ContextMenuActionItem(text: "Swiftgram Debug", icon: { theme in
+        items.append(.action(ContextMenuActionItem(text: "LuxGram Debug", icon: { theme in
             return generateTintedImage(image: nil, color: theme.contextMenu.primaryColor)
         }, action: { [weak self] _, f in
             guard let self = self else {

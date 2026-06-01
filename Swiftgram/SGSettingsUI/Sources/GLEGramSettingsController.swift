@@ -1,4 +1,4 @@
-// MARK: Swiftgram
+// MARK: LuxGram
 import SGSimpleSettings
 import SGStrings
 import SGItemListUI
@@ -1094,7 +1094,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                            let name = cgFont.postScriptName as String?, !name.isEmpty {
                             let fileManager = FileManager.default
                             if let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
-                                let fontsDir = documentsURL.appendingPathComponent("SwiftgramFonts", isDirectory: true)
+                                let fontsDir = documentsURL.appendingPathComponent("LuxGramFonts", isDirectory: true)
                                 try? fileManager.createDirectory(at: fontsDir, withIntermediateDirectories: true)
                                 let destURL = fontsDir.appendingPathComponent("bold.ttf")
                                 try? fileManager.removeItem(at: destURL)
@@ -1126,7 +1126,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                            let name = cgFont.postScriptName as String?, !name.isEmpty {
                             let fileManager = FileManager.default
                             if let documentsURL = fileManager.urls(for: .documentDirectory, in: .userDomainMask).first {
-                                let fontsDir = documentsURL.appendingPathComponent("SwiftgramFonts", isDirectory: true)
+                                let fontsDir = documentsURL.appendingPathComponent("LuxGramFonts", isDirectory: true)
                                 try? fileManager.createDirectory(at: fontsDir, withIntermediateDirectories: true)
                                 let destURL = fontsDir.appendingPathComponent("main.ttf")
                                 try? fileManager.removeItem(at: destURL)

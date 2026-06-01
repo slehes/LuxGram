@@ -969,7 +969,7 @@ public class ItemListPeerItemNode: ItemListRevealOptionsItemNode, ItemListItemNo
                     verifiedIcon = .animation(content: .customEmoji(fileId: verificationIconFileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: item.presentationData.theme.list.mediaPlaceholderColor, themeColor: item.presentationData.theme.list.itemAccentColor, loopMode: .count(0))
                 }
 
-                // MARK: - GLEGram - SGSupporters badges
+                // MARK: - LuxGram - SGSupporters badges
                 #if canImport(SGSupporters)
                 if case let .user(user) = item.peer, user.id.namespace == Namespaces.Peer.CloudUser {
                     let serverBadges = SGSupporters.badges(forUserId: user.id.id._internalGetInt64Value())
@@ -985,7 +985,7 @@ public class ItemListPeerItemNode: ItemListRevealOptionsItemNode, ItemListItemNo
                     }
                 }
                 #endif
-                // MARK: - End GLEGram
+                // MARK: - End LuxGram
             }
 
             var titleIconsWidth: CGFloat = 0.0

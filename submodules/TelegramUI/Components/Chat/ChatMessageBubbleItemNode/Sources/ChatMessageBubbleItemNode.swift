@@ -2386,7 +2386,7 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                 } else if effectiveAuthor.isVerified {
                     currentCredibilityIcon = (.verified(fillColor: item.presentationData.theme.theme.list.itemCheckColors.fillColor, foregroundColor: item.presentationData.theme.theme.list.itemCheckColors.foregroundColor, sizeType: .compact), nil)
                 } else {
-                    // MARK: - GLEGram
+                    // MARK: - LuxGram
                     #if canImport(SGSimpleSettings)
                     let effectiveIsPremium = SGSimpleSettings.shared.isPremium(peerId: effectiveAuthor.id.id._internalGetInt64Value(), accountPeerId: item.context.account.peerId.id._internalGetInt64Value(), isPremium: effectiveAuthor.isPremium)
                     #else
@@ -2395,7 +2395,7 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                     if effectiveIsPremium {
                         currentCredibilityIcon = (.premium(color: color.withMultipliedAlpha(0.4)), nil)
                     }
-                    // MARK: - End GLEGram
+                    // MARK: - End LuxGram
                 }
             }
             if let rawAuthorNameColor = authorNameColor {

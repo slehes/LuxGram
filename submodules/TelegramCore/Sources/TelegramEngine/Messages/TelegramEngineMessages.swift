@@ -131,7 +131,7 @@ public extension TelegramEngine {
             return _internal_searchHashtagPosts(account: self.account, hashtag: hashtag, state: state, limit: limit)
         }
 
-        /// GLEGram: Export chat history via API (like Desktop), with pagination.
+        /// LuxGram: Export chat history via API (like Desktop), with pagination.
         public func exportChatHistory(peerId: PeerId, threadId: Int64?, maxCount: Int = 100_000) -> Signal<([ChatExportMessageItem], [PeerId: Peer]), ExportChatHistoryError> {
             return _internal_exportChatHistory(account: self.account, peerId: peerId, threadId: threadId, maxCount: maxCount)
         }
@@ -793,7 +793,7 @@ public extension TelegramEngine {
             |> ignoreValues
         }
 
-        /// MARK: - GLEGram - Marks all chats as read **locally only**. No API calls, no sync to server.
+        /// MARK: - LuxGram - Marks all chats as read **locally only**. No API calls, no sync to server.
         public func markAllChatsAsReadLocallyOnly(items: [(groupId: EngineChatList.Group, filterPredicate: ChatListFilterPredicate?)]) -> Signal<Void, NoError> {
             let account = self.account
             return self.account.postbox.transaction { transaction -> Void in

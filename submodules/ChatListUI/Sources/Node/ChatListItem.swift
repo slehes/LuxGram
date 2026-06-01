@@ -3379,26 +3379,26 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 currentCredibilityIconContent = .premium(color: item.presentationData.theme.list.itemAccentColor)
                             }
                             
-                            // MARK: - GLEGram - official channel badge
-                            var isGLEGramOfficialChannel = false
+                            // MARK: - LuxGram - official channel badge
+                            var isLuxGramOfficialChannel = false
                             #if canImport(SGSimpleSettings)
                             let glegramChannelIds: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
-                            let isGLEGramChannel = peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64())
-                            if isGLEGramChannel {
-                                currentCredibilityIconContent = .image(image: UIImage(bundleImageName: "GLEGramVerifiedBadge"), tintColor: nil)
-                                isGLEGramOfficialChannel = true
+                            let isLuxGramChannel = peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64())
+                            if isLuxGramChannel {
+                                currentCredibilityIconContent = .image(image: UIImage(bundleImageName: "LuxGramVerifiedBadge"), tintColor: nil)
+                                isLuxGramOfficialChannel = true
                             }
                             #endif
-                            // MARK: - End GLEGram
+                            // MARK: - End LuxGram
 
-                            if !isGLEGramOfficialChannel, peer.isVerified {
+                            if !isLuxGramOfficialChannel, peer.isVerified {
                                 currentCredibilityIconContent = .verified(fillColor: item.presentationData.theme.list.itemCheckColors.fillColor, foregroundColor: item.presentationData.theme.list.itemCheckColors.foregroundColor, sizeType: .compact)
                             }
                             if let verificationIconFileId = peer.verificationIconFileId {
                                 currentVerifiedIconContent = .animation(content: .customEmoji(fileId: verificationIconFileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: item.presentationData.theme.list.mediaPlaceholderColor, themeColor: item.presentationData.theme.list.itemAccentColor, loopMode: .count(0))
                             }
 
-                            // MARK: - GLEGram - SGSupporters badges
+                            // MARK: - LuxGram - SGSupporters badges
                             #if canImport(SGSupporters)
                             if case let .user(user) = peer {
                                 let serverBadges = SGSupporters.badges(forUserId: user.id.id._internalGetInt64Value())
@@ -3415,7 +3415,7 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 }
                             }
                             #endif
-                            // MARK: - End GLEGram
+                            // MARK: - End LuxGram
                         }
                     default:
                         break
@@ -3441,17 +3441,17 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                         currentCredibilityIconContent = .premium(color: item.presentationData.theme.list.itemAccentColor)
                     }
                     
-                    // MARK: - GLEGram - official channel badge (chat peer)
+                    // MARK: - LuxGram - official channel badge (chat peer)
                     #if canImport(SGSimpleSettings)
                     let glegramChannelIds2: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
-                    let isGLEGramChannel2 = peer.addressName?.lowercased() == "glegramios" || glegramChannelIds2.contains(peer.id.toInt64())
-                    if isGLEGramChannel2 {
-                        currentCredibilityIconContent = .image(image: UIImage(bundleImageName: "GLEGramVerifiedBadge"), tintColor: nil)
+                    let isLuxGramChannel2 = peer.addressName?.lowercased() == "glegramios" || glegramChannelIds2.contains(peer.id.toInt64())
+                    if isLuxGramChannel2 {
+                        currentCredibilityIconContent = .image(image: UIImage(bundleImageName: "LuxGramVerifiedBadge"), tintColor: nil)
                     }
                     #else
-                    let isGLEGramChannel2 = false
+                    let isLuxGramChannel2 = false
                     #endif
-                    if !isGLEGramChannel2, peer.isVerified {
+                    if !isLuxGramChannel2, peer.isVerified {
                         currentCredibilityIconContent = .verified(fillColor: item.presentationData.theme.list.itemCheckColors.fillColor, foregroundColor: item.presentationData.theme.list.itemCheckColors.foregroundColor, sizeType: .compact)
                     }
                     if let verificationIconFileId = peer.verificationIconFileId {
@@ -3473,7 +3473,7 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                         }
                     }
                     #endif
-                    // MARK: - End GLEGram
+                    // MARK: - End LuxGram
                 }
             }
             if let currentSecretIconImage = currentSecretIconImage {

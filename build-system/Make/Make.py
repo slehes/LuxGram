@@ -209,7 +209,7 @@ class BazelCommandLine:
         combined_arguments = []
         if self.bazel_user_root is not None:
             combined_arguments += ['--output_user_root={}'.format(self.bazel_user_root)]
-        # MARK: GLEGram — use system JDK to avoid SIGBUS crash with embedded JDK 24 on macOS 15.7.4+
+        # MARK: LuxGram — use system JDK to avoid SIGBUS crash with embedded JDK 24 on macOS 15.7.4+
         import shutil
         java_home_bin = shutil.which('java')
         if java_home_bin:
@@ -220,7 +220,7 @@ class BazelCommandLine:
                     combined_arguments += ['--server_javabase={}'.format(java_home)]
             except Exception:
                 pass
-        # MARK: End GLEGram
+        # MARK: End LuxGram
         return combined_arguments
 
     def invoke_clean(self):
@@ -289,7 +289,15 @@ class BazelCommandLine:
             combined_arguments += ['--lockfile_mode=error']
 
         if self.custom_target is not None:
-            target_label = '//Telegram:' + self.custom_target if self.custom_target == 'GLEGram' else self.custom_target
+            # GLEGram/LuxGram — это короткие имена таргета //Telegram:<name>.
+            # После ребрендинга реальный таргет в Telegram/BUILD называется LuxGram,
+            # поэтому короткое имя GLEGram маппим на него.
+            if self.custom_target in ('GLEGram', 'LuxGram'):
+                target_label = '//Telegram:LuxGram'
+            elif '/' not in self.custom_target and ':' not in self.custom_target:
+                target_label = '//Telegram:' + self.custom_target
+            else:
+                target_label = self.custom_target
             combined_arguments += [target_label]
         else:
             combined_arguments += ['Telegram/Swiftgram']
@@ -673,22 +681,28 @@ def build(bazel, arguments):
 
     if arguments.outputBuildArtifactsPath is not None:
         artifacts_path = os.path.abspath(arguments.outputBuildArtifactsPath)
-        if os.path.exists(artifacts_path + '/GLEGram.ipa'):
-            os.remove(artifacts_path + '/GLEGram.ipa')
+        # Имя IPA = имя ios_application таргета. Реальный таргет — LuxGram,
+        # короткие имена GLEGram/LuxGram оба собирают //Telegram:LuxGram.
+        if arguments.target in ('GLEGram', 'LuxGram', None):
+            ipa_name = 'LuxGram.ipa'
+        else:
+            ipa_name = arguments.target + '.ipa'
+        if os.path.exists(artifacts_path + '/' + ipa_name):
+            os.remove(artifacts_path + '/' + ipa_name)
         if os.path.exists(artifacts_path + '/DSYMs'):
             shutil.rmtree(artifacts_path + '/DSYMs')
         os.makedirs(artifacts_path, exist_ok=True)
         os.makedirs(artifacts_path + '/DSYMs', exist_ok=True)
 
         built_ipa_path_prefix = 'bazel-bin/Telegram'
-        ipa_paths = glob.glob('{}/GLEGram.ipa'.format(built_ipa_path_prefix)) or glob.glob('{}/GLEGram.ipa'.format(built_ipa_path_prefix))
+        ipa_paths = glob.glob('{}/{}'.format(built_ipa_path_prefix, ipa_name))
         if len(ipa_paths) == 0:
-            print(f'Could not find the IPA at {built_ipa_path_prefix}/GLEGram.ipa or {built_ipa_path_prefix}/GLEGram.ipa')
+            print('Could not find the IPA at {}/{}'.format(built_ipa_path_prefix, ipa_name))
             sys.exit(1)
         elif len(ipa_paths) > 1:
             print('Multiple matching IPA files found: {}'.format(ipa_paths))
             sys.exit(1)
-        shutil.copyfile(ipa_paths[0], artifacts_path + '/GLEGram.ipa')
+        shutil.copyfile(ipa_paths[0], artifacts_path + '/' + ipa_name)
 
         dsym_paths = glob.glob('bazel-bin/Telegram/*.dSYM') + glob.glob('bazel-out/watchos_arm64_32-opt-watchos-arm64_32-min7.0-applebin_watchos-ST-*/bin/Telegram/TelegramWatchApp_dsyms/*.dSYM') + glob.glob('bazel-out/watchos_armv7k-opt-watchos-armv7k-min7.0-applebin_watchos-ST-*/bin/Telegram/TelegramWatchApp_dsyms/*.dSYM') 
         for dsym_path in dsym_paths:
@@ -698,7 +712,7 @@ def build(bazel, arguments):
         os.chdir(artifacts_path)
         run_executable_with_output('zip', arguments=[
             '-r',
-            'GLEGram.DSYMs.zip',
+            ipa_name.replace('.ipa', '.DSYMs.zip'),
             './DSYMs'
         ], check_result=True)
         os.chdir(previous_directory)

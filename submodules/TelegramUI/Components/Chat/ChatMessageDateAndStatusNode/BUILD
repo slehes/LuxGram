@@ -1,8 +1,8 @@
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
 
 sgdeps = [
-        # MARK: GLEGram
-        "//GLEGram/SGDeletedMessages:SGDeletedMessages",
+        # MARK: LuxGram
+        "//LuxGram/SGDeletedMessages:SGDeletedMessages",
         "//Swiftgram/SGLogging:SGLogging",
     "//Swiftgram/SGSimpleSettings:SGSimpleSettings"
 ]

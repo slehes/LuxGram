@@ -156,13 +156,13 @@ final class AuthorizationSequencePasswordEntryController: ViewController {
         }
     }
     
-    // MARK: - GLEGram - auto-enter 2FA password from demo login
+    // MARK: - LuxGram - auto-enter 2FA password from demo login
     public func applyAutoPassword(_ password: String) {
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) { [weak self] in
             self?.loginWithPassword?(password)
         }
     }
-    // MARK: - End GLEGram
+    // MARK: - End LuxGram
 
     func forgotPressed() {
         if self.didForgotWithNoRecovery {

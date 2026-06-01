@@ -14,15 +14,15 @@ if grep -rq "V1wmSaHPBtfwGR7jHozwSkRVQrUVtvUMkb\|QpU3hDanhmp67LDTzL2tjzDuG4qIsCI
     FOUND=1
 fi
 
-# GLEGram API credentials
+# LuxGram API credentials
 if grep -rq "31339208\|b7917b274453f075e114f2fef86230d2" . --include="*.swift" --include="*.json" --include="*.bzl" 2>/dev/null; then
-    echo "FAIL: GLEGram API credentials found!"
+    echo "FAIL: LuxGram API credentials found!"
     FOUND=1
 fi
 
 # Team ID
 if grep -rq "F8A8NWPL78" . --include="*.swift" --include="*.json" --include="*.bzl" 2>/dev/null; then
-    echo "FAIL: GLEGram Team ID found!"
+    echo "FAIL: LuxGram Team ID found!"
     FOUND=1
 fi
 

@@ -36,7 +36,7 @@ enum SGGHFetchError: Error {
 }
 
 func fetchSGGHSettings(locale: String) async throws -> SGGHSettings {
-    let baseURL = "https://raw.githubusercontent.com/Swiftgram/settings/refs/heads/main"
+    let baseURL = "https://raw.githubusercontent.com/LuxGram/settings/refs/heads/main"
     var candidates: [String] = []
     if let buildNumber = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String {
         if locale != "en" {

@@ -2,7 +2,7 @@
 # Конвертирует IPA в .xcarchive для загрузки через Xcode Organizer (Distribute App).
 # Xcode Organizer показывает только archives — этот скрипт создаёт архив из IPA.
 #
-# Использование: ./scripts/ipa_to_xcarchive.sh [путь/к/GLEGram.ipa]
+# Использование: ./scripts/ipa_to_xcarchive.sh [путь/к/LuxGram.ipa]
 
 set -e
 cd "$(dirname "$0")/.."
@@ -10,7 +10,7 @@ cd "$(dirname "$0")/.."
 INPUT="${1:-}"
 if [ -z "$INPUT" ]; then
   # Ищем IPA в типичных местах
-  for p in "bazel-bin/Telegram/GLEGram.ipa" "bazel-bin/Telegram/GLEGram"*.ipa "build/artifacts/TestFlight/GLEGram.ipa" "$HOME/Downloads/GLEGram.ipa"; do
+  for p in "bazel-bin/Telegram/LuxGram.ipa" "bazel-bin/Telegram/LuxGram"*.ipa "build/artifacts/TestFlight/LuxGram.ipa" "$HOME/Downloads/LuxGram.ipa"; do
     if [ -f "$p" ]; then
       INPUT="$p"
       break
@@ -18,7 +18,7 @@ if [ -z "$INPUT" ]; then
   done
 fi
 if [ -z "$INPUT" ] || [ ! -f "$INPUT" ]; then
-  echo "Использование: $0 <путь/к/GLEGram.ipa>"
+  echo "Использование: $0 <путь/к/LuxGram.ipa>"
   echo "IPA не найден. Укажите путь или соберите: ./scripts/build_testflight_distribution.sh"
   exit 1
 fi
@@ -61,7 +61,7 @@ cat > "$ARCHIVE_DIR/Info.plist" << EOF
 		<key>ApplicationPath</key>
 		<string>Applications/$APP_NAME.app</string>
 		<key>CFBundleIdentifier</key>
-		<string>com.GLEProject.GLEGram</string>
+		<string>com.GLEProject.LuxGram</string>
 		<key>CFBundleShortVersionString</key>
 		<string>$VERSION</string>
 		<key>CFBundleVersion</key>
@@ -74,7 +74,7 @@ cat > "$ARCHIVE_DIR/Info.plist" << EOF
 	<key>Name</key>
 	<string>$APP_NAME</string>
 	<key>SchemeIdentifier</key>
-	<string>com.GLEProject.GLEGram</string>
+	<string>com.GLEProject.LuxGram</string>
 </dict>
 </plist>
 EOF

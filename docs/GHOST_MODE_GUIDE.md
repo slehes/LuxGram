@@ -15,7 +15,7 @@
 
 ## 🎯 Обзор
 
-Ghost Mode для IAppsGram - это комплексная система приватности и обхода ограничений контента, портированная и улучшенная из Nicegram/Swiftgram.
+Ghost Mode для IAppsGram - это комплексная система приватности и обхода ограничений контента, портированная и улучшенная из Nicegram/LuxGram.
 
 ### Ключевые особенности:
 
@@ -880,7 +880,7 @@ countdownBeginTime остается nil
 
 ### 9. UI Интеграция - IAppsGramSettingsController
 
-**Файл:** `Telegram-iOS/Swiftgram/IAppsGramSettings/Sources/IAppsGramSettingsController.swift`
+**Файл:** `Telegram-iOS/LuxGram/IAppsGramSettings/Sources/IAppsGramSettingsController.swift`
 
 ```swift
 import SGSimpleSettings
@@ -1092,7 +1092,7 @@ private func entries() -> [ItemListEntry] {
 
 #### BUILD файл для SGGhostMode
 
-**Файл:** `Telegram-iOS/Swiftgram/SGGhostMode/BUILD`
+**Файл:** `Telegram-iOS/LuxGram/SGGhostMode/BUILD`
 
 ```python
 load("@build_bazel_rules_swift//swift:swift.bzl", "swift_library")
@@ -1107,7 +1107,7 @@ swift_library(
         "-warnings-as-errors",
     ],
     deps = [
-        "//Swiftgram/SGSimpleSettings",  # Зависимость от настроек
+        "//LuxGram/SGSimpleSettings",  # Зависимость от настроек
     ],
     visibility = [
         "//visibility:public",
@@ -1138,7 +1138,7 @@ swift_library(
         "//submodules/SwiftSignalKit",
         
         # НОВАЯ ЗАВИСИМОСТЬ для Ghost Mode
-        "//Swiftgram/SGGhostMode",  # ← Добавили эту строку
+        "//LuxGram/SGGhostMode",  # ← Добавили эту строку
     ],
     visibility = [
         "//visibility:public",
@@ -1169,7 +1169,7 @@ swift_library(
         "//submodules/AccountContext",
         
         # НОВАЯ ЗАВИСИМОСТЬ для Ghost Mode
-        "//Swiftgram/SGGhostMode",  # ← Добавили эту строку
+        "//LuxGram/SGGhostMode",  # ← Добавили эту строку
     ],
     visibility = [
         "//visibility:public",
@@ -1200,7 +1200,7 @@ swift_library(
         "//submodules/MediaPlayer",
         
         # НОВАЯ ЗАВИСИМОСТЬ для Ghost Mode
-        "//Swiftgram/SGGhostMode",  # ← Добавили эту строку
+        "//LuxGram/SGGhostMode",  # ← Добавили эту строку
     ],
     visibility = [
         "//visibility:public",
@@ -1209,7 +1209,7 @@ swift_library(
 ```
 
 **Почему нужны зависимости:**
-- Без добавления `//Swiftgram/SGGhostMode` в deps, модули не смогут импортировать `import SGGhostMode`
+- Без добавления `//LuxGram/SGGhostMode` в deps, модули не смогут импортировать `import SGGhostMode`
 - Bazel проверяет зависимости на этапе компиляции
 - Если зависимость не указана, получим ошибку "No such module 'SGGhostMode'"
 
@@ -1913,7 +1913,7 @@ if SGContentProtection.shared.shouldBypassForwardRestrictions {
 ### 1. Двойная блокировка онлайн-статуса
 
 **Проблема в оригинале:**
-- Nicegram/Swiftgram блокировали только на уровне `updatePresence()`
+- Nicegram/LuxGram блокировали только на уровне `updatePresence()`
 - При активном использовании приложения статус мог "просачиваться"
 
 **Решение в IAppsGram:**
@@ -2047,7 +2047,7 @@ if SGContentProtection.shared.shouldBypassForwardRestrictions {
 
 ### 1. Модуль SGGhostMode - Полный код
 
-**Файл:** `Telegram-iOS/Swiftgram/SGGhostMode/Sources/SGGhostMode.swift`
+**Файл:** `Telegram-iOS/LuxGram/SGGhostMode/Sources/SGGhostMode.swift`
 
 ```swift
 import Foundation
@@ -2159,7 +2159,7 @@ public class SGGhostMode {
 
 ### 2. Модуль SGContentProtection - Полный код
 
-**Файл:** `Telegram-iOS/Swiftgram/SGGhostMode/Sources/SGContentProtection.swift`
+**Файл:** `Telegram-iOS/LuxGram/SGGhostMode/Sources/SGContentProtection.swift`
 
 ```swift
 import Foundation
@@ -2738,7 +2738,7 @@ if message.containsSecretMedia && !SGContentProtection.shared.shouldBypassSecret
 
 ### 8. Настройки в SGSimpleSettings - Полный код
 
-**Файл:** `Telegram-iOS/Swiftgram/SGSimpleSettings/Sources/SimpleSettings.swift`
+**Файл:** `Telegram-iOS/LuxGram/SGSimpleSettings/Sources/SimpleSettings.swift`
 
 ```swift
 // MARK: - Определение ключей настроек
@@ -2915,9 +2915,9 @@ SGSimpleSettings.shared.ghostModeEnabled = true
 - `GHOST_MODE_GUIDE.md` - Оригинальное руководство из Nicegram
 
 ### Исходные файлы:
-- `Telegram-iOS/Swiftgram/SGGhostMode/` - Модуль Ghost Mode
-- `Telegram-iOS/Swiftgram/SGSimpleSettings/` - Настройки
-- `Telegram-iOS/Swiftgram/IAppsGramSettings/` - UI настроек
+- `Telegram-iOS/LuxGram/SGGhostMode/` - Модуль Ghost Mode
+- `Telegram-iOS/LuxGram/SGSimpleSettings/` - Настройки
+- `Telegram-iOS/LuxGram/IAppsGramSettings/` - UI настроек
 
 ### BUILD файлы:
 - `Telegram-iOS/submodules/TelegramCore/BUILD`
@@ -2942,7 +2942,7 @@ Ghost Mode для IAppsGram - это **полностью функциональ
 
 *Документ создан: 27 января 2026*  
 *Версия: 1.0*  
-*Проект: IAppsGram (форк Swiftgram/Telegram-iOS)*
+*Проект: IAppsGram (форк LuxGram/Telegram-iOS)*
 
 
 ---
@@ -3152,7 +3152,7 @@ Ghost Mode для IAppsGram - это **полностью функциональ
 
 **Дата последнего обновления:** 27 января 2026  
 **Версия:** 2.0 (с критическими исправлениями)  
-**Проект:** IAppsGram (форк Swiftgram/Telegram-iOS)  
+**Проект:** IAppsGram (форк LuxGram/Telegram-iOS)  
 **Статус компиляции:** ✅ Успешно  
 **Статус тестирования:** ✅ Все функции работают на 100%  
 

@@ -1,4 +1,4 @@
-# GLEGram: описание функций и полный исходный код
+# LuxGram: описание функций и полный исходный код
 
 Документ описывает реализацию в репозитории. Раздел про текст «Чаты» в шапке **не включён** (по запросу). Во всех примерах ниже приведён **полный** фрагмент или файл **без сокращений** (`...` не используется).
 
@@ -6,7 +6,7 @@
 
 ## 1. Двойное дно
 
-**Смысл:** скрытые аккаунты, отдельные пароли в Keychain, при разблокировке приложения разные коды ведут к разным сценариям (основной пароль Telegram, «секретный» пароль, переключение на скрытый аккаунт по совпадению пароля). Флаги `isDoubleBottomOn` / `inDoubleBottom` хранятся в UserDefaults (`VarSystemNGSettings`). Экран настроек в Swiftgram — `doubleBottomSettingsController`; проверки при вводе пароля приложения — в `AppDelegate` (`additionalPasscodeCheck`, `onUnlockWithPasscode`).
+**Смысл:** скрытые аккаунты, отдельные пароли в Keychain, при разблокировке приложения разные коды ведут к разным сценариям (основной пароль Telegram, «секретный» пароль, переключение на скрытый аккаунт по совпадению пароля). Флаги `isDoubleBottomOn` / `inDoubleBottom` хранятся в UserDefaults (`VarSystemNGSettings`). Экран настроек в LuxGram — `doubleBottomSettingsController`; проверки при вводе пароля приложения — в `AppDelegate` (`additionalPasscodeCheck`, `onUnlockWithPasscode`).
 
 ### `Nicegram/NGData/Sources/SystemNGSettings.swift` (полностью)
 
@@ -50,14 +50,14 @@ public class SystemNGSettings {
 public var VarSystemNGSettings = SystemNGSettings()
 ```
 
-### `Swiftgram/SGSettingsUI/Sources/DoubleBottomPasscodeStore.swift` (полностью)
+### `LuxGram/SGSettingsUI/Sources/DoubleBottomPasscodeStore.swift` (полностью)
 
 ```swift
-// MARK: Swiftgram – Keychain storage for hidden-account passcodes (Double Bottom)
+// MARK: LuxGram – Keychain storage for hidden-account passcodes (Double Bottom)
 import Foundation
 import Security
 
-private let serviceName = "SwiftgramDoubleBottom"
+private let serviceName = "LuxGramDoubleBottom"
 
 /// Key for the single "secret" passcode (second password). When user unlocks with this, only one account is shown.
 private let secretPasscodeAccountKey = "secret"
@@ -171,10 +171,10 @@ public enum DoubleBottomPasscodeStore {
 }
 ```
 
-### `Swiftgram/SGSettingsUI/Sources/DoubleBottomSettingsController.swift` (полностью)
+### `LuxGram/SGSettingsUI/Sources/DoubleBottomSettingsController.swift` (полностью)
 
 ```swift
-// MARK: Swiftgram – Double Bottom (full logic from Nicegram NGDoubleBottom/DoubleBottomListController)
+// MARK: LuxGram – Double Bottom (full logic from Nicegram NGDoubleBottom/DoubleBottomListController)
 // Ref: https://github.com/nicegram/Nicegram-iOS/blob/master/Nicegram/NGDoubleBottom/Sources/DoubleBottomListController.swift
 import Foundation
 import UIKit
@@ -441,7 +441,7 @@ private final class DoubleBottomHiddenIdsCache {
             #endif
 ```
 
-Точка входа в настройках GLEGram (пункты меню, не вся функция `gleGramAppearanceEntries`):
+Точка входа в настройках LuxGram (пункты меню, не вся функция `gleGramAppearanceEntries`):
 
 ```swift
     entries.append(.header(id: id.count, section: .doubleBottom, text: (lang == "ru" ? "ДВОЙНОЕ ДНО" : "DOUBLE BOTTOM"), badge: nil))
@@ -455,12 +455,12 @@ private final class DoubleBottomHiddenIdsCache {
 
 **Смысл:** список защищённых peer id в UserDefaults; при открытии чата показывается `UIAlertController` с полем пароля; проверка либо через `doubleBottomCheckPasscode` (код Telegram на устройстве), либо через отдельный пароль в Keychain (`ProtectedChatsStore`).
 
-### `Swiftgram/SGSettingsUI/Sources/ProtectedChatsStore.swift` (полностью)
+### `LuxGram/SGSettingsUI/Sources/ProtectedChatsStore.swift` (полностью)
 
 См. файл в репозитории — ниже идентичное содержимое.
 
 ```swift
-// MARK: Swiftgram – Password for selected chats/folders
+// MARK: LuxGram – Password for selected chats/folders
 import Foundation
 import Security
 
@@ -468,7 +468,7 @@ private let enabledKey = "sg_protected_chats_enabled"
 private let peerIdsKey = "sg_protected_chat_peer_ids"
 private let folderIdsKey = "sg_protected_folder_ids"
 private let useDevicePasscodeKey = "sg_protected_chats_use_device_passcode"
-private let serviceName = "SwiftgramProtectedChats"
+private let serviceName = "LuxGramProtectedChats"
 private let customPasscodeAccount = "chats"
 
 public enum ProtectedChatsStore {
@@ -588,10 +588,10 @@ public enum ProtectedChatsStore {
 }
 ```
 
-### `Swiftgram/SGSettingsUI/Sources/ProtectedChatsSettingsController.swift` (полностью)
+### `LuxGram/SGSettingsUI/Sources/ProtectedChatsSettingsController.swift` (полностью)
 
 ```swift
-// MARK: Swiftgram – Password for selected chats/folders settings
+// MARK: LuxGram – Password for selected chats/folders settings
 import Foundation
 import UIKit
 import Display
@@ -868,7 +868,7 @@ public func protectedChatsSettingsController(context: AccountContext) -> ViewCon
     }
 ```
 
-Пункты в GLEGram (фрагмент `GLEGramSettingsController.swift`):
+Пункты в LuxGram (фрагмент `LuxGramSettingsController.swift`):
 
 ```swift
     entries.append(.header(id: id.count, section: .protectedChats, text: (lang == "ru" ? "ПАРОЛЬ ДЛЯ ЧАТОВ" : "PASSWORD FOR CHATS"), badge: nil))
@@ -882,7 +882,7 @@ public func protectedChatsSettingsController(context: AccountContext) -> ViewCon
 
 **Смысл:** локальная обработка OGG голосовых сообщений: декодирование Opus → `AVAudioEngine` (тон, скорость, искажение) → снова OGG. Настройки и пресеты — `VoiceMorpherManager`; вызов нативного процессора — `VoiceMorpherEngine` → `VoiceMorpherProcessor`.
 
-### Пункты в GLEGram (`Swiftgram/SGSettingsUI/Sources/GLEGramSettingsController.swift`)
+### Пункты в LuxGram (`LuxGram/SGSettingsUI/Sources/LuxGramSettingsController.swift`)
 
 ```swift
     // MARK: Voice Morpher (Privacy tab) — ghostgram-style local processing
@@ -907,7 +907,7 @@ public func protectedChatsSettingsController(context: AccountContext) -> ViewCon
 ```swift
 import Foundation
 
-/// GLEGram / ghostgram-style: local voice morphing for outgoing voice messages (UserDefaults).
+/// LuxGram / ghostgram-style: local voice morphing for outgoing voice messages (UserDefaults).
 public final class VoiceMorpherManager {
     public static let shared = VoiceMorpherManager()
 
@@ -1395,12 +1395,12 @@ NS_ASSUME_NONNULL_END
 
 **Смысл:** экран `savedDeletedMessagesListController` строит записи через `savedDeletedListEntries`, поле поиска — первая строка; `filterSavedDeletedListEntries` отфильтровывает секции без совпадений по запросу (имя чата, текст сообщения, дата, подписи кнопок).
 
-### `Swiftgram/SGSettingsUI/Sources/SavedDeletedMessagesListController.swift` (полностью)
+### `LuxGram/SGSettingsUI/Sources/SavedDeletedMessagesListController.swift` (полностью)
 
 Файл приведён целиком в репозитории (292 строки). Ниже — полная копия без изменений.
 
 ```swift
-// MARK: Swiftgram – Saved Deleted Messages List
+// MARK: LuxGram – Saved Deleted Messages List
 import Foundation
 import UIKit
 import Display
@@ -1509,7 +1509,7 @@ private let dateFormatter: DateFormatter = {
     return f
 }()
 
-// MARK: - Entries builder (full list, no filter — like GLEGram settings)
+// MARK: - Entries builder (full list, no filter — like LuxGram settings)
 
 #if canImport(SGDeletedMessages)
 private func savedDeletedListEntries(
@@ -1559,7 +1559,7 @@ private func savedDeletedListEntries(
     return entries
 }
 
-/// Filter by search query — same logic as filterSGItemListUIEntrires in GLEGram settings: two-pass, keep search, keep sections that have matches.
+/// Filter by search query — same logic as filterSGItemListUIEntrires in LuxGram settings: two-pass, keep search, keep sections that have matches.
 private func filterSavedDeletedListEntries(_ entries: [SavedDeletedListEntry], by searchQuery: String?, lang: String) -> [SavedDeletedListEntry] {
     guard let query = searchQuery?.trimmingCharacters(in: .whitespacesAndNewlines).lowercased(), !query.isEmpty else {
         return entries
@@ -1693,7 +1693,7 @@ public func savedDeletedMessagesListController(context: AccountContext) -> ViewC
 }
 ```
 
-### `Swiftgram/SGDeletedMessages/Sources/SGDeletedMessages.swift` (полностью)
+### `LuxGram/SGDeletedMessages/Sources/SGDeletedMessages.swift` (полностью)
 
 ```swift
 import Foundation
@@ -2061,7 +2061,7 @@ public struct SGDeletedMessages {
         #endif
 ```
 
-### Ключи и свойства в `Swiftgram/SGSimpleSettings/Sources/SimpleSettings.swift`
+### Ключи и свойства в `LuxGram/SGSimpleSettings/Sources/SimpleSettings.swift`
 
 ```swift
         case customProfileGiftSlugs
@@ -2088,4 +2088,4 @@ public struct SGDeletedMessages {
 
 ---
 
-*Файл: `GLEGram-features.md` в корне репозитория.*
+*Файл: `LuxGram-features.md` в корне репозитория.*
