@@ -11,17 +11,20 @@ import SGAPIWebSettings
 import SGLogging
 import SGStrings
 import SGSimpleSettings
-// MARK: - GLEGram
+// MARK: - LuxGram
+#if canImport(SGSettingsUI)
+import SGSettingsUI
+#endif
 import SGConfig
 #if canImport(SGSupporters)
 import SGSupporters
 #endif
-// MARK: - End GLEGram
-// MARK: - GLEGram
+// MARK: - End LuxGram
+// MARK: - LuxGram
 #if canImport(SGDeletedMessages)
 import SGDeletedMessages
 #endif
-// MARK: - End GLEGram
+// MARK: - End LuxGram
 import UIKit
 import SwiftSignalKit
 import Display
@@ -349,14 +352,23 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]? = nil) -> Bool {
         precondition(!testIsLaunched)
         testIsLaunched = true
-        
+
+        // MARK: - LuxGram — Apply Liquid Glass on launch
+        #if canImport(SGSettingsUI)
+        LiquidGlassStyle.shared.syncWithSettings()
+        NotificationCenter.default.addObserver(forName: .luxgramLiquidGlassDidChange, object: nil, queue: .main) { _ in
+            LiquidGlassStyle.shared.syncWithSettings()
+        }
+        #endif
+        // MARK: - End LuxGram
+
         let _ = voipTokenPromise.get().start(next: { token in
             self.voipDeviceToken.set(.single(token))
         })
         let _ = notificationTokenPromise.get().start(next: { token in
             self.regularDeviceToken.set(.single(token))
         })
-        
+
         let launchStartTime = CFAbsoluteTimeGetCurrent()
         
         defaultNavigationBarImpl = { presentationData in
@@ -2119,13 +2131,13 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
         self.isActiveValue = true
         self.isActivePromise.set(true)
 
-        // MARK: - GLEGram - Process overdue ghost-delayed messages on becoming active
+        // MARK: - LuxGram - Process overdue ghost-delayed messages on becoming active
         let _ = (self.sharedContextPromise.get()
             |> take(1)
             |> deliverOnMainQueue).start(next: { sharedContext in
                 sharedContext.sharedContext.processOverdueGhostDelayedMessagesForAllAccounts()
             })
-        // MARK: - End GLEGram
+        // MARK: - End LuxGram
 
         self.resetBadge()
         

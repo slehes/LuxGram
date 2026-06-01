@@ -183,7 +183,7 @@ private func pluginListEntries(presentationData: PresentationData, plugins: [Plu
         entries.append(.emptyNotice(id: id, text: lang == "ru" ? "Нет установленных плагинов." : "No installed plugins."))
     }
     id += 1
-    entries.append(.tweaksChannelLink(id: id, text: lang == "ru" ? "Скачать твики (канал)" : "Download tweaks (channel)", url: "https://t.me/glegramiostweaks"))
+    entries.append(.tweaksChannelLink(id: id, text: lang == "ru" ? "Скачать твики (канал)" : "Download tweaks (channel)", url: "https://t.me/luxgramiostweaks"))
     id += 1
     entries.append(.tweaksHeader(id: id, text: lang == "ru" ? "УСТАНОВИТЬ В" : "INSTALL IN"))
     id += 1

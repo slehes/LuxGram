@@ -1,7 +1,7 @@
 {
-	"bundle_id": "com.example.GLEGram",
-	"api_id": "YOUR_API_ID",
-	"api_hash": "YOUR_API_HASH",
+	"bundle_id": "com.luxgramapp.LuxGram",
+	"api_id": "35971841",
+	"api_hash": "504a05393f81633f94c433502e9b09e6",
 	"team_id": "YOUR_TEAM_ID",
 	"app_center_id": "0",
 	"is_internal_build": "false",

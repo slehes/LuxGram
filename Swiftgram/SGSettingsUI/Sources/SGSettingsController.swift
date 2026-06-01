@@ -115,7 +115,7 @@ enum SGBoolSetting: String {
     case saveDeletedMessagesReactions
     case saveDeletedMessagesForBots
     case saveEditHistory
-    case enableLocalMessageEditing  // used in GLEGramSettingsController
+    case enableLocalMessageEditing  // used in LuxGramSettingsController
     // Ghost Mode settings
     case disableOnlineStatus
     case disableTypingStatus
@@ -161,6 +161,8 @@ enum SGBoolSetting: String {
     case feelRichEnabled
     case giftIdEnabled
     case fakeProfileEnabled
+    // MARK: - LuxGram
+    case liquidGlassEnabled
 }
 
 private enum SGOneFromManySetting: String {
@@ -384,7 +386,7 @@ private func SGControllerEntries(presentationData: PresentationData, callListSet
     entries.append(.notice(id: id.count, section: .other, text: i18n("Settings.DefaultEmojisFirst.Notice", lang)))
     entries.append(.toggle(id: id.count, section: .other, settingName: .hidePhoneInSettings, value: SGSimpleSettings.shared.hidePhoneInSettings, text: i18n("Settings.HidePhoneInSettingsUI", lang), enabled: true))
     entries.append(.notice(id: id.count, section: .other, text: i18n("Settings.HidePhoneInSettingsUI.Notice", lang)))
-    // NOTE: Swiftgram-specific privacy/content toggles were moved to GLEGram.
+    // NOTE: Swiftgram-specific privacy/content toggles were moved to LuxGram.
     
     return filterSGItemListUIEntrires(entries: entries, by: state.searchQuery)
 }
@@ -687,7 +689,7 @@ public func sgSettingsController(context: AccountContext/*, focusOnItemTag: Int?
             SGSimpleSettings.shared.enableLocalPremium = value
         case .sensitiveContentEnabled:
             // Intentionally not handled here.
-            // This setting lives in GLEGram and is applied via Telegram server-side content settings.
+            // This setting lives in LuxGram and is applied via Telegram server-side content settings.
             break
         case .scrollToTopButtonEnabled:
             SGSimpleSettings.shared.scrollToTopButtonEnabled = value
@@ -707,6 +709,10 @@ public func sgSettingsController(context: AccountContext/*, focusOnItemTag: Int?
             SGSimpleSettings.shared.giftIdEnabled = value
         case .fakeProfileEnabled:
             SGSimpleSettings.shared.fakeProfileEnabled = value
+        // MARK: - LuxGram — Liquid Glass toggle
+        case .liquidGlassEnabled:
+            SGSimpleSettings.shared.liquidGlassEnabled = value
+            NotificationCenter.default.post(name: .luxgramLiquidGlassDidChange, object: nil)
         }
     }, updateSliderValue: { setting, value in
         switch (setting) {

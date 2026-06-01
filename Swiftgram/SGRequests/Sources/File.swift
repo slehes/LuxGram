@@ -74,7 +74,7 @@ public func requestsCustom(request: URLRequest) -> Signal<(Data, URLResponse?), 
 /// Same as requestsCustom but with SSL certificate pinning. Use for supporters API.
 /// - Parameters:
 ///   - request: The URL request
-///   - host: Expected host (e.g. "glegram.site")
+///   - host: Expected host (e.g. "luxgram.site")
 ///   - pinnedHashes: Base64 SHA256 hashes of server cert(s). Empty = no pinning (fallback to default).
 public func requestsCustomWithPinning(
     request: URLRequest,

@@ -812,8 +812,15 @@ public final class ChatHistoryListNodeImpl: ListView, ChatHistoryNode, ChatHisto
         self.prefetchManager = InChatPrefetchManager(context: context)
         
         self.adMessagesContext = adMessagesContext
+        // MARK: - GLEGram — Disable all ads: skip sponsored messages when setting is enabled
+        #if canImport(SGSimpleSettings)
+        let glegramAdsDisabled = SGSimpleSettings.shared.disableAllAds
+        #else
+        let glegramAdsDisabled = false
+        #endif
+        // MARK: - End GLEGram
         var adMessages: Signal<(interPostInterval: Int32?, messages: [Message], startDelay: Int32?, betweenDelay: Int32?), NoError>
-        if case .bubbles = mode, let adMessagesContext {
+        if case .bubbles = mode, let adMessagesContext, !glegramAdsDisabled {
             let peerId = adMessagesContext.peerId
             if peerId.namespace == Namespaces.Peer.CloudUser {
                 adMessages = .single((nil, [], nil, nil))

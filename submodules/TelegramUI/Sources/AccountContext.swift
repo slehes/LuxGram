@@ -445,7 +445,14 @@ public final class AccountContextImpl: AccountContext {
         self.userLimitsConfigurationDisposable = (self.engine.data.subscribe(TelegramEngine.EngineData.Item.Peer.Peer(id: account.peerId))
         |> mapToSignal { peer -> Signal<(Bool, EngineConfiguration.UserLimits), NoError> in
             let isPremium = peer?.isPremium ?? false
-            return self.engine.data.subscribe(TelegramEngine.EngineData.Item.Configuration.UserLimits(isPremium: isPremium))
+            // MARK: - GLEGram — Local Premium: pass premium=true to get premium limits
+            #if canImport(SGSimpleSettings)
+            let effectivePremium = isPremium || SGSimpleSettings.shared.enableLocalPremium
+            #else
+            let effectivePremium = isPremium
+            #endif
+            // MARK: - End GLEGram
+            return self.engine.data.subscribe(TelegramEngine.EngineData.Item.Configuration.UserLimits(isPremium: effectivePremium))
             |> map { userLimits in
                 return (isPremium, userLimits)
             }
@@ -454,7 +461,13 @@ public final class AccountContextImpl: AccountContext {
             guard let self = self else {
                 return
             }
+            // MARK: - GLEGram — Local Premium: override isPremium when local emulation is enabled
+            #if canImport(SGSimpleSettings)
+            self.isPremium = isPremium || SGSimpleSettings.shared.enableLocalPremium
+            #else
             self.isPremium = isPremium
+            #endif
+            // MARK: - End GLEGram
             self.userLimits = userLimits
         })
         

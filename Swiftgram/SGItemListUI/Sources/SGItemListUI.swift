@@ -91,7 +91,7 @@ public enum SGItemListUIEntry<Section: SGItemListSection, BoolSetting: Hashable,
     case fontSizeMultiplierSlider(id: Int, section: Section, settingName: SliderSetting, value: Int32)
     case oneFromManySelector(id: Int, section: Section, settingName: OneFromManySetting, text: String, value: String, enabled: Bool)
     case disclosure(id: Int, section: Section, link: DisclosureLink, text: String)
-    /// Disclosure row with optional icon (e.g. for GLEGram tab buttons).
+    /// Disclosure row with optional icon (e.g. for LuxGram tab buttons).
     case disclosureWithIcon(id: Int, section: Section, link: DisclosureLink, text: String, iconRef: String)
     case peerColorDisclosurePreview(id: Int, section: Section, name: String, color: UIColor)
     case action(id: Int, section: Section, actionType: ActionType, text: String, kind: ItemListActionKind)

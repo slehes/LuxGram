@@ -15,7 +15,7 @@ import DoubleBottom
 import SGSimpleSettings
 import TelegramStringFormatting
 
-// MARK: - GLEGram
+// MARK: - LuxGram
 
 // MARK: - Section (Nicegram: DoubleBottomControllerSection)
 

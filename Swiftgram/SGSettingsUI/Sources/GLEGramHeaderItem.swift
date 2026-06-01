@@ -1,4 +1,4 @@
-// MARK: Swiftgram – GLEGram settings header (icon + title + tagline)
+// MARK: Swiftgram – LuxGram settings header (icon + title + tagline)
 import Foundation
 import UIKit
 import AsyncDisplayKit
@@ -7,7 +7,7 @@ import TelegramPresentationData
 import ItemListUI
 import AppBundle
 
-public final class GLEGramHeaderItem: ItemListControllerHeaderItem {
+public final class LuxGramHeaderItem: ItemListControllerHeaderItem {
     let theme: PresentationTheme
     let title: String
     let subtitle: String
@@ -19,18 +19,18 @@ public final class GLEGramHeaderItem: ItemListControllerHeaderItem {
     }
 
     public func isEqual(to: ItemListControllerHeaderItem) -> Bool {
-        if let item = to as? GLEGramHeaderItem {
+        if let item = to as? LuxGramHeaderItem {
             return theme === item.theme && title == item.title && subtitle == item.subtitle
         }
         return false
     }
 
     public func node(current: ItemListControllerHeaderItemNode?) -> ItemListControllerHeaderItemNode {
-        if let current = current as? GLEGramHeaderItemNode {
+        if let current = current as? LuxGramHeaderItemNode {
             current.item = self
             return current
         }
-        return GLEGramHeaderItemNode(item: self)
+        return LuxGramHeaderItemNode(item: self)
     }
 }
 
@@ -39,14 +39,14 @@ private let subtitleFont = Font.regular(14.0)
 private let iconSize: CGFloat = 64.0
 private let iconCornerRadius: CGFloat = 14.0
 
-final class GLEGramHeaderItemNode: ItemListControllerHeaderItemNode {
+final class LuxGramHeaderItemNode: ItemListControllerHeaderItemNode {
     private let backgroundNode: ASDisplayNode
     private let iconNode: ASImageNode
     private let titleNode: ImmediateTextNode
     private let subtitleNode: ImmediateTextNode
     private var validLayout: ContainerViewLayout?
 
-    var item: GLEGramHeaderItem {
+    var item: LuxGramHeaderItem {
         didSet {
             updateItem()
             if let layout = validLayout {
@@ -55,7 +55,7 @@ final class GLEGramHeaderItemNode: ItemListControllerHeaderItemNode {
         }
     }
 
-    init(item: GLEGramHeaderItem) {
+    init(item: LuxGramHeaderItem) {
         self.item = item
         self.backgroundNode = ASDisplayNode()
         self.backgroundNode.isLayerBacked = true
@@ -63,7 +63,7 @@ final class GLEGramHeaderItemNode: ItemListControllerHeaderItemNode {
         self.iconNode.contentMode = .scaleAspectFit
         self.iconNode.cornerRadius = iconCornerRadius
         self.iconNode.clipsToBounds = true
-        if let rawIcon = UIImage(bundleImageName: "GLEGramSettings") {
+        if let rawIcon = UIImage(bundleImageName: "LuxGramSettings") {
             self.iconNode.image = rawIcon
         }
         self.titleNode = ImmediateTextNode()

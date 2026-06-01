@@ -16,17 +16,17 @@ struct AppBadge: Identifiable, Hashable {
 }
 
 func getAvailableAppBadges() -> [AppBadge] {
-    // NOTE: We reuse the existing Swiftgram badge assets, but the underlying images were replaced
-    // with GLEGram ones. Keep only unique entries and use correct display names.
     var appBadges: [AppBadge] = [
-        // Default
-        .init(displayName: "Dark Purple", assetName: "SkyAppBadge"),
-        
-        .init(displayName: "Dark", assetName: "NightAppBadge"),
-        .init(displayName: "Red", assetName: "TitaniumAppBadge"),
-        .init(displayName: "Pink", assetName: "ProAppBadge"),
-        .init(displayName: "Green", assetName: "DayAppBadge"),
-        .init(displayName: "Purple", assetName: "SparklingAppBadge"),
+        // MARK: - LuxGram official badges
+        .init(displayName: "LuxGram Black", assetName: "LuxGramBlackAppBadge"),
+        .init(displayName: "LuxGram Green", assetName: "LuxGramGreenAppBadge"),
+        // Colour variants
+        .init(displayName: "Dark Purple",   assetName: "SkyAppBadge"),
+        .init(displayName: "Dark",          assetName: "NightAppBadge"),
+        .init(displayName: "Red",           assetName: "TitaniumAppBadge"),
+        .init(displayName: "Pink",          assetName: "ProAppBadge"),
+        .init(displayName: "Green",         assetName: "DayAppBadge"),
+        .init(displayName: "Purple",        assetName: "SparklingAppBadge"),
     ]
 
     if SGSimpleSettings.shared.duckyAppIconAvailable {

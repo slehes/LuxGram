@@ -88,8 +88,8 @@ public enum TweakLoader {
             }
             return
         }
-        // Optional: call an init symbol if the tweak exports it (e.g. GLEGramTweakInit).
-        if let initSymbol = dlsym(handle, "GLEGramTweakInit") {
+        // Optional: call an init symbol if the tweak exports it (e.g. LuxGramTweakInit).
+        if let initSymbol = dlsym(handle, "LuxGramTweakInit") {
             typealias InitFn = @convention(c) () -> Void
             let fn = unsafeBitCast(initSymbol, to: InitFn.self)
             fn()

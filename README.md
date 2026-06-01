@@ -1,124 +1,165 @@
-# GLEGram iOS
+<div align="center">
 
-GLEGram — privacy-focused Telegram iOS client based on [Swiftgram](https://github.com/Swiftgram/Telegram-iOS) and [Telegram iOS](https://github.com/TelegramMessenger/Telegram-iOS).
+<img src="Icons/LuxGram 1024x1024.png" width="120" height="120" style="border-radius: 22px;" />
 
-**Base version:** Telegram 12.5 / Swiftgram 12.5
+# LuxGram
 
-## Features
+**Next-level Telegram client for iOS**
 
-### Privacy & Ghost Mode
-- Hide online status with periodic offline packets
-- Message send delay (12/30/45 sec)
-- Hide typing, recording, uploading, and all activity statuses (20+ toggles)
-- Disable read receipts for messages and stories (with peer whitelist)
-- Disable screenshot detection in secret chats
+[![Platform](https://img.shields.io/badge/platform-iOS%2016%2B-blue?style=flat-square&logo=apple)](https://apple.com/ios)
+[![Swift](https://img.shields.io/badge/swift-5.9-orange?style=flat-square&logo=swift)](https://swift.org)
+[![Telegram Base](https://img.shields.io/badge/Telegram-12.5-2CA5E0?style=flat-square&logo=telegram)](https://telegram.org)
+[![License](https://img.shields.io/badge/license-GPL--2.0-green?style=flat-square)](LICENSE)
+[![Build](https://img.shields.io/github/actions/workflow/status/GLEGram/GLEGram-iOS/build.yml?style=flat-square&label=IPA%20Build)](../../actions)
 
-### Saved Deleted Messages
-- Auto-save messages deleted by others (AyuGram-style)
-- Save media, reactions, bot messages
-- Edit history tracking with inline display
-- Search across saved deleted messages
+<br/>
 
-### Content Protection Bypass
-- Save copy-protected media (photos, videos)
-- Save self-destructing (view-once) messages
-- Bypass forward restrictions
-- Allow screenshots in secret chats without notification
-- Share button for protected content
+<img src="AppBadges/LuxGram(Black).png" height="48" />
+&nbsp;&nbsp;&nbsp;
+<img src="AppBadges/LuxGram(Green).png" height="48" />
 
-### Appearance
-- Custom font replacement (A-Font style) with size control
-- Fake profile (local name, username, phone, badges)
-- Custom profile cover (image/video)
-- GLEGram app badges (7 color variants)
-- Gift ID display
+</div>
 
-### Other Features
-- Chat export (HTML/JSON/TXT)
-- Fake location (CLLocationManager swizzling)
-- Local Premium emulation
-- Telescope (video circles from gallery)
-- Plugin system (JS-based)
-- Voice morpher (6 presets)
-- Double bottom (hidden accounts)
-- Chat password protection
-- Per-account notification mute
-- Local stars balance
-- Custom TLS ClientHello fingerprint
+---
 
-## Project Structure
+## ✨ Features
 
-```
-GLEGram/          — GLEGram-exclusive modules
-├── SGSupporters/     Badges, subscriptions, encrypted API
-├── SGDeletedMessages/ Saved deleted messages (namespace 1338)
-├── SGFakeLocation/   Location spoofing
-├── SGChatExport/     Chat export
-├── SGLocalPremium/   Premium emulation
-├── DoubleBottom/     Hidden accounts
-├── ChatPassword/     Per-chat password
-├── VoiceMorpher/     Voice effects
-├── GLESettingsUI/    Settings controllers
+| Feature | Description |
+|---------|-------------|
+| 👻 **Ghost Mode** | Hide online status — broadcasts offline every 5 sec |
+| ⏱ **Ghost Delay** | Messages appear sent but server gets them after 12–45 sec |
+| 🚫 **No Read Receipts** | Disable message & story read receipts, per-contact whitelist |
+| 🚫 **No Ads** | Block all sponsored messages in channels |
+| 💎 **Local Premium** | Unlock premium UI limits (folders, pins, emoji) locally |
+| 🔒 **Chat Password** | Per-chat password protection |
+| 🕳 **Double Bottom** | Hidden accounts behind a secret passcode |
+| 💬 **Deleted Messages** | Auto-save deleted messages before they vanish |
+| 🎨 **Font Replacement** | Replace Telegram's font app-wide (.ttf import) |
+| 📍 **Fake Location** | Spoof GPS via CLLocationManager swizzling |
+| 🔊 **Voice Morpher** | Change voice: Anonymous / Female / Male / Child / Robot |
+| 📤 **Chat Export** | Export history to JSON, TXT or HTML |
+| 🌊 **Liquid Glass** | iOS 26 frosted glass on all nav bars, tabs and toolbars |
+| 🎭 **Fake Profile** | Show custom name/photo to yourself locally |
+| 🔌 **Plugins** | Install & run custom JS plugins |
+| ⭐ **Local Stars** | Custom Stars balance display |
 
-Swiftgram/        — Shared Swiftgram modules (50+)
-submodules/       — Telegram iOS base (patched with // MARK: - GLEGram)
-Telegram/         — App target and extensions
-```
+---
 
-## Build
+## 📱 Badges
+
+Pick your notification badge in **LuxGram → Settings → Badge**:
+
+<div align="center">
+<img src="AppBadges/LuxGram(Black).png" height="44" />&nbsp;&nbsp;&nbsp;<img src="AppBadges/LuxGram(Green).png" height="44" />
+</div>
+
+---
+
+## 🛠 Build
 
 ### Requirements
-- macOS 15.7+
-- Xcode 26.2+
-- JDK 21 (for Bazel)
-- Bazel 8.4.2
 
-### Setup
+| Tool | Version |
+|------|---------|
+| macOS | 14+ |
+| Xcode | 16+ |
+| JDK | 21 (system, set `JAVA_HOME`) |
+| Python | 3.11+ |
 
-1. Get Telegram API credentials at https://my.telegram.org/apps
+### 1 — Clone
 
-2. Create build configuration:
-   ```bash
-   cp build-system/ipa-build-configuration.json build-system/my-build-configuration.json
-   # Edit my-build-configuration.json with your API ID, API Hash, Team ID, Bundle ID
-   ```
-
-3. Set up code signing:
-   ```bash
-   # Place your .mobileprovision files in build-system/real-codesigning/profiles/
-   # Place your .p12 certificate in build-system/real-codesigning/certs/
-   ```
-
-4. Build:
-   ```bash
-   # Production IPA (device)
-   ./scripts/buildprod.sh
-
-   # With custom build number
-   ./scripts/buildprod.sh --buildNumber 100006
-
-   # Clean build
-   ./scripts/buildprod.sh --clean
-   ```
-
-### Known Issues
-- Bazel 8.4.2 with embedded JDK 24 may crash on macOS 15.7.4+. The build system auto-applies `--server_javabase` with system JDK 21.
-- First build takes ~15 minutes (opus, webrtc compilation). Subsequent builds use disk cache.
-
-## Contributing
-
-GLEGram code is organized in `GLEGram/` folder. All patches to Telegram source files are marked with:
-```swift
-// MARK: - GLEGram
-<code>
-// MARK: - End GLEGram
+```bash
+git clone --recursive https://github.com/GLEGram/GLEGram-iOS.git
+cd GLEGram-iOS
 ```
 
-## Credits
+### 2 — Configure signing
 
-- [Telegram iOS](https://github.com/TelegramMessenger/Telegram-iOS) — Original Telegram client
-- [Swiftgram](https://github.com/Swiftgram/Telegram-iOS) — Base fork with additional features
+Edit `build-system/ipa-build-configuration.json`:
 
-## License
+```json
+{
+  "bundle_id": "com.yourteam.LuxGram",
+  "api_id": "35971841",
+  "api_hash": "504a05393f81633f94c433502e9b09e6",
+  "team_id": "YOUR_APPLE_TEAM_ID"
+}
+```
 
-This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 2 of the License, or (at your option) any later version.
+Place your provisioning profile:
+
+```
+build-system/real-codesigning/LuxGram.mobileprovision
+```
+
+### 3 — Build
+
+```bash
+# Production IPA
+./scripts/buildprod.sh
+
+# Custom build number
+./scripts/buildprod.sh --buildNumber 100001
+
+# Clean build
+./scripts/buildprod.sh --clean
+
+# Simulator (no device needed)
+./scripts/buildsim.sh
+```
+
+IPA appears in `build/artifacts/`.
+
+---
+
+## ⚡ GitHub Actions (CI/CD)
+
+Push to `main` → IPA built automatically.
+
+**Add these Secrets** in repo **Settings → Secrets and variables → Actions**:
+
+| Secret | How to get |
+|--------|-----------|
+| `CERTIFICATE_P12_BASE64` | `base64 -i YourCert.p12 \| pbcopy` |
+| `CERTIFICATE_PASSWORD` | Password from Keychain |
+| `PROVISIONING_PROFILE_BASE64` | `base64 -i LuxGram.mobileprovision \| pbcopy` |
+| `APPLE_TEAM_ID` | Your 10-char Apple Team ID |
+
+After push — go to **Actions** tab, download IPA from the build artifacts.
+
+---
+
+## 🗂 Structure
+
+```
+LuxGram-iOS/
+├── GLEGram/            LuxGram-exclusive modules
+│   ├── SGLocalPremium/ Local Premium emulation
+│   ├── DoubleBottom/   Hidden accounts
+│   ├── ChatPassword/   Per-chat passwords
+│   ├── VoiceMorpher/   Voice presets
+│   └── GLESettingsUI/  18 settings controllers
+├── Swiftgram/          Base Swiftgram layer (~50 modules)
+│   ├── SGSimpleSettings/ 150+ UserDefaults keys
+│   └── SGSettingsUI/   Main settings UI
+├── submodules/         Telegram iOS (patched)
+├── AppBadges/          Selectable notification badges
+└── Icons/              App icon assets
+```
+
+---
+
+## 📬 Community
+
+<div align="center">
+
+[![Channel](https://img.shields.io/badge/Telegram-Channel-2CA5E0?style=for-the-badge&logo=telegram)](https://t.me/luxgramios)
+[![Chat](https://img.shields.io/badge/Telegram-Chat-2CA5E0?style=for-the-badge&logo=telegram)](https://t.me/luxgramios_chat)
+
+</div>
+
+---
+
+<div align="center">
+<sub>Based on <a href="https://github.com/Swiftgram/Telegram-iOS">Swiftgram</a> · <a href="https://github.com/TelegramMessenger/Telegram-iOS">Telegram iOS</a> · GPL-2.0</sub>
+</div>

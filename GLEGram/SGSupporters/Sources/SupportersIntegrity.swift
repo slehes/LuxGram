@@ -158,9 +158,9 @@ public enum SupportersIntegrity {
     // │  4.  Composite access derivation                     │
     // └──────────────────────────────────────────────────────┘
 
-    /// Derive glegramTab access from accumulated fragments.
+    /// Derive luxgramTab access from accumulated fragments.
     ///
-    /// Expected XOR when all integrity checks pass AND glegramTab == true:
+    /// Expected XOR when all integrity checks pass AND luxgramTab == true:
     ///   kCryptoOK ^ kCacheOK ^ kTextOK ^ kAccessOn
     ///
     /// If any layer is missing or returns the wrong fragment, the XOR differs
@@ -189,12 +189,12 @@ public enum SupportersIntegrity {
     /// The server can also generate this token so the client can verify it.
     public static func computeAccessToken(
         userId: String,
-        glegramTab: Bool,
+        luxgramTab: Bool,
         betaBuilds: Bool,
         hmacKeyData: Data
     ) -> Data {
         let integrityKey = deriveIntegrityKey(from: hmacKeyData)
-        let payload = "\(userId)|\(glegramTab ? "1" : "0")|\(betaBuilds ? "1" : "0")"
+        let payload = "\(userId)|\(luxgramTab ? "1" : "0")|\(betaBuilds ? "1" : "0")"
         let auth = HMAC<SHA256>.authenticationCode(
             for: Data(payload.utf8),
             using: SymmetricKey(data: integrityKey)
@@ -207,13 +207,13 @@ public enum SupportersIntegrity {
     public static func verifyAccessToken(
         _ token: Data,
         userId: String,
-        glegramTab: Bool,
+        luxgramTab: Bool,
         betaBuilds: Bool,
         hmacKeyData: Data
     ) -> Bool {
         let expected = computeAccessToken(
             userId: userId,
-            glegramTab: glegramTab,
+            luxgramTab: luxgramTab,
             betaBuilds: betaBuilds,
             hmacKeyData: hmacKeyData
         )
@@ -227,7 +227,7 @@ public enum SupportersIntegrity {
 
     /// Derive a separate key for access tokens (so it differs from the API HMAC key).
     private static func deriveIntegrityKey(from masterKey: Data) -> Data {
-        let salt = Data("glegram-integrity-v1".utf8)
+        let salt = Data("luxgram-integrity-v1".utf8)
         let auth = HMAC<SHA256>.authenticationCode(for: salt, using: SymmetricKey(data: masterKey))
         return Data(auth)
     }
@@ -241,14 +241,14 @@ public enum SupportersIntegrity {
     ///
     /// - `cryptoSucceeded`:  set `true` after a successful decrypt+HMAC verify
     /// - `cacheDecrypted`:   set `true` after Keychain data was decrypted successfully
-    /// - `glegramTab` / `betaBuilds`:  raw access flags from the server response
+    /// - `luxgramTab` / `betaBuilds`:  raw access flags from the server response
     ///
     /// After calling this, `deriveGlegramTab()` / `deriveBetaBuilds()` return
     /// the integrity-verified access.
     public static func validate(
         cryptoSucceeded: Bool,
         cacheDecrypted: Bool,
-        glegramTab: Bool,
+        luxgramTab: Bool,
         betaBuilds: Bool
     ) {
         resetFragments()
@@ -269,7 +269,7 @@ public enum SupportersIntegrity {
         }
 
         // Fragment 4: access flag (determines which derive* returns true)
-        if glegramTab {
+        if luxgramTab {
             contribute(kAccessOn)
         } else if betaBuilds {
             contribute(kBetaOn)

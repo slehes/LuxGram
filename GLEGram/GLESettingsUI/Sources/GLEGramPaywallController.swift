@@ -14,7 +14,7 @@ import LegacyUI
 private let innerShadowWidth: CGFloat = 15.0
 private let accentColorHex: String = "C0B0D8"
 
-private struct GLEGramBackgroundView: View {
+private struct LuxGramBackgroundView: View {
     var body: some View {
         ZStack {
             LinearGradient(
@@ -70,8 +70,8 @@ private struct GLEGramBackgroundView: View {
 }
 
 @available(iOS 13.0, *)
-private struct GLEGramPaywallView: View {
-    let promo: GLEGramPromo
+private struct LuxGramPaywallView: View {
+    let promo: LuxGramPromo
     let trialAvailable: Bool
     let onTrial: () -> Void
     let onSubscribe: () -> Void
@@ -82,7 +82,7 @@ private struct GLEGramPaywallView: View {
 
     var body: some View {
         ZStack {
-            GLEGramBackgroundView()
+            LuxGramBackgroundView()
 
             ZStack(alignment: .bottom) {
                 ScrollView(showsIndicators: false) {
@@ -101,7 +101,7 @@ private struct GLEGramPaywallView: View {
                                     )
                                 )
                                 .frame(width: 120, height: 120)
-                            Image("GLEGramSettings")
+                            Image("LuxGramSettings")
                                 .resizable()
                                 .aspectRatio(contentMode: .fit)
                                 .frame(width: 88, height: 88)
@@ -240,7 +240,7 @@ private struct GLEGramPaywallView: View {
     }
 }
 
-public func gleGramPaywallController(context: AccountContext, promo: GLEGramPromo, trialAvailable: Bool) -> ViewController {
+public func gleGramPaywallController(context: AccountContext, promo: LuxGramPromo, trialAvailable: Bool) -> ViewController {
     if #available(iOS 13.0, *) {
         let theme = defaultDarkColorPresentationTheme
         let strings = context.sharedContext.currentPresentationData.with { $0 }.strings
@@ -257,10 +257,10 @@ public func gleGramPaywallController(context: AccountContext, promo: GLEGramProm
         var weakLegacy: LegacySwiftUIController?
         weakLegacy = legacyController
 
-        let swiftUIView = SGSwiftUIView<GLEGramPaywallView>(
+        let swiftUIView = SGSwiftUIView<LuxGramPaywallView>(
             legacyController: legacyController,
             content: {
-                GLEGramPaywallView(
+                LuxGramPaywallView(
                     promo: promo,
                     trialAvailable: trialAvailable,
                     onTrial: { [weak context] in
@@ -276,7 +276,7 @@ public func gleGramPaywallController(context: AccountContext, promo: GLEGramProm
                                     TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: {})
                                 ]), in: .window(.root))
                             } else if let trial = trial, trial.active {
-                                refreshGLEGramStatusIfConfigured(userId: userId)
+                                refreshLuxGramStatusIfConfigured(userId: userId)
                                 let text = lang == "ru" ? "Пробный период активирован!" : "Trial activated!"
                                 weakLegacy?.present(standardTextAlertController(theme: AlertControllerTheme(presentationData: presentationData), title: nil, text: text, actions: [
                                     TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: {
@@ -310,21 +310,21 @@ public func gleGramPaywallController(context: AccountContext, promo: GLEGramProm
 
         return legacyController
     } else {
-        return GLEGramPaywallFallbackController(context: context, promo: promo, trialAvailable: trialAvailable)
+        return LuxGramPaywallFallbackController(context: context, promo: promo, trialAvailable: trialAvailable)
     }
 }
 
-private final class GLEGramPaywallFallbackController: ViewController {
+private final class LuxGramPaywallFallbackController: ViewController {
     private let context: AccountContext
-    private let promo: GLEGramPromo
+    private let promo: LuxGramPromo
     private let trialAvailable: Bool
 
-    init(context: AccountContext, promo: GLEGramPromo, trialAvailable: Bool) {
+    init(context: AccountContext, promo: LuxGramPromo, trialAvailable: Bool) {
         self.context = context
         self.promo = promo
         self.trialAvailable = trialAvailable
         super.init(navigationBarPresentationData: NavigationBarPresentationData(presentationData: context.sharedContext.currentPresentationData.with { $0 }))
-        self.title = "GLEGram"
+        self.title = "LuxGram"
     }
 
     required init(coder: NSCoder) { fatalError() }
@@ -433,7 +433,7 @@ private final class GLEGramPaywallFallbackController: ViewController {
                     TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: {})
                 ]), in: .window(.root))
             } else if let trial = trial, trial.active {
-                refreshGLEGramStatusIfConfigured(userId: userId)
+                refreshLuxGramStatusIfConfigured(userId: userId)
                 let text = lang == "ru" ? "Пробный период активирован!" : "Trial activated!"
                 self.present(standardTextAlertController(theme: AlertControllerTheme(presentationData: presentationData), title: nil, text: text, actions: [
                     TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: { [weak self] in

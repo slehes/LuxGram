@@ -13,7 +13,7 @@ import AccountContext
 import SGDeletedMessages
 #endif
 
-// MARK: - GLEGram
+// MARK: - LuxGram
 
 // MARK: - Entry
 

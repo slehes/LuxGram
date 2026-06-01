@@ -308,18 +308,18 @@ filegroup(
 )
 
 # MARK: Swiftgram alternative icons
-# MARK: GLEGram alternative icons
+# MARK: LuxGram alternative icons
 alternate_icon_folders = [
-    "GLEGramDarkPurple",
-    "GLEGramBlack",
-    "GLEGramGreen",
-    "GLEGramPink",
-    "GLEGramPurple",
-    "GLEGramRed",
-    "GLEGramDuck",
+    "LuxGramDarkPurple",
+    "LuxGramBlack",
+    "LuxGramGreen",
+    "LuxGramPink",
+    "LuxGramPurple",
+    "LuxGramRed",
+    "LuxGramDuck",
 ]
 
-composer_icon_folders = ["GLEGram"]
+composer_icon_folders = ["LuxGram"]
 
 [
     filegroup(
@@ -501,7 +501,7 @@ official_carplay_fragment = """
 <key>com.apple.developer.carplay-messaging</key>
 <true/>
 """
-carplay_fragment = "" # MARK: GLEGram — temporarily disabled (not in provisioning profile)
+carplay_fragment = "" # MARK: LuxGram — temporarily disabled (not in provisioning profile)
 
 icloud_fragment = "" if not telegram_enable_icloud else """
 <key>com.apple.developer.icloud-services</key>
@@ -689,7 +689,7 @@ plist_fragment(
     template =
     """
     <key>CFBundleDisplayName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     """
 )
 
@@ -716,7 +716,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.watchkitapp</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>UISupportedInterfaceOrientations</key>
     <array>
         <string>UIInterfaceOrientationPortrait</string>
@@ -1107,7 +1107,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.Share</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>NSExtension</key>
@@ -1199,7 +1199,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.NotificationContent</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>NSExtension</key>
@@ -1306,7 +1306,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.Widget</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>NSExtension</key>
@@ -1419,7 +1419,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.SiriIntents</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>NSExtension</key>
@@ -1552,7 +1552,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.SGActionRequestHandler</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundleDisplayName</key>
     <string>Open in Swiftgram</string>
     <key>CFBundlePackageType</key>
@@ -1691,7 +1691,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.BroadcastUpload</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>NSExtension</key>
@@ -1785,7 +1785,7 @@ plist_fragment(
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}.NotificationService</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>XPC!</string>
     <key>NSExtension</key>
@@ -1854,11 +1854,11 @@ plist_fragment(
     <key>CFBundleDevelopmentRegion</key>
     <string>en</string>
     <key>CFBundleDisplayName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundleIdentifier</key>
     <string>{telegram_bundle_id}</string>
     <key>CFBundleName</key>
-    <string>GLEGram</string>
+    <string>LuxGram</string>
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleSignature</key>
@@ -1912,7 +1912,7 @@ plist_fragment(
     <key>NSCameraUsageDescription</key>
     <string>We need this so that you can take and share photos and videos.</string>
     <key>NSContactsUsageDescription</key>
-    <string>GLEGram stores your contacts heavily encrypted in the Telegram cloud to let you connect with your friends across all your devices.</string>
+    <string>LuxGram stores your contacts heavily encrypted in the Telegram cloud to let you connect with your friends across all your devices.</string>
     <key>NSFaceIDUsageDescription</key>
     <string>You can use Face ID to unlock the app.</string>
     <key>NSLocationAlwaysUsageDescription</key>
@@ -2029,8 +2029,8 @@ xcode_provisioning_profile(
 )
 
 ios_application(
-    name = "GLEGram",
-    executable_name = "GLEGram",
+    name = "LuxGram",
+    executable_name = "LuxGram",
     bundle_id = "{telegram_bundle_id}".format(
         telegram_bundle_id = telegram_bundle_id,
     ),
@@ -2088,21 +2088,21 @@ ios_application(
     visibility = ["//visibility:public"],
 )
 
-# MARK: GLEGram
+# MARK: LuxGram
 alias(
     name = "Swiftgram",
-    actual = ":GLEGram",
+    actual = ":LuxGram",
     visibility = ["//visibility:public"],
 )
-# MARK: End GLEGram
+# MARK: End LuxGram
 
 xcodeproj(
     name = "Telegram_xcodeproj",
     bazel_path = telegram_bazel_path,
-    project_name = "GLEGram",
+    project_name = "LuxGram",
     tags = ["manual"],
     top_level_targets = [
-        top_level_target(":GLEGram", target_environments = ["device", "simulator"]),
+        top_level_target(":LuxGram", target_environments = ["device", "simulator"]),
         ":iOSAppUITestSuite",
     ],
     xcode_configurations = {

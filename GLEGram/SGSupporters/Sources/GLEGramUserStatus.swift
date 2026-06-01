@@ -1,43 +1,43 @@
 import Foundation
 
-// MARK: - GLEGram check_user response models
+// MARK: - LuxGram check_user response models
 
-public struct GLEGramUserStatus: Equatable {
+public struct LuxGramUserStatus: Equatable {
     public let userId: String
-    public let badges: [GLEGramBadge]
-    public let subscription: GLEGramSubscription?
-    public let trial: GLEGramTrial?
-    public let donation: GLEGramDonation?
-    public let access: GLEGramAccess
-    public let glegramPromo: GLEGramPromo?
-    public let betaConfig: GLEGramBetaConfig?
+    public let badges: [LuxGramBadge]
+    public let subscription: LuxGramSubscription?
+    public let trial: LuxGramTrial?
+    public let donation: LuxGramDonation?
+    public let access: LuxGramAccess
+    public let luxgramPromo: LuxGramPromo?
+    public let betaConfig: LuxGramBetaConfig?
     public let hasActiveSubscription: Bool
     public let hasActiveTrial: Bool
     public let trialAvailable: Bool
 
     public init(json: [String: Any]) {
         self.userId = json["userId"] as? String ?? ""
-        self.badges = (json["badges"] as? [[String: Any]] ?? []).compactMap { GLEGramBadge(json: $0) }
-        self.subscription = (json["subscription"] as? [String: Any]).flatMap { GLEGramSubscription(json: $0) }
-        self.trial = (json["trial"] as? [String: Any]).flatMap { GLEGramTrial(json: $0) }
-        self.donation = (json["donation"] as? [String: Any]).flatMap { GLEGramDonation(json: $0) }
-        self.access = GLEGramAccess(json: json["access"] as? [String: Any] ?? [:])
-        self.glegramPromo = (json["glegramPromo"] as? [String: Any]).flatMap { GLEGramPromo(json: $0) }
-        self.betaConfig = (json["betaConfig"] as? [String: Any]).flatMap { GLEGramBetaConfig(json: $0) }
+        self.badges = (json["badges"] as? [[String: Any]] ?? []).compactMap { LuxGramBadge(json: $0) }
+        self.subscription = (json["subscription"] as? [String: Any]).flatMap { LuxGramSubscription(json: $0) }
+        self.trial = (json["trial"] as? [String: Any]).flatMap { LuxGramTrial(json: $0) }
+        self.donation = (json["donation"] as? [String: Any]).flatMap { LuxGramDonation(json: $0) }
+        self.access = LuxGramAccess(json: json["access"] as? [String: Any] ?? [:])
+        self.luxgramPromo = (json["luxgramPromo"] as? [String: Any]).flatMap { LuxGramPromo(json: $0) }
+        self.betaConfig = (json["betaConfig"] as? [String: Any]).flatMap { LuxGramBetaConfig(json: $0) }
         self.hasActiveSubscription = json["hasActiveSubscription"] as? Bool ?? false
         self.hasActiveTrial = json["hasActiveTrial"] as? Bool ?? false
         self.trialAvailable = json["trialAvailable"] as? Bool ?? false
     }
 }
 
-public struct GLEGramBadge: Equatable {
+public struct LuxGramBadge: Equatable {
     public let id: String
     public let name: String
     public let color: String
     public let displayMode: String   // "text" or "image"
     public let image: String?        // relative URL for image badges
     public let uiEnabled: Bool
-    public let uiConfig: GLEGramBadgeUIConfig?
+    public let uiConfig: LuxGramBadgeUIConfig?
 
     public init?(json: [String: Any]) {
         guard let id = json["id"] as? String else { return nil }
@@ -47,23 +47,23 @@ public struct GLEGramBadge: Equatable {
         self.displayMode = json["displayMode"] as? String ?? "text"
         self.image = json["image"] as? String
         self.uiEnabled = json["uiEnabled"] as? Bool ?? false
-        self.uiConfig = (json["uiConfig"] as? [String: Any]).flatMap { GLEGramBadgeUIConfig(json: $0) }
+        self.uiConfig = (json["uiConfig"] as? [String: Any]).flatMap { LuxGramBadgeUIConfig(json: $0) }
     }
 }
 
-public struct GLEGramBadgeUIConfig: Equatable {
+public struct LuxGramBadgeUIConfig: Equatable {
     public let title: String
     public let description: String
-    public let buttons: [GLEGramBadgeButton]
+    public let buttons: [LuxGramBadgeButton]
 
     public init?(json: [String: Any]) {
         self.title = json["title"] as? String ?? ""
         self.description = json["description"] as? String ?? ""
-        self.buttons = (json["buttons"] as? [[String: Any]] ?? []).compactMap { GLEGramBadgeButton(json: $0) }
+        self.buttons = (json["buttons"] as? [[String: Any]] ?? []).compactMap { LuxGramBadgeButton(json: $0) }
     }
 }
 
-public struct GLEGramBadgeButton: Equatable {
+public struct LuxGramBadgeButton: Equatable {
     public let label: String
     public let url: String
 
@@ -74,7 +74,7 @@ public struct GLEGramBadgeButton: Equatable {
     }
 }
 
-public struct GLEGramSubscription: Equatable {
+public struct LuxGramSubscription: Equatable {
     public let planId: String
     public let startedAt: String
     public let expiresAt: String
@@ -88,7 +88,7 @@ public struct GLEGramSubscription: Equatable {
     }
 }
 
-public struct GLEGramTrial: Equatable {
+public struct LuxGramTrial: Equatable {
     public let startedAt: String
     public let expiresAt: String
     public let active: Bool
@@ -102,7 +102,7 @@ public struct GLEGramTrial: Equatable {
     }
 }
 
-public struct GLEGramDonation: Equatable {
+public struct LuxGramDonation: Equatable {
     public let amount: Int
     public let lastDonatedAt: String
     public let betaAccess: Bool
@@ -114,7 +114,7 @@ public struct GLEGramDonation: Equatable {
     }
 }
 
-public struct GLEGramAccess: Equatable {
+public struct LuxGramAccess: Equatable {
     // Obfuscated storage: actual bits XOR'd with per-instance random salt.
     // Prevents trivial memory scanning for plain true/false values.
     private let _enc: UInt32
@@ -122,7 +122,7 @@ public struct GLEGramAccess: Equatable {
     /// HMAC access token (base64). Used by integrity layer to verify flags haven't been tampered.
     public let accessToken: String?
 
-    public var glegramTab: Bool {
+    public var luxgramTab: Bool {
         return (_enc ^ _salt) & 0x1 != 0
     }
 
@@ -131,7 +131,7 @@ public struct GLEGramAccess: Equatable {
     }
 
     public init(json: [String: Any]) {
-        let tab = json["glegramTab"] as? Bool ?? false
+        let tab = json["luxgramTab"] as? Bool ?? false
         let beta = json["betaBuilds"] as? Bool ?? false
         let bits: UInt32 = (tab ? 1 : 0) | (beta ? 2 : 0)
         let salt = UInt32.random(in: 1...UInt32.max)
@@ -140,12 +140,12 @@ public struct GLEGramAccess: Equatable {
         self.accessToken = json["_accessToken"] as? String
     }
 
-    public static func == (lhs: GLEGramAccess, rhs: GLEGramAccess) -> Bool {
-        return lhs.glegramTab == rhs.glegramTab && lhs.betaBuilds == rhs.betaBuilds
+    public static func == (lhs: LuxGramAccess, rhs: LuxGramAccess) -> Bool {
+        return lhs.luxgramTab == rhs.luxgramTab && lhs.betaBuilds == rhs.betaBuilds
     }
 }
 
-public struct GLEGramPromo: Equatable {
+public struct LuxGramPromo: Equatable {
     public let title: String
     public let subtitle: String
     public let features: [String]
@@ -163,7 +163,7 @@ public struct GLEGramPromo: Equatable {
     }
 }
 
-public struct GLEGramBetaConfig: Equatable {
+public struct LuxGramBetaConfig: Equatable {
     public let channelId: String?
     public let channelUrl: String?
     public let buildUrl: String?
@@ -177,7 +177,7 @@ public struct GLEGramBetaConfig: Equatable {
 
 // MARK: - JSON serialization for cache
 
-extension GLEGramUserStatus {
+extension LuxGramUserStatus {
     public func toJSON() -> [String: Any] {
         var dict: [String: Any] = [
             "userId": userId,
@@ -190,13 +190,13 @@ extension GLEGramUserStatus {
         if let s = subscription { dict["subscription"] = s.toJSON() }
         if let t = trial { dict["trial"] = t.toJSON() }
         if let d = donation { dict["donation"] = d.toJSON() }
-        if let p = glegramPromo { dict["glegramPromo"] = p.toJSON() }
+        if let p = luxgramPromo { dict["luxgramPromo"] = p.toJSON() }
         if let b = betaConfig { dict["betaConfig"] = b.toJSON() }
         return dict
     }
 }
 
-extension GLEGramBadge {
+extension LuxGramBadge {
     func toJSON() -> [String: Any] {
         var dict: [String: Any] = [
             "id": id, "name": name, "color": color,
@@ -208,7 +208,7 @@ extension GLEGramBadge {
     }
 }
 
-extension GLEGramBadgeUIConfig {
+extension LuxGramBadgeUIConfig {
     func toJSON() -> [String: Any] {
         return [
             "title": title,
@@ -218,33 +218,33 @@ extension GLEGramBadgeUIConfig {
     }
 }
 
-extension GLEGramSubscription {
+extension LuxGramSubscription {
     func toJSON() -> [String: Any] {
         return ["planId": planId, "startedAt": startedAt, "expiresAt": expiresAt, "active": active]
     }
 }
 
-extension GLEGramTrial {
+extension LuxGramTrial {
     func toJSON() -> [String: Any] {
         return ["startedAt": startedAt, "expiresAt": expiresAt, "active": active, "alreadyUsed": alreadyUsed]
     }
 }
 
-extension GLEGramDonation {
+extension LuxGramDonation {
     func toJSON() -> [String: Any] {
         return ["amount": amount, "lastDonatedAt": lastDonatedAt, "betaAccess": betaAccess]
     }
 }
 
-extension GLEGramAccess {
+extension LuxGramAccess {
     func toJSON() -> [String: Any] {
-        var d: [String: Any] = ["glegramTab": glegramTab, "betaBuilds": betaBuilds]
+        var d: [String: Any] = ["luxgramTab": luxgramTab, "betaBuilds": betaBuilds]
         if let t = accessToken { d["_accessToken"] = t }
         return d
     }
 }
 
-extension GLEGramPromo {
+extension LuxGramPromo {
     func toJSON() -> [String: Any] {
         var dict: [String: Any] = [
             "title": title, "subtitle": subtitle, "features": features,
@@ -255,7 +255,7 @@ extension GLEGramPromo {
     }
 }
 
-extension GLEGramBetaConfig {
+extension LuxGramBetaConfig {
     func toJSON() -> [String: Any] {
         var dict: [String: Any] = [:]
         if let v = channelId { dict["channelId"] = v }

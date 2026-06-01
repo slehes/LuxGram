@@ -81,13 +81,13 @@ private func scaleImageForListIcon(_ image: UIImage, maxSize: CGFloat) -> UIImag
     }
 }
 
-private enum GLEGramTab: Int, CaseIterable {
+private enum LuxGramTab: Int, CaseIterable {
     case appearance = 0
     case security
     case other
 }
 
-private enum GLEGramSection: Int32, SGItemListSection {
+private enum LuxGramSection: Int32, SGItemListSection {
     case search
     case functions
     case links
@@ -106,7 +106,7 @@ private enum GLEGramSection: Int32, SGItemListSection {
     case other
 }
 
-private func tab(for section: GLEGramSection) -> GLEGramTab {
+private func tab(for section: LuxGramSection) -> LuxGramTab {
     switch section {
     case .search: return .appearance
     case .functions, .links: return .appearance
@@ -117,7 +117,7 @@ private func tab(for section: GLEGramSection) -> GLEGramTab {
     }
 }
 
-private func sectionForEntry(_ entry: GLEGramEntry) -> GLEGramSection {
+private func sectionForEntry(_ entry: LuxGramEntry) -> LuxGramSection {
     switch entry {
     case .header(_, let s, _, _): return s
     case .toggle(_, let s, _, _, _, _): return s
@@ -136,7 +136,7 @@ private func sectionForEntry(_ entry: GLEGramEntry) -> GLEGramSection {
     }
 }
 
-private func gleGramEntriesFiltered(by selectedTab: GLEGramTab, entries: [GLEGramEntry]) -> [GLEGramEntry] {
+private func gleGramEntriesFiltered(by selectedTab: LuxGramTab, entries: [LuxGramEntry]) -> [LuxGramEntry] {
     entries.filter { entry in
         let sec = sectionForEntry(entry)
         return sec == .search || tab(for: sec) == selectedTab
@@ -146,10 +146,10 @@ private func gleGramEntriesFiltered(by selectedTab: GLEGramTab, entries: [GLEGra
 /// Account info tuple for per-account notification toggles.
 typealias AccountInfo = (recordId: Int64, peerId: Int64, name: String)
 
-/// Root GLEGram screen: exteraGram-style — header (icon + title + tagline), Функции (4 tabs), Ссылки (Канал, Чат, Форум).
-private func gleGramRootEntries(presentationData: PresentationData, accounts: [AccountInfo] = []) -> [GLEGramEntry] {
+/// Root LuxGram screen: exteraGram-style — header (icon + title + tagline), Функции (4 tabs), Ссылки (Канал, Чат, Форум).
+private func gleGramRootEntries(presentationData: PresentationData, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
     let lang = presentationData.strings.baseLanguageCode
-    var entries: [GLEGramEntry] = []
+    var entries: [LuxGramEntry] = []
     let id = SGItemListCounter()
     let functionsHeader = lang == "ru" ? "ФУНКЦИИ" : "FEATURES"
     let linksHeader = lang == "ru" ? "ССЫЛКИ" : "LINKS"
@@ -160,34 +160,34 @@ private func gleGramRootEntries(presentationData: PresentationData, accounts: [A
     let chatTitle = lang == "ru" ? "Чат" : "Chat"
     let forumTitle = lang == "ru" ? "Форум" : "Forum"
     entries.append(.header(id: id.count, section: .functions, text: functionsHeader, badge: nil))
-    entries.append(GLEGramEntry.disclosureWithIcon(id: id.count, section: .functions, link: .appearanceTab, text: appearanceTitle, iconRef: "GLEGramTabAppearance"))
-    entries.append(GLEGramEntry.disclosureWithIcon(id: id.count, section: .functions, link: .securityTab, text: securityTitle, iconRef: "GLEGramTabSecurity"))
-    entries.append(GLEGramEntry.disclosureWithIcon(id: id.count, section: .functions, link: .otherTab, text: otherTitle, iconRef: "GLEGramTabOther"))
+    entries.append(LuxGramEntry.disclosureWithIcon(id: id.count, section: .functions, link: .appearanceTab, text: appearanceTitle, iconRef: "LuxGramTabAppearance"))
+    entries.append(LuxGramEntry.disclosureWithIcon(id: id.count, section: .functions, link: .securityTab, text: securityTitle, iconRef: "LuxGramTabSecurity"))
+    entries.append(LuxGramEntry.disclosureWithIcon(id: id.count, section: .functions, link: .otherTab, text: otherTitle, iconRef: "LuxGramTabOther"))
     entries.append(.header(id: id.count, section: .links, text: linksHeader, badge: nil))
-    entries.append(GLEGramEntry.disclosureWithIcon(id: id.count, section: .links, link: .channelLink, text: channelTitle, iconRef: "Settings/Menu/Channels"))
-    entries.append(GLEGramEntry.disclosureWithIcon(id: id.count, section: .links, link: .chatLink, text: chatTitle, iconRef: "Settings/Menu/GroupChats"))
-    entries.append(GLEGramEntry.disclosureWithIcon(id: id.count, section: .links, link: .forumLink, text: forumTitle, iconRef: "Settings/Menu/Topics"))
+    entries.append(LuxGramEntry.disclosureWithIcon(id: id.count, section: .links, link: .channelLink, text: channelTitle, iconRef: "Settings/Menu/Channels"))
+    entries.append(LuxGramEntry.disclosureWithIcon(id: id.count, section: .links, link: .chatLink, text: chatTitle, iconRef: "Settings/Menu/GroupChats"))
+    entries.append(LuxGramEntry.disclosureWithIcon(id: id.count, section: .links, link: .forumLink, text: forumTitle, iconRef: "Settings/Menu/Topics"))
 
     if cachedAggregateAccess().betaBuilds, let betaConfig = cachedAggregateBetaConfig(), betaConfig.channelUrl != nil {
         let betaHeader = lang == "ru" ? "БЕТА" : "BETA"
         entries.append(.header(id: id.count, section: .links, text: betaHeader, badge: nil))
         let betaChannelTitle = lang == "ru" ? "Перейти в канал с бета-версиями" : "Go to Beta Channel"
-        entries.append(GLEGramEntry.disclosure(id: id.count, section: .links, link: .betaChannel, text: betaChannelTitle))
+        entries.append(LuxGramEntry.disclosure(id: id.count, section: .links, link: .betaChannel, text: betaChannelTitle))
     }
 
     return entries
 }
 
-private enum GLEGramSliderSetting: Hashable {
+private enum LuxGramSliderSetting: Hashable {
     case fontReplacementSize
     case ghostModeMessageSendDelay
 }
 
-private enum GLEGramOneFromManySetting: Hashable {
+private enum LuxGramOneFromManySetting: Hashable {
     case onlineStatusRecordingInterval
 }
 
-private enum GLEGramDisclosureLink: Hashable {
+private enum LuxGramDisclosureLink: Hashable {
     case fakeLocationPicker
     case tabOrganizer
     case profileCover
@@ -211,16 +211,16 @@ private enum GLEGramDisclosureLink: Hashable {
     case betaChannel
 }
 
-private typealias GLEGramEntry = SGItemListUIEntry<GLEGramSection, SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>
+private typealias LuxGramEntry = SGItemListUIEntry<LuxGramSection, SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>
 
-private struct GLEGramSettingsControllerState: Equatable {
+private struct LuxGramSettingsControllerState: Equatable {
     var searchQuery: String?
-    var selectedTab: GLEGramTab = .appearance
+    var selectedTab: LuxGramTab = .appearance
 }
 
 /// Removes gated toggle entries, their dependent entries (disclosures, sliders, actions), following notices,
 /// and orphaned headers (headers whose sub-section contains only notices after filtering).
-private func filterGatedFeatures(entries: [GLEGramEntry]) -> [GLEGramEntry] {
+private func filterGatedFeatures(entries: [LuxGramEntry]) -> [LuxGramEntry] {
     let settings = SGSimpleSettings.shared
 
     // Collect which toggle keys are gated (not visible)
@@ -236,7 +236,7 @@ private func filterGatedFeatures(entries: [GLEGramEntry]) -> [GLEGramEntry] {
     if gatedKeys.isEmpty { return entries }
 
     // Disclosures that should be hidden when their parent toggle is gated
-    let dependentDisclosures: [GLEGramDisclosureLink: SGBoolSetting] = [
+    let dependentDisclosures: [LuxGramDisclosureLink: SGBoolSetting] = [
         .fakeProfileSettings: .fakeProfileEnabled,
         .fakeLocationPicker: .fakeLocationEnabled,
         .feelRichAmount: .feelRichEnabled,
@@ -245,7 +245,7 @@ private func filterGatedFeatures(entries: [GLEGramEntry]) -> [GLEGramEntry] {
     ]
 
     // Sliders that should be hidden when their parent toggle is gated
-    let dependentSliders: [GLEGramSliderSetting: SGBoolSetting] = [
+    let dependentSliders: [LuxGramSliderSetting: SGBoolSetting] = [
         .ghostModeMessageSendDelay: .disableOnlineStatus,
     ]
 
@@ -255,7 +255,7 @@ private func filterGatedFeatures(entries: [GLEGramEntry]) -> [GLEGramEntry] {
     ]
 
     // First pass: remove gated entries and their dependents + following notices
-    var filtered: [GLEGramEntry] = []
+    var filtered: [LuxGramEntry] = []
     var skipNextNotice = false
 
     for entry in entries {
@@ -303,7 +303,7 @@ private func filterGatedFeatures(entries: [GLEGramEntry]) -> [GLEGramEntry] {
 
     // Second pass: remove orphaned headers.
     // A header is orphaned if all entries until the next header (or end) are only notices.
-    var result: [GLEGramEntry] = []
+    var result: [LuxGramEntry] = []
     var i = 0
     while i < filtered.count {
         if case .header = filtered[i] {
@@ -335,10 +335,10 @@ private func filterGatedFeatures(entries: [GLEGramEntry]) -> [GLEGramEntry] {
     return result
 }
 
-private func gleGramEntries(presentationData: PresentationData, contentSettingsConfiguration: ContentSettingsConfiguration?, state: GLEGramSettingsControllerState, mediaBoxBasePath: String, accounts: [AccountInfo] = []) -> [GLEGramEntry] {
+private func gleGramEntries(presentationData: PresentationData, contentSettingsConfiguration: ContentSettingsConfiguration?, state: LuxGramSettingsControllerState, mediaBoxBasePath: String, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
     let lang = presentationData.strings.baseLanguageCode
     let strings = presentationData.strings
-    var entries: [GLEGramEntry] = []
+    var entries: [LuxGramEntry] = []
     let id = SGItemListCounter()
     
     entries.append(.searchInput(id: id.count, section: .search, title: NSAttributedString(string: "🔍"), text: state.searchQuery ?? "", placeholder: strings.Common_Search))
@@ -529,6 +529,16 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Текущий: " : "Current: ") + boldFontLabelApp))
     entries.append(.fontSizeMultiplierSlider(id: id.count, section: .appearance, settingName: .fontReplacementSize, value: max(50, min(150, SGSimpleSettings.shared.fontReplacementSizeMultiplier))))
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Размер шрифта (50–150%)." : "Font size (50–150%).")))
+    // MARK: - LuxGram — Liquid Glass
+    entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "LIQUID GLASS" : "LIQUID GLASS"), badge: nil))
+    let liquidGlassTitle = (lang == "ru" ? "Liquid Glass эффект" : "Liquid Glass effect")
+    let liquidGlassNotice = (lang == "ru"
+        ? "Эффект матового стекла на навигационных панелях, вкладках и тулбарах. Работает сразу после включения."
+        : "Frosted glass effect on navigation bars, tabs and toolbars. Takes effect immediately.")
+    entries.append(.toggle(id: id.count, section: .appearance, settingName: .liquidGlassEnabled, value: SGSimpleSettings.shared.liquidGlassEnabled, text: liquidGlassTitle, enabled: true))
+    entries.append(.notice(id: id.count, section: .appearance, text: liquidGlassNotice))
+    // MARK: - End LuxGram
+
     entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "ТЕКСТ И ЧИСЛА" : "TEXT & NUMBERS"), badge: nil))
     let disableCompactNumbersTitle = (lang == "ru" ? "Полные числа вместо округления" : "Full numbers instead of rounding")
     let disableCompactNumbersNotice = (lang == "ru" ? "Просмотры на постах будут показываться полным числом (например 1400 вместо 1.4K)." : "View counts on posts will show full number (e.g. 1400 instead of 1.4K).")
@@ -625,7 +635,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
     let access = cachedAggregateAccess()
 
     // Primary gate: server-provided access flag (verified through integrity layers)
-    let hasAccess = access.glegramTab
+    let hasAccess = access.luxgramTab
 
     // Secondary gate: accumulator-derived access (independent verification path)
     let accumulatorOK = SupportersIntegrity.deriveGlegramTab()
@@ -646,10 +656,10 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
     
     let reloadPromise = ValuePromise(true, ignoreRepeated: false)
     var fontNotifyWorkItem: DispatchWorkItem?
-    let initialState = GLEGramSettingsControllerState()
+    let initialState = LuxGramSettingsControllerState()
     let statePromise = ValuePromise(initialState, ignoreRepeated: true)
     let stateValue = Atomic(value: initialState)
-    let updateState: ((GLEGramSettingsControllerState) -> GLEGramSettingsControllerState) -> Void = { f in
+    let updateState: ((LuxGramSettingsControllerState) -> LuxGramSettingsControllerState) -> Void = { f in
         statePromise.set(stateValue.modify { f($0) })
     }
     
@@ -661,8 +671,8 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
     contentSettingsConfigurationPromise.set(.single(nil)
     |> then(updatedContentSettingsConfiguration))
     
-    var argumentsRef: SGItemListArguments<SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>?
-    let arguments = SGItemListArguments<SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>(
+    var argumentsRef: SGItemListArguments<SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>?
+    let arguments = SGItemListArguments<SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>(
         context: context,
         setBoolValue: { setting, value in
             switch setting {
@@ -741,6 +751,11 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 SGSimpleSettings.shared.disableCompactNumbers = value
             case .disableZalgoText:
                 SGSimpleSettings.shared.disableZalgoText = value
+            // MARK: - LuxGram — Liquid Glass
+            case .liquidGlassEnabled:
+                SGSimpleSettings.shared.liquidGlassEnabled = value
+                NotificationCenter.default.post(name: .luxgramLiquidGlassDidChange, object: nil)
+            // MARK: - End LuxGram
             case .fakeLocationEnabled:
                 SGSimpleSettings.shared.fakeLocationEnabled = value
             case .keepRemovedChannels:
@@ -862,17 +877,17 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
         openDisclosureLink: { link in
             if link == .channelLink {
                 let pd = context.sharedContext.currentPresentationData.with { $0 }
-                context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: "https://t.me/glegramios", forceExternal: true, presentationData: pd, navigationController: nil, dismissInput: {})
+                context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: "https://t.me/luxgramios", forceExternal: true, presentationData: pd, navigationController: nil, dismissInput: {})
                 return
             }
             if link == .chatLink {
                 let pd = context.sharedContext.currentPresentationData.with { $0 }
-                context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: "https://t.me/glegramios_chat", forceExternal: true, presentationData: pd, navigationController: nil, dismissInput: {})
+                context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: "https://t.me/luxgramios_chat", forceExternal: true, presentationData: pd, navigationController: nil, dismissInput: {})
                 return
             }
             if link == .forumLink {
                 let pd = context.sharedContext.currentPresentationData.with { $0 }
-                context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: "https://t.me/glegram_forum", forceExternal: true, presentationData: pd, navigationController: nil, dismissInput: {})
+                context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: "https://t.me/luxgram_forum", forceExternal: true, presentationData: pd, navigationController: nil, dismissInput: {})
                 return
             }
             if link == .betaChannel {
@@ -891,11 +906,11 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 pushControllerImpl?(pickerController)
                 #endif
             } else if link == .appearanceTab {
-                pushControllerImpl?(buildGLEGramTabController(tab: .appearance, args: argumentsRef!))
+                pushControllerImpl?(buildLuxGramTabController(tab: .appearance, args: argumentsRef!))
             } else if link == .securityTab {
-                pushControllerImpl?(buildGLEGramTabController(tab: .security, args: argumentsRef!))
+                pushControllerImpl?(buildLuxGramTabController(tab: .security, args: argumentsRef!))
             } else if link == .otherTab {
-                pushControllerImpl?(buildGLEGramTabController(tab: .other, args: argumentsRef!))
+                pushControllerImpl?(buildLuxGramTabController(tab: .other, args: argumentsRef!))
             } else if link == .tabOrganizer {
                 let presentationData = context.sharedContext.currentPresentationData.with { $0 }
                 let tabOrganizerController = TabOrganizerController(context: context, presentationData: presentationData, onSave: {
@@ -1135,15 +1150,15 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
         iconResolver: { ref in
             guard let ref = ref else { return nil }
             guard let img = UIImage(bundleImageName: ref) else { return nil }
-            // Иконки вкладок (GLEGramTab*) масштабируем до размера как у «Канал, Чат, Форум» (~29 pt)
+            // Иконки вкладок (LuxGramTab*) масштабируем до размера как у «Канал, Чат, Форум» (~29 pt)
             return scaleImageForListIcon(img, maxSize: 29.0) ?? img
         }
     )
     argumentsRef = arguments
     
-    func buildGLEGramTabController(tab: GLEGramTab, args: SGItemListArguments<SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>) -> ViewController {
+    func buildLuxGramTabController(tab: LuxGramTab, args: SGItemListArguments<SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>) -> ViewController {
         let tabSignal = combineLatest(reloadPromise.get(), statePromise.get(), context.sharedContext.presentationData, contentSettingsConfigurationPromise.get(), context.sharedContext.activeAccountsWithInfo)
-        |> map { _, state, presentationData, contentSettingsConfiguration, accountsWithInfo -> (ItemListControllerState, (ItemListNodeState, SGItemListArguments<SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>)) in
+        |> map { _, state, presentationData, contentSettingsConfiguration, accountsWithInfo -> (ItemListControllerState, (ItemListNodeState, SGItemListArguments<SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>)) in
             let lang = presentationData.strings.baseLanguageCode
             let tabTitles = lang == "ru" ? ["Оформление", "Приватность", "Другие функции"] : ["Appearance", "Privacy", "Other"]
             let tabTitle = tabTitles[tab.rawValue]
@@ -1180,12 +1195,12 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
         return tabController
     }
     
-    let signal: Signal<(ItemListControllerState, (ItemListNodeState, SGItemListArguments<SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>)), NoError> = combineLatest(reloadPromise.get(), context.sharedContext.presentationData, context.sharedContext.activeAccountsWithInfo)
-    |> map { _, presentationData, accountsWithInfo -> (ItemListControllerState, (ItemListNodeState, SGItemListArguments<SGBoolSetting, GLEGramSliderSetting, GLEGramOneFromManySetting, GLEGramDisclosureLink, AnyHashable>)) in
+    let signal: Signal<(ItemListControllerState, (ItemListNodeState, SGItemListArguments<SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>)), NoError> = combineLatest(reloadPromise.get(), context.sharedContext.presentationData, context.sharedContext.activeAccountsWithInfo)
+    |> map { _, presentationData, accountsWithInfo -> (ItemListControllerState, (ItemListNodeState, SGItemListArguments<SGBoolSetting, LuxGramSliderSetting, LuxGramOneFromManySetting, LuxGramDisclosureLink, AnyHashable>)) in
         SGSimpleSettings.shared.currentAccountPeerId = "\(context.account.peerId.id._internalGetInt64Value())"
         let controllerState = ItemListControllerState(
             presentationData: ItemListPresentationData(presentationData),
-            title: .text("GLEGram"),
+            title: .text("LuxGram"),
             leftNavigationButton: nil,
             rightNavigationButton: nil,
             backNavigationButton: ItemListBackButton(title: presentationData.strings.Common_Back)

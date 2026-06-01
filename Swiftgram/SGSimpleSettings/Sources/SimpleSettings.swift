@@ -301,6 +301,8 @@ public class SGSimpleSettings {
         case notificationMutedAccountRecordIds
         case gatedFeatureKeys
         case unlockedFeatureKeys
+        // MARK: - LuxGram — Liquid Glass
+        case liquidGlassEnabled
     }
     
     public enum DownloadSpeedBoostValues: String, CaseIterable {
@@ -443,7 +445,7 @@ public class SGSimpleSettings {
         Keys.duckyAppIconAvailable.rawValue: true,
         Keys.transcriptionBackend.rawValue: TranscriptionBackend.default.rawValue,
         Keys.translationBackend.rawValue: TranslationBackend.default.rawValue,
-        // Default app badge (GLEGram Dark Purple)
+        // Default app badge (LuxGram Dark Purple)
         Keys.customAppBadge.rawValue: "SkyAppBadge",
         Keys.canUseNY.rawValue: false,
         Keys.nyStyle.rawValue: NYStyle.default.rawValue,
@@ -510,6 +512,7 @@ public class SGSimpleSettings {
         Keys.pluginSystemEnabled.rawValue: false,
         Keys.installedPluginsJson.rawValue: "[]",
         Keys.chatExportEnabled.rawValue: false,
+        Keys.liquidGlassEnabled.rawValue: false,
         Keys.profileCoverMediaPath.rawValue: "",
         Keys.profileCoverIsVideo.rawValue: false,
         Keys.emojiDownloaderEnabled.rawValue: false,
@@ -1084,6 +1087,10 @@ public class SGSimpleSettings {
     
     @UserDefault(key: Keys.chatExportEnabled.rawValue)
     public var chatExportEnabled: Bool
+
+    // MARK: - LuxGram — Liquid Glass
+    @UserDefault(key: Keys.liquidGlassEnabled.rawValue)
+    public var liquidGlassEnabled: Bool
 
     @UserDefault(key: Keys.profileCoverMediaPath.rawValue)
     public var profileCoverMediaPath: String

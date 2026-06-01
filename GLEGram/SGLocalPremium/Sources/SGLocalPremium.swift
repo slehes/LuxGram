@@ -1,7 +1,7 @@
 import Foundation
 import SwiftSignalKit
 
-// MARK: - GLEGram Local Premium
+// MARK: - LuxGram Local Premium
 
 public class SGLocalPremium {
     public static let shared = SGLocalPremium()

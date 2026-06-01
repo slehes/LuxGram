@@ -64,7 +64,23 @@ func _internal_applyMaxReadIndexInteractively(transaction: Transaction, stateMan
             }
         }
     } else if index.id.peerId.namespace == Namespaces.Peer.CloudUser || index.id.peerId.namespace == Namespaces.Peer.CloudGroup || index.id.peerId.namespace == Namespaces.Peer.CloudChannel {
+        // MARK: - GLEGram — Disable read receipts: skip server notification when setting is on
+        #if canImport(SGSimpleSettings)
+        let shouldSendReceipt: Bool
+        if SGSimpleSettings.shared.disableMessageReadReceipt {
+            let peerIdStr = "\(index.id.peerId.namespace._internalGetInt32Value()):\(index.id.peerId.id._internalGetInt64Value())"
+            let allowedPeers = SGSimpleSettings.shared.messageReadReceiptsSendToPeerIds
+            shouldSendReceipt = allowedPeers.contains(peerIdStr)
+        } else {
+            shouldSendReceipt = true
+        }
+        if shouldSendReceipt {
+            stateManager.notifyAppliedIncomingReadMessages([index.id])
+        }
+        #else
         stateManager.notifyAppliedIncomingReadMessages([index.id])
+        #endif
+        // MARK: - End GLEGram
     }
 }
 

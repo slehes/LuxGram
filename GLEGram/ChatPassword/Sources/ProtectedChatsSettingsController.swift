@@ -10,7 +10,7 @@ import PresentationDataUtils
 import AccountContext
 import PasscodeUI
 
-// MARK: - GLEGram
+// MARK: - LuxGram
 
 private enum ProtectedChatsEntry: ItemListNodeEntry {
     case enabled(String, Bool)

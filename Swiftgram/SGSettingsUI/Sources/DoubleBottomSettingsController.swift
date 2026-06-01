@@ -5,7 +5,7 @@ import AccountContext
 import TelegramPresentationData
 import PresentationDataUtils
 
-// MARK: - GLEGram — Double Bottom Settings (stub)
+// MARK: - LuxGram — Double Bottom Settings (stub)
 public func doubleBottomSettingsController(context: AccountContext) -> ViewController {
     let pd = context.sharedContext.currentPresentationData.with { $0 }
     let lang = pd.strings.baseLanguageCode

@@ -5,6 +5,11 @@ import SwiftSignalKit
 import TelegramCore
 import Postbox
 import AccountContext
+// MARK: - GLEGram
+#if canImport(ChatPassword)
+import ChatPassword
+#endif
+// MARK: - End GLEGram
 import GalleryUI
 import InstantPageUI
 import ChatListUI
@@ -84,6 +89,34 @@ public func navigateToChatControllerImpl(_ params: NavigateToChatControllerParam
             })
             return
         }
+        // MARK: - GLEGram — Chat Password: show passcode prompt before opening protected chat
+        #if canImport(ChatPassword)
+        if case let .peer(peer) = params.chatLocation {
+            let peerIdInt = peer.id.id._internalGetInt64Value()
+            if ProtectedChatsStore.isProtected(peerId: peerIdInt),
+               let parentController = params.navigationController.viewControllers.last as? ViewController {
+                let pd = params.context.sharedContext.currentPresentationData.with { $0 }
+                let lang = pd.strings.baseLanguageCode
+                let title = lang == "ru" ? "Пароль на чат" : "Chat Password"
+                let message = lang == "ru" ? "Введите пароль для открытия чата" : "Enter password to open this chat"
+                let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+                alertVC.addTextField { tf in
+                    tf.isSecureTextEntry = true
+                    tf.placeholder = lang == "ru" ? "Пароль" : "Password"
+                }
+                alertVC.addAction(UIAlertAction(title: pd.strings.Common_Cancel, style: .cancel))
+                alertVC.addAction(UIAlertAction(title: lang == "ru" ? "Открыть" : "Open", style: .default, handler: { [weak alertVC] _ in
+                    guard let passcode = alertVC?.textFields?.first?.text, !passcode.isEmpty else { return }
+                    if ProtectedChatsStore.customPasscodeMatches(passcode) {
+                        navigateToChatControllerImpl(params)
+                    }
+                }))
+                parentController.view.window?.rootViewController?.present(alertVC, animated: true)
+                return
+            }
+        }
+        #endif
+        // MARK: - End GLEGram
         
         if case let .peer(peer) = params.chatLocation, case let .channel(channel) = peer, channel.flags.contains(.isForum), !viewForumAsMessages {
             for controller in params.navigationController.viewControllers.reversed() {

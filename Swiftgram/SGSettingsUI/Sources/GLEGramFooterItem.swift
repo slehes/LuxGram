@@ -1,4 +1,4 @@
-// MARK: Swiftgram – GLEGram settings footer
+// MARK: Swiftgram – LuxGram settings footer
 import Foundation
 import UIKit
 import AsyncDisplayKit
@@ -6,7 +6,7 @@ import Display
 import TelegramPresentationData
 import ItemListUI
 
-public final class GLEGramFooterItem: ItemListControllerFooterItem {
+public final class LuxGramFooterItem: ItemListControllerFooterItem {
     let theme: PresentationTheme
     let title: String
     let linkTitle: String
@@ -20,28 +20,28 @@ public final class GLEGramFooterItem: ItemListControllerFooterItem {
     }
 
     public func isEqual(to: ItemListControllerFooterItem) -> Bool {
-        if let item = to as? GLEGramFooterItem {
+        if let item = to as? LuxGramFooterItem {
             return self.theme === item.theme && self.title == item.title && self.linkTitle == item.linkTitle
         }
         return false
     }
 
     public func node(current: ItemListControllerFooterItemNode?) -> ItemListControllerFooterItemNode {
-        if let current = current as? GLEGramFooterItemNode {
+        if let current = current as? LuxGramFooterItemNode {
             current.item = self
             return current
         }
-        return GLEGramFooterItemNode(item: self)
+        return LuxGramFooterItemNode(item: self)
     }
 }
 
-final class GLEGramFooterItemNode: ItemListControllerFooterItemNode {
+final class LuxGramFooterItemNode: ItemListControllerFooterItemNode {
     private let backgroundNode: ASDisplayNode
     private let titleNode: ImmediateTextNode
     private let linkNode: ImmediateTextNode
     private var validLayout: ContainerViewLayout?
 
-    var item: GLEGramFooterItem {
+    var item: LuxGramFooterItem {
         didSet {
             updateItem()
             if let layout = validLayout {
@@ -50,7 +50,7 @@ final class GLEGramFooterItemNode: ItemListControllerFooterItemNode {
         }
     }
 
-    init(item: GLEGramFooterItem) {
+    init(item: LuxGramFooterItem) {
         self.item = item
         self.backgroundNode = ASDisplayNode()
         self.backgroundNode.backgroundColor = item.theme.list.blocksBackgroundColor

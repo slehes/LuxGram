@@ -8490,6 +8490,17 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
                         ))
                     }
                 }
+                // MARK: - GLEGram — Ghost Delay: attach GhostDelayedSendAttribute when delay > 0 and no schedule/postpone
+                #if canImport(SGSimpleSettings)
+                if scheduleTime == nil && !postpone {
+                    let delaySeconds = SGSimpleSettings.shared.ghostModeMessageSendDelaySeconds
+                    if delaySeconds > 0 && attributes.first(where: { $0 is GhostDelayedSendAttribute }) == nil {
+                        let sendAt = Int32(Date().timeIntervalSince1970) + Int32(delaySeconds)
+                        attributes.append(GhostDelayedSendAttribute(sendAt: sendAt))
+                    }
+                }
+                #endif
+                // MARK: - End GLEGram
                 return attributes
             }
         }

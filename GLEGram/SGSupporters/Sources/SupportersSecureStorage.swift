@@ -29,7 +29,7 @@ private func decryptFromStorage(_ ciphertext: Data) -> Data? {
 
 /// Keychain + AES-256-GCM. Data is encrypted before Keychain; substitution tweaks get ciphertext only.
 private enum SupportersSecureStorage {
-    private static let service = "sg_glegram_secure"
+    private static let service = "sg_luxgram_secure"
     private static let accessibility = kSecAttrAccessibleWhenUnlockedThisDeviceOnly
 
     static func getData(account: String) -> Data? {

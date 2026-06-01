@@ -328,9 +328,9 @@ public func isSupporter(userId: Int64) -> Bool {
     return !badges(forUserId: userId).isEmpty
 }
 
-// MARK: - GLEGram check_user (full user status, Keychain — encrypted, not in files)
+// MARK: - LuxGram check_user (full user status, Keychain — encrypted, not in files)
 
-private let kUserStatusCacheAccount = "sg_glegram_user_status"
+private let kUserStatusCacheAccount = "sg_luxgram_user_status"
 private let userStatusCacheLock = NSLock()
 
 private let kVerifiedUserIds = "_verified"
@@ -366,18 +366,18 @@ private func loadVerifiedUserIds() -> Set<String> {
     return keys
 }
 
-private func loadCachedUserStatus(userId: String? = nil) -> GLEGramUserStatus? {
+private func loadCachedUserStatus(userId: String? = nil) -> LuxGramUserStatus? {
     let all = loadAllCachedUserStatuses()
     if let userId = userId {
         guard let json = all[userId] else { return nil }
-        return GLEGramUserStatus(json: json)
+        return LuxGramUserStatus(json: json)
     }
     // Return first available status (backward compat)
     guard let first = all.values.first else { return nil }
-    return GLEGramUserStatus(json: first)
+    return LuxGramUserStatus(json: first)
 }
 
-private func saveCachedUserStatus(_ status: GLEGramUserStatus) {
+private func saveCachedUserStatus(_ status: LuxGramUserStatus) {
     userStatusCacheLock.lock()
     defer { userStatusCacheLock.unlock() }
     var all: [String: [String: Any]] = [:]
@@ -400,28 +400,28 @@ private func saveCachedUserStatus(_ status: GLEGramUserStatus) {
     _ = supportersSecureSaveJSON(dict, account: kUserStatusCacheAccount)
 }
 
-/// Cached GLEGram user status for a specific user ID (or first available).
-public func cachedGLEGramUserStatus(userId: String? = nil) -> GLEGramUserStatus? {
+/// Cached LuxGram user status for a specific user ID (or first available).
+public func cachedLuxGramUserStatus(userId: String? = nil) -> LuxGramUserStatus? {
     return loadCachedUserStatus(userId: userId)
 }
 
 /// Aggregate access across cached accounts. If validUserIds is set, only those accounts are considered.
 /// Only entries from our check_user API (_verified) are trusted — prevents injection of fake IDs.
 /// Access is verified through multiple independent integrity layers (token + text checksum + accumulator).
-public func cachedAggregateAccess(validUserIds: Set<String>? = nil) -> GLEGramAccess {
+public func cachedAggregateAccess(validUserIds: Set<String>? = nil) -> LuxGramAccess {
     var all = loadAllCachedUserStatuses()
     let verified = loadVerifiedUserIds()
     all = all.filter { verified.contains($0.key) }
     if let ids = validUserIds {
         all = all.filter { ids.contains($0.key) }
     }
-    var glegramTab = false
+    var luxgramTab = false
     var betaBuilds = false
     var tokenVerified = false
 
     for (userId, json) in all {
-        let status = GLEGramUserStatus(json: json)
-        if status.access.glegramTab { glegramTab = true }
+        let status = LuxGramUserStatus(json: json)
+        if status.access.luxgramTab { luxgramTab = true }
         if status.access.betaBuilds { betaBuilds = true }
 
         // Integrity layer: verify per-user access token
@@ -432,7 +432,7 @@ public func cachedAggregateAccess(validUserIds: Set<String>? = nil) -> GLEGramAc
             if SupportersIntegrity.verifyAccessToken(
                 tokenData,
                 userId: userId,
-                glegramTab: status.access.glegramTab,
+                luxgramTab: status.access.luxgramTab,
                 betaBuilds: status.access.betaBuilds,
                 hmacKeyData: keyData
             ) {
@@ -440,7 +440,7 @@ public func cachedAggregateAccess(validUserIds: Set<String>? = nil) -> GLEGramAc
             } else {
                 // Token mismatch — flags were tampered in cache
                 SGLogger.shared.log("SGIntegrity", "access token mismatch for userId=\(userId)")
-                glegramTab = false
+                luxgramTab = false
                 betaBuilds = false
             }
         }
@@ -449,7 +449,7 @@ public func cachedAggregateAccess(validUserIds: Set<String>? = nil) -> GLEGramAc
     // Integrity layer: text segment checksum
     if !SupportersIntegrity.textOK() {
         SGLogger.shared.log("SGIntegrity", "text segment modified — revoking access")
-        glegramTab = false
+        luxgramTab = false
         betaBuilds = false
     }
 
@@ -458,12 +458,12 @@ public func cachedAggregateAccess(validUserIds: Set<String>? = nil) -> GLEGramAc
         SupportersIntegrity.validate(
             cryptoSucceeded: tokenVerified,
             cacheDecrypted: !all.isEmpty,
-            glegramTab: glegramTab,
+            luxgramTab: luxgramTab,
             betaBuilds: betaBuilds
         )
     }
 
-    return GLEGramAccess(json: ["glegramTab": glegramTab, "betaBuilds": betaBuilds])
+    return LuxGramAccess(json: ["luxgramTab": luxgramTab, "betaBuilds": betaBuilds])
 }
 
 /// Returns true if ANY cached account has an active subscription.
@@ -472,7 +472,7 @@ public func hasAnyCachedSubscription() -> Bool {
     guard SupportersIntegrity.textOK() else { return false }
     let all = loadAllCachedUserStatuses()
     return all.values.contains { json in
-        GLEGramUserStatus(json: json).hasActiveSubscription
+        LuxGramUserStatus(json: json).hasActiveSubscription
     }
 }
 
@@ -482,13 +482,13 @@ public func hasAnyCachedTrial() -> Bool {
     guard SupportersIntegrity.textOK() else { return false }
     let all = loadAllCachedUserStatuses()
     return all.values.contains { json in
-        GLEGramUserStatus(json: json).hasActiveTrial
+        LuxGramUserStatus(json: json).hasActiveTrial
     }
 }
 
 /// Returns the first betaConfig found across cached accounts that has betaBuilds access.
 /// Integrity-gated: returns nil if text segment has been modified.
-public func cachedAggregateBetaConfig(validUserIds: Set<String>? = nil) -> GLEGramBetaConfig? {
+public func cachedAggregateBetaConfig(validUserIds: Set<String>? = nil) -> LuxGramBetaConfig? {
     guard SupportersIntegrity.textOK() else { return nil }
     var all = loadAllCachedUserStatuses()
     let verified = loadVerifiedUserIds()
@@ -497,7 +497,7 @@ public func cachedAggregateBetaConfig(validUserIds: Set<String>? = nil) -> GLEGr
         all = all.filter { ids.contains($0.key) }
     }
     for (_, json) in all {
-        let status = GLEGramUserStatus(json: json)
+        let status = LuxGramUserStatus(json: json)
         if status.access.betaBuilds, let config = status.betaConfig {
             return config
         }
@@ -506,11 +506,11 @@ public func cachedAggregateBetaConfig(validUserIds: Set<String>? = nil) -> GLEGr
 }
 
 /// Returns the first promo found across cached accounts (for paywall display).
-public func cachedAggregatePromo() -> (promo: GLEGramPromo, trialAvailable: Bool)? {
+public func cachedAggregatePromo() -> (promo: LuxGramPromo, trialAvailable: Bool)? {
     let all = loadAllCachedUserStatuses()
     for (_, json) in all {
-        let status = GLEGramUserStatus(json: json)
-        if let promo = status.glegramPromo {
+        let status = LuxGramUserStatus(json: json)
+        if let promo = status.luxgramPromo {
             return (promo: promo, trialAvailable: status.trialAvailable)
         }
     }
@@ -523,7 +523,7 @@ public func checkUser(
     baseURL: String,
     aesKey: String,
     hmacKey: String? = nil
-) -> Signal<GLEGramUserStatus, SupportersAPIError> {
+) -> Signal<LuxGramUserStatus, SupportersAPIError> {
     return encryptedAPICall(
         action: "check_user",
         payload: ["userId": String(userId)],
@@ -535,26 +535,26 @@ public func checkUser(
         var enrichedJSON = json
         let userId = json["userId"] as? String ?? String(userId)
         let accessJSON = json["access"] as? [String: Any] ?? [:]
-        let tab = accessJSON["glegramTab"] as? Bool ?? false
+        let tab = accessJSON["luxgramTab"] as? Bool ?? false
         let beta = accessJSON["betaBuilds"] as? Bool ?? false
         if let hmacB64 = SG_CONFIG.supportersHmacKey ?? SG_CONFIG.supportersAesKey {
             let keyData = SupportersCrypto.normalizeKeyData(hmacB64)
             let token = SupportersIntegrity.computeAccessToken(
-                userId: userId, glegramTab: tab, betaBuilds: beta, hmacKeyData: keyData
+                userId: userId, luxgramTab: tab, betaBuilds: beta, hmacKeyData: keyData
             )
             var accessWithToken = accessJSON
             accessWithToken["_accessToken"] = token.base64EncodedString()
             enrichedJSON["access"] = accessWithToken
         }
 
-        let status = GLEGramUserStatus(json: enrichedJSON)
+        let status = LuxGramUserStatus(json: enrichedJSON)
         saveCachedUserStatus(status)
 
         // Integrity: validate all layers after successful check_user
         SupportersIntegrity.validate(
             cryptoSucceeded: true,
             cacheDecrypted: true,
-            glegramTab: tab,
+            luxgramTab: tab,
             betaBuilds: beta
         )
 
@@ -587,7 +587,7 @@ public func checkUser(
 }
 
 /// Convenience: check_user using SG_CONFIG.
-public func checkUserIfConfigured(userId: Int64) -> Signal<GLEGramUserStatus, SupportersAPIError>? {
+public func checkUserIfConfigured(userId: Int64) -> Signal<LuxGramUserStatus, SupportersAPIError>? {
     guard let baseURL = SG_CONFIG.supportersApiUrl, !baseURL.isEmpty,
           let key = SG_CONFIG.supportersAesKey, !key.isEmpty else {
         return nil
@@ -601,7 +601,7 @@ public func startTrial(
     baseURL: String,
     aesKey: String,
     hmacKey: String? = nil
-) -> Signal<GLEGramTrial?, SupportersAPIError> {
+) -> Signal<LuxGramTrial?, SupportersAPIError> {
     return encryptedAPICall(
         action: "start_trial",
         payload: ["userId": String(userId)],
@@ -609,12 +609,12 @@ public func startTrial(
         aesKey: aesKey,
         hmacKey: hmacKey
     ) |> map { json in
-        (json["trial"] as? [String: Any]).flatMap { GLEGramTrial(json: $0) }
+        (json["trial"] as? [String: Any]).flatMap { LuxGramTrial(json: $0) }
     }
 }
 
 /// Convenience: start_trial using SG_CONFIG.
-public func startTrialIfConfigured(userId: Int64) -> Signal<GLEGramTrial?, SupportersAPIError>? {
+public func startTrialIfConfigured(userId: Int64) -> Signal<LuxGramTrial?, SupportersAPIError>? {
     guard let baseURL = SG_CONFIG.supportersApiUrl, !baseURL.isEmpty,
           let key = SG_CONFIG.supportersAesKey, !key.isEmpty else {
         return nil
@@ -623,11 +623,11 @@ public func startTrialIfConfigured(userId: Int64) -> Signal<GLEGramTrial?, Suppo
 }
 
 /// On app launch: call check_user and refresh badges cache.
-public func refreshGLEGramStatusIfConfigured(userId: Int64) {
+public func refreshLuxGramStatusIfConfigured(userId: Int64) {
     guard let signal = checkUserIfConfigured(userId: userId) else { return }
-    SGLogger.shared.log("SGSupporters", "refreshGLEGramStatus: starting check_user for \(userId)")
+    SGLogger.shared.log("SGSupporters", "refreshLuxGramStatus: starting check_user for \(userId)")
     _ = signal.start(next: { status in
-        SGLogger.shared.log("SGSupporters", "refreshGLEGramStatus: ok — access.glegramTab=\(status.access.glegramTab), badges=\(status.badges.count), sub=\(status.hasActiveSubscription), trial=\(status.hasActiveTrial)")
+        SGLogger.shared.log("SGSupporters", "refreshLuxGramStatus: ok — access.luxgramTab=\(status.access.luxgramTab), badges=\(status.badges.count), sub=\(status.hasActiveSubscription), trial=\(status.hasActiveTrial)")
         let baseURL = SG_CONFIG.supportersApiUrl
         let imageURLs = status.badges.compactMap { badge -> String? in
             guard badge.displayMode == "image", let img = badge.image else { return nil }
@@ -646,7 +646,7 @@ public func refreshGLEGramStatusIfConfigured(userId: Int64) {
         let msg: String
         if case .tooManyRequests = err { msg = "429 Too Many Requests" }
         else { msg = String(describing: err) }
-        SGLogger.shared.log("SGSupporters", "refreshGLEGramStatus: error — \(msg)")
+        SGLogger.shared.log("SGSupporters", "refreshLuxGramStatus: error — \(msg)")
     })
 }
 
@@ -704,12 +704,12 @@ public func fetchAllUserStatusesIfConfigured(userIds: [Int64]) -> Signal<Never, 
 }
 
 /// Check all accounts at once (multi-account access support). Prunes cache to match app accounts.
-public func refreshGLEGramStatusForAllAccounts(userIds: [Int64]) {
-    SGLogger.shared.log("SGSupporters", "refreshGLEGramStatusForAllAccounts: \(userIds.count) accounts")
+public func refreshLuxGramStatusForAllAccounts(userIds: [Int64]) {
+    SGLogger.shared.log("SGSupporters", "refreshLuxGramStatusForAllAccounts: \(userIds.count) accounts")
     let validUserIds = Set(userIds.map { String($0) })
     pruneCachedUserStatuses(keepingUserIds: validUserIds)
     for userId in userIds {
-        refreshGLEGramStatusIfConfigured(userId: userId)
+        refreshLuxGramStatusIfConfigured(userId: userId)
     }
 }
 
