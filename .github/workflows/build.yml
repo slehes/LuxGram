@@ -15,9 +15,6 @@ jobs:
     name: Build LuxGram IPA
     runs-on: macos-15
 
-    env:
-      HAS_CERT: ${{ secrets.CERTIFICATE_P12_BASE64 != '' }}
-
     steps:
       # 1 — Checkout ────────────────────────────────────────────────────────
       - name: Checkout repository
@@ -49,7 +46,7 @@ jobs:
 
       # 4 — Import signing certificate (skip if secret not set) ─────────────
       - name: Import certificate
-        if: ${{ secrets.CERTIFICATE_P12_BASE64 != '' }}
+        if: env.CERTIFICATE_P12_BASE64 != ''
         env:
           CERTIFICATE_P12_BASE64: ${{ secrets.CERTIFICATE_P12_BASE64 }}
           CERTIFICATE_PASSWORD:   ${{ secrets.CERTIFICATE_PASSWORD }}
@@ -70,7 +67,7 @@ jobs:
 
       # 5 — Install provisioning profile (skip if secret not set) ──────────
       - name: Install provisioning profile
-        if: ${{ secrets.PROVISIONING_PROFILE_BASE64 != '' }}
+        if: env.PROVISIONING_PROFILE_BASE64 != ''
         env:
           PROVISIONING_PROFILE_BASE64: ${{ secrets.PROVISIONING_PROFILE_BASE64 }}
         run: |
