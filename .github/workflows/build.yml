@@ -98,7 +98,19 @@ jobs:
           print('Config written: bundle_id =', cfg['bundle_id'])
           "
 
-      # 7 — Build IPA ───────────────────────────────────────────────────────
+      # 7 — Regenerate fake provisioning profiles with LuxGram bundle ID ────
+      - name: Regenerate fake codesigning profiles
+        run: |
+          python3 build-system/Make/GenerateProfiles.py \
+            --sourcePath=build-system/fake-codesigning/profiles \
+            --destinationPath=build-system/fake-codesigning/profiles \
+            --certsPath=build-system/fake-codesigning/certs \
+            --sourceTeamId=C67CF9S4VU \
+            --targetTeamId=6W9S44UXF2 \
+            --sourceBundleId=ph.telegra.Telegraph \
+            --targetBundleId=app.luxgram.com
+
+      # 8 — Build IPA ───────────────────────────────────────────────────────
       - name: Build production IPA
         run: |
           INPUT_BN="${{ github.event.inputs.build_number }}"
@@ -120,7 +132,7 @@ jobs:
             --configuration=release_arm64 \
             --outputBuildArtifactsPath="build/artifacts"
 
-      # 8 — Upload artifact ─────────────────────────────────────────────────
+      # 9 — Upload artifact ─────────────────────────────────────────────────
       - name: Upload IPA
         if: always()
         uses: actions/upload-artifact@v4
@@ -132,7 +144,7 @@ jobs:
           if-no-files-found: warn
           retention-days: 30
 
-      # 9 — GitHub Release (on version tags v*.*.*) ─────────────────────────
+      # 10 — GitHub Release (on version tags v*.*.*) ────────────────────────
       - name: Create GitHub Release
         if: startsWith(github.ref, 'refs/tags/v')
         uses: softprops/action-gh-release@v2

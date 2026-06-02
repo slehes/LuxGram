@@ -127,37 +127,62 @@ def get_certificate_base64_from_p12(p12_path, p12_password=''):
     return base64.b64encode(cert_der).decode('utf-8')
 
 
-def process_provisioning_profile(source, destination, certificate_data, signing_identity, keychain_name):
+def _remap_plist_value(value, replacements):
+    """Recursively replace strings in a plist value according to an ordered replacement list."""
+    if isinstance(value, str):
+        for old, new in replacements:
+            value = value.replace(old, new)
+        return value
+    elif isinstance(value, list):
+        return [_remap_plist_value(v, replacements) for v in value]
+    elif isinstance(value, dict):
+        return {k: _remap_plist_value(v, replacements) for k, v in value.items()}
+    return value
+
+
+def process_provisioning_profile(source, destination, certificate_data, signing_identity, keychain_name,
+                                  source_team_id=None, target_team_id=None,
+                                  source_bundle_id=None, target_bundle_id=None):
     import plistlib
-    
+
     # Parse the provisioning profile using security cms -D to get XML plist
     parsed_plist_xml = run_executable_with_output('security', arguments=['cms', '-D', '-i', source], check_result=True)
     parsed_plist_file = tempfile.mktemp()
     with open(parsed_plist_file, 'w+') as file:
         file.write(parsed_plist_xml)
-    
+
     # Convert XML plist to binary plist for manipulation
     binary_plist_file = tempfile.mktemp()
     run_executable_with_output('plutil', arguments=['-convert', 'binary1', '-o', binary_plist_file, parsed_plist_file], check_result=True)
-    
+
     # Load binary plist using plistlib
     with open(binary_plist_file, 'rb') as f:
         plist_data = plistlib.load(f)
-    
+
+    # Remap team ID and bundle ID if requested (order matters: longest matches first)
+    if source_team_id and target_team_id and source_bundle_id and target_bundle_id:
+        replacements = [
+            (source_team_id + '.' + source_bundle_id, target_team_id + '.' + target_bundle_id),
+            ('group.' + source_bundle_id,              'group.' + target_bundle_id),
+            (source_bundle_id,                         target_bundle_id),
+            (source_team_id,                           target_team_id),
+        ]
+        plist_data = _remap_plist_value(plist_data, replacements)
+
     # Decode certificate from base64
     cert_der = base64.b64decode(certificate_data)
-    
+
     # Replace DeveloperCertificates array with new certificate
     plist_data['DeveloperCertificates'] = [cert_der]
-    
+
     # Remove DER-Encoded-Profile if present
     if 'DER-Encoded-Profile' in plist_data:
         del plist_data['DER-Encoded-Profile']
-    
+
     # Write updated binary plist
     with open(binary_plist_file, 'wb') as f:
         plistlib.dump(plist_data, f)
-    
+
     # Convert back to XML for signing
     run_executable_with_output('plutil', arguments=['-convert', 'xml1', '-o', parsed_plist_file, binary_plist_file], check_result=True)
 
@@ -170,7 +195,9 @@ def process_provisioning_profile(source, destination, certificate_data, signing_
     os.unlink(binary_plist_file)
 
 
-def generate_provisioning_profiles(source_path, destination_path, certs_path):
+def generate_provisioning_profiles(source_path, destination_path, certs_path,
+                                    source_team_id=None, target_team_id=None,
+                                    source_bundle_id=None, target_bundle_id=None):
     p12_path = os.path.join(certs_path, 'SelfSigned.p12')
 
     if not os.path.exists(p12_path):
@@ -204,10 +231,37 @@ def generate_provisioning_profiles(source_path, destination_path, certs_path):
                     destination=os.path.join(destination_path, file_name),
                     certificate_data=certificate_data,
                     signing_identity=signing_identity,
-                    keychain_name=keychain_name
+                    keychain_name=keychain_name,
+                    source_team_id=source_team_id,
+                    target_team_id=target_team_id,
+                    source_bundle_id=source_bundle_id,
+                    target_bundle_id=target_bundle_id,
                 )
         print('Done. Generated {} profiles.'.format(
             len([f for f in os.listdir(destination_path) if f.endswith('.mobileprovision')])
         ))
     finally:
         cleanup_temp_keychain(keychain_name)
+
+
+if __name__ == '__main__':
+    parser = argparse.ArgumentParser(description='Regenerate fake provisioning profiles with updated bundle IDs')
+    parser.add_argument('--sourcePath', required=True, help='Directory containing source .mobileprovision files')
+    parser.add_argument('--destinationPath', required=True, help='Output directory for regenerated profiles')
+    parser.add_argument('--certsPath', required=True, help='Directory containing SelfSigned.p12')
+    parser.add_argument('--sourceTeamId', default='C67CF9S4VU', help='Team ID to replace')
+    parser.add_argument('--targetTeamId', required=True, help='New team ID')
+    parser.add_argument('--sourceBundleId', default='ph.telegra.Telegraph', help='Bundle ID to replace')
+    parser.add_argument('--targetBundleId', required=True, help='New bundle ID')
+    args = parser.parse_args()
+
+    os.makedirs(args.destinationPath, exist_ok=True)
+    generate_provisioning_profiles(
+        source_path=args.sourcePath,
+        destination_path=args.destinationPath,
+        certs_path=args.certsPath,
+        source_team_id=args.sourceTeamId,
+        target_team_id=args.targetTeamId,
+        source_bundle_id=args.sourceBundleId,
+        target_bundle_id=args.targetBundleId,
+    )
