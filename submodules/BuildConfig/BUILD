@@ -21,6 +21,7 @@ objc_library(
     ]),
     copts = [
         "-Werror",
+        "-Wno-deprecated-declarations",
         "-DAPP_SG_CONFIG=\\\"{}\\\"".format(sg_config.replace('"', '\\\\\\"')),
         "-DAPP_CONFIG_API_ID={}".format(telegram_api_id),
         "-DAPP_CONFIG_API_HASH=\\\"{}\\\"".format(telegram_api_hash),

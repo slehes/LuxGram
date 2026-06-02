@@ -12,6 +12,7 @@ objc_library(
     ]),
     copts = [
         "-Werror",
+        "-Wno-deprecated-declarations",
     ],
     includes = [
         "Public",

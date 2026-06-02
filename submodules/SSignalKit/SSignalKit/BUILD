@@ -8,6 +8,7 @@ objc_library(
     ]),
     copts = [
         "-Werror",
+        "-Wno-deprecated-declarations",
     ],
     hdrs = glob([
         "Source/SSignalKit/*.h",
