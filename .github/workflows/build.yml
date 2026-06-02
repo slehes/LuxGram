@@ -98,6 +98,25 @@ jobs:
           print('Config written: bundle_id =', cfg['bundle_id'])
           "
 
+      # 6b — Cache libopus prebuilt binaries ────────────────────────────────
+      - name: Cache libopus prebuilt
+        id: cache-opus
+        uses: actions/cache@v4
+        with:
+          path: third-party/opus/prebuilt/arm64
+          key: opus-arm64-1.5.1-macos26
+
+      # 6c — Build libopus for arm64 if not cached ──────────────────────────
+      - name: Build libopus (arm64)
+        if: steps.cache-opus.outputs.cache-hit != 'true'
+        run: |
+          OPUS_DIR="$(pwd)/third-party/opus"
+          mkdir -p "$OPUS_DIR/prebuilt/arm64"
+          sh "$OPUS_DIR/build-opus-bazel.sh" arm64 "$OPUS_DIR" opus-1.5.1.tar.gz
+          cp "$OPUS_DIR/built/lib/libopus.a" "$OPUS_DIR/prebuilt/arm64/libopus.a"
+          rm -rf "$OPUS_DIR/src" "$OPUS_DIR/built"
+          echo "libopus built: $(ls -lh $OPUS_DIR/prebuilt/arm64/libopus.a)"
+
       # 7 — Regenerate fake provisioning profiles with LuxGram bundle ID ────
       - name: Regenerate fake codesigning profiles
         run: |
