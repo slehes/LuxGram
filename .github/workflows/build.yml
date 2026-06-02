@@ -115,7 +115,18 @@ jobs:
             BN=$(git rev-list --count HEAD)
           fi
           echo "Building LuxGram, build number: $BN"
-          ./scripts/buildprod.sh --buildNumber "$BN"
+          CACHE_DIR="${CACHE_DIR:-$HOME/telegram-bazel-cache}"
+          mkdir -p build/artifacts
+          python3 build-system/Make/Make.py \
+            --cacheDir="$CACHE_DIR" \
+            --overrideXcodeVersion \
+            build \
+            --configurationPath="build-system/ipa-build-configuration.json" \
+            --codesigningInformationPath="build-system/real-codesigning" \
+            --buildNumber="$BN" \
+            --target LuxGram \
+            --configuration=release_arm64 \
+            --outputBuildArtifactsPath="build/artifacts"
 
       # 8 — Upload artifact ─────────────────────────────────────────────────
       - name: Upload IPA
