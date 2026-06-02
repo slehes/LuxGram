@@ -58,7 +58,10 @@
 - (void)reset;
 - (void)resetFlashMode;
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)startVideoRecordingWithOrientation:(AVCaptureVideoOrientation)orientation mirrored:(bool)mirrored completion:(void (^)(NSURL *outputURL, CGAffineTransform transform, CGSize dimensions, NSTimeInterval duration, bool success))completion;
+#pragma clang diagnostic pop
 - (void)stopVideoRecording;
 
 - (void)captureNextFrameCompletion:(void (^)(UIImage * image))completion;
