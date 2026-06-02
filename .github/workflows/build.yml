@@ -13,7 +13,7 @@ on:
 jobs:
   build:
     name: Build LuxGram IPA
-    runs-on: macos-15
+    runs-on: macos-26
 
     steps:
       # 1 — Checkout ────────────────────────────────────────────────────────
@@ -23,17 +23,10 @@ jobs:
           submodules: recursive
           fetch-depth: 0
 
-      # 2 — Xcode 16 ────────────────────────────────────────────────────────
-      - name: Select Xcode 16
+      # 2 — Select Xcode 26.2 ──────────────────────────────────────────────
+      - name: Select Xcode 26.2
         run: |
-          # Try 16.3 first, fall back to whatever is available
-          if [ -d /Applications/Xcode_16.3.app ]; then
-            sudo xcode-select -s /Applications/Xcode_16.3.app/Contents/Developer
-          elif [ -d /Applications/Xcode_16.2.app ]; then
-            sudo xcode-select -s /Applications/Xcode_16.2.app/Contents/Developer
-          else
-            sudo xcode-select -s $(ls -d /Applications/Xcode*.app | sort -V | tail -1)/Contents/Developer
-          fi
+          sudo xcode-select -s /Applications/Xcode_26.2.app/Contents/Developer
           xcode-select -p
           xcodebuild -version
 
@@ -119,7 +112,6 @@ jobs:
           mkdir -p build/artifacts
           python3 build-system/Make/Make.py \
             --cacheDir="$CACHE_DIR" \
-            --overrideXcodeVersion \
             build \
             --configurationPath="build-system/ipa-build-configuration.json" \
             --codesigningInformationPath="build-system/fake-codesigning" \
