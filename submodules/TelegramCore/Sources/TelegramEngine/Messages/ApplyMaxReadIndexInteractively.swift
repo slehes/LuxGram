@@ -2,6 +2,9 @@ import Foundation
 import Postbox
 import TelegramApi
 import SwiftSignalKit
+#if canImport(SGSimpleSettings)
+import SGSimpleSettings
+#endif
 
 
 func _internal_applyMaxReadIndexInteractively(postbox: Postbox, stateManager: AccountStateManager, index: MessageIndex) -> Signal<Void, NoError> {
