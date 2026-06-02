@@ -99,6 +99,21 @@ jobs:
           print('Config written: bundle_id =', cfg['bundle_id'], 'team_id =', team_id)
           "
 
+      # 6a — Restore missing libvpx build/make directory ───────────────────
+      - name: Restore libvpx build/make directory
+        run: |
+          LIBVPX_DIR="third-party/libvpx/libvpx"
+          # build/make/configure.sh is required by libvpx's configure script
+          # but was not committed. Download from the matching tag (v1.13.0).
+          if [ ! -f "$LIBVPX_DIR/build/make/configure.sh" ]; then
+            mkdir -p "$LIBVPX_DIR/build/make"
+            BASE="https://raw.githubusercontent.com/webmproject/libvpx/v1.13.0/build/make"
+            for f in configure.sh Makefile Android.mk lint_additions.py; do
+              curl -fsSL "$BASE/$f" -o "$LIBVPX_DIR/build/make/$f" || true
+            done
+            echo "libvpx build/make restored: $(ls $LIBVPX_DIR/build/make/)"
+          fi
+
       # 6b — Cache libopus prebuilt binaries ────────────────────────────────
       - name: Cache libopus prebuilt
         id: cache-opus
