@@ -75,14 +75,15 @@ jobs:
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: |
-          TEAM="${APPLE_TEAM_ID:-YOUR_TEAM_ID}"
           python3 -c "
           import json, os
+          # Use secret if set and non-empty; fall back to the fake-codesigning team ID
+          team_id = os.environ.get('APPLE_TEAM_ID') or '6W9S44UXF2'
           cfg = {
             'bundle_id': 'app.luxgram.com',
             'api_id': '35971841',
             'api_hash': '504a05393f81633f94c433502e9b09e6',
-            'team_id': os.environ.get('APPLE_TEAM_ID', 'YOUR_TEAM_ID'),
+            'team_id': team_id,
             'app_center_id': '0',
             'is_internal_build': 'false',
             'is_appstore_build': 'true',
@@ -95,7 +96,7 @@ jobs:
           }
           with open('build-system/ipa-build-configuration.json', 'w') as f:
             json.dump(cfg, f, indent='\t')
-          print('Config written: bundle_id =', cfg['bundle_id'])
+          print('Config written: bundle_id =', cfg['bundle_id'], 'team_id =', team_id)
           "
 
       # 6b — Cache libopus prebuilt binaries ────────────────────────────────
