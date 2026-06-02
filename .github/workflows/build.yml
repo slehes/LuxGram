@@ -123,7 +123,6 @@ jobs:
             build \
             --configurationPath="build-system/ipa-build-configuration.json" \
             --codesigningInformationPath="build-system/fake-codesigning" \
-            --disableProvisioningProfiles \
             --buildNumber="$BN" \
             --target LuxGram \
             --configuration=release_arm64 \
