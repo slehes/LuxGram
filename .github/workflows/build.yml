@@ -102,16 +102,17 @@ jobs:
       # 6a — Restore missing libvpx build/make directory ───────────────────
       - name: Restore libvpx build/make directory
         run: |
-          LIBVPX_DIR="third-party/libvpx/libvpx"
-          # build/make/configure.sh is required by libvpx's configure script
-          # but was not committed. Download from the matching tag (v1.13.0).
+          LIBVPX_DIR="$(pwd)/third-party/libvpx/libvpx"
           if [ ! -f "$LIBVPX_DIR/build/make/configure.sh" ]; then
-            mkdir -p "$LIBVPX_DIR/build/make"
-            BASE="https://raw.githubusercontent.com/webmproject/libvpx/v1.13.0/build/make"
-            for f in configure.sh Makefile Android.mk lint_additions.py; do
-              curl -fsSL "$BASE/$f" -o "$LIBVPX_DIR/build/make/$f" || true
-            done
-            echo "libvpx build/make restored: $(ls $LIBVPX_DIR/build/make/)"
+            # Sparse-checkout only build/ from the matching tag to avoid a full clone
+            git clone --depth 1 --filter=blob:none --sparse \
+              -b v1.13.0 https://github.com/webmproject/libvpx.git /tmp/libvpx-src
+            cd /tmp/libvpx-src
+            git sparse-checkout set build
+            cp -R build "$LIBVPX_DIR/"
+            cd -
+            rm -rf /tmp/libvpx-src
+            echo "libvpx build/make restored: $(ls $LIBVPX_DIR/build/make/ | head -10)"
           fi
 
       # 6b — Cache libopus prebuilt binaries ────────────────────────────────
