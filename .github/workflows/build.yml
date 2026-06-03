@@ -37,10 +37,20 @@ jobs:
       - name: Patch rules_apple — allow provisioning_profile=None on device builds
         run: |
           BZL="build-system/bazel-rules/rules_apple/apple/internal/partials/provisioning_profile.bzl"
-          # Remove the fail() that rejects device builds with no provisioning profile
-          sed -i '' 's/if not profile_artifact:/if False:  # patched: allow None for CI/' "$BZL"
-          echo "Patch applied:"
-          grep -n "if.*profile_artifact" "$BZL"
+          # Replace fail() with early return so None profile_artifact is a no-op
+          python3 -c "
+import re
+path = '$BZL'
+src = open(path).read()
+src = re.sub(
+    r'if not profile_artifact:\n        fail\(.*?\)',
+    'if not profile_artifact:\n        return struct(bundle_files = [])  # CI',
+    src, flags=re.DOTALL
+)
+open(path, 'w').write(src)
+print('Patched OK')
+          "
+          grep -n -A2 "if not profile_artifact" "$BZL"
 
       - name: Write build configuration
         env:
