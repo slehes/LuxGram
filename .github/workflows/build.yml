@@ -104,6 +104,7 @@ jobs:
             --target LuxGram \
             --configuration=release_arm64 \
             --disableProvisioningProfiles \
+            --disableExtensions \
             --outputBuildArtifactsPath="build/artifacts"
 
       - name: Upload IPA
