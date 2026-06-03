@@ -18,7 +18,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-
 #ifndef AVCODEC_LOSSLESS_VIDEODSP_H
 #define AVCODEC_LOSSLESS_VIDEODSP_H
 

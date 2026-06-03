@@ -23,7 +23,6 @@
 
 @end
 
-
 @interface TGMediaAdjustmentsUpdate : NSObject
 
 @property (nonatomic, readonly, strong) id<TGMediaEditableItem> item;
@@ -33,7 +32,6 @@
 
 @end
 
-
 @interface TGMediaCaptionUpdate : NSObject
 
 @property (nonatomic, readonly, strong) id<TGMediaEditableItem> item;
@@ -42,7 +40,6 @@
 + (instancetype)captionUpdateWithItem:(id<TGMediaEditableItem>)item caption:(NSAttributedString *)caption;
 
 @end
-
 
 @interface TGMediaTimerUpdate : NSObject
 
@@ -83,7 +80,6 @@
 + (instancetype)livePhotoModeUpdate:(TGMediaLivePhotoMode)mode;
 
 @end
-
 
 @interface TGModernCache (Private)
 
@@ -226,7 +222,6 @@
         _cropPipe = [[SPipe alloc] init];
         _captionAbovePipe = [[SPipe alloc] init];
         _highQualityPhotoPipe = [[SPipe alloc] init];
-        // MARK: Swiftgram
         _highQualityPhoto = [[NSUserDefaults standardUserDefaults] boolForKey:@"sendLargePhotos"];
         _livePhotoModePipe = [[SPipe alloc] init];
     }
@@ -991,7 +986,6 @@
     _highQualityPhotoPipe.sink(@(highQualityPhoto));
 }
 
-
 - (SSignal *)facesForItem:(NSObject<TGMediaEditableItem> *)item
 {
     NSString *itemId = [self _contextualIdForItemId:item.uniqueIdentifier];
@@ -1020,7 +1014,6 @@
     else
         [_faces removeObjectForKey:itemId];
 }
-
 
 - (SSignal *)coverImageSignalForIdentifier:(NSString *)identifier
 {
@@ -1391,7 +1384,6 @@
 
 @end
 
-
 @implementation TGMediaImageUpdate
 
 + (instancetype)imageUpdateWithItem:(id<TGMediaEditableItem>)item representation:(id)representation
@@ -1403,7 +1395,6 @@
 }
 
 @end
-
 
 @implementation TGMediaAdjustmentsUpdate
 
@@ -1448,7 +1439,6 @@
 
 @end
 
-
 @implementation TGMediaSpoilerUpdate
 
 + (instancetype)spoilerUpdateWithItem:(id<TGMediaEditableItem>)item spoiler:(bool)spoiler
@@ -1467,7 +1457,6 @@
 }
 
 @end
-
 
 @implementation TGMediaPriceUpdate
 

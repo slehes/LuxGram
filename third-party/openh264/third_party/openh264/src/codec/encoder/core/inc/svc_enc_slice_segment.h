@@ -52,7 +52,6 @@ using namespace WelsCommon;
 
 namespace WelsEnc {
 
-
 // NOTE:
 // if PREFIX_NALs are used in base layer(iDid=0, qid=0), MAX_SLICES_NUM will be half of MAX_NAL_UNITS_IN_LAYER in case ST or MT without PACKING_ONE_SLICE_PER_LAYER
 // in case MT and PACKING_ONE_SLICE_PER_LAYER, MAX_SLICES_NUM should not be exceeding MAX_LAYER_NUM_OF_FRAME
@@ -90,7 +89,6 @@ int32_t                 iMaxSliceNumConstraint; /* maximal number of slices cons
 
 } SSliceCtx;
 
-
 typedef struct TagDynamicSlicingStack {
 int32_t         iStartPos;
 int32_t         iCurrentPos;
@@ -125,7 +123,6 @@ int32_t InitSlicePEncCtx (SDqLayer* pCurDq,
                           int32_t iMbHeight,
                           SSliceArgument* pSliceArgument,
                           void* pPpsArg);
-
 
 /*!
  * \brief   Uninitialize Wels SSlice context (Single/multiple slices and FMO)

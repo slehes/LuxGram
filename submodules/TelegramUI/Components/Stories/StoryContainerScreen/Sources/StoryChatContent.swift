@@ -2316,7 +2316,6 @@ private func getCachedStory(storyId: StoryId, transaction: Transaction) -> Engin
     }
 }
 
-
 public final class RepostStoriesContentContextImpl: StoryContentContext {
     private final class PeerContext {
         private let context: AccountContext

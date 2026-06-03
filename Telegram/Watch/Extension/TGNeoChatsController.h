@@ -12,7 +12,6 @@
 
 @end
 
-
 @interface TGNeoChatsController : TGInterfaceController
 
 @property (nonatomic, weak) IBOutlet WKInterfaceTable *table;

@@ -22,7 +22,6 @@
 
 @end
 
-
 @implementation TGMessageEditDateContentProperty
 
 - (instancetype)initWithEditDate:(NSTimeInterval)editDate {

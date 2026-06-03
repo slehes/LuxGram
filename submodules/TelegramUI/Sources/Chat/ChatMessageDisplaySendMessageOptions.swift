@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGSimpleSettings
 import TextFormat
 import TranslateUI
@@ -88,7 +87,6 @@ func chatMessageDisplaySendMessageOptions(selfController: ChatControllerImpl, no
             return
         }
         
-        // MARK: Swiftgram
         let outgoingMessageTranslateToLang = SGSimpleSettings.shared.outgoingLanguageTranslation[SGSimpleSettings.makeOutgoingLanguageTranslationKey(accountId: selfController.context.account.peerId.id._internalGetInt64Value(), peerId: peer.id.id._internalGetInt64Value())] ?? selfController.contentData?.state.predictedChatLanguage
                 
         let sgTranslationContext: (outgoingMessageTranslateToLang: String?, translate: (() -> Void)?, changeTranslationLanguage: (() -> ())?) = (outgoingMessageTranslateToLang: outgoingMessageTranslateToLang, translate: { [weak selfController] in

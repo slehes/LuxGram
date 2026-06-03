@@ -114,7 +114,6 @@ DEFINE_GUID(ff_MF_SA_MINIMUM_OUTPUT_SAMPLE_COUNT_PROGRESSIVE, 0xf5523a5, 0x1cb2,
 DEFINE_MEDIATYPE_GUID(ff_MFVideoFormat_HEVC, 0x43564548); // FCC('HEVC')
 DEFINE_MEDIATYPE_GUID(ff_MFVideoFormat_HEVC_ES, 0x53564548); // FCC('HEVS')
 
-
 // This enum is missing from mingw-w64's codecapi.h by v7.0.0.
 enum ff_eAVEncCommonRateControlMode {
     ff_eAVEncCommonRateControlMode_CBR                 = 0,

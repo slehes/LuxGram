@@ -58,7 +58,6 @@ public enum ChatListFilterPresetListEntryTag: ItemListItemTag {
     }
 }
 
-
 private func stringForUserCount(_ peers: [EnginePeer.Id: SelectivePrivacyPeer], strings: PresentationStrings) -> String {
     if peers.isEmpty {
         return strings.PrivacyLastSeenSettings_EmpryUsersPlaceholder

@@ -12,7 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 /**
  * This class is used in conjunction with ASWeakMap.  Instances of this type are returned by an ASWeakMap,
  * must retain this value for as long as they want the entry to exist in the map.
@@ -23,7 +22,6 @@ AS_SUBCLASSING_RESTRICTED
 @property (readonly) Value value;
 
 @end
-
 
 /**
  * This is not a full-featured map.  It does not support features like `count` and FastEnumeration because there
@@ -54,6 +52,5 @@ AS_SUBCLASSING_RESTRICTED
 - (ASWeakMapEntry<Value> *)setObject:(Value)value forKey:(Key)key AS_WARN_UNUSED_RESULT;
 
 @end
-
 
 NS_ASSUME_NONNULL_END

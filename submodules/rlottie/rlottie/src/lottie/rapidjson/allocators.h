@@ -52,7 +52,6 @@ concept Allocator {
 \endcode
 */
 
-
 /*! \def RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY
     \ingroup RAPIDJSON_CONFIG
     \brief User-defined kDefaultChunkCapacity definition.
@@ -63,7 +62,6 @@ concept Allocator {
 #ifndef RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY
 #define RAPIDJSON_ALLOCATOR_DEFAULT_CHUNK_CAPACITY (64 * 1024)
 #endif
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // CrtAllocator

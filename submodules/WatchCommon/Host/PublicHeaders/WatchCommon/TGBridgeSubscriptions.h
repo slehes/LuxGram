@@ -20,7 +20,6 @@
 
 @end
 
-
 @interface TGBridgeAudioSentSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int64_t conversationId;
@@ -29,7 +28,6 @@
 
 @end
 
-
 @interface TGBridgeChatListSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int32_t limit;
@@ -37,7 +35,6 @@
 - (instancetype)initWithLimit:(int32_t)limit;
 
 @end
-
 
 @interface TGBridgeChatMessageListSubscription : TGBridgeSubscription
 
@@ -49,7 +46,6 @@
 
 @end
 
-
 @interface TGBridgeChatMessageSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int64_t peerId;
@@ -58,7 +54,6 @@
 - (instancetype)initWithPeerId:(int64_t)peerId messageId:(int32_t)messageId;
 
 @end
-
 
 @interface TGBridgeReadChatMessageListSubscription : TGBridgeSubscription
 
@@ -69,7 +64,6 @@
 
 @end
 
-
 @interface TGBridgeContactsSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) NSString *query;
@@ -77,7 +71,6 @@
 - (instancetype)initWithQuery:(NSString *)query;
 
 @end
-
 
 @interface TGBridgeConversationSubscription : TGBridgeSubscription
 
@@ -87,7 +80,6 @@
 
 @end
 
-
 @interface TGBridgeNearbyVenuesSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) CLLocationCoordinate2D coordinate;
@@ -96,7 +88,6 @@
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate limit:(int32_t)limit;
 
 @end
-
 
 @interface TGBridgeMediaThumbnailSubscription : TGBridgeSubscription
 
@@ -108,7 +99,6 @@
 - (instancetype)initWithPeerId:(int64_t)peerId messageId:(int32_t)messageId size:(CGSize)size notification:(bool)notification;
 
 @end
-
 
 typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
     TGBridgeMediaAvatarTypeSmall,
@@ -140,7 +130,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 
 @end
 
-
 @interface TGBridgePeerSettingsSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int64_t peerId;
@@ -166,7 +155,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 
 @end
 
-
 @interface TGBridgeRemoteSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int64_t peerId;
@@ -178,7 +166,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 
 @end
 
-
 @interface TGBridgeSendTextMessageSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int64_t peerId;
@@ -188,7 +175,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 - (instancetype)initWithPeerId:(int64_t)peerId text:(NSString *)text replyToMid:(int32_t)replyToMid;
 
 @end
-
 
 @interface TGBridgeSendStickerMessageSubscription : TGBridgeSubscription
 
@@ -200,7 +186,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 
 @end
 
-
 @interface TGBridgeSendLocationMessageSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) int64_t peerId;
@@ -210,7 +195,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 - (instancetype)initWithPeerId:(int64_t)peerId location:(TGBridgeLocationMediaAttachment *)location replyToMid:(int32_t)replyToMid;
 
 @end
-
 
 @interface TGBridgeSendForwardedMessageSubscription : TGBridgeSubscription
 
@@ -222,16 +206,13 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 
 @end
 
-
 @interface TGBridgeStateSubscription : TGBridgeSubscription
 
 @end
 
-
 @interface TGBridgeStickerPacksSubscription : TGBridgeSubscription
 
 @end
-
 
 @interface TGBridgeRecentStickersSubscription : TGBridgeSubscription
 
@@ -241,7 +222,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 
 @end
 
-
 @interface TGBridgeUserInfoSubscription : TGBridgeSubscription
 
 @property (nonatomic, readonly) NSArray *userIds;
@@ -249,7 +229,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeMediaAvatarType) {
 - (instancetype)initWithUserIds:(NSArray *)userIds;
 
 @end
-
 
 @interface TGBridgeUserBotInfoSubscription : TGBridgeSubscription
 

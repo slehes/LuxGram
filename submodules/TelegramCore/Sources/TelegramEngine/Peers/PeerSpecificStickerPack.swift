@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 private struct WrappedStickerPackCollectionInfo: Equatable {
     let info: StickerPackCollectionInfo?
     
@@ -46,7 +45,6 @@ func _internal_peerSpecificStickerPack(postbox: Postbox, network: Network, peerI
         return .single(PeerSpecificStickerPackData(packInfo: nil, canSetup: false))
     }
 }
-
 
 func _internal_peerSpecificEmojiPack(postbox: Postbox, network: Network, peerId: PeerId) -> Signal<PeerSpecificStickerPackData, NoError> {
     if peerId.namespace == Namespaces.Peer.CloudChannel {

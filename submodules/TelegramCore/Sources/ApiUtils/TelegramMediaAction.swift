@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 func telegramMediaActionFromApiAction(_ action: Api.MessageAction) -> TelegramMediaAction? {
     switch action {
     case let .messageActionChannelCreate(messageActionChannelCreateData):

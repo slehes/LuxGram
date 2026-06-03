@@ -173,7 +173,6 @@ enum {
 int ff_dovi_rpu_generate(DOVIContext *s, const AVDOVIMetadata *metadata,
                          int flags, uint8_t **out_rpu, int *out_size);
 
-
 /***************************************************
  * The following section is for internal use only. *
  ***************************************************/

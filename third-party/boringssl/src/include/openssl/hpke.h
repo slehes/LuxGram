@@ -24,14 +24,12 @@
 extern "C" {
 #endif
 
-
 // Hybrid Public Key Encryption.
 //
 // Hybrid Public Key Encryption (HPKE) enables a sender to encrypt messages to a
 // receiver with a public key.
 //
 // See RFC 9180.
-
 
 // Parameters.
 //
@@ -104,7 +102,6 @@ OPENSSL_EXPORT uint16_t EVP_HPKE_AEAD_id(const EVP_HPKE_AEAD *aead);
 
 // EVP_HPKE_AEAD_aead returns the |EVP_AEAD| corresponding to |aead|.
 OPENSSL_EXPORT const EVP_AEAD *EVP_HPKE_AEAD_aead(const EVP_HPKE_AEAD *aead);
-
 
 // Recipient keys.
 //
@@ -179,7 +176,6 @@ OPENSSL_EXPORT int EVP_HPKE_KEY_public_key(const EVP_HPKE_KEY *key,
 OPENSSL_EXPORT int EVP_HPKE_KEY_private_key(const EVP_HPKE_KEY *key,
                                             uint8_t *out, size_t *out_len,
                                             size_t max_out);
-
 
 // Encryption contexts.
 //
@@ -281,7 +277,6 @@ OPENSSL_EXPORT int EVP_HPKE_CTX_setup_auth_recipient(
     const uint8_t *info, size_t info_len, const uint8_t *peer_public_key,
     size_t peer_public_key_len);
 
-
 // Using an HPKE context.
 //
 // Once set up, callers may encrypt or decrypt with an |EVP_HPKE_CTX| using the
@@ -356,7 +351,6 @@ OPENSSL_EXPORT const EVP_HPKE_AEAD *EVP_HPKE_CTX_aead(const EVP_HPKE_CTX *ctx);
 // not been set up.
 OPENSSL_EXPORT const EVP_HPKE_KDF *EVP_HPKE_CTX_kdf(const EVP_HPKE_CTX *ctx);
 
-
 // Private structures.
 //
 // The following structures are exported so their types are stack-allocatable,
@@ -378,7 +372,6 @@ struct evp_hpke_key_st {
   uint8_t private_key[X25519_PRIVATE_KEY_LEN];
   uint8_t public_key[X25519_PUBLIC_VALUE_LEN];
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

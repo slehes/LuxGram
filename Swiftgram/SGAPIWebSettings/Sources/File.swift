@@ -35,7 +35,6 @@ public func updateSGWebSettingsInteractivelly(context: AccountContext) {
     })
 }
 
-
 public func postSGWebSettingsInteractivelly(context: AccountContext, data: [String: Any]) {
     let _ = getSGApiToken(context: context).startStandalone(next: { token in
         let _ = postSGSettings(token: token, data: data).startStandalone(error: { e in

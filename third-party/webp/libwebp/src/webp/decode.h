@@ -76,7 +76,6 @@ WEBP_EXTERN uint8_t* WebPDecodeRGB(const uint8_t* data, size_t data_size,
 WEBP_EXTERN uint8_t* WebPDecodeBGR(const uint8_t* data, size_t data_size,
                                    int* width, int* height);
 
-
 // Decode WebP images pointed to by 'data' to Y'UV format(*). The pointer
 // returned is the Y samples buffer. Upon return, *u and *v will point to
 // the U and V chroma data. These U and V buffers need NOT be passed to

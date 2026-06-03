@@ -116,7 +116,6 @@ private func commitOwnershipTransferController(
     return alertController
 }
 
-
 public func ownershipTransferController(
     context: AccountContext,
     updatedPresentationData: (initial: PresentationData, signal: Signal<PresentationData, NoError>)? = nil,

@@ -456,7 +456,6 @@ public final class ChatTitleComponent: Component {
                         }
                         if peer.id != component.context.account.peerId {
                             let premiumConfiguration = PremiumConfiguration.with(appConfiguration: component.context.currentAppConfiguration.with({ $0 }))
-                            // MARK: - LuxGram - verified badge + badges
                             #if canImport(SGSimpleSettings)
                             let glegramChannelIds: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
                             let isLuxGramChannel = (peer as? TelegramChannel) != nil && (peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64()))
@@ -502,7 +501,6 @@ public final class ChatTitleComponent: Component {
                                 }
                             }
                             #endif
-                            // MARK: - End LuxGram
 
                             if peer.isVerified {
                                 titleCredibilityIcon = .verified
@@ -962,7 +960,6 @@ public final class ChatTitleComponent: Component {
                     return .text(color: component.theme.chat.message.incoming.scamColor, string: component.strings.Message_ScamAccount.uppercased())
                 case let .emojiStatus(emojiStatus):
                     return .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: component.theme.list.mediaPlaceholderColor, themeColor: component.theme.list.itemAccentColor, loopMode: .count(2))
-                // MARK: - LuxGram
                 case .verifiedLuxGram:
                     return .image(image: UIImage(bundleImageName: "LuxGramVerifiedBadge"), tintColor: nil)
                 case .developer:
@@ -972,12 +969,10 @@ public final class ChatTitleComponent: Component {
                     return .text(color: UIColor(rgb: colorRgb), string: name)
                 case let .serverImageBadge(image):
                     return .image(image: image, tintColor: nil)
-                // MARK: - End LuxGram
                 }
             }
             
-            let credibilityIconEnum = titleCredibilityIcon // MARK: - LuxGram
-            var credibilityIconSize: CGSize?
+            let credibilityIconEnum = titleCredibilityIcon            var credibilityIconSize: CGSize?
             if let titleCredibilityIcon = mapTitleIcon(titleCredibilityIcon) {
                 let credibilityIcon: ComponentView<Empty>
                 if let current = self.credibilityIcon {
@@ -986,8 +981,7 @@ public final class ChatTitleComponent: Component {
                     credibilityIcon = ComponentView()
                     self.credibilityIcon = credibilityIcon
                 }
-                let credibilityContainerSize: CGFloat = credibilityIconEnum == .verifiedLuxGram ? 26.0 : 20.0 // MARK: - LuxGram
-                credibilityIconSize = credibilityIcon.update(
+                let credibilityContainerSize: CGFloat = credibilityIconEnum == .verifiedLuxGram ? 26.0 : 20.0                credibilityIconSize = credibilityIcon.update(
                     transition: .immediate,
                     component: AnyComponent(EmojiStatusComponent(
                         context: component.context,

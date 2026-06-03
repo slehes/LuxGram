@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 // A stack, in OpenSSL, is an array of pointers. They are the most commonly
 // used collection object.
 //
@@ -73,7 +72,6 @@ extern "C" {
 //
 // The |DECLARE_STACK_OF| macro makes |STACK_OF(FOO)| available, and
 // |DEFINE_STACK_OF| makes the corresponding functions available.
-
 
 // Defining stacks.
 
@@ -106,7 +104,6 @@ extern "C" {
 #define DEFINE_CONST_STACK_OF(type)                                \
   BORINGSSL_DEFINE_STACK_OF_IMPL(type, const type *, const type *) \
   BORINGSSL_DEFINE_STACK_TRAITS(type, const type, true)
-
 
 // Using stacks.
 //
@@ -242,7 +239,6 @@ STACK_OF(SAMPLE) *sk_SAMPLE_deep_copy(const STACK_OF(SAMPLE) *sk,
 
 #endif  // Sample
 
-
 // Private functions.
 //
 // The |sk_*| functions generated above are implemented internally using the
@@ -325,7 +321,6 @@ OPENSSL_EXPORT OPENSSL_STACK *OPENSSL_sk_deep_copy(
     OPENSSL_sk_copy_func copy_func, OPENSSL_sk_call_free_func call_free_func,
     OPENSSL_sk_free_func free_func);
 
-
 // Deprecated private functions (hidden).
 //
 // TODO(crbug.com/boringssl/499): Migrate callers to the typed wrappers, or at
@@ -359,7 +354,6 @@ OPENSSL_EXPORT OPENSSL_DEPRECATED void sk_pop_free_ex(
 // TODO(davidben): Migrate callers to bssl::UniquePtr and remove this.
 OPENSSL_EXPORT OPENSSL_DEPRECATED void sk_pop_free(
     OPENSSL_STACK *sk, OPENSSL_sk_free_func free_func);
-
 
 #if !defined(BORINGSSL_NO_CXX)
 extern "C++" {
@@ -536,14 +530,12 @@ BSSL_NAMESPACE_END
                                                                                \
   OPENSSL_MSVC_PRAGMA(warning(pop))
 
-
 // Built-in stacks.
 
 typedef char *OPENSSL_STRING;
 
 DEFINE_STACK_OF(void)
 DEFINE_NAMED_STACK_OF(OPENSSL_STRING, char)
-
 
 #if defined(__cplusplus)
 }  // extern C

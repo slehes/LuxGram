@@ -11,7 +11,6 @@
 #include "jpeglib.h"
 #include "jpegcomp.h"
 
-
 /* Private buffer controller object */
 
 typedef struct {
@@ -36,12 +35,10 @@ typedef struct {
 
 typedef my_main_controller *my_main_ptr;
 
-
 /* context_state values: */
 #define CTX_PREPARE_FOR_IMCU    0       /* need to prepare for MCU row */
 #define CTX_PROCESS_IMCU        1       /* feeding iMCU to postprocessor */
 #define CTX_POSTPONED_ROW       2       /* feeding postponed row group */
-
 
 LOCAL(void)
 set_wraparound_pointers(j_decompress_ptr cinfo)

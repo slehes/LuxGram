@@ -465,7 +465,6 @@ public class PBXProjGenerator {
             productsGroup.children.append(productReferenceProxy)
         }
 
-
         let targetDependency = addObject(
             PBXTargetDependency(
                 name: targetObject.name,

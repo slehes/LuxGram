@@ -61,7 +61,6 @@
 #define FF_COMPLIANCE_UNOFFICIAL   -1 ///< Allow unofficial extensions
 #define FF_COMPLIANCE_EXPERIMENTAL -2 ///< Allow nonstandardized experimental things.
 
-
 #define AV_PROFILE_UNKNOWN        -99
 #define AV_PROFILE_RESERVED      -100
 
@@ -193,7 +192,6 @@
 
 #define AV_PROFILE_EVC_BASELINE             0
 #define AV_PROFILE_EVC_MAIN                 1
-
 
 #define AV_LEVEL_UNKNOWN                  -99
 

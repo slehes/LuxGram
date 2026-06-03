@@ -82,9 +82,7 @@
 extern "C" {
 #endif
 
-
 // EC internals.
-
 
 // Cap the size of all field elements and scalars, including custom curves, to
 // 66 bytes, large enough to fit secp521r1 and brainpoolP512r1, which appear to
@@ -96,7 +94,6 @@ extern "C" {
 
 static_assert(EC_MAX_WORDS <= BN_SMALL_MAX_WORDS,
               "bn_*_small functions not usable");
-
 
 // Scalars.
 
@@ -186,7 +183,6 @@ int ec_scalar_to_montgomery_inv_vartime(const EC_GROUP *group, EC_SCALAR *r,
 void ec_scalar_select(const EC_GROUP *group, EC_SCALAR *out, BN_ULONG mask,
                       const EC_SCALAR *a, const EC_SCALAR *b);
 
-
 // Field elements.
 
 // An EC_FELEM represents a field element. Only the first |field->width| words
@@ -241,7 +237,6 @@ void ec_felem_select(const EC_GROUP *group, EC_FELEM *out, BN_ULONG mask,
 
 // ec_felem_equal returns one if |a| and |b| are equal and zero otherwise.
 int ec_felem_equal(const EC_GROUP *group, const EC_FELEM *a, const EC_FELEM *b);
-
 
 // Points.
 //
@@ -470,7 +465,6 @@ void ec_set_to_safe_point(const EC_GROUP *group, EC_JACOBIAN *out);
 // and zero otherwise. It treats both inputs as secret.
 int ec_affine_jacobian_equal(const EC_GROUP *group, const EC_AFFINE *a,
                              const EC_JACOBIAN *b);
-
 
 // Implementation details.
 
@@ -747,7 +741,6 @@ struct ec_key_st {
 
   CRYPTO_EX_DATA ex_data;
 } /* EC_KEY */;
-
 
 #if defined(__cplusplus)
 }  // extern C

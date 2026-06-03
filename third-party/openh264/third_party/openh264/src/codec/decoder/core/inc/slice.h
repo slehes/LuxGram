@@ -142,7 +142,6 @@ typedef struct TagSliceHeaders {
   int16_t         iPadding2Bytes;
 } SSliceHeader, *PSliceHeader;
 
-
 /* Slice header in scalable extension syntax, refer to Page 394 in JVT X201wcm */
 typedef struct TagSliceHeaderExt {
   SSliceHeader    sSliceHeader;
@@ -176,7 +175,6 @@ typedef struct TagSliceHeaderExt {
   uint8_t         uiScanIdxStart;
   uint8_t         uiScanIdxEnd;
 } SSliceHeaderExt, *PSliceHeaderExt;
-
 
 typedef struct TagSlice {
   /*******************************slice_header****************************/

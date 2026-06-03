@@ -513,7 +513,6 @@ struct AACDecContext {
     SingleChannelElement *output_element[MAX_CHANNELS]; ///< Points to each SingleChannelElement
     /** @} */
 
-
     /**
      * @name Japanese DTV specific extension
      * @{

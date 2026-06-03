@@ -175,7 +175,6 @@ FFPsyChannelGroup *ff_psy_find_group(FFPsyContext *ctx, int channel);
  */
 void ff_psy_end(FFPsyContext *ctx);
 
-
 /**************************************************************************
  *                       Audio preprocessing stuff.                       *
  *       This should be moved into some audio filter eventually.          *

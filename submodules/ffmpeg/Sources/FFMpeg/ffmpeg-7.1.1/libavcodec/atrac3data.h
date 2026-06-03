@@ -83,7 +83,6 @@ static const int8_t mantissa_vlc_tab[18] = {
     0, 0,  0, 1,  0, -1,  1, 0,  -1, 0,  1, 1,  1, -1,  -1, 1,  -1, -1
 };
 
-
 /* tables for the scalefactor decoding */
 
 static const float inv_max_quant[8] = {

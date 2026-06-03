@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 // CRYPTO_hchacha20 computes the HChaCha20 function, which should only be used
 // as part of XChaCha20.
 void CRYPTO_hchacha20(uint8_t out[32], const uint8_t key[32],
@@ -93,7 +92,6 @@ void ChaCha20_ctr32_ssse3(uint8_t *out, const uint8_t *in, size_t in_len,
 void ChaCha20_ctr32_nohw(uint8_t *out, const uint8_t *in, size_t in_len,
                          const uint32_t key[8], const uint32_t counter[4]);
 #endif
-
 
 #if defined(__cplusplus)
 }  // extern C

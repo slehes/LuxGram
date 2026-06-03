@@ -1,4 +1,3 @@
-// MARK: Swiftgram – LuxGram settings footer
 import Foundation
 import UIKit
 import AsyncDisplayKit

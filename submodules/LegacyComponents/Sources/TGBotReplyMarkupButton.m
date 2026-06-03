@@ -173,7 +173,6 @@
     [coder encodeString:_text forCKey:"text"];
 }
 
-
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     return [self initWithText:[aDecoder decodeObjectForKey:@"text"]];
 }
@@ -205,7 +204,6 @@
 - (void)encodeWithKeyValueCoder:(PSKeyValueCoder *)coder {
     [coder encodeString:_text forCKey:"text"];
 }
-
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder {
     return [self initWithText:[aDecoder decodeObjectForKey:@"text"]];

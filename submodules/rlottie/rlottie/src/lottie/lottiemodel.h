@@ -133,8 +133,6 @@ public:
     bool                 mClosed = false;   /* "c" */
 };
 
-
-
 template<typename T>
 inline T lerp(const T& start, const T& end, float t)
 {
@@ -197,7 +195,6 @@ struct LOTKeyFrameValue<VPointF>
         return 0;
     }
 };
-
 
 template<typename T>
 class LOTKeyFrame
@@ -749,8 +746,6 @@ inline LottieGradient operator*(float m, const LottieGradient &g)
     }
     return newG;
 }
-
-
 
 class LOTGradient : public LOTData
 {

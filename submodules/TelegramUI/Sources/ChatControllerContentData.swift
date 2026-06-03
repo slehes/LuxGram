@@ -139,7 +139,6 @@ extension ChatControllerImpl {
             var requestsState: PeerInvitationImportersState?
             var dismissedInvitationRequests: [Int64]?
 
-            // MARK: Swiftgram
             var predictedChatLanguage: String?
             
             var customEmojiAvailable: Bool = false
@@ -171,7 +170,6 @@ extension ChatControllerImpl {
         private var premiumGiftSuggestionDisposable: Disposable?
         private var translationStateDisposable: Disposable?
         
-        // MARK: Swiftgram
         private var chatLanguagePredictionDisposable: Disposable?
 
         private let isPeerInfoReady = ValuePromise<Bool>(false, ignoreRepeated: true)
@@ -2182,7 +2180,6 @@ extension ChatControllerImpl {
                         strongSelf.onUpdated?(previousState)
                     })
 
-                    // MARK: Swiftgram
                     self.chatLanguagePredictionDisposable = (
                         chatTranslationState(context: context, peerId: peerId, threadId: chatLocation.threadId, forcePredict: true)
                         |> map { translationState -> ChatPresentationTranslationState? in
@@ -2464,7 +2461,6 @@ extension ChatControllerImpl {
             self.cachedDataDisposable?.dispose()
             self.premiumGiftSuggestionDisposable?.dispose()
             self.translationStateDisposable?.dispose()
-            // MARK: Swiftgram
             self.chatLanguagePredictionDisposable?.dispose()
             self.inviteRequestsDisposable?.dispose()
         }

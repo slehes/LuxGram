@@ -13,11 +13,8 @@
 #import "tgcalls/desktop_capturer/DesktopCaptureSourceManager.h"
 #import "platform/darwin/VideoMetalViewMac.h"
 
-
-
 @interface DesktopCaptureSourceViewMetal : VideoMetalView
 @end
-
 
 @implementation DesktopCaptureSourceViewMetal
 
@@ -30,7 +27,6 @@
     return self;
 }
 @end
-
 
 @implementation DesktopCaptureSourceDataMac
 -(id)initWithSize:(CGSize)size fps:(double)fps captureMouse:(bool)captureMouse {
@@ -102,7 +98,6 @@
 }
 
 @end
-
 
 @interface DesktopCaptureSourceScopeMac ()
 -(tgcalls::DesktopCaptureSourceData)getData;

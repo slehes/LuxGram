@@ -122,7 +122,6 @@
 extern "C" {
 #endif
 
-
 // These are kept to support clients that negotiates higher protocol versions
 // using SSLv2 client hello records.
 #define SSL2_MT_CLIENT_HELLO 1
@@ -317,9 +316,7 @@ extern "C" {
 #define SSL3_MT_SERVER_DONE SSL3_MT_SERVER_HELLO_DONE
 #define SSL3_MT_NEWSESSION_TICKET SSL3_MT_NEW_SESSION_TICKET
 
-
 #define SSL3_MT_CCS 1
-
 
 #ifdef  __cplusplus
 }  // extern C

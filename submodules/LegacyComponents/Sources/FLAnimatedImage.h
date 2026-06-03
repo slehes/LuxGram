@@ -6,12 +6,10 @@
 //  Copyright (c) 2013-2014 Flipboard. All rights reserved.
 //
 
-
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
 @protocol FLAnimatedImageDebugDelegate;
-
 
 //
 //  An `FLAnimatedImage`'s job is to deliver frames in a highly performant way and works in conjunction with `FLAnimatedImageView`.
@@ -55,13 +53,11 @@
 
 @end
 
-
 @interface FLWeakProxy : NSProxy
 
 + (instancetype)weakProxyForObject:(id)targetObject;
 
 @end
-
 
 #if DEBUG
 @protocol FLAnimatedImageDebugDelegate <NSObject>

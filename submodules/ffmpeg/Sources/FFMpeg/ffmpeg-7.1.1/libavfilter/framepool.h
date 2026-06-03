@@ -106,7 +106,6 @@ int ff_frame_pool_get_audio_config(FFFramePool *pool,
                                    enum AVSampleFormat *format,
                                    int *align);
 
-
 /**
  * Allocate a new AVFrame, reussing old buffers from the pool when available.
  * This function may be called simultaneously from multiple threads.
@@ -114,6 +113,5 @@ int ff_frame_pool_get_audio_config(FFFramePool *pool,
  * @return a new AVFrame on success, NULL on error.
  */
 AVFrame *ff_frame_pool_get(FFFramePool *pool);
-
 
 #endif /* AVFILTER_FRAMEPOOL_H */

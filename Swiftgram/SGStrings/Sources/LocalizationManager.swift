@@ -4,7 +4,6 @@ import Foundation
 import SGLogging
 import AppBundle
 
-
 public let SGFallbackLocale = "en"
 
 public class SGLocalizationManager {
@@ -125,7 +124,6 @@ public class SGLocalizationManager {
 }
 
 public let i18n = SGLocalizationManager.shared.localizedString
-
 
 public extension String {
     func i18n(_ locale: String = SGFallbackLocale, args: CVarArg...) -> String {

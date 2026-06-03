@@ -35,7 +35,6 @@
  */
 typedef struct TimeFilter TimeFilter;
 
-
 /**
  * Create a new Delay Locked Loop time filter
  *

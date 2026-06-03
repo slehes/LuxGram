@@ -58,7 +58,6 @@ $(TargetPath)
 //#undef        X86_ASM             // X86_ASM is included in project preprocessor definitions, undef it when need to disable asm code
 #define SINGLE_REF_FRAME            // need to disable it when use multi-reference
 
-
 #if defined(WELS_TESTBED)               // for SGE testing
 #define ENABLE_FRAME_DUMP
 
@@ -66,7 +65,6 @@ $(TargetPath)
 #undef FRAME_INFO_OUTPUT
 #endif//FRAME_INFO_OUTPUT
 #endif//WELS_TESTBED
-
 
 #if defined(__UNITTEST__)               // for unittest
 #ifndef ENABLE_FRAME_DUMP
@@ -82,7 +80,6 @@ $(TargetPath)
 //#define LAYER_INFO_OUTPUT
 //#define SLICE_INFO_OUTPUT             // useful in multiple slice coding track
 //#define MB_TYPES_INFO_OUTPUT
-
 
 /* macros dependencies check */
 //@if !FRAME_INFO_OUTPUT

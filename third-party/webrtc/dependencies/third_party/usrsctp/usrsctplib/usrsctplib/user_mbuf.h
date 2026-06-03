@@ -68,7 +68,6 @@ void mbuf_initialize(void *);
 #define	MGETHDR(m, how, type)	((m) = m_gethdr((how), (type)))
 #define	MCLGET(m, how)		m_clget((m), (how))
 
-
 #define M_HDR_PAD ((sizeof(intptr_t)==4) ? 2 : 6) /* modified for __Userspace__ */
 
 /* Length to m_copy to copy all. */
@@ -139,7 +138,6 @@ void		 m_copydata(const struct mbuf *, int, int, caddr_t);
 #define	MINCLSIZE	((int)(MHLEN + 1))	/* smallest amount to put in cluster */
 #define	M_MAXCOMPRESS	(MHLEN / 2)	/* max amount to copy for compression */
 
-
 /*
  * Header present at the beginning of every mbuf.
  */
@@ -194,7 +192,6 @@ struct m_ext {
 	int		 ext_type;	/* type of external storage */
 };
 
-
 /*
  * The core of the mbuf object along with some shortcut defined for practical
  * purposes.
@@ -225,7 +222,6 @@ struct mbuf {
 #define	m_pktdat	M_dat.MH.MH_dat.MH_databuf
 #define	m_dat		M_dat.M_databuf
 
-
 /*
  * mbuf flags.
  */
@@ -240,7 +236,6 @@ struct mbuf {
 #define	M_PROTO5	0x0100	/* protocol-specific */
 #define	M_FREELIST	0x8000	/* mbuf is on the free list */
 
-
 /*
  * Flags copied when copying m_pkthdr.
  */
@@ -248,7 +243,6 @@ struct mbuf {
 			    M_PROTO3|M_PROTO4|M_PROTO5|\
 			    M_BCAST|M_MCAST|M_FRAG|M_FIRSTFRAG|M_LASTFRAG|\
 			    M_VLANTAG|M_PROMISC)
-
 
 /*
  * mbuf pkthdr flags (also stored in m_flags).
@@ -261,7 +255,6 @@ struct mbuf {
 #define	M_VLANTAG	0x10000	/* ether_vtag is valid */
 #define	M_PROMISC	0x20000	/* packet was not for us */
 #define	M_NOFREE	0x40000	/* do not free mbuf - it is embedded in the cluster */
-
 
 /*
  * External buffer types: identify ext_buf type.
@@ -277,7 +270,6 @@ struct mbuf {
 #define	EXT_MOD_TYPE	200	/* custom module's ext_buf type */
 #define	EXT_DISPOSABLE	300	/* can throw this buffer away w/page flipping */
 #define	EXT_EXTREF	400	/* has externally maintained ref_cnt ptr */
-
 
 /*
  * mbuf types.
@@ -326,7 +318,6 @@ extern int max_protohdr; /* Size of largest protocol layer header. See user_mbuf
 			 (!(((m)->m_flags & M_EXT)) ||			\
 			 (*((m)->m_ext.ref_cnt) == 1)) )		\
 
-
 /*
  * Compute the amount of space available before the current start of data in
  * an mbuf.
@@ -351,8 +342,6 @@ extern int max_protohdr; /* Size of largest protocol layer header. See user_mbuf
 	    (M_WRITABLE(m) ? (m)->m_ext.ext_buf + (m)->m_ext.ext_size	\
 		- ((m)->m_data + (m)->m_len) : 0) :			\
 	    &(m)->m_dat[MLEN] - ((m)->m_data + (m)->m_len))
-
-
 
 /*
  * Arrange to prepend space of size plen to mbuf m.  If a new mbuf must be

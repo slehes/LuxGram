@@ -76,7 +76,6 @@ static const int bitinv32[32] = {
     3,  19, 11, 27,  7,  23,  15,  31
 };
 
-
 /* signal to noise ratio of each quantification step (could be
    computed from quant_steps[]). The values are dB multiplied by 10
 */

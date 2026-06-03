@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 private enum ChannelParticipantValue: Int32 {
     case member = 0
     case creator = 1
@@ -209,7 +208,6 @@ public final class CachedChannelParticipants: PostboxCoding, Equatable {
         return lhs.participants == rhs.participants
     }
 }
-
 
 extension ChannelParticipant {
     init(apiParticipant: Api.ChannelParticipant) {

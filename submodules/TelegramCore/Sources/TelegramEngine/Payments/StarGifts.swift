@@ -3737,7 +3737,6 @@ extension StarGiftReference {
     }
 }
 
-
 public enum RequestStarGiftWithdrawalError : Equatable {
     case generic
     case twoStepAuthMissing

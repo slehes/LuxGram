@@ -707,7 +707,6 @@ public final class RollingText: Component {
     }
 }
 
-
 final class SparseItemGridScrollingIndicatorComponent: CombinedComponent {
     let backgroundColor: UIColor
     let shadowColor: UIColor

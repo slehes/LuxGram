@@ -52,7 +52,6 @@ static av_cold void softclip_table_init(void) {
         softclip_table[i] = SOFTCLIP_THRESHOLD - ((int)(sin((float)i * delta) * dfl) & 0x0000FFFF);
 }
 
-
 // random generated table
 static av_cold void rnd_table_init(void) {
     int i,j;
@@ -83,7 +82,6 @@ static av_cold void rnd_table_init(void) {
         }
     }
 }
-
 
 static av_cold void init_noise_samples(void) {
     int i;

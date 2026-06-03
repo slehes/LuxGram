@@ -467,7 +467,6 @@ UIImageOrientation TGNextCCWOrientationForOrientation(UIImageOrientation orienta
     return UIImageOrientationUp;
 }
 
-
 UIImageOrientation TGNextCWOrientationForOrientation(UIImageOrientation orientation)
 {
     switch (orientation)

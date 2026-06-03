@@ -31,7 +31,6 @@
 #include "../../jdct.h"
 #include "loongson-mmintrin.h"
 
-
 /* Common code */
 #if defined(_ABI64) && _MIPS_SIM == _ABI64
 # define PTR_ADDU  "daddu "

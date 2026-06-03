@@ -34,7 +34,6 @@ using AS::MutexLocker;
                               ASDisplayNodeMethodOverrideCalcSizeThatFits)) != 0 || _layoutSpecBlock != nil;
 }
 
-
 - (ASLayoutElementStyle *)style
 {
   MutexLocker l(__instanceLock__);

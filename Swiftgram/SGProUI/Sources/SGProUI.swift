@@ -17,7 +17,6 @@ import SettingsUI
 import SGSimpleSettings
 import SGLogging
 
-
 private enum SGProControllerSection: Int32, SGItemListSection {
     case base
     case appearance
@@ -190,5 +189,4 @@ public func sgProController(context: AccountContext) -> ViewController {
     
     return controller
 }
-
 

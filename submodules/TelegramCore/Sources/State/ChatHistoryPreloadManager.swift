@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 public struct HistoryPreloadIndex: Hashable, Comparable, CustomStringConvertible {
     public let index: ChatListIndex?
     public let threadId: Int64?

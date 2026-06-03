@@ -1,4 +1,3 @@
-// MARK: LuxGram – Plugin metadata (exteraGram-compatible .plugin file format)
 import Foundation
 
 /// Metadata parsed from a .plugin file (exteraGram plugin format).

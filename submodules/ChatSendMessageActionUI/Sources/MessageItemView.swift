@@ -196,7 +196,6 @@ final class CustomEmojiContainerView: UIView {
     }
 }
 
-
 final class MessageItemView: UIView {
     private let backgroundWallpaperNode: ChatMessageBubbleBackdrop
     private let backgroundNode: ChatMessageBackground

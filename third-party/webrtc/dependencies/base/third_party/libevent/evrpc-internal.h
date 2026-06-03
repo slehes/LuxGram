@@ -83,5 +83,4 @@ struct evrpc_pool {
 	TAILQ_HEAD(evrpc_requestq, evrpc_request_wrapper) requests;
 };
 
-
 #endif /* _EVRPC_INTERNAL_H_ */

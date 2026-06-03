@@ -68,7 +68,6 @@
 extern "C" {
 #endif
 
-
 typedef struct bn_blinding_st BN_BLINDING;
 
 struct rsa_st {
@@ -122,7 +121,6 @@ struct rsa_st {
   unsigned private_key_frozen:1;
 };
 
-
 #define RSA_PKCS1_PADDING_SIZE 11
 
 // Default implementations of RSA operations.
@@ -136,7 +134,6 @@ int rsa_default_sign_raw(RSA *rsa, size_t *out_len, uint8_t *out,
 int rsa_default_private_transform(RSA *rsa, uint8_t *out, const uint8_t *in,
                                   size_t len);
 
-
 BN_BLINDING *BN_BLINDING_new(void);
 void BN_BLINDING_free(BN_BLINDING *b);
 void BN_BLINDING_invalidate(BN_BLINDING *b);
@@ -144,7 +141,6 @@ int BN_BLINDING_convert(BIGNUM *n, BN_BLINDING *b, const BIGNUM *e,
                         const BN_MONT_CTX *mont_ctx, BN_CTX *ctx);
 int BN_BLINDING_invert(BIGNUM *n, const BN_BLINDING *b, BN_MONT_CTX *mont_ctx,
                        BN_CTX *ctx);
-
 
 int PKCS1_MGF1(uint8_t *out, size_t len, const uint8_t *seed, size_t seed_len,
                const EVP_MD *md);
@@ -178,11 +174,9 @@ int rsa_private_transform(RSA *rsa, uint8_t *out, const uint8_t *in,
 // etc., with |rsa|.
 void rsa_invalidate_key(RSA *rsa);
 
-
 // This constant is exported for test purposes.
 extern const BN_ULONG kBoringSSLRSASqrtTwo[];
 extern const size_t kBoringSSLRSASqrtTwoLen;
-
 
 // Functions that avoid self-tests.
 //
@@ -204,7 +198,6 @@ int rsa_verify_raw_no_self_test(RSA *rsa, size_t *out_len, uint8_t *out,
 int rsa_sign_no_self_test(int hash_nid, const uint8_t *digest,
                           size_t digest_len, uint8_t *out, unsigned *out_len,
                           RSA *rsa);
-
 
 #if defined(__cplusplus)
 }  // extern C

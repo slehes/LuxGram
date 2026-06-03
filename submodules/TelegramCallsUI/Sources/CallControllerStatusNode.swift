@@ -223,7 +223,6 @@ final class CallControllerStatusNode: ASDisplayNode {
     }
 }
 
-
 private final class CallControllerReceptionNodeParameters: NSObject {
     let reception: Int32
     

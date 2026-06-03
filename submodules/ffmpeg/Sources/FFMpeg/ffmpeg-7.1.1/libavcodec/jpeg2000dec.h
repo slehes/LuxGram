@@ -28,7 +28,6 @@
 #include "jpeg2000.h"
 #include "jpeg2000dsp.h"
 
-
 #define MAX_POCS 32
 
 typedef struct Jpeg2000POCEntry {

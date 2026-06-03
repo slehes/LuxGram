@@ -249,7 +249,6 @@ NSString *const TGBridgeUsersDictionaryKey = @"users";
 
 @end
 
-
 NSString *const TGBridgeUserChangeIdentifierKey = @"userIdentifier";
 NSString *const TGBridgeUserChangeFieldsKey = @"fields";
 

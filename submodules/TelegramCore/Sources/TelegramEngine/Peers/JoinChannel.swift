@@ -4,7 +4,6 @@ import TelegramApi
 import SwiftSignalKit
 import MtProtoKit
 
-
 public enum JoinChannelError {
     case generic
     case tooMuchJoined

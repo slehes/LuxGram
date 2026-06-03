@@ -1319,7 +1319,6 @@ const NSInteger TGMessageImageViewOverlayParticlesCount = 40;
 
 @end
 
-
 @implementation  TGMessageImageViewOverlayParticle
 
 @end

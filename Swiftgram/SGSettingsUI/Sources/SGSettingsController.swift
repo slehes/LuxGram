@@ -1,4 +1,3 @@
-// MARK: LuxGram
 import SGLogging
 import SGSimpleSettings
 import SGStrings
@@ -26,7 +25,6 @@ import AppBundle
 import WebKit
 import PeerNameColorScreen
 import UndoUI
-
 
 private enum SGControllerSection: Int32, SGItemListSection {
     case search
@@ -161,7 +159,6 @@ enum SGBoolSetting: String {
     case feelRichEnabled
     case giftIdEnabled
     case fakeProfileEnabled
-    // MARK: - LuxGram
     case liquidGlassEnabled
 }
 
@@ -709,7 +706,6 @@ public func sgSettingsController(context: AccountContext/*, focusOnItemTag: Int?
             SGSimpleSettings.shared.giftIdEnabled = value
         case .fakeProfileEnabled:
             SGSimpleSettings.shared.fakeProfileEnabled = value
-        // MARK: - LuxGram — Liquid Glass toggle
         case .liquidGlassEnabled:
             SGSimpleSettings.shared.liquidGlassEnabled = value
             NotificationCenter.default.post(name: .luxgramLiquidGlassDidChange, object: nil)

@@ -86,7 +86,6 @@ typedef int64_t CoefSumType;
 #define AC3ENC_OPT_ADCONV_STANDARD  0
 #define AC3ENC_OPT_ADCONV_HDCD      1
 
-
 /**
  * Encoding Options used by AVOption.
  */
@@ -277,7 +276,6 @@ int ff_ac3_encode_init(AVCodecContext *avctx);
 int ff_ac3_float_encode_init(AVCodecContext *avctx);
 
 int ff_ac3_encode_close(AVCodecContext *avctx);
-
 
 void ff_ac3_compute_coupling_strategy(AC3EncodeContext *s);
 

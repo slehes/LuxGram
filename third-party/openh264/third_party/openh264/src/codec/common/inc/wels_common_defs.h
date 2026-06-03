@@ -38,7 +38,6 @@
 #include "macros.h"
 #include "codec_app_def.h"
 
-
 namespace WelsCommon {
 /*common use table*/
 
@@ -153,7 +152,6 @@ extern const EVclType g_keTypeMap[32][2];
 #define IS_VCL_NAL_AVC_BASE(t)                  ( (t) == NAL_UNIT_CODED_SLICE || (t) == NAL_UNIT_CODED_SLICE_IDR )
 #define IS_NEW_INTRODUCED_SVC_NAL(t)            ( (t) == NAL_UNIT_PREFIX || (t) == NAL_UNIT_CODED_SLICE_EXT )
 
-
 /* Base SSlice Types
  * Invalid in case of eSliceType exceeds 9,
  * Need trim when eSliceType > 4 as fixed SliceType(eSliceType-4),
@@ -183,8 +181,6 @@ enum EListIndex {
   LIST_A    = 2
 };
 
-
-
 /* Motion Vector components */
 enum EMvComp {
   MV_X  = 0,
@@ -199,8 +195,6 @@ enum EChromaComp {
   CHROMA_CR     = 1,
   CHROMA_A      = 2
 };
-
-
 
 /*
  *  Memory Management Control Operation (MMCO) code
@@ -310,7 +304,6 @@ typedef struct TagNalUnitHeaderExt {
 #define IS_TYPE_L0(type) ( (type)&MB_TYPE_L0 )
 #define IS_TYPE_L1(type) ( (type)&MB_TYPE_L1 )
 #define IS_DIR(a, part, list) ((a) & (MB_TYPE_P0L0<<((part)+2*(list))))
-
 
 #define IS_SKIP(type) ( ((type)&MB_TYPE_SKIP) != 0 )
 #define IS_DIRECT(type) ( ((type)&MB_TYPE_DIRECT) != 0 )

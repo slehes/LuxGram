@@ -49,10 +49,8 @@ extension PeerInfoScreenNode {
         switch section {
         case .swiftgram:
             self.controller?.push(sgSettingsController(context: self.context))
-        // MARK: - LuxGram
-        case .gleGram:
-            self.controller?.push(gleGramSettingsController(context: self.context))
-        // MARK: - End LuxGram
+        case .luxGram:
+            self.controller?.push(luxGramSettingsController(context: self.context))
         case .swiftgramPro:
             if self.context.sharedContext.immediateSGStatus.status > 1 {
                 self.controller?.push(self.context.sharedContext.makeSGProController(context: self.context))
@@ -265,7 +263,6 @@ extension PeerInfoScreenNode {
                         navigationController.pushViewController(controller)
                     }
                 } else {
-                    // MARK: Swiftgram
                     if count + 1 > maximumSafeNumberOfAccounts {
                         let presentationData = strongSelf.context.sharedContext.currentPresentationData.with { $0 }
                         let alertController = textAlertController(context: strongSelf.context, updatedPresentationData: strongSelf.controller?.updatedPresentationData, title: presentationData.strings.ChatList_DeleteSavedMessagesConfirmationTitle, text: i18n("Auth.AccountBackupReminder", presentationData.strings.baseLanguageCode), actions: [

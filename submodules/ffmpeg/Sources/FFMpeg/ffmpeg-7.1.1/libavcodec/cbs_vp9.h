@@ -24,7 +24,6 @@
 
 #include "cbs.h"
 
-
 // Miscellaneous constants (section 3).
 enum {
     VP9_REFS_PER_FRAME = 3,
@@ -78,7 +77,6 @@ enum {
 
     VP9_SUPERFRAME_MARKER = 6,
 };
-
 
 typedef struct VP9RawFrameHeader {
     uint8_t frame_marker;
@@ -208,6 +206,5 @@ typedef struct CodedBitstreamVP9Context {
 
     VP9ReferenceFrameState ref[VP9_NUM_REF_FRAMES];
 } CodedBitstreamVP9Context;
-
 
 #endif /* AVCODEC_CBS_VP9_H */

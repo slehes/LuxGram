@@ -27,7 +27,6 @@ typedef enum {
 
 @end
 
-
 typedef NS_ENUM(NSUInteger, TGBridgeMessageDeliveryState) {
     TGBridgeMessageDeliveryStateDelivered = 0,
     TGBridgeMessageDeliveryStatePending = 1,

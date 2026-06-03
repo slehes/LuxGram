@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 // MD4.
 
 // MD4_CBLOCK is the block size of MD4.
@@ -99,7 +98,6 @@ struct md4_state_st {
   uint8_t data[MD4_CBLOCK];
   unsigned num;
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

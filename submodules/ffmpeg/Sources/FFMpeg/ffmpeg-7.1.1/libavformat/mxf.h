@@ -122,7 +122,6 @@ extern const MXFCodecUL ff_mxf_color_space_uls[];
 int ff_mxf_decode_pixel_layout(const char pixel_layout[16], enum AVPixelFormat *pix_fmt);
 int ff_mxf_get_content_package_rate(AVRational time_base);
 
-
 #define PRIxUID                             \
     "%02x.%02x.%02x.%02x."                  \
     "%02x.%02x.%02x.%02x."                  \

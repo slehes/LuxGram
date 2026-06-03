@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // SPX_N is the number of bytes in the hash output
 #define SPX_N 16
 
@@ -70,7 +69,6 @@ OPENSSL_EXPORT void spx_sign(uint8_t out_snignature[SPX_SIGNATURE_BYTES],
 OPENSSL_EXPORT int spx_verify(const uint8_t signature[SPX_SIGNATURE_BYTES],
                               const uint8_t public_key[SPX_SECRET_KEY_BYTES],
                               const uint8_t *msg, size_t msg_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -88,7 +88,6 @@ func to_json(_ obj: Any) -> String {
     }
 }
 
-
 var client = TdClient()
 
 // start the client by sending request to it

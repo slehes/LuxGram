@@ -209,7 +209,6 @@ static const SI16PredInfo g_ksChromaPredInfo[4] = {
   {C_PRED_P, 1, 1, 1},
 };
 
-
 typedef struct TagI4PredInfo {
   int8_t iPredMode;
   int8_t iLeftAvail;
@@ -230,7 +229,6 @@ static const SI4PredInfo g_ksI4PredInfo[9] = {
 };
 
 static const uint8_t g_kuiI16CbpTable[6] = {0, 16, 32, 15, 31, 47};
-
 
 typedef struct TagPartMbInfo {
   MbType iType;
@@ -310,7 +308,6 @@ static const sSar g_ksVuiSampleAspectRatio[17] = { //Table E-1
   {18, 11}, {15, 11}, {64, 33}, {160, 99}, { 4, 3}, //10~14
   { 3,  2}, { 2,  1}                                //15~16
 };
-
 
 } // namespace WelsDec
 

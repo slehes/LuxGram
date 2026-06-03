@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // pkcs7_parse_header reads the non-certificate/non-CRL prefix of a PKCS#7
 // SignedData blob from |cbs| and sets |*out| to point to the rest of the
 // input. If the input is in BER format, then |*der_bytes| will be set to a
@@ -49,7 +48,6 @@ int pkcs7_add_signed_data(CBB *out,
                           int (*cert_crl_cb)(CBB *out, const void *arg),
                           int (*signer_infos_cb)(CBB *out, const void *arg),
                           const void *arg);
-
 
 #if defined(__cplusplus)
 }  // extern C

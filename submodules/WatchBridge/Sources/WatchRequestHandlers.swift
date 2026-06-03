@@ -73,7 +73,6 @@ final class WatchChatListHandler: WatchRequestHandler {
     }
 }
 
-
 final class WatchChatMessagesHandler: WatchRequestHandler {
     static var handledSubscriptions: [Any] {
         return [

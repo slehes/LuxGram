@@ -7,7 +7,6 @@
 #import <libphonenumber/NBPhoneNumber.h>
 #import <libphonenumber/NBPhoneNumberDefines.h>
 
-
 @implementation NBPhoneNumber
 
 - (id)init
@@ -24,12 +23,10 @@
     return self;
 }
 
-
 - (void)clearCountryCodeSource
 {
     [self setCountryCodeSource:nil];
 }
-
 
 - (NBECountryCodeSource)getCountryCodeSourceOrDefault
 {
@@ -40,19 +37,16 @@
     return [self.countryCodeSource integerValue];
 }
 
-
 - (BOOL)isEqualToObject:(NBPhoneNumber*)otherObj
 {
     return [self isEqual:otherObj];
 }
-
 
 - (NSUInteger)hash
 {
     NSData *selfObject = [NSKeyedArchiver archivedDataWithRootObject:self requiringSecureCoding:false error:nil];
     return [selfObject hash];
 }
-
 
 - (BOOL)isEqual:(id)object
 {
@@ -65,7 +59,6 @@
         (self.italianLeadingZero == other.italianLeadingZero) &&
         ((self.extension == nil && other.extension == nil) || [self.extension isEqualToString:other.extension]);
 }
-
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -82,7 +75,6 @@
 	return phoneNumberCopy;
 }
 
-
 - (id)initWithCoder:(NSCoder*)coder
 {
     if (self = [super init]) {
@@ -97,7 +89,6 @@
     return self;
 }
 
-
 - (void)encodeWithCoder:(NSCoder*)coder
 {
     [coder encodeObject:self.countryCode forKey:@"countryCode"];
@@ -108,8 +99,6 @@
     [coder encodeObject:self.countryCodeSource forKey:@"countryCodeSource"];
     [coder encodeObject:self.preferredDomesticCarrierCode forKey:@"preferredDomesticCarrierCode"];
 }
-
-
 
 - (NSString *)description
 {

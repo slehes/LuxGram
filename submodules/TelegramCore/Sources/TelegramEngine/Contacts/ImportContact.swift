@@ -2,7 +2,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 func _internal_importContact(account: Account, firstName: String, lastName: String, phoneNumber: String, noteText: String, noteEntities: [MessageTextEntity]) -> Signal<PeerId?, NoError> {
     let accountPeerId = account.peerId
     

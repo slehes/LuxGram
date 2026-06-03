@@ -445,13 +445,11 @@ public final class AccountContextImpl: AccountContext {
         self.userLimitsConfigurationDisposable = (self.engine.data.subscribe(TelegramEngine.EngineData.Item.Peer.Peer(id: account.peerId))
         |> mapToSignal { peer -> Signal<(Bool, EngineConfiguration.UserLimits), NoError> in
             let isPremium = peer?.isPremium ?? false
-            // MARK: - LuxGram — Local Premium: pass premium=true to get premium limits
             #if canImport(SGSimpleSettings)
             let effectivePremium = isPremium || SGSimpleSettings.shared.enableLocalPremium
             #else
             let effectivePremium = isPremium
             #endif
-            // MARK: - End LuxGram
             return self.engine.data.subscribe(TelegramEngine.EngineData.Item.Configuration.UserLimits(isPremium: effectivePremium))
             |> map { userLimits in
                 return (isPremium, userLimits)
@@ -461,13 +459,11 @@ public final class AccountContextImpl: AccountContext {
             guard let self = self else {
                 return
             }
-            // MARK: - LuxGram — Local Premium: override isPremium when local emulation is enabled
             #if canImport(SGSimpleSettings)
             self.isPremium = isPremium || SGSimpleSettings.shared.enableLocalPremium
             #else
             self.isPremium = isPremium
             #endif
-            // MARK: - End LuxGram
             self.userLimits = userLimits
         })
         
@@ -852,7 +848,6 @@ public final class AccountContextImpl: AccountContext {
     }
     
     public func requestCall(peerId: PeerId, isVideo: Bool, completion: @escaping () -> Void) {
-        // MARK: Swiftgram
         let makeCall = {
         guard let callResult = self.sharedContext.callManager?.requestCall(context: self, peerId: peerId, isVideo: isVideo, endCurrentIfAny: false) else {
             return
@@ -921,7 +916,6 @@ public final class AccountContextImpl: AccountContext {
         } else {
             completion()
         }
-        // MARK: Swiftgram
         }
         if SGSimpleSettings.shared.confirmCalls {
             let presentationData = self.sharedContext.currentPresentationData.with { $0 }

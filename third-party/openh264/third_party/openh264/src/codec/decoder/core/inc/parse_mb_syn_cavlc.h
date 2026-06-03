@@ -38,7 +38,6 @@
  *************************************************************************************
  */
 
-
 #ifndef WELS_PARSE_MB_SYN_CAVLC_H__
 #define WELS_PARSE_MB_SYN_CAVLC_H__
 
@@ -48,8 +47,6 @@
 #include "slice.h"
 
 namespace WelsDec {
-
-
 
 void GetNeighborAvailMbType (PWelsNeighAvail pNeighAvail, PDqLayer pCurDqLayer);
 void WelsFillCacheNonZeroCount (PWelsNeighAvail pNeighAvail, uint8_t* pNonZeroCount, PDqLayer pCurDqLayer);
@@ -91,7 +88,6 @@ int32_t CheckIntraChromaPredMode (uint8_t uiSampleAvail, int8_t* pMode);
  * \param   output: mode index
  */
 int32_t PredIntra4x4Mode (int8_t* pIntraPredMode, int32_t iIdx4);
-
 
 void BsStartCavlc (PBitStringAux pBs);
 void BsEndCavlc (PBitStringAux pBs);

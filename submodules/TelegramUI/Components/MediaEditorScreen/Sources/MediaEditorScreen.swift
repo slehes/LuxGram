@@ -8772,7 +8772,6 @@ final class CutoutButtonContentComponent: CombinedComponent {
     }
 }
 
-
 private final class HeaderContextReferenceContentSource: ContextReferenceContentSource {
     private let controller: ViewController
     private let sourceView: UIView

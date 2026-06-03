@@ -242,7 +242,6 @@ private func webBrowserSettingsControllerEntries(context: AccountContext, presen
     
     entries.append(.browserHeader(presentationData.theme, presentationData.strings.WebBrowser_OpenLinksIn_Title))
     entries.append(.browser(presentationData.theme, presentationData.strings.WebBrowser_Telegram.replacingOccurrences(of: "Telegram", with: "Swiftgram"), nil, nil, settings.defaultWebBrowser == nil, 0))
-    // MARK: Swiftgram
     entries.append(.browser(presentationData.theme, presentationData.strings.WebBrowser_InAppSafari, .safari, "inApp", settings.defaultWebBrowser == "inApp", 1))
     var index: Int32 = 2
     for option in options {

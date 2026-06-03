@@ -24,7 +24,6 @@
 
 #include "libavutil/buffer.h"
 
-
 enum {
     MPEG2_START_PICTURE         = 0x00,
     MPEG2_START_SLICE_MIN       = 0x01,
@@ -54,7 +53,6 @@ enum {
     MPEG2_EXTENSION_CAMERA_PARAMETERS         = 0xb,
     MPEG2_EXTENSION_ITU_T                     = 0xc,
 };
-
 
 typedef struct MPEG2RawSequenceHeader {
     uint8_t sequence_header_code;
@@ -216,7 +214,6 @@ typedef struct MPEG2RawSequenceEnd {
     uint8_t sequence_end_code;
 } MPEG2RawSequenceEnd;
 
-
 typedef struct CodedBitstreamMPEG2Context {
     // Elements stored in headers which are required for other decoding.
     uint16_t horizontal_size;
@@ -226,6 +223,5 @@ typedef struct CodedBitstreamMPEG2Context {
     uint8_t progressive_sequence;
     uint8_t number_of_frame_centre_offsets;
 } CodedBitstreamMPEG2Context;
-
 
 #endif /* AVCODEC_CBS_MPEG2_H */

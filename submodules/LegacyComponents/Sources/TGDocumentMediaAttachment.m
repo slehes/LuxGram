@@ -355,7 +355,6 @@
     return false;
 }
 
-
 - (bool)isSticker {
     for (id attribute in _attributes) {
         if ([attribute isKindOfClass:[TGDocumentAttributeSticker class]]) {

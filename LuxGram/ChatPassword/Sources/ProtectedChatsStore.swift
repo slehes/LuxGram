@@ -1,4 +1,3 @@
-// MARK: LuxGram - Password for selected chats/folders
 import Foundation
 import Security
 

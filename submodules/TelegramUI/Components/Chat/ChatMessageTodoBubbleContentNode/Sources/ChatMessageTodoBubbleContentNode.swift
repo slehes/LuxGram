@@ -1009,7 +1009,6 @@ private final class ChatMessageTodoItemNode: ASDisplayNode {
 
 private let labelsFont = Font.regular(14.0)
 
-
 public class ChatMessageTodoBubbleContentNode: ChatMessageBubbleContentNode {
     private let textNode: TextNodeWithEntities
     private let typeNode: TextNode

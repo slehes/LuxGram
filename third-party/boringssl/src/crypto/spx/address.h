@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 #define SPX_ADDR_TYPE_WOTS 0
 #define SPX_ADDR_TYPE_WOTSPK 1
 #define SPX_ADDR_TYPE_HASHTREE 2
@@ -41,7 +40,6 @@ void spx_set_tree_index(uint8_t addr[32], uint32_t tree_index);
 void spx_copy_keypair_addr(uint8_t out[32], const uint8_t in[32]);
 
 uint32_t spx_get_tree_index(uint8_t addr[32]);
-
 
 #if defined(__cplusplus)
 }  // extern C

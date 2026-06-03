@@ -10,5 +10,4 @@ struct darwin_dirstat {
 
 int dirstat_np(const char *path, int flags, struct darwin_dirstat *ds, size_t dirstat_size);
 
-
 #endif

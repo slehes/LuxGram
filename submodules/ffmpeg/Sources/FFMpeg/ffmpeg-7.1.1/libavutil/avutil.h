@@ -159,7 +159,6 @@
  * @}
  */
 
-
 /**
  * @addtogroup lavu_ver
  * @{

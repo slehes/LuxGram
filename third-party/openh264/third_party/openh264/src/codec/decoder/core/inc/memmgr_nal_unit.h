@@ -63,4 +63,3 @@ PNalUnit MemGetNextNal (PAccessUnit* ppAu, CMemoryAlign* pMa);
 
 #endif//WELS_MEMORY_MANAGER_NAL_UNIT_H__
 
-

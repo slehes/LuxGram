@@ -42,4 +42,3 @@ private:
 
 #endif // LOTTIELOADER_H
 
-

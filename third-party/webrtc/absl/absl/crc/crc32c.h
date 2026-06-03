@@ -71,7 +71,6 @@ class crc32c_t final {
   uint32_t crc_;
 };
 
-
 namespace crc_internal {
 // Non-inline code path for `absl::ExtendCrc32c()`. Do not call directly.
 // Call `absl::ExtendCrc32c()` (defined below) instead.

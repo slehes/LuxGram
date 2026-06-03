@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // Encodes the integer value of input to out_len bytes in big-endian order.
 // Note that input < 2^(8*out_len), as otherwise this function will truncate
 // the least significant bytes of the integer representation.
@@ -35,7 +34,6 @@ uint64_t spx_to_uint64(const uint8_t *input, size_t input_len);
 // a FORS height > 16 we use a uint32_t to store the output.
 void spx_base_b(uint32_t *output, size_t out_len, const uint8_t *input,
                 unsigned int log2_b);
-
 
 #if defined(__cplusplus)
 }  // extern C

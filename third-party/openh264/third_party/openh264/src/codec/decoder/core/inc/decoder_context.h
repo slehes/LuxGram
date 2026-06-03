@@ -231,7 +231,6 @@ enum {
   OVERWRITE_SUBSETSPS = 1 << 2
 };
 
-
 //Decoder SPS and PPS global CTX
 typedef struct tagWelsWelsDecoderSpsPpsCTX {
   SPosOffset                    sFrameCrop;
@@ -327,7 +326,6 @@ typedef struct TagWelsDecoderContext {
   iLastImgHeightInPixel;// height of image in last successful pixel reconstruction picture to be output
   bool bFreezeOutput; // indicating current frame freezing. Default: true
 
-
 // Derived common elements
   SNalUnitHeader                sCurNalHead;
   EWelsSliceType                eSliceType;                     // Slice type
@@ -371,7 +369,6 @@ typedef struct TagWelsDecoderContext {
     uint32_t iMbWidth;
     uint32_t iMbHeight;
   } sMb;
-
 
 // reconstruction picture
   PPicture                      pDec;                   //pointer to current picture being reconstructed
@@ -582,7 +579,6 @@ static inline int32_t GetPrevFrameNum (PWelsDecoderContext pCtx) {
 //#ifdef __cplusplus
 //}
 //#endif//__cplusplus
-
 
 } // namespace WelsDec
 

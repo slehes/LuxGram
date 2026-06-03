@@ -111,7 +111,6 @@
 
 @end
 
-
 @implementation TGCameraCancelButton
 
 - (instancetype)initWithFrame:(CGRect)frame

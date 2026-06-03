@@ -516,7 +516,6 @@ class TargetBuilder {
         return targetsByName[name]
     }
 
-
     private func createConfigurationList(for module: ModuleDefinition, isXCFramework: Bool, modulemapPath: Path? = nil) -> XCConfigurationList {
         let debugSettings = createBuildSettings(for: module, isDebug: true, isXCFramework: isXCFramework, modulemapPath: modulemapPath)
         let releaseSettings = createBuildSettings(for: module, isDebug: false, isXCFramework: isXCFramework, modulemapPath: modulemapPath)

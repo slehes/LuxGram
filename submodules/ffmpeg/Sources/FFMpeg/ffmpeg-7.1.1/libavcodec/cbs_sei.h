@@ -25,7 +25,6 @@
 #include "cbs.h"
 #include "sei.h"
 
-
 typedef struct SEIRawFillerPayload {
     uint32_t payload_size;
 } SEIRawFillerPayload;
@@ -112,7 +111,6 @@ typedef struct SEIRawMessageList {
     int         nb_messages_allocated;
 } SEIRawMessageList;
 
-
 typedef struct SEIMessageState {
     // The type of the payload being written.
     uint32_t payload_type;
@@ -158,7 +156,6 @@ typedef struct SEIMessageTypeDescriptor {
 
 // End-of-list sentinel element.
 #define SEI_MESSAGE_TYPE_END { .type = -1 }
-
 
 /**
  * Find the type descriptor for the given payload type.

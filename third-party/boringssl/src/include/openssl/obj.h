@@ -66,7 +66,6 @@
 extern "C" {
 #endif
 
-
 // The objects library deals with the registration and indexing of ASN.1 object
 // identifiers. These values are often written as a dotted sequence of numbers,
 // e.g. 1.2.840.113549.1.9.16.3.9.
@@ -80,7 +79,6 @@ extern "C" {
 //
 // The nid values should not be used outside of a single process: they are not
 // stable identifiers.
-
 
 // Basic operations.
 
@@ -104,7 +102,6 @@ OPENSSL_EXPORT const uint8_t *OBJ_get0_data(const ASN1_OBJECT *obj);
 // value), this value is the empty string.
 OPENSSL_EXPORT size_t OBJ_length(const ASN1_OBJECT *obj);
 
-
 // Looking up nids.
 
 // OBJ_obj2nid returns the nid corresponding to |obj|, or |NID_undef| if no
@@ -127,7 +124,6 @@ OPENSSL_EXPORT int OBJ_ln2nid(const char *long_name);
 // long name, or an ASCII string containing a dotted sequence of numbers. It
 // returns the nid or NID_undef if unknown.
 OPENSSL_EXPORT int OBJ_txt2nid(const char *s);
-
 
 // Getting information about nids.
 
@@ -162,7 +158,6 @@ OPENSSL_EXPORT const char *OBJ_nid2ln(int nid);
 // one on success or zero otherwise.
 OPENSSL_EXPORT int OBJ_nid2cbb(CBB *out, int nid);
 
-
 // Dealing with textual representations of object identifiers.
 
 // OBJ_txt2obj returns an ASN1_OBJECT for the textual representation in |s|.
@@ -184,7 +179,6 @@ OPENSSL_EXPORT ASN1_OBJECT *OBJ_txt2obj(const char *s, int dont_search_names);
 OPENSSL_EXPORT int OBJ_obj2txt(char *out, int out_len, const ASN1_OBJECT *obj,
                                int always_return_oid);
 
-
 // Adding objects at runtime.
 
 // OBJ_create adds a known object and returns the NID of the new object, or
@@ -198,7 +192,6 @@ OPENSSL_EXPORT int OBJ_obj2txt(char *out, int out_len, const ASN1_OBJECT *obj,
 // |ASN1_OBJECT_create|, |OBJ_get0_data|, and |OBJ_length|.
 OPENSSL_EXPORT int OBJ_create(const char *oid, const char *short_name,
                               const char *long_name);
-
 
 // Handling signature algorithm identifiers.
 //
@@ -224,7 +217,6 @@ OPENSSL_EXPORT int OBJ_find_sigid_algs(int sign_nid, int *out_digest_nid,
 // whether the combination is valid.
 OPENSSL_EXPORT int OBJ_find_sigid_by_algs(int *out_sign_nid, int digest_nid,
                                           int pkey_nid);
-
 
 // Deprecated functions.
 
@@ -255,7 +247,6 @@ OPENSSL_EXPORT void OBJ_NAME_do_all(int type, void (*callback)(const OBJ_NAME *,
 
 // OBJ_cleanup does nothing.
 OPENSSL_EXPORT void OBJ_cleanup(void);
-
 
 #if defined(__cplusplus)
 }  // extern C

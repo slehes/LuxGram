@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 // base64 functions.
 //
 // For historical reasons, these functions have the EVP_ prefix but just do
@@ -71,7 +70,6 @@ extern "C" {
 // so these functions are implemented with side channel protections, at a
 // performance cost. For other base64 uses, use a general-purpose base64
 // implementation.
-
 
 // Encoding
 
@@ -86,7 +84,6 @@ OPENSSL_EXPORT size_t EVP_EncodeBlock(uint8_t *dst, const uint8_t *src,
 // final NUL that |EVP_EncodeBlock| writes. It returns one on success or zero
 // on error.
 OPENSSL_EXPORT int EVP_EncodedLength(size_t *out_len, size_t len);
-
 
 // Decoding
 
@@ -103,7 +100,6 @@ OPENSSL_EXPORT int EVP_DecodedLength(size_t *out_len, size_t len);
 OPENSSL_EXPORT int EVP_DecodeBase64(uint8_t *out, size_t *out_len,
                                     size_t max_out, const uint8_t *in,
                                     size_t in_len);
-
 
 // Deprecated functions.
 //
@@ -173,7 +169,6 @@ OPENSSL_EXPORT int EVP_DecodeFinal(EVP_ENCODE_CTX *ctx, uint8_t *out,
 OPENSSL_EXPORT int EVP_DecodeBlock(uint8_t *dst, const uint8_t *src,
                                    size_t src_len);
 
-
 struct evp_encode_ctx_st {
   // data_used indicates the number of bytes of |data| that are valid. When
   // encoding, |data| will be filled and encoded as a lump. When decoding, only
@@ -189,7 +184,6 @@ struct evp_encode_ctx_st {
   // cause all future calls to fail.
   char error_encountered;
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

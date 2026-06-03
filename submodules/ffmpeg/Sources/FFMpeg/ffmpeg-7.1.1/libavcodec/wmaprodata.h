@@ -41,7 +41,6 @@ static const uint16_t critical_freq[] = {
     9500, 12000,  15500,  20675,  28575,  41375,  63875,
 };
 
-
 /**
  * @name Huffman tables for DPCM-coded scale factors
  * @{
@@ -77,7 +76,6 @@ static const uint8_t scale_table[HUFF_SCALE_SIZE][2] = {
 };
 /** @} */
 
-
 /**
  * @name Huffman, run and level tables for runlevel-coded scale factors
  * @{
@@ -111,7 +109,6 @@ static const uint8_t scale_rl_table[HUFF_SCALE_RL_SIZE][2] = {
     { 114,  7 }, {  29,  5 }, {  54,  6 }, {  13,  6 }, {   3,  2 },
 };
 
-
 static const uint8_t scale_rl_run[HUFF_SCALE_RL_SIZE] = {
      0,  0,  0,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23, 24,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9,
@@ -132,7 +129,6 @@ static const uint8_t scale_rl_level[HUFF_SCALE_RL_SIZE] = {
      7,  7,  8,  8,  9,  9,
 };
 /** @} */
-
 
 /**
  * @name Huffman, run and level codes for runlevel-coded coefficients
@@ -179,7 +175,6 @@ static const uint16_t coef0_syms[HUFF_COEF0_SIZE] = {
      98,  71, 201, 122, 206,  72,  90,  95,  84, 167, 245, 229,  17,  12,   4,
     152,   6,
 };
-
 
 #define HUFF_COEF1_SIZE    244
 #define HUFF_COEF1_MAXBITS  22
@@ -235,7 +230,6 @@ static const uint8_t coef1_table[HUFF_COEF1_SIZE][2] = {
     { 124, 16 }, { 123, 16 }, { 150, 11 }, {   1,  7 },
 };
 
-
 static const uint16_t coef0_run[HUFF_COEF0_SIZE] = {
       0,   0,   0,   1,   2,   3,   4,   5,   6,   7,   8,   9,  10,  11,
      12,  13,  14,  15,  16,  17,  18,  19,  20,  21,  22,  23,  24,  25,
@@ -282,7 +276,6 @@ static const float coef0_level[HUFF_COEF0_SIZE] = {
      25,  26,  26,  27,  27,  28,
 };
 
-
 static const uint16_t coef1_run[HUFF_COEF1_SIZE] = {
      0,  0,  0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15,
     16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33,
@@ -317,7 +310,6 @@ static const float coef1_level[HUFF_COEF1_SIZE] = {
     46, 47, 47, 48, 48, 49, 49, 50, 51, 52,
 };
 /** @} */
-
 
 /**
  * @name Huffman and vector lookup tables for vector-coded coefficients
@@ -356,7 +348,6 @@ static const uint16_t vec4_syms[HUFF_VEC4_SIZE] = {
      4401,  4866,  8721,   291,  8450,  8465,  4115,
 };
 
-
 #define HUFF_VEC2_SIZE    137
 #define HUFF_VEC2_MAXBITS  12
 /* The entry in the following table with symbol zero indicates
@@ -394,7 +385,6 @@ static const uint8_t vec2_table[HUFF_VEC2_SIZE][2] = {
     {  18,  4 }, {  34,  4 },
 };
 
-
 #define HUFF_VEC1_SIZE    101
 #define HUFF_VEC1_MAXBITS  11
 static const uint8_t vec1_table[HUFF_VEC1_SIZE][2] = {
@@ -421,7 +411,6 @@ static const uint8_t vec1_table[HUFF_VEC1_SIZE][2] = {
     {  12,  4 },
 };
 /** @} */
-
 
 /**
  * @brief decorrelation matrix for multichannel streams

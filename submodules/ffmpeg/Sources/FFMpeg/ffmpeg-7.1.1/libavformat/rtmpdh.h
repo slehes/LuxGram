@@ -55,7 +55,6 @@ typedef struct FF_DH {
     long length;
 } FF_DH;
 
-
 /**
  * Initialize a Diffie-Hellmann context.
  *

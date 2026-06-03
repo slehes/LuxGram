@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 func addSynchronizeSavedGifsOperation(transaction: Transaction, operation: SynchronizeSavedGifsOperationContent) {
     let tag: PeerOperationLogTag = OperationLogTags.SynchronizeSavedGifs
     let peerId = PeerId(0)
@@ -52,7 +51,6 @@ public func removeSavedGif(postbox: Postbox, mediaId: MediaId) -> Signal<Void, N
         }
     }
 }
-
 
 public enum SavedGifResult {
     case generic

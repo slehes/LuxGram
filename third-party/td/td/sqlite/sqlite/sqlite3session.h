@@ -78,7 +78,6 @@ int tdsqlite3session_create(
 */
 void tdsqlite3session_delete(tdsqlite3_session *pSession);
 
-
 /*
 ** CAPI3REF: Enable Or Disable A Session Object
 ** METHOD: tdsqlite3_session
@@ -386,7 +385,6 @@ int tdsqlite3session_diff(
   char **pzErrMsg
 );
 
-
 /*
 ** CAPI3REF: Generate A Patchset From A Session Object
 ** METHOD: tdsqlite3_session
@@ -504,7 +502,6 @@ int tdsqlite3changeset_start_v2(
 **   It is an error to specify this flag with a patchset.
 */
 #define SQLITE_CHANGESETSTART_INVERT        0x0002
-
 
 /*
 ** CAPI3REF: Advance A Changeset Iterator
@@ -707,7 +704,6 @@ int tdsqlite3changeset_fk_conflicts(
   int *pnOut                      /* OUT: Number of FK violations */
 );
 
-
 /*
 ** CAPI3REF: Finalize A Changeset Iterator
 ** METHOD: tdsqlite3_changeset_iter
@@ -807,7 +803,6 @@ int tdsqlite3changeset_concat(
   int *pnOut,                     /* OUT: Number of bytes in output changeset */
   void **ppOut                    /* OUT: Buffer containing output changeset */
 );
-
 
 /*
 ** CAPI3REF: Changegroup Handle

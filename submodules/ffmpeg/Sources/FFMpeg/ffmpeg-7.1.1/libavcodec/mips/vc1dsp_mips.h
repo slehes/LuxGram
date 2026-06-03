@@ -89,7 +89,6 @@ void ff_avg_vc1_mspel_mc32_mmi(uint8_t *dst, const uint8_t *src,
 void ff_avg_vc1_mspel_mc33_mmi(uint8_t *dst, const uint8_t *src,
                                ptrdiff_t stride, int rnd);
 
-
 void ff_put_vc1_mspel_mc00_16_mmi(uint8_t *dst, const uint8_t *src,
                                   ptrdiff_t stride, int rnd);
 void ff_put_vc1_mspel_mc01_16_mmi(uint8_t *dst, const uint8_t *src,

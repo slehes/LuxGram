@@ -6,12 +6,9 @@
 //  Copyright (c) 2014 IntroOpenGL. All rights reserved.
 //
 
-
-
 void on_surface_created();
 void on_surface_changed(int a_width_px, int a_height_px, float a_scale_factor, int a1, int a2, int a3, int a4, int a5);
 void on_draw_frame();
-
 
 void set_touch_x(int a);
 
@@ -19,7 +16,6 @@ void set_date(double a);
 void set_date0(double a);
 
 void set_page(int page);
-
 
 void set_pages_textures(int a1, int a2, int a3, int a4, int a5, int a6);
 
@@ -33,11 +29,9 @@ void set_private_textures(int a_private_door, int a_private_screw);
 
 void set_y_offset(float a);
 
-
 void set_scroll_offset(float a_offset);
 
 void inc_stars_rendered();
-
 
 void set_elements_top_margins(int a_icon_y, int a_text_y, int a_button_y);
 

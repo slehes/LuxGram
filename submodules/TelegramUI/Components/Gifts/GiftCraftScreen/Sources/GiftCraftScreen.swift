@@ -1966,7 +1966,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 public class GiftCraftScreen: ViewControllerComponentContainer {
     fileprivate weak var profileGiftsContext: ProfileGiftsContext?
     
@@ -2019,8 +2018,6 @@ public class GiftCraftScreen: ViewControllerComponentContainer {
         }
     }
 }
-
-
 
 private struct GiftCraftConfiguration {
     static var defaultValue: GiftCraftConfiguration {

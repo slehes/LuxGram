@@ -21,12 +21,10 @@
 extern "C" {
 #endif
 
-
 // Kyber768.
 //
 // This implements the round-3 specification of Kyber, defined at
 // https://pq-crystals.org/kyber/data/kyber-specification-round3-20210804.pdf
-
 
 // KYBER_public_key contains a Kyber768 public key. The contents of this
 // object should never leave the address space since the format is unstable.
@@ -95,7 +93,6 @@ OPENSSL_EXPORT void KYBER_decap(
     const uint8_t ciphertext[KYBER_CIPHERTEXT_BYTES],
     const struct KYBER_private_key *private_key);
 
-
 // Serialisation of keys.
 
 // KYBER_marshal_public_key serializes |public_key| to |out| in the standard
@@ -127,7 +124,6 @@ OPENSSL_EXPORT int KYBER_marshal_private_key(
 // there are trailing bytes in |in|.
 OPENSSL_EXPORT int KYBER_parse_private_key(
     struct KYBER_private_key *out_private_key, CBS *in);
-
 
 #if defined(__cplusplus)
 }  // extern C

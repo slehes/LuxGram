@@ -228,7 +228,6 @@ func _internal_premiumGiftCodeOptions(account: Account, peerId: EnginePeer.Id?, 
     }
 }
 
-
 func _internal_premiumGiftCodeOptions(account: Account, peerId: EnginePeer.Id?) -> Signal<[PremiumGiftCodeOption], NoError> {
     if let peerId {
         if peerId.namespace == Namespaces.Peer.SecretChat {

@@ -54,7 +54,6 @@
 #define TAK_FRAME_DURATION_QUANT_SHIFT          5
 #define TAK_CRC24_BITS                         24
 
-
 #define TAK_FRAME_FLAG_IS_LAST                0x1
 #define TAK_FRAME_FLAG_HAS_INFO               0x2
 #define TAK_FRAME_FLAG_HAS_METADATA           0x4

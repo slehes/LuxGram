@@ -166,9 +166,7 @@ struct timeval;
 extern "C" {
 #endif
 
-
 // SSL implementation.
-
 
 // SSL contexts.
 //
@@ -205,7 +203,6 @@ OPENSSL_EXPORT int SSL_CTX_up_ref(SSL_CTX *ctx);
 
 // SSL_CTX_free releases memory associated with |ctx|.
 OPENSSL_EXPORT void SSL_CTX_free(SSL_CTX *ctx);
-
 
 // SSL connections.
 //
@@ -637,7 +634,6 @@ OPENSSL_EXPORT int DTLSv1_get_timeout(const SSL *ssl, struct timeval *out);
 // TODO(davidben): This |SSL_ERROR_WANT_WRITE| behavior is kind of bizarre.
 OPENSSL_EXPORT int DTLSv1_handle_timeout(SSL *ssl);
 
-
 // Protocol versions.
 
 #define DTLS1_VERSION_MAJOR 0xfe
@@ -693,7 +689,6 @@ OPENSSL_EXPORT uint16_t SSL_get_max_proto_version(const SSL *ssl);
 // is negotiated, the result is undefined.
 OPENSSL_EXPORT int SSL_version(const SSL *ssl);
 
-
 // Options.
 //
 // Options configure protocol behavior.
@@ -747,7 +742,6 @@ OPENSSL_EXPORT uint32_t SSL_clear_options(SSL *ssl, uint32_t options);
 // SSL_get_options returns a bitmask of |SSL_OP_*| values that represent all the
 // options enabled for |ssl|.
 OPENSSL_EXPORT uint32_t SSL_get_options(const SSL *ssl);
-
 
 // Modes.
 //
@@ -839,7 +833,6 @@ OPENSSL_EXPORT uint32_t SSL_get_mode(const SSL *ssl);
 // |X509| and |SSL_SESSION| objects. Basically, don't ever free |pool|.
 OPENSSL_EXPORT void SSL_CTX_set0_buffer_pool(SSL_CTX *ctx,
                                              CRYPTO_BUFFER_POOL *pool);
-
 
 // Configuring certificates and private keys.
 //
@@ -1126,7 +1119,6 @@ OPENSSL_EXPORT int SSL_set_signing_algorithm_prefs(SSL *ssl,
                                                    const uint16_t *prefs,
                                                    size_t num_prefs);
 
-
 // Certificate and private key convenience functions.
 
 // SSL_CTX_set_chain_and_key sets the certificate chain and private key for a
@@ -1255,7 +1247,6 @@ OPENSSL_EXPORT void SSL_CTX_set_default_passwd_cb_userdata(SSL_CTX *ctx,
 // |SSL_CTX_set_default_passwd_cb_userdata|.
 OPENSSL_EXPORT void *SSL_CTX_get_default_passwd_cb_userdata(const SSL_CTX *ctx);
 
-
 // Custom private keys.
 
 enum ssl_private_key_result_t BORINGSSL_ENUM_INT {
@@ -1341,7 +1332,6 @@ OPENSSL_EXPORT void SSL_CTX_set_private_key_method(
 // |ssl| for a second connection. If |SSL_clear| is used, BoringSSL may still
 // use the private key on the second connection.
 OPENSSL_EXPORT int SSL_can_release_private_key(const SSL *ssl);
-
 
 // Cipher suites.
 //
@@ -1447,7 +1437,6 @@ OPENSSL_EXPORT int SSL_CIPHER_get_bits(const SSL_CIPHER *cipher,
 OPENSSL_EXPORT size_t SSL_get_all_cipher_names(const char **out,
                                                size_t max_out);
 
-
 // SSL_get_all_standard_cipher_names outputs a list of possible strings
 // |SSL_CIPHER_standard_name| may return in this version of BoringSSL. It writes
 // at most |max_out| entries to |out| and returns the total number it would have
@@ -1462,7 +1451,6 @@ OPENSSL_EXPORT size_t SSL_get_all_cipher_names(const char **out,
 // list, so this does not apply if, say, sending strings across services.
 OPENSSL_EXPORT size_t SSL_get_all_standard_cipher_names(const char **out,
                                                         size_t max_out);
-
 
 // Cipher suite configuration.
 //
@@ -1600,7 +1588,6 @@ OPENSSL_EXPORT int SSL_CTX_cipher_in_group(const SSL_CTX *ctx, size_t i);
 // SSL_get_ciphers returns the cipher list for |ssl|, in order of preference.
 OPENSSL_EXPORT STACK_OF(SSL_CIPHER) *SSL_get_ciphers(const SSL *ssl);
 
-
 // Connection information.
 
 // SSL_is_init_finished returns one if |ssl| has completed its initial handshake
@@ -1723,7 +1710,6 @@ OPENSSL_EXPORT int SSL_get_secure_renegotiation_support(const SSL *ssl);
 OPENSSL_EXPORT int SSL_export_keying_material(
     SSL *ssl, uint8_t *out, size_t out_len, const char *label, size_t label_len,
     const uint8_t *context, size_t context_len, int use_context);
-
 
 // Sessions.
 //
@@ -1946,7 +1932,6 @@ OPENSSL_EXPORT int SSL_SESSION_has_peer_sha256(const SSL_SESSION *session);
 OPENSSL_EXPORT void SSL_SESSION_get0_peer_sha256(const SSL_SESSION *session,
                                                  const uint8_t **out_ptr,
                                                  size_t *out_len);
-
 
 // Session caching.
 //
@@ -2196,7 +2181,6 @@ OPENSSL_EXPORT SSL_SESSION *(*SSL_CTX_sess_get_get_cb(SSL_CTX *ctx))(
 // when the lookup has completed.
 OPENSSL_EXPORT SSL_SESSION *SSL_magic_pending_session_ptr(void);
 
-
 // Session tickets.
 //
 // Session tickets, from RFC 5077, allow session resumption without server-side
@@ -2353,7 +2337,6 @@ OPENSSL_EXPORT int SSL_CTX_set_num_tickets(SSL_CTX *ctx, size_t num_tickets);
 // immediately after a successful TLS 1.3 handshake as a server.
 OPENSSL_EXPORT size_t SSL_CTX_get_num_tickets(const SSL_CTX *ctx);
 
-
 // Diffie-Hellman groups and ephemeral key exchanges.
 //
 // Most TLS handshakes (ECDHE cipher suites in TLS 1.2, and all supported TLS
@@ -2447,7 +2430,6 @@ OPENSSL_EXPORT int SSL_set1_groups_list(SSL *ssl, const char *groups);
 // SSL_get_negotiated_group returns the NID of the group used by |ssl|'s most
 // recently completed handshake, or |NID_undef| if not applicable.
 OPENSSL_EXPORT int SSL_get_negotiated_group(const SSL *ssl);
-
 
 // Certificate verification.
 //
@@ -2785,7 +2767,6 @@ OPENSSL_EXPORT int SSL_set_verify_algorithm_prefs(SSL *ssl,
                                                   const uint16_t *prefs,
                                                   size_t num_prefs);
 
-
 // Client certificate CA list.
 //
 // When requesting a client certificate, a server may advertise a list of
@@ -2868,7 +2849,6 @@ OPENSSL_EXPORT int SSL_add_file_cert_subjects_to_stack(STACK_OF(X509_NAME) *out,
 OPENSSL_EXPORT int SSL_add_bio_cert_subjects_to_stack(STACK_OF(X509_NAME) *out,
                                                       BIO *bio);
 
-
 // Server name indication.
 //
 // The server_name extension (RFC 3546) allows the client to advertise the name
@@ -2929,7 +2909,6 @@ OPENSSL_EXPORT int SSL_CTX_set_tlsext_servername_arg(SSL_CTX *ctx, void *arg);
 //
 // TODO(davidben): Should other settings change after this call?
 OPENSSL_EXPORT SSL_CTX *SSL_set_SSL_CTX(SSL *ssl, SSL_CTX *ctx);
-
 
 // Application-layer protocol negotiation.
 //
@@ -3009,7 +2988,6 @@ OPENSSL_EXPORT void SSL_get0_alpn_selected(const SSL *ssl,
 OPENSSL_EXPORT void SSL_CTX_set_allow_unknown_alpn_protos(SSL_CTX *ctx,
                                                           int enabled);
 
-
 // Application-layer protocol settings
 //
 // The ALPS extension (draft-vvv-tls-alps) allows exchanging application-layer
@@ -3058,7 +3036,6 @@ OPENSSL_EXPORT int SSL_has_application_settings(const SSL *ssl);
 // codepoint. By default, the old codepoint is used.
 OPENSSL_EXPORT void SSL_set_alps_use_new_codepoint(SSL *ssl, int use_new);
 
-
 // Certificate compression.
 //
 // Certificates in TLS 1.3 can be compressed (RFC 8879). BoringSSL supports this
@@ -3103,7 +3080,6 @@ typedef int (*ssl_cert_decompression_func_t)(SSL *ssl, CRYPTO_BUFFER **out,
 OPENSSL_EXPORT int SSL_CTX_add_cert_compression_alg(
     SSL_CTX *ctx, uint16_t alg_id, ssl_cert_compression_func_t compress,
     ssl_cert_decompression_func_t decompress);
-
 
 // Next protocol negotiation.
 //
@@ -3175,7 +3151,6 @@ OPENSSL_EXPORT int SSL_select_next_proto(uint8_t **out, uint8_t *out_len,
 #define OPENSSL_NPN_NEGOTIATED 1
 #define OPENSSL_NPN_NO_OVERLAP 2
 
-
 // Channel ID.
 //
 // See draft-balfanz-tls-channelid-01. This is an old, experimental mechanism
@@ -3209,7 +3184,6 @@ OPENSSL_EXPORT int SSL_set1_tls_channel_id(SSL *ssl, EVP_PKEY *private_key);
 // always returns zero if |ssl| is a client.
 OPENSSL_EXPORT size_t SSL_get_tls_channel_id(SSL *ssl, uint8_t *out,
                                              size_t max_out);
-
 
 // DTLS-SRTP.
 //
@@ -3253,7 +3227,6 @@ OPENSSL_EXPORT const STACK_OF(SRTP_PROTECTION_PROFILE) *SSL_get_srtp_profiles(
 // SRTP was not negotiated.
 OPENSSL_EXPORT const SRTP_PROTECTION_PROFILE *SSL_get_selected_srtp_profile(
     SSL *ssl);
-
 
 // Pre-shared keys.
 //
@@ -3334,7 +3307,6 @@ OPENSSL_EXPORT const char *SSL_get_psk_identity_hint(const SSL *ssl);
 // that was negotiated by |ssl| or NULL if PSK was not used.
 OPENSSL_EXPORT const char *SSL_get_psk_identity(const SSL *ssl);
 
-
 // Delegated credentials.
 //
 // *** EXPERIMENTAL — PRONE TO CHANGE ***
@@ -3369,7 +3341,6 @@ OPENSSL_EXPORT int SSL_set1_delegated_credential(
 // SSL_delegated_credential_used returns one if a delegated credential was used
 // and zero otherwise.
 OPENSSL_EXPORT int SSL_delegated_credential_used(const SSL *ssl);
-
 
 // QUIC integration.
 //
@@ -3544,7 +3515,6 @@ OPENSSL_EXPORT int SSL_provide_quic_data(SSL *ssl,
                                          enum ssl_encryption_level_t level,
                                          const uint8_t *data, size_t len);
 
-
 // SSL_process_quic_post_handshake processes any data that QUIC has provided
 // after the handshake has completed. This includes NewSessionTicket messages
 // sent by the server. It returns one on success and zero on error.
@@ -3601,7 +3571,6 @@ OPENSSL_EXPORT void SSL_set_quic_use_legacy_codepoint(SSL *ssl, int use_legacy);
 OPENSSL_EXPORT int SSL_set_quic_early_data_context(SSL *ssl,
                                                    const uint8_t *context,
                                                    size_t context_len);
-
 
 // Early data.
 //
@@ -3752,7 +3721,6 @@ OPENSSL_EXPORT enum ssl_early_data_reason_t SSL_get_early_data_reason(
 // NULL if |reason| is unknown. This function may be used for logging.
 OPENSSL_EXPORT const char *SSL_early_data_reason_string(
     enum ssl_early_data_reason_t reason);
-
 
 // Encrypted ClientHello.
 //
@@ -3931,7 +3899,6 @@ OPENSSL_EXPORT int SSL_CTX_set1_ech_keys(SSL_CTX *ctx, SSL_ECH_KEYS *keys);
 // SSL_ech_accepted returns one if |ssl| negotiated ECH and zero otherwise.
 OPENSSL_EXPORT int SSL_ech_accepted(const SSL *ssl);
 
-
 // Alerts.
 //
 // TLS uses alerts to signal error conditions. Alerts have a type (warning or
@@ -4005,7 +3972,6 @@ OPENSSL_EXPORT const char *SSL_alert_desc_string_long(int value);
 // calls must use the same |alert| parameter.
 OPENSSL_EXPORT int SSL_send_fatal_alert(SSL *ssl, uint8_t alert);
 
-
 // ex_data functions.
 //
 // See |ex_data.h| for details.
@@ -4032,7 +3998,6 @@ OPENSSL_EXPORT int SSL_CTX_get_ex_new_index(long argl, void *argp,
                                             CRYPTO_EX_unused *unused,
                                             CRYPTO_EX_dup *dup_unused,
                                             CRYPTO_EX_free *free_func);
-
 
 // Low-level record-layer state.
 
@@ -4071,7 +4036,6 @@ OPENSSL_EXPORT uint64_t SSL_get_write_sequence(const SSL *ssl);
 // SSL_CTX_set_record_protocol_version returns whether |version| is zero.
 OPENSSL_EXPORT int SSL_CTX_set_record_protocol_version(SSL_CTX *ctx,
                                                        int version);
-
 
 // Handshake hints.
 //
@@ -4166,7 +4130,6 @@ OPENSSL_EXPORT int SSL_serialize_handshake_hints(const SSL *ssl, CBB *out);
 // decisions.
 OPENSSL_EXPORT int SSL_set_handshake_hints(SSL *ssl, const uint8_t *hints,
                                            size_t hints_len);
-
 
 // Obscure functions.
 
@@ -4642,7 +4605,6 @@ OPENSSL_EXPORT void SSL_set_check_client_certificate_type(SSL *ssl, int enable);
 // the library may not function correctly. This flag is provided temporarily in
 // case of compatibility issues. It will be removed sometime after June 2024.
 OPENSSL_EXPORT void SSL_set_check_ecdsa_curve(SSL *ssl, int enable);
-
 
 // Deprecated functions.
 
@@ -5351,7 +5313,6 @@ OPENSSL_EXPORT int SSL_CTX_check_private_key(const SSL_CTX *ctx);
 // See discussion in |SSL_CTX_check_private_key|.
 OPENSSL_EXPORT int SSL_check_private_key(const SSL *ssl);
 
-
 // Compliance policy configurations
 //
 // A TLS connection has a large number of different parameters. Some are well
@@ -5413,7 +5374,6 @@ OPENSSL_EXPORT int SSL_CTX_set_compliance_policy(
 OPENSSL_EXPORT int SSL_set_compliance_policy(
     SSL *ssl, enum ssl_compliance_policy_t policy);
 
-
 // Nodejs compatibility section (hidden).
 //
 // These defines exist for node.js, with the hope that we can eliminate the
@@ -5421,7 +5381,6 @@ OPENSSL_EXPORT int SSL_set_compliance_policy(
 
 #define SSLerr(function, reason) \
   ERR_put_error(ERR_LIB_SSL, 0, reason, __FILE__, __LINE__)
-
 
 // Preprocessor compatibility section (hidden).
 //
@@ -5568,7 +5527,6 @@ OPENSSL_EXPORT int SSL_set_compliance_policy(
 
 #endif // !defined(BORINGSSL_PREFIX)
 
-
 #if defined(__cplusplus)
 }  // extern C
 
@@ -5585,7 +5543,6 @@ BORINGSSL_MAKE_DELETER(SSL_ECH_KEYS, SSL_ECH_KEYS_free)
 BORINGSSL_MAKE_UP_REF(SSL_ECH_KEYS, SSL_ECH_KEYS_up_ref)
 BORINGSSL_MAKE_DELETER(SSL_SESSION, SSL_SESSION_free)
 BORINGSSL_MAKE_UP_REF(SSL_SESSION, SSL_SESSION_up_ref)
-
 
 // *** DEPRECATED EXPERIMENT — DO NOT USE ***
 //

@@ -5,7 +5,6 @@ import Postbox
 import CoreMedia
 import TelegramCore
 
-
 public final class ChunkMediaPlayerPart {
     public enum Id: Hashable {
         case tempFile(path: String)

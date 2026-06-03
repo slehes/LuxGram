@@ -63,7 +63,6 @@ typedef struct TagFmo {
   uint8_t         uiReserved[3];          // reserved padding bytes
 } SFmo, *PFmo;
 
-
 /*!
  * \brief   Initialize Wels Flexible Macroblock Ordering (FMO)
  *

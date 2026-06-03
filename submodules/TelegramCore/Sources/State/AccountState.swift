@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension UnauthorizedAccountTermsOfService {
     init?(apiTermsOfService: Api.help.TermsOfService) {
         switch apiTermsOfService {

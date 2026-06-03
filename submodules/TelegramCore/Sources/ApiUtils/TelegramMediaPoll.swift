@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension TelegramMediaPollOption {
     init(apiOption: Api.PollAnswer) {
         switch apiOption {

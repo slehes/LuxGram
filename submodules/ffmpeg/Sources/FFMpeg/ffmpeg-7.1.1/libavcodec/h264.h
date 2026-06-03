@@ -65,7 +65,6 @@ enum {
     H264_NAL_UNSPECIFIED31   = 31,
 };
 
-
 enum {
     // 7.4.2.1.1: seq_parameter_set_id is in [0, 31].
     H264_MAX_SPS_COUNT = 32,
@@ -108,6 +107,5 @@ enum {
     H264_MAX_WIDTH       = H264_MAX_MB_WIDTH  * 16,
     H264_MAX_HEIGHT      = H264_MAX_MB_HEIGHT * 16,
 };
-
 
 #endif /* AVCODEC_H264_H */

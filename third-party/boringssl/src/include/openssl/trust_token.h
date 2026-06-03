@@ -22,7 +22,6 @@
 extern "C" {
 #endif
 
-
 // Trust Token implementation.
 //
 // Trust Token is an implementation of an experimental mechanism similar to
@@ -110,7 +109,6 @@ OPENSSL_EXPORT int TRUST_TOKEN_derive_key_from_secret(
     size_t *out_pub_key_len, size_t max_pub_key_len, uint32_t id,
     const uint8_t *secret, size_t secret_len);
 
-
 // Trust Token client implementation.
 //
 // These functions implements the client half of the Trust Token protocol. A
@@ -173,7 +171,6 @@ OPENSSL_EXPORT STACK_OF(TRUST_TOKEN) *
                                        const uint8_t *response,
                                        size_t response_len);
 
-
 // TRUST_TOKEN_CLIENT_begin_redemption produces a request to redeem a token
 // |token| and receive a signature over |data| and serializes the request into
 // a newly-allocated buffer, setting |*out| to that buffer and |*out_len| to
@@ -197,7 +194,6 @@ OPENSSL_EXPORT int TRUST_TOKEN_CLIENT_finish_redemption(
     TRUST_TOKEN_CLIENT *ctx, uint8_t **out_rr, size_t *out_rr_len,
     uint8_t **out_sig, size_t *out_sig_len, const uint8_t *response,
     size_t response_len);
-
 
 // Trust Token issuer implementation.
 //
@@ -307,7 +303,6 @@ OPENSSL_EXPORT int TRUST_TOKEN_decode_private_metadata(
     const TRUST_TOKEN_METHOD *method, uint8_t *out_value, const uint8_t *key,
     size_t key_len, const uint8_t *nonce, size_t nonce_len,
     uint8_t encrypted_bit);
-
 
 #if defined(__cplusplus)
 }  // extern C

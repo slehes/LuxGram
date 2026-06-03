@@ -59,7 +59,6 @@ void InitMcFunc (SMcFunc* pMcFunc, uint32_t iCpu);
 
 } // namespace WelsCommon
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif//__cplusplus

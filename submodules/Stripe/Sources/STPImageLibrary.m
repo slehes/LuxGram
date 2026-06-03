@@ -13,7 +13,6 @@
 
 // Dummy class for locating the framework bundle
 
-
 @implementation STPImageLibrary
 
 + (UIImage *)applePayCardImage {

@@ -14,7 +14,6 @@
 
 @end
 
-
 @implementation TGViewController (TGRecursiveEnumeration)
 
 - (void)enumerateChildViewControllersRecursivelyWithBlock:(void (^)(UIViewController *))enumerationBlock
@@ -35,7 +34,6 @@
 
 @end
 
-
 @implementation UINavigationController (TGRecursiveEnumeration)
 
 - (void)enumerateChildViewControllersRecursivelyWithBlock:(void (^)(UIViewController *))enumerationBlock
@@ -48,7 +46,6 @@
 }
 
 @end
-
 
 @implementation UITabBarController (TGRecursiveEnumeration)
 

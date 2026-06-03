@@ -61,10 +61,8 @@
 extern "C" {
 #endif
 
-
 // ECDSA contains functions for signing and verifying with the Digital Signature
 // Algorithm over elliptic curves.
-
 
 // Signing and verifying.
 
@@ -95,7 +93,6 @@ OPENSSL_EXPORT int ECDSA_verify(int type, const uint8_t *digest,
 // ECDSA_size returns the maximum size of an ECDSA signature using |key|. It
 // returns zero if |key| is NULL or if it doesn't have a group set.
 OPENSSL_EXPORT size_t ECDSA_size(const EC_KEY *key);
-
 
 // Low-level signing and verification.
 //
@@ -147,7 +144,6 @@ OPENSSL_EXPORT ECDSA_SIG *ECDSA_do_sign(const uint8_t *digest,
 OPENSSL_EXPORT int ECDSA_do_verify(const uint8_t *digest, size_t digest_len,
                                    const ECDSA_SIG *sig, const EC_KEY *key);
 
-
 // ASN.1 functions.
 
 // ECDSA_SIG_parse parses a DER-encoded ECDSA-Sig-Value structure from |cbs| and
@@ -175,7 +171,6 @@ OPENSSL_EXPORT int ECDSA_SIG_to_bytes(uint8_t **out_bytes, size_t *out_len,
 // zero on overflow.
 OPENSSL_EXPORT size_t ECDSA_SIG_max_len(size_t order_len);
 
-
 // Testing-only functions.
 
 // ECDSA_sign_with_nonce_and_leak_private_key_for_testing behaves like
@@ -194,7 +189,6 @@ ECDSA_sign_with_nonce_and_leak_private_key_for_testing(const uint8_t *digest,
                                                        const uint8_t *nonce,
                                                        size_t nonce_len);
 
-
 // Deprecated functions.
 
 // d2i_ECDSA_SIG parses aa DER-encoded ECDSA-Sig-Value structure from |len|
@@ -209,7 +203,6 @@ OPENSSL_EXPORT ECDSA_SIG *d2i_ECDSA_SIG(ECDSA_SIG **out, const uint8_t **inp,
 //
 // Use |ECDSA_SIG_marshal| instead.
 OPENSSL_EXPORT int i2d_ECDSA_SIG(const ECDSA_SIG *sig, uint8_t **outp);
-
 
 #if defined(__cplusplus)
 }  // extern C

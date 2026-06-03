@@ -54,7 +54,6 @@ namespace WelsCommon {
 /* GOLOMB CODIMG FOR WELS COMMON                                        */
 /************************************************************************/
 
-
 /*!
  * \brief   initialize bitstream writing
  *
@@ -150,7 +149,6 @@ static inline int32_t BsWriteSE (PBitStringAux pBitString, const int32_t kiValue
   }
   return 0;
 }
-
 
 /*
  *  Write RBSP trailing bits

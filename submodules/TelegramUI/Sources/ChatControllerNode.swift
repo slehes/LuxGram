@@ -477,7 +477,6 @@ class ChatControllerNode: ASDisplayNode, ASScrollViewDelegate {
         
         self.floatingTopicsPanelContainer = ChatControllerTitlePanelNodeContainer()
 
-        // MARK: - LuxGram - Disable screenshot blocking if enabled
         var isSecretChat = chatLocation.peerId?.namespace == Namespaces.Peer.SecretChat
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.disableSecretChatBlurOnScreenshot {
@@ -1133,7 +1132,6 @@ class ChatControllerNode: ASDisplayNode, ASScrollViewDelegate {
             }
         }
         
-        // MARK: - LuxGram - Disable screenshot blocking if enabled
         var isSecret = self.chatPresentationInterfaceState.copyProtectionEnabled || self.chatLocation.peerId?.namespace == Namespaces.Peer.SecretChat || self.chatLocation.peerId?.isVerificationCodes == true
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.disableSecretChatBlurOnScreenshot && self.chatLocation.peerId?.namespace == Namespaces.Peer.SecretChat {
@@ -1729,7 +1727,6 @@ class ChatControllerNode: ASDisplayNode, ASScrollViewDelegate {
         var dismissedAccessoryPanelNode: AccessoryPanelNode?
         var dismissedInputContextPanelNode: ChatInputContextPanelNode?
         var dismissedOverlayContextPanelNode: ChatInputContextPanelNode?
-        // MARK: Swiftgram
         var inputPanelNodes = inputPanelForChatPresentationIntefaceState(self.chatPresentationInterfaceState, context: self.context, currentPanel: self.inputPanelNode, currentSecondaryPanel: self.secondaryInputPanelNode, textInputPanelNode: self.textInputPanelNode, chatControllerInteraction: self.controllerInteraction, interfaceInteraction: self.interfaceInteraction)
         if SGSimpleSettings.shared.hideChannelBottomButton {
             // We still need the panel for messages multi-select or search. Likely can break in future.

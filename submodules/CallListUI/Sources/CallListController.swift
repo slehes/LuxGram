@@ -83,8 +83,6 @@ private final class DeleteAllButtonNode: ASDisplayNode {
     }
 }
 
-
-
 public final class CallListController: TelegramBaseController {
     private var controllerNode: CallListControllerNode {
         return self.displayNode as! CallListControllerNode

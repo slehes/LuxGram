@@ -32,7 +32,6 @@ static const CGFloat outerCircleMinScale = innerCircleRadius / outerCircleRadius
 
 @end
 
-
 @interface TGModernConversationInputMicButtonOverlayController : TGOverlayController
 
 @end
@@ -957,7 +956,6 @@ static const CGFloat outerCircleMinScale = innerCircleRadius / outerCircleRadius
 
 @end
 
-
 @implementation TGModernConversationInputLockView
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -1024,7 +1022,6 @@ static const CGFloat outerCircleMinScale = innerCircleRadius / outerCircleRadius
 
 @end
 
-
 @implementation TGModernConversationInputMicWindow
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
@@ -1081,7 +1078,6 @@ static const CGFloat outerCircleMinScale = innerCircleRadius / outerCircleRadius
 }
 
 @end
-
 
 @implementation TGModernConversationInputMicPallete
 

@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 struct ChannelUpdate {
     let update: Api.Update
     let ptsRange: (Int32, Int32)?

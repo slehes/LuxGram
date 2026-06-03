@@ -74,7 +74,6 @@ private func generatePhoneInputBackground(color: UIColor, strokeColor: UIColor) 
     })?.stretchableImage(withLeftCapWidth: 81, topCapHeight: 2)
 }
 
-
 final class DeleteAccountPhoneItem: ListViewItem, ItemListItem {
     let theme: PresentationTheme
     let strings: PresentationStrings

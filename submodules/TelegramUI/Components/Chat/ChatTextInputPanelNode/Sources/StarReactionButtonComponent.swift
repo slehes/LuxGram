@@ -108,7 +108,6 @@ final class StarReactionButtonBadgeComponent: Component {
     }
 }
 
-
 final class StarReactionButtonComponent: Component {
     let theme: PresentationTheme
     let count: Int

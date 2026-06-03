@@ -16,7 +16,6 @@
 
 #include "jconfigint.h"
 
-
 /* Derived data constructed for each Huffman table */
 
 #define HUFF_LOOKAHEAD  8       /* # of bits of lookahead */
@@ -50,7 +49,6 @@ typedef struct {
 /* Expand a Huffman table definition into the derived format */
 EXTERN(void) jpeg_make_d_derived_tbl(j_decompress_ptr cinfo, boolean isDC,
                                      int tblno, d_derived_tbl **pdtbl);
-
 
 /*
  * Fetching the next N bits from the input stream is a time-critical operation
@@ -175,7 +173,6 @@ typedef struct {                /* Bitreading working state within an MCU */
 EXTERN(boolean) jpeg_fill_bit_buffer(bitread_working_state *state,
                                      register bit_buf_type get_buffer,
                                      register int bits_left, int nbits);
-
 
 /*
  * Code for extracting next Huffman-coded symbol from input bit stream.

@@ -21,10 +21,8 @@
 @property (nonatomic, readwrite) int internalOrientation;
 @property (nonatomic, readwrite) CGFloat internalAspect;
 
-
 - (void)setSize:(CGSize)size;
 - (void)renderFrame:(nullable RTCVideoFrame *)frame;
-
 
 - (std::shared_ptr<rtc::VideoSinkInterface<webrtc::VideoFrame>>)getSink;
 - (void)setOnFirstFrameReceived:(void (^ _Nullable)(float))onFirstFrameReceived;

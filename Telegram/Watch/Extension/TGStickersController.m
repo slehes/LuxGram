@@ -18,7 +18,6 @@ NSString *const TGStickersControllerIdentifier = @"TGStickersController";
 
 @end
 
-
 @interface TGStickersController () <TGTableDataSource>
 {
     TGStickersControllerContext *_context;

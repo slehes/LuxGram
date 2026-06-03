@@ -5232,8 +5232,6 @@ public class Postbox {
     }
 }
 
-
-// MARK: Swiftgram
 extension PostboxImpl {
     func searchLocalPeerId(query: String) -> PeerId? {
         var result: PeerId? = nil

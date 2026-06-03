@@ -24,7 +24,6 @@
 extern "C" {
 #endif
 
-
 // Bytestrings are used for parsing and building TLS and ASN.1 messages.
 //
 // A "CBS" (CRYPTO ByteString) represents a string of bytes in memory and
@@ -33,7 +32,6 @@ extern "C" {
 //
 // A "CBB" (CRYPTO ByteBuilder) is a memory buffer that grows as needed and
 // provides utility functions for building length-prefixed messages.
-
 
 // CRYPTO ByteString
 
@@ -169,7 +167,6 @@ OPENSSL_EXPORT int CBS_get_until_first(CBS *cbs, CBS *out, uint8_t c);
 // analogously to |strtoul| except it does not accept empty inputs, leading
 // zeros, or negative values.
 OPENSSL_EXPORT int CBS_get_u64_decimal(CBS *cbs, uint64_t *out);
-
 
 // Parsing ASN.1
 //
@@ -373,7 +370,6 @@ OPENSSL_EXPORT int CBS_is_valid_asn1_oid(const CBS *cbs);
 // This function may fail if |cbs| is an invalid OBJECT IDENTIFIER, or if any
 // OID components are too large.
 OPENSSL_EXPORT char *CBS_asn1_oid_to_text(const CBS *cbs);
-
 
 // CBS_parse_generalized_time returns one if |cbs| is a valid DER-encoded, ASN.1
 // GeneralizedTime body within the limitations imposed by RFC 5280, or zero
@@ -637,7 +633,6 @@ OPENSSL_EXPORT int CBB_add_asn1_oid_from_text(CBB *cbb, const char *text,
 // Note a SET type has a slightly different ordering than a SET OF.
 OPENSSL_EXPORT int CBB_flush_asn1_set_of(CBB *cbb);
 
-
 // Unicode utilities.
 
 // The following functions read one Unicode code point from |cbs| with the
@@ -659,10 +654,8 @@ OPENSSL_EXPORT int CBB_add_latin1(CBB *cbb, uint32_t u);
 OPENSSL_EXPORT int CBB_add_ucs2_be(CBB *cbb, uint32_t u);
 OPENSSL_EXPORT int CBB_add_utf32_be(CBB *cbb, uint32_t u);
 
-
 #if defined(__cplusplus)
 }  // extern C
-
 
 #if !defined(BORINGSSL_NO_CXX)
 extern "C++" {

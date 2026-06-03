@@ -340,7 +340,6 @@ typedef struct AVIAMFLayer {
     AVRational *demixing_matrix;
 } AVIAMFLayer;
 
-
 enum AVIAMFAudioElementType {
     AV_IAMF_AUDIO_ELEMENT_TYPE_CHANNEL,
     AV_IAMF_AUDIO_ELEMENT_TYPE_SCENE,

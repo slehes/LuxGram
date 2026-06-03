@@ -34,7 +34,6 @@ extern "C" {
 
 @end
 
-
 @interface NSString (NSArrayFormatExtension)
 
 + (id)stringWithFormat:(NSString *)format array:(NSArray*) arguments;

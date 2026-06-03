@@ -4,7 +4,6 @@ import SwiftSignalKit
 import MtProtoKit
 import TelegramApi
 
-
 public struct AppUpdateInfo: Equatable {
     public let blocking: Bool
     public let version: String

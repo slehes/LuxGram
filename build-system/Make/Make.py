@@ -289,10 +289,10 @@ class BazelCommandLine:
             combined_arguments += ['--lockfile_mode=error']
 
         if self.custom_target is not None:
-            # GLEGram/LuxGram — это короткие имена таргета //Telegram:<name>.
+            # LuxGram — это короткие имена таргета //Telegram:<name>.
             # После ребрендинга реальный таргет в Telegram/BUILD называется LuxGram,
-            # поэтому короткое имя GLEGram маппим на него.
-            if self.custom_target in ('GLEGram', 'LuxGram'):
+            
+            if self.custom_target in ('LuxGram', 'LuxGram'):
                 target_label = '//Telegram:LuxGram'
             elif '/' not in self.custom_target and ':' not in self.custom_target:
                 target_label = '//Telegram:' + self.custom_target
@@ -682,8 +682,8 @@ def build(bazel, arguments):
     if arguments.outputBuildArtifactsPath is not None:
         artifacts_path = os.path.abspath(arguments.outputBuildArtifactsPath)
         # Имя IPA = имя ios_application таргета. Реальный таргет — LuxGram,
-        # короткие имена GLEGram/LuxGram оба собирают //Telegram:LuxGram.
-        if arguments.target in ('GLEGram', 'LuxGram', None):
+        
+        if arguments.target in ('LuxGram', 'LuxGram', None):
             ipa_name = 'LuxGram.ipa'
         else:
             ipa_name = arguments.target + '.ipa'

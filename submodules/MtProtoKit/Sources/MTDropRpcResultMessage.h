@@ -4,7 +4,6 @@
 
 @end
 
-
 @interface MTDropRpcResultUnknownMessage : MTDropRpcResultMessage
 
 @end

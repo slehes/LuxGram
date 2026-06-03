@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 func currentWebDocumentsHostDatacenterId(postbox: Postbox, isTestingEnvironment: Bool) -> Signal<Int32, NoError> {
     return postbox.transaction { transaction -> Int32 in
         if let entry = transaction.getPreferencesEntry(key: PreferencesKeys.remoteStorageConfiguration)?.get(RemoteStorageConfiguration.self) {

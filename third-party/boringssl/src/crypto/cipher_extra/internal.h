@@ -68,7 +68,6 @@
 extern "C" {
 #endif
 
-
 // EVP_tls_cbc_get_padding determines the padding from the decrypted, TLS, CBC
 // record in |in|. This decrypted record should not include any "decrypted"
 // explicit IV. If the record is publicly invalid, it returns zero. Otherwise,
@@ -228,7 +227,6 @@ OPENSSL_INLINE void chacha20_poly1305_seal(uint8_t *out_ciphertext,
   abort();
 }
 #endif
-
 
 #if defined(__cplusplus)
 }  // extern C

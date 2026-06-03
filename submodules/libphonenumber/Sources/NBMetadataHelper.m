@@ -10,7 +10,6 @@
 #import "NBPhoneMetaData.h"
 #import "NBMetadataCore.h"
 
-
 #if TESTING==1
 #define NB_CLASS_PREFIX @"NBPhoneMetadataTest"
 #import "NBMetadataCoreTest.h"
@@ -21,7 +20,6 @@
 #import "NBMetadataCoreMapper.h"
 #endif
 
-
 @interface NBMetadataHelper ()
 
 // Cached metadata
@@ -29,7 +27,6 @@
 @property(nonatomic, strong) NSString *cachedMetaDataKey;
 
 @end
-
 
 @implementation NBMetadataHelper
 
@@ -105,7 +102,6 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     }
 }
 
-
 - (NSArray*)getAllMetadata
 {
     NSArray *countryCodes = [NSLocale ISOCountryCodes];
@@ -136,7 +132,6 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     return resultMetadata;
 }
 
-
 - (NSArray *)regionCodeFromCountryCode:(NSNumber *)countryCodeNumber
 {
     [self initializeHelper];
@@ -156,7 +151,6 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     return nil;
 }
 
-
 - (NSString *)countryCodeFromRegionCode:(NSString* )regionCode
 {
     [self initializeHelper];
@@ -169,7 +163,6 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     
     return nil;
 }
-
 
 - (NSString *)stringByTrimming:(NSString *)aString
 {
@@ -195,12 +188,10 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     return aRes;
 }
 
-
 - (NSString *)normalizeNonBreakingSpace:(NSString *)aString
 {
     return [aString stringByReplacingOccurrencesOfString:NB_NON_BREAKING_SPACE withString:@" "];
 }
-
 
 /**
  * Returns the metadata for the given region code or {@code nil} if the region
@@ -239,7 +230,6 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     return nil;
 }
 
-
 /**
  * @param {number} countryCallingCode
  * @return {i18n.phonenumbers.PhoneMetadata}
@@ -249,7 +239,6 @@ static NSMutableDictionary *kMapCCode2CN = nil;
     NSString *countryCallingCodeStr = [NSString stringWithFormat:@"%@", countryCallingCode];
     return [self getMetadataForRegion:countryCallingCodeStr];
 }
-
 
 #pragma mark - Regular expression Utilities -
 

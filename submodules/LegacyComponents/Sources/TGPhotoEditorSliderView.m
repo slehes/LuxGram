@@ -636,7 +636,6 @@ const CGFloat TGPhotoEditorSliderViewInternalMargin = 7.0f;
     return true;
 }
 
-
 - (BOOL)beginTrackingWithTouch:(UITouch *)touch withEvent:(UIEvent *)__unused event
 {
     if (!_enablePanHandling) {

@@ -113,7 +113,6 @@ __FBSDID("$FreeBSD$");
 
 #define SCTP_ASOC_CREATE_LOCK_CONTENDED(_inp) (0) /* Don't know if this is possible */
 
-
 #define SCTP_TCB_SEND_LOCK_INIT(_tcb)
 #define SCTP_TCB_SEND_LOCK_DESTROY(_tcb)
 #define SCTP_TCB_SEND_LOCK(_tcb)
@@ -129,7 +128,6 @@ __FBSDID("$FreeBSD$");
 #define SCTP_INP_WUNLOCK(_inp)
 #define SCTP_ASOC_CREATE_UNLOCK(_inp)
 
-
 #define SCTP_TCB_LOCK_INIT(_tcb)
 #define SCTP_TCB_LOCK_DESTROY(_tcb)
 #define SCTP_TCB_LOCK(_tcb)
@@ -138,14 +136,10 @@ __FBSDID("$FreeBSD$");
 #define SCTP_TCB_UNLOCK_IFOWNED(_tcb)
 #define SCTP_TCB_LOCK_ASSERT(_tcb)
 
-
-
 #define SCTP_ITERATOR_LOCK_INIT()
 #define SCTP_ITERATOR_LOCK()
 #define SCTP_ITERATOR_UNLOCK()
 #define SCTP_ITERATOR_LOCK_DESTROY()
-
-
 
 #define SCTP_INCR_EP_COUNT() \
                 do { \
@@ -217,13 +211,11 @@ __FBSDID("$FreeBSD$");
 		       sctppcbinfo.ipi_count_strmoq--; \
 	        } while (0)
 
-
 /* these were in sctp_lock_empty.h but aren't in sctp_lock_bsd.h ... */
 #if 0
 #define SCTP_IPI_ADDR_LOCK()
 #define SCTP_IPI_ADDR_UNLOCK()
 #endif
-
 
 /* These were in sctp_lock_empty.h because they were commented out within
  *  within user_include/user_socketvar.h .  If they are NOT commented out

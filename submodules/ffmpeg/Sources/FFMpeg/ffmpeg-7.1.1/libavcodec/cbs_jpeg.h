@@ -24,7 +24,6 @@
 
 #include "libavutil/buffer.h"
 
-
 enum {
     JPEG_MARKER_SOF0    = 0xc0,
     JPEG_MARKER_SOF1    = 0xc1,
@@ -48,7 +47,6 @@ enum {
     JPEG_MAX_HEIGHT = 65535,
     JPEG_MAX_WIDTH  = 65535,
 };
-
 
 typedef struct JPEGRawFrameHeader {
     uint16_t Lf;
@@ -118,6 +116,5 @@ typedef struct JPEGRawComment {
     uint8_t     *Cm;
     AVBufferRef *Cm_ref;
 } JPEGRawComment;
-
 
 #endif /* AVCODEC_CBS_JPEG_H */

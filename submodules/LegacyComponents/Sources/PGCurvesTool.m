@@ -223,7 +223,6 @@ const NSUInteger PGCurveDataStep = 2;
 
 @end
 
-
 @interface PGCurvesTool ()
 {
     PGPhotoProcessPassParameter *_rgbCurveParameter;

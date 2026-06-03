@@ -25,7 +25,6 @@
 extern "C" {
 #endif
 
-
 #define OPENSSL_DH_MAX_MODULUS_BITS 10000
 
 struct dh_st {
@@ -56,7 +55,6 @@ int dh_check_params_fast(const DH *dh);
 // themselves, to prevent an infinite loop.
 int dh_compute_key_padded_no_self_test(unsigned char *out,
                                        const BIGNUM *peers_key, DH *dh);
-
 
 #if defined(__cplusplus)
 }

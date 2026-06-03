@@ -254,7 +254,6 @@ public func galleryItemForEntry(
     } else if let file = media as? TelegramMediaFile {
         if file.isVideo {
             let content: UniversalVideoContent
-            // MARK: - LuxGram - captureProtected bypass
             let captureProtected: Bool
             #if canImport(SGSimpleSettings)
             if SGSimpleSettings.shared.enableSavingProtectedContent {
@@ -267,7 +266,6 @@ public func galleryItemForEntry(
             #else
             captureProtected = message.isCopyProtected() || message.containsSecretMedia || message.minAutoremoveOrClearTimeout == viewOnceTimeout || message.paidContent != nil || peerIsCopyProtected
             #endif
-            // MARK: - End LuxGram
             if file.isAnimated {
                 content = NativeVideoContent(id: .message(message.stableId, file.fileId), userLocation: .peer(message.id.peerId), fileReference: .message(message: MessageReference(message), media: file), imageReference: mediaImage.flatMap({ ImageMediaReference.message(message: MessageReference(message), media: $0) }), loopVideo: true, enableSound: false, tempFilePath: tempFilePath, captureProtected: captureProtected, storeAfterDownload: generateStoreAfterDownload?(message, file))
             } else {
@@ -399,7 +397,6 @@ public func galleryItemForEntry(
         }
     } else if let webpage = media as? TelegramMediaWebpage, case let .Loaded(webpageContent) = webpage.content {
         var content: UniversalVideoContent?
-        // MARK: - LuxGram - captureProtected bypass
         var webpageCaptureProtected: Bool
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.enableSavingProtectedContent {
@@ -410,7 +407,6 @@ public func galleryItemForEntry(
         #else
         webpageCaptureProtected = message.isCopyProtected() || message.containsSecretMedia || peerIsCopyProtected
         #endif
-        // MARK: - End LuxGram
 
         switch websiteType(of: webpageContent.websiteName) {
         case .instagram where webpageContent.file != nil && webpageContent.image != nil && webpageContent.file!.isVideo:
@@ -567,7 +563,6 @@ public struct GalleryConfiguration {
     }
     
     static func with(appConfiguration: AppConfiguration) -> GalleryConfiguration {
-        // MARK: Swiftgram
         if appConfiguration.sgWebSettings.global.ytPip {
             return GalleryConfiguration(youtubePictureInPictureEnabled: true)
         }
@@ -1317,7 +1312,6 @@ public class GalleryController: ViewController, StandalonePresentableController,
         self.acceptsFocusWhenInOverlay = true
         self.isOpaqueWhenInOverlay = true
         
-        // MARK: - LuxGram - screenshot bypass
         #if canImport(SGSimpleSettings)
         let skipScreenshot = SGSimpleSettings.shared.disableScreenshotDetection
         #else
@@ -1338,7 +1332,6 @@ public class GalleryController: ViewController, StandalonePresentableController,
                 break
             }
         }
-        // MARK: - End LuxGram
     }
     
     required init(coder aDecoder: NSCoder) {

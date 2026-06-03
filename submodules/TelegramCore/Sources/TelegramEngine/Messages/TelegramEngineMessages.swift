@@ -620,7 +620,6 @@ public extension TelegramEngine {
             return sgWrappedTranslateMultiple(texts: texts,toLang: toLang, default: _internal_translateTexts(network: self.account.network, texts: texts, toLang: toLang))
         }
 
-        // MARK: Swiftgram
         public func translateMessagesViaText(messagesDict: [EngineMessage.Id: String], fromLang: String?, toLang: String, generateEntitiesFunction: @escaping (String) -> [MessageTextEntity], enableLocalIfPossible: Bool) -> Signal<Never, TranslationError> {
             return _internal_translateMessagesViaText(account: self.account, messagesDict: messagesDict, fromLang: fromLang, toLang: toLang, enableLocalIfPossible: enableLocalIfPossible, generateEntitiesFunction: generateEntitiesFunction)
         }
@@ -793,8 +792,7 @@ public extension TelegramEngine {
             |> ignoreValues
         }
 
-        /// MARK: - LuxGram - Marks all chats as read **locally only**. No API calls, no sync to server.
-        public func markAllChatsAsReadLocallyOnly(items: [(groupId: EngineChatList.Group, filterPredicate: ChatListFilterPredicate?)]) -> Signal<Void, NoError> {
+        /        public func markAllChatsAsReadLocallyOnly(items: [(groupId: EngineChatList.Group, filterPredicate: ChatListFilterPredicate?)]) -> Signal<Void, NoError> {
             let account = self.account
             return self.account.postbox.transaction { transaction -> Void in
                 for (groupId, filterPredicate) in items {
@@ -1524,7 +1522,6 @@ public extension TelegramEngine {
         }
         
         public func markStoryAsSeen(peerId: EnginePeer.Id, id: Int32, asPinned: Bool) -> Signal<Never, NoError> {
-            // MARK: Swiftgram
             if SGSimpleSettings.shared.isStealthModeEnabled {
                 return .never()
             }
@@ -1765,25 +1762,6 @@ func _internal_monoforumPerformSuggestedPostAction(account: Account, id: EngineM
     }
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// MARK: Swiftgram
 private func sgWrappedTranslateSingle(
     text: String,
     toLang: String,

@@ -11,7 +11,6 @@
 #import <AsyncDisplayKit/ASDisplayNode.h>
 #import <AsyncDisplayKit/ASLayout.h>
 
-
 NSString * const ASTransitionContextFromLayoutKey = @"org.asyncdisplaykit.ASTransitionContextFromLayoutKey";
 NSString * const ASTransitionContextToLayoutKey = @"org.asyncdisplaykit.ASTransitionContextToLayoutKey";
 
@@ -84,7 +83,6 @@ NSString * const ASTransitionContextToLayoutKey = @"org.asyncdisplaykit.ASTransi
 }
 
 @end
-
 
 @interface _ASAnimatedTransitionContext ()
 @property (nonatomic) ASDisplayNode *node;

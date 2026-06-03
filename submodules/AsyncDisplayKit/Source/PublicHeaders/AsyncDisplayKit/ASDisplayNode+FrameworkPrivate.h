@@ -252,7 +252,6 @@ __unused static NSString * _Nonnull NSStringFromASHierarchyStateChange(ASHierarc
 
 @end
 
-
 @interface ASDisplayNode (ASLayoutInternal)
 
 /**

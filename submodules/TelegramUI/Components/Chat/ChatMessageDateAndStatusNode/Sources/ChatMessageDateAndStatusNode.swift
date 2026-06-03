@@ -544,7 +544,6 @@ public class ChatMessageDateAndStatusNode: ASDisplayNode {
                 updatedDateText = "\(arguments.presentationData.strings.Conversation_MessageEditedLabel) \(updatedDateText)"
             }
             if let impressionCount = arguments.impressionCount {
-                // MARK: - LuxGram
                 let countString: String
                 if SGSimpleSettings.shared.disableCompactNumbers {
                     countString = "\(impressionCount)"
@@ -552,7 +551,6 @@ public class ChatMessageDateAndStatusNode: ASDisplayNode {
                     countString = compactNumericCountString(impressionCount, decimalSeparator: arguments.presentationData.dateTimeFormat.decimalSeparator)
                 }
                 updatedDateText = countString + " " + updatedDateText
-                // MARK: - End LuxGram
             }
             
             let dateFont = Font.regular(floor(arguments.presentationData.fontSize.baseDisplaySize * 11.0 / 17.0))
@@ -1481,7 +1479,6 @@ public class ChatMessageDateAndStatusNode: ASDisplayNode {
 }
 
 public func shouldDisplayInlineDateReactions(message: Message, isPremium: Bool, forceInline: Bool) -> Bool {
-    // MARK: Swiftgram
     // With 10.13 it now hides reactions in favor of message effect badge
     return SGSimpleSettings.shared.hideReactions
 }

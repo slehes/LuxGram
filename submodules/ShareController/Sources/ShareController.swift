@@ -2693,7 +2693,6 @@ public class ShareToInstagramActivity: UIActivity {
     }
 }
 
-
 public func presentExternalShare(context: AccountContext, text: String, parentController: ViewController) {
     let activityController = UIActivityViewController(activityItems: [text], applicationActivities: nil)
     if let window = parentController.view.window {

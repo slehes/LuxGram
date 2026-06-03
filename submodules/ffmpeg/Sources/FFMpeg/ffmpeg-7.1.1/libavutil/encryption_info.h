@@ -166,7 +166,6 @@ AVEncryptionInfo *av_encryption_info_get_side_data(const uint8_t *side_data, siz
 uint8_t *av_encryption_info_add_side_data(
       const AVEncryptionInfo *info, size_t *side_data_size);
 
-
 /**
  * Allocates an AVEncryptionInitInfo structure and sub-pointers to hold the
  * given sizes.  This will allocate pointers and set all the fields.

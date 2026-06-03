@@ -93,7 +93,6 @@ public struct EngineMessageReplySubject: Codable, Equatable {
 
 public enum EnqueueMessage {
     case message(text: String, attributes: [MessageAttribute], inlineStickers: [MediaId: Media], mediaReference: AnyMediaReference?, threadId: Int64?, replyToMessageId: EngineMessageReplySubject?, replyToStoryId: StoryId?, localGroupingKey: Int64?, correlationId: Int64?, bubbleUpEmojiOrStickersets: [ItemCollectionId])
-    // MARK: - LuxGram - Support asCopy parameter (like Nicegram)
     case forward(source: MessageId, threadId: Int64?, grouping: EnqueueMessageGrouping, attributes: [MessageAttribute], correlationId: Int64?, asCopy: Bool = false)
     
     public func withUpdatedReplyToMessageId(_ replyToMessageId: EngineMessageReplySubject?) -> EnqueueMessage {
@@ -261,7 +260,6 @@ private func filterMessageAttributesForOutgoingMessage(_ attributes: [MessageAtt
             return true
         case _ as SuggestedPostMessageAttribute:
             return true
-        // MARK: - LuxGram - Ghost delay
         case _ as GhostDelayedSendAttribute:
             return true
         default:
@@ -313,7 +311,6 @@ func opportunisticallyTransformMessageWithMedia(network: Network, postbox: Postb
     |> timeout(2.0, queue: Queue.concurrentDefaultQueue(), alternate: .single(nil))
 }
 
-// MARK: - LuxGram - Support asCopy parameter (like Nicegram)
 private func forwardedMessageToBeReuploaded(transaction: Transaction, id: MessageId, asCopy: Bool = false) -> Message? {
     if let message = transaction.getMessage(id) {
         if message.id.namespace != Namespaces.Message.Cloud || asCopy {
@@ -525,7 +522,6 @@ func enqueueMessages(transaction: Transaction, account: Account, peerId: PeerId,
                         updatedMessages.append((true, .forward(source: replyToMessageId.messageId, threadId: threadId, grouping: .none, attributes: attributes, correlationId: nil, asCopy: false)))
                     }
                 }
-            // MARK: - LuxGram - Support asCopy parameter (like Nicegram)
             case let .forward(sourceId, threadId, _, _, _, asCopy):
                 if let sourceMessage = forwardedMessageToBeReuploaded(transaction: transaction, id: sourceId, asCopy: asCopy) {
                     var mediaReference: AnyMediaReference?
@@ -534,7 +530,6 @@ func enqueueMessages(transaction: Transaction, account: Account, peerId: PeerId,
                             mediaReference = .standalone(media: media)
                         }
                     }
-                    // MARK: LuxGram - Use groupingKey only if not asCopy (like Nicegram)
                     let localGroupingKey: Int64? = asCopy ? sourceMessage.groupingKey : nil
                     updatedMessages.append((transformedMedia, .message(text: sourceMessage.text, attributes: sourceMessage.attributes, inlineStickers: [:], mediaReference: mediaReference, threadId: threadId, replyToMessageId: threadId.flatMap { EngineMessageReplySubject(messageId: MessageId(peerId: peerId, namespace: Namespaces.Message.Cloud, id: Int32(clamping: $0)), quote: nil, todoItemId: nil) }, replyToStoryId: nil, localGroupingKey: localGroupingKey, correlationId: nil, bubbleUpEmojiOrStickersets: [])))
                     continue outer
@@ -588,7 +583,6 @@ func enqueueMessages(transaction: Transaction, account: Account, peerId: PeerId,
                         transaction.storeMediaIfNotPresent(media: file)
                     }
                 
-                    // MARK: Swiftgram
                     var filteredEmojiItems = [NSRange: RecentEmojiItem]()
                     text.enumerateSubstrings(in: text.startIndex ..< text.endIndex, options: .byComposedCharacterSequences) { substring, range, _, _ in
                         if let substring, substring.isSingleEmoji {
@@ -717,7 +711,6 @@ func enqueueMessages(transaction: Transaction, account: Account, peerId: PeerId,
                                         addedHashtags.append(hashtag)
                                     }
                                 } else if case let .CustomEmoji(_, fileId) = entity.type {
-                                    // MARK: Swiftgram
                                     let mediaId = MediaId(namespace: Namespaces.Media.CloudFile, id: fileId)
                                     let entityRange = NSRange(location: entity.range.lowerBound, length: entity.range.upperBound - entity.range.lowerBound)
                                     var file: TelegramMediaFile?
@@ -735,7 +728,6 @@ func enqueueMessages(transaction: Transaction, account: Account, peerId: PeerId,
                             break
                         }
                     }
-                    // MARK: Swiftgram
                     emojiItems.insert(contentsOf: filteredEmojiItems.values, at: 0)
                                     
                     let (tags, globalTags) = tagsForStoreMessage(incoming: false, attributes: attributes, media: mediaList, textEntities: entitiesAttribute?.entities, isPinned: false)

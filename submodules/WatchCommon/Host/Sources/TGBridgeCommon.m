@@ -64,7 +64,6 @@ NSString *const TGBridgeResponseErrorKey = @"error";
 
 @end
 
-
 NSString *const TGBridgeSubscriptionIdentifierKey = @"identifier";
 NSString *const TGBridgeSubscriptionNameKey = @"name";
 NSString *const TGBridgeSubscriptionParametersKey = @"parameters";
@@ -135,7 +134,6 @@ NSString *const TGBridgeSubscriptionParametersKey = @"parameters";
 
 @end
 
-
 @implementation TGBridgeDisposal
 
 - (instancetype)initWithIdentifier:(int64_t)identifier
@@ -200,7 +198,6 @@ NSString *const TGBridgeFileMetadataKey = @"metadata";
 
 @end
 
-
 NSString *const TGBridgeSessionIdKey = @"sessionId";
 
 @implementation TGBridgePing
@@ -232,7 +229,6 @@ NSString *const TGBridgeSessionIdKey = @"sessionId";
 
 @end
 
-
 @implementation TGBridgeSubscriptionListRequest
 
 - (instancetype)initWithSessionId:(int32_t)sessionId
@@ -261,7 +257,6 @@ NSString *const TGBridgeSessionIdKey = @"sessionId";
 }
 
 @end
-
 
 NSString *const TGBridgeSubscriptionListSubscriptionsKey = @"subscriptions";
 

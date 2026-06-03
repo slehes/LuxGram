@@ -94,7 +94,6 @@ static inline int C_JPEG_TO_CCIR(int y) {
     return y;
 }
 
-
 #define RGB_TO_Y_CCIR(r, g, b) \
 ((FIX(0.29900*219.0/255.0) * (r) + FIX(0.58700*219.0/255.0) * (g) + \
   FIX(0.11400*219.0/255.0) * (b) + (ONE_HALF + (16 << SCALEBITS))) >> SCALEBITS)

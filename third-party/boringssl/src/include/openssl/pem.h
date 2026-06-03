@@ -74,7 +74,6 @@
 extern "C" {
 #endif
 
-
 #define PEM_BUFSIZE 1024
 
 #define PEM_STRING_X509_OLD "X509 CERTIFICATE"
@@ -111,7 +110,6 @@ extern "C" {
 // These macros make the PEM_read/PEM_write functions easier to maintain and
 // write. Now they are all implemented with either:
 // IMPLEMENT_PEM_rw(...) or IMPLEMENT_PEM_rw_cb(...)
-
 
 #define IMPLEMENT_PEM_read_fp(name, type, str, asn1)                         \
   static void *pem_read_##name##_d2i(void **x, const unsigned char **inp,    \
@@ -163,7 +161,6 @@ extern "C" {
     return PEM_ASN1_write(pem_write_##name##_i2d, str, fp, x, enc, pass,   \
                           pass_len, cb, u);                                \
   }
-
 
 #define IMPLEMENT_PEM_read_bio(name, type, str, asn1)                         \
   static void *pem_read_bio_##name##_d2i(void **x, const unsigned char **inp, \
@@ -280,7 +277,6 @@ extern "C" {
       BIO *bp, type *x, const EVP_CIPHER *enc, const unsigned char *pass, \
       int pass_len, pem_password_cb *cb, void *u);
 
-
 #define DECLARE_PEM_write(name, type) \
   DECLARE_PEM_write_bio(name, type)   \
   DECLARE_PEM_write_fp(name, type)
@@ -392,7 +388,6 @@ OPENSSL_EXPORT int PEM_ASN1_write(i2d_of_void *i2d, const char *name, FILE *fp,
 OPENSSL_EXPORT int PEM_def_callback(char *buf, int size, int rwflag,
                                     void *userdata);
 
-
 DECLARE_PEM_rw(X509, X509)
 
 // TODO(crbug.com/boringssl/426): When documenting these, copy the warning
@@ -427,9 +422,7 @@ DECLARE_PEM_rw_const(DSAparams, DSA)
 DECLARE_PEM_rw_cb(ECPrivateKey, EC_KEY)
 DECLARE_PEM_rw(EC_PUBKEY, EC_KEY)
 
-
 DECLARE_PEM_rw_const(DHparams, DH)
-
 
 DECLARE_PEM_rw_cb(PrivateKey, EVP_PKEY)
 
@@ -475,7 +468,6 @@ OPENSSL_EXPORT int PEM_write_PKCS8PrivateKey(FILE *fp, const EVP_PKEY *x,
                                              const EVP_CIPHER *enc,
                                              const char *pass, int pass_len,
                                              pem_password_cb *cd, void *u);
-
 
 #ifdef __cplusplus
 }  // extern "C"

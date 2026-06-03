@@ -24,11 +24,9 @@
 
 #include <openssl/trust_token.h>
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
-
 
 // For the following cryptographic schemes, we use P-384 instead of our usual
 // choice of P-256. See Appendix I of
@@ -39,7 +37,6 @@ extern "C" {
 // 3055465788140352002733946906144561090641249606160407884365391979704929268480326390471.
 // This lower-bounds the p-1 attack at O(2^140). The p+1 attack is lower-bounded
 // by O(p^(1/3)) or O(2^128), so we do not need to check the smoothness of p+1.
-
 
 // TRUST_TOKEN_NONCE_SIZE is the size of nonces used as part of the Trust_Token
 // protocol.
@@ -81,7 +78,6 @@ typedef struct pmb_pretoken_st {
 OPENSSL_EXPORT void TRUST_TOKEN_PRETOKEN_free(TRUST_TOKEN_PRETOKEN *token);
 
 DEFINE_STACK_OF(TRUST_TOKEN_PRETOKEN)
-
 
 // PMBTokens.
 //
@@ -186,7 +182,6 @@ int pmbtoken_pst1_read(const TRUST_TOKEN_ISSUER_KEY *key,
 // function is used to confirm H was computed as expected.
 OPENSSL_EXPORT int pmbtoken_pst1_get_h_for_testing(uint8_t out[97]);
 
-
 // VOPRF.
 //
 // VOPRFs are described in https://tools.ietf.org/html/draft-irtf-cfrg-voprf-04
@@ -252,7 +247,6 @@ int voprf_pst1_read(const TRUST_TOKEN_ISSUER_KEY *key,
                     uint8_t *out_private_metadata, const uint8_t *token,
                     size_t token_len, int include_message, const uint8_t *msg,
                     size_t msg_len);
-
 
 // Trust Tokens internals.
 
@@ -370,7 +364,6 @@ struct trust_token_client_st {
   EVP_PKEY *srr_key;
 };
 
-
 struct trust_token_issuer_st {
   const TRUST_TOKEN_METHOD *method;
 
@@ -393,7 +386,6 @@ struct trust_token_issuer_st {
   uint8_t *metadata_key;
   size_t metadata_key_len;
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

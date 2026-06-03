@@ -454,7 +454,6 @@ private func edgeScaleY(for midY: CGFloat, containerHeight H: CGFloat) -> CGFloa
     return (1.0 - u) + minScaleYAtEdge * u
 }
 
-
 final class SpacerComponent: Component {
     let size: CGSize
 

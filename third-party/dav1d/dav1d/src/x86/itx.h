@@ -51,7 +51,6 @@ decl_itx_fn(BF(dav1d_inv_txfm_add_dct_dct_64x16, ext)); \
 decl_itx_fn(BF(dav1d_inv_txfm_add_dct_dct_64x32, ext)); \
 decl_itx_fn(BF(dav1d_inv_txfm_add_dct_dct_64x64, ext))
 
-
 #define decl_itx2_bpc_fns(w, h, bpc, opt) \
 decl_itx_fn(BF_BPC(dav1d_inv_txfm_add_dct_dct_##w##x##h, bpc, opt)); \
 decl_itx_fn(BF_BPC(dav1d_inv_txfm_add_identity_identity_##w##x##h, bpc, opt))

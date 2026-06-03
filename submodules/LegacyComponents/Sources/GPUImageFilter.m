@@ -33,7 +33,6 @@ NSString *const kGPUImagePassthroughFragmentShaderString = SHADER_STRING
  }
 );
 
-
 @implementation GPUImageFilter
 
 @synthesize preventRendering = _preventRendering;

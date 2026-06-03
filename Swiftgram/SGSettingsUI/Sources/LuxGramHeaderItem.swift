@@ -1,4 +1,3 @@
-// MARK: Swiftgram – LuxGram settings header (icon + title + tagline)
 import Foundation
 import UIKit
 import AsyncDisplayKit

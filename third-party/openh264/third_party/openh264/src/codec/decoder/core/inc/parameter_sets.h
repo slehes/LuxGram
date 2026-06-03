@@ -128,7 +128,6 @@ typedef struct TagSps {
   const SLevelLimits* pSLevelLimits;
 } SSps, *PSps;
 
-
 /* Sequence Parameter Set extension syntax, refer to Page 58 in JVT X201wcm */
 //typedef struct TagSpsExt{
 //  uint32_t      iSpsId;

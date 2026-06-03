@@ -37,7 +37,6 @@ public:
     void setIsLocalNetworkLowCost(bool isLocalNetworkLowCost);
     void getNetworkStats(std::function<void(TrafficStats, CallStats)> completion);
 
-
 	void setAudioInputDevice(std::string id);
 	void setAudioOutputDevice(std::string id);
 	void setInputVolume(float level);

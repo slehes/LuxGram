@@ -49,7 +49,6 @@ struct cjpeg_source_struct {
   jpeg_saved_marker_ptr marker_list;
 };
 
-
 /*
  * Object interface for djpeg's output file encoding modules
  */
@@ -74,7 +73,6 @@ struct djpeg_dest_struct {
   void (*calc_buffer_dimensions) (j_decompress_ptr cinfo,
                                   djpeg_dest_ptr dinfo);
 
-
   /* Target file spec; filled in by djpeg.c after object is created. */
   FILE *output_file;
 
@@ -85,7 +83,6 @@ struct djpeg_dest_struct {
   JSAMPARRAY buffer;
   JDIMENSION buffer_height;
 };
-
 
 /*
  * cjpeg/djpeg may need to perform extra passes to convert to or from
@@ -107,7 +104,6 @@ struct cdjpeg_progress_mgr {
 };
 
 typedef struct cdjpeg_progress_mgr *cd_progress_ptr;
-
 
 /* Module selection routines for I/O modules. */
 

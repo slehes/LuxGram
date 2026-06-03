@@ -495,7 +495,6 @@ private class ThemeSettingsAccentColorPickerItem: ListViewItem {
     }
 }
 
-
 private func generateCustomSwatchImage() -> UIImage? {
     return generateImage(CGSize(width: 42.0, height: 42.0), rotatedContext: { size, context in
         let bounds = CGRect(origin: CGPoint(), size: size)

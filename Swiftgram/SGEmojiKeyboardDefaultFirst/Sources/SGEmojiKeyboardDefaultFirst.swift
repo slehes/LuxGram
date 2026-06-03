@@ -1,6 +1,5 @@
 import Foundation
 
-
 func sgPatchEmojiKeyboardItems(_ items: [EmojiPagerContentComponent.ItemGroup]) -> [EmojiPagerContentComponent.ItemGroup] {
     var items = items
     let staticEmojisIndex = items.firstIndex { item in

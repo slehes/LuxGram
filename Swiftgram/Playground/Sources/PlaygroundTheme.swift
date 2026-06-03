@@ -3,7 +3,6 @@ import UIKit
 import Display
 import SwiftSignalKit
 
-
 public final class PlaygroundInfoTheme {
     public let buttonBackgroundColor: UIColor
     public let buttonTextColor: UIColor
@@ -150,7 +149,6 @@ public final class PlaygroundTheme: Equatable {
     }
 }
 
-
 private final class PlaygroundThemeResourceCacheHolder {
     var images: [Int32: UIImage] = [:]
 }
@@ -276,7 +274,6 @@ func PlaygroundTransactionLockIcon(_ theme: PlaygroundTheme) -> UIImage? {
         return generateTintedImage(image: UIImage(bundleImageName: "Playground/EncryptedComment"), color: theme.list.itemSecondaryTextColor)
     })
 }
-
 
 public let ACCENT_COLOR = UIColor(rgb: 0x007ee5)
 public let NAVIGATION_BAR_THEME = NavigationBarTheme(

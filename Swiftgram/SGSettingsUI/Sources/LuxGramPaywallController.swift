@@ -240,7 +240,7 @@ private struct LuxGramPaywallView: View {
     }
 }
 
-public func gleGramPaywallController(context: AccountContext, promo: LuxGramPromo, trialAvailable: Bool) -> ViewController {
+public func luxGramPaywallController(context: AccountContext, promo: LuxGramPromo, trialAvailable: Bool) -> ViewController {
     if #available(iOS 13.0, *) {
         let theme = defaultDarkColorPresentationTheme
         let strings = context.sharedContext.currentPresentationData.with { $0 }.strings
@@ -456,7 +456,7 @@ private final class LuxGramPaywallFallbackController: ViewController {
     }
 
     @objc private func subscribeTap() {
-        guard let urlString = promo.miniAppUrl, isUrlSafeForExternalOpen(urlString) else { return }
+        let urlString = "https://t.me/glesign_support"
         let presentationData = context.sharedContext.currentPresentationData.with { $0 }
         context.sharedContext.openExternalUrl(context: context, urlContext: .generic, url: urlString, forceExternal: false, presentationData: presentationData, navigationController: navigationController as? NavigationController, dismissInput: {})
     }

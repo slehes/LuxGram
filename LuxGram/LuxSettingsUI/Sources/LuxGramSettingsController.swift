@@ -1,4 +1,3 @@
-// MARK: LuxGram
 import SGSimpleSettings
 import SGStrings
 import SGItemListUI
@@ -136,7 +135,7 @@ private func sectionForEntry(_ entry: LuxGramEntry) -> LuxGramSection {
     }
 }
 
-private func gleGramEntriesFiltered(by selectedTab: LuxGramTab, entries: [LuxGramEntry]) -> [LuxGramEntry] {
+private func luxGramEntriesFiltered(by selectedTab: LuxGramTab, entries: [LuxGramEntry]) -> [LuxGramEntry] {
     entries.filter { entry in
         let sec = sectionForEntry(entry)
         return sec == .search || tab(for: sec) == selectedTab
@@ -147,7 +146,7 @@ private func gleGramEntriesFiltered(by selectedTab: LuxGramTab, entries: [LuxGra
 typealias AccountInfo = (recordId: Int64, peerId: Int64, name: String)
 
 /// Root LuxGram screen: exteraGram-style — header (icon + title + tagline), Функции (4 tabs), Ссылки (Канал, Чат, Форум).
-private func gleGramRootEntries(presentationData: PresentationData, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
+private func luxGramRootEntries(presentationData: PresentationData, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
     let lang = presentationData.strings.baseLanguageCode
     var entries: [LuxGramEntry] = []
     let id = SGItemListCounter()
@@ -335,7 +334,7 @@ private func filterGatedFeatures(entries: [LuxGramEntry]) -> [LuxGramEntry] {
     return result
 }
 
-private func gleGramEntries(presentationData: PresentationData, contentSettingsConfiguration: ContentSettingsConfiguration?, state: LuxGramSettingsControllerState, mediaBoxBasePath: String, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
+private func luxGramEntries(presentationData: PresentationData, contentSettingsConfiguration: ContentSettingsConfiguration?, state: LuxGramSettingsControllerState, mediaBoxBasePath: String, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
     let lang = presentationData.strings.baseLanguageCode
     let strings = presentationData.strings
     var entries: [LuxGramEntry] = []
@@ -529,7 +528,6 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Текущий: " : "Current: ") + boldFontLabelApp))
     entries.append(.fontSizeMultiplierSlider(id: id.count, section: .appearance, settingName: .fontReplacementSize, value: max(50, min(150, SGSimpleSettings.shared.fontReplacementSizeMultiplier))))
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Размер шрифта (50–150%)." : "Font size (50–150%).")))
-    // MARK: - LuxGram — Liquid Glass
     entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "LIQUID GLASS" : "LIQUID GLASS"), badge: nil))
     let liquidGlassTitle = (lang == "ru" ? "Liquid Glass эффект" : "Liquid Glass effect")
     let liquidGlassNotice = (lang == "ru"
@@ -537,7 +535,6 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
         : "Frosted glass effect on navigation bars, tabs and toolbars. Takes effect immediately.")
     entries.append(.toggle(id: id.count, section: .appearance, settingName: .liquidGlassEnabled, value: SGSimpleSettings.shared.liquidGlassEnabled, text: liquidGlassTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .appearance, text: liquidGlassNotice))
-    // MARK: - End LuxGram
 
     entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "ТЕКСТ И ЧИСЛА" : "TEXT & NUMBERS"), badge: nil))
     let disableCompactNumbersTitle = (lang == "ru" ? "Полные числа вместо округления" : "Full numbers instead of rounding")
@@ -631,7 +628,7 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     return filterSGItemListUIEntrires(entries: filteredEntries, by: state.searchQuery)
 }
 
-public func gleGramSettingsController(context: AccountContext) -> ViewController {
+public func luxGramSettingsController(context: AccountContext) -> ViewController {
     let access = cachedAggregateAccess()
 
     // Primary gate: server-provided access flag (verified through integrity layers)
@@ -645,7 +642,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
     let granted = hasAccess && (!fragmentsReady || accumulatorOK)
 
     if !granted, let promoData = cachedAggregatePromo() {
-        return gleGramPaywallController(context: context, promo: promoData.promo, trialAvailable: promoData.trialAvailable)
+        return luxGramPaywallController(context: context, promo: promoData.promo, trialAvailable: promoData.trialAvailable)
     }
 
     var presentControllerImpl: ((ViewController, ViewControllerPresentationArguments?) -> Void)?
@@ -751,11 +748,9 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 SGSimpleSettings.shared.disableCompactNumbers = value
             case .disableZalgoText:
                 SGSimpleSettings.shared.disableZalgoText = value
-            // MARK: - LuxGram — Liquid Glass
             case .liquidGlassEnabled:
                 SGSimpleSettings.shared.liquidGlassEnabled = value
                 NotificationCenter.default.post(name: .luxgramLiquidGlassDidChange, object: nil)
-            // MARK: - End LuxGram
             case .fakeLocationEnabled:
                 SGSimpleSettings.shared.fakeLocationEnabled = value
             case .keepRemovedChannels:
@@ -1170,8 +1165,8 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 let name = EnginePeer(info.peer).displayTitle(strings: presentationData.strings, displayOrder: presentationData.nameDisplayOrder)
                 return (recordId: recordId, peerId: peerId, name: name)
             }
-            let allEntries = gleGramEntries(presentationData: presentationData, contentSettingsConfiguration: contentSettingsConfiguration, state: tabState, mediaBoxBasePath: context.account.postbox.mediaBox.basePath, accounts: accounts)
-            let entriesFilteredByTab = gleGramEntriesFiltered(by: tab, entries: allEntries)
+            let allEntries = luxGramEntries(presentationData: presentationData, contentSettingsConfiguration: contentSettingsConfiguration, state: tabState, mediaBoxBasePath: context.account.postbox.mediaBox.basePath, accounts: accounts)
+            let entriesFilteredByTab = luxGramEntriesFiltered(by: tab, entries: allEntries)
             let entries = filterSGItemListUIEntrires(entries: entriesFilteredByTab, by: tabState.searchQuery)
             let controllerState = ItemListControllerState(
                 presentationData: ItemListPresentationData(presentationData),
@@ -1211,7 +1206,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
             let name = EnginePeer(info.peer).displayTitle(strings: presentationData.strings, displayOrder: presentationData.nameDisplayOrder)
             return (recordId: recordId, peerId: peerId, name: name)
         }
-        let entries = gleGramRootEntries(presentationData: presentationData, accounts: accounts)
+        let entries = luxGramRootEntries(presentationData: presentationData, accounts: accounts)
         let listState = ItemListNodeState(
             presentationData: ItemListPresentationData(presentationData),
             entries: entries,

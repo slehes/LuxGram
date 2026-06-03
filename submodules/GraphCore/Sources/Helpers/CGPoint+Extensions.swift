@@ -138,7 +138,6 @@ public func /= (left: inout CGSize, right: CGSize) { left = left / right }
 public func /= (left: inout CGSize, right: CGPoint) { left = left / right }
 public func /= (left: inout CGPoint, right: CGSize) { left = left / right }
 
-
 public func / (point: CGPoint, scalar: CGFloat) -> CGPoint { return CGPoint(x: point.x / scalar, y: point.y / scalar) }
 public func / (point: CGSize, scalar: CGFloat) -> CGSize { return CGSize(width: point.width / scalar, height: point.height / scalar) }
 
@@ -166,7 +165,6 @@ public func *= (left: inout CGSize, right: CGSize) { left = left * right }
 public func * (left: CGSize, right: CGPoint) -> CGSize { return CGSize(width: left.width * right.x, height: left.height * right.y) }
 public func *= (left: inout CGSize, right: CGPoint) { left = left * right }
 
-
 public func lerp(start: CGPoint, end: CGPoint, t: CGFloat) -> CGPoint {
     return start + (end - start) * t
 }
@@ -184,7 +182,6 @@ extension CGSize {
         return width / height
     }
 }
-
 
 extension CGRect {
     static var identity: CGRect {

@@ -1,4 +1,3 @@
-// MARK: LuxGram – Plugin settings screen
 import Foundation
 import UIKit
 import Display

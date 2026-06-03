@@ -9,7 +9,6 @@
 
 @end
 
-
 @interface TGBotKeyboardController : TGInterfaceController
 
 @property (nonatomic, weak) IBOutlet WKInterfaceTable *table;

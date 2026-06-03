@@ -227,7 +227,6 @@ JMESSAGE(JERR_BAD_DROP_SAMPLING,
 /* Zap JMESSAGE macro so that future re-inclusions do nothing by default */
 #undef JMESSAGE
 
-
 #ifndef JERROR_H
 #define JERROR_H
 

@@ -349,7 +349,6 @@
         self.sendWhenOnline();
 }
 
-
 - (void)schedulePressed {
     [self animateOut:false];
     

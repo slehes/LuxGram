@@ -17,7 +17,6 @@
 #import "ASLayoutSpecPrivate.h"
 #import <AsyncDisplayKit/ASThread.h>
 
-
 @implementation ASDisplayNode (ASLayoutSpec)
 
 - (void)setLayoutSpecBlock:(ASLayoutSpecBlock)layoutSpecBlock
@@ -59,7 +58,6 @@
     as_log_verbose(ASLayoutLog(), "%@", asciiLine);
   }
 #endif
-
 
   // Certain properties are necessary to set on an element of type ASLayoutSpec
   if (layoutElement.layoutElementType == ASLayoutElementTypeLayoutSpec) {

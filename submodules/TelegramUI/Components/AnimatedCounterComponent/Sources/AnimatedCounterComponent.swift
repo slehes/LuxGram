@@ -116,7 +116,6 @@ final class AnimatedCounterItemComponent: Component {
     }
 }
 
-
 public final class AnimatedCounterComponent: Component {
     public enum Alignment {
         case left

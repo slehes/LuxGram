@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension SecretChatOutgoingFileReference {
     init?(_ apiFile: Api.InputEncryptedFile) {
         switch apiFile {

@@ -191,7 +191,6 @@ private:
    std::future<rlottie::Surface>        mRenderTask;
 };
 
-
 class RlottieRenderStrategy_C : public RlottieRenderStrategyCBase {
 public:
     RlottieRenderStrategy_C(Evas *evas):RlottieRenderStrategyCBase(evas) {}
@@ -340,7 +339,6 @@ private:
         if (mPalying && mReverse)
             progress = mMaxprogress > mMinProgress ?
                         mMaxprogress - progress : mMinProgress - progress;
-
 
         return progress;
     }

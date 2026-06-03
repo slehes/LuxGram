@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 func _internal_addRecentlySearchedPeer(postbox: Postbox, peerId: PeerId) -> Signal<Void, NoError> {
     return postbox.transaction { transaction -> Void in
         if let entry = CodableEntry(RecentPeerItem(rating: 0.0)) {

@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 // Algorithm 13: Generate a FORS private key value.
 void spx_fors_sk_gen(uint8_t *fors_sk, uint32_t idx,
                      const uint8_t sk_seed[SPX_N], const uint8_t pk_seed[SPX_N],
@@ -45,7 +44,6 @@ void spx_fors_pk_from_sig(uint8_t *fors_pk,
                           const uint8_t fors_sig[SPX_FORS_BYTES],
                           const uint8_t message[SPX_FORS_MSG_BYTES],
                           const uint8_t pk_seed[SPX_N], uint8_t addr[32]);
-
 
 #if defined(__cplusplus)
 }  // extern C

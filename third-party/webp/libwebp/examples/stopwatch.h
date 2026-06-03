@@ -37,7 +37,6 @@ static WEBP_INLINE double StopwatchReadAndReset(Stopwatch* watch) {
   return (watch->QuadPart - old_value.QuadPart) / (double)freq.QuadPart;
 }
 
-
 #else    /* !_WIN32 */
 #include <string.h>  // memcpy
 #include <sys/time.h>

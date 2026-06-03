@@ -335,7 +335,6 @@ private final class ItemNode: ASDisplayNode {
     }
     
     func updateLayout(height: CGFloat, transition: ContainedViewLayoutTransition) -> (width: CGFloat, shortWidth: CGFloat) {
-        // MARK: Swiftgram
         var height = height
         if SGSimpleSettings.shared.hideTabBar {
             height = 46.0
@@ -386,7 +385,6 @@ private final class ItemNode: ASDisplayNode {
     }
     
     func updateArea(size: CGSize, sideInset: CGFloat, useShortTitle: Bool, transition: ContainedViewLayoutTransition) {
-        // MARK: Swiftgram
         var size = size
         if SGSimpleSettings.shared.hideTabBar {
             size.height = 46.0
@@ -545,7 +543,6 @@ public final class ChatListFilterTabContainerNode: ASDisplayNode {
         }
     }
     
-    // MARK: Swiftgram
     public let inline: Bool
     private var backgroundNode: NavigationBackgroundNode? = nil
     
@@ -562,7 +559,6 @@ public final class ChatListFilterTabContainerNode: ASDisplayNode {
         self.selectedBackgroundNode.displaysAsynchronously = false
         self.selectedBackgroundNode.displayWithoutProcessing = true
         
-        // MARK: Swiftgram
         self.inline = inline
         if self.inline {
             let presentationData = context.sharedContext.currentPresentationData.with { $0 }

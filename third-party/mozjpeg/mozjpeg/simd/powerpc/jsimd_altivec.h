@@ -29,7 +29,6 @@
 #include "../jsimd.h"
 #include <altivec.h>
 
-
 /* Common code */
 
 #define __4X(a)      a, a, a, a
@@ -77,7 +76,6 @@
 #ifndef min
 #define min(a, b)  ((a) < (b) ? (a) : (b))
 #endif
-
 
 /* Macros to abstract big/little endian bit twiddling */
 

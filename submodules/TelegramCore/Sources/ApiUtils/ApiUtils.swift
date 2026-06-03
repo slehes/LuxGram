@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 public extension PeerReference {
     var id: PeerId {
         switch self {

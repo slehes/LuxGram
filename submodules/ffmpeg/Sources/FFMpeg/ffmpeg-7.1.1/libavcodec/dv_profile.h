@@ -28,7 +28,6 @@
  * determine the profile */
 #define DV_PROFILE_BYTES (6 * 80) /* 6 DIF blocks */
 
-
 /*
  * AVDVProfile is used to express the differences between various
  * DV flavors. For now it's primarily used for differentiating

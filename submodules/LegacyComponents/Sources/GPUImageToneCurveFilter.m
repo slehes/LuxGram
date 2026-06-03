@@ -187,7 +187,6 @@ NSString *const kGPUImageToneCurveFragmentShaderString = SHADER_STRING
     return nil;
 }
 
-
 - (NSMutableArray *)splineCurve:(NSArray *)points
 {
     NSMutableArray *sdA = [self secondDerivative:points];
@@ -420,7 +419,6 @@ NSString *const kGPUImageToneCurveFragmentShaderString = SHADER_STRING
     [self updateToneCurveTexture];
 }
 
-
 - (void)setRgbCompositeControlPoints:(NSArray *)newValue
 {
   _rgbCompositeControlPoints = [newValue copy];
@@ -428,7 +426,6 @@ NSString *const kGPUImageToneCurveFragmentShaderString = SHADER_STRING
   
   [self updateToneCurveTexture];
 }
-
 
 - (void)setRedControlPoints:(NSArray *)newValue;
 {  
@@ -438,7 +435,6 @@ NSString *const kGPUImageToneCurveFragmentShaderString = SHADER_STRING
     [self updateToneCurveTexture];
 }
 
-
 - (void)setGreenControlPoints:(NSArray *)newValue
 {
     _greenControlPoints = [newValue copy];
@@ -446,7 +442,6 @@ NSString *const kGPUImageToneCurveFragmentShaderString = SHADER_STRING
     
     [self updateToneCurveTexture];
 }
-
 
 - (void)setBlueControlPoints:(NSArray *)newValue
 {

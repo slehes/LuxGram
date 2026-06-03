@@ -140,7 +140,6 @@ NSString *const PGPhotoEnhanceColorSwapShaderString = PGShaderString
 
 @end
 
-
 @implementation PGPhotoProcessPass
 
 - (void)dealloc

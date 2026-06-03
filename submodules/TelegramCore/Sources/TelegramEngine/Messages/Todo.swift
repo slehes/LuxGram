@@ -4,7 +4,6 @@ import Postbox
 import SwiftSignalKit
 import MtProtoKit
 
-
 public enum RequestUpdateTodoMessageError {
     case generic
 }

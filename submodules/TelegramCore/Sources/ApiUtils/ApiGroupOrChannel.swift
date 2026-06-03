@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 func imageRepresentationsForApiChatPhoto(_ photo: Api.ChatPhoto) -> [TelegramMediaImageRepresentation] {
     var representations: [TelegramMediaImageRepresentation] = []
     switch photo {

@@ -2346,7 +2346,6 @@ private final class CurrencyTabItemComponent: Component {
     }
 }
 
-
 private final class MenuComponent: Component {
     let theme: PresentationTheme
     let sourceFrame: CGRect

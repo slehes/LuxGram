@@ -14,7 +14,6 @@
 
 #import <AsyncDisplayKit/ASBaseDefines.h>
 
-
 #ifndef CGFLOAT_EPSILON
   #if CGFLOAT_IS_DOUBLE
     #define CGFLOAT_EPSILON DBL_EPSILON

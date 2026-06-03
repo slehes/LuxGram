@@ -40,7 +40,6 @@ typedef enum {
     TGMessageFlagContainsUnseenMention = (1 << 18)
 } TGMessageFlags;
 
-
 @interface TGMessage () {
     bool _unread;
 }
@@ -1379,7 +1378,6 @@ typedef enum {
 }
 
 @end
-
 
 @implementation TGMessageIndex
 

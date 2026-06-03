@@ -3,7 +3,6 @@ import SwiftSignalKit
 import Postbox
 import TelegramApi
 
-
 public enum NotificationTokenType {
     case aps(encrypt: Bool)
     case voip

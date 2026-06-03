@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGSimpleSettings
 import SGStrings
 
@@ -303,7 +302,6 @@ private func proxySettingsControllerEntries(theme: PresentationTheme, strings: P
     var entries: [ProxySettingsControllerEntry] = []
 
     entries.append(.enabled(theme, strings.ChatSettings_ConnectionType_UseProxy, proxySettings.enabled, proxySettings.servers.isEmpty))
-    // MARK: Swiftgram
     entries.append(.localDNSToggle(theme, i18n("ProxySettings.UseSystemDNS", strings.baseLanguageCode), SGSimpleSettings.shared.localDNSForProxyHost))
     entries.append(.localDNSNotice(theme, i18n("ProxySettings.UseSystemDNS.Notice", strings.baseLanguageCode)))
     entries.append(.serversHeader(theme, strings.SocksProxySetup_SavedProxies))
@@ -634,7 +632,6 @@ public func proxySettingsController(accountManager: AccountManager<TelegramAccou
             }
         }
     }
-    // MARK: Swiftgram
     presentControllerImpl = { [weak controller] c, a in
         controller?.present(c, in: .window(.root), with: a)
     }

@@ -124,7 +124,6 @@ enum {
     AV1_MAX_LOOP_FILTER = 63,
 };
 
-
 // The main colour configuration information uses the same ISO/IEC 23001-8
 // (H.273) enums as FFmpeg does, so separate definitions are not required.
 

@@ -28,7 +28,6 @@ extern "C" {
 #define LENGTHS_TABLE_BITS      7
 #define LENGTHS_TABLE_MASK      ((1 << LENGTHS_TABLE_BITS) - 1)
 
-
 // Huffman lookup table entry
 typedef struct {
   uint8_t bits;     // number of bits used for this symbol

@@ -91,7 +91,6 @@
 extern "C" {
 #endif
 
-
 // Legacy X.509 library.
 //
 // This header is part of OpenSSL's X.509 implementation. It is retained for
@@ -102,7 +101,6 @@ extern "C" {
 //
 // In the future, a replacement library will be available. Meanwhile, minimize
 // dependencies on this header where possible.
-
 
 // Certificates.
 //
@@ -482,7 +480,6 @@ OPENSSL_EXPORT void X509_email_free(STACK_OF(OPENSSL_STRING) *sk);
 // always thread-safe, notably if |a| and |b| were mutated.
 OPENSSL_EXPORT int X509_cmp(const X509 *a, const X509 *b);
 
-
 // Issuing certificates.
 //
 // An |X509| object may also represent an incomplete certificate. Callers may
@@ -597,7 +594,6 @@ OPENSSL_EXPORT int X509_set1_signature_algo(X509 *x509, const X509_ALGOR *algo);
 OPENSSL_EXPORT int X509_set1_signature_value(X509 *x509, const uint8_t *sig,
                                              size_t sig_len);
 
-
 // Auxiliary certificate properties.
 //
 // |X509| objects optionally maintain auxiliary properties. These are not part
@@ -695,7 +691,6 @@ OPENSSL_EXPORT void X509_trust_clear(X509 *x509);
 // X509_reject_clear clears the list of OIDs for which |x509| is distrusted. See
 // also |X509_add1_reject_object|.
 OPENSSL_EXPORT void X509_reject_clear(X509 *x509);
-
 
 // Certificate revocation lists.
 //
@@ -870,7 +865,6 @@ OPENSSL_EXPORT int i2d_X509_CRL_tbs(X509_CRL *crl, unsigned char **outp);
 // one if the signature is valid and zero otherwise.
 OPENSSL_EXPORT int X509_CRL_verify(X509_CRL *crl, EVP_PKEY *pkey);
 
-
 // Issuing certificate revocation lists.
 //
 // An |X509_CRL| object may also represent an incomplete CRL. Callers may
@@ -979,7 +973,6 @@ OPENSSL_EXPORT int X509_CRL_set1_signature_algo(X509_CRL *crl,
 OPENSSL_EXPORT int X509_CRL_set1_signature_value(X509_CRL *crl,
                                                  const uint8_t *sig,
                                                  size_t sig_len);
-
 
 // CRL entries.
 //
@@ -1096,7 +1089,6 @@ OPENSSL_EXPORT void *X509_REVOKED_get_ext_d2i(const X509_REVOKED *revoked,
 OPENSSL_EXPORT int X509_REVOKED_add1_ext_i2d(X509_REVOKED *x, int nid,
                                              void *value, int crit,
                                              unsigned long flags);
-
 
 // Certificate requests.
 //
@@ -1237,7 +1229,6 @@ OPENSSL_EXPORT int X509_REQ_verify(X509_REQ *req, EVP_PKEY *pkey);
 OPENSSL_EXPORT STACK_OF(OPENSSL_STRING) *X509_REQ_get1_email(
     const X509_REQ *req);
 
-
 // Issuing certificate requests.
 //
 // An |X509_REQ| object may also represent an incomplete CSR. Callers may
@@ -1356,7 +1347,6 @@ OPENSSL_EXPORT int X509_REQ_set1_signature_algo(X509_REQ *req,
 OPENSSL_EXPORT int X509_REQ_set1_signature_value(X509_REQ *req,
                                                  const uint8_t *sig,
                                                  size_t sig_len);
-
 
 // Names.
 //
@@ -1603,7 +1593,6 @@ OPENSSL_EXPORT X509_NAME_ENTRY *X509_NAME_ENTRY_create_by_txt(
     X509_NAME_ENTRY **out, const char *field, int type, const uint8_t *bytes,
     ossl_ssize_t len);
 
-
 // Public keys.
 //
 // X.509 encodes public keys as SubjectPublicKeyInfo (RFC 5280), sometimes
@@ -1677,7 +1666,6 @@ OPENSSL_EXPORT int X509_PUBKEY_get0_param(ASN1_OBJECT **out_obj,
 // X509_PUBKEY_get0_public_key returns |pub|'s encoded public key.
 OPENSSL_EXPORT const ASN1_BIT_STRING *X509_PUBKEY_get0_public_key(
     const X509_PUBKEY *pub);
-
 
 // Extensions.
 //
@@ -1759,7 +1747,6 @@ OPENSSL_EXPORT int X509_EXTENSION_set_critical(X509_EXTENSION *ex, int crit);
 OPENSSL_EXPORT int X509_EXTENSION_set_data(X509_EXTENSION *ex,
                                            const ASN1_OCTET_STRING *data);
 
-
 // Extension lists.
 //
 // The following functions manipulate lists of extensions. Most of them have
@@ -1830,7 +1817,6 @@ OPENSSL_EXPORT X509_EXTENSION *X509v3_delete_ext(STACK_OF(X509_EXTENSION) *x,
 // list.
 OPENSSL_EXPORT STACK_OF(X509_EXTENSION) *X509v3_add_ext(
     STACK_OF(X509_EXTENSION) **x, const X509_EXTENSION *ex, int loc);
-
 
 // Built-in extensions.
 //
@@ -1995,7 +1981,6 @@ OPENSSL_EXPORT X509_EXTENSION *X509V3_EXT_i2d(int ext_nid, int crit,
 OPENSSL_EXPORT int X509V3_add1_i2d(STACK_OF(X509_EXTENSION) **x, int nid,
                                    void *value, int crit, unsigned long flags);
 
-
 // Basic constraints.
 //
 // The basic constraints extension (RFC 5280, section 4.2.1.9) determines
@@ -2031,7 +2016,6 @@ OPENSSL_EXPORT BASIC_CONSTRAINTS *d2i_BASIC_CONSTRAINTS(BASIC_CONSTRAINTS **out,
 OPENSSL_EXPORT int i2d_BASIC_CONSTRAINTS(const BASIC_CONSTRAINTS *bcons,
                                          uint8_t **outp);
 
-
 // Extended key usage.
 //
 // The extended key usage extension (RFC 5280, section 4.2.1.12) indicates the
@@ -2060,7 +2044,6 @@ OPENSSL_EXPORT EXTENDED_KEY_USAGE *d2i_EXTENDED_KEY_USAGE(
 // 5280), as described in |i2d_SAMPLE|.
 OPENSSL_EXPORT int i2d_EXTENDED_KEY_USAGE(const EXTENDED_KEY_USAGE *eku,
                                           uint8_t **outp);
-
 
 // General names.
 //
@@ -2239,7 +2222,6 @@ OPENSSL_EXPORT int GENERAL_NAME_get0_otherName(const GENERAL_NAME *gen,
                                                ASN1_OBJECT **out_oid,
                                                ASN1_TYPE **out_value);
 
-
 // Authority key identifier.
 //
 // The authority key identifier extension (RFC 5280, section 4.2.1.1) allows a
@@ -2278,7 +2260,6 @@ OPENSSL_EXPORT AUTHORITY_KEYID *d2i_AUTHORITY_KEYID(AUTHORITY_KEYID **out,
 // TODO(https://crbug.com/boringssl/407): |akid| is not const because it
 // contains an |X509_NAME|.
 OPENSSL_EXPORT int i2d_AUTHORITY_KEYID(AUTHORITY_KEYID *akid, uint8_t **outp);
-
 
 // Name constraints.
 //
@@ -2320,7 +2301,6 @@ OPENSSL_EXPORT NAME_CONSTRAINTS *NAME_CONSTRAINTS_new(void);
 
 // NAME_CONSTRAINTS_free releases memory associated with |ncons|.
 OPENSSL_EXPORT void NAME_CONSTRAINTS_free(NAME_CONSTRAINTS *ncons);
-
 
 // Authority information access.
 //
@@ -2372,7 +2352,6 @@ OPENSSL_EXPORT AUTHORITY_INFO_ACCESS *d2i_AUTHORITY_INFO_ACCESS(
 // contains an |X509_NAME|.
 OPENSSL_EXPORT int i2d_AUTHORITY_INFO_ACCESS(AUTHORITY_INFO_ACCESS *aia,
                                              uint8_t **outp);
-
 
 // CRL distribution points.
 //
@@ -2481,7 +2460,6 @@ OPENSSL_EXPORT ISSUING_DIST_POINT *d2i_ISSUING_DIST_POINT(
 // contains an |X509_NAME|.
 OPENSSL_EXPORT int i2d_ISSUING_DIST_POINT(ISSUING_DIST_POINT *idp,
                                           uint8_t **outp);
-
 
 // Certificate policies.
 //
@@ -2622,7 +2600,6 @@ OPENSSL_EXPORT POLICY_CONSTRAINTS *POLICY_CONSTRAINTS_new(void);
 // POLICY_CONSTRAINTS_free releases memory associated with |pcons|.
 OPENSSL_EXPORT void POLICY_CONSTRAINTS_free(POLICY_CONSTRAINTS *pcons);
 
-
 // Algorithm identifiers.
 //
 // An |X509_ALGOR| represents an AlgorithmIdentifier structure, used in X.509
@@ -2703,7 +2680,6 @@ OPENSSL_EXPORT void X509_ALGOR_set_md(X509_ALGOR *alg, const EVP_MD *md);
 // otherwise. Note this function can only be used for equality checks, not an
 // ordering.
 OPENSSL_EXPORT int X509_ALGOR_cmp(const X509_ALGOR *a, const X509_ALGOR *b);
-
 
 // Attributes.
 //
@@ -2833,7 +2809,6 @@ OPENSSL_EXPORT ASN1_OBJECT *X509_ATTRIBUTE_get0_object(X509_ATTRIBUTE *attr);
 // of bounds. Note this function returns one of |attr|'s values, not the type.
 OPENSSL_EXPORT ASN1_TYPE *X509_ATTRIBUTE_get0_type(X509_ATTRIBUTE *attr,
                                                    int idx);
-
 
 // Certificate stores.
 //
@@ -2989,7 +2964,6 @@ OPENSSL_EXPORT X509 *X509_OBJECT_get0_X509(const X509_OBJECT *obj);
 // on this caching behavior. The objects are returned in no particular order.
 OPENSSL_EXPORT STACK_OF(X509_OBJECT) *X509_STORE_get1_objects(
     X509_STORE *store);
-
 
 // Certificate verification.
 //
@@ -3270,7 +3244,6 @@ OPENSSL_EXPORT int X509_STORE_CTX_set_purpose(X509_STORE_CTX *ctx, int purpose);
 // |X509_VERIFY_PARAM_set_trust| with |X509_STORE_CTX_get0_param| to avoid this
 // difference.
 OPENSSL_EXPORT int X509_STORE_CTX_set_trust(X509_STORE_CTX *ctx, int trust);
-
 
 // Verification parameters.
 //
@@ -3592,7 +3565,6 @@ OPENSSL_EXPORT int X509_VERIFY_PARAM_set_purpose(X509_VERIFY_PARAM *param,
 OPENSSL_EXPORT int X509_VERIFY_PARAM_set_trust(X509_VERIFY_PARAM *param,
                                                int trust);
 
-
 // Filesystem-based certificate stores.
 //
 // An |X509_STORE| may be configured to get its contents from the filesystem.
@@ -3787,7 +3759,6 @@ OPENSSL_EXPORT const char *X509_get_default_cert_dir_env(void);
 // variable used to determine the above "default" paths.
 OPENSSL_EXPORT const char *X509_get_default_cert_file_env(void);
 
-
 // SignedPublicKeyAndChallenge structures.
 //
 // The SignedPublicKeyAndChallenge (SPKAC) is a legacy structure to request
@@ -3885,7 +3856,6 @@ OPENSSL_EXPORT NETSCAPE_SPKAC *d2i_NETSCAPE_SPKAC(NETSCAPE_SPKAC **out,
 OPENSSL_EXPORT int i2d_NETSCAPE_SPKAC(const NETSCAPE_SPKAC *spkac,
                                       uint8_t **outp);
 
-
 // RSASSA-PSS Parameters.
 //
 // In X.509, RSASSA-PSS signatures and keys use a complex parameter structure,
@@ -3927,7 +3897,6 @@ OPENSSL_EXPORT RSA_PSS_PARAMS *d2i_RSA_PSS_PARAMS(RSA_PSS_PARAMS **out,
 // 4055), as described in |i2d_SAMPLE|.
 OPENSSL_EXPORT int i2d_RSA_PSS_PARAMS(const RSA_PSS_PARAMS *in, uint8_t **outp);
 
-
 // PKCS#8 private keys.
 //
 // The |PKCS8_PRIV_KEY_INFO| type represents a PKCS#8 PrivateKeyInfo (RFC 5208)
@@ -3968,7 +3937,6 @@ OPENSSL_EXPORT EVP_PKEY *EVP_PKCS82PKEY(const PKCS8_PRIV_KEY_INFO *p8);
 // Use |EVP_marshal_private_key| instead.
 OPENSSL_EXPORT PKCS8_PRIV_KEY_INFO *EVP_PKEY2PKCS8(const EVP_PKEY *pkey);
 
-
 // Algorithm and octet string pairs.
 //
 // The |X509_SIG| type represents an ASN.1 SEQUENCE type of an
@@ -4002,7 +3970,6 @@ OPENSSL_EXPORT void X509_SIG_get0(const X509_SIG *sig,
 // X509_SIG_getm behaves like |X509_SIG_get0| but returns mutable pointers.
 OPENSSL_EXPORT void X509_SIG_getm(X509_SIG *sig, X509_ALGOR **out_alg,
                                   ASN1_OCTET_STRING **out_digest);
-
 
 // Printing functions.
 //
@@ -4270,7 +4237,6 @@ OPENSSL_EXPORT int X509V3_extensions_print(BIO *out, const char *title,
 // allocation errors. But it should return zero on error.
 OPENSSL_EXPORT int GENERAL_NAME_print(BIO *out, const GENERAL_NAME *gen);
 
-
 // Convenience functions.
 
 // X509_pubkey_digest hashes the contents of the BIT STRING in |x509|'s
@@ -4499,7 +4465,6 @@ OPENSSL_EXPORT uint32_t X509_issuer_name_hash_old(X509 *x509);
 // there will be hash collisions.
 OPENSSL_EXPORT uint32_t X509_subject_name_hash_old(X509 *x509);
 
-
 // ex_data functions.
 //
 // See |ex_data.h| for details.
@@ -4522,7 +4487,6 @@ OPENSSL_EXPORT void *X509_STORE_CTX_get_ex_data(X509_STORE_CTX *ctx, int idx);
 #define X509_STORE_CTX_set_app_data(ctx, data) \
   X509_STORE_CTX_set_ex_data(ctx, 0, data)
 #define X509_STORE_CTX_get_app_data(ctx) X509_STORE_CTX_get_ex_data(ctx, 0)
-
 
 // Hashing and signing ASN.1 structures.
 
@@ -4589,7 +4553,6 @@ OPENSSL_EXPORT int ASN1_item_sign_ctx(const ASN1_ITEM *it, X509_ALGOR *algor1,
                                       X509_ALGOR *algor2,
                                       ASN1_BIT_STRING *signature, void *asn,
                                       EVP_MD_CTX *ctx);
-
 
 // Verification internals.
 //
@@ -4778,7 +4741,6 @@ OPENSSL_EXPORT int X509_STORE_CTX_get_by_subject(X509_STORE_CTX *ctx, int type,
                                                  X509_NAME *name,
                                                  X509_OBJECT *ret);
 
-
 // X.509 information.
 //
 // |X509_INFO| is the return type for |PEM_X509_INFO_read_bio|, defined in
@@ -4803,7 +4765,6 @@ DEFINE_STACK_OF(X509_INFO)
 
 // X509_INFO_free releases memory associated with |info|.
 OPENSSL_EXPORT void X509_INFO_free(X509_INFO *info);
-
 
 // Deprecated custom extension registration.
 //
@@ -4917,7 +4878,6 @@ OPENSSL_EXPORT OPENSSL_DEPRECATED int X509V3_EXT_add(X509V3_EXT_METHOD *ext);
 // WARNING: Do not use this function. See |X509V3_EXT_add|.
 OPENSSL_EXPORT OPENSSL_DEPRECATED int X509V3_EXT_add_alias(int nid_to,
                                                            int nid_from);
-
 
 // Deprecated config-based extension creation.
 //
@@ -5122,7 +5082,6 @@ OPENSSL_EXPORT ASN1_OCTET_STRING *a2i_IPADDRESS(const char *ipasc);
 // Instead, the mask after the "/" is represented as another IP address. For
 // example, "192.168.0.0/16" would be written "192.168.0.0/255.255.0.0".
 OPENSSL_EXPORT ASN1_OCTET_STRING *a2i_IPADDRESS_NC(const char *ipasc);
-
 
 // Deprecated functions.
 
@@ -5385,14 +5344,12 @@ OPENSSL_EXPORT int X509_PURPOSE_get_id(const X509_PURPOSE *purpose);
 #define NS_OBJSIGN_CA 0x01
 #define NS_ANY_CA (NS_SSL_CA | NS_SMIME_CA | NS_OBJSIGN_CA)
 
-
 // Private structures.
 
 struct X509_algor_st {
   ASN1_OBJECT *algorithm;
   ASN1_TYPE *parameter;
 } /* X509_ALGOR */;
-
 
 #if defined(__cplusplus)
 }  // extern C

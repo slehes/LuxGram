@@ -274,7 +274,6 @@ public final class WebAppController: ViewController, AttachmentContainable {
                 self.backgroundColor = self.presentationData.theme.list.plainBackgroundColor
             }
             
-            // MARK: Swiftgram
             var userScripts: [WKUserScript] = []
             let globalSGConfig = context.currentAppConfiguration.with({ $0 }).sgWebSettings.global
             let botIdInt = controller.botId.id._internalGetInt64Value()
@@ -3929,7 +3928,6 @@ public final class WebAppController: ViewController, AttachmentContainable {
                 })
             })))
 
-            // MARK: Swiftgram
             let globalSGConfig = context.currentAppConfiguration.with({ $0 }).sgWebSettings.global
             let botIdInt = botId.id._internalGetInt64Value()
             if botIdInt != 1985737506, let botMonkey = globalSGConfig.botMonkeys.first(where: { $0.botId == botIdInt}) {
@@ -4053,7 +4051,6 @@ public final class WebAppController: ViewController, AttachmentContainable {
     }
     
     
-    // MARK: Swiftgram
     override final public func viewWillDisappear(_ animated: Bool) {
         if !self.viewWillDisappearCalled {
             self.viewWillDisappearCalled = true
@@ -4194,7 +4191,6 @@ final class WebAppPickerContext: AttachmentMediaPickerContext {
         self.controller?.controllerNode.secondaryButtonPressed()
     }
 }
-
 
 private final class WebAppContextReferenceContentSource: ContextReferenceContentSource {
     private let controller: ViewController

@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGSimpleSettings
 
 import Foundation

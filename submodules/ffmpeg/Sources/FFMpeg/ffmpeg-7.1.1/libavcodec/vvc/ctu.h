@@ -84,7 +84,6 @@
 #define ALF_GRADIENT_SIZE       ((MAX_CU_SIZE + ALF_GRADIENT_BORDER * 2) / ALF_GRADIENT_STEP)
 #define ALF_NUM_DIR             4
 
-
 /**
  * Value of the luma sample at position (x, y) in the 2D array tab.
  */

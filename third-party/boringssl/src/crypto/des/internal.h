@@ -66,7 +66,6 @@
 extern "C" {
 #endif
 
-
 // TODO(davidben): Ideally these macros would be replaced with
 // |CRYPTO_load_u32_le| and |CRYPTO_store_u32_le|.
 
@@ -149,7 +148,6 @@ extern "C" {
     }                                                     \
   } while (0)
 
-
 // Correctly-typed versions of DES functions.
 //
 // See https://crbug.com/boringssl/683.
@@ -170,7 +168,6 @@ void DES_ede3_cbc_encrypt_ex(const uint8_t *in, uint8_t *out, size_t len,
                              const DES_key_schedule *ks3, uint8_t ivec[8],
                              int enc);
 
-
 // Private functions.
 //
 // These functions are only exported for use in |decrepit|.
@@ -182,7 +179,6 @@ OPENSSL_EXPORT void DES_decrypt3(uint32_t data[2], const DES_key_schedule *ks1,
 OPENSSL_EXPORT void DES_encrypt3(uint32_t data[2], const DES_key_schedule *ks1,
                                  const DES_key_schedule *ks2,
                                  const DES_key_schedule *ks3);
-
 
 #if defined(__cplusplus)
 }  // extern C

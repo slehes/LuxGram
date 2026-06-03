@@ -11,8 +11,6 @@ import SGStrings
 import SwiftSignalKit
 import TelegramUIPreferences
 
-
-
 public func sgPayWallController(statusSignal: Signal<Int64, NoError>, replacementController: ViewController, presentationData: PresentationData? = nil, SGIAPManager: SGIAPManager, openUrl: @escaping (String, Bool) -> Void /* url, forceExternal */, paymentsEnabled: Bool, canBuyInBeta: Bool, openAppStorePage: @escaping () -> Void, proSupportUrl: String?) -> ViewController {
     //    let theme = presentationData?.theme ?? (UITraitCollection.current.userInterfaceStyle == .dark ? defaultDarkColorPresentationTheme : defaultPresentationTheme)
     let theme = defaultDarkColorPresentationTheme
@@ -42,8 +40,6 @@ public func sgPayWallController(statusSignal: Signal<Int64, NoError>, replacemen
 
 private let innerShadowWidth: CGFloat = 15.0
 private let accentColorHex: String = "F1552E"
-
-
 
 struct BackgroundView: View {
     
@@ -94,8 +90,6 @@ struct BackgroundView: View {
             .mask(RoundedRectangle(cornerRadius: 0).fill(LinearGradient(gradient: Gradient(colors: [Color.black, Color.clear]), startPoint: .top, endPoint: .bottom)))
     }
 }
-
-
 
 struct SGPayWallFeatureDetails: View {
     
@@ -224,8 +218,6 @@ struct SGPayWallFeatureDetails: View {
     }
 }
 
-
-
 struct SGProFeatureView: View {
     let feature: SGProFeature
     
@@ -265,8 +257,6 @@ enum SGProFeatureId: Hashable {
     case toolbar
     case icons
 }
-
-
 
 struct SGProFeature: Identifiable {
     
@@ -314,8 +304,6 @@ struct SGProFeature: Identifiable {
         }
     }
 }
-
-
 
 struct SGPayWallView: View {
     @Environment(\.navigationBarHeight) var navigationBarHeight: CGFloat
@@ -726,8 +714,6 @@ struct SGPayWallView: View {
     }
 }
 
-
-
 struct FeatureIcon: View {
     let icon: String
     let iconColor: Color
@@ -762,8 +748,6 @@ struct FeatureIcon: View {
             .clipShape(RoundedRectangle(cornerRadius: 8))
     }
 }
-
-
 
 struct FeatureRow<IconContent: View>: View {
     let icon: IconContent
@@ -807,8 +791,6 @@ struct FeatureRow<IconContent: View>: View {
     }
 }
 
-
-
 // Confetti
 
 struct ConfettiType {
@@ -823,7 +805,6 @@ struct ConfettiType {
         )
     }
 }
-
 
 enum ConfettiShape: CaseIterable {
     case circle
@@ -849,7 +830,6 @@ enum ConfettiShape: CaseIterable {
     }
 }
 
-
 struct Triangle: Shape {
     func path(in rect: CGRect) -> Path {
         var path = Path()
@@ -860,7 +840,6 @@ struct Triangle: Shape {
         return path
     }
 }
-
 
 public struct SlimRectangle: Shape {
     public func path(in rect: CGRect) -> Path {
@@ -874,7 +853,6 @@ public struct SlimRectangle: Shape {
         return path
     }
 }
-
 
 public struct RoundedCross: Shape {
     public func path(in rect: CGRect) -> Path {
@@ -896,7 +874,6 @@ public struct RoundedCross: Shape {
     }
 }
 
-
 struct ConfettiModifier: ViewModifier {
     @Binding var isActive: Bool
     let duration: Double
@@ -916,7 +893,6 @@ struct ConfettiModifier: ViewModifier {
         )
     }
 }
-
 
 struct ConfettiPiece: View {
     let confettiType: ConfettiType
@@ -943,7 +919,6 @@ struct ConfettiPiece: View {
     }
 }
 
-
 struct FallingModifier: ViewModifier {
     let distance: CGFloat
     let duration: Double
@@ -960,7 +935,6 @@ struct FallingModifier: ViewModifier {
         )
     }
 }
-
 
 struct MoveModifier: ViewModifier {
     let offset: CGSize

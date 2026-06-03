@@ -152,7 +152,6 @@ static bool notyfyingShiftState = false;
 
 @end
 
-
 @implementation CALayerSpringParametersOverride
 
 - (instancetype _Nonnull)initWithParameters:(CALayerSpringParametersOverrideParameters * _Nullable)parameters {

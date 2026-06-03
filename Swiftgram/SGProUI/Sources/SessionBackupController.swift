@@ -37,7 +37,6 @@ import SGSwiftUI
 import LegacyUI
 import SGStrings
 
-
 @available(iOS 13.0, *)
 struct SessionBackupRow: View {
     @Environment(\.lang) var lang: String
@@ -88,7 +87,6 @@ struct SessionBackupRow: View {
         .padding(.vertical, 4)
     }
 }
-
 
 @available(iOS 13.0, *)
 struct BorderedButtonStyle: ButtonStyle {
@@ -424,7 +422,6 @@ struct SessionBackupManagerView: View {
     
 }
 
-
 func getBackedSessions() -> [SessionBackup] {
     var sessions: [SessionBackup] = []
     do {
@@ -442,7 +439,6 @@ func getBackedSessions() -> [SessionBackup] {
     }
     return sessions
 }
-
 
 func backupSessionsFromView(_ view: AccountRecordsView<TelegramAccountManagerTypes>, accountsWithInfo: [AccountWithInfo] = []) {
     var recordsToBackup: [Int64: AccountRecord<TelegramAccountManagerTypes.Attribute>] = [:]
@@ -490,7 +486,6 @@ func backupSessionsFromView(_ view: AccountRecordsView<TelegramAccountManagerTyp
         }
     }
 }
-
 
 @available(iOS 13.0, *)
 public func sgSessionBackupManagerController(context: AccountContext, presentationData: PresentationData? = nil) -> ViewController {

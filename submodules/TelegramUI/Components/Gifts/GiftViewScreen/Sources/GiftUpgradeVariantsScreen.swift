@@ -1512,7 +1512,6 @@ private final class AttributeInfoComponent: Component {
     }
 }
 
-
 private final class PlayButtonComponent: Component {
     let isPlay: Bool
     let title: String?

@@ -2,7 +2,6 @@
 
 #import <LegacyComponents/TGVideoEditAdjustments.h>
 
-// MARK: Swiftgram
 #import <VideoToolbox/VideoToolbox.h>
 #import <MediaPlayer/MediaPlayer.h>
 //
@@ -36,7 +35,6 @@
 
 @end
 
-
 @interface TGMediaVideoConversionResult : NSObject
 
 @property (nonatomic, readonly) NSURL *fileURL;
@@ -49,7 +47,6 @@
 - (NSDictionary *)dictionary;
 
 @end
-
 
 @interface TGMediaVideoConversionPresetSettings : NSObject
 

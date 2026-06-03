@@ -104,7 +104,6 @@ static NSString *const STPSDKVersion = @"9.1.0";
  *  @param completion  The callback to run with the returned Stripe token (and any errors that may have occurred).
  */
 
-
 @end
 
 /**

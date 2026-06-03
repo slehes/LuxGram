@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import MurMurHash32
 
-
 func addSynchronizeEmojiKeywordsOperation(transaction: Transaction, inputLanguageCode: String, languageCode: String?, fromVersion: Int32?) {
     let tag = OperationLogTags.SynchronizeEmojiKeywords
     let peerId = PeerId(namespace: PeerId.Namespace._internalFromInt32Value(1), id: PeerId.Id._internalFromInt64Value(Int64(abs(murMurHashString32(inputLanguageCode)))))

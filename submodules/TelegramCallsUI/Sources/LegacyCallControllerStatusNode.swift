@@ -164,7 +164,6 @@ final class LegacyCallControllerStatusNode: ASDisplayNode {
     }
 }
 
-
 private final class CallControllerReceptionNodeParameters: NSObject {
     let reception: Int32
     

@@ -28,8 +28,6 @@ private final class OverlayMediaVideoNodeData {
     }
 }
 
-
-
 final class OverlayMediaControllerNode: ASDisplayNode, ASGestureRecognizerDelegate {
     private let updatePossibleEmbeddingItem: (OverlayMediaControllerEmbeddingItem?) -> Void
     private let embedPossibleEmbeddingItem: (OverlayMediaControllerEmbeddingItem) -> Bool

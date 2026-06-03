@@ -27,5 +27,4 @@ int ff_wmv2_encode_picture_header(MpegEncContext * s);
 void ff_wmv2_encode_mb(MpegEncContext * s, int16_t block[6][64],
                        int motion_x, int motion_y);
 
-
 #endif

@@ -11,7 +11,6 @@ public struct TestPlan: Hashable {
     }
 }
 
-
 extension TestPlan: JSONObjectConvertible {
 
     public init(jsonDictionary: JSONDictionary) throws {

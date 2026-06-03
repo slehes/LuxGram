@@ -119,7 +119,6 @@ private var declaredEncodables: Void = {
     declareEncodable(ForwardCountMessageAttribute.self, f: { ForwardCountMessageAttribute(decoder: $0) })
     declareEncodable(BoostCountMessageAttribute.self, f: { BoostCountMessageAttribute(decoder: $0) })
     declareEncodable(ParticipantRankMessageAttribute.self, f: { ParticipantRankMessageAttribute(decoder: $0) })
-    // MARK: - LuxGram
     declareEncodable(GhostDelayedSendAttribute.self, f: { GhostDelayedSendAttribute(decoder: $0) })
     #if canImport(SGDeletedMessages)
     declareEncodable(SGDeletedMessageAttribute.self, f: { SGDeletedMessageAttribute(decoder: $0) })
@@ -224,7 +223,6 @@ private var declaredEncodables: Void = {
     declareEncodable(AuthSessionInfoAttribute.self, f: { AuthSessionInfoAttribute(decoder: $0) })
     declareEncodable(TranslationMessageAttribute.self, f: { TranslationMessageAttribute(decoder: $0) })
     declareEncodable(TranslationMessageAttribute.Additional.self, f: { TranslationMessageAttribute.Additional(decoder: $0) })
-    // MARK: Swiftgram
     declareEncodable(QuickTranslationMessageAttribute.self, f: { QuickTranslationMessageAttribute(decoder: $0) })
     declareEncodable(SynchronizeAutosaveItemOperation.self, f: { SynchronizeAutosaveItemOperation(decoder: $0) })
     declareEncodable(TelegramMediaStory.self, f: { TelegramMediaStory(decoder: $0) })

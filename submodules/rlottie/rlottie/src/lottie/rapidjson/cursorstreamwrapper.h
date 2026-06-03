@@ -30,7 +30,6 @@ RAPIDJSON_DIAG_OFF(4512)  // assignment operator could not be generated
 
 RAPIDJSON_NAMESPACE_BEGIN
 
-
 //! Cursor stream wrapper for counting line and column number if error exists.
 /*!
     \tparam InputStream     Any stream that implements Stream Concept

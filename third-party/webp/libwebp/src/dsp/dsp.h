@@ -44,7 +44,6 @@ extern "C" {
 #define WEBP_RESTRICT
 #endif
 
-
 //------------------------------------------------------------------------------
 // Init stub generator
 

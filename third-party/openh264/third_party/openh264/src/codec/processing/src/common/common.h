@@ -48,8 +48,6 @@
 #include "sad_common.h"
 #include "intra_pred_common.h"
 
-
-
 typedef void (GetIntraPred) (uint8_t* pPred, uint8_t* pRef, const int32_t kiStride);
 
 typedef GetIntraPred*  GetIntraPredPtr;
@@ -65,7 +63,6 @@ typedef SadFunc*   SadFuncPtr;
 
 typedef int32_t (Sad16x16Func) (uint8_t* pSrcY, int32_t iSrcStrideY, uint8_t* pRefY, int32_t iRefStrideY);
 typedef Sad16x16Func*      PSad16x16Func;
-
 
 #ifdef HAVE_NEON
 WELSVP_EXTERN_C_BEGIN

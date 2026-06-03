@@ -1891,7 +1891,6 @@
     return frame;
 }
 
-
 - (CGRect)_telescopeButtonFrameForOrientation:(UIInterfaceOrientation)orientation screenEdges:(UIEdgeInsets)screenEdges hasHeaderView:(bool)hasHeaderView
 {
     CGRect frame = CGRectZero;

@@ -199,7 +199,6 @@ extern const uint32_t ff_dca_sampling_freqs[16];
 extern const uint8_t ff_dca_freq_ranges[16];
 extern const uint8_t ff_dca_bits_per_sample[8];
 
-
 /**
  * Convert bitstream to one representation based on sync marker
  */

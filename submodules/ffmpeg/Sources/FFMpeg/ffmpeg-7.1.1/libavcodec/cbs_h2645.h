@@ -21,7 +21,6 @@
 
 #include "h2645_parse.h"
 
-
 typedef struct CodedBitstreamH2645Context {
     // If set, the stream being read is in MP4 (AVCC/HVCC) format.  If not
     // set, the stream is assumed to be in annex B format.
@@ -31,6 +30,5 @@ typedef struct CodedBitstreamH2645Context {
     // Packet reader.
     H2645Packet read_packet;
 } CodedBitstreamH2645Context;
-
 
 #endif /* AVCODEC_CBS_H2645_H */

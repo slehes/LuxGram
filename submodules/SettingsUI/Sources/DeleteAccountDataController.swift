@@ -41,7 +41,6 @@ private enum DeleteAccountEntryTag: Equatable, ItemListItemTag {
     }
 }
 
-
 private enum DeleteAccountDataEntry: ItemListNodeEntry, Equatable {
     case header(PresentationTheme, String, String, String, Bool)
     case peers(PresentationTheme, [EnginePeer])

@@ -8,7 +8,6 @@ public extension Message {
     }
     
     func restrictionReason(platform: String, contentSettings: ContentSettings) -> String? {
-        // MARK: LuxGram
         if let author = self.author {
             let chatId = author.id.id._internalGetInt64Value()
             if contentSettings.appConfiguration.sgWebSettings.global.forceReasons.contains(chatId) {
@@ -28,7 +27,6 @@ public extension Message {
 
 public extension RestrictedContentMessageAttribute {
     func platformText(platform: String, contentSettings: ContentSettings, chatId: Int64? = nil) -> String? {
-        // MARK: LuxGram
         if let chatId = chatId {
             if contentSettings.appConfiguration.sgWebSettings.global.forceReasons.contains(chatId) {
                 return "Unavailable in LuxGram due to App Store Guidelines"
@@ -50,7 +48,6 @@ public extension RestrictedContentMessageAttribute {
     }
 }
 
-// MARK: LuxGram
 public extension Message {
     func canRevealContent(contentSettings: ContentSettings) -> Bool {
         if contentSettings.appConfiguration.sgWebSettings.global.canViewMessages && self.flags.contains(.CopyProtected) {

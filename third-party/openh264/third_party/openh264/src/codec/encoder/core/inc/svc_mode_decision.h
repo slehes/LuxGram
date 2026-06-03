@@ -46,7 +46,6 @@
 #include "svc_enc_macroblock.h"
 #include "md.h"
 
-
 namespace WelsEnc {
 ////////////////////////
 // INTERFACE, called by svc_encode_slice.c

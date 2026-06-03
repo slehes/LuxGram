@@ -865,7 +865,6 @@ TGNavigationController *findNavigationController()
 
 @end
 
-
 @implementation TGNavigationPanGestureRecognizer
 
 - (UIRectEdge)edges {
@@ -883,7 +882,6 @@ TGNavigationController *findNavigationController()
 }
 
 @end
-
 
 @implementation TGNavigationGestureDelegateProxy
 

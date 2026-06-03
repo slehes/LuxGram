@@ -38,7 +38,6 @@ typedef enum {
 
 @end
 
-
 NS_AVAILABLE(10_11, 9_0)
 @interface TGRTCMTLRenderer : NSObject <TGRTCMTLRenderer>
 

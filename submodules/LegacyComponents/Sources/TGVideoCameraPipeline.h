@@ -41,7 +41,6 @@
 
 @end
 
-
 @protocol TGVideoCameraPipelineDelegate <NSObject>
 @required
 

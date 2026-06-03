@@ -204,7 +204,6 @@ static bool isEmojiCharacter(NSString *singleChar)
 
 @end
 
-
 @implementation NSString (NSArrayFormatExtension)
 
 + (instancetype)stringWithFormat:(NSString *)format array:(NSArray *)arguments

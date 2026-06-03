@@ -43,7 +43,6 @@
 #include "typedefs.h"
 #include "cpu_core.h"
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif//__cplusplus

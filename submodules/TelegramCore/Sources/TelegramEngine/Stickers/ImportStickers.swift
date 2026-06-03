@@ -455,7 +455,6 @@ func _internal_reorderSticker(account: Account, sticker: FileMediaReference, pos
     }
 }
 
-
 public enum DeleteStickerError {
     case generic
 }

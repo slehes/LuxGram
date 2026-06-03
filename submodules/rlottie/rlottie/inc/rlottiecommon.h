@@ -33,7 +33,6 @@
   #endif
 #endif
 
-
 /**
  * @defgroup Lottie_Animation Lottie_Animation
  *
@@ -172,8 +171,6 @@ typedef struct LOTNode {
     LOTBrushType mBrushType;
     LOTFillRule  mFillRule;
 } LOTNode;
-
-
 
 typedef struct LOTLayerNode {
 

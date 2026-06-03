@@ -6,7 +6,6 @@ import SwiftSignalKit
 import Photos
 #endif
 
-
 private final class MediaResourceDataCopyFile : MediaResourceDataFetchCopyLocalItem {
     let path: String
     init(path: String) {

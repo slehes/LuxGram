@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 func addSynchronizeLocalizationUpdatesOperation(transaction: Transaction) {
     let tag: PeerOperationLogTag = OperationLogTags.SynchronizeLocalizationUpdates
     let peerId = PeerId(0)

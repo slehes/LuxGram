@@ -84,7 +84,6 @@
 #  define fstat win32_fstat
 #endif /* defined(_WIN32) */
 
-
 #ifdef __ANDROID__
 #  if HAVE_UNISTD_H
 #    include <unistd.h>
@@ -163,7 +162,6 @@ struct pollfd {
 #define POLLHUP    0x0080  /* disconnected */
 #define POLLNVAL   0x1000  /* invalid file descriptor */
 #endif
-
 
 int ff_poll(struct pollfd *fds, nfds_t numfds, int timeout);
 #define poll ff_poll

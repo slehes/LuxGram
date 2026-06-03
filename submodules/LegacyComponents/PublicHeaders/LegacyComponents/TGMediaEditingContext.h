@@ -17,7 +17,6 @@
 
 @end
 
-
 typedef NS_ENUM(NSUInteger, TGMediaLivePhotoMode)
 {
     TGMediaLivePhotoModeOff = 0,
@@ -50,7 +49,6 @@ typedef NS_ENUM(NSUInteger, TGMediaLivePhotoMode)
 - (bool)isCropEqualWith:(id<TGMediaEditAdjustments>)adjusments;
 
 @end
-
 
 @interface TGMediaEditingContext : NSObject
 

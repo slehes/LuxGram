@@ -174,7 +174,6 @@ private final class GiftAuctionWearPreviewSheetContent: CombinedComponent {
         }
     }
 
-
     func makeState() -> State {
         return State(context: self.context, auctionContext: self.auctionContext, attributes: self.attributes)
     }

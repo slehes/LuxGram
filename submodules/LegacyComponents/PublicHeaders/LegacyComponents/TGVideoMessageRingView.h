@@ -6,7 +6,6 @@
     
 @end
 
-
 @interface TGVideoMessageRingView : UIView
 
 @property (nonatomic, strong) UIColor *accentColor;

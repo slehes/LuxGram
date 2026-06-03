@@ -416,7 +416,6 @@ public func legacyAssetPickerEnqueueMessages(context: AccountContext, account: A
                                         defer {
                                             TempBox.shared.dispose(tempFile)
                                         }
-                                        // MARK: Swiftgram
                                         if let scaledImageData = compressImageToJPEG(scaledImage, quality: Float(SGSimpleSettings.shared.outgoingPhotoQuality) / 100.0, tempFilePath: tempFile.path) {
                                             let _ = try? scaledImageData.write(to: URL(fileURLWithPath: tempFilePath))
 
@@ -854,7 +853,6 @@ public func legacyAssetPickerEnqueueMessages(context: AccountContext, account: A
                                 preset = TGMediaVideoConversionPresetAnimation
                             }
                             
-                            // MARK: Swiftgram
                             // TODO(swiftgram): Nice thumbnail
                             var asTelescope = false
                             if let strongAdjustments = adjustments, strongAdjustments.sendAsTelescope {
@@ -1007,7 +1005,6 @@ public func legacyAssetPickerEnqueueMessages(context: AccountContext, account: A
                                 attributes.append(EmbeddedMediaStickersMessageAttribute(files: stickerFiles))
                                 fileAttributes.append(.HasLinkedStickers)
                             }
-                            // MARK: Swiftgram
                             if asTelescope {
                                 fileAttributes = [.FileName(fileName: "video.mp4"), .Video(duration: finalDuration, size: PixelDimensions(finalDimensions), flags: [.instantRoundVideo], preloadSize: nil, coverTime: nil, videoCodec: nil)]
                             }

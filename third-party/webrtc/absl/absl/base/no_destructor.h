@@ -32,7 +32,6 @@
 //
 // See below for complete details.
 
-
 #ifndef ABSL_BASE_NO_DESTRUCTOR_H_
 #define ABSL_BASE_NO_DESTRUCTOR_H_
 

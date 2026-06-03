@@ -362,7 +362,6 @@ public final class ChatMessageInteractiveFileNode: ASDisplayNode {
         let premiumConfiguration = PremiumConfiguration.with(appConfiguration: arguments.context.currentAppConfiguration.with { $0 })
         
         let transcriptionText = self.forcedAudioTranscriptionText ?? transcribedText(message: message)
-        // MARK: Swiftgram
         if transcriptionText == nil && false {
             if premiumConfiguration.audioTransciptionTrialCount > 0 {
                 if !arguments.associatedData.isPremium {
@@ -775,7 +774,6 @@ public final class ChatMessageInteractiveFileNode: ASDisplayNode {
                     displayTranscribe = false
                 } else if arguments.message.id.peerId.namespace != Namespaces.Peer.SecretChat && !isViewOnceMessage && !arguments.presentationData.isPreview {
                     let premiumConfiguration = PremiumConfiguration.with(appConfiguration: arguments.context.currentAppConfiguration.with { $0 })
-                    // MARK: Swiftgram
                     if arguments.associatedData.isPremium || true {
                         displayTranscribe = true
                     } else if premiumConfiguration.audioTransciptionTrialCount > 0 {
@@ -2156,7 +2154,6 @@ public final class ChatMessageInteractiveFileNode: ASDisplayNode {
         }
     }
 }
-
 
 public final class FileMessageSelectionNode: ASDisplayNode {
     public enum NodeType {

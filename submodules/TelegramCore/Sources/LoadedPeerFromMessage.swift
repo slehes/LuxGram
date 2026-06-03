@@ -3,7 +3,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public func loadedPeerFromMessage(account: Account, peerId: PeerId, messageId: MessageId) -> Signal<Peer?, NoError> {
     let accountPeerId = account.peerId
     return account.postbox.transaction { transaction -> Signal<Peer?, NoError> in

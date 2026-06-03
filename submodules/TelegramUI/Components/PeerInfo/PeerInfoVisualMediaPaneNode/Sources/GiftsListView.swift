@@ -1059,7 +1059,6 @@ private extension StarGiftReference {
     }
 }
 
-
 private final class ReorderGestureRecognizer: UIGestureRecognizer {
     private let shouldBegin: (CGPoint) -> (allowed: Bool, requiresLongPress: Bool, id: AnyHashable?, item: ComponentView<Empty>?)
     private let willBegin: (CGPoint) -> Void

@@ -32,7 +32,6 @@ static const uint16_t band_tab[33] = {
     141, 151, 162, 173, 184, 195, 207, 219, 231, 243, 256,
 };
 
-
 static const int8_t cyclTab[32] = {
     1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11,
    12, 13, 14, 15, 16, 17, 18, 20, 21, 22, 23,
@@ -80,7 +79,6 @@ static const float imc_quantizer2[2][56] = {
       2.0051291, 2.127681, 2.2709141, 2.475826, 2.7219379, 3.101985, 4.686213, 6.2287788},
 };
 
-
 static const float xTab[14] = {7.6, 3.6, 4.4, 3.7, 6.1, 5.1, 2.3, 1.6, 6.2, 1.5, 1.8, 1.2, 0, 0}; //10014048
 
 /* precomputed table for 10^(i/4), i=-15..16 */
@@ -95,7 +93,6 @@ static const float imc_exp_tab[32] = {
     1.778280e03, 3.162278e03, 5.623413e03, 1.000000e04
 };
 static const float * const imc_exp_tab2 = imc_exp_tab + 8;
-
 
 static const uint8_t imc_cb_select[4][32] = {
     { 1, 1, 1, 1, 1, 1, 3, 3, 3, 3, 3, 3, 3, 3, 0, 0,

@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public enum TwoStepVerificationConfiguration {
     case notSet(pendingEmail: TwoStepVerificationPendingEmail?)
     case set(hint: String, hasRecoveryEmail: Bool, pendingEmail: TwoStepVerificationPendingEmail?, hasSecureValues: Bool, pendingResetTimestamp: Int32?)

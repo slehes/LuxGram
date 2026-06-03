@@ -462,7 +462,6 @@
 
 @end
 
-
 @implementation TGPhotoEditorTintButtonsWrapperView
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event

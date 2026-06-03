@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public protocol SplitTestEvent: RawRepresentable where RawValue == String {
 }
 

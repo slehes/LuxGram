@@ -16,7 +16,6 @@ import UrlWhitelist
 import OpenInExternalAppUI
 import SafariServices
 
-// MARK: Swiftgram
 import ShareController
 
 extension ChatControllerImpl {
@@ -95,7 +94,6 @@ extension ChatControllerImpl {
                 }
                 self.present(UndoOverlayController(presentationData: self.presentationData, content: content, elevatedLayout: false, animateInAsReplacement: false, action: { _ in return false }), in: .current)
             }))
-            // MARK: Swiftgram
             items.append(ActionSheetButtonItem(title: self.presentationData.strings.Conversation_ContextMenuForward, color: .accent, action: { [weak actionSheet, weak self] in
                 actionSheet?.dismissAnimated()
                 guard let self else {
@@ -202,7 +200,6 @@ extension ChatControllerImpl {
             }))
         )
         
-        // MARK: Swiftgram
         items.append(
             .action(ContextMenuActionItem(text: self.presentationData.strings.Conversation_ContextMenuForward, icon: { theme in return generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/Forward"), color: theme.contextMenu.primaryColor) }, action: { [weak self]  _, f in
                 f(.default)

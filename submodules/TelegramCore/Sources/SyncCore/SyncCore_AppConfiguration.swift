@@ -4,7 +4,6 @@ import SGWebSettingsScheme
 import SGGHSettingsScheme
 
 public struct AppConfiguration: Codable, Equatable {
-    // MARK: Swiftgram
     public var sgWebSettings: SGWebSettings
     public var sgGHSettings: SGGHSettings
     

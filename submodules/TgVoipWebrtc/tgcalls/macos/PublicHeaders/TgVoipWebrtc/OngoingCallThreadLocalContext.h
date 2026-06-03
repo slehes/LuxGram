@@ -263,7 +263,6 @@ typedef NS_ENUM(int32_t, OngoingCallDataSavingWebrtc) {
 
 - (GroupCallDisposable * _Nonnull)addVideoOutputWithIsIncoming:(bool)isIncoming sink:(void (^_Nonnull)(CallVideoFrameData * _Nonnull))sink;
 
-
 @end
 
 typedef struct {

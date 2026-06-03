@@ -83,4 +83,3 @@ func _internal_updateChatRank(account: Account, peerId: PeerId, userId: PeerId, 
     |> switchToLatest
 }
 
-

@@ -49,7 +49,6 @@ public struct TelegramApplicationIcons : PostboxCoding, Equatable {
     }
 }
 
-
 func _internal_applicationIcons(account: Account) -> Signal<TelegramApplicationIcons, NoError> {
     let key = PostboxViewKey.cachedItem(TelegramApplicationIcons.entryId)
     return account.postbox.combinedView(keys: [key])
@@ -67,5 +66,4 @@ func _internal_updateApplicationIcons(postbox: Postbox, icons: TelegramApplicati
         transaction.putItemCacheEntry(id: TelegramApplicationIcons.entryId, entry: entry)
     }
 }
-
 

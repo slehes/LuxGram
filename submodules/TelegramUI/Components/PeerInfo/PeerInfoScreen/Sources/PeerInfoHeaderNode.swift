@@ -495,11 +495,9 @@ final class PeerInfoHeaderNode: ASDisplayNode {
         case fake
         case scam
         case emojiStatus(PeerEmojiStatus)
-        // MARK: - LuxGram
         case verifiedLuxGram
         case developer
         case serverBadge(name: String, colorRgb: UInt32)
-        // MARK: - End LuxGram
     }
     
     private var currentCredibilityIcon: CredibilityIcon?
@@ -611,7 +609,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
         var verifiedIcon: CredibilityIcon = .none
         var statusIcon: CredibilityIcon = .none
         if let peer {
-            // MARK: - LuxGram - verified badge + badges
             #if canImport(SGSimpleSettings)
             let glegramChannelIds: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
             let isLuxGramChannel = (peer as? TelegramChannel) != nil && (peer.addressName?.lowercased() == "glegramios" || glegramChannelIds.contains(peer.id.toInt64()))
@@ -661,7 +658,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
                 }
             }
             #endif
-            // MARK: - End LuxGram
 
             if peer.isVerified {
                 credibilityIcon = .verified
@@ -968,7 +964,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
             case .scam:
                 emojiRegularStatusContent = .text(color: presentationData.theme.chat.message.incoming.scamColor, string: presentationData.strings.Message_ScamAccount.uppercased())
                 emojiExpandedStatusContent = emojiRegularStatusContent
-            // MARK: - LuxGram
             case .verifiedLuxGram:
                 let glegramBadgeImage = UIImage(bundleImageName: "LuxGramVerifiedBadge")
                 emojiRegularStatusContent = .image(image: glegramBadgeImage, tintColor: nil)
@@ -981,7 +976,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
             case let .serverBadge(name, colorRgb):
                 emojiRegularStatusContent = .text(color: UIColor(rgb: colorRgb), string: name)
                 emojiExpandedStatusContent = emojiRegularStatusContent
-            // MARK: - End LuxGram
             case let .emojiStatus(emojiStatus):
                 currentEmojiStatus = emojiStatus
                 emojiRegularStatusContent = .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 80.0, height: 80.0), placeholderColor: presentationData.theme.list.mediaPlaceholderColor, themeColor: navigationContentsAccentColor, loopMode: .forever)
@@ -1159,7 +1153,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
             case .verified:
                 emojiRegularStatusContent = .verified(fillColor: presentationData.theme.list.itemCheckColors.fillColor, foregroundColor: presentationData.theme.list.itemCheckColors.foregroundColor, sizeType: .large)
                 emojiExpandedStatusContent = .verified(fillColor: navigationContentsAccentColor, foregroundColor: .clear, sizeType: .large)
-            // MARK: - LuxGram
             case .verifiedLuxGram:
                 let glegramBadgeImage = UIImage(bundleImageName: "LuxGramVerifiedBadge")
                 emojiRegularStatusContent = .image(image: glegramBadgeImage, tintColor: nil)
@@ -1171,7 +1164,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
             case let .serverBadge(name, colorRgb):
                 emojiRegularStatusContent = .text(color: UIColor(rgb: colorRgb), string: name)
                 emojiExpandedStatusContent = emojiRegularStatusContent
-            // MARK: - End LuxGram
             case let .emojiStatus(emojiStatus):
                 emojiRegularStatusContent = .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 80.0, height: 80.0), placeholderColor: presentationData.theme.list.mediaPlaceholderColor, themeColor: navigationContentsAccentColor, loopMode: .forever)
                 emojiExpandedStatusContent = .animation(content: .customEmoji(fileId: emojiStatus.fileId), size: CGSize(width: 80.0, height: 80.0), placeholderColor: navigationContentsAccentColor, themeColor: navigationContentsAccentColor, loopMode: .forever)
@@ -1301,7 +1293,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
             if title.replacingOccurrences(of: "\u{fe0e}", with: "").trimmingCharacters(in: .whitespacesAndNewlines).isEmpty {
                 title = "" //"\u{00A0}"
             }
-            // MARK: Swiftgram
             if title.isEmpty {
                 if let peer = peer as? TelegramUser, let phone = peer.phone, !self.hidePhoneInSettings {
                     title = formatPhoneNumber(context: self.context, number: phone)
@@ -1317,7 +1308,6 @@ final class PeerInfoHeaderNode: ASDisplayNode {
             smallTitleAttributes = MultiScaleTextState.Attributes(font: Font.medium(28.0), color: .white, shadowColor: titleShadowColor)
             
             if self.isSettings, let user = peer as? TelegramUser {
-                // MARK: Swiftgram
                 var formattedPhone = formatPhoneNumber(context: self.context, number: user.phone ?? "")
                 if !formattedPhone.isEmpty && self.hidePhoneInSettings {
                     formattedPhone = ""
@@ -2433,8 +2423,7 @@ final class PeerInfoHeaderNode: ASDisplayNode {
                 buttonIcon = .message
             case .discussion:
                 buttonText = presentationData.strings.PeerInfo_ButtonDiscuss
-                buttonIcon = .discussion // MARK: Swiftgram
-            case .call:
+                buttonIcon = .discussion            case .call:
                 buttonText = presentationData.strings.PeerInfo_ButtonCall
                 buttonIcon = .call
             case .videoCall:

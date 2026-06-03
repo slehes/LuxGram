@@ -1,4 +1,3 @@
-// MARK: Swiftgram - Saved Deleted Messages List
 import Foundation
 import UIKit
 import Display
@@ -12,8 +11,6 @@ import AccountContext
 #if canImport(SGDeletedMessages)
 import SGDeletedMessages
 #endif
-
-// MARK: - LuxGram
 
 // MARK: - Entry
 

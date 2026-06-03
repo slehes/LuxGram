@@ -72,7 +72,6 @@ typedef struct TagCabacCtx {
   uint8_t*   m_pBufCur;
 } SCabacCtx;
 
-
 void WelsCabacContextInit (void* pCtx, SCabacCtx* pCbCtx, int32_t iModel);
 void WelsCabacEncodeInit (SCabacCtx* pCbCtx, uint8_t* pBuf,  uint8_t* pEnd);
 inline void WelsCabacEncodeDecision (SCabacCtx* pCbCtx, int32_t iCtx, uint32_t uiBin);
@@ -84,7 +83,6 @@ uint8_t* WelsCabacEncodeGetPtr (SCabacCtx* pCbCtx);
 int32_t  WriteBlockResidualCabac (void* pEncCtx,  int16_t* pCoffLevel, int32_t iEndIdx,
                                   int32_t iCalRunLevelFlag,
                                   int32_t iResidualProperty, int8_t iNC, SBitStringAux* pBs);
-
 
 // private functions used by public inline functions.
 void WelsCabacEncodeDecisionLps_ (SCabacCtx* pCbCtx, int32_t iCtx);

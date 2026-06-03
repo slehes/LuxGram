@@ -50,7 +50,6 @@ extern "C" {
 #define OPUS_PROJECTION_GET_DEMIXING_MATRIX_REQUEST         6005
 /**@}*/
 
-
 /** @endcond */
 
 /** @defgroup opus_projection_ctls Projection specific encoder and decoder CTLs
@@ -71,14 +70,12 @@ extern "C" {
   */
 #define OPUS_PROJECTION_GET_DEMIXING_MATRIX_GAIN(x) OPUS_PROJECTION_GET_DEMIXING_MATRIX_GAIN_REQUEST, __opus_check_int_ptr(x)
 
-
 /** Gets the size in bytes of the demixing matrix from the encoder.
   * @param[out] x <tt>opus_int32 *</tt>: Returns the size in bytes of the
   *                                      demixing matrix.
   * @hideinitializer
   */
 #define OPUS_PROJECTION_GET_DEMIXING_MATRIX_SIZE(x) OPUS_PROJECTION_GET_DEMIXING_MATRIX_SIZE_REQUEST, __opus_check_int_ptr(x)
-
 
 /** Copies the demixing matrix to the supplied pointer location.
   * @param[out] x <tt>unsigned char *</tt>: Returns the demixing matrix to the
@@ -89,7 +86,6 @@ extern "C" {
   */
 #define OPUS_PROJECTION_GET_DEMIXING_MATRIX(x,y) OPUS_PROJECTION_GET_DEMIXING_MATRIX_REQUEST, x, __opus_check_int(y)
 
-
 /**@}*/
 
 /** Opus projection encoder state.
@@ -99,7 +95,6 @@ extern "C" {
  */
 typedef struct OpusProjectionEncoder OpusProjectionEncoder;
 
-
 /** Opus projection decoder state.
   * This contains the complete state of a projection Opus decoder.
   * It is position independent and can be freely copied.
@@ -107,7 +102,6 @@ typedef struct OpusProjectionEncoder OpusProjectionEncoder;
   * @see opus_projection_decoder_init
   */
 typedef struct OpusProjectionDecoder OpusProjectionDecoder;
-
 
 /**\name Projection encoder functions */
 /**@{*/
@@ -124,7 +118,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT opus_int32 opus_projection_ambisonics_encode
     int channels,
     int mapping_family
 );
-
 
 /** Allocates and initializes a projection encoder state.
   * Call opus_projection_encoder_destroy() to release
@@ -167,7 +160,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT OpusProjectionEncoder *opus_projection_ambis
     int application,
     int *error
 ) OPUS_ARG_NONNULL(4) OPUS_ARG_NONNULL(5);
-
 
 /** Initialize a previously allocated projection encoder state.
   * The memory pointed to by \a st must be at least the size returned by
@@ -221,7 +213,6 @@ OPUS_EXPORT int opus_projection_ambisonics_encoder_init(
     int application
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(5) OPUS_ARG_NONNULL(6);
 
-
 /** Encodes a projection Opus frame.
   * @param st <tt>OpusProjectionEncoder*</tt>: Projection encoder state.
   * @param[in] pcm <tt>const opus_int16*</tt>: The input signal as interleaved
@@ -259,7 +250,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_projection_encode(
     unsigned char *data,
     opus_int32 max_data_bytes
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(2) OPUS_ARG_NONNULL(4);
-
 
 /** Encodes a projection Opus frame from floating point input.
   * @param st <tt>OpusProjectionEncoder*</tt>: Projection encoder state.
@@ -306,13 +296,11 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_projection_encode_float(
     opus_int32 max_data_bytes
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(2) OPUS_ARG_NONNULL(4);
 
-
 /** Frees an <code>OpusProjectionEncoder</code> allocated by
   * opus_projection_ambisonics_encoder_create().
   * @param st <tt>OpusProjectionEncoder*</tt>: Projection encoder state to be freed.
   */
 OPUS_EXPORT void opus_projection_encoder_destroy(OpusProjectionEncoder *st);
-
 
 /** Perform a CTL function on a projection Opus encoder.
   *
@@ -329,7 +317,6 @@ OPUS_EXPORT void opus_projection_encoder_destroy(OpusProjectionEncoder *st);
   * @see opus_projection_ctls
   */
 OPUS_EXPORT int opus_projection_encoder_ctl(OpusProjectionEncoder *st, int request, ...) OPUS_ARG_NONNULL(1);
-
 
 /**@}*/
 
@@ -358,7 +345,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT opus_int32 opus_projection_decoder_get_size(
     int streams,
     int coupled_streams
 );
-
 
 /** Allocates and initializes a projection decoder state.
   * Call opus_projection_decoder_destroy() to release
@@ -403,7 +389,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT OpusProjectionDecoder *opus_projection_decod
     opus_int32 demixing_matrix_size,
     int *error
 ) OPUS_ARG_NONNULL(5);
-
 
 /** Intialize a previously allocated projection decoder state object.
   * The memory pointed to by \a st must be at least the size returned by
@@ -454,7 +439,6 @@ OPUS_EXPORT int opus_projection_decoder_init(
     opus_int32 demixing_matrix_size
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(6);
 
-
 /** Decode a projection Opus packet.
   * @param st <tt>OpusProjectionDecoder*</tt>: Projection decoder state.
   * @param[in] data <tt>const unsigned char*</tt>: Input payload.
@@ -492,7 +476,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_projection_decode(
     int frame_size,
     int decode_fec
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(4);
-
 
 /** Decode a projection Opus packet with floating point output.
   * @param st <tt>OpusProjectionDecoder*</tt>: Projection decoder state.
@@ -532,7 +515,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_projection_decode_float(
     int decode_fec
 ) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(4);
 
-
 /** Perform a CTL function on a projection Opus decoder.
   *
   * Generally the request and subsequent arguments are generated by a
@@ -549,13 +531,11 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_projection_decode_float(
   */
 OPUS_EXPORT int opus_projection_decoder_ctl(OpusProjectionDecoder *st, int request, ...) OPUS_ARG_NONNULL(1);
 
-
 /** Frees an <code>OpusProjectionDecoder</code> allocated by
   * opus_projection_decoder_create().
   * @param st <tt>OpusProjectionDecoder</tt>: Projection decoder state to be freed.
   */
 OPUS_EXPORT void opus_projection_decoder_destroy(OpusProjectionDecoder *st);
-
 
 /**@}*/
 

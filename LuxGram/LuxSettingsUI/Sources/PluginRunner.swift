@@ -1,4 +1,3 @@
-// MARK: LuxGram – Plugin runner (PythonKit-based execution of .plugin files)
 //
 // Sets SGPluginHooks.messageHookRunner so that outgoing messages are passed to Python plugins.
 // Requires PythonKit (https://github.com/pvieito/PythonKit). Add via SPM or embed for macOS/simulator.

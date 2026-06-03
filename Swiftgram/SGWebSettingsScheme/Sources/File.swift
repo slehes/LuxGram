@@ -35,13 +35,11 @@ public struct SGBotMonkeys: Codable, Equatable {
     public let disable: String
 }
 
-
 public struct SGUserSettings: Codable, Equatable {
     public let contentReasons: [String]
     public let canSendTelescope: Bool
     public let canBuyInBeta: Bool
 }
-
 
 public extension SGUserSettings {
     func expandedContentReasons() -> [String] {

@@ -816,7 +816,6 @@ public func recentSessionsController(context: AccountContext, activeSessionsCont
         guard let appConfiguration = view.values[PreferencesKeys.appConfiguration]?.get(AppConfiguration.self) else {
             return false
         }
-        // MARK: Swiftgram
         if appConfiguration.sgWebSettings.global.qrLogin {
             return true
         }

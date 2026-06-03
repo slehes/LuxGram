@@ -73,7 +73,6 @@ private final class AvatarComponent: Component {
     }
 }
 
-
 final class StoryPreviewComponent: Component {
     typealias EnvironmentType = Empty
     

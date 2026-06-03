@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 // lhash is a traditional, chaining hash table that automatically expands and
 // contracts as needed. One should not use the lh_* functions directly, rather
 // use the type-safe macro wrappers:
@@ -82,7 +81,6 @@ extern "C" {
 //
 // A macro will be defined for each of the |OPENSSL_lh_*| functions below. For
 // |LHASH_OF(foo)|, the macros would be |lh_foo_new|, |lh_foo_num_items| etc.
-
 
 // lhash_cmp_func is a comparison function that returns a value equal, or not
 // equal, to zero depending on whether |*a| is equal, or not equal to |*b|,
@@ -256,7 +254,6 @@ OPENSSL_EXPORT void OPENSSL_lh_doall_arg(_LHASH *lh,
   }                                                                            \
                                                                                \
   OPENSSL_MSVC_PRAGMA(warning(pop))
-
 
 #if defined(__cplusplus)
 }  // extern C

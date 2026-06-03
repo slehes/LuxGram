@@ -13,7 +13,6 @@
 - (void)addVideoTrackWithSourceFormatDescription:(CMFormatDescriptionRef)formatDescription transform:(CGAffineTransform)transform settings:(NSDictionary *)videoSettings;
 - (void)addAudioTrackWithSourceFormatDescription:(CMFormatDescriptionRef)formatDescription settings:(NSDictionary *)audioSettings;
 
-
 - (void)prepareToRecord;
 
 - (void)appendVideoPixelBuffer:(TGVideoCameraRendererBuffer *)pixelBuffer withPresentationTime:(CMTime)presentationTime;

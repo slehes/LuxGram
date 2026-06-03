@@ -70,7 +70,6 @@ void WelsIMbChromaEncode (sWelsEncCtx* pEncCtx, SMB* pCurMb, SMbCache* pMbCache)
 //for P SSlice (intra part + inter part, MB level)
 void WelsPMbChromaEncode (sWelsEncCtx* pEncCtx, SSlice* pSlice, SMB* pCurMb);
 
-
 //===================MB-level encode====================//
 //encapsulation func: store base rec, highest Dependency Layer(only one quality) rec, single layer rec
 int32_t WelsPSliceMdEnc (sWelsEncCtx* pEncCtx, SSlice* pSlice,  const bool kbIsHighestDlayerFlag);
@@ -176,7 +175,6 @@ int32_t WelsMdInterMbLoop (sWelsEncCtx* pEncCtx, SSlice* pSlice, void* pMd,
                            const int32_t kiSliceFirstMbXY); // for inter non-dynamic slice
 int32_t WelsMdInterMbLoopOverDynamicSlice (sWelsEncCtx* pEncCtx, SSlice* pSlice, void* pMd,
     const int32_t kiSliceFirstMbXY); // for inter dynamic slice
-
 
 bool DynSlcJudgeSliceBoundaryStepBack (void* pEncCtx, void* pSlice, SSliceCtx* pSliceCtx, SMB* pCurMb,
                                        SDynamicSlicingStack* pDss);

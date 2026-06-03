@@ -12,7 +12,6 @@
 
 @end
 
-
 @interface TGSecretTimerPickerItemView () <UIPickerViewDataSource, UIPickerViewDelegate>
 {
     bool _dark;
@@ -117,7 +116,6 @@
 
 @end
 
-
 @implementation TGSecretTimerPickerView
 
 - (void)didAddSubview:(UIView *)subview
@@ -129,7 +127,6 @@
     if (subview.bounds.size.height <= 1.0)
         subview.backgroundColor = self.selectorColor;
 }
-
 
 - (void)didMoveToWindow
 {

@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Plugin row item (like Active sites: icon, name, author, description, switch)
 import Foundation
 import UIKit
 import Display

@@ -3,7 +3,6 @@ import Postbox
 import SwiftSignalKit
 import TelegramApi
 
-
 extension TelegramTheme {
     convenience init(apiTheme: Api.Theme) {
         switch apiTheme {

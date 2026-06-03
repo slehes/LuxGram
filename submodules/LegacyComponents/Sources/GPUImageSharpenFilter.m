@@ -39,7 +39,6 @@ NSString *const kGPUImageSharpenVertexShaderString = SHADER_STRING
  }
 );
 
-
 NSString *const kGPUImageSharpenFragmentShaderString = SHADER_STRING
 (
  precision highp float;
@@ -66,7 +65,6 @@ NSString *const kGPUImageSharpenFragmentShaderString = SHADER_STRING
      gl_FragColor = vec4((textureColor * centerMultiplier - (leftTextureColor * edgeMultiplier + rightTextureColor * edgeMultiplier + topTextureColor * edgeMultiplier + bottomTextureColor * edgeMultiplier)), texture2D(sourceImage, bottomTextureCoordinate).w);
  }
 );
-
 
 @implementation GPUImageSharpenFilter
 

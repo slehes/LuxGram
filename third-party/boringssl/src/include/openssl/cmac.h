@@ -21,12 +21,10 @@
 extern "C" {
 #endif
 
-
 // CMAC.
 //
 // CMAC is a MAC based on AES-CBC and defined in
 // https://tools.ietf.org/html/rfc4493#section-2.3.
-
 
 // One-shot functions.
 
@@ -35,7 +33,6 @@ extern "C" {
 // between AES-128 and AES-256. It returns one on success or zero on error.
 OPENSSL_EXPORT int AES_CMAC(uint8_t out[16], const uint8_t *key, size_t key_len,
                             const uint8_t *in, size_t in_len);
-
 
 // Incremental interface.
 
@@ -60,7 +57,6 @@ OPENSSL_EXPORT int CMAC_CTX_copy(CMAC_CTX *out, const CMAC_CTX *in);
 OPENSSL_EXPORT int CMAC_Init(CMAC_CTX *ctx, const void *key, size_t key_len,
                              const EVP_CIPHER *cipher, ENGINE *engine);
 
-
 // CMAC_Reset resets |ctx| so that a fresh message can be authenticated.
 OPENSSL_EXPORT int CMAC_Reset(CMAC_CTX *ctx);
 
@@ -71,7 +67,6 @@ OPENSSL_EXPORT int CMAC_Update(CMAC_CTX *ctx, const uint8_t *in, size_t in_len);
 // CMAC_Final sets |*out_len| to 16 and, if |out| is not NULL, writes 16 bytes
 // of authenticator to it. It returns one on success or zero on error.
 OPENSSL_EXPORT int CMAC_Final(CMAC_CTX *ctx, uint8_t *out, size_t *out_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

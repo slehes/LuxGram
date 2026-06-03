@@ -28,9 +28,7 @@
  * Audio format conversion routines
  */
 
-
 #include "swresample_internal.h"
-
 
 typedef void (conv_func_type)(uint8_t *po, const uint8_t *pi, int is, int os, uint8_t *end);
 typedef void (simd_func_type)(uint8_t **dst, const uint8_t **src, int len);

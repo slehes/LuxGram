@@ -53,18 +53,15 @@
  * (eay@cryptsoft.com).  This product includes software written by Tim
  * Hudson (tjh@cryptsoft.com). */
 
-
 #ifndef OPENSSL_HEADER_PKCS8_H
 #define OPENSSL_HEADER_PKCS8_H
 
 #include <openssl/base.h>
 #include <openssl/x509.h>
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
-
 
 // PKCS8_encrypt serializes and encrypts a PKCS8_PRIV_KEY_INFO with PBES1 or
 // PBES2 as defined in PKCS #5. Only pbeWithSHAAnd128BitRC4,
@@ -127,7 +124,6 @@ OPENSSL_EXPORT EVP_PKEY *PKCS8_parse_encrypted_private_key(CBS *cbs,
 OPENSSL_EXPORT int PKCS12_get_key_and_certs(EVP_PKEY **out_key,
                                             STACK_OF(X509) *out_certs,
                                             CBS *in, const char *password);
-
 
 // Deprecated functions.
 
@@ -234,7 +230,6 @@ OPENSSL_EXPORT PKCS12 *PKCS12_create(const char *password, const char *name,
 
 // PKCS12_free frees |p12| and its contents.
 OPENSSL_EXPORT void PKCS12_free(PKCS12 *p12);
-
 
 #if defined(__cplusplus)
 }  // extern C

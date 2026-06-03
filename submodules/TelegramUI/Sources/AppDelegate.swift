@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import StoreKit
 import SGIAP
 import SGAPI
@@ -11,7 +10,6 @@ import SGAPIWebSettings
 import SGLogging
 import SGStrings
 import SGSimpleSettings
-// MARK: - LuxGram
 #if canImport(SGSettingsUI)
 import SGSettingsUI
 #endif
@@ -19,12 +17,9 @@ import SGConfig
 #if canImport(SGSupporters)
 import SGSupporters
 #endif
-// MARK: - End LuxGram
-// MARK: - LuxGram
 #if canImport(SGDeletedMessages)
 import SGDeletedMessages
 #endif
-// MARK: - End LuxGram
 import UIKit
 import SwiftSignalKit
 import Display
@@ -353,14 +348,12 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
         precondition(!testIsLaunched)
         testIsLaunched = true
 
-        // MARK: - LuxGram — Apply Liquid Glass on launch
         #if canImport(SGSettingsUI)
         LiquidGlassStyle.shared.syncWithSettings()
         NotificationCenter.default.addObserver(forName: .luxgramLiquidGlassDidChange, object: nil, queue: .main) { _ in
             LiquidGlassStyle.shared.syncWithSettings()
         }
         #endif
-        // MARK: - End LuxGram
 
         let _ = voipTokenPromise.get().start(next: { token in
             self.voipDeviceToken.set(.single(token))
@@ -695,7 +688,6 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
             rootPath = rootPathForBasePath(appGroupUrl.path)
         }
         if !isUITest {
-            // MARK: Swiftgram
             if UserDefaults.standard.bool(forKey: "sg_db_hard_reset") {
                 self.window?.makeKeyAndVisible()
                 sgHardReset(dataPath: rootPath, present: self.mainWindow?.presentNative)
@@ -997,7 +989,6 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
                 icons.append(PresentationAppIcon(name: "PremiumBlack", imageName: "PremiumBlack", isPremium: true))
                 
                 
-                // MARK: Swiftgram
                 icons = [
                     PresentationAppIcon(name: "SGDefault", imageName: "SGDefault", isDefault: true),
                     PresentationAppIcon(name: "SGBlack", imageName: "SGBlack"),
@@ -1395,7 +1386,6 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
             var network: Network?
             if let context = context {
                 network = context.context.account.network
-                // MARK: Swiftgram
                 sgDBResetIfNeeded(databasePath: context.context.sharedContext.accountManager.basePath + "/db", present: self.mainWindow?.presentNative)
             }
             
@@ -1443,7 +1433,6 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
                     
                     self.resetIntentsIfNeeded(context: context.context)
                     
-                    // MARK: Swiftgram
                     updateSGWebSettingsInteractivelly(context: context.context)
                     updateSGGHSettingsInteractivelly(context: context.context)
                     let _ = (context.context.sharedContext.presentationData.start(next: { presentationData in
@@ -1528,11 +1517,9 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
         }))
         
         
-        // MARK: Swiftgram
         if #available(iOS 13.0, *) {
             self.setupIAP()
         }
-
 
         let logoutDataSignal: Signal<(AccountManager, Set<PeerId>), NoError> = self.sharedContextPromise.get()
         |> take(1)
@@ -2113,7 +2100,6 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
              |> take(1)
              |> deliverOnMainQueue).start(next: { activeAccounts in
                 for (_, context, _) in activeAccounts.accounts {
-                    // MARK: Swiftgram
                     if !sgTasksLaunched {
                         updateSGWebSettingsInteractivelly(context: context)
                         updateSGGHSettingsInteractivelly(context: context)
@@ -2131,13 +2117,11 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
         self.isActiveValue = true
         self.isActivePromise.set(true)
 
-        // MARK: - LuxGram - Process overdue ghost-delayed messages on becoming active
         let _ = (self.sharedContextPromise.get()
             |> take(1)
             |> deliverOnMainQueue).start(next: { sharedContext in
                 sharedContext.sharedContext.processOverdueGhostDelayedMessagesForAllAccounts()
             })
-        // MARK: - End LuxGram
 
         self.resetBadge()
         
@@ -3462,7 +3446,6 @@ final class UpdateSettings: Codable, Equatable {
     }
 }
 
-// MARK: Swiftgram
 @available(iOS 13.0, *)
 extension AppDelegate {
 
@@ -3577,7 +3560,6 @@ extension AppDelegate {
             SGLogger.shared.log("SGIAP", "Asking user id \(userId) to keep connection: true")
             primaryContext.account.network.shouldKeepConnection.set(.single(true))
         }
-        // MARK: Swiftgram
         let sgIqtpQueryString = makeIqtpQuery("s")
         //
         let iqtpResponse = try? await sgIqtpQuery(engine: primaryContext.engine, query: sgIqtpQueryString).awaitable()

@@ -697,7 +697,6 @@ class SchemeGeneratorTests: XCTestCase {
         XCTAssertEqual(xcscheme.lastUpgradeVersion, lastUpgradeValue)
     }
 
-
     func testDefaultLastUpgradeVersionWhenUserDidNotSpecify() throws {
         var target = app
         target.scheme = TargetScheme()

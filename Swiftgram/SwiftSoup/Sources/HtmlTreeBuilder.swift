@@ -777,5 +777,3 @@ fileprivate func ~= (pattern: [String], value: String) -> Bool {
     return pattern.contains(value)
 }
 
-
-

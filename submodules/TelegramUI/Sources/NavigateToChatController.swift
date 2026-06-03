@@ -5,11 +5,9 @@ import SwiftSignalKit
 import TelegramCore
 import Postbox
 import AccountContext
-// MARK: - LuxGram
 #if canImport(ChatPassword)
 import ChatPassword
 #endif
-// MARK: - End LuxGram
 import GalleryUI
 import InstantPageUI
 import ChatListUI
@@ -89,7 +87,6 @@ public func navigateToChatControllerImpl(_ params: NavigateToChatControllerParam
             })
             return
         }
-        // MARK: - LuxGram — Chat Password: show passcode prompt before opening protected chat
         #if canImport(ChatPassword)
         if case let .peer(peer) = params.chatLocation {
             let peerIdInt = peer.id.id._internalGetInt64Value()
@@ -116,7 +113,6 @@ public func navigateToChatControllerImpl(_ params: NavigateToChatControllerParam
             }
         }
         #endif
-        // MARK: - End LuxGram
         
         if case let .peer(peer) = params.chatLocation, case let .channel(channel) = peer, channel.flags.contains(.isForum), !viewForumAsMessages {
             for controller in params.navigationController.viewControllers.reversed() {

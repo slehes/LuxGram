@@ -405,7 +405,6 @@ public func inviteRequestsController(context: AccountContext, updatedPresentatio
     return controller
 }
 
-
 final class InviteRequestsContextExtractedContentSource: ContextExtractedContentSource {
     var keepInPlace: Bool
     let ignoreContentTouches: Bool = false

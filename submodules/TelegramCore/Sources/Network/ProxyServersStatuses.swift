@@ -2,7 +2,6 @@ import Foundation
 import SwiftSignalKit
 import MtProtoKit
 
-
 public enum ProxyServerStatus: Equatable {
     case checking
     case notAvailable

@@ -1483,7 +1483,6 @@ final class PerkComponent: CombinedComponent {
     }
 }
 
-
 private final class PremiumIntroScreenContentComponent: CombinedComponent {
     typealias EnvironmentType = (ViewControllerComponentContainer.Environment, ScrollChildEnvironment)
     
@@ -2226,8 +2225,7 @@ private final class PremiumIntroScreenContentComponent: CombinedComponent {
                             }
 
                             let isPremium = state?.isPremium == true
-                            var buttonText: String = "" // MARK: LuxGram
-                            if isPremium {
+                            var buttonText: String = ""                            if isPremium {
                                 buttonText = strings.Common_OK
                             } else {
                                 if state?.isAnnual == true {
@@ -2237,7 +2235,6 @@ private final class PremiumIntroScreenContentComponent: CombinedComponent {
                                 } else {
                                     buttonText = strings.Premium_SubscribeFor(state?.price ?? "–").string
                                 }
-                                // MARK: LuxGram
                                 buttonText = i18n("Common.OpenTelegram", strings.baseLanguageCode)
                             }
                             
@@ -3201,7 +3198,6 @@ private final class PremiumIntroScreenComponent: CombinedComponent {
             
             let presentationData = self.screenContext.presentationData
 
-            // MARK: LuxGram
             if let context = self.screenContext.context {
                 let alertController = textAlertController(context: context, title: i18n("Common.OpenTelegram", presentationData.strings.baseLanguageCode), text: i18n("Common.UseTelegramForPremium", presentationData.strings.baseLanguageCode), actions: [TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: {})])
                 self.present(alertController)
@@ -3793,7 +3789,7 @@ private final class PremiumIntroScreenComponent: CombinedComponent {
             }
             
             if !buttonIsHidden {
-                var buttonTitle: String = "" // MARK: LuxGram
+                var buttonTitle: String = ""
                 var buttonSubtitle: String?
                 if case let .auth(price) = context.component.source {
                     buttonTitle = environment.strings.Premium_Week_SignUp(price).string
@@ -3810,7 +3806,6 @@ private final class PremiumIntroScreenComponent: CombinedComponent {
                     } else {
                         buttonTitle = environment.strings.Premium_SubscribeFor(state.price ?? "–").string
                     }
-                    // MARK: LuxGram
                     buttonTitle = i18n("Common.OpenTelegram", environment.strings.baseLanguageCode)
                 }
                 

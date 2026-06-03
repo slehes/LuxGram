@@ -80,6 +80,4 @@ void ff_bwdif_filter_line3_c(void * dst1, int d_stride,
                            prefs, -prefs, prefs * 2, - prefs * 2, prefs * 3, -prefs * 3, prefs * 4, -prefs * 4, parity, clip_max);
 }
 
-
-
 #endif /* AVFILTER_BWDIFDSP_H */

@@ -282,7 +282,6 @@ static bool TGProxyWindowIsLight = true;
 
 @end
 
-
 @interface TGProxySpinnerViewInternal : UIView
 
 @property (nonatomic, copy) void (^onDraw)(void);
@@ -523,5 +522,4 @@ static bool TGProxyWindowIsLight = true;
 }
 
 @end
-
 

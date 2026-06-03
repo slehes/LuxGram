@@ -312,7 +312,6 @@ fileprivate struct StringsSingleValueEncoding: SingleValueEncodingContainer {
     }
 }
 
-
 public enum PresentationThemeDecodingError: Error {
     case generic
     case dataCorrupted

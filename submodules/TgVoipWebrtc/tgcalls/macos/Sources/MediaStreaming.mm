@@ -59,7 +59,6 @@ private:
 
 @end
 
-
 @implementation MediaStreamingVideoSink
 
 - (instancetype)initWithSink:(void (^_Nonnull)(CallVideoFrameData * _Nonnull))sink {

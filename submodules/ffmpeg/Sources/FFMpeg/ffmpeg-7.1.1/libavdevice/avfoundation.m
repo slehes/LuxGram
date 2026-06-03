@@ -1109,8 +1109,6 @@ static int copy_cvpixelbuffer(AVFormatContext *s,
                                      src_data, src_linesize,
                                      ctx->pixel_format, width, height, 1);
 
-
-
     CVPixelBufferUnlockBaseAddress(image_buffer, 0);
 
     return status;

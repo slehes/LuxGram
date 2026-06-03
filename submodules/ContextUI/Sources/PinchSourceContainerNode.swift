@@ -128,7 +128,6 @@ public final class PinchSourceGesture: UIPinchGestureRecognizer {
     }
 }
 
-
 public final class PinchSourceContainerNode: ASDisplayNode, ASGestureRecognizerDelegate {
     public let contentNode: ASDisplayNode
     public var contentRect: CGRect = CGRect()

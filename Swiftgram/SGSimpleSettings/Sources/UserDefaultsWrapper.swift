@@ -108,8 +108,6 @@ public class UserDefault<T> /*where T: AllowedUserDefaultTypes*/ {
 //    }
 //}
 
-
-
 //  Based on ConcurrentDictionary.swift from https://github.com/peterprokop/SwiftConcurrentCollections
 
 /// Thread-safe UserDefaults dictionary wrapper
@@ -382,7 +380,6 @@ public class UserDefaultsBackedDictionary<Key: Hashable, Value> {
     }
 
 }
-
 
 #if DEBUG
 private let queue = DispatchQueue(label: "app.swiftgram.ios.trace", qos: .utility)

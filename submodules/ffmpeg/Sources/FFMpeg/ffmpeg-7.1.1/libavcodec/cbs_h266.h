@@ -343,7 +343,6 @@ typedef struct H266RawSPS {
     uint8_t  sps_subpic_id_mapping_present_flag;
     uint32_t sps_subpic_id[VVC_MAX_SLICES];
 
-
     uint8_t  sps_bitdepth_minus8;
     uint8_t  sps_entropy_coding_sync_enabled_flag;
     uint8_t  sps_entry_point_offsets_present_flag;

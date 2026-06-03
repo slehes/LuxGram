@@ -3,7 +3,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public typealias AdminLogEventId = Int64
 
 public struct AdminLogEvent: Comparable {

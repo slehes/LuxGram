@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public enum ChannelMembersCategoryFilter {
     case all
     case search(String)

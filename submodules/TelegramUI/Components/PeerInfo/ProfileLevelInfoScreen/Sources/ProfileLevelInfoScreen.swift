@@ -496,9 +496,6 @@ private final class SheetContent: Component {
     }
 }
 
-
-
-
 private final class ProfileLevelInfoSheetComponent: CombinedComponent {
     typealias EnvironmentType = ViewControllerComponentContainer.Environment
     

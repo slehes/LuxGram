@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Local stars balance: edit amount
 import Foundation
 import UIKit
 import Display

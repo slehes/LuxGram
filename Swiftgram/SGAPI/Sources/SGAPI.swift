@@ -61,8 +61,6 @@ public func getSGSettings(token: String) -> Signal<SGWebSettings, SGAPIError> {
     }
 }
 
-
-
 public func postSGSettings(token: String, data: [String:Any]) -> Signal<Void, SGAPIError> {
     return Signal { subscriber in
 
@@ -143,7 +141,6 @@ public func getSGAPIRegDate(token: String, deviceToken: String, userId: Int64) -
         }
     }
 }
-
 
 public func postSGReceipt(token: String, deviceToken: String, encodedReceiptData: Data) -> Signal<Void, SGAPIError> {
     return Signal { subscriber in

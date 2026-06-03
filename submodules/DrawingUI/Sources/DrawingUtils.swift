@@ -163,7 +163,6 @@ extension CGPoint {
     }
 }
 
-
 extension CGPath {
     static func star(in rect: CGRect, extrusion: CGFloat, points: Int = 5) -> CGPath {
         func pointFrom(angle: CGFloat, radius: CGFloat, offset: CGPoint) -> CGPoint {

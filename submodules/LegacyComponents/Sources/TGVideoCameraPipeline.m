@@ -467,7 +467,6 @@ const NSInteger TGVideoCameraRetainedBufferCount = 16;
     return image;
 }
 
-
 - (void)renderVideoSampleBuffer:(CMSampleBufferRef)sampleBuffer
 {
 	TGVideoCameraRendererBuffer *renderedPixelBuffer = nil;
@@ -972,7 +971,6 @@ static CGFloat angleOffsetFromPortraitOrientationToOrientation(AVCaptureVideoOri
         _videoBufferOrientation = _videoConnection.videoOrientation;
     }];
 }
-
 
 - (void)_enableLowLightBoost
 {

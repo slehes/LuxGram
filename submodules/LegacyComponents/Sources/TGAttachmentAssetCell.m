@@ -116,7 +116,6 @@
     [self setSignal:signal];
 }
 
-
 - (void)setSignal:(SSignal *)signal
 {
     if (signal != nil)

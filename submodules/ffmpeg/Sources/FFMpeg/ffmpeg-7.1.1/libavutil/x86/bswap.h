@@ -54,7 +54,6 @@ static inline uint64_t av_const av_bswap64(uint64_t x)
 }
 #endif
 
-
 #elif HAVE_INLINE_ASM
 
 #ifdef __INTEL_COMPILER

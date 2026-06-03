@@ -56,7 +56,6 @@ namespace WelsDec {
 
 void  DeblockingInit (PDeblockingFunc pDeblockingFunc,  int32_t iCpu);
 
-
 /*!
  * \brief   deblocking filtering target slice
  *

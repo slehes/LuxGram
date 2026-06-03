@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension TelegramUserPresence {
     convenience init(apiStatus: Api.UserStatus) {
         switch apiStatus {

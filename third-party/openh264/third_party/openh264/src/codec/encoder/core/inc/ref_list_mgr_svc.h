@@ -83,7 +83,6 @@ bool WelsBuildRefList (sWelsEncCtx* pCtx, const int32_t kiPOC, int32_t iBestLtrR
  */
 void WelsUpdateRefSyntax (sWelsEncCtx* pCtx, const int32_t kiPOC, const int32_t kiFrameType);
 
-
 /*
 * check current mark iFrameNum used in LTR list or not
 */

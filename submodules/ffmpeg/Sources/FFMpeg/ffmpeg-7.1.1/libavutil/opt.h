@@ -800,7 +800,6 @@ int av_opt_set_from_string(void *ctx, const char *opts,
  */
 int av_opt_set_dict(void *obj, struct AVDictionary **options);
 
-
 /**
  * Set all the options from a given dictionary on an object.
  *

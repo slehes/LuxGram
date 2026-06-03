@@ -120,7 +120,6 @@ final class StoryTopItemsTable: Table {
     }
 }
 
-
 final class StoryItemsTable: Table {
     enum Event {
         case replace(peerId: PeerId)

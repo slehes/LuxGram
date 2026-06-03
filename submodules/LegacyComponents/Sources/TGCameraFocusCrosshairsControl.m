@@ -284,7 +284,6 @@
     _wrapperView.hidden = !active;
 }
 
-
 - (void)setIgnoreAutofocusing:(bool)ignoreAutofocusing
 {
     _ignoreAutofocusing = ignoreAutofocusing;

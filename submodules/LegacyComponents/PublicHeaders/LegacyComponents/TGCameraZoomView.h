@@ -15,7 +15,6 @@
 
 @end
 
-
 @interface TGCameraZoomModeView : UIView
 
 @property (nonatomic, assign) UIInterfaceOrientation interfaceOrientation;
@@ -32,7 +31,6 @@
 - (instancetype)initWithFrame:(CGRect)frame zoomLevels:(NSArray<NSNumber *> *)zoomLevels minZoomLevel:(CGFloat)minZoomLevel maxZoomLevel:(CGFloat)maxZoomLevel;
 
 @end
-
 
 @interface TGCameraZoomWheelView : UIView
 

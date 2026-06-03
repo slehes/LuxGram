@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public struct SecretChatSettings: Equatable, Codable {
     public private(set) var acceptOnThisDevice: Bool
     

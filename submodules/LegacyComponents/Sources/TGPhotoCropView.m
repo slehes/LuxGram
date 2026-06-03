@@ -55,7 +55,6 @@ const CGFloat TGPhotoCropViewOverscreenSize = 1000;
 
 @implementation TGPhotoCropView
 
-
 - (instancetype)initWithOriginalSize:(CGSize)originalSize hasArbitraryRotation:(bool)hasArbitraryRotation
 {
     self = [self initWithFrame:CGRectZero];

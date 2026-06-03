@@ -507,7 +507,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 public class PremiumPrivacyScreen: ViewControllerComponentContainer {
     public enum Subject: Equatable {
         case presence

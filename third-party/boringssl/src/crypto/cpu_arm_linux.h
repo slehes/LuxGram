@@ -25,7 +25,6 @@
 extern "C" {
 #endif
 
-
 // The cpuinfo parser lives in a header file so it may be accessible from
 // cross-platform fuzzers without adding code to those platforms normally.
 
@@ -154,7 +153,6 @@ static unsigned long crypto_get_arm_hwcap2_from_cpuinfo(
   }
   return ret;
 }
-
 
 #if defined(__cplusplus)
 }  // extern C

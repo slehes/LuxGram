@@ -14,7 +14,6 @@ func managedAudioSessionLog(_ what: @autoclosure () -> String) {
     managedAudioSessionLogger(what())
 }
 
-
 public enum ManagedAudioSessionType: Equatable {
     case ambient
     case play(mixWithOthers: Bool)

@@ -98,7 +98,6 @@ enum {
     RC_MODE_MAX = RC_MODE_QVBR,
 };
 
-
 typedef struct D3D12VAEncodeRCMode {
     /**
      * Mode from above enum (RC_MODE_*).

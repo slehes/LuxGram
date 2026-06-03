@@ -847,7 +847,6 @@ final class ChatItemGalleryFooterContentNode: GalleryFooterContentNode, ASScroll
         }
         var canFullscreen = false
         var canDelete: Bool
-        // MARK: - LuxGram - Allow sharing self-destructing messages if enabled
         let canSaveSecretMedia: Bool
         #if canImport(SGSimpleSettings)
         canSaveSecretMedia = SGSimpleSettings.shared.enableSavingSelfDestructingMessages
@@ -934,7 +933,6 @@ final class ChatItemGalleryFooterContentNode: GalleryFooterContentNode, ASScroll
             canEdit = false
         }
         
-        // MARK: - LuxGram - Allow saving protected content and self-destructing messages if enabled
         let canSaveProtectedContent: Bool
         #if canImport(SGSimpleSettings)
         canSaveProtectedContent = SGSimpleSettings.shared.enableSavingProtectedContent || SGSimpleSettings.shared.enableSavingSelfDestructingMessages
@@ -966,7 +964,6 @@ final class ChatItemGalleryFooterContentNode: GalleryFooterContentNode, ASScroll
                 canShare = true
             }
         }
-        // MARK: - End LuxGram
         
         if let _ = message.adAttribute {
             displayInfo = false

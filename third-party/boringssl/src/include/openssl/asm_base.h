@@ -17,7 +17,6 @@
 
 #include <openssl/target.h>
 
-
 // This header contains symbols and common sections used by assembly files. It
 // is included as a public header to simplify the build, but is not intended for
 // external use.

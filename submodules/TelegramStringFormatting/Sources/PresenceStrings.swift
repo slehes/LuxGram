@@ -648,7 +648,6 @@ public func userPresenceStringRefreshTimeout(_ presence: TelegramUserPresence, r
     }
 }
 
-
 public func stringForRemainingMuteInterval(strings: PresentationStrings, muteInterval value: Int32) -> String {
     let timestamp = Int32(CFAbsoluteTimeGetCurrent() + NSTimeIntervalSince1970)
     let value = max(1 * 60, value - timestamp)

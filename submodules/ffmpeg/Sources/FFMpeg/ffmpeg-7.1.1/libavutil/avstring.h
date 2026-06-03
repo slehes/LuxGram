@@ -347,7 +347,6 @@ enum AVEscapeMode {
  */
 #define AV_ESCAPE_FLAG_XML_DOUBLE_QUOTES (1 << 3)
 
-
 /**
  * Escape string in src, and put the escaped string in an allocated
  * string in *dst, which must be freed with av_free().

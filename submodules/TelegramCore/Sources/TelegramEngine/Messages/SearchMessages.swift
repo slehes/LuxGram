@@ -346,7 +346,6 @@ func _internal_searchMessages(account: Account, location: SearchMessagesLocation
                     if let readState = transaction.getCombinedPeerReadState(peerId) {
                         readStates[peerId] = readState
                     }
-                    // MARK: Swiftgram
                     var result: [Message] = []
                     if forceLocal {
                         transaction.withAllMessages(peerId: peerId, reversed: true, { message in
@@ -357,7 +356,6 @@ func _internal_searchMessages(account: Account, location: SearchMessagesLocation
                                 return true
                             }
                             #if canImport(SGDeletedMessages)
-                            // MARK: - LuxGram - Include deleted messages in search if feature is enabled
                             if !SGDeletedMessages.showDeletedMessages && message.sgDeletedAttribute.isDeleted {
                                 return true
                             }
@@ -370,7 +368,6 @@ func _internal_searchMessages(account: Account, location: SearchMessagesLocation
                     } else {
                         result = transaction.searchMessages(peerId: peerId, query: query, tags: tags)
                         #if canImport(SGDeletedMessages)
-                        // MARK: LuxGram - Filter out deleted messages from search results if feature is disabled
                         if !SGDeletedMessages.showDeletedMessages {
                             result = result.filter { !$0.sgDeletedAttribute.isDeleted }
                         }
@@ -618,7 +615,6 @@ func _internal_searchMessages(account: Account, location: SearchMessagesLocation
                                 match = false
                             }
                             #if canImport(SGDeletedMessages)
-                            // MARK: - LuxGram - Include deleted messages in search if feature is enabled
                             if !SGDeletedMessages.showDeletedMessages && message.sgDeletedAttribute.isDeleted {
                                 match = false
                             }

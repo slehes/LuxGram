@@ -65,7 +65,6 @@
 extern "C" {
 #endif
 
-
 // CRYPTO_refcount_t is the type of a reference count.
 //
 // Since some platforms use C11 atomics to access this, it should have the
@@ -74,7 +73,6 @@ extern "C" {
 // do that. Instead we statically assert that the size and native alignment of
 // a plain uint32_t and an _Atomic uint32_t are equal in refcount.c.
 typedef uint32_t CRYPTO_refcount_t;
-
 
 // Deprecated functions.
 //
@@ -157,7 +155,6 @@ OPENSSL_EXPORT void (*CRYPTO_get_dynlock_lock_callback(void))(
 // CRYPTO_get_dynlock_destroy_callback returns NULL.
 OPENSSL_EXPORT void (*CRYPTO_get_dynlock_destroy_callback(void))(
     struct CRYPTO_dynlock_value *l, const char *file, int line);
-
 
 #if defined(__cplusplus)
 }  // extern C

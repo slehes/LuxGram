@@ -162,5 +162,4 @@ enum {
     HEVC_MAX_PALETTE_PREDICTOR_SIZE = 128,
 };
 
-
 #endif /* AVCODEC_HEVC_HEVC_H */

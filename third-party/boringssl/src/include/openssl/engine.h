@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // Engines are collections of methods. Methods are tables of function pointers,
 // defined for certain algorithms, that allow operations on those algorithms to
 // be overridden via a callback. This can be used, for example, to implement an
@@ -32,7 +31,6 @@ extern "C" {
 // you wish before setting it on an |ENGINE|. Any functions pointers that
 // are NULL indicate that the default behaviour should be used.
 
-
 // Allocation and destruction.
 
 // ENGINE_new returns an empty ENGINE that uses the default method for all
@@ -42,7 +40,6 @@ OPENSSL_EXPORT ENGINE *ENGINE_new(void);
 // ENGINE_free decrements the reference counts for all methods linked from
 // |engine| and frees |engine| itself. It returns one.
 OPENSSL_EXPORT int ENGINE_free(ENGINE *engine);
-
 
 // Method accessors.
 //
@@ -63,7 +60,6 @@ OPENSSL_EXPORT int ENGINE_set_ECDSA_method(ENGINE *engine,
                                            size_t method_size);
 OPENSSL_EXPORT ECDSA_METHOD *ENGINE_get_ECDSA_method(const ENGINE *engine);
 
-
 // Generic method functions.
 //
 // These functions take a void* type but actually operate on all method
@@ -78,7 +74,6 @@ void METHOD_ref(void *method);
 // are currently static.
 void METHOD_unref(void *method);
 
-
 // Private functions.
 
 // openssl_method_common_st contains the common part of all method structures.
@@ -87,7 +82,6 @@ struct openssl_method_common_st {
   int references;  // dummy – not used.
   char is_static;
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -47,7 +47,6 @@
 #include "WelsFrameWork.h"
 #include "IWelsVP.h"
 
-
 #define DENOISE_GRAY_RADIUS (1)
 #define DENOISE_GRAY_SIGMA  (2)
 
@@ -58,7 +57,6 @@
 #define DENOISE_U_COMPONENT (2)
 #define DENOISE_V_COMPONENT (4)
 #define DENOISE_ALL_COMPONENT (7)
-
 
 WELSVP_NAMESPACE_BEGIN
 

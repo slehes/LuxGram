@@ -405,7 +405,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 final class TransactionInfoScreen: ViewControllerComponentContainer {
     private let context: AccountContext
         

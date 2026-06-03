@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import class SwiftUI.UIHostingController
 import SGSimpleSettings
 import SGInputToolbar
@@ -608,7 +607,6 @@ public final class MessageInputPanelComponent: Component {
         private let counter = ComponentView<Empty>()
         private var header: ComponentView<Empty>?
         
-        // MARK: Swiftgram
         private var toolbarView: UIView?
         
         private var disabledPlaceholder: ComponentView<Empty>?
@@ -715,7 +713,6 @@ public final class MessageInputPanelComponent: Component {
                 }
             )
             
-            // MARK: Swiftgram
             self.initToolbarIfNeeded(context: context)
         }
         
@@ -926,7 +923,6 @@ public final class MessageInputPanelComponent: Component {
                 return panelResult
             }
             
-            // MARK: Swiftgram
             if result == nil, let toolbarView = self.toolbarView, let toolbarResult = toolbarView.hitTest(self.convert(point, to: toolbarView), with: event) {
                 return toolbarResult
             }
@@ -2999,7 +2995,6 @@ public final class MessageInputPanelComponent: Component {
                 }
             }
             
-            // MARK: Swiftgram
             size = self.layoutToolbar(transition: transition, layoutFromTop: layoutFromTop, size: size, availableSize: availableSize, defaultInsets: defaultInsets, textFieldSize: textFieldSize, previousComponent: previousComponent)
             
             return size
@@ -3055,7 +3050,6 @@ final class ViewForOverlayContent: UIView {
         return nil
     }
 }
-
 
 extension MessageInputPanelComponent.View {
     func initToolbarIfNeeded(context: AccountContext) {

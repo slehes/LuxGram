@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 // PKCS#7.
 //
 // This library contains functions for extracting information from PKCS#7
@@ -99,7 +98,6 @@ OPENSSL_EXPORT int PKCS7_get_PEM_certificates(STACK_OF(X509) *out_certs,
 // |*out_crls| and may need to search for matches.
 OPENSSL_EXPORT int PKCS7_get_PEM_CRLs(STACK_OF(X509_CRL) *out_crls,
                                       BIO *pem_bio);
-
 
 // Deprecated functions.
 //
@@ -217,7 +215,6 @@ OPENSSL_EXPORT int PKCS7_type_is_signedAndEnveloped(const PKCS7 *p7);
 // function. It is provided for backwards compatibility only.
 OPENSSL_EXPORT PKCS7 *PKCS7_sign(X509 *sign_cert, EVP_PKEY *pkey,
                                  STACK_OF(X509) *certs, BIO *data, int flags);
-
 
 #if defined(__cplusplus)
 }  // extern C

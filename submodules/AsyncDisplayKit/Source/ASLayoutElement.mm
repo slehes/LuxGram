@@ -310,7 +310,6 @@ ASSynthesizeLockingMethodsWithMutex(__instanceLock__)
   ASLayoutElementStyleCallDelegate(ASLayoutElementStyleMaxHeightProperty);
 }
 
-
 #pragma mark - ASLayoutElementStyleSizeHelpers
 
 - (void)setPreferredSize:(CGSize)preferredSize

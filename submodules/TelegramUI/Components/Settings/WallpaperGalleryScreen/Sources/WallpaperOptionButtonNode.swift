@@ -269,7 +269,6 @@ final class WallpaperNavigationButtonNode: HighlightTrackingButtonNode {
     }
 }
 
-
 public final class WallpaperOptionButtonNode: HighlightTrackingButtonNode {
     let backgroundNode: WallpaperOptionBackgroundNode
     

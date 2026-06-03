@@ -21,9 +21,7 @@
 extern "C" {
 #endif
 
-
 // Dilithium3.
-
 
 // DILITHIUM_private_key contains a Dilithium3 private key. The contents of this
 // object should never leave the address space since the format is unstable.
@@ -77,7 +75,6 @@ OPENSSL_EXPORT int DILITHIUM_verify(
     const uint8_t encoded_signature[DILITHIUM_SIGNATURE_BYTES],
     const uint8_t *msg, size_t msg_len);
 
-
 // Serialisation of keys.
 
 // DILITHIUM_marshal_public_key serializes |public_key| to |out| in the standard
@@ -105,7 +102,6 @@ OPENSSL_EXPORT int DILITHIUM_marshal_private_key(
 // there are trailing bytes in |in|.
 OPENSSL_EXPORT int DILITHIUM_parse_private_key(
     struct DILITHIUM_private_key *private_key, CBS *in);
-
 
 #if defined(__cplusplus)
 }  // extern C

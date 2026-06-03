@@ -287,7 +287,6 @@ private final class ValueItemNode: ASDisplayNode {
     }
 }
 
-
 class StatsOverviewItemNode: ListViewItemNode {
     private let backgroundNode: ASDisplayNode
     private let topStripeNode: ASDisplayNode

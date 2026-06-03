@@ -41,7 +41,6 @@ enum lex_type {
   lex_empty
 };
 
-
 struct curlex {
   char *ptr;
   int len;
@@ -57,7 +56,6 @@ struct parse {
   int line_pos;
   struct curlex lex;
 };
-
 
 enum tree_type {
   type_tl_program,
@@ -112,7 +110,6 @@ struct tree {
   struct tree **c;
 };
 
-
 #define TL_ACT(x) (x == act_var ? "act_var" : x == act_field ? "act_field" : x == act_plus ? "act_plus" : x == act_type ? "act_type" : x == act_nat_const ? "act_nat_const" : x == act_array ? "act_array" : x == act_question_mark ? "act_question_mark" : \
     x == act_union ? "act_union" : x == act_arg ? "act_arg" : x == act_opt_field ? "act_opt_field" : "act_unknown")
 
@@ -148,7 +145,6 @@ struct tl_combinator_tree {
   int type_len;
   long long type_flags;
 };
-
 
 struct tl_program {
   int types_num;

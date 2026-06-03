@@ -2086,7 +2086,6 @@ private extension PeerColor {
     }
 }
 
-
 final class TopBottomCornersComponent: Component {
     private let topCornerRadius: CGFloat
     private let bottomCornerRadius: CGFloat

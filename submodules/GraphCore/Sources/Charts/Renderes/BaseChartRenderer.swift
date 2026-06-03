@@ -26,7 +26,6 @@ public protocol ChartViewRenderer: AnyObject {
     func render(context: CGContext, bounds: CGRect, chartFrame: CGRect)
 }
 
-
 private let exponentialAnimationTrashold: CGFloat = 100
 
 class BaseChartRenderer: ChartViewRenderer {

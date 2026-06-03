@@ -12,7 +12,6 @@
 #import <AsyncDisplayKit/ASInternalHelpers.h>
 #import <AsyncDisplayKit/ASAvailability.h>
 
-
 #if AS_AT_LEAST_IOS13
 #define ASPerformBlockWithTraitCollection(work, traitCollection) \
     if (@available(iOS 13.0, tvOS 13.0, *)) { \
@@ -26,7 +25,6 @@
 #else
 #define ASPerformBlockWithTraitCollection(work, traitCollection) work();
 #endif
-
 
 NS_AVAILABLE_IOS(10)
 NS_INLINE void ASConfigureExtendedRange(UIGraphicsImageRendererFormat *format)

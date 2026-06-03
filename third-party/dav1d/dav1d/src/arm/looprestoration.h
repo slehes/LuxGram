@@ -361,7 +361,6 @@ static void sgr_box3_hv_neon(int32_t **sumsq, int16_t **sum,
     sgr_box3_vert_neon(sumsq, sum, AA, BB, w, s, bitdepth_max);
 }
 
-
 static void sgr_finish1_neon(pixel **dst, const ptrdiff_t stride,
                              int32_t **A_ptrs, int16_t **B_ptrs, const int w,
                              const int w1 HIGHBD_DECL_SUFFIX) {
@@ -401,7 +400,6 @@ static void sgr_finish_mix_neon(pixel **dst, const ptrdiff_t stride,
     rotate_ab_2(A5_ptrs, B5_ptrs);
     rotate_ab_4(A3_ptrs, B3_ptrs);
 }
-
 
 static void sgr_filter_3x3_neon(pixel *dst, const ptrdiff_t stride,
                                 const pixel (*left)[4], const pixel *lpf,
@@ -1092,7 +1090,6 @@ vert_1:
 }
 
 #endif
-
 
 static ALWAYS_INLINE void loop_restoration_dsp_init_arm(Dav1dLoopRestorationDSPContext *const c, int bpc) {
     const unsigned flags = dav1d_get_cpu_flags();

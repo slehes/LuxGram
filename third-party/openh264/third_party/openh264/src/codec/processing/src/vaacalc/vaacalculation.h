@@ -74,7 +74,6 @@ typedef void (VAACalcSadSsdFunc) (const uint8_t* pCurData, const uint8_t* pRefDa
                                   int32_t iPicStride,
                                   int32_t* pFrameSad, int32_t* pSad8x8, int32_t* pSum16x16, int32_t* pSumSquare16x16, int32_t* pSsd16x16);
 
-
 typedef VAACalcSadBgdFunc*       PVAACalcSadBgdFunc;
 typedef VAACalcSadSsdBgdFunc*    PVAACalcSadSsdBgdFunc;
 typedef VAACalcSadFunc*          PVAACalcSadFunc;
@@ -89,13 +88,11 @@ typedef  struct TagVaaFuncs {
   PVAACalcSadSsdFunc    pfVAACalcSadSsd;
 } SVaaFuncs;
 
-
 VAACalcSadBgdFunc       VAACalcSadBgd_c;
 VAACalcSadSsdBgdFunc    VAACalcSadSsdBgd_c;
 VAACalcSadFunc          VAACalcSad_c;
 VAACalcSadVarFunc       VAACalcSadVar_c;
 VAACalcSadSsdFunc       VAACalcSadSsd_c;
-
 
 #ifdef X86_ASM
 WELSVP_EXTERN_C_BEGIN

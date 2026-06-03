@@ -15,7 +15,6 @@
 
 #import <AVFoundation/AVFoundation.h>
 
-
 @interface TGAttachmentCameraView ()
 {
     UIView *_wrapperView;

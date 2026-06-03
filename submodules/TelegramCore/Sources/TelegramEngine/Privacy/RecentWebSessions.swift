@@ -3,7 +3,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public struct WebAuthorization : Equatable {
     public let hash: Int64
     public let botId: PeerId
@@ -49,7 +48,6 @@ func webSessions(network: Network) -> Signal<([WebAuthorization], [PeerId: Peer]
     }
 }
 
-
 func terminateWebSession(network: Network, hash: Int64) -> Signal<Bool, NoError> {
     return network.request(Api.functions.account.resetWebAuthorization(hash: hash))
     |> retryRequest
@@ -62,8 +60,6 @@ func terminateWebSession(network: Network, hash: Int64) -> Signal<Bool, NoError>
         }
     }
 }
-
-
 
 func terminateAllWebSessions(network: Network) -> Signal<Void, NoError> {
     return network.request(Api.functions.account.resetWebAuthorizations())

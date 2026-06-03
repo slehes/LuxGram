@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 private let phoneNumberKeyPrefix: ValueBoxKey = {
     let result = ValueBoxKey(length: 1)
     result.setInt8(0, value: 0)

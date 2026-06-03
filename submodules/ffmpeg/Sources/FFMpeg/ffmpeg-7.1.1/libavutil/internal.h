@@ -73,7 +73,6 @@
 #    define FF_ENABLE_DEPRECATION_WARNINGS
 #endif
 
-
 #define FF_ALLOC_TYPED_ARRAY(p, nelem)  (p = av_malloc_array(nelem, sizeof(*p)))
 #define FF_ALLOCZ_TYPED_ARRAY(p, nelem) (p = av_calloc(nelem, sizeof(*p)))
 

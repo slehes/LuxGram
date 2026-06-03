@@ -258,7 +258,6 @@ void av_log(void *avcl, int level, const char *fmt, ...) av_printf_format(3, 4);
  */
 void av_log_once(void* avcl, int initial_level, int subsequent_level, int *state, const char *fmt, ...) av_printf_format(5, 6);
 
-
 /**
  * Send the specified message to the log if the level is less than or equal
  * to the current av_log_level. By default, all logging messages are sent to

@@ -249,8 +249,6 @@ final class ViewFinderLayer: SimpleLayer {
     }
 }
 
-
-
 final class TransitionLayer: SimpleLayer {
     private var segmentLayers: [SimpleShapeLayer] = []
     

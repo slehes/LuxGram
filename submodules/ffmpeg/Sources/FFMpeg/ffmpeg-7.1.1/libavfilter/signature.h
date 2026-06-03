@@ -141,7 +141,6 @@ typedef struct SignatureContext {
     StreamContext* streamcontexts;
 } SignatureContext;
 
-
 static const Block elem_a1_data[] = {
     {{ 0, 0},{ 7, 7}},
     {{ 8, 0},{15, 7}},

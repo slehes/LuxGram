@@ -369,7 +369,6 @@ class ThemeGridThemeItem: ListViewItem, ItemListItem {
     }
 }
 
-
 class ThemeGridThemeItemNode: ListViewItemNode, ItemListItemNode {
     private let containerNode: ASDisplayNode
     private let backgroundNode: ASDisplayNode

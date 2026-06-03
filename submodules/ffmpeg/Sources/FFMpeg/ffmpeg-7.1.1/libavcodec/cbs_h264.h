@@ -27,7 +27,6 @@
 #include "cbs_sei.h"
 #include "h264.h"
 
-
 typedef struct H264RawNALUnitHeader {
     uint8_t nal_ref_idc;
     uint8_t nal_unit_type;
@@ -419,7 +418,6 @@ typedef struct H264RawFiller {
 
     uint32_t filler_size;
 } H264RawFiller;
-
 
 typedef struct CodedBitstreamH264Context {
     // Reader/writer context in common with the H.265 implementation.

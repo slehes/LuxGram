@@ -1636,7 +1636,6 @@ static UIImage *startImage = nil;
 
 @end
 
-
 @implementation TGVideoMessageCaptureControllerWindow
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event

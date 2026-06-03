@@ -55,8 +55,6 @@ static const NSTimeInterval MTTcpTransportSleepWatchdogTimeout = 60.0;
 
 @implementation MTTcpTransportContext
 
-
-
 @end
 
 @interface MTTcpTransport () <MTTcpConnectionDelegate, MTTcpConnectionBehaviourDelegate>

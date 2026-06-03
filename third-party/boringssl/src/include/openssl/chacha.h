@@ -25,7 +25,6 @@ extern "C" {
 //
 // ChaCha20 is a stream cipher. See https://tools.ietf.org/html/rfc8439.
 
-
 // CRYPTO_chacha_20 encrypts |in_len| bytes from |in| with the given key and
 // nonce and writes the result to |out|. If |in| and |out| alias, they must be
 // equal. The initial block counter is specified by |counter|.
@@ -38,7 +37,6 @@ extern "C" {
 OPENSSL_EXPORT void CRYPTO_chacha_20(uint8_t *out, const uint8_t *in,
                                      size_t in_len, const uint8_t key[32],
                                      const uint8_t nonce[12], uint32_t counter);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -138,7 +138,6 @@ void MvdCostInit (uint16_t* pMvdCostInter, const int32_t kiMvdSz);
 
 void PredictSad (int8_t* pRefIndexCache, int32_t* pSadCostCache, int32_t uiRef, int32_t* pSadPred);
 
-
 void PredictSadSkip (int8_t* pRefIndexCache, bool* pMbSkipCache, int32_t* pSadCostCache, int32_t uiRef,
                      int32_t* iSadPredSkip);
 
@@ -147,7 +146,6 @@ void InitIntraAnalysisVaaInfo (SWelsFuncPtrList* pFuncList, const uint32_t kuiCp
 bool MdIntraAnalysisVaaInfo (sWelsEncCtx* pEncCtx, uint8_t* pEncMb);
 
 uint8_t MdInterAnalysisVaaInfo_c (int32_t* pSad8x8);
-
 
 void InitMeRefinePointer (SMeRefinePointer* pMeRefine, SMbCache* pMbCache, int32_t iStride);
 void MeRefineFracPixel (sWelsEncCtx* pEncCtx, uint8_t* pMemPredInterMb, SWelsME* pMe,

@@ -392,8 +392,6 @@ private:
    }
 };
 
-
-
 class LOTPaintDataItem : public LOTContentItem
 {
 public:
@@ -477,7 +475,6 @@ private:
    std::vector<float>            mDashInfo;
 };
 
-
 // Trim Item
 
 class LOTTrimItem : public LOTContentItem
@@ -517,7 +514,5 @@ private:
    int                          mCopies{0};
 };
 
-
 #endif // LOTTIEITEM_H
-
 

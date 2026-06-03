@@ -52,7 +52,6 @@ extern "C" {
 //
 // If you don't know or care about the units stuff, "px" and 96 should get you going.
 
-
 /* Example Usage:
 	// Load SVG
 	NSVGimage* image;
@@ -214,7 +213,6 @@ void nsvgDelete(NSVGimage* image);
 	#define NSVG_INLINE inline
 #endif
 
-
 static int nsvg__isspace(char c)
 {
 	return strchr(" \t\n\v\f\r", c) != 0;
@@ -232,7 +230,6 @@ static int nsvg__isnum(char c)
 
 static NSVG_INLINE float nsvg__minf(float a, float b) { return a < b ? a : b; }
 static NSVG_INLINE float nsvg__maxf(float a, float b) { return a > b ? a : b; }
-
 
 // Simple XML parser
 
@@ -357,7 +354,6 @@ int nsvg__parseXML(char* input,
 
 	return 1;
 }
-
 
 /* Simple SVG parser. */
 
@@ -557,7 +553,6 @@ static int nsvg__ptInBounds(float* pt, float* bounds)
 {
 	return pt[0] >= bounds[0] && pt[0] <= bounds[2] && pt[1] >= bounds[1] && pt[1] <= bounds[3];
 }
-
 
 static double nsvg__evalBezier(double t, double p0, double p1, double p2, double p3)
 {
@@ -1141,7 +1136,6 @@ static double nsvg__atof(const char* s)
 	return res * sign;
 }
 
-
 static const char* nsvg__parseNumber(const char* s, char* it, const int size)
 {
 	const int last = size-1;
@@ -1506,7 +1500,6 @@ static int nsvg__parseTransformArgs(const char* str, float* args, int maxNa, int
 	}
 	return (int)(end - str);
 }
-
 
 static int nsvg__parseMatrix(float* xform, const char* str)
 {

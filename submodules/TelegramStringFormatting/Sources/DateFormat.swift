@@ -148,16 +148,6 @@ public func roundDateToDays(_ timestamp: Int32) -> Int32 {
     return Int32(date.timeIntervalSince1970)
 }
 
-
-
-
-
-
-
-
-
-
-// MARK: Swiftgram
 public func stringForDateWithoutDay(date: Date, timeZone: TimeZone? = TimeZone(secondsFromGMT: 0), strings: PresentationStrings) -> String {
     let formatter = DateFormatter()
     formatter.timeStyle = .none
@@ -166,7 +156,6 @@ public func stringForDateWithoutDay(date: Date, timeZone: TimeZone? = TimeZone(s
     formatter.setLocalizedDateFormatFromTemplate("MMMMyyyy")
     return formatter.string(from: date)
 }
-
 
 public func stringForDateWithoutDayAndMonth(date: Date, timeZone: TimeZone? = TimeZone(secondsFromGMT: 0), strings: PresentationStrings) -> String {
     let formatter = DateFormatter()

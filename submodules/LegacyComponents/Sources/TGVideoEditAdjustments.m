@@ -147,7 +147,6 @@ const NSTimeInterval TGVideoEditMaximumTelescopeDuration = 60;
     return adjustments;
 }
 
-
 + (instancetype)editAdjustmentsWithPhotoEditorValues:(PGPhotoEditorValues *)values preset:(TGMediaVideoConversionPreset)preset {
     TGVideoEditAdjustments *adjustments = [[[self class] alloc] init];
     adjustments->_originalSize = values.originalSize;

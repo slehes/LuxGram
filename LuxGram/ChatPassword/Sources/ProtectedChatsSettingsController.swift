@@ -1,4 +1,3 @@
-// MARK: LuxGram - Password for selected chats/folders settings
 import Foundation
 import UIKit
 import Display
@@ -9,8 +8,6 @@ import ItemListUI
 import PresentationDataUtils
 import AccountContext
 import PasscodeUI
-
-// MARK: - LuxGram
 
 private enum ProtectedChatsEntry: ItemListNodeEntry {
     case enabled(String, Bool)

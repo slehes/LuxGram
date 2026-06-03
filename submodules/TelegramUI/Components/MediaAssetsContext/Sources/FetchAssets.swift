@@ -9,7 +9,6 @@ private let imageManager: PHCachingImageManager = {
     return imageManager
 }()
 
-
 private let assetsQueue = Queue()
 
 public final class AssetDownloadManager {

@@ -159,7 +159,6 @@ class CallKitProviderDelegate: NSObject, CXProviderDelegate {
     }
     
     private static func providerConfiguration() -> CXProviderConfiguration {
-        // MARK: LuxGram
         let providerConfiguration = CXProviderConfiguration(localizedName: "LuxGram")
         
         providerConfiguration.supportsVideo = true

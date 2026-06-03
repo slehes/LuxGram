@@ -8,7 +8,6 @@ import SGSimpleSettings
 #endif
 
 func _internal_markMessageContentAsConsumedInteractively(postbox: Postbox, messageId: MessageId) -> Signal<Void, NoError> {
-    // MARK: - LuxGram - Prevent self-destruct timer if saving self-destructing messages is enabled
     #if canImport(SGSimpleSettings)
     if SGSimpleSettings.shared.enableSavingSelfDestructingMessages {
         return .complete()

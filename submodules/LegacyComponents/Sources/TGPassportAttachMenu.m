@@ -460,7 +460,6 @@
 
 @end
 
-
 @implementation TGPassportDocumentPickerDelegate
 
 - (instancetype)initWithCompletionBlock:(void (^)(TGPassportDocumentPickerDelegate *, NSArray *))completionBlock

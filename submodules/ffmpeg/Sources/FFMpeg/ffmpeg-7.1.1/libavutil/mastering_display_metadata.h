@@ -24,7 +24,6 @@
 #include "frame.h"
 #include "rational.h"
 
-
 /**
  * Mastering display metadata capable of representing the color volume of
  * the display used to master the content (SMPTE 2086:2014).

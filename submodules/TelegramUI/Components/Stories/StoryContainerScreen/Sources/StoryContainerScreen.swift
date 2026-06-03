@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import TelegramUIPreferences
 import SGSimpleSettings
 
@@ -432,8 +431,7 @@ private final class StoryContainerScreenComponent: Component {
         private var pendingNavigationToItemId: StoryId?
         
         private let storiesWarning = ComponentView<Empty>()
-        private var requestedDisplayStoriesWarning: Bool = SGSimpleSettings.shared.warnOnStoriesOpen // MARK: Swiftgram
-        private var displayStoriesWarningDisposable: Disposable?
+        private var requestedDisplayStoriesWarning: Bool = SGSimpleSettings.shared.warnOnStoriesOpen        private var displayStoriesWarningDisposable: Disposable?
         private var isDisplayingStoriesWarning: Bool = false
         
         private let interactionGuide = ComponentView<Empty>()
@@ -1327,7 +1325,6 @@ private final class StoryContainerScreenComponent: Component {
                     }
                 })
                 
-                // MARK: Swiftgram
                 self.requestedDisplayStoriesWarning = SGSimpleSettings.shared.warnOnStoriesOpen
                 if self.requestedDisplayStoriesWarning {
                     self.isDisplayingStoriesWarning = true
@@ -1993,7 +1990,6 @@ private final class StoryContainerScreenComponent: Component {
                 controller.presentationContext.containerLayoutUpdated(subLayout, transition: transition.containedViewLayoutTransition)
             }
             
-            // MARK: Swiftgram
             if self.isDisplayingStoriesWarning {
                 let _ = self.storiesWarning.update(
                     transition: .immediate,

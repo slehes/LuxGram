@@ -95,7 +95,6 @@ static const CGFloat POPBouncy3FrictionInterpolationMax = 0.01;
                   bounciness1,                                                // x1
                   bounciness2);                                               // x2
 
-
   // Choose the quadratic solution within the normalized bounciness range
   CGFloat projectedNormalizedBounciness = (bounciness2 < POPBouncy3BouncinessNormalizedMax) ? bounciness2 : bounciness1;
   CGFloat projectedNormalizedSpeed = qcTension;

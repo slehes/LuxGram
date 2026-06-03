@@ -2,7 +2,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public func actualizedPeer(accountPeerId: PeerId, postbox: Postbox, network: Network, peer: Peer) -> Signal<Peer, NoError> {
     return postbox.transaction { transaction -> Signal<Peer, NoError> in
         var signal: Signal<Peer, NoError>

@@ -1,4 +1,3 @@
-// MARK: LuxGram - Keychain storage for hidden-account passcodes (Double Bottom)
 import Foundation
 import Security
 

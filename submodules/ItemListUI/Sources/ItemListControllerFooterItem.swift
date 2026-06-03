@@ -18,7 +18,6 @@ open class ItemListControllerFooterItemNode: ASDisplayNode {
     }
 }
 
-
 public protocol ItemListControllerHeaderItem {
     func isEqual(to: ItemListControllerHeaderItem) -> Bool
     func node(current: ItemListControllerHeaderItemNode?) -> ItemListControllerHeaderItemNode

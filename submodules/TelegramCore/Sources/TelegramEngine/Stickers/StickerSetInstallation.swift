@@ -3,7 +3,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public enum RequestStickerSetError {
     case generic
     case invalid
@@ -250,7 +249,6 @@ func _internal_installStickerSetInteractively(account: Account, info: StickerPac
     }
 }
 
-
 func _internal_uninstallStickerSetInteractively(account: Account, info: StickerPackCollectionInfo) -> Signal<Void, NoError> {
     return account.network.request(Api.functions.messages.uninstallStickerSet(stickerset: .inputStickerSetID(.init(id: info.id.id, accessHash: info.accessHash))))
     |> `catch` { _ -> Signal<Api.Bool, NoError> in
@@ -276,5 +274,4 @@ func _internal_uninstallStickerSetInteractively(account: Account, info: StickerP
         }
     }
 }
-
 

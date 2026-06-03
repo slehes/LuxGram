@@ -23,7 +23,6 @@ public struct ApplicationSpecificPreferencesKeys {
 }
 
 private enum ApplicationSpecificSharedDataKeyValues: Int32 {
-    // MARK: Swiftgram
     case sgStatus = 999
     case inAppNotificationSettings = 0
     case presentationPasscodeSettings = 1
@@ -51,7 +50,6 @@ private enum ApplicationSpecificSharedDataKeyValues: Int32 {
 }
 
 public struct ApplicationSpecificSharedDataKeys {
-    // MARK: Swiftgram
     public static let sgStatus = applicationSpecificSharedDataKey(ApplicationSpecificSharedDataKeyValues.sgStatus.rawValue)
     public static let inAppNotificationSettings = applicationSpecificSharedDataKey(ApplicationSpecificSharedDataKeyValues.inAppNotificationSettings.rawValue)
     public static let presentationPasscodeSettings = applicationSpecificSharedDataKey(ApplicationSpecificSharedDataKeyValues.presentationPasscodeSettings.rawValue)

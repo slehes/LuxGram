@@ -827,7 +827,6 @@ final class ContextSourceContainer: ASDisplayNode {
     }
 }
 
-
 private final class CloseButtonComponent: CombinedComponent {
     let backgroundColor: UIColor
     let text: String

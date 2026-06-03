@@ -29,7 +29,6 @@
   */
   typedef struct SW_FT_StrokerRec_*  SW_FT_Stroker;
 
-
   /**************************************************************
    *
    * @enum:
@@ -86,7 +85,6 @@
 
   } SW_FT_Stroker_LineJoin;
 
-
   /**************************************************************
    *
    * @enum:
@@ -116,7 +114,6 @@
     SW_FT_STROKER_LINECAP_SQUARE
 
   } SW_FT_Stroker_LineCap;
-
 
   /**************************************************************
    *
@@ -150,7 +147,6 @@
 
   } SW_FT_StrokerBorder;
 
-
   /**************************************************************
    *
    * @function:
@@ -172,7 +168,6 @@
    */
   SW_FT_Error
   SW_FT_Stroker_New( SW_FT_Stroker  *astroker );
-
 
   /**************************************************************
    *
@@ -243,7 +238,6 @@
   SW_FT_Stroker_ParseOutline( SW_FT_Stroker   stroker,
                              const SW_FT_Outline*  outline);
 
-
   /**************************************************************
    *
    * @function:
@@ -274,7 +268,6 @@
                         SW_FT_UInt    *anum_points,
                         SW_FT_UInt    *anum_contours );
 
-
   /**************************************************************
    *
    * @function:
@@ -299,7 +292,6 @@
   SW_FT_Stroker_Export( SW_FT_Stroker   stroker,
                      SW_FT_Outline*  outline );
 
-
   /**************************************************************
    *
    * @function:
@@ -314,6 +306,5 @@
    */
   void
   SW_FT_Stroker_Done( SW_FT_Stroker  stroker );
-
 
 #endif // V_FT_STROKER_H

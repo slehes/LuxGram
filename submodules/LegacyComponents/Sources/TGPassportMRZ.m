@@ -278,7 +278,6 @@ NSString *const TGPassportEmptyCharacter = @"<";
     return dateFormatter;
 }
 
-
 + (NSDate *)dateFromString:(NSString *)string
 {
     return [[self dateFormatter] dateFromString:string];

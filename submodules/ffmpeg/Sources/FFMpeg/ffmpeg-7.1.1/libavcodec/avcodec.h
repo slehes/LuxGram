@@ -606,7 +606,6 @@ typedef struct AVCodecContext {
      */
     int delay;
 
-
     /* video only */
     /**
      * picture width / height.
@@ -1681,7 +1680,6 @@ typedef struct AVCodecContext {
 #define FF_PROFILE_DTS_HD_MA_X        61
 #define FF_PROFILE_DTS_HD_MA_X_IMAX   62
 
-
 #define FF_PROFILE_EAC3_DDP_ATMOS         30
 
 #define FF_PROFILE_TRUEHD_ATMOS           30
@@ -2731,8 +2729,6 @@ int avcodec_get_supported_config(const AVCodecContext *avctx,
                                  unsigned flags, const void **out_configs,
                                  int *out_num_configs);
 
-
-
 /**
  * @defgroup lavc_parsing Frame parsing
  * @{
@@ -2983,7 +2979,6 @@ void av_parser_close(AVCodecParserContext *s);
 
 int avcodec_encode_subtitle(AVCodecContext *avctx, uint8_t *buf, int buf_size,
                             const AVSubtitle *sub);
-
 
 /**
  * @}

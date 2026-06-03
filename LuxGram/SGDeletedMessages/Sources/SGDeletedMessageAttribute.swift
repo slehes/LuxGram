@@ -6,7 +6,6 @@ public final class SGDeletedMessageAttribute: MessageAttribute, Equatable {
     public var originalText: String?
     /// Full edit history: [original, edit1, edit2, ...]. First is original, last is previous before current.
     public var editHistory: [String]
-    // MARK: LuxGram
     // For SavedDeleted snapshots, keep a reference to the original message id.
     public var originalNamespace: Int32?
     public var originalId: Int32?
@@ -63,7 +62,6 @@ public final class SGDeletedMessageAttribute: MessageAttribute, Equatable {
     }
 }
 
-// MARK: LuxGram - Extension for Message (like Nicegram)
 public extension Message {
     var sgDeletedAttribute: SGDeletedMessageAttribute {
         for attribute in self.attributes {
@@ -75,7 +73,6 @@ public extension Message {
     }
 }
 
-// MARK: LuxGram - Extension for Transaction (like Nicegram)
 public extension Transaction {
     func updateSGDeletedAttribute(messageId: MessageId, _ block: (inout SGDeletedMessageAttribute) -> Void) {
         self.updateMessage(messageId) { message in
@@ -103,7 +100,6 @@ public extension Transaction {
     }
 }
 
-// MARK: LuxGram - Extension for StoreMessage (like Nicegram)
 public extension StoreMessage {
     func updatingSGDeletedAttributeOnEdit(previousMessage: Message) -> StoreMessage {
         let newAttr = self.attributes.compactMap { $0 as? SGDeletedMessageAttribute }.first
@@ -130,7 +126,6 @@ public extension StoreMessage {
     }
 }
 
-// MARK: LuxGram - Extension for Array<MessageAttribute> (like Nicegram)
 private extension Array<MessageAttribute> {
     mutating func updateSGDeletedAttribute(_ block: (inout SGDeletedMessageAttribute) -> Void) {
         for (index, attribute) in self.enumerated() {

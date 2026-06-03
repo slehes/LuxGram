@@ -101,7 +101,6 @@ extern "C" void DumpDependencyRec (SPicture* pSrcPic, const char* kpFileName, co
  */
 void DumpRecFrame (SPicture* pSrcPic, const char* kpFileName, const int8_t kiDid, bool bAppend, SDqLayer* pDqLayer);
 
-
 /*!
  * \brief   encode overall slices pData in a frame
  * \param   pEncCtx             sWelsEncCtx*, encoder context
@@ -114,7 +113,6 @@ int32_t EncodeFrame (sWelsEncCtx* pEncCtx,
                      const int32_t kiSliceNumCount,
                      const EWelsNalUnitType keNalType,
                      const EWelsNalRefIdc keNalIdc);
-
 
 /**********************************************************************************
  * memzero Function

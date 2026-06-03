@@ -106,8 +106,6 @@
 
 @end
 
-
-
 @implementation TGMediaPickerGalleryFetchResultItem
 {
     TGMediaPickerGalleryItem<TGModernGallerySelectableItem, TGModernGalleryEditableItem> *_backingItem;
@@ -216,6 +214,5 @@
 {
     return [object isKindOfClass:[TGMediaPickerGalleryFetchResultItem class]] && (self.backingItem != nil && TGObjectCompare(self.backingItem, ((TGMediaPickerGalleryFetchResultItem *)object).backingItem));
 }
-
 
 @end

@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @class NBPhoneNumberDesc, NBNumberFormat;
 
 @interface NBPhoneMetaData : NSObject

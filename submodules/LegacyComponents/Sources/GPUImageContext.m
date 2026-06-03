@@ -160,7 +160,6 @@ static void *openGLESContextQueueKey;
     return [extensionNames containsObject:extension];
 }
 
-
 // http://www.khronos.org/registry/gles/extensions/EXT/EXT_texture_rg.txt
 
 + (BOOL)deviceSupportsRedTextures
@@ -252,7 +251,6 @@ static void *openGLESContextQueueKey;
     NSAssert(context != nil, @"Unable to create an OpenGL ES 2.0 context. The GPUImage framework requires OpenGL ES 2.0 support to work.");
     return context;
 }
-
 
 #pragma mark -
 #pragma mark Manage fast texture upload

@@ -314,7 +314,6 @@ void evhttp_clear_headers(struct evkeyvalq *);
 
 /* Miscellaneous utility functions */
 
-
 /**
   Helper function to encode a URI.
 
@@ -325,7 +324,6 @@ void evhttp_clear_headers(struct evkeyvalq *);
  */
 char *evhttp_encode_uri(const char *uri);
 
-
 /**
   Helper function to decode a URI.
 
@@ -335,7 +333,6 @@ char *evhttp_encode_uri(const char *uri);
   @return a newly allocated unencoded URI
  */
 char *evhttp_decode_uri(const char *uri);
-
 
 /**
  * Helper function to parse out arguments in a query.
@@ -353,7 +350,6 @@ char *evhttp_decode_uri(const char *uri);
  * @param headers the head of the evkeyval queue
  */
 void evhttp_parse_query(const char *uri, struct evkeyvalq *headers);
-
 
 /**
  * Escape HTML character entities in a string.

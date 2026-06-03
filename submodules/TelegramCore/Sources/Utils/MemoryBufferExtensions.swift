@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 public extension MemoryBuffer {
     convenience init(_ buffer: Buffer) {
         let memory = malloc(Int(buffer.size))!

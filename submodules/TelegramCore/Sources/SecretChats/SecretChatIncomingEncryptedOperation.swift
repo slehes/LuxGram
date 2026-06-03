@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 private func keyFingerprintFromBytes(_ bytes: Buffer) -> Int64 {
     if let memory = bytes.data, bytes.size >= 4 {
         var fingerprint: Int64 = 0

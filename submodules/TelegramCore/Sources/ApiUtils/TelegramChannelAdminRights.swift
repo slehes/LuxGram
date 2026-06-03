@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension TelegramChatAdminRights {
     init?(apiAdminRights: Api.ChatAdminRights) {
         switch apiAdminRights {

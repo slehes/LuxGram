@@ -84,7 +84,6 @@ private struct ThemeCarouselThemeEntry: Comparable, Identifiable {
     }
 }
 
-
 public class ThemeCarouselThemeIconItem: ListViewItem {
     public let context: AccountContext
     public let emojiFile: TelegramMediaFile?
@@ -196,7 +195,6 @@ private func generateBorderImage(theme: PresentationTheme, bordered: Bool, selec
         return image
     }
 }
-
 
 private final class ThemeCarouselThemeItemIconNode: ListViewItemNode {
     private let containerNode: ASDisplayNode

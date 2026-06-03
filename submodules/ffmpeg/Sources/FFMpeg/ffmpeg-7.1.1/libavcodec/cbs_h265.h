@@ -579,7 +579,6 @@ typedef struct  H265RawSliceHeader {
     uint8_t slice_segment_header_extension_data_byte[256];
 } H265RawSliceHeader;
 
-
 typedef struct H265RawSlice {
     H265RawSliceHeader header;
 
@@ -588,7 +587,6 @@ typedef struct H265RawSlice {
     size_t       data_size;
     int          data_bit_start;
 } H265RawSlice;
-
 
 typedef struct H265RawSEIBufferingPeriod {
     uint8_t  bp_seq_parameter_set_id;
@@ -764,6 +762,5 @@ typedef struct CodedBitstreamH265Context {
     const H265RawSPS *active_sps;
     const H265RawPPS *active_pps;
 } CodedBitstreamH265Context;
-
 
 #endif /* AVCODEC_CBS_H265_H */

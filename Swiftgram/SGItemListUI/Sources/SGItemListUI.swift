@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGLogging
 import SGSimpleSettings
 import SGStrings
@@ -41,7 +40,6 @@ public class SGItemListCounter {
         return count
     }
 }
-
 
 public protocol SGItemListSection: Equatable {
     var rawValue: Int32 { get }
@@ -295,7 +293,6 @@ public enum SGItemListUIEntry<Section: SGItemListSection, BoolSetting: Hashable,
         }
     }
 }
-
 
 public func filterSGItemListUIEntrires<Section: SGItemListSection & Hashable, BoolSetting: Hashable, SliderSetting: Hashable, OneFromManySetting: Hashable, DisclosureLink: Hashable, ActionType: Hashable>(
     entries: [SGItemListUIEntry<Section, BoolSetting, SliderSetting, OneFromManySetting, DisclosureLink, ActionType>],

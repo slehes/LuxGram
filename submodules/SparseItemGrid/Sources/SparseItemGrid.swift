@@ -1571,7 +1571,6 @@ public final class SparseItemGrid: ASDisplayNode {
             fromTransform = fromTransform.scaledBy(x: fromScale, y: fromScale)
             fromTransform = fromTransform.translatedBy(x: -fromAnchorPoint.x, y: -fromAnchorPoint.y)
 
-
             var toTransform = CGAffineTransform.identity
             toTransform = toTransform.translatedBy(x: toAnchorPoint.x, y: toAnchorPoint.y)
             toTransform = toTransform.translatedBy(x: toOffset.x, y: toOffset.y)

@@ -35,7 +35,6 @@
 #include "libavutil/avassert.h"
 #include "libavutil/mem_internal.h"
 
-
 /**
  * Get the predicted intra4x4 prediction mode.
  */

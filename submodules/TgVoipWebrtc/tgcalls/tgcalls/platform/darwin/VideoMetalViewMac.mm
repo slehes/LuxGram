@@ -15,7 +15,6 @@
 
 #import "SQueueLocalObject.h"
 
-
 #import "api/video/video_sink_interface.h"
 #import "api/media_stream_interface.h"
 
@@ -67,7 +66,6 @@ private:
 @end
 
 @implementation TGCAMetalLayer
-
 
 -(void)dealloc {
 }
@@ -259,7 +257,6 @@ private:
     return [[TGRTCMTLI420RendererClass alloc] init];
 }
 
-
 - (void)configure {
     NSAssert([VideoMetalView isMetalAvailable], @"Metal not availiable on this device");
     self.wantsLayer = YES;
@@ -278,7 +275,6 @@ private:
         return renderer;
     }];
 }
-
 
 -(void)setFrameSize:(NSSize)newSize {
     [super setFrameSize:newSize];
@@ -314,7 +310,6 @@ private:
         }
     }
 }
-
 
 -(void)dealloc {
     int bp = 0;
@@ -498,6 +493,5 @@ private:
     _forceMirrored = forceMirrored;
     [self setNeedsLayout:YES];
 }
-
 
 @end

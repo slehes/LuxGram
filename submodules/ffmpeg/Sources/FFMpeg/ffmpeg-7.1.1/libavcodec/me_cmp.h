@@ -27,7 +27,6 @@
 
 extern const uint32_t attribute_visibility_hidden ff_square_tab[512];
 
-
 /* minimum alignment rules ;)
  * If you notice errors in the align stuff, need more alignment for some ASM code
  * for some CPU or need to use a function with less aligned data then send a mail

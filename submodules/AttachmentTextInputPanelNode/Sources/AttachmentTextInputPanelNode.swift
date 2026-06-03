@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGInputToolbar
 import SwiftUI
 import SGSimpleSettings
@@ -306,7 +305,6 @@ public class AttachmentTextInputPanelNode: ASDisplayNode, TGCaptionPanelView, AS
     
     private let hapticFeedback = HapticFeedback()
     
-    // MARK: Swiftgram
     //    private var toolbarHostingController: UIViewController? //Any? //  UIHostingController<ChatToolbarView>?
     private var toolbarNode: ASDisplayNode?
     
@@ -530,7 +528,6 @@ public class AttachmentTextInputPanelNode: ASDisplayNode, TGCaptionPanelView, AS
             })
         }
         
-        // MARK: Swiftgram
         self.initToolbarIfNeeded(context: context)
     }
     
@@ -982,7 +979,6 @@ public class AttachmentTextInputPanelNode: ASDisplayNode, TGCaptionPanelView, AS
             panelHeight += 11.0
         }
         
-        // MARK: Swiftgram
         var toolbarOffset: CGFloat = 0.0
         toolbarOffset = layoutToolbar(transition: transition, panelHeight: panelHeight, width: width, leftInset: leftInset, rightInset: rightInset)
 
@@ -1986,7 +1982,6 @@ public class AttachmentTextInputPanelNode: ASDisplayNode, TGCaptionPanelView, AS
     }
 }
 
-// MARK: Swiftgram
 extension AttachmentTextInputPanelNode {
     
     func initToolbarIfNeeded(context: AccountContext) {

@@ -1108,8 +1108,6 @@ private final class ButtonContentComponent: Component {
     }
 }
 
-
-
 private final class MenuComponent: Component {
     let theme: PresentationTheme
     let sourceFrame: CGRect

@@ -546,7 +546,6 @@
 
 @end
 
-
 @implementation TGCheckButtonPallete
 
 + (instancetype)palleteWithDefaultBackgroundColor:(UIColor *)defaultBackgroundColor accentBackgroundColor:(UIColor *)accentBackgroundColor defaultBorderColor:(UIColor *)defaultBorderColor mediaBorderColor:(UIColor *)mediaBorderColor chatBorderColor:(UIColor *)chatBorderColor checkColor:(UIColor *)checkColor blueColor:(UIColor *)blueColor barBackgroundColor:(UIColor *)barBackgroundColor

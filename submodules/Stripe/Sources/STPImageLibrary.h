@@ -73,7 +73,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (UIImage *)cvcImageForCardBrand:(STPCardBrand)brand;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -19,7 +19,6 @@
 extern "C" {
 #endif
 
-
 // Output length of the hash function.
 #define SPX_N 16
 // Total height of the tree structure.
@@ -62,7 +61,6 @@ extern "C" {
 #define SPX_TREE_BYTES ((SPX_TREE_BITS + 7) / 8)
 #define SPX_LEAF_BITS SPX_TREE_HEIGHT
 #define SPX_LEAF_BYTES ((SPX_LEAF_BITS + 7) / 8)
-
 
 #if defined(__cplusplus)
 }  // extern C

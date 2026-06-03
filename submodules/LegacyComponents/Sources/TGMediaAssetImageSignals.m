@@ -18,7 +18,6 @@ const CGSize TGMediaAssetImageLegacySizeLimit = { 2048, 2048 };
 
 @end
 
-
 @implementation TGMediaAssetImageSignals
 
 static Class TGMediaAssetImageSignalsClass = nil;

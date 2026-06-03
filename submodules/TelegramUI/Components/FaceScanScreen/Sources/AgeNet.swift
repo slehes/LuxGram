@@ -6,7 +6,6 @@
 
 import CoreML
 
-
 /// Model Prediction Input Type
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
 class AgeNetInput : MLFeatureProvider {
@@ -45,7 +44,6 @@ class AgeNetInput : MLFeatureProvider {
 
 }
 
-
 /// Model Prediction Output Type
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)
 class AgeNetOutput : MLFeatureProvider {
@@ -79,7 +77,6 @@ class AgeNetOutput : MLFeatureProvider {
         self.provider = features
     }
 }
-
 
 /// Class for model loading and prediction
 @available(macOS 12.0, iOS 15.0, tvOS 15.0, watchOS 8.0, visionOS 1.0, *)

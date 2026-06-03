@@ -346,7 +346,6 @@ int ff_vaapi_encode_receive_packet(AVCodecContext *avctx, AVPacket *pkt);
 int ff_vaapi_encode_init(AVCodecContext *avctx);
 int ff_vaapi_encode_close(AVCodecContext *avctx);
 
-
 #define VAAPI_ENCODE_COMMON_OPTIONS \
     { "low_power", \
       "Use low-power encoding mode (only available on some platforms; " \
@@ -378,6 +377,5 @@ int ff_vaapi_encode_close(AVCodecContext *avctx);
       "Block level based bitrate control",\
       OFFSET(common.blbrc), AV_OPT_TYPE_BOOL, \
       { .i64 = 0 }, 0, 1, FLAGS }
-
 
 #endif /* AVCODEC_VAAPI_ENCODE_H */

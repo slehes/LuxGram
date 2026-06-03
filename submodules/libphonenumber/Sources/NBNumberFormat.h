@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface NBNumberFormat : NSObject
 
 // from phonemetadata.pb.js

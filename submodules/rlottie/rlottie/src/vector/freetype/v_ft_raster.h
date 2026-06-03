@@ -126,7 +126,6 @@ typedef struct  SW_FT_Outline_
 
 } SW_FT_Outline;
 
-
   /*************************************************************************/
   /*                                                                       */
   /* <Enum>                                                                */
@@ -179,7 +178,6 @@ typedef struct  SW_FT_Outline_
 #define SW_FT_CURVE_TAG_CONIC         0
 #define SW_FT_CURVE_TAG_CUBIC         2
 
-
 #define SW_FT_Curve_Tag_On       SW_FT_CURVE_TAG_ON
 #define SW_FT_Curve_Tag_Conic    SW_FT_CURVE_TAG_CONIC
 #define SW_FT_Curve_Tag_Cubic    SW_FT_CURVE_TAG_CUBIC
@@ -195,7 +193,6 @@ typedef struct  SW_FT_Outline_
   /*                                                                       */
   /*************************************************************************/
 
-
   /*************************************************************************/
   /*                                                                       */
   /* <Type>                                                                */
@@ -206,7 +203,6 @@ typedef struct  SW_FT_Outline_
   /*    independently to convert an outline into a bitmap or pixmap.       */
   /*                                                                       */
   typedef struct SW_FT_RasterRec_*  SW_FT_Raster;
-
 
   /*************************************************************************/
   /*                                                                       */
@@ -242,7 +238,6 @@ typedef struct  SW_FT_Outline_
     unsigned char   coverage;
 
   } SW_FT_Span;
-
 
   /*************************************************************************/
   /*                                                                       */
@@ -290,8 +285,6 @@ typedef struct  SW_FT_Outline_
                     void*  user);
 
 #define SW_FT_Raster_Span_Func  SW_FT_SpanFunc
-
-
 
   /*************************************************************************/
   /*                                                                       */
@@ -343,7 +336,6 @@ typedef struct  SW_FT_Outline_
 #define ft_raster_flag_aa       SW_FT_RASTER_FLAG_AA
 #define ft_raster_flag_direct   SW_FT_RASTER_FLAG_DIRECT
 #define ft_raster_flag_clip     SW_FT_RASTER_FLAG_CLIP
-
 
   /*************************************************************************/
   /*                                                                       */
@@ -406,7 +398,6 @@ typedef struct  SW_FT_Outline_
 
   } SW_FT_Raster_Params;
 
-
 /*************************************************************************/
 /*                                                                       */
 /* <Function>                                                            */
@@ -423,7 +414,6 @@ typedef struct  SW_FT_Outline_
 /*                                                                       */
 SW_FT_Error
 SW_FT_Outline_Check( SW_FT_Outline*  outline );
-
 
 /*************************************************************************/
 /*                                                                       */
@@ -455,7 +445,6 @@ void
 SW_FT_Outline_Get_CBox( const SW_FT_Outline*  outline,
                      SW_FT_BBox           *acbox );
 
-
   /*************************************************************************/
   /*                                                                       */
   /* <FuncType>                                                            */
@@ -485,7 +474,6 @@ SW_FT_Outline_Get_CBox( const SW_FT_Outline*  outline,
 
 #define SW_FT_Raster_New_Func  SW_FT_Raster_NewFunc
 
-
   /*************************************************************************/
   /*                                                                       */
   /* <FuncType>                                                            */
@@ -501,7 +489,6 @@ SW_FT_Outline_Get_CBox( const SW_FT_Outline*  outline,
   (*SW_FT_Raster_DoneFunc)( SW_FT_Raster  raster );
 
 #define SW_FT_Raster_Done_Func  SW_FT_Raster_DoneFunc
-
 
   /*************************************************************************/
   /*                                                                       */
@@ -536,7 +523,6 @@ SW_FT_Outline_Get_CBox( const SW_FT_Outline*  outline,
                           unsigned long   pool_size );
 
 #define SW_FT_Raster_Reset_Func  SW_FT_Raster_ResetFunc
-
 
   /*************************************************************************/
   /*                                                                       */
@@ -578,7 +564,6 @@ SW_FT_Outline_Get_CBox( const SW_FT_Outline*  outline,
 
 #define SW_FT_Raster_Render_Func  SW_FT_Raster_RenderFunc
 
-
   /*************************************************************************/
   /*                                                                       */
   /* <Struct>                                                              */
@@ -606,7 +591,6 @@ SW_FT_Outline_Get_CBox( const SW_FT_Outline*  outline,
     SW_FT_Raster_DoneFunc     raster_done;
 
   } SW_FT_Raster_Funcs;
-
 
 extern const SW_FT_Raster_Funcs   sw_ft_grays_raster;
 

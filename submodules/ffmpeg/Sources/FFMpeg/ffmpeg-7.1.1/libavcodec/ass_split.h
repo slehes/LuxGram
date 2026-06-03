@@ -130,7 +130,6 @@ ASSDialog *ff_ass_split_dialog(ASSSplitContext *ctx, const char *buf);
  */
 void ff_ass_split_free(ASSSplitContext *ctx);
 
-
 /**
  * Set of callback functions corresponding to each override codes that can
  * be encountered in a "Dialogue" Text field.

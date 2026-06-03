@@ -1091,7 +1091,6 @@ public enum CollectibleItemInfoScreenSubject {
     case username(String)
 }
 
-
 public enum StorySearchControllerScope {
     case query(EnginePeer?, String)
     case location(coordinates: MediaArea.Coordinates, venue: MediaArea.Venue)
@@ -1321,7 +1320,6 @@ public protocol SharedAccountContext: AnyObject {
     var automaticMediaDownloadSettings: Signal<MediaAutoDownloadSettings, NoError> { get }
     var currentAutodownloadSettings: Atomic<AutodownloadSettings> { get }
     var immediateExperimentalUISettings: ExperimentalUISettings { get }
-    // MARK: Swiftgram
     var immediateSGStatus: SGStatus { get }
     var SGIAP: SGIAPManager? { get }
     func makeSGProController(context: AccountContext) -> ViewController
@@ -1352,13 +1350,11 @@ public protocol SharedAccountContext: AnyObject {
     var presentGlobalController: (ViewController, Any?) -> Void { get }
     var presentCrossfadeController: () -> Void { get }
 
-    // MARK: - LuxGram
     /// Notify that font replacement settings changed so UI refreshes immediately everywhere.
     func notifyFontSettingsChanged()
 
     /// Process ghost-delayed messages whose send time has passed (e.g. after app was backgrounded). Call when app becomes active.
     func processOverdueGhostDelayedMessagesForAllAccounts()
-    // MARK: - End LuxGram
 
     func makeTempAccountContext(account: Account) -> AccountContext
     

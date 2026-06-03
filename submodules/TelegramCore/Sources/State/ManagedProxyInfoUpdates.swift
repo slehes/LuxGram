@@ -4,7 +4,6 @@ import Postbox
 import SwiftSignalKit
 import MtProtoKit
 
-
 public final class PromoChatListItem: AdditionalChatListItem {
     public enum Kind: Equatable {
         case proxy
@@ -71,7 +70,6 @@ public final class PromoChatListItem: AdditionalChatListItem {
         return true
     }
 }
-
 
 public final class ServerSuggestionInfo: Codable, Equatable {
     public final class Item: Codable, Equatable {

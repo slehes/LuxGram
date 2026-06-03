@@ -3,7 +3,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public enum UpdateGroupSpecificStickersetError {
     case generic
 }
@@ -40,7 +39,6 @@ func _internal_updateGroupSpecificStickerset(postbox: Postbox, network: Network,
         return .complete()
     }
 }
-
 
 public enum UpdateGroupSpecificEmojisetError {
     case generic

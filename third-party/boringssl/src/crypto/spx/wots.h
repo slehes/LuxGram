@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 // Algorithm 5: Generate a WOTS+ public key.
 void spx_wots_pk_gen(uint8_t *pk, const uint8_t sk_seed[SPX_N],
                      const uint8_t pub_seed[SPX_N], uint8_t addr[32]);
@@ -36,7 +35,6 @@ void spx_wots_sign(uint8_t *sig, const uint8_t msg[SPX_N],
 // Algorithm 7: Compute a WOTS+ public key from a message and its signature.
 void spx_wots_pk_from_sig(uint8_t *pk, const uint8_t *sig, const uint8_t *msg,
                           const uint8_t pub_seed[SPX_N], uint8_t addr[32]);
-
 
 #if defined(__cplusplus)
 }  // extern C

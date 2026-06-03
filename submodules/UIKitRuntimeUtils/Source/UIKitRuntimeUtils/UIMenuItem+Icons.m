@@ -26,7 +26,6 @@ static NSString *const imageItemIdetifier = @"\uFEFF\u200B";
 
 @end
 
-
 @implementation UIMenuItem (Icons)
 
 - (instancetype)initWithTitle:(NSString *)title icon:(UIImage *)icon action:(SEL)action {
@@ -80,13 +79,11 @@ static NSString *const imageItemIdetifier = @"\uFEFF\u200B";
 
 @end
 
-
 @interface UILabel (Icons)
 
 @end
 
 static UIColor *DateLabelColor = nil;
-
 
 @implementation UILabel (DateLabel)
 

@@ -1,4 +1,3 @@
-// MARK: LuxGram - Double Bottom (full logic from Nicegram NGDoubleBottom/DoubleBottomListController)
 // Ref: https://github.com/nicegram/Nicegram-iOS/blob/master/Nicegram/NGDoubleBottom/Sources/DoubleBottomListController.swift
 import Foundation
 import UIKit
@@ -14,8 +13,6 @@ import PasscodeUI
 import DoubleBottom
 import SGSimpleSettings
 import TelegramStringFormatting
-
-// MARK: - LuxGram
 
 // MARK: - Section (Nicegram: DoubleBottomControllerSection)
 

@@ -25,7 +25,6 @@ const NSUInteger TGContactsControllerBatchCount = 15;
 
 @end
 
-
 @interface TGContactsController () <TGTableDataSource>
 {
     SMetaDisposable *_contactsDisposable;

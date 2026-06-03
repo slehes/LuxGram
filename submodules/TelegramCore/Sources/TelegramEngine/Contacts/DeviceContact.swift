@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public struct DeviceContactNormalizedPhoneNumber: Hashable, RawRepresentable {
     public let rawValue: String
     

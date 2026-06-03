@@ -8,12 +8,10 @@ import Security
 import SwiftSignalKit
 import TelegramApi
 
-
 public struct SGIQTPResponse {
     public let status: Int
     public let value: String
 }
-
 
 private let sgIqtpTokenPrefix = "sgsig.v1."
 private let sgIqtpTokenMinimumParts = 4

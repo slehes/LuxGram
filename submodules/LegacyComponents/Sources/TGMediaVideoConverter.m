@@ -28,7 +28,6 @@
 
 @end
 
-
 @interface TGMediaSampleBufferProcessor : NSObject
 {
     AVAssetReaderOutput *_assetReaderOutput;
@@ -50,14 +49,12 @@
 
 @end
 
-
 @interface TGMediaVideoFileWatcher ()
 {
     dispatch_source_t _readerSource;
     SQueue *_queue;
 }
 @end
-
 
 @interface TGMediaVideoConversionContext : NSObject
 
@@ -92,13 +89,11 @@
 
 @end
 
-
 @interface TGMediaVideoConversionResult ()
 
 + (instancetype)resultWithFileURL:(NSURL *)fileUrl fileSize:(NSUInteger)fileSize duration:(NSTimeInterval)duration dimensions:(CGSize)dimensions coverImage:(UIImage *)coverImage liveUploadData:(id)livaUploadData;
 
 @end
-
 
 @implementation TGMediaVideoConverter
 
@@ -940,7 +935,6 @@
 
 @end
 
-
 static CGFloat progressOfSampleBufferInTimeRange(CMSampleBufferRef sampleBuffer, CMTimeRange timeRange)
 {
     CMTime progressTime = CMSampleBufferGetPresentationTimeStamp(sampleBuffer);
@@ -949,7 +943,6 @@ static CGFloat progressOfSampleBufferInTimeRange(CMSampleBufferRef sampleBuffer,
         progressTime = CMTimeAdd(progressTime, sampleDuration);
     return MAX(0.0f, MIN(1.0f, CMTimeGetSeconds(progressTime) / CMTimeGetSeconds(timeRange.duration)));
 }
-
 
 @implementation TGMediaSampleBufferProcessor
 
@@ -1045,7 +1038,6 @@ static CGFloat progressOfSampleBufferInTimeRange(CMSampleBufferRef sampleBuffer,
 
 @end
 
-
 @implementation TGMediaVideoFileWatcher
 
 - (instancetype)init
@@ -1125,7 +1117,6 @@ static CGFloat progressOfSampleBufferInTimeRange(CMSampleBufferRef sampleBuffer,
 }
 
 @end
-
 
 @implementation TGMediaVideoConversionContext
 
@@ -1230,7 +1221,6 @@ static CGFloat progressOfSampleBufferInTimeRange(CMSampleBufferRef sampleBuffer,
 
 @end
 
-
 @implementation TGMediaVideoConversionResult
 
 + (instancetype)resultWithFileURL:(NSURL *)fileUrl fileSize:(NSUInteger)fileSize duration:(NSTimeInterval)duration dimensions:(CGSize)dimensions coverImage:(UIImage *)coverImage liveUploadData:(id)liveUploadData
@@ -1259,7 +1249,6 @@ static CGFloat progressOfSampleBufferInTimeRange(CMSampleBufferRef sampleBuffer,
 }
 
 @end
-
 
 @implementation TGMediaVideoConversionPresetSettings
 

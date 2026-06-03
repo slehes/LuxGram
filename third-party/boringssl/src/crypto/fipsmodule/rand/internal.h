@@ -25,7 +25,6 @@
 extern "C" {
 #endif
 
-
 #if defined(BORINGSSL_UNSAFE_DETERMINISTIC_MODE)
 #define OPENSSL_RAND_DETERMINISTIC
 #elif defined(OPENSSL_TRUSTY)
@@ -160,7 +159,6 @@ OPENSSL_INLINE int have_fast_rdrand(void) {
 }
 
 #endif  // OPENSSL_X86_64 && !OPENSSL_NO_ASM
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -47,13 +47,11 @@
 #ifdef FIXED_POINT
 #include "arch.h"
 
-
 #define SAMP_MAX 2147483647
 #define TWID_MAX 32767
 #define TRIG_UPSCALE 1
 
 #define SAMP_MIN -SAMP_MAX
-
 
 #   define S_MUL(a,b) MULT16_32_Q15(b, a)
 

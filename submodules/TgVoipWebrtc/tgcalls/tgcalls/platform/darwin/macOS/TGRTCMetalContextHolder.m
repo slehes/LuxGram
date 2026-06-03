@@ -16,8 +16,6 @@ static NSString *const transformAndBlendName = @"transformAndBlend";
 static NSString *const scaleAndBlurName = @"scaleAndBlur";
 static NSString *const fragmentPlainName = @"fragmentPlain";
 
-
-
 @implementation TGRTCMetalContextHolder
 {
     id<MTLDevice> _device;
@@ -47,7 +45,6 @@ static NSString *const fragmentPlainName = @"fragmentPlain";
     
     return self;
 }
-
 
 - (id<MTLSamplerState>)defaultSamplerState:(id<MTLDevice>)device {
     MTLSamplerDescriptor *samplerDescriptor = [[MTLSamplerDescriptor alloc] init];

@@ -13,7 +13,6 @@
 
 @end
 
-
 @interface TGBridgeBotReplyMarkupRow : NSObject <NSCoding>
 {
     NSArray *_buttons;
@@ -24,7 +23,6 @@
 - (instancetype)initWithButtons:(NSArray *)buttons;
 
 @end
-
 
 @interface TGBridgeBotReplyMarkup : NSObject <NSCoding>
 {

@@ -109,7 +109,6 @@ digraph States {
   DONE [shape=Msquare];
 }
 
-
  */
 
 typedef enum {

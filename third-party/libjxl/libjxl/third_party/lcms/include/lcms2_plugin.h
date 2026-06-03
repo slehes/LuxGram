@@ -53,7 +53,6 @@
 #include <memory.h>
 #include <string.h>
 
-
 #ifndef CMS_USE_CPP_API
 #   ifdef __cplusplus
 extern "C" {
@@ -92,7 +91,6 @@ CMSAPI void               CMSEXPORT _cmsMAT3per(cmsMAT3* r, const cmsMAT3* a, co
 CMSAPI cmsBool            CMSEXPORT _cmsMAT3inverse(const cmsMAT3* a, cmsMAT3* b);
 CMSAPI cmsBool            CMSEXPORT _cmsMAT3solve(cmsVEC3* x, cmsMAT3* a, cmsVEC3* b);
 CMSAPI void               CMSEXPORT _cmsMAT3eval(cmsVEC3* r, const cmsMAT3* a, const cmsVEC3* v);
-
 
 // MD5 low level  -------------------------------------------------------------------------------------
 
@@ -250,7 +248,6 @@ typedef struct {
 
 } cmsPluginMemHandler;
 
-
 // ------------------------------------------------------------------------------------------------------------------
 
 // Interpolation. 16 bits and floating point versions.
@@ -272,8 +269,6 @@ typedef void (* _cmsInterpFnFloat)(cmsFloat32Number const Input[],
                                    cmsFloat32Number Output[],
                                    const struct _cms_interp_struc* p);
 
-
-
 // This type holds a pointer to an interpolator that can be either 16 bits or float
 typedef union {
     _cmsInterpFn16       Lerp16;            // Forward interpolation in 16 bits
@@ -284,7 +279,6 @@ typedef union {
 #define CMS_LERP_FLAGS_16BITS             0x0000        // The default
 #define CMS_LERP_FLAGS_FLOAT              0x0001        // Requires different implementation
 #define CMS_LERP_FLAGS_TRILINEAR          0x0100        // Hint only
-
 
 #define MAX_INPUT_DIMENSIONS 8
 
@@ -463,7 +457,6 @@ typedef cmsPipeline* (* cmsIntentFn)( cmsContext       ContextID,
                                       cmsFloat64Number AdaptationStates[],
                                       cmsUInt32Number  dwFlags);
 
-
 // Each plug-in defines a single intent number.
 typedef struct {
     cmsPluginBase     base;
@@ -472,7 +465,6 @@ typedef struct {
     char              Description[256];
 
 } cmsPluginRenderingIntent;
-
 
 // The default ICC intents (perceptual, saturation, rel.col and abs.col)
 CMSAPI cmsPipeline*  CMSEXPORT _cmsDefaultICCintents(cmsContext       ContextID,
@@ -483,7 +475,6 @@ CMSAPI cmsPipeline*  CMSEXPORT _cmsDefaultICCintents(cmsContext       ContextID,
                                                      cmsFloat64Number AdaptationStates[],
                                                      cmsUInt32Number  dwFlags);
 
-
 //----------------------------------------------------------------------------------------------------------
 
 // Pipelines, Multi Process Elements.
@@ -491,7 +482,6 @@ CMSAPI cmsPipeline*  CMSEXPORT _cmsDefaultICCintents(cmsContext       ContextID,
 typedef void (* _cmsStageEvalFn)     (const cmsFloat32Number In[], cmsFloat32Number Out[], const cmsStage* mpe);
 typedef void*(* _cmsStageDupElemFn)  (cmsStage* mpe);
 typedef void (* _cmsStageFreeElemFn) (cmsStage* mpe);
-
 
 // This function allocates a generic MPE
 CMSAPI cmsStage* CMSEXPORT _cmsStageAllocPlaceholder(cmsContext ContextID,
@@ -507,7 +497,6 @@ typedef struct {
       cmsTagTypeHandler Handler;
 
 }  cmsPluginMultiProcessElement;
-
 
 // Data kept in "Element" member of cmsStage
 
@@ -540,7 +529,6 @@ typedef struct {
 
 } _cmsStageCLutData;
 
-
 //----------------------------------------------------------------------------------------------------------
 // Optimization. Using this plug-in, additional optimization strategies may be implemented.
 // The function should return TRUE if any optimization is done on the LUT, this terminates
@@ -550,7 +538,6 @@ typedef struct {
 typedef void     (* _cmsOPTeval16Fn)(CMSREGISTER const cmsUInt16Number In[],
                                      CMSREGISTER cmsUInt16Number Out[],
                                      CMSREGISTER const void* Data);
-
 
 typedef cmsBool  (* _cmsOPToptimizeFn)(cmsPipeline** Lut,
                                        cmsUInt32Number  Intent,
@@ -592,7 +579,6 @@ typedef void     (* _cmsTransformFn)(struct _cmstransform_struct *CMMcargo,   //
                                      cmsUInt32Number Size,
                                      cmsUInt32Number Stride);                 // Stride in bytes to the next plana in planar formats
 
-
 typedef void     (*_cmsTransform2Fn)(struct _cmstransform_struct *CMMcargo,
                                      const void* InputBuffer,
                                      void* OutputBuffer,
@@ -616,11 +602,9 @@ typedef cmsBool  (* _cmsTransform2Factory)(_cmsTransform2Fn* xform,
                                          cmsUInt32Number* OutputFormat,
                                          cmsUInt32Number* dwFlags);
 
-
 // Retrieve user data as specified by the factory
 CMSAPI void   CMSEXPORT _cmsSetTransformUserData(struct _cmstransform_struct *CMMcargo, void* ptr, _cmsFreeUserDataFn FreePrivateDataFn);
 CMSAPI void * CMSEXPORT _cmsGetTransformUserData(struct _cmstransform_struct *CMMcargo);
-
 
 // Retrieve formatters
 CMSAPI void   CMSEXPORT _cmsGetTransformFormatters16   (struct _cmstransform_struct *CMMcargo, cmsFormatter16* FromInput, cmsFormatter16* ToOutput);
@@ -659,7 +643,6 @@ CMSAPI void*   CMSEXPORT _cmsCreateMutex(cmsContext ContextID);
 CMSAPI void    CMSEXPORT _cmsDestroyMutex(cmsContext ContextID, void* mtx);
 CMSAPI cmsBool CMSEXPORT _cmsLockMutex(cmsContext ContextID, void* mtx);
 CMSAPI void    CMSEXPORT _cmsUnlockMutex(cmsContext ContextID, void* mtx);
-
 
 #ifndef CMS_USE_CPP_API
 #   ifdef __cplusplus

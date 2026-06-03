@@ -7,7 +7,6 @@
 #import <Foundation/Foundation.h>
 #import <libphonenumber/NBPhoneNumberDefines.h>
 
-
 @interface NBPhoneNumber : NSObject <NSCopying, NSCoding>
 
 // from phonemetadata.pb.js

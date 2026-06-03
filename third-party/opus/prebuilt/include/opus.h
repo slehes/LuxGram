@@ -405,7 +405,6 @@ typedef struct OpusDecoder OpusDecoder;
   */
 typedef struct OpusDREDDecoder OpusDREDDecoder;
 
-
 /** Opus DRED state.
   * This contains the complete state of an Opus DRED packet.
   * It is position independent and can be freely copied.
@@ -620,7 +619,6 @@ OPUS_EXPORT int opus_decoder_dred_decode(OpusDecoder *st, const OpusDRED *dred, 
   */
 OPUS_EXPORT int opus_decoder_dred_decode_float(OpusDecoder *st, const OpusDRED *dred, opus_int32 dred_offset, float *pcm, opus_int32 frame_size);
 
-
 /** Parse an opus packet into one or more frames.
   * Opus_decode will perform this operation internally so most applications do
   * not need to use this function.
@@ -722,7 +720,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT int opus_decoder_get_nb_samples(const OpusDe
   * @param [in,out] softclip_mem <tt>float*</tt>: State memory for the soft clipping process (one float per channel, initialized to zero)
   */
 OPUS_EXPORT void opus_pcm_soft_clip(float *pcm, int frame_size, int channels, float *softclip_mem);
-
 
 /**@}*/
 
@@ -954,7 +951,6 @@ OPUS_EXPORT void opus_repacketizer_destroy(OpusRepacketizer *rp);
   *                              than 120 ms.
   */
 OPUS_EXPORT int opus_repacketizer_cat(OpusRepacketizer *rp, const unsigned char *data, opus_int32 len) OPUS_ARG_NONNULL(1) OPUS_ARG_NONNULL(2);
-
 
 /** Construct a new packet from data previously submitted to the repacketizer
   * state via opus_repacketizer_cat().

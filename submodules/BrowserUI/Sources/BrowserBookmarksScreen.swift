@@ -586,7 +586,6 @@ private class BottomPanelNode: ASDisplayNode {
     }
 }
 
-
 final class BrowserBookmarksContextExtractedContentSource: ContextExtractedContentSource {
     let keepInPlace: Bool = false
     let ignoreContentTouches: Bool = false

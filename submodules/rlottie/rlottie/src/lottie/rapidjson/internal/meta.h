@@ -48,7 +48,6 @@ template <bool Cond> struct BoolType {
 typedef BoolType<true> TrueType;
 typedef BoolType<false> FalseType;
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // SelectIf, BoolExpr, NotExpr, AndExpr, OrExpr
 //
@@ -68,14 +67,12 @@ template <typename C> struct NotExpr  : SelectIf<C,FalseType,TrueType>::Type {};
 template <typename C1, typename C2> struct AndExpr : AndExprCond<C1::Value, C2::Value>::Type {};
 template <typename C1, typename C2> struct OrExpr  : OrExprCond<C1::Value, C2::Value>::Type {};
 
-
 ///////////////////////////////////////////////////////////////////////////////
 // AddConst, MaybeAddConst, RemoveConst
 template <typename T> struct AddConst { typedef const T Type; };
 template <bool Constify, typename T> struct MaybeAddConst : SelectIfCond<Constify, const T, T> {};
 template <typename T> struct RemoveConst { typedef T Type; };
 template <typename T> struct RemoveConst<const T> { typedef T Type; };
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // IsSame, IsConst, IsMoreConst, IsPointer
@@ -127,7 +124,6 @@ template <typename B, typename D> struct IsBaseOf
     : OrExpr<IsSame<B, D>, BoolExpr<IsBaseOfImpl<B, D> > >::Type {};
 
 #endif // RAPIDJSON_HAS_CXX11_TYPETRAITS
-
 
 //////////////////////////////////////////////////////////////////////////
 // EnableIf / DisableIf

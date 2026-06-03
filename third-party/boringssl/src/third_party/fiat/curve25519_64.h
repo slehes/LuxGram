@@ -47,7 +47,6 @@ static __inline__ uint64_t fiat_25519_value_barrier_u64(uint64_t a) {
 #  define fiat_25519_value_barrier_u64(x) (x)
 #endif
 
-
 /*
  * The function fiat_25519_addcarryx_u51 is an addition with carry.
  *

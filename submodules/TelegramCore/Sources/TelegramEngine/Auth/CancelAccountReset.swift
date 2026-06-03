@@ -4,7 +4,6 @@ import Postbox
 import SwiftSignalKit
 import MtProtoKit
 
-
 public struct CancelAccountResetData: Equatable {
     public let type: SentAuthorizationCodeType
     public let hash: String

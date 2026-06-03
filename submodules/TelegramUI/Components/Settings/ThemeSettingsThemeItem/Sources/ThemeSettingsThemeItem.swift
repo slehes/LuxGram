@@ -64,7 +64,6 @@ private struct ThemeSettingsThemeEntry: Comparable, Identifiable {
     }
 }
 
-
 private class ThemeSettingsThemeIconItem: ListViewItem {
     let context: AccountContext
     let themeReference: PresentationThemeReference
@@ -127,7 +126,6 @@ private class ThemeSettingsThemeIconItem: ListViewItem {
         self.action(self.themeReference)
     }
 }
-
 
 private let textFont = Font.regular(12.0)
 private let selectedTextFont = Font.bold(12.0)
@@ -200,7 +198,6 @@ private func createThemeImage(theme: PresentationTheme) -> Signal<(TransformImag
         }
     }
 }
-
 
 private final class ThemeSettingsThemeItemIconNode : ListViewItemNode {
     private let containerNode: ContextControllerSourceNode

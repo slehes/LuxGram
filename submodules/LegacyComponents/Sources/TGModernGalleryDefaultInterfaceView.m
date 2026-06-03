@@ -360,7 +360,6 @@
 
 @end
 
-
 @implementation TGModernGalleryToolbarView
 
 - (BOOL)pointInside:(CGPoint)point withEvent:(UIEvent *)event

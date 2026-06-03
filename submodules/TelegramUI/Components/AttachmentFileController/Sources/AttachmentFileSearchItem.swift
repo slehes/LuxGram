@@ -194,7 +194,6 @@ private final class AttachmentFileSearchItemNode: ItemListControllerSearchNode {
     }
 }
 
-
 private final class AttachmentFileSearchContainerInteraction {
     let context: AccountContext
     let send: (Message) -> Void
@@ -275,7 +274,6 @@ private func attachmentFileSearchContainerPreparedRecentTransition(from fromEntr
     
     return AttachmentFileSearchContainerTransition(deletions: deletions, insertions: insertions, updates: updates, isSearching: isSearching, isEmpty: isEmpty, query: query)
 }
-
 
 public final class AttachmentFileSearchContainerNode: SearchDisplayControllerContentNode {
     private let context: AccountContext

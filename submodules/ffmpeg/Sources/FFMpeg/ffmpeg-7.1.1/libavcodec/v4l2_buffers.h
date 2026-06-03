@@ -130,5 +130,4 @@ int ff_v4l2_buffer_initialize(V4L2Buffer* avbuf, int index);
  */
 int ff_v4l2_buffer_enqueue(V4L2Buffer* avbuf);
 
-
 #endif // AVCODEC_V4L2_BUFFERS_H

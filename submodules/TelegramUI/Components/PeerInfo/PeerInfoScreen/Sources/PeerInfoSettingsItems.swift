@@ -82,7 +82,6 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
         }))
     }
     
-    // MARK: LuxGram
     if showProfileId {
         var idText = ""
         
@@ -172,7 +171,6 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
 //                interaction.openSettings(.addAccount)
 //            }))
         }
-        // MARK: LuxGram
         items[.accounts]!.append(PeerInfoScreenActionItem(id: 1000, text: presentationData.strings.Settings_AddAccount, icon: PresentationResourcesItemList.plusIconImage(presentationData.theme), action: {
             interaction.openSettings(.addAccount)
         }))
@@ -200,7 +198,6 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
     }
     
     // let locale = presentationData.strings.baseLanguageCode
-    // MARK: LuxGram
     let hasNewSGFeatures = {
         return false
     }
@@ -231,11 +228,9 @@ func settingsItems(showProfileId: Bool, data: PeerInfoScreenData?, context: Acco
     items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 1, label: swiftgramLabel, text: "LuxGram", icon: PresentationResourcesSettings.swiftgram, action: {
         interaction.openSettings(.swiftgram)
     }))
-    // MARK: - LuxGram
     items[.swiftgram]!.append(PeerInfoScreenDisclosureItem(id: 2, label: .none, text: "LuxGram", icon: PresentationResourcesSettings.glegram, action: {
-        interaction.openSettings(.gleGram)
+        interaction.openSettings(.luxGram)
     }))
-    // MARK: - End LuxGram
 
     var appIndex = 1000
     if let settings = data.globalSettings {

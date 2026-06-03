@@ -38,8 +38,6 @@
  *************************************************************************************
  */
 
-
-
 #ifndef  _WELS_BASE_TASK_H_
 #define  _WELS_BASE_TASK_H_
 
@@ -71,9 +69,5 @@ class CWelsBaseTask : public WelsCommon::IWelsTask {
 
 }
 
-
 #endif
-
-
-
 

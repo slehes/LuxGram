@@ -32,7 +32,6 @@ private func stringForDuration(_ duration: Int) -> String {
     return durationString
 }
 
-
 private final class AnimatedDotsLayer: SimpleLayer {
     private let dotLayers: [SimpleLayer]
     

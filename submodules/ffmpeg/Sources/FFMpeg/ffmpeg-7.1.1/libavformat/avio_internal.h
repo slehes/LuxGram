@@ -235,7 +235,6 @@ struct URLContext *ffio_geturlcontext(AVIOContext *s);
  */
 int ffio_fdopen(AVIOContext **s, struct URLContext *h);
 
-
 /**
  * Read url related dictionary options from the AVIOContext and write to the given dictionary
  */

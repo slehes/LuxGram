@@ -452,7 +452,6 @@ constexpr bool operator>=(monostate, monostate) noexcept { return true; }
 constexpr bool operator==(monostate, monostate) noexcept { return true; }
 constexpr bool operator!=(monostate, monostate) noexcept { return false; }
 
-
 //------------------------------------------------------------------------------
 // `absl::variant` Template Definition
 //------------------------------------------------------------------------------
@@ -600,7 +599,6 @@ class variant<T0, Tn...> : private variant_internal::VariantBase<T0, Tn...> {
 
     return *this;
   }
-
 
   // emplace() Functions
 

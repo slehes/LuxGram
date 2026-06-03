@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension PeerGeoLocation {
     init?(apiLocation: Api.ChannelLocation) {
         switch apiLocation {

@@ -21,7 +21,6 @@ typedef NS_ENUM(NSInteger, NBEPhoneNumberFormat) {
     NBEPhoneNumberFormatRFC3966 = 3
 };
 
-
 typedef NS_ENUM(NSInteger, NBEPhoneNumberType) {
     NBEPhoneNumberTypeFIXED_LINE = 0,
     NBEPhoneNumberTypeMOBILE = 1,
@@ -53,7 +52,6 @@ typedef NS_ENUM(NSInteger, NBEPhoneNumberType) {
     NBEPhoneNumberTypeUNKNOWN = -1
 };
 
-
 typedef NS_ENUM(NSInteger, NBEMatchType) {
     NBEMatchTypeNOT_A_NUMBER = 0,
     NBEMatchTypeNO_MATCH = 1,
@@ -62,7 +60,6 @@ typedef NS_ENUM(NSInteger, NBEMatchType) {
     NBEMatchTypeEXACT_MATCH = 4
 };
 
-
 typedef NS_ENUM(NSInteger, NBEValidationResult) {
     NBEValidationResultUNKNOWN = 0,
     NBEValidationResultIS_POSSIBLE = 1,
@@ -70,7 +67,6 @@ typedef NS_ENUM(NSInteger, NBEValidationResult) {
     NBEValidationResultTOO_SHORT = 3,
     NBEValidationResultTOO_LONG = 4
 };
-
 
 typedef NS_ENUM(NSInteger, NBECountryCodeSource) {
     NBECountryCodeSourceFROM_NUMBER_WITH_PLUS_SIGN = 1,

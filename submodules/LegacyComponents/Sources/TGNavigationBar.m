@@ -616,7 +616,6 @@ static id<TGNavigationBarMusicPlayerProvider> _musicPlayerProvider;
 
 @end
 
-
 @implementation TGNavigationBarPallete
 
 + (instancetype)palleteWithBackgroundColor:(UIColor *)backgroundColor separatorColor:(UIColor *)separatorColor titleColor:(UIColor *)titleColor tintColor:(UIColor *)tintColor

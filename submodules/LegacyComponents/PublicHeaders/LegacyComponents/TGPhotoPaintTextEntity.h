@@ -24,7 +24,6 @@ typedef enum {
 
 @end
 
-
 @interface TGPhotoPaintStaticEntity : TGPhotoPaintEntity
 
 @property (nonatomic, strong) UIImage *renderImage;

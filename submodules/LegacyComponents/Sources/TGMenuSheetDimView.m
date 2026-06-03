@@ -43,7 +43,6 @@
 
 @end
 
-
 @interface TGMenuSheetDimView ()
 {
     UIView *_topView;

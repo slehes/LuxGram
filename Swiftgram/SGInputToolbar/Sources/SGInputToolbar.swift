@@ -1,8 +1,6 @@
 import SwiftUI
 import Foundation
 
-
-// MARK: Swiftgram
 public struct ChatToolbarView: View {
     var onQuote: () -> Void
     var onSpoiler: () -> Void
@@ -131,7 +129,6 @@ public struct ChatToolbarView: View {
         .background(Color(UIColor.clear))
     }
 }
-
 
 // iOS 13–14 blur fallback
 @available(iOS 13.0, *)

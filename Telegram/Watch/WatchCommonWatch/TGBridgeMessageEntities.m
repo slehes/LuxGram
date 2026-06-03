@@ -32,51 +32,41 @@ NSString *const TGBridgeMessageEntityLengthKey = @"len";
 
 @end
 
-
 @implementation TGBridgeMessageEntityUrl
 
 @end
-
 
 @implementation TGBridgeMessageEntityEmail
 
 @end
 
-
 @implementation TGBridgeMessageEntityTextUrl
 
 @end
-
 
 @implementation TGBridgeMessageEntityMention
 
 @end
 
-
 @implementation TGBridgeMessageEntityHashtag
 
 @end
-
 
 @implementation TGBridgeMessageEntityBotCommand
 
 @end
 
-
 @implementation TGBridgeMessageEntityBold
 
 @end
-
 
 @implementation TGBridgeMessageEntityItalic
 
 @end
 
-
 @implementation TGBridgeMessageEntityCode
 
 @end
-
 
 @implementation TGBridgeMessageEntityPre
 

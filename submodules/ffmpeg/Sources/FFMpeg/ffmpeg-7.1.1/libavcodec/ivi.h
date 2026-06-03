@@ -74,7 +74,6 @@ enum {
     IVI_BLK_HUFF  = 1       ///< Huffman table is used for coding blocks
 };
 
-
 /**
  *  Common scan patterns (defined in ivi_common.c)
  */
@@ -82,13 +81,11 @@ extern const uint8_t ff_ivi_vertical_scan_8x8[64];
 extern const uint8_t ff_ivi_horizontal_scan_8x8[64];
 extern const uint8_t ff_ivi_direct_scan_4x4[16];
 
-
 /**
  *  Declare inverse transform function types
  */
 typedef void (InvTransformPtr)(const int32_t *in, int16_t *out, ptrdiff_t pitch, const uint8_t *flags);
 typedef void (DCTransformPtr) (const int32_t *in, int16_t *out, ptrdiff_t pitch, int blk_size);
-
 
 /**
  *  run-value (RLE) table descriptor
@@ -101,7 +98,6 @@ typedef struct RVMapDesc {
 } RVMapDesc;
 
 extern const RVMapDesc ff_ivi_rvmap_tabs[9];
-
 
 /**
  *  information for Indeo macroblock (16x16, 8x8 or 4x4)
@@ -119,7 +115,6 @@ typedef struct IVIMbInfo {
     int8_t      b_mv_y;   ///< second motion vector (y component)
 } IVIMbInfo;
 
-
 /**
  *  information for Indeo tile
  */
@@ -135,7 +130,6 @@ typedef struct IVITile {
     IVIMbInfo   *mbs;      ///< array of macroblock descriptors
     IVIMbInfo   *ref_mbs;  ///< ptr to the macroblock descriptors of the reference tile
 } IVITile;
-
 
 /**
  *  information for Indeo wavelet band
@@ -186,7 +180,6 @@ typedef struct IVIBandDesc {
     const uint8_t   *inter_scale;   ///< quantization coefficient for inter blocks
 } IVIBandDesc;
 
-
 /**
  *  color plane (luma or chroma) information
  */
@@ -196,7 +189,6 @@ typedef struct IVIPlaneDesc {
     uint8_t     num_bands;  ///< number of bands this plane subdivided into
     IVIBandDesc *bands;     ///< array of band descriptors
 } IVIPlaneDesc;
-
 
 typedef struct IVIPicConfig {
     uint16_t    pic_width;

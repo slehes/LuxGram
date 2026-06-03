@@ -57,5 +57,3 @@ GLuint setup_texture(NSString *fileName, UIColor *color)
     return texName;
 }
 
-
-

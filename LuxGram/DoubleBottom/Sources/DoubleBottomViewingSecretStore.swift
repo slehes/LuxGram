@@ -1,4 +1,3 @@
-// MARK: LuxGram - Tracks whether the user unlocked with the "secret" passcode (Double Bottom)
 import Foundation
 
 public enum DoubleBottomViewingSecretStore {

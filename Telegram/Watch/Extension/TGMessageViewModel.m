@@ -481,7 +481,6 @@
 
 @end
 
-
 @implementation TGStickerViewModel
 
 + (void)updateWithMessage:(TGBridgeMessage *)message notification:(bool)notification isGroup:(bool)isGroup context:(TGBridgeContext *)context currentDocumentId:(int64_t *)currentDocumentId authorLabel:(WKInterfaceLabel *)authorLabel imageGroup:(WKInterfaceGroup *)imageGroup isVisible:(bool (^)(void))isVisible completion:(void (^)(void))completion

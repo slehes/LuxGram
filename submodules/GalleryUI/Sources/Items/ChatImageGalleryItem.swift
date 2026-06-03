@@ -455,7 +455,6 @@ final class ChatImageGalleryItemNode: ZoomableContentGalleryItemNode {
         self.translateToLanguage = translateToLanguage
         self.peerIsCopyProtected = peerIsCopyProtected
         self.isSecret = isSecret
-        // MARK: - LuxGram - captureProtected bypass
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.enableSavingProtectedContent {
             self.imageNode.captureProtected = message.paidContent != nil
@@ -473,7 +472,6 @@ final class ChatImageGalleryItemNode: ZoomableContentGalleryItemNode {
         #else
         self.imageNode.captureProtected = message.id.peerId.namespace == Namespaces.Peer.SecretChat || message.isCopyProtected() || peerIsCopyProtected || isSecret || message.paidContent != nil
         #endif
-        // MARK: - End LuxGram
         self.updateFooter(animated: false)
         
         var title: String?
@@ -786,7 +784,6 @@ final class ChatImageGalleryItemNode: ZoomableContentGalleryItemNode {
                             controller.present(UndoOverlayController(presentationData: strongSelf.presentationData, content: .mediaSaved(text: strongSelf.presentationData.strings.Gallery_ImageSaved), elevatedLayout: false, animateInAsReplacement: false, action: { _ in return false }), in: .window(.root))
                         })
                     })))
-                    // MARK: Swiftgram
                     items.append(.action(ContextMenuActionItem(text: self.presentationData.strings.Conversation_ContextMenuCopy, icon: { theme in generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/Copy"), color: theme.actionSheet.primaryTextColor) }, action: { [weak self] _, f in
                         f(.default)
                         
@@ -1638,7 +1635,6 @@ private class RecognizedContentContainer: ASDisplayNode {
         return false
     }
 }
-
 
 private class ImageRecognitionOverlayContentNode: GalleryOverlayContentNode {
     private let backgroundContainer: GlassBackgroundContainerView

@@ -69,7 +69,6 @@
 extern "C" {
 #endif
 
-
 // EVP_CIPH_MODE_MASK contains the bits of |flags| that represent the mode.
 #define EVP_CIPH_MODE_MASK 0x3f
 

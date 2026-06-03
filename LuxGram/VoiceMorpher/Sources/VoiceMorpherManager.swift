@@ -1,7 +1,5 @@
 import Foundation
 
-// MARK: - LuxGram
-
 /// LuxGram / ghostgram-style: local voice morphing for outgoing voice messages (UserDefaults).
 public final class VoiceMorpherManager {
     public static let shared = VoiceMorpherManager()

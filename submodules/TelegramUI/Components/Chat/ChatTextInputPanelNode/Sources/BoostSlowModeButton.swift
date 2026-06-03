@@ -26,7 +26,6 @@ private func generateClearImage(color: UIColor) -> UIImage? {
     })
 }
 
-
 final class BoostSlowModeButton: HighlightTrackingButtonNode {
     let containerNode: ASDisplayNode
     let backgroundNode: ASImageNode

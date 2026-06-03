@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 func managedNotificationSettingsBehaviors(postbox: Postbox) -> Signal<Never, NoError> {
     return postbox.combinedView(keys: [.peerNotificationSettingsBehaviorTimestampView])
     |> mapToSignal { views -> Signal<Never, NoError> in

@@ -31,7 +31,6 @@
 
 #include "hevc.h"
 
-
 typedef enum {
         HEVC_SEI_PIC_STRUCT_FRAME_DOUBLING = 7,
         HEVC_SEI_PIC_STRUCT_FRAME_TRIPLING = 8

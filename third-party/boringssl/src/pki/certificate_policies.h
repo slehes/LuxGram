@@ -8,7 +8,6 @@
 #include <stdint.h>
 #include <vector>
 
-
 #include <optional>
 #include "input.h"
 

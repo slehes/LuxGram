@@ -20,7 +20,6 @@
 #include <string>
 #include <vector>
 
-
 // This header contains convenience functions for Wycheproof tests.
 
 class FileTest;
@@ -58,6 +57,5 @@ const EC_GROUP *GetWycheproofCurve(FileTest *t, const char *key,
 // error.
 bssl::UniquePtr<BIGNUM> GetWycheproofBIGNUM(FileTest *t, const char *key,
                                             bool instruction);
-
 
 #endif  // OPENSSL_HEADER_CRYPTO_TEST_WYCHEPROOF_UTIL_H

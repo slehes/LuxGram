@@ -21,7 +21,6 @@ import OverlayStatusController
 import FLEX
 #endif
 
-
 private enum SGDebugControllerSection: Int32, SGItemListSection {
     case base
     case notifications
@@ -48,7 +47,6 @@ private enum SGDebugToggles: String {
     case legacyNotificationsFix
     case inputToolbar
 }
-
 
 private enum SGDebugOneFromManySetting: String {
     case pinnedMessageNotifications
@@ -82,7 +80,6 @@ private func SGDebugControllerEntries(presentationData: PresentationData) -> [SG
 private func okUndoController(_ text: String, _ presentationData: PresentationData) -> UndoOverlayController {
     return UndoOverlayController(presentationData: presentationData, content: .succeed(text: text, timeout: nil, customUndoText: nil), elevatedLayout: false, action: { _ in return false })
 }
-
 
 public func sgDebugController(context: AccountContext) -> ViewController {
     var presentControllerImpl: ((ViewController, ViewControllerPresentationArguments?) -> Void)?
@@ -220,5 +217,4 @@ public func sgDebugController(context: AccountContext) -> ViewController {
     
     return controller
 }
-
 

@@ -4,7 +4,6 @@ import SGGHSettingsScheme
 import AccountContext
 import TelegramCore
 
-
 public func updateSGGHSettingsInteractivelly(context: AccountContext) {
     let presentationData = context.sharedContext.currentPresentationData.with { $0 }
     let locale = presentationData.strings.baseLanguageCode
@@ -24,7 +23,6 @@ public func updateSGGHSettingsInteractivelly(context: AccountContext) {
 
     }
 }
-
 
 let maxRetries: Int = 3
 

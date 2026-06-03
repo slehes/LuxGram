@@ -27,7 +27,6 @@
 #include "avcodec.h"
 #include "mathops.h"
 
-
 enum channels {
     LEFT,
     RIGHT,

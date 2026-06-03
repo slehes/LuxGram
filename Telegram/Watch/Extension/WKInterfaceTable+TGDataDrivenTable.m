@@ -87,7 +87,6 @@ typedef enum
 
 @end
 
-
 @implementation TGTableRowController
 
 - (bool)_isVisible
@@ -114,7 +113,6 @@ typedef enum
 }
 
 @end
-
 
 @implementation WKInterfaceTable (TGDataDrivenTable)
 
@@ -724,7 +722,6 @@ typedef enum
 }
 
 @end
-
 
 @implementation WKInterfaceController (TGDataDrivenTable)
 

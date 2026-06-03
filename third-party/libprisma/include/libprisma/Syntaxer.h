@@ -21,7 +21,5 @@
 -(id)init;
 -(NSAttributedString *)syntax:(NSString *)code language: (NSString *)language theme:(SyntaxterTheme *) theme;
 
-
-
 @end
 

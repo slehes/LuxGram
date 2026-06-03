@@ -66,7 +66,6 @@ void _ASEnumerateControlEventsIncludedInMaskWithBlock(ASControlNodeEvent mask, v
  */
 CGRect _ASControlNodeGetExpandedBounds(ASControlNode *controlNode);
 
-
 @end
 
 @implementation ASControlNode

@@ -42,7 +42,6 @@ static __inline__ uint32_t fiat_25519_value_barrier_u32(uint32_t a) {
 #  define fiat_25519_value_barrier_u32(x) (x)
 #endif
 
-
 /*
  * The function fiat_25519_addcarryx_u26 is an addition with carry.
  *

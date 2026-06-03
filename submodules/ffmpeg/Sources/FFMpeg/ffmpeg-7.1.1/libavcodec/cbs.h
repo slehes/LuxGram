@@ -29,7 +29,6 @@
 #include "defs.h"
 #include "packet.h"
 
-
 /*
  * This defines a framework for converting between a coded bitstream
  * and structures defining all individual syntax elements found in
@@ -168,7 +167,6 @@ typedef struct CodedBitstreamFragment {
     CodedBitstreamUnit *units;
 } CodedBitstreamFragment;
 
-
 struct CodedBitstreamContext;
 struct GetBitContext;
 struct PutBitContext;
@@ -288,14 +286,12 @@ typedef struct CodedBitstreamContext {
     size_t   write_buffer_size;
 } CodedBitstreamContext;
 
-
 /**
  * Table of all supported codec IDs.
  *
  * Terminated by AV_CODEC_ID_NONE.
  */
 extern const enum AVCodecID ff_cbs_all_codec_ids[];
-
 
 /**
  * Create and initialise a new context for the given codec.
@@ -312,7 +308,6 @@ void ff_cbs_flush(CodedBitstreamContext *ctx);
  * Close a context and free all internal state.
  */
 void ff_cbs_close(CodedBitstreamContext **ctx);
-
 
 /**
  * Read the extradata bitstream found in codec parameters into a
@@ -374,7 +369,6 @@ int ff_cbs_read(CodedBitstreamContext *ctx,
                 CodedBitstreamFragment *frag,
                 const uint8_t *data, size_t size);
 
-
 /**
  * Write the content of the fragment to its own internal buffer.
  *
@@ -413,7 +407,6 @@ int ff_cbs_write_extradata(CodedBitstreamContext *ctx,
 int ff_cbs_write_packet(CodedBitstreamContext *ctx,
                         AVPacket *pkt,
                         CodedBitstreamFragment *frag);
-
 
 /**
  * Free the units contained in a fragment as well as the fragment's
@@ -469,7 +462,6 @@ int ff_cbs_append_unit_data(CodedBitstreamFragment *frag,
 void ff_cbs_delete_unit(CodedBitstreamFragment *frag,
                         int position);
 
-
 /**
  * Make the content of a unit refcounted.
  *
@@ -514,7 +506,6 @@ void ff_cbs_discard_units(CodedBitstreamContext *ctx,
                           CodedBitstreamFragment *frag,
                           enum AVDiscard skip,
                           int flags);
-
 
 /**
  * Helper function for read tracing which formats the syntax element

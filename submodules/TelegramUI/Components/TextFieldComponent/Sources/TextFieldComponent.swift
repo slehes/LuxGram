@@ -334,7 +334,6 @@ public final class TextFieldComponent: Component {
             return InputState(inputText: stateAttributedStringForText(self.textView.attributedText ?? NSAttributedString()), selectionRange: selectionRange)
         }
         
-        // MARK: Swiftgram
         var sgToolbarActionObserver: NSObjectProtocol? = nil
         
         private var component: TextFieldComponent?
@@ -416,7 +415,6 @@ public final class TextFieldComponent: Component {
                 }
             }
             
-            // MARK: Swiftgram
             self.sgToolbarActionObserver = NotificationCenter.default.addObserver(forName: Notification.Name("sgToolbarAction"), object: nil, queue: .main, using: { [weak self] notification in
                     guard let self = self else { return }
                     if let action = notification.userInfo?["action"] as? String {
@@ -425,7 +423,6 @@ public final class TextFieldComponent: Component {
             })
         }
         
-        // MARK: Swiftgram
         deinit {
             if let sgToolbarActionObserver = self.sgToolbarActionObserver {
                 NotificationCenter.default.removeObserver(sgToolbarActionObserver)
@@ -1811,7 +1808,6 @@ extension TextFieldComponent.InputState {
         }
     }
 }
-
 
 extension TextFieldComponent.View {
     

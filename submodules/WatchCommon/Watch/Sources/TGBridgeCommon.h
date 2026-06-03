@@ -26,7 +26,6 @@ extern NSString *const TGBridgeIncomingFileTypeImage;
 
 @end
 
-
 @interface TGBridgeDisposal : NSObject <NSCoding>
 
 @property (nonatomic, readonly) int64_t identifier;
@@ -34,7 +33,6 @@ extern NSString *const TGBridgeIncomingFileTypeImage;
 - (instancetype)initWithIdentifier:(int64_t)identifier;
 
 @end
-
 
 @interface TGBridgeFile : NSObject <NSCoding>
 
@@ -45,7 +43,6 @@ extern NSString *const TGBridgeIncomingFileTypeImage;
 
 @end
 
-
 @interface TGBridgePing : NSObject <NSCoding>
 
 @property (nonatomic, readonly) int32_t sessionId;
@@ -53,7 +50,6 @@ extern NSString *const TGBridgeIncomingFileTypeImage;
 - (instancetype)initWithSessionId:(int32_t)sessionId;
 
 @end
-
 
 @interface TGBridgeSubscriptionListRequest : NSObject <NSCoding>
 
@@ -63,7 +59,6 @@ extern NSString *const TGBridgeIncomingFileTypeImage;
 
 @end
 
-
 @interface TGBridgeSubscriptionList : NSObject <NSCoding>
 
 @property (nonatomic, readonly, strong) NSArray *subscriptions;
@@ -71,7 +66,6 @@ extern NSString *const TGBridgeIncomingFileTypeImage;
 - (instancetype)initWithArray:(NSArray *)array;
 
 @end
-
 
 typedef NS_ENUM(int32_t, TGBridgeResponseType) {
     TGBridgeResponseTypeUndefined,

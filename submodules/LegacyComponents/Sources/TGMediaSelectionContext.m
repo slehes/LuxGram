@@ -6,7 +6,6 @@
 
 @end
 
-
 @interface TGMediaSelectionContext ()
 {
     NSMutableArray *_savedSelectedIdentifiers;
@@ -331,7 +330,6 @@
 }
 
 @end
-
 
 @implementation TGMediaSelectionChange
 

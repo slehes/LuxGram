@@ -68,7 +68,6 @@ public enum ReactionNotificationSettingsEntryTag: ItemListItemTag {
     }
 }
 
-
 private enum ReactionNotificationSettingsEntry: ItemListNodeEntry {
     enum StableId: Hashable {
         case categoriesHeader

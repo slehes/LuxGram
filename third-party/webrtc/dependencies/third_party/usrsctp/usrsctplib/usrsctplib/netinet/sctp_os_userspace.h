@@ -578,8 +578,6 @@ MALLOC_DECLARE(SCTP_M_SOCKOPT);
 /* Empty ktr statement for _Userspace__ (similar to what is done for mac) */
 #define	CTR6(m, d, p1, p2, p3, p4, p5, p6)
 
-
-
 #define SCTP_BASE_INFO(__m) system_base_info.sctppcbinfo.__m
 #define SCTP_BASE_STATS system_base_info.sctpstat
 #define SCTP_BASE_STAT(__m)     system_base_info.sctpstat.__m
@@ -636,7 +634,6 @@ MALLOC_DECLARE(SCTP_M_SOCKOPT);
 #define SCTP_LTRACE_ERR_RET(inp, stcb, net, file, err)
 #endif
 
-
 /*
  * Local address and interface list handling
  */
@@ -687,7 +684,6 @@ MALLOC_DECLARE(SCTP_M_SOCKOPT);
  * zone allocation functions
  */
 
-
 #if defined(SCTP_SIMPLE_ALLOCATOR)
 /*typedef size_t sctp_zone_t;*/
 #define SCTP_ZONE_INIT(zone, name, size, number) { \
@@ -697,7 +693,6 @@ MALLOC_DECLARE(SCTP_M_SOCKOPT);
 /* __Userspace__ SCTP_ZONE_GET: allocate element from the zone */
 #define SCTP_ZONE_GET(zone, type)  \
         (type *)malloc(zone);
-
 
 /* __Userspace__ SCTP_ZONE_FREE: free element from the zone */
 #define SCTP_ZONE_FREE(zone, element) { \
@@ -731,11 +726,9 @@ MALLOC_DECLARE(SCTP_M_SOCKOPT);
 #define SCTP_ZONE_GET(zone, type) \
         (type *)umem_cache_alloc(zone, UMEM_DEFAULT);
 
-
 /* __Userspace__ SCTP_ZONE_FREE: free element from the zone */
 #define SCTP_ZONE_FREE(zone, element) \
 	umem_cache_free(zone, element);
-
 
 /* __Userspace__ SCTP_ZONE_DESTROY: destroy the zone */
 #define SCTP_ZONE_DESTROY(zone) \
@@ -752,7 +745,6 @@ sctp_hashdestroy(void *vhashtbl, struct malloc_type *type, u_long hashmask);
 
 void
 sctp_hashfreedestroy(void *vhashtbl, struct malloc_type *type, u_long hashmask);
-
 
 #define HASH_NOWAIT 0x00000001
 #define HASH_WAITOK 0x00000002
@@ -826,7 +818,6 @@ sctp_hashfreedestroy(void *vhashtbl, struct malloc_type *type, u_long hashmask);
  */
 #define SCTP_PKTLOG_WRITERS_NEED_LOCK 3
 
-
 /*
  * routes, output, etc.
  */
@@ -879,7 +870,6 @@ static inline void sctp_userspace_rtfree(sctp_rtentry_t *rt)
 }
 #define rtfree(arg1) sctp_userspace_rtfree(arg1)
 
-
 /*************************/
 /*      MTU              */
 /*************************/
@@ -895,7 +885,6 @@ int sctp_userspace_get_mtu_from_ifn(uint32_t if_index, int af);
                                               if (rt != NULL) \
                                                  rt->rt_rmx.rmx_mtu = mtu; \
                                            } while(0)
-
 
 /*************************/
 /* These are for logging */
@@ -923,8 +912,6 @@ int sctp_userspace_get_mtu_from_ifn(uint32_t if_index, int af);
 
 #define SCTP_GET_PKT_VRFID(m, vrf_id)  ((vrf_id = SCTP_DEFAULT_VRFID) != SCTP_DEFAULT_VRFID)
 
-
-
 /* Attach the chain of data into the sendable packet. */
 #define SCTP_ATTACH_CHAIN(pak, m, packet_length) do { \
                                                   pak = m; \
@@ -937,7 +924,6 @@ int sctp_userspace_get_mtu_from_ifn(uint32_t if_index, int af);
 /* OOTB only #define SCTP_IS_IT_BROADCAST(dst, m) ((m->m_flags & M_PKTHDR) ? in_broadcast(dst, m->m_pkthdr.rcvif) : 0)  BSD def */
 #define SCTP_IS_IT_LOOPBACK(m) 0
 /* OOTB ONLY #define SCTP_IS_IT_LOOPBACK(m) ((m->m_flags & M_PKTHDR) && ((m->m_pkthdr.rcvif == NULL) || (m->m_pkthdr.rcvif->if_type == IFT_LOOP)))  BSD def */
-
 
 /* This converts any input packet header
  * into the chain of data holders, for BSD
@@ -996,7 +982,6 @@ int sctp_userspace_get_mtu_from_ifn(uint32_t if_index, int af);
 /* netinet/ip_var.h defintions are behind an if defined for _KERNEL on FreeBSD */
 #define	IP_RAWOUTPUT		0x2
 
-
 /* end OOTB only stuff */
 
 #define AF_CONN 123
@@ -1050,8 +1035,6 @@ extern void sctp_userspace_ip6_output(int *result, struct mbuf *o_pak,
 #define SCTP_IP6_OUTPUT(result, o_pak, ro, ifp, inp, vrf_id) sctp_userspace_ip6_output(&result, o_pak, ro, inp, vrf_id);
 #endif
 
-
-
 #if 0
 #define SCTP_IP6_OUTPUT(result, o_pak, ro, ifp, stcb, vrf_id) \
 { \
@@ -1066,7 +1049,6 @@ extern void sctp_userspace_ip6_output(int *result, struct mbuf *o_pak,
 
 struct mbuf *
 sctp_get_mbuf_for_msg(unsigned int space_needed, int want_header, int how, int allonebuf, int type);
-
 
 /* with the current included files, this is defined in Linux but
  *  in FreeBSD, it is behind a _KERNEL in sys/socket.h ...

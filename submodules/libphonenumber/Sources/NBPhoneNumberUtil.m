@@ -20,7 +20,6 @@
 #import <CoreTelephony/CTCarrier.h>
 #endif
 
-
 #pragma mark - NBPhoneNumberUtil interface -
 
 @interface NBPhoneNumberUtil ()
@@ -44,7 +43,6 @@
 #endif
 
 @end
-
 
 @implementation NBPhoneNumberUtil
 
@@ -102,7 +100,6 @@ static NSDictionary *DIGIT_MAPPINGS;
 
 static NSArray *GEO_MOBILE_COUNTRIES;
 
-
 #pragma mark - Deprecated methods
 
 + (NBPhoneNumberUtil *)sharedInstance
@@ -113,7 +110,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return sharedOnceInstance;
 }
 
-
 #pragma mark - NSError
 
 - (NSError*)errorWithObject:(id)obj withDomain:(NSString *)domain
@@ -122,7 +118,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NSError *error = [NSError errorWithDomain:domain code:0 userInfo:userInfo];
     return error;
 }
-
 
 - (NSRegularExpression *)entireRegularExpressionWithPattern:(NSString *)regexPattern
                                                     options:(NSRegularExpressionOptions)options
@@ -154,7 +149,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     }
 }
 
-
 - (NSRegularExpression *)regularExpressionWithPattern:(NSString *)pattern options:(NSRegularExpressionOptions)options error:(NSError **)error
 {
     [_lockPatternCache lock];
@@ -176,7 +170,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     }
 }
 
-
 - (NSMutableArray*)componentsSeparatedByRegex:(NSString *)sourceString regex:(NSString *)pattern
 {
     NSString *replacedString = [self replaceStringByRegex:sourceString regex:pattern withTemplate:@"<SEP>"];
@@ -184,7 +177,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     [resArray removeObject:@""];
     return resArray;
 }
-
 
 - (int)stringPositionByRegex:(NSString *)sourceString regex:(NSString *)pattern
 {
@@ -206,7 +198,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return foundPosition;
 }
 
-
 - (int)indexOfStringByString:(NSString *)sourceString target:(NSString *)targetString
 {
     NSRange finded = [sourceString rangeOfString:targetString];
@@ -216,7 +207,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return -1;
 }
-
 
 - (NSString *)replaceFirstStringByRegex:(NSString *)sourceString regex:(NSString *)pattern withTemplate:(NSString *)templateString
 {
@@ -234,7 +224,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return replacementResult;
 }
-
 
 - (NSString *)replaceStringByRegex:(NSString *)sourceString regex:(NSString *)pattern withTemplate:(NSString *)templateString
 {
@@ -264,7 +253,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return replacementResult;
 }
 
-
 - (NSTextCheckingResult*)matcheFirstByRegex:(NSString *)sourceString regex:(NSString *)pattern
 {
     NSError *error = nil;
@@ -275,7 +263,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return nil;
 }
 
-
 - (NSArray*)matchesByRegex:(NSString *)sourceString regex:(NSString *)pattern
 {
     NSError *error = nil;
@@ -283,7 +270,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NSArray *matches = [currentPattern matchesInString:sourceString options:0 range:NSMakeRange(0, sourceString.length)];
     return matches;
 }
-
 
 - (NSArray*)matchedStringByRegex:(NSString *)sourceString regex:(NSString *)pattern
 {
@@ -297,7 +283,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return matchString;
 }
-
 
 - (BOOL)isStartingStringByRegex:(NSString *)sourceString regex:(NSString *)pattern
 {
@@ -313,7 +298,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return NO;
 }
-
 
 - (NSString *)stringByReplacingOccurrencesString:(NSString *)sourceString withMap:(NSDictionary *)dicMap removeNonMatches:(BOOL)bRemove
 {
@@ -336,14 +320,12 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return targetString;
 }
 
-
 - (BOOL)isAllDigits:(NSString *)sourceString
 {
     NSCharacterSet *nonNumbers = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     NSRange r = [sourceString rangeOfCharacterFromSet:nonNumbers];
     return r.location == NSNotFound;
 }
-
 
 - (BOOL)isNumeric:(NSString *)sourceString
 {
@@ -354,13 +336,11 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return NO;
 }
 
-
 - (BOOL)isNaN:(NSString *)sourceString
 {
     if ([self isNumeric:sourceString]) return NO;
     return YES;
 }
-
 
 - (NSString *)getNationalSignificantNumber:(NBPhoneNumber *)phoneNumber
 {
@@ -370,7 +350,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return [phoneNumber.nationalNumber stringValue];
 }
-
 
 #pragma mark - Initializations -
 
@@ -400,7 +379,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return self;
 }
-
 
 - (void)initRegularExpressionSet
 {
@@ -465,7 +443,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return DIGIT_MAPPINGS;
 }
 
-
 - (void)initNormalizationMappings
 {
     if (!DIALLABLE_CHAR_MAPPINGS) {
@@ -507,10 +484,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
                                             @"-", @"\u2212", @"/", @"/", @"/", @"\uFF0F", @" ", @" ", @" ", @"\u3000", @" ", @"\u2060", @".", @".", @".", @"\uFF0E", nil];
     }
 }
-
-
-
-
 
 #pragma mark - Metadata manager (phonenumberutil.js) functions -
 /**
@@ -560,7 +533,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return possibleNumber;
 }
 
-
 /**
  * Checks to see if the string of characters could possibly be a phone number at
  * all. At the moment, checks to see that the string begins with at least 2
@@ -585,7 +557,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return [self matchesEntirely:VALID_PHONE_NUMBER_PATTERN string:phoneNumber];
 }
-
 
 /**
  * Normalizes a string of characters representing a phone number. This performs
@@ -621,7 +592,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return nil;
 }
 
-
 /**
  * Normalizes a string of characters representing a phone number. This is a
  * wrapper for normalize(String number) but does in-place normalization of the
@@ -641,7 +611,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     (*number) = [self normalizePhoneNumber:(*number)];
 }
 
-
 /**
  * Normalizes a string of characters representing a phone number. This converts
  * wide-ascii and arabic-indic numerals to European numerals, and strips
@@ -658,7 +627,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [self stringByReplacingOccurrencesString:number withMap:self.DIGIT_MAPPINGS removeNonMatches:YES];
 }
 
-
 /**
  * Converts all alpha characters in a number to their respective digits on a
  * keypad, but retains existing formatting. Also converts wide-ascii digits to
@@ -673,7 +641,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     number = [helper normalizeNonBreakingSpace:number];
     return [self stringByReplacingOccurrencesString:number withMap:ALL_NORMALIZATION_MAPPINGS removeNonMatches:NO];
 }
-
 
 /**
  * Gets the length of the geographical area code from the
@@ -737,7 +704,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return res;
 }
 
-
 - (int)getLengthOfGeographicalAreaCode:(NBPhoneNumber*)phoneNumber
 {
     NSString *regionCode = [self getRegionCodeForNumber:phoneNumber];
@@ -761,7 +727,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return [self getLengthOfNationalDestinationCode:phoneNumber];
 }
-
 
 /**
  * Gets the length of the national destination code (NDC) from the PhoneNumber
@@ -816,7 +781,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return res;
 }
-
 
 - (int)getLengthOfNationalDestinationCode:(NBPhoneNumber*)phoneNumber
 {
@@ -875,7 +839,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return (int)((NSString *)[numberGroups objectAtIndex:1]).length;
 }
 
-
 /**
  * Normalizes a string of characters representing a phone number by replacing
  * all characters found in the accompanying map with the values therein, and
@@ -919,7 +882,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return normalizedNumber;
 }
 
-
 /**
  * Helper function to check if the national prefix formatting rule has the first
  * group only, i.e., does not start with the national prefix.
@@ -939,7 +901,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return (([nationalPrefixFormattingRule length] == 0) || hasFound);
 }
-
 
 /**
  * Tests whether a phone number has a geographical association. It checks if
@@ -963,7 +924,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return isFixedLine || isFixedLineOrMobile || containGeoMobileContries;
 }
 
-
 /**
  * Helper function to check region code is not unknown or nil.
  *
@@ -985,7 +945,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [NBMetadataHelper hasValue:regionCode] && [self isNaN:regionCode] && [helper getMetadataForRegion:regionCode.uppercaseString] != nil;
 }
 
-
 /**
  * Helper function to check the country calling code is valid.
  *
@@ -1003,7 +962,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return NO;
 }
-
 
 /**
  * Formats a phone number in the specified format using default rules. Note that
@@ -1089,7 +1047,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
                             formattedNationalNumber:formattedNationalNumber formattedExtension:formattedExtension];
 }
 
-
 /**
  * Formats a phone number in the specified format using client-defined
  * formatting rules. Note that if the phone number has a country calling code of
@@ -1120,7 +1077,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     }
     return res;
 }
-
 
 - (NSString *)formatByPattern:(NBPhoneNumber*)number numberFormat:(NBEPhoneNumberFormat)numberFormat userDefinedFormats:(NSArray*)userDefinedFormats
 {
@@ -1187,7 +1143,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
                             formattedNationalNumber:formattedNumber formattedExtension:formattedExtension];
 }
 
-
 /**
  * Formats a phone number in national format for dialing using the carrier as
  * specified in the {@code carrierCode}. The {@code carrierCode} will always be
@@ -1217,7 +1172,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return res;
 }
 
-
 - (NSString *)formatNationalNumberWithCarrierCode:(NBPhoneNumber*)number carrierCode:(NSString *)carrierCode
 {
     NSNumber *countryCallingCode = number.countryCode;
@@ -1241,7 +1195,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
                             formattedNationalNumber:formattedNationalNumber formattedExtension:formattedExtension];
 }
 
-
 /**
  * @param {number} countryCallingCode
  * @param {?string} regionCode
@@ -1255,7 +1208,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [NB_REGION_CODE_FOR_NON_GEO_ENTITY isEqualToString:regionCode] ?
     [helper getMetadataForNonGeographicalRegion:countryCallingCode] : [helper getMetadataForRegion:regionCode];
 }
-
 
 /**
  * Formats a phone number in national format for dialing using the carrier as
@@ -1295,13 +1247,11 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return res;
 }
 
-
 - (NSString *)formatNationalNumberWithPreferredCarrierCode:(NBPhoneNumber*)number fallbackCarrierCode:(NSString *)fallbackCarrierCode
 {
     NSString *domesticCarrierCode = number.preferredDomesticCarrierCode != nil ? number.preferredDomesticCarrierCode : fallbackCarrierCode;
     return [self formatNationalNumberWithCarrierCode:number carrierCode:domesticCarrierCode];
 }
-
 
 /**
  * Returns a number formatted in such a way that it can be dialed from a mobile
@@ -1331,7 +1281,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     }
     return res;
 }
-
 
 - (NSString *)formatNumberForMobileDialing:(NBPhoneNumber*)number regionCallingFrom:(NSString *)regionCallingFrom withFormatting:(BOOL)withFormatting
 {
@@ -1390,7 +1339,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return withFormatting ?
         formattedNumber : [self normalizeHelper:formattedNumber normalizationReplacements:DIALLABLE_CHAR_MAPPINGS removeNonMatches:YES];
 }
-
 
 /**
  * Formats a phone number for out-of-country dialing purposes. If no
@@ -1490,7 +1438,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return internationalPrefixForFormatting.length > 0 ? hasLenth:hasNotLength;
 }
 
-
 /**
  * A helper function that is used by format and formatByPattern.
  *
@@ -1519,7 +1466,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
             return [NSString stringWithFormat:@"%@%@", formattedNationalNumber, formattedExtension];
     }
 }
-
 
 /**
  * Formats a phone number using the original phone number format that the number
@@ -1554,7 +1500,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return res;
 }
-
 
 - (NSString *)formatInOriginalFormat:(NBPhoneNumber*)number regionCallingFrom:(NSString *)regionCallingFrom
 {
@@ -1675,7 +1620,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return formattedNumber;
 }
 
-
 /**
  * Check if rawInput, which is assumed to be in the national format, has a
  * national prefix. The national prefix is assumed to be in digits-only form.
@@ -1706,7 +1650,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return isValid;
 }
 
-
 /**
  * Returns NO if a number is from a region whose national significant number
  * couldn't contain a leading zero, but has the italian_leading_zero field set
@@ -1719,7 +1662,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
 {
     return number.italianLeadingZero && [self isLeadingZeroPossible:number.countryCode] == NO;
 }
-
 
 /**
  * @param {i18n.phonenumbers.PhoneNumber} number
@@ -1741,7 +1683,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NBNumberFormat *formatRule = [self chooseFormattingPatternForNumber:metadata.numberFormats nationalNumber:nationalNumber];
     return formatRule != nil;
 }
-
 
 /**
  * Formats a phone number for out-of-country dialing purposes.
@@ -1783,7 +1724,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     }
     return res;
 }
-
 
 - (NSString *)formatOutOfCountryKeepingAlphaChars:(NBPhoneNumber*)number regionCallingFrom:(NSString *)regionCallingFrom
 {
@@ -1877,7 +1817,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     }
 }
 
-
 /**
  * Note in some regions, the national number can be written in two completely
  * different ways depending on whether it forms part of the NATIONAL format or
@@ -1909,7 +1848,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [self formatNsnUsingPattern:phoneNumber formattingPattern:formattingPattern numberFormat:numberFormat carrierCode:opt_carrierCode];
 }
 
-
 /**
  * @param {Array.<i18n.phonenumbers.NumberFormat>} availableFormats the
  *     available formats the phone number could be formatted into.
@@ -1932,7 +1870,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return nil;
 }
-
 
 /**
  * Note that carrierCode is optional - if nil or an empty string, no carrier
@@ -1983,7 +1920,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return formattedNationalNumber;
 }
 
-
 /**
  * Gets a valid number for the specified region.
  *
@@ -1999,7 +1935,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NBPhoneNumber *res = [self getExampleNumberForType:regionCode type:NBEPhoneNumberTypeFIXED_LINE error:error];
     return res;
 }
-
 
 /**
  * Gets a valid number for the specified region and number type.
@@ -2032,7 +1967,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return res;
 }
 
-
 /**
  * Gets a valid number for the specified country calling code for a
  * non-geographical entity.
@@ -2061,7 +1995,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return res;
 }
-
 
 /**
  * Gets the formatted extension of a phone number, if the phone number had an
@@ -2092,7 +2025,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
         }
     }
 }
-
 
 /**
  * @param {i18n.phonenumbers.PhoneMetadata} metadata
@@ -2151,7 +2083,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NSString *nationalSignificantNumber = [self getNationalSignificantNumber:phoneNumber];
     return [self getNumberTypeHelper:nationalSignificantNumber metadata:metadata];
 }
-
 
 /**
  * @param {string} nationalNumber
@@ -2252,7 +2183,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return NBEPhoneNumberTypeUNKNOWN;
 }
 
-
 /**
  * @param {string} nationalNumber
  * @param {i18n.phonenumbers.PhoneNumberDesc} numberDesc
@@ -2277,7 +2207,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     [self matchesEntirely:numberDesc.nationalNumberPattern string:nationalNumber];
 }
 
-
 /**
  * Tests whether a phone number matches a valid pattern. Note this doesn't
  * verify the number is actually in use, which is impossible to tell by just
@@ -2293,7 +2222,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NSString *regionCode = [self getRegionCodeForNumber:number];
     return [self isValidNumberForRegion:number regionCode:regionCode];
 }
-
 
 /**
  * Tests whether a phone number is valid for a certain region. Note this doesn't
@@ -2343,7 +2271,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [self getNumberTypeHelper:nationalSignificantNumber metadata:metadata] != NBEPhoneNumberTypeUNKNOWN;
 }
 
-
 /**
  * Returns the region where a phone number is from. This could be used for
  * geocoding at the region level.
@@ -2371,7 +2298,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
         return [self getRegionCodeForNumberFromRegionList:phoneNumber regionCodes:regionCodes];
     }
 }
-
 
 /**
  * @param {i18n.phonenumbers.PhoneNumber} number
@@ -2403,7 +2329,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return nil;
 }
 
-
 /**
  * Returns the region code that matches the specific country calling code. In
  * the case of no region code being found, ZZ will be returned. In the case of
@@ -2420,7 +2345,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return regionCodes == nil ? NB_UNKNOWN_REGION : [regionCodes objectAtIndex:0];
 }
 
-
 /**
  * Returns a list with the region codes that match the specific country calling
  * code. For non-geographical country calling codes, the region code 001 is
@@ -2436,7 +2360,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NSArray *regionCodes = [helper regionCodeFromCountryCode:countryCallingCode];
     return regionCodes == nil ? nil : regionCodes;
 }
-
 
 /**
  * Returns the country calling code for a specific region. For example, this
@@ -2461,7 +2384,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return res;
 }
-
 
 /**
  * Returns the country calling code for a specific region. For example, this
@@ -2492,7 +2414,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return metadata.countryCode;
 }
-
 
 /**
  * Returns the national dialling prefix for a specific region. For example, this
@@ -2535,7 +2456,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return nationalPrefix;
 }
 
-
 /**
  * Checks if this is a region under the North American Numbering Plan
  * Administration (NANPA).
@@ -2558,7 +2478,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return regionCode != nil && isExists;
 }
 
-
 /**
  * Checks whether countryCode represents the country calling code from a region
  * whose national significant number could contain a leading zero. An example of
@@ -2575,7 +2494,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return mainMetadataForCallingCode != nil && mainMetadataForCallingCode.leadingZeroPossible;
 }
-
 
 /**
  * Checks if the number is a valid vanity (alpha) number such as 800 MICROSOFT.
@@ -2605,7 +2523,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [self matchesEntirely:VALID_ALPHA_PHONE_PATTERN_STRING string:strippedNumber];
 }
 
-
 /**
  * Convenience wrapper around {@link #isPossibleNumberWithReason}. Instead of
  * returning the reason for failure, this method returns a boolean value.
@@ -2629,12 +2546,10 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return res;
 }
 
-
 - (BOOL)isPossibleNumber:(NBPhoneNumber*)number
 {
     return [self isPossibleNumberWithReason:number] == NBEValidationResultIS_POSSIBLE;
 }
-
 
 /**
  * Helper method to check a number against a particular pattern and determine
@@ -2660,7 +2575,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
         return NBEValidationResultTOO_SHORT;
     }
 }
-
 
 /**
  * Check whether a phone number is a possible number. It provides a more lenient
@@ -2703,7 +2617,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return res;
 }
 
-
 - (NBEValidationResult)isPossibleNumberWithReason:(NBPhoneNumber*)number
 {
     NSString *nationalNumber = [self getNationalSignificantNumber:number];
@@ -2738,7 +2651,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     NSString *possibleNumberPattern = generalNumDesc.possibleNumberPattern;
     return [self testNumberLengthAgainstPattern:possibleNumberPattern number:nationalNumber];
 }
-
 
 /**
  * Check whether a phone number is a possible number given a number in the form
@@ -2803,7 +2715,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return YES;
 }
 
-
 /**
  * Extracts country calling code from fullNumber, returns it and places the
  * remaining number in nationalNumber. It assumes that the leading plus sign or
@@ -2850,7 +2761,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return @0;
 }
-
 
 /**
  * Convenience method to get a list of what regions the library has metadata
@@ -2900,7 +2810,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
  });
  };
  */
-
 
 /**
  * Tries to extract a country calling code from a number. This method will
@@ -3032,7 +2941,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return @0;
 }
 
-
 /**
  * Strips the IDD from the start of the number if present. Helper function used
  * by maybeStripInternationalPrefixAndNormalize.
@@ -3077,7 +2985,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return NO;
 }
 
-
 /**
  * Strips any international prefix (such as +, 00, 011) present in the number
  * provided, normalizes the resulting number, and indicates if an international
@@ -3113,7 +3020,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     
     return [self parsePrefixAsIdd:iddPattern sourceString:numberStr] ? NBECountryCodeSourceFROM_NUMBER_WITH_IDD : NBECountryCodeSourceFROM_DEFAULT_COUNTRY;
 }
-
 
 /**
  * Strips any national prefix (such as 0, 1) present in the number provided.
@@ -3191,7 +3097,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return NO;
 }
 
-
 /**
  * Strips any extension (as in, the part of the number dialled after the call is
  * connected, usually indicated with extn, ext, x or similar) from the end of
@@ -3236,7 +3141,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return @"";
 }
 
-
 /**
  * Checks to see that the region code used is valid, or if it is not valid, that
  * the number to parse starts with a + symbol so that we can attempt to infer
@@ -3254,7 +3158,6 @@ static NSArray *GEO_MOBILE_COUNTRIES;
     return [self isValidRegionCode:defaultRegion] ||
     (numberToParse != nil && numberToParse.length > 0 && [self isStartingStringByRegex:numberToParse regex:LEADING_PLUS_CHARS_PATTERN]);
 }
-
 
 /**
  * Parses a string and returns it in proto buffer format. This method will throw
@@ -3360,7 +3263,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
 
 #endif
 
-
 /**
  * Parses a string and returns it in proto buffer format. This method differs
  * from {@link #parse} in that it always populates the raw_input field of the
@@ -3391,7 +3293,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
     }
     return [self parseHelper:numberToParse defaultRegion:defaultRegion keepRawInput:YES checkRegion:YES error:error];
 }
-
 
 /**
  * Parses a string and returns it in proto buffer format. This method is the
@@ -3575,7 +3476,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
     return phoneNumber;
 }
 
-
 /**
  * Converts numberToParse to a form that we can parse and write it to
  * nationalNumber if it is written in RFC3966; otherwise extract a possible
@@ -3646,7 +3546,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
     // number string when there is no strong evidence that the number is
     // actually written in RFC3966.
 }
-
 
 /**
  * Takes two phone numbers and compares them for equality.
@@ -3811,7 +3710,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
     return NBEMatchTypeNO_MATCH;
 }
 
-
 /**
  * Returns NO when one national number is the suffix of the other or both are
  * the same.
@@ -3832,7 +3730,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
     return [firstNumberNationalNumber hasSuffix:secondNumberNationalNumber] ||
     [secondNumberNationalNumber hasSuffix:firstNumberNationalNumber];
 }
-
 
 /**
  * Returns NO if the number can be dialled from outside the region, or
@@ -3873,7 +3770,6 @@ static CTTelephonyNetworkInfo* _telephonyNetworkInfo;
     NSString *nationalSignificantNumber = [self getNationalSignificantNumber:number];
     return [self isNumberMatchingDesc:nationalSignificantNumber numberDesc:metadata.noInternationalDialling] == NO;
 }
-
 
 /**
  * Check whether the entire input sequence can be matched against the regular

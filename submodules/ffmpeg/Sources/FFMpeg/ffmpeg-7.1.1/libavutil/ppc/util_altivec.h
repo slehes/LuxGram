@@ -79,7 +79,6 @@
 #define vcswapc() \
   (const vector unsigned char){0x0f,0x0e,0x0d,0x0c,0x0b,0x0a,0x09,0x08,0x07,0x06,0x05,0x04,0x03,0x02,0x01,0x00}
 
-
 // Transpose 8x8 matrix of 16-bit elements (in-place)
 #define TRANSPOSE8(a,b,c,d,e,f,g,h) \
 do { \
@@ -114,7 +113,6 @@ do { \
     h = vec_mergel (D2, H2); \
 } while (0)
 
-
 #if HAVE_BIGENDIAN
 #define VEC_LD(offset,b)                                   \
     vec_perm(vec_ld(offset, b), vec_ld((offset)+15, b), vec_lvsl(offset, b))
@@ -143,7 +141,6 @@ static inline vec_u8 load_with_perm_vec(int offset, const uint8_t *src, vec_u8 p
 #define unaligned_load(a,b) VEC_LD(a,b)
 #define load_with_perm_vec(a,b,c) VEC_LD(a,b)
 #endif
-
 
 /**
  * loads vector known misalignment

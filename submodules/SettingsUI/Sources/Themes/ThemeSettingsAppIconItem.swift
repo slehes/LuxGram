@@ -190,7 +190,6 @@ private final class ThemeSettingsAppIconNode : ASDisplayNode {
     }
 }
 
-
 private let textFont = Font.regular(12.0)
 private let selectedTextFont = Font.medium(12.0)
 
@@ -451,7 +450,6 @@ class ThemeSettingsAppIconItemNode: ListViewItemNode, ItemListItemNode {
                                     name = item.strings.Appearance_AppIconBlack
                                 case "PremiumTurbo":
                                     name = item.strings.Appearance_AppIconTurbo
-                                // MARK: - LuxGram icon set
                                 case "LuxGramBlack":
                                     name = "Black"
                                     bordered = false
@@ -473,7 +471,6 @@ class ThemeSettingsAppIconItemNode: ListViewItemNode, ItemListItemNode {
                                 case "LuxGramDuck":
                                     name = "Duck"
                                     bordered = false
-                                // MARK: - End LuxGram
                                 default:
                                     name = icon.name
                             }

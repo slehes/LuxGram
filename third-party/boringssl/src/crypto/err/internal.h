@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // Private error queue functions.
 
 // ERR_SAVE_STATE contains a saved representation of the error queue. It is
@@ -39,7 +38,6 @@ OPENSSL_EXPORT ERR_SAVE_STATE *ERR_save_state(void);
 
 // ERR_restore_state clears the error queue and replaces it with |state|.
 OPENSSL_EXPORT void ERR_restore_state(const ERR_SAVE_STATE *state);
-
 
 #if defined(__cplusplus)
 }  // extern C

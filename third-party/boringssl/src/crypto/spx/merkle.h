@@ -25,7 +25,6 @@
 extern "C" {
 #endif
 
-
 // Algorithm 8: Compute the root of a Merkle subtree of WOTS+ public keys.
 void spx_treehash(uint8_t out_pk[SPX_N], const uint8_t sk_seed[SPX_N],
                   uint32_t i /*target node index*/,
@@ -52,7 +51,6 @@ int spx_ht_verify(const uint8_t sig[SPX_D * SPX_XMSS_BYTES],
                   const uint8_t message[SPX_N], uint64_t idx_tree,
                   uint32_t idx_leaf, const uint8_t pk_root[SPX_N],
                   const uint8_t pk_seed[SPX_N]);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -46,7 +46,6 @@ typedef NS_ENUM(NSUInteger, TGBridgeBotKind) {
 
 @end
 
-
 @interface TGBridgeUserChange : NSObject <NSCoding>
 
 @property (nonatomic, readonly) int64_t userIdentifier;

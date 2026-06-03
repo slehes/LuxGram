@@ -131,5 +131,4 @@ void ff_spatial_idwt_slice2(DWTContext *d, int y);
 #define COMPOSE_DAUB97iH0(b0, b1, b2)\
     ((unsigned)(b1) + ((int)(6497*(b0 + (unsigned)b2) + 2048) >> 12))
 
-
 #endif /* AVCODEC_DWT_H */

@@ -75,7 +75,6 @@
 
 @end
 
-
 @implementation CallAudioTone
 
 - (instancetype _Nonnull)initWithSamples:(NSData * _Nonnull)samples sampleRate:(NSInteger)sampleRate loopCount:(NSInteger)loopCount {
@@ -2156,7 +2155,6 @@ static void (*InternalVoipLoggingFunction)(NSString *) = NULL;
         _sendSignalingData(data);
     }
 }
-
 
 - (void)addSignalingData:(NSData *)data {
     if (_tgVoip) {

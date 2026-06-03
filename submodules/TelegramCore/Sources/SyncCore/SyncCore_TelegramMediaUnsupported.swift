@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public final class TelegramMediaUnsupported: Media, Equatable {
     public let id: MediaId? = nil
     public let peerIds: [PeerId] = []

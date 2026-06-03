@@ -65,10 +65,8 @@
 extern "C" {
 #endif
 
-
 // HMAC contains functions for constructing PRFs from Merkle–Damgård hash
 // functions using HMAC.
-
 
 // One-shot operation.
 
@@ -81,7 +79,6 @@ OPENSSL_EXPORT uint8_t *HMAC(const EVP_MD *evp_md, const void *key,
                              size_t key_len, const uint8_t *data,
                              size_t data_len, uint8_t *out,
                              unsigned int *out_len);
-
 
 // Incremental operation.
 
@@ -130,7 +127,6 @@ OPENSSL_EXPORT int HMAC_Update(HMAC_CTX *ctx, const uint8_t *data,
 OPENSSL_EXPORT int HMAC_Final(HMAC_CTX *ctx, uint8_t *out,
                               unsigned int *out_len);
 
-
 // Utility functions.
 
 // HMAC_size returns the size, in bytes, of the HMAC that will be produced by
@@ -148,7 +144,6 @@ OPENSSL_EXPORT int HMAC_CTX_copy_ex(HMAC_CTX *dest, const HMAC_CTX *src);
 // HMAC_CTX_reset calls |HMAC_CTX_cleanup| followed by |HMAC_CTX_init|.
 OPENSSL_EXPORT void HMAC_CTX_reset(HMAC_CTX *ctx);
 
-
 // Deprecated functions.
 
 OPENSSL_EXPORT int HMAC_Init(HMAC_CTX *ctx, const void *key, int key_len,
@@ -159,7 +154,6 @@ OPENSSL_EXPORT int HMAC_Init(HMAC_CTX *ctx, const void *key, int key_len,
 // |HMAC_Init_ex|. It returns one on success and zero on error.
 OPENSSL_EXPORT int HMAC_CTX_copy(HMAC_CTX *dest, const HMAC_CTX *src);
 
-
 // Private functions
 
 struct hmac_ctx_st {
@@ -168,7 +162,6 @@ struct hmac_ctx_st {
   EVP_MD_CTX i_ctx;
   EVP_MD_CTX o_ctx;
 } /* HMAC_CTX */;
-
 
 #if defined(__cplusplus)
 }  // extern C

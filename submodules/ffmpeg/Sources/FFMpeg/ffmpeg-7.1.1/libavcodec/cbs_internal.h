@@ -30,7 +30,6 @@
 #include "put_bits.h"
 #include "refstruct.h"
 
-
 enum CBSContentType {
     // Unit content may contain some references to other structures, but all
     // managed via buffer reference counting.  The descriptor defines the
@@ -152,12 +151,10 @@ typedef struct CodedBitstreamType {
     void (*close)(CodedBitstreamContext *ctx);
 } CodedBitstreamType;
 
-
 // Helper functions for trace output.
 
 void ff_cbs_trace_header(CodedBitstreamContext *ctx,
                          const char *name);
-
 
 // Helper functions for read/write of common bitstream elements, including
 // generation of trace output. The simple functions are equivalent to
@@ -202,7 +199,6 @@ int ff_cbs_write_signed(CodedBitstreamContext *ctx, PutBitContext *pbc,
 // The smallest signed value representable in N bits, suitable for use as
 // range_min in the above functions.
 #define MIN_INT_BITS(length) (-(INT64_C(1) << ((length) - 1)))
-
 
 // Start of a syntax element during read tracing.
 #define CBS_TRACE_READ_START() \
@@ -334,7 +330,6 @@ int ff_cbs_write_signed(CodedBitstreamContext *ctx, PutBitContext *pbc,
 
 #define CBS_UNIT_TYPE_END_OF_LIST { .nb_unit_types = 0 }
 
-
 extern const CodedBitstreamType ff_cbs_type_av1;
 extern const CodedBitstreamType ff_cbs_type_h264;
 extern const CodedBitstreamType ff_cbs_type_h265;
@@ -343,6 +338,5 @@ extern const CodedBitstreamType ff_cbs_type_jpeg;
 extern const CodedBitstreamType ff_cbs_type_mpeg2;
 extern const CodedBitstreamType ff_cbs_type_vp8;
 extern const CodedBitstreamType ff_cbs_type_vp9;
-
 
 #endif /* AVCODEC_CBS_INTERNAL_H */

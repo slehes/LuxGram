@@ -172,7 +172,6 @@ int32_t InitConstructAccessUnit (PWelsDecoderContext pCtx, SBufferInfo* pDstInfo
  */
 int32_t ConstructAccessUnit (PWelsDecoderContext pCtx, uint8_t** ppDst, SBufferInfo* pDstInfo);
 
-
 /*
  * DecodeCurrentAccessUnit
  * Decode current access unit when current AU is completed.
@@ -188,7 +187,6 @@ bool CheckAndFinishLastPic (PWelsDecoderContext pCtx, uint8_t** pDst, SBufferInf
  */
 void WelsDqLayerDecodeStart (PWelsDecoderContext pCtx, PNalUnit pCurNal, PSps pSps, PPps pPps);
 
-
 int32_t WelsDecodeAccessUnitStart (PWelsDecoderContext pCtx);
 void WelsDecodeAccessUnitEnd (PWelsDecoderContext pCtx);
 void DecodeFinishUpdate (PWelsDecoderContext pCtx);
@@ -202,5 +200,4 @@ void ForceResetParaSetStatusAndAUList (PWelsDecoderContext pCtx);
 } // namespace WelsDec
 
 #endif//WELS_DECODER_CORE_H__
-
 

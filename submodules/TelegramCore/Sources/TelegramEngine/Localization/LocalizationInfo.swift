@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension LocalizationInfo {
     init(apiLanguage: Api.LangPackLanguage) {
         switch apiLanguage {
@@ -26,7 +25,6 @@ public final class SuggestedLocalizationInfo {
     }
 }
 
-// MARK: Swiftgram
 // All the languages are "official" to prevent their deletion
 public let SGLocalizations: [LocalizationInfo] = [
     LocalizationInfo(languageCode: "zhcncc", baseLanguageCode: "zh-hans-raw", customPluralizationCode: "zh", title: "Chinese (Simplified) zhcncc", localizedTitle: "简体中文 (聪聪) - 已更完", isOfficial: true, totalStringCount: 7160, translatedStringCount: 7144, platformUrl: "https://translations.telegram.org/zhcncc/"),

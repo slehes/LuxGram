@@ -36,7 +36,6 @@
 #include<vector>
 #include<string>
 
-
 typedef void (*appCb)(void *userData, void *extra);
 class EvasApp
 {

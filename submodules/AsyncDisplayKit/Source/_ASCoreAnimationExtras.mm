@@ -56,7 +56,6 @@ void ASDisplayNodeSetResizableContents(id<ASResizableContents> obj, UIImage *ima
   }
 }
 
-
 struct _UIContentModeStringLUTEntry {
   UIViewContentMode contentMode;
   NSString *const string;

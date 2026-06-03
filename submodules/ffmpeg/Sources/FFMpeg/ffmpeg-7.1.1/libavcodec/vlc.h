@@ -175,7 +175,6 @@ int ff_vlc_init_multi_from_lengths(VLC *vlc, VLC_MULTI *multi, int nb_bits, int 
                                    const void *symbols, int symbols_wrap, int symbols_size,
                                    int offset, int flags, void *logctx);
 
-
 void ff_vlc_free_multi(VLC_MULTI *vlc);
 void ff_vlc_free(VLC *vlc);
 

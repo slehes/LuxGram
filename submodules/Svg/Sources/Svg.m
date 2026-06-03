@@ -101,7 +101,6 @@ static CGAffineTransform SVGParseTransformList(NSString *list) {
 
 @end
 
-
 @interface SvgXMLParsingDelegate : NSObject <NSXMLParserDelegate>
 @property (nonatomic, strong, readonly) NSMutableDictionary<NSString *, NSString *> *styles;
 @property (nonatomic, strong) NSMutableArray<GiftPatternRect *> *giftRects;

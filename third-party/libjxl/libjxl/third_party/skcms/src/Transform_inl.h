@@ -18,7 +18,6 @@ using U32 = V<uint32_t>;
 using U16 = V<uint16_t>;
 using U8  = V<uint8_t>;
 
-
 #if defined(__GNUC__) && !defined(__clang__)
     // Once again, GCC is kind of weird, not allowing vector = scalar directly.
     static constexpr F F0 = F() + 0.0f,
@@ -139,7 +138,6 @@ SI D bit_pun(const S& v) {
     SI U32 to_fixed(F f) {  return (U32)cast<I32>(f + 0.5f); }
 #endif
 
-
 // Sometimes we do something crazy on one branch of a conditonal,
 // like divide by zero or convert a huge float to an integer,
 // but then harmlessly select the other side.  That trips up N==1
@@ -155,7 +153,6 @@ SI D bit_pun(const S& v) {
                            (~cond & bit_pun<C>(e)) );
     }
 #endif
-
 
 SI F F_from_Half(U16 half) {
 #if defined(USING_NEON_FP16)
@@ -392,7 +389,6 @@ SI F apply_hlginv(const skcms_TransferFunction* tf, F x) {
 #endif
 }
 
-
 // Strided loads and stores of N values, starting from p.
 template <typename T, typename P>
 SI T load_3(const P* p) {
@@ -455,7 +451,6 @@ SI void store_4(P* p, const T& v) {
     p[48] = v[12]; p[52] = v[13]; p[56] = v[14]; p[60] = v[15];
 #endif
 }
-
 
 SI U8 gather_8(const uint8_t* p, I32 ix) {
 #if N == 1
@@ -1562,7 +1557,6 @@ static void exec_ops(const Op* ops, const void** args,
         }
     }
 }
-
 
 static void run_program(const Op* program, const void** arguments,
                         const char* src, char* dst, int n,

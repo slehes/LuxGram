@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Plugin bridge (Swift ↔ Python runtime for exteraGram .plugin files)
 //
 // This module provides a bridge to run or query exteraGram-style .plugin files (Python).
 // - Default: metadata and settings detection via regex (PluginMetadataParser), works on iOS/macOS.

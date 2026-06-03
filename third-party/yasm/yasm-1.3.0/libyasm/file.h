@@ -301,7 +301,6 @@ void yasm_add_include_path(const char *path);
             *((ptr)++) = (unsigned char)((val) & 0xFF);         \
         } while (0)
 
-
 /** Write an 8-bit value to a buffer.  Does not increment buffer pointer.
  * \note Only works properly if ptr is an (unsigned char *).
  * \param ptr   buffer

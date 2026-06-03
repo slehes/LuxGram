@@ -28,7 +28,6 @@
  */
 int ff_replaygain_export(AVStream *st, AVDictionary *metadata);
 
-
 /**
  * Export already decoded replaygain values as per-stream side data.
  */

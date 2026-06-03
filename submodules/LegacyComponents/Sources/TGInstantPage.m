@@ -282,7 +282,6 @@
     [aCoder encodeObject:_block forKey:@"block"];
 }
 
-
 @end
 
 @implementation TGInstantPageBlockChannel

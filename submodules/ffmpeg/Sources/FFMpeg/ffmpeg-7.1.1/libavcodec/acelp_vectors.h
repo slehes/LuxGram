@@ -194,7 +194,6 @@ void ff_decode_10_pulses_35bits(const int16_t *fixed_index,
                                 const uint8_t *gray_decode,
                                 int half_pulse_count, int bits);
 
-
 /**
  * weighted sum of two vectors with rounding.
  * @param[out] out result of addition

@@ -49,7 +49,6 @@ NSString *const TGBridgeVenueIdKey = @"venueId";
 
 @end
 
-
 @implementation TGBridgeLocationMediaAttachment
 
 - (instancetype)initWithCoder:(NSCoder *)aDecoder

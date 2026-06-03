@@ -20,7 +20,6 @@
 
 #endif  /* !defined(__cplusplus) */
 
-
 /* The C API. */
 
 #if defined(__cplusplus)
@@ -37,7 +36,6 @@ uint32_t crc32c_value(const uint8_t* data, size_t count);
 #ifdef __cplusplus
 }  /* end extern "C" */
 #endif  /* defined(__cplusplus) */
-
 
 /* The C++ API. */
 

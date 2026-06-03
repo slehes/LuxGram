@@ -20,7 +20,6 @@
 // However, due to conflicts, some deprecated symbols are defined here.
 #include <openssl/x509.h>
 
-
 // CRL reason constants.
 
 // TODO(davidben): These constants live here because strongswan defines
@@ -42,7 +41,6 @@
 #define CRL_REASON_REMOVE_FROM_CRL 8
 #define CRL_REASON_PRIVILEGE_WITHDRAWN 9
 #define CRL_REASON_AA_COMPROMISE 10
-
 
 // Deprecated constants.
 

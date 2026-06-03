@@ -190,7 +190,6 @@ private final class ReplaceBoostScreenComponent: CombinedComponent {
                         }
                     },
                     tapAction: { _, _ in
-                        // MARK: Swiftgram
                         if ({ return false }()) { giftPremium() }
                     }
                 ),

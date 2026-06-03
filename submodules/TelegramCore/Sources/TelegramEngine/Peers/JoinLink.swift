@@ -3,7 +3,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public enum JoinLinkInfoError {
     case generic
     case flood

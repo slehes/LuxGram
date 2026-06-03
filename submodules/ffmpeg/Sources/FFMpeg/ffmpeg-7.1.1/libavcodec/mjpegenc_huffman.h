@@ -44,7 +44,6 @@ void ff_mjpeg_encode_huffman_close(MJpegEncHuffmanContext *s,
                                    uint8_t bits[17], uint8_t val[],
                                    int max_nval);
 
-
 /**
  * Used to assign a occurrence count or "probability" to an input value
  */

@@ -252,7 +252,6 @@ static int read_audio_mux_element(struct LATMContext *latmctx,
     return 0;
 }
 
-
 static int latm_decode_frame(AVCodecContext *avctx, AVFrame *out,
                              int *got_frame_ptr, AVPacket *avpkt)
 {

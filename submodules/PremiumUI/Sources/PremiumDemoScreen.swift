@@ -1377,7 +1377,6 @@ private final class DemoSheetContent: CombinedComponent {
     }
 }
 
-
 private final class DemoSheetComponent: CombinedComponent {
     typealias EnvironmentType = ViewControllerComponentContainer.Environment
     

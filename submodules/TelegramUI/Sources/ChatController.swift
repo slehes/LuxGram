@@ -575,7 +575,6 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
     var translationStateDisposable: Disposable?
     var premiumGiftSuggestionDisposable: Disposable?
     
-    // MARK: Swiftgram
     private var sgShowHiddenPinnedMessagesObserver: NSObjectProtocol?
     public var overlayTitle: String? {
          var title: String?
@@ -6380,7 +6379,6 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
             })
         }
 
-        // MARK: Swiftgram
         self.sgShowHiddenPinnedMessagesObserver = NotificationCenter.default.addObserver(
             forName: NSNotification.Name("SGShowHiddenPinnedMessages"),
             object: nil,
@@ -6413,7 +6411,6 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
     }
     
     deinit {
-        // MARK: Swiftgram
         if let observer = sgShowHiddenPinnedMessagesObserver { NotificationCenter.default.removeObserver(observer) }
         let _ = ChatControllerCount.modify { value in
             return value - 1
@@ -7213,7 +7210,6 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
             if case let .peer(peerId) = self.chatLocation, self.screenCaptureManager == nil {
                 if peerId.namespace == Namespaces.Peer.SecretChat {
                     self.screenCaptureManager = ScreenCaptureDetectionManager(check: { [weak self] in
-                        // MARK: - LuxGram - Block screenshot detection if disabled
                         #if canImport(SGSimpleSettings)
                         if SGSimpleSettings.shared.disableScreenshotDetection {
                             return false
@@ -8490,7 +8486,6 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
                         ))
                     }
                 }
-                // MARK: - LuxGram — Ghost Delay: attach GhostDelayedSendAttribute when delay > 0 and no schedule/postpone
                 #if canImport(SGSimpleSettings)
                 if scheduleTime == nil && !postpone {
                     let delaySeconds = SGSimpleSettings.shared.ghostModeMessageSendDelaySeconds
@@ -8500,7 +8495,6 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
                     }
                 }
                 #endif
-                // MARK: - End LuxGram
                 return attributes
             }
         }
@@ -9421,8 +9415,7 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
     }
     
     func displayMediaRecordingTooltip() {
-        if ({ return true })() { return } // MARK: Swiftgram
-        guard let peer = self.presentationInterfaceState.renderedPeer?.peer else {
+        if ({ return true })() { return }        guard let peer = self.presentationInterfaceState.renderedPeer?.peer else {
             return
         }
         

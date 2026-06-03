@@ -149,8 +149,6 @@ func _internal_starsGiftOptions(account: Account, peerId: EnginePeer.Id?) -> Sig
     }
 }
 
-
-
 public struct StarsGiveawayOption: Equatable, Codable {
     enum CodingKeys: String, CodingKey {
         case count
@@ -1590,7 +1588,6 @@ public final class StarsSubscriptionsContext {
         }
     }
 }
-
 
 func _internal_sendStarsPaymentForm(account: Account, formId: Int64, source: BotPaymentInvoiceSource) -> Signal<SendBotPaymentResult, SendBotPaymentFormError> {
     return account.postbox.transaction { transaction -> Api.InputInvoice? in

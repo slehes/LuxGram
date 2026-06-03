@@ -4,4 +4,3 @@
 #import <LegacyDataImportImpl/TGAutoDownloadPreferences.h>
 #import <LegacyDataImportImpl/TGPresentationAutoNightPreferences.h>
 
-

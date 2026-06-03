@@ -956,7 +956,6 @@ public struct ComponentTransition {
         }
     }
 
-
     public func animateBounds(layer: CALayer, from fromValue: CGRect, to toValue: CGRect, additive: Bool = false, completion: ((Bool) -> Void)? = nil) {
         switch self.animation {
         case .none:

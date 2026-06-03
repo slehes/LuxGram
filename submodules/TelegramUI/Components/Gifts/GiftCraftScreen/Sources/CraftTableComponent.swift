@@ -453,7 +453,6 @@ final class CraftTableComponent: Component {
     }
 }
 
-
 final class GiftSlotComponent: Component {
     let context: AccountContext
     let gift: GiftItem?

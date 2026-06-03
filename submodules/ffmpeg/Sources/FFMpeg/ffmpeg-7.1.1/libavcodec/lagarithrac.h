@@ -108,5 +108,4 @@ static inline uint8_t lag_get_rac(lag_rac *l)
     return val;
 }
 
-
 #endif /* AVCODEC_LAGARITHRAC_H */

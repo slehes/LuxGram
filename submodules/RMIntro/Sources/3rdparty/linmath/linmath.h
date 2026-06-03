@@ -48,7 +48,6 @@ static inline void vec3_norm(vec3 r, vec3 v)
 	vec3_scale(r, v, k);
 }
 
-
 /////
 static inline void vec2_add(vec2 r, vec2 a, vec2 b)
 {
@@ -149,7 +148,6 @@ static inline void mat4x4_identity(mat4x4 M)
 		for(j=0; j<4; ++j)
 			M[i][j] = i==j ? 1.f : 0.f;
 }
-
 
 static inline void mat4x4_dup(mat4x4 M, mat4x4 N)
 {
@@ -300,8 +298,6 @@ static inline void mat4x4_rotate_Y(mat4x4 Q, mat4x4 M, float angle)
 	mat4x4_mul(Q, M, R);
 }
 
-
-
 static inline void mat4x4_rotate_Z2(mat4x4 Q, mat4x4 M, float angle)
 {
 	float s = sinf(angle);
@@ -322,7 +318,6 @@ static inline void mat4x4_rotate_Z(mat4x4 Q, float angle)
     
     mat4x4_rotate_Z2(Q, temp, angle);
 }
-
 
 static inline void mat4x4_invert(mat4x4 T, mat4x4 M)
 {
@@ -397,7 +392,6 @@ static inline void mat4x4_ortho(mat4x4 M, float l, float r, float b, float t, fl
 	M[3][2] = -(f+n)/(f-n);
 	M[3][3] = 1.f;
 }
-
 
 typedef float quat[4];
 static inline void quat_identity(quat q)

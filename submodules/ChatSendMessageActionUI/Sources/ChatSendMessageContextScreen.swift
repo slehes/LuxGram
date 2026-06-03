@@ -73,7 +73,6 @@ final class ChatSendMessageContextScreenComponent: Component {
     let reactionItems: [ReactionItem]?
     let availableMessageEffects: AvailableMessageEffects?
     let isPremium: Bool
-    // MARK: Swiftgram
     init(
         sgTranslationContext: (outgoingMessageTranslateToLang: String?, translate: (() -> Void)?, changeTranslationLanguage: (() -> ())?) = (outgoingMessageTranslateToLang: nil, translate: nil, changeTranslationLanguage: nil),
         initialData: ChatSendMessageContextScreen.InitialData,
@@ -645,7 +644,6 @@ final class ChatSendMessageContextScreenComponent: Component {
                 )))
             }
             
-            // MARK: Swiftgram
             if !isSecret {
                 if let outgoingMessageTranslateToLang = component.sgTranslationContext.outgoingMessageTranslateToLang {
                     var languageCode = presentationData.strings.baseLanguageCode

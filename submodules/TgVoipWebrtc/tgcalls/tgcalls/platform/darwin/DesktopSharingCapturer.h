@@ -3,7 +3,6 @@
 #ifndef WEBRTC_IOS
 #import <Foundation/Foundation.h>
 
-
 #import "api/video/video_sink_interface.h"
 #import "api/media_stream_interface.h"
 #import "rtc_base/time_utils.h"
@@ -21,7 +20,6 @@
 - (instancetype)initWithSource:(rtc::scoped_refptr<webrtc::VideoTrackSourceInterface>)trackSource captureSource:(tgcalls::DesktopCaptureSource)captureSource;
 
 @end
-
 
 #endif //WEBRTC_IOS
 #endif

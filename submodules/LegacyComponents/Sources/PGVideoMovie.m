@@ -69,7 +69,6 @@ NSString *const kYUVFullRangeConversionForLAFragmentShaderString = SHADER_STRING
  }
  );
 
-
 NSString *const kYUVVideoRangeConversionForLAFragmentShaderString = SHADER_STRING
 (
  varying highp vec2 texCoord;

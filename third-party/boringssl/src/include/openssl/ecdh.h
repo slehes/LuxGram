@@ -75,9 +75,7 @@
 extern "C" {
 #endif
 
-
 // Elliptic curve Diffie-Hellman.
-
 
 // ECDH_compute_key calculates the shared key between |pub_key| and |priv_key|.
 // If |kdf| is not NULL, then it is called with the bytes of the shared key and
@@ -104,7 +102,6 @@ OPENSSL_EXPORT int ECDH_compute_key(
 OPENSSL_EXPORT int ECDH_compute_key_fips(uint8_t *out, size_t out_len,
                                          const EC_POINT *pub_key,
                                          const EC_KEY *priv_key);
-
 
 #if defined(__cplusplus)
 }  // extern C

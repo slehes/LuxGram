@@ -4,7 +4,6 @@ import MtProtoKit
 import SwiftSignalKit
 import TelegramApi
 
-
 public enum RequestSecureIdFormError {
     case generic
     case serverError(String)

@@ -48,7 +48,6 @@ NSString *const TGBridgeAudioSubscriptionMessageIdKey = @"messageId";
 
 @end
 
-
 NSString *const TGBridgeAudioSentSubscriptionName = @"media.audioSent";
 NSString *const TGBridgeAudioSentSubscriptionConversationIdKey = @"conversationId";
 
@@ -80,7 +79,6 @@ NSString *const TGBridgeAudioSentSubscriptionConversationIdKey = @"conversationI
 }
 
 @end
-
 
 NSString *const TGBridgeChatListSubscriptionName = @"chats.chatList";
 NSString *const TGBridgeChatListSubscriptionLimitKey = @"limit";
@@ -118,7 +116,6 @@ NSString *const TGBridgeChatListSubscriptionLimitKey = @"limit";
 }
 
 @end
-
 
 NSString *const TGBridgeChatMessageListSubscriptionName = @"chats.chatMessageList";
 NSString *const TGBridgeChatMessageListSubscriptionPeerIdKey = @"peerId";
@@ -164,7 +161,6 @@ NSString *const TGBridgeChatMessageListSubscriptionRangeMessageCountKey = @"rang
 }
 
 @end
-
 
 NSString *const TGBridgeChatMessageSubscriptionName = @"chats.message";
 NSString *const TGBridgeChatMessageSubscriptionPeerIdKey = @"peerId";
@@ -212,7 +208,6 @@ NSString *const TGBridgeChatMessageSubscriptionMessageIdKey = @"mid";
 
 @end
 
-
 NSString *const TGBridgeReadChatMessageListSubscriptionName = @"chats.readChatMessageList";
 NSString *const TGBridgeReadChatMessageListSubscriptionPeerIdKey = @"peerId";
 NSString *const TGBridgeReadChatMessageListSubscriptionMessageIdKey = @"mid";
@@ -249,7 +244,6 @@ NSString *const TGBridgeReadChatMessageListSubscriptionMessageIdKey = @"mid";
 
 @end
 
-
 NSString *const TGBridgeContactsSubscriptionName = @"contacts.search";
 NSString *const TGBridgeContactsSubscriptionQueryKey = @"query";
 
@@ -281,7 +275,6 @@ NSString *const TGBridgeContactsSubscriptionQueryKey = @"query";
 }
 
 @end
-
 
 NSString *const TGBridgeConversationSubscriptionName = @"chats.conversation";
 NSString *const TGBridgeConversationSubscriptionPeerIdKey = @"peerId";
@@ -319,7 +312,6 @@ NSString *const TGBridgeConversationSubscriptionPeerIdKey = @"peerId";
 }
 
 @end
-
 
 NSString *const TGBridgeNearbyVenuesSubscriptionName = @"location.nearbyVenues";
 NSString *const TGBridgeNearbyVenuesSubscriptionLatitudeKey = @"lat";
@@ -359,7 +351,6 @@ NSString *const TGBridgeNearbyVenuesSubscriptionLimitKey = @"limit";
 }
 
 @end
-
 
 NSString *const TGBridgeMediaThumbnailSubscriptionName = @"media.thumbnail";
 NSString *const TGBridgeMediaThumbnailPeerIdKey = @"peerId";
@@ -410,7 +401,6 @@ NSString *const TGBridgeMediaThumbnailNotificationKey = @"notification";
 
 @end
 
-
 NSString *const TGBridgeMediaAvatarSubscriptionName = @"media.avatar";
 NSString *const TGBridgeMediaAvatarPeerIdKey = @"peerId";
 NSString *const TGBridgeMediaAvatarUrlKey = @"url";
@@ -455,7 +445,6 @@ NSString *const TGBridgeMediaAvatarTypeKey = @"type";
 }
 
 @end
-
 
 NSString *const TGBridgeMediaStickerSubscriptionName = @"media.sticker";
 NSString *const TGBridgeMediaStickerDocumentIdKey = @"documentId";
@@ -518,7 +507,6 @@ NSString *const TGBridgeMediaStickerSizeKey = @"size";
 
 @end
 
-
 NSString *const TGBridgePeerSettingsSubscriptionName = @"peer.settings";
 NSString *const TGBridgePeerSettingsSubscriptionPeerIdKey = @"peerId";
 
@@ -556,7 +544,6 @@ NSString *const TGBridgePeerSettingsSubscriptionPeerIdKey = @"peerId";
 
 @end
 
-
 NSString *const TGBridgePeerUpdateNotificationSettingsSubscriptionName = @"peer.notificationSettings";
 NSString *const TGBridgePeerUpdateNotificationSettingsSubscriptionPeerIdKey = @"peerId";
 
@@ -593,7 +580,6 @@ NSString *const TGBridgePeerUpdateNotificationSettingsSubscriptionPeerIdKey = @"
 }
 
 @end
-
 
 NSString *const TGBridgePeerUpdateBlockStatusSubscriptionName = @"peer.updateBlocked";
 NSString *const TGBridgePeerUpdateBlockStatusSubscriptionPeerIdKey = @"peerId";
@@ -635,7 +621,6 @@ NSString *const TGBridgePeerUpdateBlockStatusSubscriptionBlockedKey = @"blocked"
 }
 
 @end
-
 
 NSString *const TGBridgeRemoteSubscriptionName = @"remote.request";
 NSString *const TGBridgeRemotePeerIdKey = @"peerId";
@@ -686,7 +671,6 @@ NSString *const TGBridgeRemoteAutoPlayKey = @"autoPlay";
 
 @end
 
-
 NSString *const TGBridgeSendTextMessageSubscriptionName = @"sendMessage.text";
 NSString *const TGBridgeSendTextMessageSubscriptionPeerIdKey = @"peerId";
 NSString *const TGBridgeSendTextMessageSubscriptionTextKey = @"text";
@@ -732,7 +716,6 @@ NSString *const TGBridgeSendTextMessageSubscriptionReplyToMidKey = @"replyToMid"
 
 @end
 
-
 NSString *const TGBridgeSendStickerMessageSubscriptionName = @"sendMessage.sticker";
 NSString *const TGBridgeSendStickerMessageSubscriptionPeerIdKey = @"peerId";
 NSString *const TGBridgeSendStickerMessageSubscriptionDocumentKey = @"document";
@@ -764,7 +747,6 @@ NSString *const TGBridgeSendStickerMessageSubscriptionReplyToMidKey = @"replyToM
     [aCoder encodeInt32:self.replyToMid forKey:TGBridgeSendStickerMessageSubscriptionReplyToMidKey];
 }
 
-
 - (void)_unserializeParametersWithCoder:(NSCoder *)aDecoder
 {
     _peerId = [aDecoder decodeInt64ForKey:TGBridgeSendStickerMessageSubscriptionPeerIdKey];
@@ -778,7 +760,6 @@ NSString *const TGBridgeSendStickerMessageSubscriptionReplyToMidKey = @"replyToM
 }
 
 @end
-
 
 NSString *const TGBridgeSendLocationMessageSubscriptionName = @"sendMessage.location";
 NSString *const TGBridgeSendLocationMessageSubscriptionPeerIdKey = @"peerId";
@@ -825,7 +806,6 @@ NSString *const TGBridgeSendLocationMessageSubscriptionReplyToMidKey = @"replyTo
 
 @end
 
-
 NSString *const TGBridgeSendForwardedMessageSubscriptionName = @"sendMessage.forward";
 NSString *const TGBridgeSendForwardedMessageSubscriptionPeerIdKey = @"peerId";
 NSString *const TGBridgeSendForwardedMessageSubscriptionMidKey = @"mid";
@@ -871,7 +851,6 @@ NSString *const TGBridgeSendForwardedMessageSubscriptionTargetPeerIdKey = @"targ
 
 @end
 
-
 NSString *const TGBridgeStateSubscriptionName = @"state.syncState";
 
 @implementation TGBridgeStateSubscription
@@ -888,7 +867,6 @@ NSString *const TGBridgeStateSubscriptionName = @"state.syncState";
 
 @end
 
-
 NSString *const TGBridgeStickerPacksSubscriptionName = @"stickers.packs";
 
 @implementation TGBridgeStickerPacksSubscription
@@ -899,7 +877,6 @@ NSString *const TGBridgeStickerPacksSubscriptionName = @"stickers.packs";
 }
 
 @end
-
 
 NSString *const TGBridgeRecentStickersSubscriptionName = @"stickers.recent";
 NSString *const TGBridgeRecentStickersSubscriptionLimitKey = @"limit";
@@ -932,7 +909,6 @@ NSString *const TGBridgeRecentStickersSubscriptionLimitKey = @"limit";
 }
 
 @end
-
 
 NSString *const TGBridgeUserInfoSubscriptionName = @"user.userInfo";
 NSString *const TGBridgeUserInfoSubscriptionUserIdsKey = @"uids";
@@ -971,7 +947,6 @@ NSString *const TGBridgeUserInfoSubscriptionUserIdsKey = @"uids";
 
 @end
 
-
 NSString *const TGBridgeUserBotInfoSubscriptionName = @"user.botInfo";
 NSString *const TGBridgeUserBotInfoSubscriptionUserIdsKey = @"uids";
 
@@ -1008,7 +983,6 @@ NSString *const TGBridgeUserBotInfoSubscriptionUserIdsKey = @"uids";
 }
 
 @end
-
 
 NSString *const TGBridgeBotReplyMarkupSubscriptionName = @"user.botReplyMarkup";
 NSString *const TGBridgeBotReplyMarkupPeerIdKey = @"peerId";

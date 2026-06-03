@@ -11,7 +11,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 /**
  These are the properties we support from CALayer (implemented in the pending state)
  */

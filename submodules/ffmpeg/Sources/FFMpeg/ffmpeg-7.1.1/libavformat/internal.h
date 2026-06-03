@@ -60,7 +60,6 @@ typedef struct FFFrac {
     int64_t val, num, den;
 } FFFrac;
 
-
 typedef struct FFFormatContext {
     /**
      * The public context.
@@ -435,7 +434,6 @@ typedef struct FFStreamGroup {
     AVFormatContext *fmtctx;
 } FFStreamGroup;
 
-
 static av_always_inline FFStreamGroup *ffstreamgroup(AVStreamGroup *stg)
 {
     return (FFStreamGroup*)stg;
@@ -460,7 +458,6 @@ do {\
     av_dynarray_add((tab), nb_ptr, (elem));\
 } while(0)
 #endif
-
 
 void ff_flush_packet_queue(AVFormatContext *s);
 

@@ -306,7 +306,6 @@ int event_reinit(struct event_base *base);
  */
 int event_dispatch(void);
 
-
 /**
   Threadsafe event dispatching loop.
 
@@ -314,7 +313,6 @@ int event_dispatch(void);
   @see event_init(), event_dispatch()
  */
 int event_base_dispatch(struct event_base *);
-
 
 /**
  Get the kernel event notification mechanism used by libevent.
@@ -334,7 +332,6 @@ const char *event_base_get_method(struct event_base *);
   @param eb an event_base to be freed
  */
 void event_base_free(struct event_base *);
-
 
 #define _EVENT_LOG_DEBUG 0
 #define _EVENT_LOG_MSG   1
@@ -406,7 +403,6 @@ int event_base_loop(struct event_base *, int);
   */
 int event_loopexit(const struct timeval *);
 
-
 /**
   Exit the event loop after the specified time (threadsafe variant).
 
@@ -452,7 +448,6 @@ int event_loopbreak(void);
  */
 int event_base_loopbreak(struct event_base *);
 
-
 /**
   Add a timer event.
 
@@ -460,7 +455,6 @@ int event_base_loopbreak(struct event_base *);
   @param tv timeval struct
  */
 #define evtimer_add(ev, tv)		event_add(ev, tv)
-
 
 /**
   Define a timer event.
@@ -470,7 +464,6 @@ int event_base_loopbreak(struct event_base *);
   @param arg argument that will be passed to the callback function
  */
 #define evtimer_set(ev, cb, arg)	event_set(ev, -1, 0, cb, arg)
-
 
 /**
  * Delete a timer event.
@@ -489,7 +482,6 @@ int event_base_loopbreak(struct event_base *);
  */
 #define timeout_add(ev, tv)		event_add(ev, tv)
 
-
 /**
  * Define a timeout event.
  *
@@ -498,7 +490,6 @@ int event_base_loopbreak(struct event_base *);
  * @param arg the argument to be passed to the callback
  */
 #define timeout_set(ev, cb, arg)	event_set(ev, -1, 0, cb, arg)
-
 
 /**
  * Disable a timeout event.
@@ -566,7 +557,6 @@ void event_set(struct event *, int, short, void (*)(int, short, void *), void *)
 int event_once(int, short, void (*)(int, short, void *), void *,
     const struct timeval *);
 
-
 /**
   Schedule a one-time event (threadsafe variant)
 
@@ -589,7 +579,6 @@ int event_base_once(struct event_base *base, int fd, short events,
     void (*callback)(int, short, void *), void *arg,
     const struct timeval *timeout);
 
-
 /**
   Add an event to the set of monitored events.
 
@@ -610,7 +599,6 @@ int event_base_once(struct event_base *base, int fd, short events,
   */
 int event_add(struct event *ev, const struct timeval *timeout);
 
-
 /**
   Remove an event from the set of monitored events.
 
@@ -626,7 +614,6 @@ int event_del(struct event *);
 
 void event_active(struct event *, int, short);
 
-
 /**
   Checks if a specific event is pending or scheduled.
 
@@ -639,7 +626,6 @@ void event_active(struct event *, int, short);
 
  */
 int event_pending(struct event *ev, short event, struct timeval *tv);
-
 
 /**
   Test if an event structure has been initialized.
@@ -657,7 +643,6 @@ int event_pending(struct event *ev, short event, struct timeval *tv);
 #define event_initialized(ev)		((ev)->ev_flags & EVLIST_INIT)
 #endif
 
-
 /**
   Get the libevent version number.
 
@@ -665,14 +650,12 @@ int event_pending(struct event *ev, short event, struct timeval *tv);
  */
 const char *event_get_version(void);
 
-
 /**
   Get the kernel event notification mechanism used by libevent.
 
   @return a string identifying the kernel event mechanism (kqueue, epoll, etc.)
  */
 const char *event_get_method(void);
-
 
 /**
   Set the number of different event priorities.
@@ -696,7 +679,6 @@ const char *event_get_method(void);
  */
 int	event_priority_init(int);
 
-
 /**
   Set the number of different event priorities (threadsafe variant).
 
@@ -709,7 +691,6 @@ int	event_priority_init(int);
  */
 int	event_base_priority_init(struct event_base *, int);
 
-
 /**
   Assign a priority to an event.
 
@@ -719,7 +700,6 @@ int	event_base_priority_init(struct event_base *, int);
   @see event_priority_init()
   */
 int	event_priority_set(struct event *, int);
-
 
 /* These functions deal with buffering input and output */
 
@@ -813,7 +793,6 @@ struct bufferevent {
 struct bufferevent *bufferevent_new(int fd,
     evbuffercb readcb, evbuffercb writecb, everrorcb errorcb, void *cbarg);
 
-
 /**
   Assign a bufferevent to a specific event_base.
 
@@ -824,7 +803,6 @@ struct bufferevent *bufferevent_new(int fd,
  */
 int bufferevent_base_set(struct event_base *base, struct bufferevent *bufev);
 
-
 /**
   Assign a priority to a bufferevent.
 
@@ -834,14 +812,12 @@ int bufferevent_base_set(struct event_base *base, struct bufferevent *bufev);
   */
 int bufferevent_priority_set(struct bufferevent *bufev, int pri);
 
-
 /**
   Deallocate the storage associated with a bufferevent structure.
 
   @param bufev the bufferevent structure to be freed.
   */
 void bufferevent_free(struct bufferevent *bufev);
-
 
 /**
   Changes the callbacks for a bufferevent.
@@ -884,7 +860,6 @@ void bufferevent_setfd(struct bufferevent *bufev, int fd);
 int bufferevent_write(struct bufferevent *bufev,
     const void *data, size_t size);
 
-
 /**
   Write data from an evbuffer to a bufferevent buffer.  The evbuffer is
   being drained as a result.
@@ -895,7 +870,6 @@ int bufferevent_write(struct bufferevent *bufev,
   @see bufferevent_write()
  */
 int bufferevent_write_buffer(struct bufferevent *bufev, struct evbuffer *buf);
-
 
 /**
   Read data from a bufferevent buffer.
@@ -919,7 +893,6 @@ size_t bufferevent_read(struct bufferevent *bufev, void *data, size_t size);
  */
 int bufferevent_enable(struct bufferevent *bufev, short event);
 
-
 /**
   Disable a bufferevent.
 
@@ -930,7 +903,6 @@ int bufferevent_enable(struct bufferevent *bufev, short event);
  */
 int bufferevent_disable(struct bufferevent *bufev, short event);
 
-
 /**
   Set the read and write timeout for a buffered event.
 
@@ -940,7 +912,6 @@ int bufferevent_disable(struct bufferevent *bufev, short event);
  */
 void bufferevent_settimeout(struct bufferevent *bufev,
     int timeout_read, int timeout_write);
-
 
 /**
   Sets the watermarks for read and write events.
@@ -966,7 +937,6 @@ void bufferevent_setwatermark(struct bufferevent *bufev, short events,
 #define EVBUFFER_INPUT(x)	(x)->input
 #define EVBUFFER_OUTPUT(x)	(x)->output
 
-
 /**
   Allocate storage for a new evbuffer.
 
@@ -975,14 +945,12 @@ void bufferevent_setwatermark(struct bufferevent *bufev, short events,
  */
 struct evbuffer *evbuffer_new(void);
 
-
 /**
   Deallocate storage for an evbuffer.
 
   @param pointer to the evbuffer to be freed
  */
 void evbuffer_free(struct evbuffer *);
-
 
 /**
   Expands the available space in an event buffer.
@@ -995,7 +963,6 @@ void evbuffer_free(struct evbuffer *);
 */
 int evbuffer_expand(struct evbuffer *, size_t);
 
-
 /**
   Append data to the end of an evbuffer.
 
@@ -1004,8 +971,6 @@ int evbuffer_expand(struct evbuffer *, size_t);
   @param datlen the number of bytes to be copied from the data buffer
  */
 int evbuffer_add(struct evbuffer *, const void *, size_t);
-
-
 
 /**
   Read data from an event buffer and drain the bytes read.
@@ -1017,7 +982,6 @@ int evbuffer_add(struct evbuffer *, const void *, size_t);
  */
 int evbuffer_remove(struct evbuffer *, void *, size_t);
 
-
 /**
  * Read a single line from an event buffer.
  *
@@ -1028,7 +992,6 @@ int evbuffer_remove(struct evbuffer *, void *, size_t);
  * @return pointer to a single line, or NULL if an error occurred
  */
 char *evbuffer_readline(struct evbuffer *);
-
 
 /** Used to tell evbuffer_readln what kind of line-ending to look for.
  */
@@ -1061,7 +1024,6 @@ enum evbuffer_eol_style {
 char *evbuffer_readln(struct evbuffer *buffer, size_t *n_read_out,
     enum evbuffer_eol_style eol_style);
 
-
 /**
   Move data from one evbuffer into another evbuffer.
 
@@ -1073,7 +1035,6 @@ char *evbuffer_readln(struct evbuffer *buffer, size_t *n_read_out,
   @return 0 if successful, or -1 if an error occurred
  */
 int evbuffer_add_buffer(struct evbuffer *, struct evbuffer *);
-
 
 /**
   Append a formatted string to the end of an evbuffer.
@@ -1089,7 +1050,6 @@ int evbuffer_add_printf(struct evbuffer *, const char *fmt, ...)
 #endif
 ;
 
-
 /**
   Append a va_list formatted string to the end of an evbuffer.
 
@@ -1100,7 +1060,6 @@ int evbuffer_add_printf(struct evbuffer *, const char *fmt, ...)
  */
 int evbuffer_add_vprintf(struct evbuffer *, const char *fmt, va_list ap);
 
-
 /**
   Remove a specified number of bytes data from the beginning of an evbuffer.
 
@@ -1108,7 +1067,6 @@ int evbuffer_add_vprintf(struct evbuffer *, const char *fmt, va_list ap);
   @param len the number of bytes to drain from the beginning of the buffer
  */
 void evbuffer_drain(struct evbuffer *, size_t);
-
 
 /**
   Write the contents of an evbuffer to a file descriptor.
@@ -1122,7 +1080,6 @@ void evbuffer_drain(struct evbuffer *, size_t);
  */
 int evbuffer_write(struct evbuffer *, int);
 
-
 /**
   Read from a file descriptor and store the result in an evbuffer.
 
@@ -1133,7 +1090,6 @@ int evbuffer_write(struct evbuffer *, int);
   @see evbuffer_write()
  */
 int evbuffer_read(struct evbuffer *, int, int);
-
 
 /**
   Find a string within an evbuffer.

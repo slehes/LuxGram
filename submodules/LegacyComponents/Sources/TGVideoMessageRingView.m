@@ -90,7 +90,6 @@
     }
 }
 
-
 - (void)setupAnimation {
     if (!_hasContainerSize) {
         return;

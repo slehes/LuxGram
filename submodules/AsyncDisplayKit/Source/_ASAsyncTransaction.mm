@@ -7,7 +7,6 @@
 //  Licensed under Apache 2.0: http://www.apache.org/licenses/LICENSE-2.0
 //
 
-
 #import <AsyncDisplayKit/_ASAsyncTransaction.h>
 #import <AsyncDisplayKit/_ASAsyncTransactionGroup.h>
 #import <AsyncDisplayKit/ASAssert.h>
@@ -318,7 +317,6 @@ ASAsyncTransactionQueue & ASAsyncTransactionQueue::instance()
 @interface _ASAsyncTransaction ()
 @property ASAsyncTransactionState state;
 @end
-
 
 @implementation _ASAsyncTransaction
 {

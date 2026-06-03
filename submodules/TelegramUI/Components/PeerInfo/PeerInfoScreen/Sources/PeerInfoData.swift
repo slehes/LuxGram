@@ -977,7 +977,6 @@ func peerInfoScreenSettingsData(context: AccountContext, peerId: EnginePeer.Id, 
         
         var enableQRLogin = false
         let appConfiguration = accountPreferences.values[PreferencesKeys.appConfiguration]?.get(AppConfiguration.self)
-        // MARK: Swiftgram
         if let appConfiguration, appConfiguration.sgWebSettings.global.qrLogin {
             enableQRLogin = true
         }
@@ -2160,7 +2159,6 @@ func peerInfoScreenData(
                 
                 let appConfiguration: AppConfiguration = preferencesView.values[PreferencesKeys.appConfiguration]?.get(AppConfiguration.self) ?? .defaultValue
               
-                // MARK: Swiftgram
                 var channelCreationTimestamp = firstMessage?.timestamp
                 if groupId.namespace == Namespaces.Peer.CloudChannel, let firstMessage {
                     for media in firstMessage.media {
@@ -2663,8 +2661,6 @@ private func isPremiumRequiredForStoryPosting(context: AccountContext) -> Signal
     )
 }
 
-
-// MARK: Swiftgram
 private func getFirstMessage(context: AccountContext, peerId: PeerId) -> Signal<Message?, NoError> {
     return context.engine.messages.getMessagesLoadIfNecessary([MessageId(peerId: peerId, namespace: Namespaces.Message.Cloud, id: 1)])
     |> `catch` { _ in

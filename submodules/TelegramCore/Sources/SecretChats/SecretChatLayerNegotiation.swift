@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 private let topSupportedLayer: SecretChatSequenceBasedLayer = .layer144
 
 func secretChatCommonSupportedLayer(remoteLayer: Int32) -> SecretChatSequenceBasedLayer {

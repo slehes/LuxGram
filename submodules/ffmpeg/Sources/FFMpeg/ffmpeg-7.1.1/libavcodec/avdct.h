@@ -49,7 +49,6 @@ typedef struct AVDCT {
 
     void (*fdct)(int16_t *block /* align 16 */);
 
-
     /**
      * DCT algorithm.
      * must use AVOptions to set this field.

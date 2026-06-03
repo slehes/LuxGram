@@ -170,7 +170,6 @@ public struct Font {
 
     private static let cache = Cache()
 
-    // MARK: - LuxGram - Font replacement
     #if canImport(SGSimpleSettings)
     /// Register custom font from persisted file path (so it survives app restart).
     private static func registerCustomFontFromPathIfNeeded(forFontName name: String, isBold: Bool) {
@@ -338,7 +337,6 @@ public struct Font {
             return font
         }
     }
-
 
     public static func regular(_ size: CGFloat) -> UIFont {
         #if canImport(SGSimpleSettings)

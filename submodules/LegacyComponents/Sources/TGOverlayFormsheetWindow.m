@@ -5,7 +5,6 @@
 
 #import "TGOverlayFormsheetController.h"
 
-
 @interface TGOverlayFormsheetWindow ()
 {
     __weak TGViewController *_parentController;

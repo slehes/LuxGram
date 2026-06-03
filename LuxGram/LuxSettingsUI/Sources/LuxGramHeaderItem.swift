@@ -1,4 +1,3 @@
-// MARK: - LuxGram Liquid Glass Header
 import Foundation
 import UIKit
 import AsyncDisplayKit

@@ -1,4 +1,3 @@
-// MARK: LuxGram
 import SGLogging
 import SGLoggingComposer
 import SGSimpleSettings
@@ -163,7 +162,6 @@ private enum DebugControllerEntry: ItemListNodeEntry {
     
     var stableId: Int {
         switch self {
-        // MARK: LuxGram
         case .SGDebug:
             return -110
         case .sendSGLogs:
@@ -414,7 +412,6 @@ private enum DebugControllerEntry: ItemListNodeEntry {
                     arguments.presentController(actionSheet, nil)
                 })
             })
-        // MARK: LuxGram
         case .sendOneLog, .sendSGLogs:
             var title = "Send Latest Logs (Up to 4 MB)"
             var logCollectionSignal: Signal<[(String, String)], NoError> = Logger.shared.collectLogs()
@@ -1564,7 +1561,6 @@ private func debugControllerEntries(context: AccountContext?, sharedContext: Sha
 
     let isMainApp = sharedContext.applicationBindings.isMainApp
     
-    // MARK: LuxGram
     entries.append(.SGDebug(presentationData.theme))
     entries.append(.sendSGLogs(presentationData.theme))
     

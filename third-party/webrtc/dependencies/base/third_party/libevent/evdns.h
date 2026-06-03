@@ -222,7 +222,6 @@ typedef void (*evdns_callback_type) (int result, char type, int count, int ttl, 
  */
 int evdns_init(void);
 
-
 /**
   Shut down the asynchronous DNS resolver and terminate all active requests.
 
@@ -236,7 +235,6 @@ int evdns_init(void);
  */
 void evdns_shutdown(int fail_requests);
 
-
 /**
   Convert a DNS error code to a string.
 
@@ -244,7 +242,6 @@ void evdns_shutdown(int fail_requests);
   @return a string containing an explanation of the error code
 */
 const char *evdns_err_to_string(int err);
-
 
 /**
   Add a nameserver.
@@ -257,7 +254,6 @@ const char *evdns_err_to_string(int err);
   @see evdns_nameserver_ip_add()
  */
 int evdns_nameserver_add(unsigned long int address);
-
 
 /**
   Get the number of configured nameservers.
@@ -272,7 +268,6 @@ int evdns_nameserver_add(unsigned long int address);
  */
 int evdns_count_nameservers(void);
 
-
 /**
   Remove all configured nameservers, and suspend all pending resolves.
 
@@ -282,7 +277,6 @@ int evdns_count_nameservers(void);
   @see evdns_resume()
  */
 int evdns_clear_nameservers_and_suspend(void);
-
 
 /**
   Resume normal operation and continue any suspended resolve requests.
@@ -295,7 +289,6 @@ int evdns_clear_nameservers_and_suspend(void);
  */
 int evdns_resume(void);
 
-
 /**
   Add a nameserver.
 
@@ -306,7 +299,6 @@ int evdns_resume(void);
   @see evdns_nameserver_add()
  */
 int evdns_nameserver_ip_add(const char *ip_as_string);
-
 
 /**
   Lookup an A record for a given name.
@@ -319,7 +311,6 @@ int evdns_nameserver_ip_add(const char *ip_as_string);
   @see evdns_resolve_ipv6(), evdns_resolve_reverse(), evdns_resolve_reverse_ipv6()
  */
 int evdns_resolve_ipv4(const char *name, int flags, evdns_callback_type callback, void *ptr);
-
 
 /**
   Lookup an AAAA record for a given name.
@@ -348,7 +339,6 @@ struct in6_addr;
  */
 int evdns_resolve_reverse(const struct in_addr *in, int flags, evdns_callback_type callback, void *ptr);
 
-
 /**
   Lookup a PTR record for a given IPv6 address.
 
@@ -360,7 +350,6 @@ int evdns_resolve_reverse(const struct in_addr *in, int flags, evdns_callback_ty
   @see evdns_resolve_reverse_ipv6()
  */
 int evdns_resolve_reverse_ipv6(const struct in6_addr *in, int flags, evdns_callback_type callback, void *ptr);
-
 
 /**
   Set the value of a configuration option.
@@ -375,7 +364,6 @@ int evdns_resolve_reverse_ipv6(const struct in6_addr *in, int flags, evdns_callb
   @return 0 if successful, or -1 if an error occurred
  */
 int evdns_set_option(const char *option, const char *val, int flags);
-
 
 /**
   Parse a resolv.conf file.
@@ -400,7 +388,6 @@ int evdns_set_option(const char *option, const char *val, int flags);
  */
 int evdns_resolv_conf_parse(int flags, const char *const filename);
 
-
 /**
   Obtain nameserver information using the Windows API.
 
@@ -415,12 +402,10 @@ int evdns_resolv_conf_parse(int flags, const char *const filename);
 int evdns_config_windows_nameservers(void);
 #endif
 
-
 /**
   Clear the list of search domains.
  */
 void evdns_search_clear(void);
-
 
 /**
   Add a domain to the list of search domains
@@ -428,7 +413,6 @@ void evdns_search_clear(void);
   @param domain the domain to be added to the search list
  */
 void evdns_search_add(const char *domain);
-
 
 /**
   Set the 'ndots' parameter for searches.
@@ -447,7 +431,6 @@ void evdns_search_ndots_set(const int ndots);
   @param msg the content of the log message
  */
 typedef void (*evdns_debug_log_fn_type)(int is_warning, const char *msg);
-
 
 /**
   Set the callback function to handle log messages.

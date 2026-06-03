@@ -1156,7 +1156,6 @@ typedef enum
 
 @end
 
-
 @implementation TGMenuPanGestureRecognizer
 
 - (void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
@@ -1186,7 +1185,6 @@ typedef enum
 
 @end
 
-
 @implementation TGMenuSheetContainerView
 
 - (UIView *)hitTest:(CGPoint)point withEvent:(UIEvent *)event
@@ -1199,7 +1197,6 @@ typedef enum
 }
 
 @end
-
 
 @implementation TGMenuSheetPallete
 

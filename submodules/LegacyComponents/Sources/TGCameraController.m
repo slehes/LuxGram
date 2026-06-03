@@ -2969,7 +2969,6 @@ static CGPoint TGCameraControllerClampPointToScreenSize(__unused id self, __unus
             id<TGMediaEditAdjustments> adjustments = [editingContext adjustmentsForItem:asset];
             NSNumber *timer = [editingContext timerForItem:asset];
 
-
             SSignal *originalSignal = isHighQualityPhoto ? [asset originalImageSignal:0.0]  : [asset screenImageSignal:0.0];
             SSignal *inlineSignal = [originalSignal map:^id(UIImage *originalImage)
             {

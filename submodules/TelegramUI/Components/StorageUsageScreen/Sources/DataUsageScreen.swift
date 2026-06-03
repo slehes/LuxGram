@@ -1324,7 +1324,6 @@ private func stringForAutoDownloadTypes(strings: PresentationStrings, decimalSep
     return string
 }
 
-
 private func stringForAutoDownloadSetting(strings: PresentationStrings, decimalSeparator: String, settings: MediaAutoDownloadSettings, isCellular: Bool) -> String {
     let connection: MediaAutoDownloadConnection = isCellular ? settings.cellular : settings.wifi
     if !connection.enabled {

@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 public final class SelectivePrivacyPeer: Equatable {
     public let peer: Peer
     public let participantCount: Int32?

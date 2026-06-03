@@ -4,7 +4,6 @@ import LegacyUI
 import SwiftUI
 import TelegramPresentationData
 
-
 @available(iOS 13.0, *)
 public class ObservedValue<T>: ObservableObject {
     @Published public var value: T
@@ -57,7 +56,6 @@ public extension EnvironmentValues {
 //        set { self[ContainerViewLayoutUpdateCountKey.self] = newValue }
 //    }
 }
-
 
 @available(iOS 13.0, *)
 public struct SGSwiftUIView<Content: View>: View {
@@ -162,7 +160,6 @@ public extension View {
     }
 
 }
-
 
 @available(iOS 13.0, *)
 public final class LegacySwiftUIController: LegacyController {
@@ -269,7 +266,6 @@ extension UIHostingController {
     }
 }
 
-
 @available(iOS 13.0, *)
 public struct TGNavigationBackButtonModifier: ViewModifier {
     weak var wrapperController: LegacyController?
@@ -292,7 +288,6 @@ public extension View {
         modifier(TGNavigationBackButtonModifier(wrapperController: wrapperController))
     }
 }
-
 
 @available(iOS 13.0, *)
 public struct NavigationBarBackButton: View {
@@ -393,7 +388,6 @@ public extension Color {
     }
 }
 
-
 public enum BackgroundMaterial {
     case ultraThinMaterial
     case thinMaterial
@@ -427,7 +421,6 @@ public enum BounceBehavior {
         }
     }
 }
-
 
 @available(iOS 13.0, *)
 public extension View {

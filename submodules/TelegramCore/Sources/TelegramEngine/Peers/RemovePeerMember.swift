@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 func _internal_removePeerMember(account: Account, peerId: PeerId, memberId: PeerId) -> Signal<Void, NoError> {
     if peerId.namespace == Namespaces.Peer.CloudChannel {
         return _internal_updateChannelMemberBannedRights(account: account, peerId: peerId, memberId: memberId, rights: TelegramChatBannedRights(flags: [.banReadMessages], untilDate: 0))

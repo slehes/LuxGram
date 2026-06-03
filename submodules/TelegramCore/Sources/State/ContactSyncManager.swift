@@ -3,7 +3,6 @@ import Postbox
 import SwiftSignalKit
 import TelegramApi
 
-
 private func normalizedPhoneNumber(_ value: String) -> String {
     var result = ""
     for c in value {

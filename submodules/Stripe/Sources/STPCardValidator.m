@@ -111,7 +111,6 @@ static NSString * _Nonnull stringByRemovingCharactersFromSet(NSString * _Nonnull
     }
 }
 
-
 + (STPCardValidationState)validationStateForExpirationYear:(NSString *)expirationYear
                                                    inMonth:(NSString *)expirationMonth cardBrand:(STPCardBrand)cardBrand {
     return [self validationStateForExpirationYear:expirationYear
@@ -119,7 +118,6 @@ static NSString * _Nonnull stringByRemovingCharactersFromSet(NSString * _Nonnull
                                     inCurrentYear:[self currentYear]
                                      currentMonth:[self currentMonth] cardBrand:cardBrand];
 }
-
 
 + (STPCardValidationState)validationStateForCVC:(NSString *)cvc cardBrand:(STPCardBrand)brand {
     

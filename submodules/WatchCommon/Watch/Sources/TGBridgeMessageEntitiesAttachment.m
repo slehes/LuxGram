@@ -26,5 +26,4 @@ NSString *const TGBridgeMessageEntitiesKey = @"entities";
     return TGBridgeMessageEntitiesAttachmentType;
 }
 
-
 @end

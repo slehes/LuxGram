@@ -84,8 +84,6 @@ int ff_draw_init2(FFDrawContext *draw, enum AVPixelFormat format, enum AVColorSp
  */
 int ff_draw_init(FFDrawContext *draw, enum AVPixelFormat format, unsigned flags);
 
-
-
 /**
  * Prepare a color. The rgba value passed is always 8-bit full-range in the RGB space
  * corresponding to the space set at initialization.

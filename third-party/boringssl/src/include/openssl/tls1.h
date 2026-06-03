@@ -156,7 +156,6 @@
 extern "C" {
 #endif
 
-
 #define TLS1_AD_END_OF_EARLY_DATA 1
 #define TLS1_AD_DECRYPTION_FAILED 21
 #define TLS1_AD_RECORD_OVERFLOW 22
@@ -654,7 +653,6 @@ extern "C" {
 #define TLS_CT_ECDSA_FIXED_ECDH 66
 
 #define TLS_MD_MAX_CONST_SIZE 20
-
 
 #ifdef  __cplusplus
 }  // extern C

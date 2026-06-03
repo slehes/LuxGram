@@ -1368,7 +1368,6 @@ public:
     }
 #endif // RAPIDJSON_HAS_CXX11_RVALUE_REFS
 
-
     //! Add a member (name-value pair) to the object.
     /*! \param name A constant string reference as name of member.
         \param value Value of any type.

@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Plugin settings screen
 import Foundation
 import UIKit
 import Display

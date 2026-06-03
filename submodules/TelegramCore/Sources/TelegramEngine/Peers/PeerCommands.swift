@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 public struct PeerCommand: Hashable {
     public let peer: Peer
     public let command: BotCommand

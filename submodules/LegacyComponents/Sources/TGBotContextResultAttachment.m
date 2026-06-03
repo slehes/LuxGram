@@ -25,7 +25,6 @@
     [aCoder encodeInt64:_queryId forKey:@"queryId"];
 }
 
-
 - (void)serialize:(NSMutableData *)data
 {
     NSData *serializedData = [NSKeyedArchiver archivedDataWithRootObject:self requiringSecureCoding:false error:nil];

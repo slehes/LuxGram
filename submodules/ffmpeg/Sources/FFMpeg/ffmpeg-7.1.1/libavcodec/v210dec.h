@@ -22,7 +22,6 @@
 #include "libavutil/log.h"
 #include "libavutil/opt.h"
 
-
 typedef struct {
     AVClass *av_class;
     int custom_stride;

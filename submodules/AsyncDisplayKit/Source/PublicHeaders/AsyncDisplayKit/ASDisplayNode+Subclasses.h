@@ -115,7 +115,6 @@ AS_CATEGORY_IMPLEMENTABLE
 AS_CATEGORY_IMPLEMENTABLE
 - (void)calculatedLayoutDidChange ASDISPLAYNODE_REQUIRES_SUPER;
 
-
 #pragma mark - Layout calculation
 /** @name Layout calculation */
 
@@ -377,7 +376,6 @@ AS_CATEGORY_IMPLEMENTABLE
  */
 @property (readonly) CGFloat contentsScaleForDisplay;
 
-
 #pragma mark - Touch handling
 /** @name Touch handling */
 
@@ -413,7 +411,6 @@ AS_CATEGORY_IMPLEMENTABLE
  */
 - (void)touchesCancelled:(nullable NSSet<UITouch *> *)touches withEvent:(nullable UIEvent *)event ASDISPLAYNODE_REQUIRES_SUPER;
 
-
 #pragma mark - Managing Gesture Recognizers
 /** @name Managing Gesture Recognizers */
 
@@ -423,7 +420,6 @@ AS_CATEGORY_IMPLEMENTABLE
  * @param gestureRecognizer A gesture recognizer trying to recognize a gesture.
  */
 - (BOOL)gestureRecognizerShouldBegin:(UIGestureRecognizer *)gestureRecognizer;
-
 
 #pragma mark - Hit Testing
 
@@ -443,7 +439,6 @@ AS_CATEGORY_IMPLEMENTABLE
  * 2) hitTest: is never called before the views are created.
  */
 - (nullable UIView *)hitTest:(CGPoint)point withEvent:(nullable UIEvent *)event;
-
 
 #pragma mark - Placeholders
 /** @name Placeholders */
@@ -465,7 +460,6 @@ AS_CATEGORY_IMPLEMENTABLE
  */
 - (nullable UIImage *)placeholderImage;
 
-
 #pragma mark - Description
 /** @name Description */
 
@@ -477,7 +471,6 @@ AS_CATEGORY_IMPLEMENTABLE
 - (NSString *)descriptionForRecursiveDescription;
 
 @end
-
 
 // Check that at most a layoutSpecBlock or one of the three layout methods is overridden
 #define __ASDisplayNodeCheckForLayoutMethodOverrides \

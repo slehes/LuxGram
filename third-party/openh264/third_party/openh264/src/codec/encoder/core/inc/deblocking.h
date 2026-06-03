@@ -46,7 +46,6 @@
 #include "deblocking_common.h"
 namespace WelsEnc {
 
-
 //struct tagDeblockingFunc;
 
 typedef struct TagDeblockingFilter {
@@ -88,5 +87,4 @@ void DeblockingFilterSliceAvcbaseNull (SDqLayer* pCurDq, SWelsFuncPtrList* pFunc
 }
 
 #endif
-
 

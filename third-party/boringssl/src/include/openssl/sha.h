@@ -63,9 +63,7 @@
 extern "C" {
 #endif
 
-
 // The SHA family of hash functions (SHA-1 and SHA-2).
-
 
 // SHA_CBLOCK is the block size of SHA-1.
 #define SHA_CBLOCK 64
@@ -135,7 +133,6 @@ struct sha_state_st {
   unsigned num;
 };
 
-
 // SHA-224.
 
 // SHA224_CBLOCK is the block size of SHA-224.
@@ -161,7 +158,6 @@ OPENSSL_EXPORT int SHA224_Final(uint8_t out[SHA224_DIGEST_LENGTH],
 // |out|.
 OPENSSL_EXPORT uint8_t *SHA224(const uint8_t *data, size_t len,
                                uint8_t out[SHA224_DIGEST_LENGTH]);
-
 
 // SHA-256.
 
@@ -210,7 +206,6 @@ struct sha256_state_st {
   unsigned num, md_len;
 };
 
-
 // SHA-384.
 
 // SHA384_CBLOCK is the block size of SHA-384.
@@ -236,7 +231,6 @@ OPENSSL_EXPORT int SHA384_Final(uint8_t out[SHA384_DIGEST_LENGTH],
 // |out|.
 OPENSSL_EXPORT uint8_t *SHA384(const uint8_t *data, size_t len,
                                uint8_t out[SHA384_DIGEST_LENGTH]);
-
 
 // SHA-512.
 
@@ -277,7 +271,6 @@ struct sha512_state_st {
   unsigned num, md_len;
 };
 
-
 // SHA-512-256
 //
 // See https://nvlpubs.nist.gov/nistpubs/FIPS/NIST.FIPS.180-4.pdf section 5.3.6
@@ -302,7 +295,6 @@ OPENSSL_EXPORT int SHA512_256_Final(uint8_t out[SHA512_256_DIGEST_LENGTH],
 // |out|.
 OPENSSL_EXPORT uint8_t *SHA512_256(const uint8_t *data, size_t len,
                                    uint8_t out[SHA512_256_DIGEST_LENGTH]);
-
 
 #if defined(__cplusplus)
 }  // extern C

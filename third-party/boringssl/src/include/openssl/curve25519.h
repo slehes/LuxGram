@@ -21,11 +21,9 @@
 extern "C" {
 #endif
 
-
 // Curve25519.
 //
 // Curve25519 is an elliptic curve. See https://tools.ietf.org/html/rfc7748.
-
 
 // X25519.
 //
@@ -56,7 +54,6 @@ OPENSSL_EXPORT int X25519(uint8_t out_shared_key[32],
 // given private key and writes it to |out_public_value|.
 OPENSSL_EXPORT void X25519_public_from_private(uint8_t out_public_value[32],
                                                const uint8_t private_key[32]);
-
 
 // Ed25519.
 //
@@ -99,7 +96,6 @@ OPENSSL_EXPORT int ED25519_verify(const uint8_t *message, size_t message_len,
 OPENSSL_EXPORT void ED25519_keypair_from_seed(uint8_t out_public_key[32],
                                               uint8_t out_private_key[64],
                                               const uint8_t seed[32]);
-
 
 // SPAKE2.
 //
@@ -181,7 +177,6 @@ OPENSSL_EXPORT int SPAKE2_process_msg(SPAKE2_CTX *ctx, uint8_t *out_key,
                                       size_t max_out_key_len,
                                       const uint8_t *their_msg,
                                       size_t their_msg_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -37,7 +37,6 @@
 __FBSDID("$FreeBSD$");
 #endif
 
-
 #ifndef __NETINET_SCTP_SHA1_H__
 #define __NETINET_SCTP_SHA1_H__
 

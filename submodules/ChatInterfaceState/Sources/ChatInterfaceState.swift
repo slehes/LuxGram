@@ -86,7 +86,6 @@ public struct ChatEditMessageState: Codable, Equatable {
         self.mediaCaptionIsAbove = try? container.decodeIfPresent(Bool.self, forKey: "mediaCaptionIsAbove")
     }
 
-
     public func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: StringCodingKey.self)
 

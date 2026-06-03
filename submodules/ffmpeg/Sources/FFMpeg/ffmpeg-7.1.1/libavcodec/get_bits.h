@@ -212,7 +212,6 @@ static inline unsigned int show_bits(GetBitContext *s, int n);
 
 #endif
 
-
 #ifdef BITSTREAM_READER_LE
 
 # define UPDATE_CACHE(name, gb) UPDATE_CACHE_LE(name, gb)
@@ -261,7 +260,6 @@ static inline unsigned int show_bits(GetBitContext *s, int n);
 #endif
 
 #define GET_CACHE(name, gb) ((uint32_t) name ## _cache)
-
 
 static inline int get_bits_count(const GetBitContext *s)
 {
@@ -501,7 +499,6 @@ static inline unsigned int show_bits_long(GetBitContext *s, int n)
         return get_bits_long(&gb, n);
     }
 }
-
 
 /**
  * Initialize GetBitContext.

@@ -23,7 +23,6 @@
 
 #include "macros.h"
 
-
 /**
  * Quicksort
  * This sort is fast, and fully inplace but not stable and it is possible

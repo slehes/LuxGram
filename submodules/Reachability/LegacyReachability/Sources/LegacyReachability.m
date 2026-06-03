@@ -24,9 +24,7 @@
 #pragma mark IPv6 Support
 //Reachability fully support IPv6.  For full details, see ReadMe.md.
 
-
 NSString *kReachabilityChangedNotification = @"kNetworkReachabilityChangedNotification";
-
 
 #pragma mark - Supporting functions
 
@@ -166,7 +164,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     });
 }
 
-
 #pragma mark - LegacyReachability implementation
 
 @implementation LegacyReachability
@@ -196,7 +193,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	return returnValue;
 }
 
-
 + (instancetype)reachabilityWithAddress:(const struct sockaddr *)hostAddress
 {
 	SCNetworkReachabilityRef reachability = SCNetworkReachabilityCreateWithAddress(kCFAllocatorDefault, hostAddress);
@@ -220,7 +216,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	return returnValue;
 }
 
-
 + (instancetype)reachabilityForInternetConnection
 {
 	struct sockaddr_in zeroAddress;
@@ -234,8 +229,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 #pragma mark reachabilityForLocalWiFi
 //reachabilityForLocalWiFi has been removed from the sample.  See ReadMe.md for more information.
 //+ (instancetype)reachabilityForLocalWiFi
-
-
 
 #pragma mark - Start and stop notifier
 
@@ -255,7 +248,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	return returnValue;
 }
 
-
 - (void)stopNotifier
 {
 	if (_reachabilityRef != NULL)
@@ -263,7 +255,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 		SCNetworkReachabilityUnscheduleFromRunLoop(_reachabilityRef, CFRunLoopGetCurrent(), kCFRunLoopDefaultMode);
 	}
 }
-
 
 - (void)dealloc
 {
@@ -274,7 +265,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 		CFRelease(_reachabilityRef);
 	}
 }
-
 
 #pragma mark - Network Flag Handling
 
@@ -326,7 +316,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 	return returnValue;
 }
 
-
 - (BOOL)connectionRequired
 {
 	NSAssert(_reachabilityRef != NULL, @"connectionRequired called with NULL reachabilityRef");
@@ -339,7 +328,6 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
 
     return NO;
 }
-
 
 - (NetworkStatus)currentReachabilityStatus
 {
@@ -354,6 +342,5 @@ static void ReachabilityCallback(SCNetworkReachabilityRef target, SCNetworkReach
     
 	return returnValue;
 }
-
 
 @end

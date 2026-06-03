@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Fake Profile settings: target user, name/username/phone/ID, badges
 import Foundation
 import UIKit
 import Display

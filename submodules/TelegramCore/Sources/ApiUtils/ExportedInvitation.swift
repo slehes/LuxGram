@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension ExportedInvitation {
     init(apiExportedInvite: Api.ExportedChatInvite) {
         switch apiExportedInvite {

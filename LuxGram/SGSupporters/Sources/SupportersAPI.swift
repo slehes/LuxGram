@@ -328,8 +328,6 @@ public func isSupporter(userId: Int64) -> Bool {
     return !badges(forUserId: userId).isEmpty
 }
 
-// MARK: - LuxGram check_user (full user status, Keychain — encrypted, not in files)
-
 private let kUserStatusCacheAccount = "sg_luxgram_user_status"
 private let userStatusCacheLock = NSLock()
 

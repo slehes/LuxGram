@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension TelegramPeerNotificationSettings {
     convenience init(apiSettings: Api.PeerNotifySettings) {
         switch apiSettings {

@@ -12,7 +12,6 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-
 /**
  An `STPPaymentConfiguration` represents all the options you can set or change
  around a payment. 

@@ -882,7 +882,6 @@ static const uint8_t rv34_table_intra_cbppat[NUM_INTRA_TABLES][2][CBPPAT_VLC_SIZ
   },
 };
 
-
 static const uint8_t rv34_table_intra_cbp[NUM_INTRA_TABLES][8][CBP_VLC_SIZE] = {
   {
     { 0,  3,  3,  4,  3,  5,  5,  5,  2,  5,  4,  6,  4,  6,  6,  6, },
@@ -935,7 +934,6 @@ static const uint8_t rv34_table_intra_cbp[NUM_INTRA_TABLES][8][CBP_VLC_SIZE] = {
     { 0,  3,  4,  4,  4,  4,  5,  4,  4,  5,  4,  4,  4,  4,  4,  3, },
   },
 };
-
 
 static const uint8_t rv34_table_intra_firstpat[NUM_INTRA_TABLES][4][FIRSTBLK_VLC_SIZE] = {
   {
@@ -2070,7 +2068,6 @@ static const uint8_t rv34_table_intra_firstpat[NUM_INTRA_TABLES][4][FIRSTBLK_VLC
   },
 };
 
-
 static const uint8_t rv34_table_intra_secondpat[NUM_INTRA_TABLES][2][OTHERBLK_VLC_SIZE] = {
   {
     {
@@ -2277,7 +2274,6 @@ static const uint8_t rv34_table_intra_thirdpat[NUM_INTRA_TABLES][2][OTHERBLK_VLC
   },
 };
 
-
 static const uint8_t rv34_intra_coeff[NUM_INTRA_TABLES][COEFF_VLC_SIZE] = {
 {
   1,  3,  3,  4,  4,  5,  6,  6,  6,  7,  7,  7,  8,  8,  9,  9,
@@ -2300,7 +2296,6 @@ static const uint8_t rv34_intra_coeff[NUM_INTRA_TABLES][COEFF_VLC_SIZE] = {
  15, 13, 14, 13, 12, 15, 14, 13, 12, 12, 10, 11, 16, 16, 16, 16,
 }
 };
-
 
 static const uint8_t rv34_inter_cbppat[NUM_INTER_TABLES][CBPPAT_VLC_SIZE] = {
 {
@@ -2886,7 +2881,6 @@ static const uint8_t rv34_inter_cbppat[NUM_INTER_TABLES][CBPPAT_VLC_SIZE] = {
 }
 };
 
-
 static const uint8_t rv34_inter_cbp[NUM_INTER_TABLES][4][CBP_VLC_SIZE] = {
 {
  { 0,  6,  6,  3,  6,  4,  5,  3,  6,  5,  4,  3,  3,  4,  4,  3 },
@@ -2931,7 +2925,6 @@ static const uint8_t rv34_inter_cbp[NUM_INTER_TABLES][4][CBP_VLC_SIZE] = {
  { 0,  4,  4,  3,  5,  4,  5,  4,  5,  5,  4,  4,  3,  4,  4,  3 }
 }
 };
-
 
 static const uint8_t rv34_table_inter_firstpat[NUM_INTER_TABLES][2][FIRSTBLK_VLC_SIZE] = {
   {
@@ -4019,7 +4012,6 @@ static const uint8_t rv34_table_inter_thirdpat[NUM_INTER_TABLES][2][OTHERBLK_VLC
     },
   },
 };
-
 
 static const uint8_t rv34_inter_coeff[NUM_INTER_TABLES][COEFF_VLC_SIZE] = {
 {

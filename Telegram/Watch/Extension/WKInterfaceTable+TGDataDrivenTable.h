@@ -43,7 +43,6 @@
 
 @end
 
-
 @interface WKInterfaceTable (TGDataDrivenTable)
 
 @property (nonatomic, weak) id<TGTableDataSource> tableDataSource;
@@ -84,7 +83,6 @@
 - (TGIndexPath *)indexPathForRowIndex:(NSUInteger)rowIndex;
 
 @end
-
 
 @interface WKInterfaceController (TGDataDrivenTable)
 

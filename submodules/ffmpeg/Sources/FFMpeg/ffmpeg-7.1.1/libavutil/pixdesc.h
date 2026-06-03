@@ -393,7 +393,6 @@ enum AVPixelFormat av_pix_fmt_swap_endianness(enum AVPixelFormat pix_fmt);
 #define FF_LOSS_EXCESS_RESOLUTION 0x0040 /**< loss due to unneeded extra resolution */
 #define FF_LOSS_EXCESS_DEPTH      0x0080 /**< loss due to unneeded extra color depth */
 
-
 /**
  * Compute what kind of losses will occur when converting from one specific
  * pixel format to another.

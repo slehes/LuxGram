@@ -55,7 +55,6 @@ extern "C" {
 #  define kiss_fft_scalar opus_int32
 #  define kiss_twiddle_scalar opus_int16
 
-
 #else
 # ifndef kiss_fft_scalar
 /*  default is float */
@@ -149,7 +148,6 @@ void opus_fft_impl(const kiss_fft_state *st,kiss_fft_cpx *fout);
 void opus_ifft_impl(const kiss_fft_state *st,kiss_fft_cpx *fout);
 
 void opus_fft_free(const kiss_fft_state *cfg, int arch);
-
 
 void opus_fft_free_arch_c(kiss_fft_state *st);
 int opus_fft_alloc_arch_c(kiss_fft_state *st);

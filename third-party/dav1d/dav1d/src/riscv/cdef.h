@@ -19,7 +19,6 @@ extern void BF(dav1d_cdef_filter_block_8x8, rvv)(pixel *dst, const ptrdiff_t dst
                                     const int pri_strength, const int sec_strength, const int dir,
                                     const int damping, const enum CdefEdgeFlags edges HIGHBD_DECL_SUFFIX);
 
-
 static ALWAYS_INLINE void cdef_dsp_init_riscv(Dav1dCdefDSPContext *const c) {
     const unsigned flags = dav1d_get_cpu_flags();
     if (!(flags & DAV1D_RISCV_CPU_FLAG_V)) return;

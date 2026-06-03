@@ -948,7 +948,6 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
             var isSticker = false
             var maxDimensions = layoutConstants.image.maxDimensions
             var maxHeight = layoutConstants.image.maxDimensions.height
-            // MARK: Swiftgram
             var imageOriginalMaxDimensions: CGSize?
             var isStory = false
             var isGift = false
@@ -972,7 +971,6 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                 }
             } else if let image = media as? TelegramMediaImage, let dimensions = largestImageRepresentation(image.representations)?.dimensions {
                 unboundSize = CGSize(width: max(10.0, floor(dimensions.cgSize.width * 0.5)), height: max(10.0, floor(dimensions.cgSize.height * 0.5)))
-                // MARK: Swiftgram
                 if let channel = message.peers[message.id.peerId] as? TelegramChannel, case .broadcast = channel.info, SGSimpleSettings.shared.wideChannelPosts {
                     imageOriginalMaxDimensions = maxDimensions
                     switch sizeCalculation {
@@ -2017,7 +2015,6 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                                             continuePlayingWithoutSoundOnLostAudioSession: isInlinePlayableVideo,
                                             placeholderColor: emptyColor,
                                             captureProtected: {
-                                                // MARK: - LuxGram - Allow saving self-destructing messages if enabled
                                                 #if canImport(SGSimpleSettings)
                                                 if SGSimpleSettings.shared.enableSavingSelfDestructingMessages && message.containsSecretMedia {
                                                     return false
@@ -2280,7 +2277,6 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                             }
                             
                             if let updateImageSignal = updateImageSignal {
-                                // MARK: - LuxGram - Allow saving self-destructing messages if enabled
                                 #if canImport(SGSimpleSettings)
                                 if SGSimpleSettings.shared.enableSavingSelfDestructingMessages && message.containsSecretMedia {
                                     strongSelf.imageNode.captureProtected = false
@@ -3292,7 +3288,6 @@ public final class ChatMessageInteractiveMediaNode: ASDisplayNode, GalleryItemTr
                 if imageView.layer.contents == nil {
                     imageView.layer.contents = imageView.image?.cgImage
                 }
-                // MARK: - LuxGram - Allow screenshots for self-destructing messages if enabled
                 #if canImport(SGSimpleSettings)
                 let shouldDisableScreenshots = !(SGSimpleSettings.shared.enableSavingSelfDestructingMessages && strongSelf.message?.containsSecretMedia == true)
                 #else

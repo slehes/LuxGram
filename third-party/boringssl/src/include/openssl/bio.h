@@ -71,9 +71,7 @@
 extern "C" {
 #endif
 
-
 // BIO abstracts over a file-descriptor like interface.
-
 
 // Allocation and freeing.
 
@@ -99,7 +97,6 @@ OPENSSL_EXPORT void BIO_vfree(BIO *bio);
 
 // BIO_up_ref increments the reference count of |bio| and returns one.
 OPENSSL_EXPORT int BIO_up_ref(BIO *bio);
-
 
 // Basic I/O.
 
@@ -132,7 +129,6 @@ OPENSSL_EXPORT int BIO_puts(BIO *bio, const char *buf);
 // BIO_flush flushes any buffered output. It returns one on success and zero
 // otherwise.
 OPENSSL_EXPORT int BIO_flush(BIO *bio);
-
 
 // Low-level control functions.
 //
@@ -275,7 +271,6 @@ OPENSSL_EXPORT uint64_t BIO_number_read(const BIO *bio);
 // |bio|.
 OPENSSL_EXPORT uint64_t BIO_number_written(const BIO *bio);
 
-
 // Managing chains of BIOs.
 //
 // BIOs can be put into chains where the output of one is used as the input of
@@ -312,14 +307,12 @@ OPENSSL_EXPORT BIO *BIO_find_type(BIO *bio, int type);
 // the next BIO in the chain.
 OPENSSL_EXPORT void BIO_copy_next_retry(BIO *bio);
 
-
 // Printf functions.
 
 // BIO_printf behaves like |printf| but outputs to |bio| rather than a |FILE|.
 // It returns the number of bytes written or a negative number on error.
 OPENSSL_EXPORT int BIO_printf(BIO *bio, const char *format, ...)
     OPENSSL_PRINTF_FORMAT_FUNC(2, 3);
-
 
 // Utility functions.
 
@@ -350,7 +343,6 @@ OPENSSL_EXPORT void ERR_print_errors(BIO *bio);
 // from |bio|.
 OPENSSL_EXPORT int BIO_read_asn1(BIO *bio, uint8_t **out, size_t *out_len,
                                  size_t max_len);
-
 
 // Memory BIOs.
 //
@@ -421,7 +413,6 @@ OPENSSL_EXPORT int BIO_set_mem_buf(BIO *bio, BUF_MEM *b, int take_ownership);
 // default is -1 so that additional data can be written once exhausted.
 OPENSSL_EXPORT int BIO_set_mem_eof_return(BIO *bio, int eof_value);
 
-
 // File descriptor BIOs.
 //
 // File descriptor BIOs are wrappers around the system's |read| and |write|
@@ -455,7 +446,6 @@ OPENSSL_EXPORT int BIO_set_fd(BIO *bio, int fd, int close_flag);
 // This function may also be used with socket BIOs (see |BIO_s_socket| and
 // |BIO_new_socket|).
 OPENSSL_EXPORT int BIO_get_fd(BIO *bio, int *out_fd);
-
 
 // File BIOs.
 //
@@ -533,7 +523,6 @@ OPENSSL_EXPORT long BIO_tell(BIO *bio);
 // this function cannot handle 64-bit offsets.
 OPENSSL_EXPORT long BIO_seek(BIO *bio, long offset);
 
-
 // Socket BIOs.
 //
 // Socket BIOs behave like file descriptor BIOs but, on Windows systems, wrap
@@ -554,7 +543,6 @@ OPENSSL_EXPORT const BIO_METHOD *BIO_s_socket(void);
 // BIO will close |fd|. It returns the fresh |BIO| or NULL on error.
 OPENSSL_EXPORT BIO *BIO_new_socket(int fd, int close_flag);
 #endif  // !OPENSSL_NO_SOCK
-
 
 // Connect BIOs.
 //
@@ -601,7 +589,6 @@ OPENSSL_EXPORT int BIO_set_nbio(BIO *bio, int on);
 OPENSSL_EXPORT int BIO_do_connect(BIO *bio);
 #endif  // !OPENSSL_NO_SOCK
 
-
 // Datagram BIOs.
 //
 // TODO(fork): not implemented.
@@ -620,7 +607,6 @@ OPENSSL_EXPORT int BIO_do_connect(BIO *bio);
 #define BIO_CTRL_DGRAM_GET_PEER           46
 
 #define BIO_CTRL_DGRAM_GET_FALLBACK_MTU   47
-
 
 // BIO Pairs.
 //
@@ -647,7 +633,6 @@ OPENSSL_EXPORT size_t BIO_ctrl_get_write_guarantee(BIO *bio);
 // side of the pair. Future |BIO_write| calls on |bio| will fail. It returns
 // one on success and zero otherwise.
 OPENSSL_EXPORT int BIO_shutdown_wr(BIO *bio);
-
 
 // Custom BIOs.
 //
@@ -772,7 +757,6 @@ OPENSSL_EXPORT int BIO_get_init(BIO *bio);
 #define BIO_CTRL_DUP 12
 #define BIO_CTRL_SET_FILENAME 30
 
-
 // ex_data functions.
 //
 // See |ex_data.h| for details.
@@ -786,7 +770,6 @@ OPENSSL_EXPORT void *BIO_get_ex_data(const BIO *bio, int idx);
 
 #define BIO_set_app_data(bio, arg) (BIO_set_ex_data(bio, 0, (char *)(arg)))
 #define BIO_get_app_data(bio) (BIO_get_ex_data(bio, 0))
-
 
 // Deprecated functions.
 
@@ -814,7 +797,6 @@ OPENSSL_EXPORT int BIO_get_shutdown(BIO *bio);
 // BoringSSL.
 OPENSSL_EXPORT int BIO_meth_set_puts(BIO_METHOD *method,
                                      int (*puts)(BIO *, const char *));
-
 
 // Private functions
 
@@ -952,7 +934,6 @@ struct bio_st {
 
 #define BIO_C_SET_EX_ARG 153
 #define BIO_C_GET_EX_ARG 154
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -20,7 +20,6 @@
 
 @end
 
-
 @interface TGCameraPreviewLayerWrapperView : UIView <TGCameraPreviewLayerView>
 {
     __weak AVCaptureConnection *_connection;
@@ -32,13 +31,11 @@
 
 @end
 
-
 @interface TGCameraLegacyPreviewLayerWrapperView : UIView <TGCameraPreviewLayerView>
 
 @property (nonatomic, readonly) AVCaptureVideoPreviewLayer *previewLayer;
 
 @end
-
 
 @interface TGCameraPreviewView ()
 {
@@ -339,7 +336,6 @@
 
 @end
 
-
 @implementation TGCameraPreviewLayerWrapperView
 
 - (NSString *)videoGravity
@@ -383,7 +379,6 @@
 }
 
 @end
-
 
 @implementation TGCameraLegacyPreviewLayerWrapperView
 

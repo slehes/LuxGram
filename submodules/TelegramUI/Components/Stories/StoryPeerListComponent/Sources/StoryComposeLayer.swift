@@ -408,7 +408,6 @@ private func generateAddIcon(color: UIColor) -> UIImage? {
     })
 }
 
-
 private func generateAddLabel(strings: PresentationStrings,  color: UIColor) -> UIImage? {
     let titleString = NSAttributedString(string: strings.StoryFeed_AddStory, font: Font.regular(11.0), textColor: color, paragraphAlignment: .center)
     var textRect = titleString.boundingRect(with: CGSize(width: 200.0, height: 20.0), options: .usesLineFragmentOrigin, context: nil)

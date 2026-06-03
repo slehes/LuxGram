@@ -684,7 +684,6 @@ public class AdMessagesHistoryContext {
     }
 }
 
-
 func _internal_markAdAction(account: Account, opaqueId: Data, media: Bool, fullscreen: Bool) {
     var flags: Int32 = 0
     if media {

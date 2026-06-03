@@ -24,7 +24,6 @@ class ArrayExtensionsTests: XCTestCase {
     }
 }
 
-
 class SortedArrayTests: XCTestCase {
     
     func testSortingOnInitialization() {

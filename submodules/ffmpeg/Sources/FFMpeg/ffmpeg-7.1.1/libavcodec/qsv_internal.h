@@ -163,5 +163,4 @@ void ff_qsv_frame_add_ext_param(AVCodecContext *avctx, QSVFrame *frame,
 
 int ff_qsv_map_frame_to_surface(const AVFrame *frame, mfxFrameSurface1 *surface);
 
-
 #endif /* AVCODEC_QSV_INTERNAL_H */

@@ -12,20 +12,17 @@
 
 @end
 
-
 @interface TGPaintFaceEye ()
 
 + (instancetype)eyeWithPosition:(CGPoint)position closed:(bool)closed;
 
 @end
 
-
 @interface TGPaintFaceMouth ()
 
 + (instancetype)mouthWithPosition:(CGPoint)position smiling:(bool)smiling;
 
 @end
-
 
 @implementation TGPaintFaceDetector
 
@@ -166,7 +163,6 @@
 
 @end
 
-
 @implementation TGPaintFace
 
 + (instancetype)faceWithBounds:(CGRect)bounds angle:(CGFloat)angle leftEye:(TGPaintFaceEye *)leftEye rightEye:(TGPaintFaceEye *)rightEye mouth:(TGPaintFaceMouth *)mouth
@@ -220,11 +216,9 @@
 
 @end
 
-
 @implementation TGPaintFaceFeature
 
 @end
-
 
 @implementation TGPaintFaceEye
 
@@ -238,7 +232,6 @@
 
 @end
 
-
 @implementation TGPaintFaceMouth
 
 + (instancetype)mouthWithPosition:(CGPoint)position smiling:(bool)smiling
@@ -250,7 +243,6 @@
 }
 
 @end
-
 
 @implementation TGPaintFaceUtils
 

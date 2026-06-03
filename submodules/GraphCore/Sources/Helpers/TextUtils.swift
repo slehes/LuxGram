@@ -36,8 +36,6 @@ func textSize(with string: String, font: NSFont) -> CGSize {
     return size
 }
 
-
-
 private final class LabelNodeLine {
     let line: CTLine
     let frame: CGRect
@@ -47,7 +45,6 @@ private final class LabelNodeLine {
         self.frame = frame
     }
 }
-
 
 public final class LabelNodeLayout: NSObject {
     fileprivate let attributedString: NSAttributedString?

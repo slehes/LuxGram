@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 # define RIPEMD160_CBLOCK        64
 # define RIPEMD160_LBLOCK        (RIPEMD160_CBLOCK/4)
 # define RIPEMD160_DIGEST_LENGTH 20
@@ -99,7 +98,6 @@ OPENSSL_EXPORT uint8_t *RIPEMD160(const uint8_t *data, size_t len,
 // |block|.
 OPENSSL_EXPORT void RIPEMD160_Transform(RIPEMD160_CTX *ctx,
                                         const uint8_t block[RIPEMD160_CBLOCK]);
-
 
 #if defined(__cplusplus)
 }  // extern C

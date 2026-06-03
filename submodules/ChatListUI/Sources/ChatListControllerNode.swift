@@ -533,8 +533,7 @@ public final class ChatListContainerNode: ASDisplayNode, ASGestureRecognizerDele
         
         self.applyItemNodeAsCurrent(id: .all, itemNode: itemNode)
         
-        let panRecognizer = InteractiveTransitionGestureRecognizer(target: self, action: #selector(self.panGesture(_:)), allowedDirections: { [weak self] _ in // MARK: Swiftgram
-            guard let self, self.availableFilters.count > 1 || (self.controller?.isStoryPostingAvailable == true && !(self.context.sharedContext.callManager?.hasActiveCall ?? false) && !SGSimpleSettings.shared.disableSwipeToRecordStory) else {
+        let panRecognizer = InteractiveTransitionGestureRecognizer(target: self, action: #selector(self.panGesture(_:)), allowedDirections: { [weak self] _ in            guard let self, self.availableFilters.count > 1 || (self.controller?.isStoryPostingAvailable == true && !(self.context.sharedContext.callManager?.hasActiveCall ?? false) && !SGSimpleSettings.shared.disableSwipeToRecordStory) else {
                 return []
             }
             guard case .chatList(.root) = self.location else {
@@ -585,7 +584,6 @@ public final class ChatListContainerNode: ASDisplayNode, ASGestureRecognizerDele
     }
     
     @objc private func panGesture(_ recognizer: UIPanGestureRecognizer) {
-        // MARK: Swiftgram
         var _availableFilters = self.availableFilters
         if SGSimpleSettings.shared.allChatsHidden {
             _availableFilters.removeAll { $0 == .all }
@@ -1507,8 +1505,7 @@ final class ChatListControllerNode: ASDisplayNode, ASGestureRecognizerDelegate {
         }
         
         var navigationHeaderPanels: AnyComponent<Empty>?
-        var tabs: AnyComponent<Empty>? // MARK: Swiftgram
-        if self.controller?.tabContainerData != nil || !panels.isEmpty {
+        var tabs: AnyComponent<Empty>?        if self.controller?.tabContainerData != nil || !panels.isEmpty {
             if let tabContainerData = self.controller?.tabContainerData, tabContainerData.0.count > 1 {
                 let selectedTab: HorizontalTabsComponent.Tab.Id
                 switch self.effectiveContainerNode.currentItemFilter {
@@ -1631,8 +1628,7 @@ final class ChatListControllerNode: ASDisplayNode, ASGestureRecognizerDelegate {
                 
             navigationHeaderPanels = AnyComponent(HeaderPanelContainerComponent(
                 theme: self.presentationData.theme,
-                tabs: (self.controller?.tabContainerData?.1 ?? false) ? nil : tabs, // MARK: Swiftgram
-                panels: panels
+                tabs: (self.controller?.tabContainerData?.1 ?? false) ? nil : tabs,                panels: panels
             ))
         }
         
@@ -1823,7 +1819,6 @@ final class ChatListControllerNode: ASDisplayNode, ASGestureRecognizerDelegate {
         
         self.containerLayout = (layout, navigationBarHeight, visualNavigationHeight, cleanNavigationBarHeight, storiesInset)
 
-        // MARK: Swiftgram
         let sgComponentTransition = ComponentTransition(transition)
         let sgDisplayTabsAtBottom = self.controller?.tabContainerData?.1 ?? false
         let sgShouldDisplayBottomFolders = sgDisplayTabsAtBottom && self.isSearchDisplayControllerActive == nil
@@ -1892,7 +1887,6 @@ final class ChatListControllerNode: ASDisplayNode, ASGestureRecognizerDelegate {
             })
         }
 
-        // MARK: Swiftgram
         if sgShouldDisplayBottomFolders && sgFoldersSize.height > 0.0 {
             insets.bottom += sgFoldersSize.height + 16.0 + 8.0
         }
@@ -1961,7 +1955,6 @@ final class ChatListControllerNode: ASDisplayNode, ASGestureRecognizerDelegate {
             navigationBarComponentView.applyCurrentScroll(transition: ComponentTransition(transition))
         }
         
-        // MARK: Swiftgram
         if let sgFoldersView = self.sgFoldersView.view as? HeaderPanelContainerComponent.View {
             if sgShouldDisplayBottomFolders && sgFoldersSize.height > 0.0 {
                 if sgFoldersView.superview == nil {

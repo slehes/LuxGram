@@ -63,9 +63,7 @@
 extern "C" {
 #endif
 
-
 // Ciphers.
-
 
 // Cipher primitives.
 //
@@ -112,7 +110,6 @@ const EVP_CIPHER *EVP_rc2_40_cbc(void);
 // function.
 OPENSSL_EXPORT const EVP_CIPHER *EVP_get_cipherbynid(int nid);
 
-
 // Cipher context allocation.
 //
 // An |EVP_CIPHER_CTX| represents the state of an encryption or decryption in
@@ -142,7 +139,6 @@ OPENSSL_EXPORT int EVP_CIPHER_CTX_copy(EVP_CIPHER_CTX *out,
 // |EVP_CIPHER_CTX_init| and returns one.
 OPENSSL_EXPORT int EVP_CIPHER_CTX_reset(EVP_CIPHER_CTX *ctx);
 
-
 // Cipher context configuration.
 
 // EVP_CipherInit_ex configures |ctx| for a fresh encryption (or decryption, if
@@ -166,7 +162,6 @@ OPENSSL_EXPORT int EVP_EncryptInit_ex(EVP_CIPHER_CTX *ctx,
 OPENSSL_EXPORT int EVP_DecryptInit_ex(EVP_CIPHER_CTX *ctx,
                                       const EVP_CIPHER *cipher, ENGINE *impl,
                                       const uint8_t *key, const uint8_t *iv);
-
 
 // Cipher operations.
 
@@ -224,7 +219,6 @@ OPENSSL_EXPORT int EVP_CipherUpdate(EVP_CIPHER_CTX *ctx, uint8_t *out,
 // |EVP_DecryptFinal_ex| depending on how |ctx| has been setup.
 OPENSSL_EXPORT int EVP_CipherFinal_ex(EVP_CIPHER_CTX *ctx, uint8_t *out,
                                       int *out_len);
-
 
 // Cipher context accessors.
 
@@ -289,7 +283,6 @@ OPENSSL_EXPORT int EVP_CIPHER_CTX_set_padding(EVP_CIPHER_CTX *ctx, int pad);
 OPENSSL_EXPORT int EVP_CIPHER_CTX_set_key_length(EVP_CIPHER_CTX *ctx,
                                                  unsigned key_len);
 
-
 // Cipher accessors.
 
 // EVP_CIPHER_nid returns a NID identifying |cipher|. (For example,
@@ -317,7 +310,6 @@ OPENSSL_EXPORT uint32_t EVP_CIPHER_flags(const EVP_CIPHER *cipher);
 // EVP_CIPHER_mode returns one of the cipher mode values enumerated below.
 OPENSSL_EXPORT uint32_t EVP_CIPHER_mode(const EVP_CIPHER *cipher);
 
-
 // Key derivation.
 
 // EVP_BytesToKey generates a key and IV for the cipher |type| by iterating
@@ -328,7 +320,6 @@ OPENSSL_EXPORT int EVP_BytesToKey(const EVP_CIPHER *type, const EVP_MD *md,
                                   const uint8_t *salt, const uint8_t *data,
                                   size_t data_len, unsigned count, uint8_t *key,
                                   uint8_t *iv);
-
 
 // Cipher modes (for |EVP_CIPHER_mode|).
 
@@ -346,7 +337,6 @@ OPENSSL_EXPORT int EVP_BytesToKey(const EVP_CIPHER *type, const EVP_MD *md,
 #define EVP_CIPH_CCM_MODE 0x8
 #define EVP_CIPH_OCB_MODE 0x9
 #define EVP_CIPH_WRAP_MODE 0xa
-
 
 // Cipher flags (for |EVP_CIPHER_flags|).
 
@@ -386,7 +376,6 @@ OPENSSL_EXPORT int EVP_BytesToKey(const EVP_CIPHER *type, const EVP_MD *md,
 // (it's up the the caller to use the FIPS module in a fashion compliant with
 // their needs). Thus this exists only to allow code to compile.
 #define EVP_CIPH_FLAG_NON_FIPS_ALLOW 0
-
 
 // Deprecated functions
 
@@ -518,7 +507,6 @@ OPENSSL_EXPORT const EVP_CIPHER *EVP_cast5_cbc(void);
 OPENSSL_EXPORT void EVP_CIPHER_CTX_set_flags(const EVP_CIPHER_CTX *ctx,
                                              uint32_t flags);
 
-
 // Private functions.
 
 // EVP_CIPH_NO_PADDING disables padding in block ciphers.
@@ -610,7 +598,6 @@ typedef struct evp_cipher_info_st {
   const EVP_CIPHER *cipher;
   unsigned char iv[EVP_MAX_IV_LENGTH];
 } EVP_CIPHER_INFO;
-
 
 #if defined(__cplusplus)
 }  // extern C

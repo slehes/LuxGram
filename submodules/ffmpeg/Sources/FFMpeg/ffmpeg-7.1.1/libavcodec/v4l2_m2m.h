@@ -87,7 +87,6 @@ typedef struct V4L2m2mPriv {
  */
 int ff_v4l2_m2m_create_context(V4L2m2mPriv *priv, V4L2m2mContext **s);
 
-
 /**
  * Probes the video nodes looking for the required codec capabilities.
  *

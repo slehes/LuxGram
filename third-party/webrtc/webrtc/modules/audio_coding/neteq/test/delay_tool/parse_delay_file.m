@@ -25,7 +25,6 @@ if ~all(ver == [2; 0])
     error('Wrong version of delay logging function')
 end
 
-
 start_pos = ftell(fid);
 fseek(fid, -12, 'eof');
 textline = fgetl(fid);
@@ -181,7 +180,6 @@ while not(ended)
     end
     
 end
-
 
 fclose(fid);
 

@@ -8,7 +8,6 @@
 
 - (NSArray *)latestAssets;
 
-
 - (id)objectAtIndexedSubscript:(NSUInteger)idx;
 
 @end

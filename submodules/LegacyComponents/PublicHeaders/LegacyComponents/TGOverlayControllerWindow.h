@@ -16,7 +16,6 @@
 @property (nonatomic) bool keepKeyboard;
 @property (nonatomic) bool dismissByMenuSheet;
 
-
 - (instancetype)initWithManager:(id<LegacyComponentsOverlayWindowManager>)manager parentController:(TGViewController *)parentController contentController:(TGOverlayController *)contentController;
 - (instancetype)initWithManager:(id<LegacyComponentsOverlayWindowManager>)manager parentController:(TGViewController *)parentController contentController:(TGOverlayController *)contentController keepKeyboard:(bool)keepKeyboard;
 

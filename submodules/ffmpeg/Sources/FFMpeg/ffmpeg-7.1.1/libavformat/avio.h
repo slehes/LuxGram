@@ -607,7 +607,6 @@ int avio_get_str(AVIOContext *pb, int maxlen, char *buf, int buflen);
 int avio_get_str16le(AVIOContext *pb, int maxlen, char *buf, int buflen);
 int avio_get_str16be(AVIOContext *pb, int maxlen, char *buf, int buflen);
 
-
 /**
  * @name URL open modes
  * The flags argument to avio_open must be one of the following
@@ -704,7 +703,6 @@ int avio_close(AVIOContext *s);
  * @see avio_close
  */
 int avio_closep(AVIOContext **s);
-
 
 /**
  * Open a write only memory stream.

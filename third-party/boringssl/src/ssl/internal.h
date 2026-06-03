@@ -167,7 +167,6 @@
 #include "../crypto/internal.h"
 #include "../crypto/lhash/internal.h"
 
-
 #if defined(OPENSSL_WINDOWS)
 // Windows defines struct timeval in winsock2.h.
 OPENSSL_MSVC_PRAGMA(warning(push, 3))
@@ -176,7 +175,6 @@ OPENSSL_MSVC_PRAGMA(warning(pop))
 #else
 #include <sys/time.h>
 #endif
-
 
 BSSL_NAMESPACE_BEGIN
 
@@ -503,7 +501,6 @@ class RefCounted {
   CRYPTO_refcount_t references_ = 1;
 };
 
-
 // Protocol versions.
 //
 // Due to DTLS's historical wire version differences, we maintain two notions of
@@ -730,7 +727,6 @@ bool ssl_tls13_cipher_meets_policy(uint16_t cipher_id,
 // ssl_cipher_is_deprecated returns true if |cipher| is deprecated.
 OPENSSL_EXPORT bool ssl_cipher_is_deprecated(const SSL_CIPHER *cipher);
 
-
 // Transcript layer.
 
 // SSLTranscript maintains the handshake transcript as a combination of a
@@ -812,7 +808,6 @@ class SSLTranscript {
 bool tls1_prf(const EVP_MD *digest, Span<uint8_t> out,
               Span<const uint8_t> secret, Span<const char> label,
               Span<const uint8_t> seed1, Span<const uint8_t> seed2);
-
 
 // Encryption layer.
 
@@ -956,7 +951,6 @@ class SSLAEADContext {
   bool ad_is_header_ : 1;
 };
 
-
 // DTLS replay bitmap.
 
 // DTLS1_BITMAP maintains a sliding window of 64 sequence numbers to detect
@@ -969,7 +963,6 @@ struct DTLS1_BITMAP {
   // integer.
   uint64_t max_seq_num = 0;
 };
-
 
 // Record layer.
 
@@ -1077,7 +1070,6 @@ bool dtls_seal_record(SSL *ssl, uint8_t *out, size_t *out_len, size_t max_out,
 enum ssl_open_record_t ssl_process_alert(SSL *ssl, uint8_t *out_alert,
                                          Span<const uint8_t> in);
 
-
 // Private key operations.
 
 // ssl_has_private_key returns whether |hs| has a private key configured.
@@ -1109,7 +1101,6 @@ bool ssl_private_key_supports_signature_algorithm(SSL_HANDSHAKE *hs,
 bool ssl_public_key_verify(SSL *ssl, Span<const uint8_t> signature,
                            uint16_t sigalg, EVP_PKEY *pkey,
                            Span<const uint8_t> in);
-
 
 // Key shares.
 
@@ -1185,7 +1176,6 @@ bool ssl_name_to_group_id(uint16_t *out_group_id, const char *name, size_t len);
 // |NID_undef| if unknown.
 int ssl_group_id_to_nid(uint16_t group_id);
 
-
 // Handshake messages.
 
 struct SSLMessage {
@@ -1246,7 +1236,6 @@ struct DTLS_OUTGOING_MESSAGE {
 // dtls_clear_outgoing_messages releases all buffered outgoing messages.
 void dtls_clear_outgoing_messages(SSL *ssl);
 
-
 // Callbacks.
 
 // ssl_do_info_callback calls |ssl|'s info callback, if set.
@@ -1255,7 +1244,6 @@ void ssl_do_info_callback(const SSL *ssl, int type, int value);
 // ssl_do_msg_callback calls |ssl|'s message callback, if set.
 void ssl_do_msg_callback(const SSL *ssl, int is_write, int content_type,
                          Span<const uint8_t> in);
-
 
 // Transport buffers.
 
@@ -1337,7 +1325,6 @@ int ssl_handle_open_record(SSL *ssl, bool *out_retry, ssl_open_record_t ret,
 // succeeds, the write buffer will be cleared.
 int ssl_write_buffer_flush(SSL *ssl);
 
-
 // Certificate functions.
 
 // ssl_has_certificate returns whether a certificate and private key are
@@ -1403,7 +1390,6 @@ bool ssl_check_leaf_certificate(SSL_HANDSHAKE *hs, EVP_PKEY *pkey,
 // It finalizes the certificate and initializes |hs->local_pubkey|. It returns
 // true on success and false on error.
 bool ssl_on_certificate_selected(SSL_HANDSHAKE *hs);
-
 
 // TLS 1.3 key derivation.
 
@@ -1483,7 +1469,6 @@ bool tls13_write_psk_binder(const SSL_HANDSHAKE *hs,
 bool tls13_verify_psk_binder(const SSL_HANDSHAKE *hs,
                              const SSL_SESSION *session, const SSLMessage &msg,
                              CBS *binders);
-
 
 // Encrypted ClientHello.
 
@@ -1611,7 +1596,6 @@ size_t ssl_ech_extension_body_length(const EVP_HPKE_AEAD *aead, size_t enc_len,
 // must already be computed.
 bool ssl_encrypt_client_hello(SSL_HANDSHAKE *hs, Span<const uint8_t> enc);
 
-
 // Delegated credentials.
 
 // This structure stores a delegated credential (DC) as defined by RFC 9345.
@@ -1651,7 +1635,6 @@ struct DC {
 // response. If this is true then we've committed to using the DC in the
 // handshake.
 bool ssl_signing_with_dc(const SSL_HANDSHAKE *hs);
-
 
 // Handshake functions.
 
@@ -2331,14 +2314,12 @@ const SSL_SESSION *ssl_handshake_session(const SSL_HANDSHAKE *hs);
 // by |hs|. It releases some memory that is no longer needed.
 void ssl_done_writing_client_hello(SSL_HANDSHAKE *hs);
 
-
 // SSLKEYLOGFILE functions.
 
 // ssl_log_secret logs |secret| with label |label|, if logging is enabled for
 // |ssl|. It returns true on success and false on failure.
 bool ssl_log_secret(const SSL *ssl, const char *label,
                     Span<const uint8_t> secret);
-
 
 // ClientHello functions.
 
@@ -2357,7 +2338,6 @@ bool ssl_client_hello_get_extension(const SSL_CLIENT_HELLO *client_hello,
 bool ssl_client_cipher_list_contains_cipher(
     const SSL_CLIENT_HELLO *client_hello, uint16_t id);
 
-
 // GREASE.
 
 // ssl_get_grease_value returns a GREASE value for |hs|. For a given
@@ -2366,7 +2346,6 @@ bool ssl_client_cipher_list_contains_cipher(
 // advertised in both supported_groups and key_shares.
 uint16_t ssl_get_grease_value(const SSL_HANDSHAKE *hs,
                               enum ssl_grease_index_t index);
-
 
 // Signature algorithms.
 
@@ -2403,7 +2382,6 @@ bool tls12_add_verify_sigalgs(const SSL_HANDSHAKE *hs, CBB *out);
 // |*out_alert| to an alert to send.
 bool tls12_check_peer_sigalg(const SSL_HANDSHAKE *hs, uint8_t *out_alert,
                              uint16_t sigalg);
-
 
 // Underdocumented functions.
 //
@@ -3479,7 +3457,6 @@ void ssl_set_read_error(SSL *ssl);
 
 BSSL_NAMESPACE_END
 
-
 // Opaque C types.
 //
 // The following types are exported to C code as public typedefs, so they must
@@ -3599,7 +3576,6 @@ struct ssl_ctx_st : public bssl::RefCounted<ssl_ctx_st> {
   // |client_CA|.
   STACK_OF(X509_NAME) *cached_x509_client_CA = nullptr;
 
-
   // Default values to use in SSL structures follow (these are copied by
   // SSL_new)
 
@@ -3667,7 +3643,6 @@ struct ssl_ctx_st : public bssl::RefCounted<ssl_ctx_st> {
                                   unsigned max_psk_len) = nullptr;
   unsigned (*psk_server_callback)(SSL *ssl, const char *identity, uint8_t *psk,
                                   unsigned max_psk_len) = nullptr;
-
 
   // Next protocol negotiation information
   // (for experimental NPN extension).

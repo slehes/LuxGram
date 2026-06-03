@@ -60,7 +60,6 @@
 
 @end
 
-
 @protocol TGPhotoDrawingView <NSObject>
 
 @property (nonatomic, readonly) BOOL isTracking;
@@ -121,7 +120,6 @@
 
 @end
 
-
 @protocol TGPhotoDrawingAdapter <NSObject>
 
 @property (nonatomic, readonly) id<TGPhotoDrawingView> _Nonnull drawingView;
@@ -131,7 +129,6 @@
 @property (nonatomic, readonly) id<TGPhotoDrawingInterfaceController> _Nonnull interfaceController;
 
 @end
-
 
 @protocol TGPhotoPaintStickersContext <NSObject>
 

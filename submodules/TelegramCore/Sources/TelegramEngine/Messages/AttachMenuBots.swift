@@ -384,11 +384,9 @@ func managedSynchronizeAttachMenuBots(accountPeerId: PeerId, postbox: Postbox, n
     |> restart
 }
 
-
 public enum AddBotToAttachMenuError {
     case generic
 }
-
 
 func _internal_addBotToAttachMenu(accountPeerId: PeerId, postbox: Postbox, network: Network, botId: PeerId, allowWrite: Bool) -> Signal<Bool, AddBotToAttachMenuError> {
     return postbox.transaction { transaction -> Signal<Bool, AddBotToAttachMenuError> in

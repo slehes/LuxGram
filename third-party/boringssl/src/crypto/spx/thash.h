@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 // Implements F: a hash function takes an n-byte message as input and produces
 // an n-byte output.
 void spx_thash_f(uint8_t *output, const uint8_t input[SPX_N],
@@ -61,7 +60,6 @@ void spx_thash_tl(uint8_t *output, const uint8_t input[SPX_WOTS_BYTES],
 // message.
 void spx_thash_tk(uint8_t *output, const uint8_t input[SPX_FORS_TREES * SPX_N],
                   const uint8_t pk_seed[SPX_N], uint8_t addr[32]);
-
 
 #if defined(__cplusplus)
 }  // extern C

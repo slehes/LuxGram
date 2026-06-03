@@ -66,14 +66,12 @@
 extern "C" {
 #endif
 
-
 // Memory and string functions, see also buf.h.
 //
 // BoringSSL has its own set of allocation functions, which keep track of
 // allocation lengths and zero them out before freeing. All memory returned by
 // BoringSSL API calls must therefore generally be freed using |OPENSSL_free|
 // unless stated otherwise.
-
 
 #ifndef _BORINGSSL_PROHIBIT_OPENSSL_MALLOC
 // OPENSSL_malloc is similar to a regular |malloc|, but allocates additional
@@ -205,7 +203,6 @@ OPENSSL_EXPORT size_t OPENSSL_strlcpy(char *dst, const char *src,
 OPENSSL_EXPORT size_t OPENSSL_strlcat(char *dst, const char *src,
                                       size_t dst_size);
 
-
 // Deprecated functions.
 
 // CRYPTO_malloc calls |OPENSSL_malloc|. |file| and |line| are ignored.
@@ -236,7 +233,6 @@ OPENSSL_EXPORT void *OPENSSL_secure_malloc(size_t size);
 
 // OPENSSL_secure_clear_free calls |OPENSSL_clear_free|.
 OPENSSL_EXPORT void OPENSSL_secure_clear_free(void *ptr, size_t len);
-
 
 #if defined(__cplusplus)
 }  // extern C

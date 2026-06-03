@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 func _internal_updateAccountPeerName(account: Account, firstName: String, lastName: String) -> Signal<Void, NoError> {
     let accountPeerId = account.peerId
     return account.network.request(Api.functions.account.updateProfile(flags: (1 << 0) | (1 << 1), firstName: firstName, lastName: lastName, about: nil))
@@ -26,7 +25,6 @@ func _internal_updateAccountPeerName(account: Account, firstName: String, lastNa
 public enum UpdateAboutError {
     case generic
 }
-
 
 func _internal_updateAbout(account: Account, about: String?) -> Signal<Void, UpdateAboutError> {
     return account.network.request(Api.functions.account.updateProfile(flags: about == nil ? 0 : (1 << 2), firstName: nil, lastName: nil, about: about))

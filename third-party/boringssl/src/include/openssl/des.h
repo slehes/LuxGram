@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 // DES.
 //
 // This module is deprecated and retained for legacy reasons only. It is slow
@@ -72,7 +71,6 @@ extern "C" {
 //
 // Use a modern cipher, such as AES-GCM or ChaCha20-Poly1305, instead.
 
-
 typedef struct DES_cblock_st {
   uint8_t bytes[8];
 } DES_cblock;
@@ -80,7 +78,6 @@ typedef struct DES_cblock_st {
 typedef struct DES_ks {
   uint32_t subkeys[16][2];
 } DES_key_schedule;
-
 
 #define DES_KEY_SZ (sizeof(DES_cblock))
 #define DES_SCHEDULE_SZ (sizeof(DES_key_schedule))
@@ -142,7 +139,6 @@ OPENSSL_EXPORT void DES_ede2_cbc_encrypt(const uint8_t *in, uint8_t *out,
                                          const DES_key_schedule *ks2,
                                          DES_cblock *ivec, int enc);
 
-
 // Deprecated functions.
 
 // DES_set_key_unchecked calls |DES_set_key|.
@@ -161,7 +157,6 @@ OPENSSL_EXPORT void DES_ede3_cfb_encrypt(const uint8_t *in, uint8_t *out,
                                          DES_key_schedule *ks2,
                                          DES_key_schedule *ks3,
                                          DES_cblock *ivec, int enc);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -63,7 +63,6 @@ namespace {
             });
         }
 
-
     public:
         tgcalls::ContentNegotiationContext *contentNegotiationContext() const {
             return _contentNegotiationContext.get();

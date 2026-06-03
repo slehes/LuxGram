@@ -25,7 +25,6 @@ enum class VideoState {
 	Active,
 };
 
-
 class VideoCaptureInterface {
 protected:
 	VideoCaptureInterface() = default;

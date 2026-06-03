@@ -179,7 +179,6 @@ OPENSSL_MSVC_PRAGMA(warning(pop))
 extern "C" {
 #endif
 
-
 #if defined(OPENSSL_X86) || defined(OPENSSL_X86_64) || defined(OPENSSL_ARM) || \
     defined(OPENSSL_AARCH64)
 // OPENSSL_cpuid_setup initializes the platform-specific feature cache.
@@ -193,7 +192,6 @@ void OPENSSL_cpuid_setup(void);
 // |CRYPTO_library_init| but before any other function call in BoringSSL.
 OPENSSL_EXPORT uint32_t *OPENSSL_get_armcap_pointer_for_test(void);
 #endif
-
 
 // On non-MSVC 64-bit targets, we expect __uint128_t support. This includes
 // clang-cl, which defines both __clang__ and _MSC_VER.
@@ -293,7 +291,6 @@ OPENSSL_INLINE void OPENSSL_enable_malloc_failures_for_testing(void) {}
 #define OPENSSL_HAS_BUILTIN(x) 0
 #endif
 
-
 // Pointer utility functions.
 
 // buffers_alias returns one if |a| and |b| alias and zero otherwise.
@@ -324,7 +321,6 @@ static inline void *align_pointer(void *ptr, size_t alignment) {
   assert(((uintptr_t)ptr & (alignment - 1)) == 0);
   return ptr;
 }
-
 
 // Constant-time utility functions.
 //
@@ -609,7 +605,6 @@ static inline int constant_time_declassify_int(int v) {
   return value_barrier_u32(v);
 }
 
-
 // Thread-safe initialisation.
 
 #if !defined(OPENSSL_THREADS)
@@ -633,7 +628,6 @@ typedef pthread_once_t CRYPTO_once_t;
 // The |once| argument must be a |CRYPTO_once_t| that has been initialised with
 // the value |CRYPTO_ONCE_INIT|.
 OPENSSL_EXPORT void CRYPTO_once(CRYPTO_once_t *once, void (*init)(void));
-
 
 // Atomics.
 //
@@ -743,7 +737,6 @@ static_assert(sizeof(CRYPTO_atomic_u32) == sizeof(uint32_t),
 static_assert(alignof(CRYPTO_atomic_u32) == alignof(uint32_t),
               "CRYPTO_atomic_u32 does not match uint32_t alignment");
 
-
 // Reference counting.
 
 // CRYPTO_REFCOUNT_MAX is the value at which the reference count saturates.
@@ -764,7 +757,6 @@ OPENSSL_EXPORT void CRYPTO_refcount_inc(CRYPTO_refcount_t *count);
 // It's safe for multiple threads to concurrently call this or
 // |CRYPTO_refcount_inc| on the same |CRYPTO_refcount_t|.
 OPENSSL_EXPORT int CRYPTO_refcount_dec_and_test_zero(CRYPTO_refcount_t *count);
-
 
 // Locks.
 
@@ -840,7 +832,6 @@ BSSL_NAMESPACE_END
 }  // extern "C++"
 #endif  // defined(__cplusplus)
 
-
 // Thread local storage.
 
 // thread_local_data_t enumerates the types of thread-local data that can be
@@ -879,7 +870,6 @@ OPENSSL_EXPORT void *CRYPTO_get_thread_local(thread_local_data_t value);
 OPENSSL_EXPORT int CRYPTO_set_thread_local(
     thread_local_data_t index, void *value,
     thread_local_destructor_t destructor);
-
 
 // ex_data
 
@@ -929,7 +919,6 @@ OPENSSL_EXPORT void CRYPTO_new_ex_data(CRYPTO_EX_DATA *ad);
 OPENSSL_EXPORT void CRYPTO_free_ex_data(CRYPTO_EX_DATA_CLASS *ex_data_class,
                                         void *obj, CRYPTO_EX_DATA *ad);
 
-
 // Endianness conversions.
 
 #if defined(__GNUC__) && __GNUC__ >= 2
@@ -975,7 +964,6 @@ static inline uint64_t CRYPTO_bswap8(uint64_t x) {
   return CRYPTO_bswap4(x >> 32) | (((uint64_t)CRYPTO_bswap4(x)) << 32);
 }
 #endif
-
 
 // Language bug workarounds.
 //
@@ -1055,7 +1043,6 @@ static inline void *OPENSSL_memset(void *dst, int c, size_t n) {
   return memset(dst, c, n);
 }
 
-
 // Loads and stores.
 //
 // The following functions load and store sized integers with the specified
@@ -1126,7 +1113,6 @@ static inline crypto_word_t CRYPTO_load_word_be(const void *in) {
 #endif
 }
 
-
 // Bit rotation functions.
 //
 // Note these functions use |(-shift) & 31|, etc., because shifting by the bit
@@ -1164,7 +1150,6 @@ static inline uint64_t CRYPTO_rotr_u64(uint64_t value, int shift) {
   return (value >> shift) | (value << ((-shift) & 63));
 #endif
 }
-
 
 // Arithmetic functions.
 
@@ -1269,7 +1254,6 @@ static inline uint64_t CRYPTO_subc_u64(uint64_t x, uint64_t y, uint64_t borrow,
 #define CRYPTO_subc_w CRYPTO_subc_u32
 #endif
 
-
 // FIPS functions.
 
 #if defined(BORINGSSL_FIPS)
@@ -1334,7 +1318,6 @@ OPENSSL_INLINE int boringssl_fips_break_test(const char *test) {
   return 0;
 }
 #endif  // BORINGSSL_FIPS_BREAK_TESTS
-
 
 // Runtime CPU feature support
 

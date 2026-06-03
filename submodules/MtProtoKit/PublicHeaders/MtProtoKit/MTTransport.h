@@ -14,7 +14,6 @@
 
 #import <MtProtoKit/MTMessageService.h>
 
-
 @protocol MTTransportDelegate <NSObject>
 
 @optional

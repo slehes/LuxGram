@@ -654,7 +654,6 @@ const NSInteger TGNeoConversationControllerInitialRenderCount = 4 * 2;
     [_menu addItems:menuItems];
 }
 
-
 #pragma mark - Peer
 
 - (int64_t)peerId
@@ -1231,7 +1230,6 @@ const NSInteger TGNeoConversationControllerInitialRenderCount = 4 * 2;
             [strongSelf sendMessageWithText:text];
         }];
     };
-    // MARK: Swiftgram
     controller.replyWithoutPresetPressed = ^
     {
         __strong TGNeoConversationController *strongSelf = weakSelf;

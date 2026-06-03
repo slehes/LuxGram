@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public enum ChatContextResultMessageDecodingError: Error {
     case generic
 }

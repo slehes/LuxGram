@@ -173,7 +173,6 @@ private final class BlurPortraitPass: DefaultRenderPass {
     }
 }
 
-
 final class BlurRenderPass: RenderPass {
     fileprivate var cachedTexture: MTLTexture?
     

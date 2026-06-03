@@ -134,7 +134,6 @@ struct _POPPropertyAnimationState;
 
 extern _POPAnimationState *POPAnimationGetState(POPAnimation *a);
 
-
 #define FB_FLAG_GET(stype, flag, getter) \
 - (BOOL)getter { \
   return ((stype *)_state)->flag; \
@@ -183,7 +182,6 @@ extern _POPAnimationState *POPAnimationGetState(POPAnimation *a);
 #define DEFINE_RW_PROPERTY_OBJ_COPY(stype, flag, mutator, ctype, ...) \
   FB_PROPERTY_GET (stype, flag, ctype) \
   FB_PROPERTY_SET_OBJ_COPY (stype, flag, mutator, ctype, __VA_ARGS__)
-
 
 /**
  Internal delegate definition.
@@ -484,7 +482,6 @@ struct _POPAnimationState
 };
 
 typedef struct _POPAnimationState POPAnimationState;
-
 
 @interface POPAnimation ()
 {

@@ -806,7 +806,6 @@ const NSTimeInterval TGPhotoQualityPreviewDuration = 15.0f;
 
 @end
 
-
 @implementation TGPhotoQuality
 
 @synthesize value = _value;

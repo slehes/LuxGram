@@ -60,7 +60,6 @@ static const uint16_t ifd_tags[] = {
     0xA005  // Interoperability IFD
 };
 
-
 /** Returns a value > 0 if the tag is a known IFD-tag.
  *  The return value is the array index + 1 within ifd_tags[].
  */

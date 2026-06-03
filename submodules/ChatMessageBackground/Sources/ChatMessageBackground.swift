@@ -443,7 +443,6 @@ public final class ChatMessageShadowNode: ASDisplayNode {
     }
 }
 
-
 private let maskInset: CGFloat = 1.0
 
 public func bubbleMaskForType(_ type: ChatMessageBackgroundType, graphics: PrincipalThemeEssentialGraphics) -> UIImage? {

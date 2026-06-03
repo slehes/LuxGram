@@ -501,7 +501,6 @@ const CGFloat TGPhotoCounterButtonMaskFade = 18;
 
 @end
 
-
 @interface TGMediaPickerGroupButton ()
 {
     UIView *_wrapperView;
@@ -646,7 +645,6 @@ const CGFloat TGPhotoCounterButtonMaskFade = 18;
 
 @end
 
-
 @interface TGMediaPickerCameraButton ()
 {
     UIView *_wrapperView;
@@ -656,7 +654,6 @@ const CGFloat TGPhotoCounterButtonMaskFade = 18;
 }
 
 @end
-
 
 @implementation TGMediaPickerCameraButton
 
@@ -778,9 +775,6 @@ const CGFloat TGPhotoCounterButtonMaskFade = 18;
 }
 
 @end
-
-
-
 
 @interface TGMediaPickerCoverButton ()
 {

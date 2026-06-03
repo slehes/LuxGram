@@ -18,7 +18,6 @@
  * applications using the library shouldn't need to include this file.
  */
 
-
 /* Declarations for both compression & decompression */
 
 typedef enum {            /* Operating modes for buffer controllers */
@@ -47,7 +46,6 @@ typedef enum {            /* Operating modes for buffer controllers */
 #define DSTATE_RDCOEFS   209    /* reading file in jpeg_read_coefficients */
 #define DSTATE_STOPPING  210    /* looking for EOI in jpeg_finish_decompress */
 
-
 /* JLONG must hold at least signed 32-bit values. */
 typedef long JLONG;
 
@@ -70,7 +68,6 @@ typedef size_t JUINTPTR;
  */
 
 #define LEFT_SHIFT(a, b)  ((JLONG)((unsigned long)(a) << (b)))
-
 
 /* Declarations for compression modules */
 
@@ -216,7 +213,6 @@ struct jpeg_marker_writer {
   void (*write_marker_byte) (j_compress_ptr cinfo, int val);
 };
 
-
 /* Declarations for decompression modules */
 
 /* Master control module */
@@ -348,14 +344,12 @@ struct jpeg_color_quantizer {
   void (*new_color_map) (j_decompress_ptr cinfo);
 };
 
-
 /* Miscellaneous useful macros */
 
 #undef MAX
 #define MAX(a,b)        ((a) > (b) ? (a) : (b))
 #undef MIN
 #define MIN(a,b)        ((a) < (b) ? (a) : (b))
-
 
 /* We assume that right shift corresponds to signed division by 2 with
  * rounding towards minus infinity.  This is correct for typical "arithmetic
@@ -377,7 +371,6 @@ struct jpeg_color_quantizer {
 #define SHIFT_TEMPS
 #define RIGHT_SHIFT(x,shft)     ((x) >> (shft))
 #endif
-
 
 /* Compression module initialization routines */
 EXTERN(void) jinit_compress_master (j_compress_ptr cinfo);

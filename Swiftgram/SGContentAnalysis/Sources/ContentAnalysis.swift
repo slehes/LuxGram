@@ -20,7 +20,6 @@ public func canAnalyzeMedia() -> Bool {
     }
 }
 
-
 public func analyzeMediaSignal(_ url: URL, mediaType: ContentAnalysisMediaType = .image) -> Signal<Bool, Error> {
     return Signal { subscriber in
         analyzeMedia(url: url, mediaType: mediaType, completion: { result, error in

@@ -222,7 +222,6 @@ NSString *const TGMessageViewControllerIdentifier = @"TGMessageViewController";
             }]];
         }];
     };
-    // MARK: Swiftgram
     controller.replyWithoutPresetPressed = ^
     {
         __strong TGMessageViewController *strongSelf = weakSelf;

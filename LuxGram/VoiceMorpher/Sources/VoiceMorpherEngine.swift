@@ -1,7 +1,5 @@
 import Foundation
 
-// MARK: - LuxGram
-
 /// Local OGG voice morphing (ghostgram-style): decode -> AVAudioEngine effects -> encode.
 /// NOTE: Requires OpusBinding with VoiceMorpherProcessor. See VoiceMorpherProcessor.h/.m in OpusBinding.
 public final class VoiceMorpherEngine {

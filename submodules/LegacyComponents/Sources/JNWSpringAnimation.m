@@ -262,7 +262,6 @@ BOOL JNWCalculationsAreComplete(CGFloat value1, CGFloat proposedValue1, CGFloat 
 
 #pragma mark Damped Harmonic Oscillation
 
-
 CGFloat JNWAngularFrequency(CGFloat k, CGFloat m, CGFloat b) {
 	CGFloat w0 = (CGFloat)sqrt(k / m);
 	CGFloat frequency = (CGFloat)sqrt(pow(w0, 2) - (pow(b, 2) / (4*pow(m, 2))));

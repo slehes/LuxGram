@@ -3338,7 +3338,6 @@ ASDISPLAYNODE_INLINE BOOL subtreeIsRasterized(ASDisplayNode *node) {
   }
 }
 
-
 #pragma mark - Pending View State
 
 - (void)_locked_applyPendingStateToViewOrLayer

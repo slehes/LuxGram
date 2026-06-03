@@ -60,7 +60,6 @@
 
 @end
 
-
 @interface TGMediaSelectionChange : NSObject
 
 @property (nonatomic, readonly) NSObject <TGMediaSelectableItem> *item;

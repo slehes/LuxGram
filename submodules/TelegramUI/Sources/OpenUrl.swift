@@ -312,17 +312,14 @@ private func handleInternetUrl(
                             break
                         }
                     }
-                    if settings.defaultWebBrowser == "inApp" { isExceptedDomain = false } // MARK: LuxGram
-
+                    if settings.defaultWebBrowser == "inApp" { isExceptedDomain = false }
                     if (settings.defaultWebBrowser == nil && !isExceptedDomain) || isTonSite {
                         let controller = BrowserScreen(context: context, subject: .webPage(url: parsedUrl.absoluteString))
                         navigationController?.pushViewController(controller)
                     } else {
                         if let window = navigationController?.view.window, !isExceptedDomain {
-                            let controller = SFSafariViewControllerPlusDidFinish(url: parsedUrl) // MARK: LuxGram
-                            controller.preferredBarTintColor = presentationData.theme.rootController.navigationBar.opaqueBackgroundColor
+                            let controller = SFSafariViewControllerPlusDidFinish(url: parsedUrl)                            controller.preferredBarTintColor = presentationData.theme.rootController.navigationBar.opaqueBackgroundColor
                             controller.preferredControlTintColor = presentationData.theme.rootController.navigationBar.accentTextColor
-                            // MARK: LuxGram
                             if parsedUrl.host?.lowercased() == SG_API_WEBAPP_URL_PARSED.host?.lowercased() {
                                 controller.onDidFinish = {
                                     SGLogger.shared.log("SafariController", "Closed webapp")

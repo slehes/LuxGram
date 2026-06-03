@@ -117,7 +117,6 @@
 extern "C" {
 #endif
 
-
 // Error queue handling functions.
 //
 // Errors in OpenSSL are generally signaled by the return value of a function.
@@ -138,7 +137,6 @@ extern "C" {
 // recent" error is the most specific and the other errors will provide a
 // backtrace of sorts.
 
-
 // Startup and shutdown.
 
 // ERR_load_BIO_strings does nothing.
@@ -157,7 +155,6 @@ OPENSSL_EXPORT void ERR_load_RAND_strings(void);
 
 // ERR_free_strings does nothing.
 OPENSSL_EXPORT void ERR_free_strings(void);
-
 
 // Reading and formatting errors.
 
@@ -273,7 +270,6 @@ OPENSSL_EXPORT void ERR_print_errors_cb(ERR_print_errors_callback_t callback,
 // error to |file|. See |ERR_print_errors_cb| for the format.
 OPENSSL_EXPORT void ERR_print_errors_fp(FILE *file);
 
-
 // Clearing errors.
 
 // ERR_clear_error clears the error queue for the current thread.
@@ -289,14 +285,12 @@ OPENSSL_EXPORT int ERR_set_mark(void);
 // are marked using |ERR_set_mark|.
 OPENSSL_EXPORT int ERR_pop_to_mark(void);
 
-
 // Custom errors.
 
 // ERR_get_next_error_library returns a value suitable for passing as the
 // |library| argument to |ERR_put_error|. This is intended for code that wishes
 // to push its own, non-standard errors to the error queue.
 OPENSSL_EXPORT int ERR_get_next_error_library(void);
-
 
 // Built-in library and reason codes.
 
@@ -387,7 +381,6 @@ enum {
 #define ERR_R_INTERNAL_ERROR (4 | ERR_R_FATAL)
 #define ERR_R_OVERFLOW (5 | ERR_R_FATAL)
 
-
 // Deprecated functions.
 
 // ERR_remove_state calls |ERR_clear_error|.
@@ -428,7 +421,6 @@ OPENSSL_INLINE int ERR_GET_FUNC(uint32_t packed_error) {
 // using OpenSSL.
 #define ERR_TXT_STRING ERR_FLAG_STRING
 #define ERR_TXT_MALLOCED ERR_FLAG_MALLOCED
-
 
 // Private functions.
 
@@ -485,7 +477,6 @@ OPENSSL_EXPORT void ERR_set_error_data(char *data, int flags);
 // |OPENSSL_PUT_ERROR| macro. The resulting define will be
 // ${lib}_R_${reason}.
 #define OPENSSL_DECLARE_ERROR_REASON(lib, reason)
-
 
 #if defined(__cplusplus)
 }  // extern C

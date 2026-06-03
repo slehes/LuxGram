@@ -118,7 +118,6 @@ private func trimmedLocationName(_ session: WebAuthorization) -> String {
     return country
 }
 
-
 class ItemListWebsiteItemNode: ItemListRevealOptionsItemNode {
     private let backgroundNode: ASDisplayNode
     private let topStripeNode: ASDisplayNode

@@ -27,10 +27,8 @@
 
 #include <stdint.h>
 
-
 #define FUNCTION_ATTRIBS \
   __attribute__((__gnu_inline__, __always_inline__, __artificial__))
-
 
 /* Vectors are stored in 64-bit floating-point registers. */
 typedef double __m64;
@@ -38,7 +36,6 @@ typedef double __m64;
 /* Having a 32-bit datatype allows us to use 32-bit loads in places like
    load8888. */
 typedef float __m32;
-
 
 /********** Set Operations **********/
 
@@ -180,7 +177,6 @@ _mm_setr_pi32(uint32_t __i0, uint32_t __i1)
   return _mm_set_pi32(__i1, __i0);
 }
 
-
 /********** Arithmetic Operations **********/
 
 extern __inline __m64 FUNCTION_ATTRIBS
@@ -260,7 +256,6 @@ _mm_adds_pi16(__m64 __m1, __m64 __m2)
 
   return ret;
 }
-
 
 extern __inline __m64 FUNCTION_ATTRIBS
 _mm_adds_pu8(__m64 __m1, __m64 __m2)
@@ -457,7 +452,6 @@ _mm_sad_pu8(__m64 __m1, __m64 __m2)
   return ret;
 }
 
-
 extern __inline __m64 FUNCTION_ATTRIBS
 _mm_asub_pu8(__m64 __m1, __m64 __m2)
 {
@@ -562,7 +556,6 @@ _mm_subs_pi16(__m64 __m1, __m64 __m2)
   return ret;
 }
 
-
 extern __inline __m64 FUNCTION_ATTRIBS
 _mm_subs_pu8(__m64 __m1, __m64 __m2)
 {
@@ -588,7 +581,6 @@ _mm_subs_pu16(__m64 __m1, __m64 __m2)
 
   return ret;
 }
-
 
 /********** Logical Operations **********/
 
@@ -617,7 +609,6 @@ _mm_andnot_si64(__m64 __m1, __m64 __m2)
 
   return ret;
 }
-
 
 extern __inline __m64 FUNCTION_ATTRIBS
 _mm_or_si32(__m32 __m1, __m32 __m2)
@@ -657,7 +648,6 @@ _mm_xor_si64(__m64 __m1, __m64 __m2)
 
   return ret;
 }
-
 
 /********** Shift Operations **********/
 
@@ -778,7 +768,6 @@ _mm_srai_si64(__m64 __m, int64_t __count)
   return ret;
 }
 
-
 /********** Conversion Intrinsics **********/
 
 extern __inline __m64 FUNCTION_ATTRIBS
@@ -792,7 +781,6 @@ to_uint64(__m64 x)
 {
   return *(uint64_t *)&x;
 }
-
 
 /********** Comparison Intrinsics **********/
 
@@ -912,7 +900,6 @@ _mm_cmplt_pi32(__m64 __m1, __m64 __m2)
 
   return ret;
 }
-
 
 /********** Miscellaneous Operations **********/
 
@@ -1187,7 +1174,6 @@ _mm_unpacklo_pi32(__m64 __m1, __m64 __m2)
 
   return ret;
 }
-
 
 extern __inline __m64 FUNCTION_ATTRIBS
 _mm_unpacklo_pi32_f(__m64 __m1, __m64 __m2)

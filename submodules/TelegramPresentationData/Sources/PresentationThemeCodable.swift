@@ -709,7 +709,6 @@ extension PresentationThemeItemDisclosureActions: Codable {
     }
 }
 
-
 extension PresentationThemeItemBarChart: Codable {
     enum CodingKeys: String, CodingKey {
         case color1

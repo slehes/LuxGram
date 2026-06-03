@@ -52,7 +52,6 @@
 
 @end
 
-
 @implementation TGBridgeAudioSignals
 
 + (SSignal *)audioForAttachment:(TGBridgeMediaAttachment *)attachment conversationId:(int64_t)conversationId messageId:(int32_t)messageId

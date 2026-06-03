@@ -162,7 +162,6 @@ typedef NS_ENUM(NSInteger, STPCardFundingType) {
 - (void)setAddressZip:(nullable NSString *)addressZip DEPRECATED_IN_FAVOR_OF_STPCARDPARAMS;
 - (void)setAddressCountry:(nullable NSString *)addressCountry DEPRECATED_IN_FAVOR_OF_STPCARDPARAMS;
 
-
 @end
 
 NS_ASSUME_NONNULL_END

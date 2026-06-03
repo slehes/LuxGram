@@ -301,7 +301,6 @@ size_t ff_inlink_queued_frames(AVFilterLink *link);
  */
 int ff_inlink_check_available_frame(AVFilterLink *link);
 
-
 /***
   * Get the number of samples available on the link.
   * @return the numer of samples available on the link.

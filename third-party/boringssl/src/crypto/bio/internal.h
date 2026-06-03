@@ -79,7 +79,6 @@ typedef int socklen_t;
 extern "C" {
 #endif
 
-
 #if !defined(OPENSSL_NO_SOCK)
 
 // bio_ip_and_port_to_socket_and_addr creates a socket and fills in |*out_addr|
@@ -112,7 +111,6 @@ int bio_socket_should_retry(int return_value);
 // bio_errno_should_retry returns non-zero if |return_value| indicates an error
 // and |errno| indicates that it's non-fatal.
 int bio_errno_should_retry(int return_value);
-
 
 #if defined(__cplusplus)
 }  // extern C

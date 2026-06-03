@@ -19,7 +19,6 @@ NSString *const TGBotCommandListKey = @"list";
 
 @end
 
-
 @interface TGBotCommandController () <TGTableDataSource>
 {
     SMetaDisposable *_commandDisposable;

@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 enum boringssl_keccak_config_t {
   boringssl_sha3_256,
   boringssl_sha3_512,

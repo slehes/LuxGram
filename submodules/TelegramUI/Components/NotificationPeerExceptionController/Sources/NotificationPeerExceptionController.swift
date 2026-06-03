@@ -480,7 +480,6 @@ private final class NotificationPeerExceptionArguments  {
     }
 }
 
-
 private enum NotificationPeerExceptionEntry: ItemListNodeEntry {
     typealias ItemGenerationArguments = NotificationPeerExceptionArguments
     
@@ -691,7 +690,6 @@ private enum NotificationPeerExceptionEntry: ItemListNodeEntry {
         }
     }
 }
-
 
 private func notificationPeerExceptionEntries(presentationData: PresentationData, peer: EnginePeer?, notificationSoundList: NotificationSoundList?, state: NotificationExceptionPeerState, isStories: Bool?) -> [NotificationPeerExceptionEntry] {
     let selectedSound = resolvedNotificationSound(sound: isStories == true ? state.selectedStoriesSound : state.selectedSound, notificationSoundList: notificationSoundList)

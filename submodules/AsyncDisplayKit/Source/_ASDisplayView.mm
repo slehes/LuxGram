@@ -186,7 +186,6 @@ static _ASDisplayViewMethodOverrides GetASDisplayViewMethodOverrides(Class c)
 }
 #endif
 
-
 - (void)willMoveToWindow:(UIWindow *)newWindow
 {
   ASDisplayNode *node = _asyncdisplaykit_node; // Create strong reference to weak ivar.

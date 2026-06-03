@@ -31,7 +31,6 @@ NSString *const TGBridgeBotReplyMarkupButtonText = @"text";
 
 @end
 
-
 NSString *const TGBridgeBotReplyMarkupRowButtons = @"buttons";
 
 @implementation  TGBridgeBotReplyMarkupRow
@@ -62,7 +61,6 @@ NSString *const TGBridgeBotReplyMarkupRowButtons = @"buttons";
 }
 
 @end
-
 
 NSString *const TGBridgeBotReplyMarkupUserId = @"userId";
 NSString *const TGBridgeBotReplyMarkupMessageId = @"messageId";

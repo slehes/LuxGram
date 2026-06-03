@@ -1,7 +1,6 @@
 import UIKit
 import DeviceModel
 
-
 let DEVICE_MODELS_WITH_APP_BADGE_SUPPORT: [DeviceModel] = [
     .iPhoneX,
     .iPhoneXS,
@@ -83,7 +82,6 @@ extension DeviceMetrics {
     }
     
     var sgShowAppBadge: Bool {
-        return DEVICE_MODELS_WITH_APP_BADGE_SUPPORT.contains(DeviceModel.current) // MARK: Swiftgram
-    }
+        return DEVICE_MODELS_WITH_APP_BADGE_SUPPORT.contains(DeviceModel.current)    }
 
 }

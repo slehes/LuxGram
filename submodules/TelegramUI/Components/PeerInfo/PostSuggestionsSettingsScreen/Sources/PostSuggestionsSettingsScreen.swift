@@ -681,7 +681,6 @@ public final class PostSuggestionsSettingsScreen: ViewControllerComponentContain
     }
 }
 
-
 private final class LinkContentComponent: Component {
     let theme: PresentationTheme
     let link: String

@@ -65,9 +65,7 @@ private func renderIcon(name: String, scaleFactor: CGFloat = 1.0, backgroundColo
 public struct PresentationResourcesSettings {
     public static let swiftgram = renderIcon(name: "LuxGramSettings", scaleFactor: 30.0 / 512.0)
     public static let swiftgramPro = renderIcon(name: "LuxGramPro", scaleFactor: 30.0 / 256.0)
-    // MARK: - LuxGram
     public static let glegram = renderIcon(name: "LuxGramSettings", scaleFactor: 30.0 / 120.0)
-    // MARK: - End LuxGram
     public static let editProfile = renderIcon(name: "Settings/Menu/EditProfile")
     public static let proxy = renderIcon(name: "Settings/Menu/Proxy")
     public static let savedMessages = renderIcon(name: "Settings/Menu/SavedMessages")

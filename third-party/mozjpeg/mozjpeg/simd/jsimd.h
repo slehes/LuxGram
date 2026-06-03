@@ -592,7 +592,6 @@ EXTERN(void) jsimd_h2v2_smooth_downsample_dspr2
    int max_v_samp_factor, int smoothing_factor, JDIMENSION width_in_blocks,
    JDIMENSION image_width);
 
-
 /* Upsampling */
 EXTERN(void) jsimd_h2v1_upsample_mmx
   (int max_v_samp_factor, JDIMENSION output_width, JSAMPARRAY input_data,

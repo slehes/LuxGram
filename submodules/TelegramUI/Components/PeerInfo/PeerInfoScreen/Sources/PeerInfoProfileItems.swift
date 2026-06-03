@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGSimpleSettings
 import SGSettingsUI
 import SGStrings
@@ -24,8 +23,7 @@ import PeerNameColorItem
 import BoostLevelIconComponent
 
 private let enabledPublicBioEntities: EnabledEntityTypes = [.allUrl, .mention, .hashtag]
-private let enabledPrivateBioEntities: EnabledEntityTypes = [.allUrl, .mention, .hashtag] // MARK: Swiftgram
-
+private let enabledPrivateBioEntities: EnabledEntityTypes = [.allUrl, .mention, .hashtag]
 enum InfoSection: Int, CaseIterable {
     case swiftgram
     case groupLocation
@@ -48,7 +46,6 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
     
     var currentPeerInfoSection: InfoSection = .peerInfo
 
-    // MARK: Swiftgram
     var sgItemId = 0
     var idText = ""
     var isMutualContact = false
@@ -111,7 +108,6 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
         let ItemBotAddToChatInfo = 9003
         let ItemVerification = 9004
         
-        // MARK: Swiftgram
         isMutualContact = user.flags.contains(.mutualContact)
         idText = String(user.id.id._internalGetInt64Value())
 //        isUser = true
@@ -534,7 +530,6 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
             }
         }
     } else if let channel = data.peer as? TelegramChannel {
-        // MARK: Swiftgram
         idText = "-100" + String(channel.id.id._internalGetInt64Value())
         let ItemSGRecentActions = 20
         
@@ -703,8 +698,7 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
                 
                 if case .broadcast = channel.info {
                     var canEditMembers = false
-                    if channel.adminRights != nil || channel.flags.contains(.isCreator) { // MARK: Swiftgram
-                        canEditMembers = true
+                    if channel.adminRights != nil || channel.flags.contains(.isCreator) {                        canEditMembers = true
                     }
                     if canEditMembers {
                         if channel.adminRights != nil || channel.flags.contains(.isCreator) {
@@ -786,7 +780,6 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
                         interaction.openEditing()
                     }))
      
-                    // MARK: Swiftgram
                     if channel.hasPermission(.banMembers) || channel.flags.contains(.isCreator) {
                         items[section]!.append(PeerInfoScreenDisclosureItem(id: ItemSGRecentActions, label: .none, text: presentationData.strings.Group_Info_AdminLog, icon: UIImage(bundleImageName: "Chat/Info/RecentActionsIcon"), action: {
                             interaction.openRecentActions()
@@ -812,7 +805,6 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
             }
         }
     } else if let group = data.peer as? TelegramGroup {
-        // MARK: Swiftgram
         idText = String(group.id.id._internalGetInt64Value())
          
         if let cachedData = data.cachedData as? CachedGroupData {
@@ -892,7 +884,6 @@ func infoItems(nearestChatParticipant: (String?, Int32?), showProfileId: Bool, d
         }
     }
     
-    // MARK: Swiftgram
     if showProfileId {
         items[.swiftgram]!.append(PeerInfoScreenLabeledValueItem(id: sgItemId, label: "id: \(idText)", text: "", textColor: .primary, action: nil, longTapAction: { sourceNode in
             interaction.openPeerInfoContextMenu(.copy(idText), sourceNode, nil)
@@ -1400,8 +1391,7 @@ func editingItems(data: PeerInfoScreenData?, boostStatus: ChannelBoostStatus?, s
                 }
                 
                 var canEditMembers = false
-                if /*channel.hasPermission(.banMembers) &&*/ (channel.adminRights != nil || channel.flags.contains(.isCreator)) { // MARK: Swiftgram
-                    canEditMembers = true
+                if /*channel.hasPermission(.banMembers) &&*/ (channel.adminRights != nil || channel.flags.contains(.isCreator)) {                    canEditMembers = true
                 }
                 if canEditMembers {
                     let adminCount: Int32

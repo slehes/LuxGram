@@ -34,7 +34,6 @@
 #define LIBAVFILTER_VERSION_MINOR   4
 #define LIBAVFILTER_VERSION_MICRO 100
 
-
 #define LIBAVFILTER_VERSION_INT AV_VERSION_INT(LIBAVFILTER_VERSION_MAJOR, \
                                                LIBAVFILTER_VERSION_MINOR, \
                                                LIBAVFILTER_VERSION_MICRO)

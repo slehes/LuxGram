@@ -96,7 +96,6 @@ int32_t                WelsGetTimeOfDay (SWelsTime* tp);
 int32_t                WelsStrftime (char* buffer, int32_t size, const char* format, const SWelsTime* tp);
 uint16_t               WelsGetMillisecond (const SWelsTime* tp);
 
-
 #ifdef __cplusplus
 }
 #endif

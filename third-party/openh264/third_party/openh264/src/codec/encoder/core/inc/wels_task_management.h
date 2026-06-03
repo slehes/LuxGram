@@ -64,7 +64,6 @@ class IWelsTaskManage {
   virtual int32_t  GetThreadPoolThreadNum() = 0;
 };
 
-
 class  CWelsTaskManageBase : public IWelsTaskManage, public WelsCommon::IWelsTaskSink {
  public:
   typedef  CWelsNonDuplicatedList<CWelsBaseTask>            TASKLIST_TYPE;

@@ -111,7 +111,6 @@
 
 @end
 
-
 @interface TGOverlayControllerWindow ()
 {
     __weak TGViewController *_parentController;

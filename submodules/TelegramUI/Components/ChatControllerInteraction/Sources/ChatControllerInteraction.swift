@@ -174,7 +174,6 @@ public final class ChatControllerInteraction: ChatControllerInteractionProtocol 
     }
     
     public let openMessage: (Message, OpenMessageParams) -> Bool
-    // MARK: Swiftgram
     public let sgStartMessageEdit: (Message) -> Void
     public let sgGetChatPredictedLang: () -> String?
     public let openPeer: (EnginePeer, ChatControllerInteractionNavigateToPeer, MessageReference?, OpenPeerSource) -> Void

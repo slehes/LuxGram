@@ -7,7 +7,6 @@
 //  Licensed under Apache 2.0: http://www.apache.org/licenses/LICENSE-2.0
 //
 
-
 #import <UIKit/UIKit.h>
 
 #import <AsyncDisplayKit/ASBaseDefines.h>
@@ -60,7 +59,6 @@ AS_EXTERN ASPrimitiveTraitCollection ASPrimitiveTraitCollectionMakeDefault(void)
  * Creates a ASPrimitiveTraitCollection from a given UITraitCollection.
  */
 AS_EXTERN ASPrimitiveTraitCollection ASPrimitiveTraitCollectionFromUITraitCollection(UITraitCollection *traitCollection);
-
 
 /**
  * Compares two ASPrimitiveTraitCollection to determine if they are the same.

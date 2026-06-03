@@ -257,5 +257,4 @@ typedef struct AACEncContext {
 
 void ff_quantize_band_cost_cache_init(struct AACEncContext *s);
 
-
 #endif /* AVCODEC_AACENC_H */

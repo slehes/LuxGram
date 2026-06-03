@@ -384,7 +384,6 @@ public extension Message {
     }
     
     func isCopyProtected() -> Bool {
-        // MARK: - LuxGram - Allow saving protected content if enabled
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.enableSavingProtectedContent {
             return false

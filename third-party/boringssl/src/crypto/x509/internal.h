@@ -70,7 +70,6 @@
 extern "C" {
 #endif
 
-
 // Internal structures.
 
 typedef struct X509_val_st {
@@ -397,7 +396,6 @@ ASN1_TYPE *ASN1_generate_v3(const char *str, const X509V3_CTX *cnf);
 
 int X509_CERT_AUX_print(BIO *bp, X509_CERT_AUX *x, int indent);
 
-
 // RSA-PSS functions.
 
 // x509_rsa_pss_to_ctx configures |ctx| for an RSA-PSS operation based on
@@ -418,7 +416,6 @@ int x509_rsa_ctx_to_pss(EVP_MD_CTX *ctx, X509_ALGOR *algor);
 int x509_print_rsa_pss_params(BIO *bp, const X509_ALGOR *sigalg, int indent,
                               ASN1_PCTX *pctx);
 
-
 // Signature algorithm functions.
 
 // x509_digest_sign_algorithm encodes the signing parameters of |ctx| as an
@@ -432,7 +429,6 @@ int x509_digest_sign_algorithm(EVP_MD_CTX *ctx, X509_ALGOR *algor);
 // zero on error.
 int x509_digest_verify_init(EVP_MD_CTX *ctx, const X509_ALGOR *sigalg,
                             EVP_PKEY *pkey);
-
 
 // Path-building functions.
 
@@ -594,7 +590,6 @@ int X509_PURPOSE_get_trust(const X509_PURPOSE *xp);
 
 // TODO(https://crbug.com/boringssl/695): Remove this.
 int DIST_POINT_set_dpname(DIST_POINT_NAME *dpn, X509_NAME *iname);
-
 
 #if defined(__cplusplus)
 }  // extern C

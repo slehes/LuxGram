@@ -101,7 +101,6 @@ int cpuCoreCount()
     return count;
 }
 
-
 void TGDispatchOnMainThread(dispatch_block_t block)
 {
     if ([NSThread isMainThread])

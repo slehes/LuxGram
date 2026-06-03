@@ -40,7 +40,6 @@
 #ifndef SVC_SLICE_MULTIPLE_THREADING_H__
 #define SVC_SLICE_MULTIPLE_THREADING_H__
 
-
 #include "typedefs.h"
 #include "codec_app_def.h"
 #include "param_svc.h"
@@ -76,11 +75,8 @@ WELS_THREAD_ROUTINE_TYPE UpdateMbListThreadProc (void* arg);
 
 int32_t DynamicDetectCpuCores();
 
-
 int32_t AdjustBaseLayer (sWelsEncCtx* pCtx);
 int32_t AdjustEnhanceLayer (sWelsEncCtx* pCtx, int32_t iCurDid);
-
-
 
 #if defined(MT_DEBUG)
 void TrackSliceComplexities (sWelsEncCtx* pCtx, const int32_t kiCurDid);

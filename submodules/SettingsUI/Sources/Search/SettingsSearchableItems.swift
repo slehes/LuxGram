@@ -1147,7 +1147,6 @@ private func myProfileSearchableItems(context: AccountContext) -> [SettingsSearc
     return items
 }
 
-
 private func callSearchableItems(context: AccountContext) -> [SettingsSearchableItem] {
     let icon: SettingsSearchableItemIcon = .calls
     let strings = context.sharedContext.currentPresentationData.with { $0 }.strings
@@ -4312,7 +4311,6 @@ func settingsSearchableItems(
     webSessionsContext: Signal<WebSessionsContext?, NoError> = .single(nil)
 ) -> Signal<[SettingsSearchableItem], NoError> {
 
-    // MARK: Swiftgram
     let watchAppInstalled = (context.watchManager?.watchAppInstalled ?? .single(false))
     |> take(1)
     //
@@ -4401,8 +4399,7 @@ func settingsSearchableItems(
     }
     
     return combineLatest(
-        watchAppInstalled, // MARK: Swiftgram
-        canAddAccount,
+        watchAppInstalled,        canAddAccount,
         localizations,
         notificationSettings,
         notificationExceptionsList,
@@ -4416,8 +4413,7 @@ func settingsSearchableItems(
     )
     |> deliverOnMainQueue
     |> map {
-        watchAppInstalled, // MARK: Swiftgram
-        canAddAccount,
+        watchAppInstalled,        canAddAccount,
         localizations,
         notificationSettings,
         notificationExceptionsList,
@@ -4485,7 +4481,6 @@ func settingsSearchableItems(
         
         let storiesItems = myProfileSearchableItems(context: context)
         allItems.append(contentsOf: storiesItems)
-        // MARK: Swiftgram
         if watchAppInstalled {
             let watch = SettingsSearchableItem(id: "watch", title: strings.Settings_AppleWatch, alternate: synonyms(strings.SettingsSearch_Synonyms_Watch), icon: .watch, breadcrumbs: [], present: { context, _, present in
                 present(.push, watchSettingsController(context: context))

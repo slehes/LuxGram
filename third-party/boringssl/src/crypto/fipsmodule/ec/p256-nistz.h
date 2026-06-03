@@ -29,7 +29,6 @@
 extern "C" {
 #endif
 
-
 #if !defined(OPENSSL_NO_ASM) && \
     (defined(OPENSSL_X86_64) || defined(OPENSSL_AARCH64)) &&   \
     !defined(OPENSSL_SMALL)
@@ -64,7 +63,6 @@ static inline void ecp_nistz256_from_mont(BN_ULONG res[P256_LIMBS],
   ecp_nistz256_mul_mont(res, in, ONE);
 }
 
-
 // P-256 scalar operations.
 //
 // The following functions compute modulo N, where N is the order of P-256. They
@@ -87,7 +85,6 @@ void ecp_nistz256_ord_sqr_mont(BN_ULONG res[P256_LIMBS],
 int beeu_mod_inverse_vartime(BN_ULONG out[P256_LIMBS],
                              const BN_ULONG a[P256_LIMBS],
                              const BN_ULONG p[P256_LIMBS]);
-
 
 // P-256 point operations.
 //
@@ -136,7 +133,6 @@ void ecp_nistz256_point_add_affine(P256_POINT *r, const P256_POINT *a,
 #endif /* !defined(OPENSSL_NO_ASM) && \
           (defined(OPENSSL_X86_64) || defined(OPENSSL_AARCH64)) &&   \
           !defined(OPENSSL_SMALL) */
-
 
 #if defined(__cplusplus)
 }  // extern C++

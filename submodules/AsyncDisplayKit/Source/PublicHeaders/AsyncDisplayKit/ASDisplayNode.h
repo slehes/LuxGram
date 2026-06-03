@@ -113,7 +113,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
 
 /** @name Initializing a node object */
 
-
 /**
  * @abstract Designated initializer.
  *
@@ -121,7 +120,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
  * through -layout and touch handling methods.
  */
 - (instancetype)init NS_DESIGNATED_INITIALIZER;
-
 
 /**
  * @abstract Alternative initializer with a block to create the backing view.
@@ -305,7 +303,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
 
 /** @name Managing the nodes hierarchy */
 
-
 /** 
  * @abstract Add a node as a subnode to this node.
  *
@@ -379,7 +376,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
  * @abstract The receiver's supernode.
  */
 @property (nullable, readonly, weak) ASDisplayNode *supernode;
-
 
 /** @name Drawing and Updating the View */
 
@@ -478,7 +474,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
 
 /** @name Hit Testing */
 
-
 /** 
  * @abstract Bounds insets for hit testing.
  *
@@ -502,9 +497,7 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
  */
 - (BOOL)pointInside:(CGPoint)point withEvent:(nullable UIEvent *)event AS_WARN_UNUSED_RESULT;
 
-
 /** @name Converting Between View Coordinate Systems */
-
 
 /** 
  * @abstract Converts a point from the receiver's coordinate system to that of the specified node.
@@ -516,7 +509,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
  */
 - (CGPoint)convertPoint:(CGPoint)point toNode:(nullable ASDisplayNode *)node AS_WARN_UNUSED_RESULT;
 
-
 /** 
  * @abstract Converts a point from the coordinate system of a given node to that of the receiver.
  *
@@ -526,7 +518,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
  * @return The point converted to the local coordinate system (bounds) of the receiver.
  */
 - (CGPoint)convertPoint:(CGPoint)point fromNode:(nullable ASDisplayNode *)node AS_WARN_UNUSED_RESULT;
-
 
 /** 
  * @abstract Converts a rectangle from the receiver's coordinate system to that of another view.
@@ -761,7 +752,6 @@ AS_EXTERN NSInteger const ASDefaultDrawingPriority;
 @property           BOOL insetsLayoutMarginsFromSafeArea;  // Default: YES
 - (void)safeAreaInsetsDidChange;
 
-
 // UIResponder methods
 // By default these fall through to the underlying view, but can be overridden.
 - (BOOL)canBecomeFirstResponder;                                            // default==NO
@@ -916,7 +906,6 @@ typedef NS_ENUM(NSInteger, ASLayoutEngineType) {
                              animated:(BOOL)animated
                    shouldMeasureAsync:(BOOL)shouldMeasureAsync
                 measurementCompletion:(nullable void(^)(void))completion;
-
 
 /**
  * @abstract Invalidates the layout and begins a relayout of the node with the current `constrainedSize`. Must be called on main thread.

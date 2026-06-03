@@ -9,7 +9,6 @@ import ManagedFile
 
 private typealias SignalKitTimer = SwiftSignalKit.Timer
 
-
 private struct UploadPart {
     let fileId: Int64
     let index: Int

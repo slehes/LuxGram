@@ -79,7 +79,6 @@ public struct IntentsSettings: Codable, Equatable {
     }
 }
 
-
 public func updateIntentsSettingsInteractively(accountManager: AccountManager<TelegramAccountManagerTypes>, _ f: @escaping (IntentsSettings) -> IntentsSettings) -> Signal<(IntentsSettings?, IntentsSettings?), NoError> {
     return accountManager.transaction { transaction -> (IntentsSettings?, IntentsSettings?) in
         var previousSettings: IntentsSettings? = nil

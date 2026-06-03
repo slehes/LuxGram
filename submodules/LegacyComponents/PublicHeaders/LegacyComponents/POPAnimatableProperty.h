@@ -132,7 +132,6 @@ extern NSString * const kPOPShapeLayerFillColor;
  */
 extern NSString * const kPOPLayoutConstraintConstant;
 
-
 #if TARGET_OS_IPHONE
 
 /**

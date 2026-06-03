@@ -38,10 +38,8 @@
  *************************************************************************************
  */
 
-
 #ifndef _WELS_THREAD_H_
 #define _WELS_THREAD_H_
-
 
 #include "macros.h"
 #include "WelsLock.h"
@@ -96,11 +94,7 @@ class CWelsThread {
   DISALLOW_COPY_AND_ASSIGN (CWelsThread);
 };
 
-
 }
 
-
-
 #endif
-
 

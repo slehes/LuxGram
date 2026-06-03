@@ -24,7 +24,6 @@ func _internal_resolveStarGiftOffer(account: Account, messageId: EngineMessage.I
     |> ignoreValues
 }
 
-
 public enum SendStarGiftOfferError {
     case generic
 }

@@ -22,7 +22,6 @@
 extern "C" {
 #endif
 
-
 #define N 701
 #define BITS_PER_WORD (sizeof(crypto_word_t) * 8)
 #define WORDS_PER_POLY ((N + BITS_PER_WORD - 1) / BITS_PER_WORD)
@@ -59,7 +58,6 @@ extern void poly_Rq_mul(
     // GCC 11.1 has a bug with unions that breaks that.
     uint8_t scratch[]);
 #endif
-
 
 #if defined(__cplusplus)
 }  // extern "C"

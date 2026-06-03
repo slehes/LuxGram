@@ -28,7 +28,6 @@
 
 @end
 
-
 @interface ASWeakMap ()
 @property (nonatomic, readonly) NSMapTable<id, ASWeakMapEntry *> *hashTable;
 @end

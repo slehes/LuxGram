@@ -188,7 +188,6 @@ private:
     }
 }
 
-
 #pragma mark -
 
 - (void)setRotationOverride:(NSValue *)rotationOverride {

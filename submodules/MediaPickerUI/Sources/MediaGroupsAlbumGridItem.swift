@@ -48,7 +48,6 @@ private struct MediaGroupsGridAlbumEntry: Comparable, Identifiable {
     }
 }
 
-
 private class MediaGroupsGridAlbumItem: ListViewItem {
     let theme: PresentationTheme
     let collection: PHAssetCollection
@@ -103,7 +102,6 @@ private class MediaGroupsGridAlbumItem: ListViewItem {
         self.action(self.collection)
     }
 }
-
 
 private let textFont = Font.regular(15.0)
 

@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension GroupParticipant {
     init(apiParticipant: Api.ChatParticipant) {
         switch apiParticipant {

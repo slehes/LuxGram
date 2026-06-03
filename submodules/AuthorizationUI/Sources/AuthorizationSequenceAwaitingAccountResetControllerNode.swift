@@ -173,4 +173,3 @@ final class AuthorizationSequenceAwaitingAccountResetControllerNode: ASDisplayNo
     }
 }
 
-

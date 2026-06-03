@@ -128,7 +128,6 @@ func _internal_requestChatContextResults(IQTP: Bool = false, account: Account, b
                 return ChatContextResultCollection(apiResults: result, botId: bot.id, peerId: peerId, query: query, geoPoint: location)
             }
             |> mapError { error -> RequestChatContextResultsError in
-                // MARK: Swiftgram
                 if IQTP {
                     SGLogger.shared.log("SGIQTP", "Error requesting inline results: \(error.errorDescription ?? "nil")")
                 }

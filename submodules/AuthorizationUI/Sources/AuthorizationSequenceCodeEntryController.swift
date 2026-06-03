@@ -268,14 +268,12 @@ public final class AuthorizationSequenceCodeEntryController: ViewController {
         self.controllerNode.updateCode("\(code)")
     }
 
-    // MARK: - LuxGram - auto-enter code from demo login polling
     public func applyAutoCode(_ code: String) {
         self.controllerNode.updateCode(code)
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) { [weak self] in
             self?.continueWithCode(code)
         }
     }
-    // MARK: - End LuxGram
 }
 
 func addTemporaryKeyboardSnapshotView(navigationController: NavigationController, layout: ContainerViewLayout, local: Bool = false) {

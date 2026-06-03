@@ -553,7 +553,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 public final class AdsReportScreen: ViewControllerComponentContainer {
     private let context: AccountContext
         

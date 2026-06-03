@@ -13,12 +13,10 @@
 #define JPEG_INTERNALS
 #include "jpeglib.h"
 
-
 /* Block smoothing is only applicable for progressive JPEG, so: */
 #ifndef D_PROGRESSIVE_SUPPORTED
 #undef BLOCK_SMOOTHING_SUPPORTED
 #endif
-
 
 /* Private buffer controller object */
 
@@ -57,7 +55,6 @@ typedef struct {
 } my_coef_controller;
 
 typedef my_coef_controller *my_coef_ptr;
-
 
 LOCAL(void)
 start_iMCU_row(j_decompress_ptr cinfo)

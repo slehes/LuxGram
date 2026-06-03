@@ -80,7 +80,6 @@ static av_cold int at_write_header(AVFormatContext *avctx)
     AudioDeviceID *devices;
     int num_devices;
 
-
     // get devices
     UInt32 data_size = 0;
     AudioObjectPropertyAddress prop;

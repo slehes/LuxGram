@@ -337,7 +337,6 @@ private final class PageIndicatorView: UIView {
     }
 }
 
-
 private class ItemView: UIView {
     enum State {
         case none

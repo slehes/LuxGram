@@ -708,7 +708,6 @@ final class PremiumReactionsNode: ASDisplayNode, ReactionItemNode {
     }
 }
 
-
 final class EmojiItemNode: ASDisplayNode, ReactionItemNode {
     var isExtracted: Bool = false
     let emoji: String

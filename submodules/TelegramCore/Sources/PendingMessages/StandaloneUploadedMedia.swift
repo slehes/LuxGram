@@ -3,7 +3,6 @@ import TelegramApi
 import Postbox
 import SwiftSignalKit
 
-
 public enum StandaloneUploadMediaError {
     case generic
 }

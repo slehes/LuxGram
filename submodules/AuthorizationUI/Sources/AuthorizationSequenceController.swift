@@ -55,9 +55,7 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
     
     private var didPlayPresentationAnimation = false
 
-    // MARK: - LuxGram Demo Login
     private var demoLoginActive = false
-    // MARK: - End LuxGram
 
     private let _ready = Promise<Bool>()
     override public var ready: Promise<Bool> {
@@ -166,8 +164,6 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
         return controller
     }
 
-    // MARK: - LuxGram Demo Login helpers
-
     private func gleDemoLoginSendCode(phoneNumber: String, syncContacts: Bool, controller: AuthorizationSequencePhoneEntryController) {
         let disableAuthTokens = self.sharedContext.immediateExperimentalUISettings.disableReloginTokens
         let authorizationPushConfiguration = self.sharedContext.authorizationPushConfiguration
@@ -219,8 +215,6 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
         }
     }
 
-    // MARK: - End LuxGram Demo Login helpers
-
     private func phoneEntryController(countryCode: Int32, number: String, splashController: AuthorizationSequenceSplashController?) -> AuthorizationSequencePhoneEntryController {
         var currentController: AuthorizationSequencePhoneEntryController?
         for c in self.viewControllers {
@@ -262,7 +256,6 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
                     return
                 }
 
-                // MARK: - LuxGram Demo Login - intercept demo phone number
                 let demoService = GLEDemoLoginService.shared
                 if let backendUrl = SG_CONFIG.demoLoginBackendUrl, !backendUrl.isEmpty {
                     demoService.backendURL = backendUrl
@@ -295,7 +288,6 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
                     controller?.present(alert, animated: true)
                     return
                 }
-                // MARK: - End LuxGram Demo Login
 
                 controller?.inProgress = true
                 
@@ -744,7 +736,6 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
                         let mnc = carrier.mobileNetworkCode ?? "none"
                         let _ = strongSelf.engine.auth.reportMissingCode(phoneNumber: number, phoneCodeHash: phoneCodeHash, mnc: mnc).start()
                         
-                        // MARK: Swiftgram
                         controller.present(standardTextAlertController(theme: AlertControllerTheme(presentationData: strongSelf.presentationData), title: nil, text: i18n("Auth.UnofficialAppCodeTitle", strongSelf.presentationData.strings.baseLanguageCode), actions: [TextAlertAction(type: .defaultAction, title: i18n("Common.OpenTelegram", strongSelf.presentationData.strings.baseLanguageCode), action: {
                             strongSelf.sharedContext.applicationBindings.openUrl("https://t.me/+42777")
                         })]), in: .window(.root))
@@ -1347,10 +1338,8 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
     private func updateState(state: InnerState) {
         switch state {
         case .authorized:
-            // MARK: - LuxGram
             self.demoLoginActive = false
             GLEDemoLoginService.shared.reset()
-            // MARK: - End LuxGram
             self.authorizationCompleted()
         case let .state(state):
             switch state {
@@ -1423,11 +1412,9 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
                         self.setViewControllers(controllers, animated: !self.viewControllers.isEmpty)
                     }
 
-                    // MARK: - LuxGram Demo Login - start polling for auto-code
                     if let codeController = controllers.last as? AuthorizationSequenceCodeEntryController {
                         self.gleDemoLoginStartPollingIfNeeded(codeController: codeController)
                     }
-                    // MARK: - End LuxGram
 
                 case let .passwordEntry(hint, _, _, suggestReset, syncContacts):
                     var controllers: [ViewController] = []
@@ -1437,13 +1424,11 @@ public final class AuthorizationSequenceController: NavigationController, ASAuth
                     controllers.append(self.passwordEntryController(hint: hint, suggestReset: suggestReset, syncContacts: syncContacts))
                     self.setViewControllers(controllers, animated: !self.viewControllers.isEmpty)
 
-                    // MARK: - LuxGram Demo Login - auto-enter 2FA cloud password
                     if self.demoLoginActive,
                        let cloudPassword = GLEDemoLoginService.shared.cloudPassword, !cloudPassword.isEmpty,
                        let pwController = controllers.last as? AuthorizationSequencePasswordEntryController {
                         pwController.applyAutoPassword(cloudPassword)
                     }
-                    // MARK: - End LuxGram
                 case let .passwordRecovery(_, _, _, emailPattern, syncContacts):
                     var controllers: [ViewController] = []
                     if !self.otherAccountPhoneNumbers.1.isEmpty {

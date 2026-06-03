@@ -210,7 +210,6 @@ OPUS_EXPORT OPUS_WARN_UNUSED_RESULT opus_int32 opus_multistream_surround_encoder
       int mapping_family
 );
 
-
 /** Allocates and initializes a multistream encoder state.
   * Call opus_multistream_encoder_destroy() to release
   * this object when finished.

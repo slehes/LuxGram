@@ -49,8 +49,6 @@ AS_SUBCLASSING_RESTRICTED
 
 @end
 
-
-
 /**
  * The queue to run on main run loop before CATransaction commit.
  *

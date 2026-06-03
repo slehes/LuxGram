@@ -431,7 +431,6 @@ int av_hwframe_transfer_get_formats(AVBufferRef *hwframe_ctx,
                                     enum AVHWFrameTransferDirection dir,
                                     enum AVPixelFormat **formats, int flags);
 
-
 /**
  * This struct describes the constraints on hardware frames attached to
  * a given device with a hardware-specific configuration.  This is returned
@@ -501,7 +500,6 @@ AVHWFramesConstraints *av_hwdevice_get_hwframe_constraints(AVBufferRef *ref,
  */
 void av_hwframe_constraints_free(AVHWFramesConstraints **constraints);
 
-
 /**
  * Flags to apply to frame mappings.
  */
@@ -569,7 +567,6 @@ enum {
  * @return Zero on success, negative AVERROR code on failure.
  */
 int av_hwframe_map(AVFrame *dst, const AVFrame *src, int flags);
-
 
 /**
  * Create and initialise an AVHWFramesContext as a mapping of another existing

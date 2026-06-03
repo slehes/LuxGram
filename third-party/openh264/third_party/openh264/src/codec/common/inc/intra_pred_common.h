@@ -43,10 +43,8 @@
 
 #include "typedefs.h"
 
-
 void WelsI16x16LumaPredV_c (uint8_t* pPred, uint8_t* pRef, const int32_t kiStride);
 void WelsI16x16LumaPredH_c (uint8_t* pPred, uint8_t* pRef, const int32_t kiStride);
-
 
 #if defined(__cplusplus)
 extern "C" {
@@ -81,6 +79,4 @@ void WelsI16x16LumaPredH_lsx (uint8_t* pPred, uint8_t* pRef, const int32_t kiStr
 }
 #endif//__cplusplus
 #endif//
-
-
 

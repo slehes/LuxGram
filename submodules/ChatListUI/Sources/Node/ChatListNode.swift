@@ -137,7 +137,6 @@ public final class ChatListNodeInteraction {
         animationCache: AnimationCache,
         animationRenderer: MultiAnimationRenderer,
         activateSearch: @escaping () -> Void,
-        // MARK: Swiftgram
         openSGAnnouncement: @escaping (String, String, Bool, Bool) -> Void = { _, _, _, _ in },
         peerSelected: @escaping (EnginePeer, EnginePeer?, Int64?, ChatListNodeEntryPromoInfo?, Bool) -> Void,
         disabledPeerSelected: @escaping (EnginePeer, Int64?, ChatListDisabledPeerReason) -> Void,
@@ -1306,7 +1305,6 @@ public final class ChatListNode: ListView {
     
     public var startedScrollingAtUpperBound: Bool = false
     
-    // MARK: Swiftgram
     public var getNavigationController: (()-> NavigationController?)?
     
     private let autoSetReady: Bool

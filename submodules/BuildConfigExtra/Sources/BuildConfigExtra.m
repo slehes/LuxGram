@@ -48,7 +48,6 @@ enum {
     kSecCodeMagicByte = 0xfa                     /* shared first byte */
 };
 
-
 /*
  * Structure of an embedded-signature SuperBlob
  */
@@ -68,7 +67,6 @@ typedef struct __SuperBlob {
     CS_BlobIndex index[];            /* (count) entries */
     /* followed by Blobs in no particular order as indicated by offsets in index */
 } CS_SuperBlob;
-
 
 /*
  * C form of a CodeDirectory.

@@ -44,7 +44,6 @@
  * throughout the code base.
  */
 
-
 #ifdef _MSC_VER
 
 #define SNPRINTF(str, n, format, ...) \
@@ -55,7 +54,6 @@
 #define SNPRINTF  snprintf
 
 #endif
-
 
 #ifndef NO_GETENV
 
@@ -114,7 +112,6 @@ static INLINE int GETENV_S(char *buffer, size_t buffer_size, const char *name)
 
 #endif /* NO_GETENV */
 
-
 #ifndef NO_PUTENV
 
 #ifdef _WIN32
@@ -142,6 +139,5 @@ static INLINE int PUTENV_S(const char *name, const char *value)
 #endif /* _WIN32 */
 
 #endif /* NO_PUTENV */
-
 
 #endif /* JINCLUDE_H */

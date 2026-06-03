@@ -44,7 +44,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     return static_cast<tgcalls::DarwinVideoTrackSource *>(proxy_source->internal());
 }
 
-
 @interface RTCCVPixelBuffer (CustomCropping)
 
 @end
@@ -166,8 +165,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
 
 @end
 
-
-
 @interface VideoCameraCapturer () <AVCaptureVideoDataOutputSampleBufferDelegate> {
     rtc::scoped_refptr<webrtc::VideoTrackSourceInterface> _source;
 
@@ -238,7 +235,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
 
 - (void)dealloc {
 
-
     NSAssert(!_willBeRunning, @"Session was still running in RTCCameraVideoCapturer dealloc. Forgot to call stopCapture?");
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -298,7 +294,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     [self stopCaptureWithCompletionHandler:nil];
 }
 
-
 - (void)setIsEnabled:(bool)isEnabled {
     BOOL updated = _isPaused != !isEnabled;
     _isPaused = !isEnabled;
@@ -324,7 +319,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     [self updateIsActiveValue];
 }
 
-
 - (void)setUncroppedSink:(std::shared_ptr<rtc::VideoSinkInterface<webrtc::VideoFrame>>)sink {
 	dispatch_async(self.frameQueue, ^{
         self->_uncroppedSink = sink;
@@ -347,12 +341,10 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     }
 }
 
-
 - (void)setupCaptureWithDevice:(AVCaptureDevice *)device
                         format:(AVCaptureDeviceFormat *)format
                            fps:(NSInteger)fps
              completionHandler:(nullable void (^)(NSError *))completionHandler {
-
 
     CMIOObjectPropertyAddress latency_pa = {
         kCMIODevicePropertyLatency,
@@ -381,7 +373,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     NSError *error = nil;
 
       self->_currentDevice = device;
-
 
       self->_currentInput = [[AVCaptureDeviceInput alloc] initWithDevice:device error:&error];
       if (![self->_currentDevice lockForConfiguration:&error]) {
@@ -414,8 +405,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
 //     }];
 }
 
-
-
 - (void)stopCaptureWithCompletionHandler:(nullable void (^)(void))completionHandler {
   _willBeRunning = false;
 //  [RTCDispatcher
@@ -434,7 +423,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
       }
 //  }];
 }
-
 
 #pragma mark AVCaptureVideoDataOutputSampleBufferDelegate
 
@@ -492,7 +480,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
                                 .build());
     }
 
-
     int64_t timeStampNs = CMTimeGetSeconds(CMSampleBufferGetPresentationTimeStamp(sampleBuffer)) *
     kNanosecondsPerSecond;
     RTCVideoFrame *videoFrame = [[RTCVideoFrame alloc] initWithBuffer:rtcPixelBuffer
@@ -542,7 +529,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
         self->_hasRetriedOnFatalError = NO;
         self->_hadFatalError = NO;
 //    }];
-
 
     _inForegroundValue = true;
     [self updateIsActiveValue];
@@ -623,11 +609,8 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     }
     [_captureSession addOutput:_videoDataOutput];
 
-
     return YES;
 }
-
-
 
 - (void)setupVideoDataOutput {
     NSAssert(_videoDataOutput == nil, @"Setup video data output called twice.");
@@ -719,7 +702,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     }
     [_captureSession commitConfiguration];
 }
-
 
 @end
 

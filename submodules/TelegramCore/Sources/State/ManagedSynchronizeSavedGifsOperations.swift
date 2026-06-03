@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 private final class ManagedSynchronizeSavedGifsOperationsHelper {
     var operationDisposables: [Int32: Disposable] = [:]
     

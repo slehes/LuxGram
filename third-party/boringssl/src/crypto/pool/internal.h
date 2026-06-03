@@ -21,11 +21,9 @@
 #include "../internal.h"
 #include "../lhash/internal.h"
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
-
 
 DEFINE_LHASH_OF(CRYPTO_BUFFER)
 
@@ -42,7 +40,6 @@ struct crypto_buffer_pool_st {
   CRYPTO_MUTEX lock;
   const uint64_t hash_key[2];
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

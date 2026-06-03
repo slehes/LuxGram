@@ -1,4 +1,3 @@
-// MARK: LuxGram – Plugin install popup (tap .plugin file in chat)
 import Foundation
 import UIKit
 import Display

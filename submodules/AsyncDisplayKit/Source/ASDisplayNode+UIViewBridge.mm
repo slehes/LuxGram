@@ -1283,7 +1283,6 @@ nodeProperty = nodeValueExpr; _setToViewOnly(viewAndPendingViewStateProperty, vi
 
 @end
 
-
 #pragma mark - ASAsyncTransactionContainer
 
 @implementation ASDisplayNode (ASAsyncTransactionContainer)

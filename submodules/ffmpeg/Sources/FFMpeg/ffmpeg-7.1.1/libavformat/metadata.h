@@ -27,7 +27,6 @@
  * see avformat.h or the public API!
  */
 
-
 #include "avformat.h"
 #include "libavutil/dict.h"
 

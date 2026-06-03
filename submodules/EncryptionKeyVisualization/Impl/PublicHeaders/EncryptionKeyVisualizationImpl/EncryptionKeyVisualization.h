@@ -2,4 +2,3 @@
 
 #import <EncryptionKeyVisualizationImpl/SecretChatKeyVisualization.h>
 
-

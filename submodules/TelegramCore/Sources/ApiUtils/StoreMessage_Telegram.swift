@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 public func tagsForStoreMessage(incoming: Bool, attributes: [MessageAttribute], media: [Media], textEntities: [MessageTextEntity]?, isPinned: Bool) -> (MessageTags, GlobalMessageTags) {
     var isSecret = false
     var isUnconsumedPersonalMention = false
@@ -721,7 +720,6 @@ func apiMediaAreasFromMediaAreas(_ mediaAreas: [MediaArea], transaction: Transac
     }
     return apiMediaAreas
 }
-
 
 func messageTextEntitiesFromApiEntities(_ entities: [Api.MessageEntity]) -> [MessageTextEntity] {
     var result: [MessageTextEntity] = []

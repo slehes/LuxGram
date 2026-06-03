@@ -16,4 +16,3 @@ FOUNDATION_EXPORT const unsigned char LocalAuthVersionString[];
 
 // In this header, you should import all the public headers of your framework using statements like #import <LocalAuth/PublicHeader.h>
 
-

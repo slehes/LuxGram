@@ -3,7 +3,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 func _internal_supportPeerId(account: Account) -> Signal<PeerId?, NoError> {
     let accountPeerId = account.peerId
     

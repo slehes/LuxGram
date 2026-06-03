@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public struct ChangeAccountPhoneNumberData: Equatable {
     public let type: SentAuthorizationCodeType
     public let hash: String

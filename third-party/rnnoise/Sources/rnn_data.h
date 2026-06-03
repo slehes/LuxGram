@@ -30,5 +30,4 @@ struct RNNState {
   float *denoise_gru_state;
 };
 
-
 #endif

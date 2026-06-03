@@ -1324,7 +1324,6 @@ static unsigned char strToChar (char a, char b)
     return [[NSData alloc] initWithBytesNoCopy:r length:length / 2 freeWhenDone:true];
 }
 
-
 - (bool)containsSingleEmoji
 {
     if (self.length > 0 && self.length < 16)

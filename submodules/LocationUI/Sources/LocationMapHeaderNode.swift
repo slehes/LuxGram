@@ -372,7 +372,6 @@ public final class LocationMapHeaderNode: ASDisplayNode {
     }
 }
 
-
 public final class LocationOptionsComponent: Component {
     public let theme: PresentationTheme
     public let strings: PresentationStrings

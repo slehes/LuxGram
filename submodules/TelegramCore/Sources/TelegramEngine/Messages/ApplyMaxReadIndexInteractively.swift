@@ -6,7 +6,6 @@ import SwiftSignalKit
 import SGSimpleSettings
 #endif
 
-
 func _internal_applyMaxReadIndexInteractively(postbox: Postbox, stateManager: AccountStateManager, index: MessageIndex) -> Signal<Void, NoError> {
     return postbox.transaction { transaction -> Void in
         _internal_applyMaxReadIndexInteractively(transaction: transaction, stateManager: stateManager, index: index)
@@ -67,7 +66,6 @@ func _internal_applyMaxReadIndexInteractively(transaction: Transaction, stateMan
             }
         }
     } else if index.id.peerId.namespace == Namespaces.Peer.CloudUser || index.id.peerId.namespace == Namespaces.Peer.CloudGroup || index.id.peerId.namespace == Namespaces.Peer.CloudChannel {
-        // MARK: - LuxGram — Disable read receipts: skip server notification when setting is on
         #if canImport(SGSimpleSettings)
         let shouldSendReceipt: Bool
         if SGSimpleSettings.shared.disableMessageReadReceipt {
@@ -83,7 +81,6 @@ func _internal_applyMaxReadIndexInteractively(transaction: Transaction, stateMan
         #else
         stateManager.notifyAppliedIncomingReadMessages([index.id])
         #endif
-        // MARK: - End LuxGram
     }
 }
 
@@ -354,7 +351,6 @@ func _internal_markAllChatsAsReadInteractively(transaction: Transaction, network
     }
 }
 
-// MARK: - LuxGram - Marks all chats as read **locally only**. Updates Postbox and UI; does **not** sync to server (no API calls, no sync ops).
 func _internal_markAllChatsAsReadLocallyOnly(transaction: Transaction, viewTracker: AccountViewTracker, groupId: PeerGroupId, filterPredicate: ChatListFilterPredicate?) {
     var statesToReset: [PeerId: [MessageId.Namespace: PeerReadState]] = [:]
     let peerIds = transaction.getUnreadChatListPeerIds(groupId: groupId, filterPredicate: filterPredicate, additionalFilter: nil, stopOnFirstMatch: false)

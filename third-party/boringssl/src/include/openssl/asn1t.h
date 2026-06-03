@@ -64,20 +64,17 @@
 extern "C" {
 #endif
 
-
 /* Legacy ASN.1 library template definitions.
  *
  * This header is used to define new types in OpenSSL's ASN.1 implementation. It
  * is deprecated and will be unexported from the library. Use the new |CBS| and
  * |CBB| library in <openssl/bytestring.h> instead. */
 
-
 typedef struct ASN1_TEMPLATE_st ASN1_TEMPLATE;
 typedef struct ASN1_TLC_st ASN1_TLC;
 
 /* Macro to obtain ASN1_ADB pointer from a type (only used internally) */
 #define ASN1_ADB_ptr(iptr) ((const ASN1_ADB *)(iptr))
-
 
 /* Macros for start and end of ASN1_ITEM definition */
 
@@ -103,7 +100,6 @@ typedef struct ASN1_TLC_st ASN1_TLC;
 		0,\
 		#tname \
 	ASN1_ITEM_end(tname)
-
 
 /* This is a ASN1 type which just embeds a template */
  
@@ -171,7 +167,6 @@ typedef struct ASN1_TLC_st ASN1_TLC;
 		sizeof(stname),\
 		#stname \
 	ASN1_ITEM_end(tname)
-
 
 /* This pair helps declare a CHOICE type. We can do:
  *
@@ -396,7 +391,6 @@ struct ASN1_ADB_TABLE_st {
 
 /* IMPLICIT tagging */
 #define ASN1_TFLG_IMPTAG	(0x1 << 3)
-
 
 /* EXPLICIT tagging, inner tag from underlying type */
 #define ASN1_TFLG_EXPTAG	(0x2 << 3)
@@ -657,7 +651,6 @@ typedef struct ASN1_AUX_st {
 DECLARE_ASN1_ITEM(ASN1_SEQUENCE)
 
 DEFINE_STACK_OF(ASN1_VALUE)
-
 
 #if defined(__cplusplus)
 }  // extern "C"

@@ -3329,7 +3329,6 @@ final class UniversalVideoGalleryItemNode: ZoomableContentGalleryItemNode {
         return .single(actions)
     }
 
-
     private func contextMenuMainItems(isSettings: Bool, dismiss: @escaping () -> Void) -> Signal<(items: [ContextMenuItem], topItems: [ContextMenuItem]), NoError> {
         guard let videoNode = self.videoNode, let item = self.item else {
             return .single(([], []))
@@ -3653,7 +3652,6 @@ final class UniversalVideoGalleryItemNode: ZoomableContentGalleryItemNode {
                         f(.default)
                     })))
                 }
-                // MARK: Swiftgram
                            if #available(iOS 11.0, *) {
                                items.append(.action(ContextMenuActionItem(text: "AirPlay", textColor: .primary, icon: { theme in generateTintedImage(image: UIImage(bundleImageName: "Media Gallery/AirPlay"), color: theme.contextMenu.primaryColor) }, action: { [weak self] _, f in
                                    f(.default)

@@ -204,7 +204,6 @@ typedef struct TagBufferInfo {
   unsigned char* pDst[3];  //point to picture YUV data
 } SBufferInfo;
 
-
 /**
 * @brief In a GOP, multiple of the key frame number, derived from
 *        the number of layers(index or array below)

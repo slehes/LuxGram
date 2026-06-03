@@ -9,7 +9,6 @@
 
 @end
 
-
 @interface TGMediaAssetFetchResultChange ()
 {
     NSArray *_moves;
@@ -76,7 +75,6 @@
 }
 
 @end
-
 
 @implementation TGMediaAssetFetchResultChangeMovePair
 

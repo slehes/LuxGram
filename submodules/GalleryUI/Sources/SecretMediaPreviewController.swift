@@ -420,7 +420,6 @@ public final class SecretMediaPreviewController: ViewController {
     override public func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        // MARK: - LuxGram - screenshot bypass
         #if canImport(SGSimpleSettings)
         let skipScreenshot = SGSimpleSettings.shared.disableScreenshotDetection
         #else
@@ -440,7 +439,6 @@ public final class SecretMediaPreviewController: ViewController {
                 })
             }
         }
-        // MARK: - End LuxGram
         
         var nodeAnimatesItself = false
         

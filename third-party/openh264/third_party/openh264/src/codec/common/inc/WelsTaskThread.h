@@ -38,10 +38,8 @@
  *************************************************************************************
  */
 
-
 #ifndef _WELS_TASK_THREAD_H_
 #define _WELS_TASK_THREAD_H_
-
 
 #include "WelsTask.h"
 #include "WelsThread.h"

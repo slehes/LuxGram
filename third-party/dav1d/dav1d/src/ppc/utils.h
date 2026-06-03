@@ -45,7 +45,6 @@
     i32x4 h, l; \
     MERGE_I32(a, b, h, l)
 
-
 // Transpose a 4x4 matrix of i32x4 vectors
 #define TRANSPOSE4_I32(c0, c1, c2, c3) \
 { \

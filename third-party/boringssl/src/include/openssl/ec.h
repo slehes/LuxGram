@@ -74,9 +74,7 @@
 extern "C" {
 #endif
 
-
 // Low-level operations on elliptic curves.
-
 
 // point_conversion_form_t enumerates forms, as defined in X9.62 (ECDSA), for
 // the encoding of a elliptic curve point (x,y)
@@ -97,7 +95,6 @@ typedef enum {
   // TODO(agl): remove once node.js no longer references this.
   POINT_CONVERSION_HYBRID = 6,
 } point_conversion_form_t;
-
 
 // Elliptic curve groups.
 //
@@ -190,7 +187,6 @@ OPENSSL_EXPORT const char *EC_curve_nid2nist(int nid);
 // it returns |NID_X9_62_prime256v1| for "P-256".
 OPENSSL_EXPORT int EC_curve_nist2nid(const char *name);
 
-
 // Points on elliptic curves.
 
 // EC_POINT_new returns a fresh |EC_POINT| object in the given group, or NULL
@@ -229,7 +225,6 @@ OPENSSL_EXPORT int EC_POINT_is_on_curve(const EC_GROUP *group,
 // not equal and -1 on error. If |ctx| is not NULL, it may be used.
 OPENSSL_EXPORT int EC_POINT_cmp(const EC_GROUP *group, const EC_POINT *a,
                                 const EC_POINT *b, BN_CTX *ctx);
-
 
 // Point conversion.
 
@@ -316,7 +311,6 @@ OPENSSL_EXPORT int EC_POINT_set_compressed_coordinates_GFp(
     const EC_GROUP *group, EC_POINT *point, const BIGNUM *x, int y_bit,
     BN_CTX *ctx);
 
-
 // Group operations.
 
 // EC_POINT_add sets |r| equal to |a| plus |b|. It returns one on success and
@@ -341,7 +335,6 @@ OPENSSL_EXPORT int EC_POINT_mul(const EC_GROUP *group, EC_POINT *r,
                                 const BIGNUM *n, const EC_POINT *q,
                                 const BIGNUM *m, BN_CTX *ctx);
 
-
 // Hash-to-curve.
 //
 // The following functions implement primitives from RFC 9380. The |dst|
@@ -363,7 +356,6 @@ OPENSSL_EXPORT int EC_hash_to_curve_p256_xmd_sha256_sswu(
 OPENSSL_EXPORT int EC_hash_to_curve_p384_xmd_sha384_sswu(
     const EC_GROUP *group, EC_POINT *out, const uint8_t *dst, size_t dst_len,
     const uint8_t *msg, size_t msg_len);
-
 
 // Deprecated functions.
 
@@ -463,7 +455,6 @@ OPENSSL_EXPORT size_t EC_get_builtin_curves(EC_builtin_curve *out_curves,
 
 // EC_POINT_clear_free calls |EC_POINT_free|.
 OPENSSL_EXPORT void EC_POINT_clear_free(EC_POINT *point);
-
 
 #if defined(__cplusplus)
 }  // extern C

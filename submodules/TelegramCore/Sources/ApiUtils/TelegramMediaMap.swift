@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 func telegramMediaMapFromApiGeoPoint(_ geo: Api.GeoPoint, title: String?, address: String?, provider: String?, venueId: String?, venueType: String?, liveBroadcastingTimeout: Int32?, liveProximityNotificationRadius: Int32?, heading: Int32?) -> TelegramMediaMap {
     var venue: MapVenue?
     if let title = title {
@@ -16,7 +15,6 @@ func telegramMediaMapFromApiGeoPoint(_ geo: Api.GeoPoint, title: String?, addres
             return TelegramMediaMap(latitude: 0.0, longitude: 0.0, heading: nil, accuracyRadius: nil, venue: venue, liveBroadcastingTimeout: liveBroadcastingTimeout, liveProximityNotificationRadius: liveProximityNotificationRadius)
     }
 }
-
 
 func mapGeoAddressFromApiGeoPointAddress(_ geo: Api.GeoPointAddress) -> MapGeoAddress {
     switch geo {

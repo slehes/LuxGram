@@ -28,7 +28,6 @@ static UIFont *mediumSystemFontOfSize(CGFloat size) {
     }
 }
 
-
 static bool readCGFloat(NSString *string, int *position, CGFloat *result) {
     int start = *position;
     bool seenDot = false;
@@ -569,5 +568,4 @@ static void drawSvgPath(CGContextRef context, NSString *path) {
 }
 
 @end
-
 

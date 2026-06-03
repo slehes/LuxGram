@@ -63,7 +63,6 @@ typedef struct VAAPIDecodeContext {
     VASurfaceAttrib       pixel_format_attribute;
 } VAAPIDecodeContext;
 
-
 int ff_vaapi_decode_make_param_buffer(AVCodecContext *avctx,
                                       VAAPIDecodePicture *pic,
                                       int type,

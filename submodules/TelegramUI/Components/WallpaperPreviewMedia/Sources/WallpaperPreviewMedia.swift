@@ -109,7 +109,6 @@ public final class UniqueGiftPreviewMedia: Media {
     }
 }
 
-
 public final class GiftAuctionPreviewMedia: Media {
     public var id: MediaId? {
         return nil

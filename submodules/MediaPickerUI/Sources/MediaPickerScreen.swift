@@ -4015,8 +4015,6 @@ public func avatarMediaPickerController(
     }
 }
 
-
-
 public func coverMediaPickerController(
     context: AccountContext,
     completion: @escaping (Any?, UIView?, CGRect, UIImage?, Bool, @escaping (Bool?) -> (UIView, CGRect)?, @escaping () -> Void) -> Void,

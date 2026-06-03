@@ -25,7 +25,4 @@ typedef void(^RenderBlock)(CMSampleBufferRef);
 -(CMIODeviceID)cmioDevice;
 @end
 
-
-
-
 NS_ASSUME_NONNULL_END

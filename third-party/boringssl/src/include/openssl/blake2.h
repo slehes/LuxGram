@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 #define BLAKE2B256_DIGEST_LENGTH (256 / 8)
 #define BLAKE2B_CBLOCK 128
 
@@ -50,7 +49,6 @@ OPENSSL_EXPORT void BLAKE2B256_Final(uint8_t out[BLAKE2B256_DIGEST_LENGTH],
 // |out|.
 OPENSSL_EXPORT void BLAKE2B256(const uint8_t *data, size_t len,
                                uint8_t out[BLAKE2B256_DIGEST_LENGTH]);
-
 
 #if defined(__cplusplus)
 }  // extern C

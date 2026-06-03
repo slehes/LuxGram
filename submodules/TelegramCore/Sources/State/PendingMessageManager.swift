@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public struct PendingMessageStatus: Equatable {
     public struct Progress: Equatable {
         public let progress: Float
@@ -231,7 +230,6 @@ public final class PendingMessageManager {
     private var messageContexts: [MessageId: PendingMessageContext] = [:]
     private var pendingMessageIds = Set<MessageId>()
     private let beginSendingMessagesDisposables = DisposableSet()
-    // MARK: - LuxGram - Ghost delay disposables
     private var ghostDelayDisposables: [MessageId: MetaDisposable] = [:]
 
     private var newTopicDisposables: [PeerId: Disposable] = [:]
@@ -259,7 +257,6 @@ public final class PendingMessageManager {
         for (_, disposable) in self.newTopicDisposables {
             disposable.dispose()
         }
-        // MARK: - LuxGram - Ghost delay cleanup
         for (_, disposable) in self.ghostDelayDisposables {
             disposable.dispose()
         }
@@ -304,7 +301,6 @@ public final class PendingMessageManager {
             var updateUploadingPeerIds = Set<PeerId>()
             var updateUploadingGroupIds = Set<Int64>()
             for id in removedMessageIds {
-                // MARK: - LuxGram - Ghost delay cleanup on removal
                 self.ghostDelayDisposables[id]?.dispose()
                 self.ghostDelayDisposables.removeValue(forKey: id)
                 if let context = self.messageContexts[id] {
@@ -452,7 +448,6 @@ public final class PendingMessageManager {
         return true
     }
 
-    // MARK: - LuxGram - Ghost delay: process overdue messages on app becoming active
     /// Call when app becomes active so that ghost-delayed messages whose sendAt has passed while app was backgrounded get sent.
     public func processOverdueGhostDelayedMessages() {
         self.queue.async { [weak self] in
@@ -694,7 +689,6 @@ public final class PendingMessageManager {
                 Logger.shared.log("PendingMessageManager", "beginSendingMessages messagesToUpload.count: \(messagesToUpload.count)")
                 
                 for (messageContext, message, type, contentUploadSignal) in messagesToUpload {
-                    // MARK: - LuxGram - Ghost-delayed send: show as "sent" in UI immediately, send to server after sendAt.
                     if let ghostAttr = message.attributes.first(where: { $0 is GhostDelayedSendAttribute }) as? GhostDelayedSendAttribute,
                        ghostAttr.sendAt > Int32(Date().timeIntervalSince1970) {
                         let messageId = message.id

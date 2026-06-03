@@ -22,7 +22,6 @@ public enum WebpagePreviewResult: Equatable {
 private typealias UIImage = NSImage
 #endif
 
-
 public func webpagePreview(account: Account, urls: [String], webpageId: MediaId? = nil, forPeerId: PeerId? = nil) -> Signal<WebpagePreviewResult, NoError> {
     return webpagePreviewWithProgress(account: account, urls: urls, webpageId: webpageId, forPeerId: forPeerId)
     |> mapToSignal { next -> Signal<WebpagePreviewResult, NoError> in

@@ -488,7 +488,6 @@ const NSTimeInterval TGBridgeClientWakeInterval = 2.0;
     }
 }
 
-
 - (SSignal *)userInfoSignal
 {
     return _userInfoPipe.signalProducer();

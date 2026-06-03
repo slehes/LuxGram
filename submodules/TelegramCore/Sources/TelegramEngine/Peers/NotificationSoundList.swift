@@ -265,7 +265,6 @@ func managedSynchronizeNotificationSoundList(postbox: Postbox, network: Network)
     |> restart
 }
 
-
 func _internal_saveNotificationSound(account: Account, file: FileMediaReference, unsave: Bool = false) -> Signal<Never, UploadNotificationSoundError> {
     guard let resource = file.media.resource as? CloudDocumentMediaResource else {
         return .fail(.generic)

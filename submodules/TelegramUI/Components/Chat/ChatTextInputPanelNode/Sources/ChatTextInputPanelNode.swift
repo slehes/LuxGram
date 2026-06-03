@@ -1,10 +1,8 @@
-// MARK: Swiftgram
 import TelegramUIPreferences
 import SGSimpleSettings
 import SwiftUI
 import SGInputToolbar
-import SaveToCameraRoll // MARK: - LuxGram
-
+import SaveToCameraRoll
 import Foundation
 import UniformTypeIdentifiers
 import UIKit
@@ -340,7 +338,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
     
     private let hapticFeedback = HapticFeedback()
     
-    // MARK: Swiftgram
     private var sendWithReturnKey: Bool
     private var sendWithReturnKeyDisposable: Disposable?
 //    private var toolbarHostingController: UIViewController? //Any? //  UIHostingController<ChatToolbarView>?
@@ -632,10 +629,7 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         
         self.textInputViewInternalInsets = UIEdgeInsets(top: 5.0, left: 12.0, bottom: 4.0, right: 11.0)
 
-
-        // MARK: Swiftgram
-        self.sendWithReturnKey = SGSimpleSettings.shared.sendWithReturnKey // MARK: Swiftgram
-        //
+        self.sendWithReturnKey = SGSimpleSettings.shared.sendWithReturnKey        //
 
         var hasSpoilers = true
         var hasQuotes = true
@@ -775,7 +769,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
             self.enableBounceAnimations = false
         }*/
 
-                // MARK: Swiftgram
         self.initToolbarIfNeeded(context: context)
         //
 
@@ -841,7 +834,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
             }
         }
         self.attachmentButtonDisabledNode.addTarget(self, action: #selector(self.attachmentButtonPressed), forControlEvents: .touchUpInside)
-        // MARK: Swiftgram
         let longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(self.attachmentButtonLongPressed(_:)))
         longPressGesture.minimumPressDuration = 1.0
         self.attachmentButton.addGestureRecognizer(longPressGesture)
@@ -2252,7 +2244,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         if buttonTitleUpdated && !transition.isAnimated {
             transition = .animated(duration: 0.3, curve: .easeInOut)
         }
-        // MARK: Swiftgram
         let originalLeftInset = leftInset
         //
         
@@ -3558,7 +3549,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         transition.updateFrame(view: self.glassBackgroundContainer, frame: containerFrame)
         self.glassBackgroundContainer.update(size: containerFrame.size, isDark: interfaceState.theme.overallDarkAppearance, transition: ComponentTransition(transition))
         
-        // MARK: Swiftgram
         var toolbarOffset: CGFloat = 0.0
         toolbarOffset = layoutToolbar(transition: transition, panelHeight: contentHeight, width: width, leftInset: originalLeftInset, rightInset: rightInset, displayBotStartButton: displayBotStartButton)
         
@@ -4317,7 +4307,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
                     f(.default)
                 })))
 
-                // MARK: - LuxGram - emoji downloader
                 if SGSimpleSettings.shared.emojiDownloaderEnabled {
                     menuItems.append(.action(ContextMenuActionItem(text: presentationData.strings.Gallery_SaveImage, icon: { theme in
                         return generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/Save"), color: theme.actionSheet.primaryTextColor)
@@ -4333,7 +4322,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
                         })
                     })))
                 }
-                // MARK: - End LuxGram
             }
             
             if menuItems.isEmpty {
@@ -5043,7 +5031,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         
         self.updateActivity()
         
-        // MARK: Swiftgram
         if self.sendWithReturnKey && text == "\n" {
             self.sendButtonPressed()
             return false
@@ -5275,7 +5262,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
         }
     }
     
-    // MARK: Swiftgram
     @objc func attachmentButtonLongPressed(_ gesture: UILongPressGestureRecognizer) {
         guard gesture.state == .began else { return }
     }
@@ -5578,8 +5564,6 @@ public class ChatTextInputPanelNode: ChatInputPanelNode, ASEditableTextNodeDeleg
     }
 }
 
-
-// MARK: Swiftgram
 extension ChatTextInputPanelNode {
     
     func initToolbarIfNeeded(context: AccountContext) {

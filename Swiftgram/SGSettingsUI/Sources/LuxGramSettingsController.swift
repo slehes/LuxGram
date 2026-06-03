@@ -1,4 +1,3 @@
-// MARK: LuxGram
 import SGSimpleSettings
 import SGStrings
 import SGItemListUI
@@ -145,7 +144,7 @@ private func sectionForEntry(_ entry: LuxGramEntry) -> LuxGramSection {
     }
 }
 
-private func gleGramEntriesFiltered(by selectedTab: LuxGramTab, entries: [LuxGramEntry]) -> [LuxGramEntry] {
+private func luxGramEntriesFiltered(by selectedTab: LuxGramTab, entries: [LuxGramEntry]) -> [LuxGramEntry] {
     entries.filter { entry in
         let sec = sectionForEntry(entry)
         return sec == .search || tab(for: sec) == selectedTab
@@ -157,7 +156,7 @@ typealias AccountInfo = (recordId: Int64, peerId: Int64, name: String)
 
 /// Root LuxGram screen: liquid-glass header with 3 tab buttons + ССЫЛКИ section.
 /// The ФУНКЦИИ section is removed — tab navigation is now in the header buttons.
-private func gleGramRootEntries(presentationData: PresentationData, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
+private func luxGramRootEntries(presentationData: PresentationData, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
     let lang = presentationData.strings.baseLanguageCode
     var entries: [LuxGramEntry] = []
     let id = SGItemListCounter()
@@ -198,7 +197,6 @@ private enum LuxGramDisclosureLink: Hashable {
     case savedDeletedMessagesList
     /// Read receipts: peers to exclude from sending read receipts.
     case readReceiptsExclusions
-    // MARK: - LuxGram — Double Bottom, Chat Password, Voice Morpher
     case doubleBottom
     case chatPassword
     case voiceMorpher
@@ -335,7 +333,7 @@ private func filterGatedFeatures(entries: [LuxGramEntry]) -> [LuxGramEntry] {
     return result
 }
 
-private func gleGramEntries(presentationData: PresentationData, contentSettingsConfiguration: ContentSettingsConfiguration?, state: LuxGramSettingsControllerState, mediaBoxBasePath: String, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
+private func luxGramEntries(presentationData: PresentationData, contentSettingsConfiguration: ContentSettingsConfiguration?, state: LuxGramSettingsControllerState, mediaBoxBasePath: String, accounts: [AccountInfo] = []) -> [LuxGramEntry] {
     let lang = presentationData.strings.baseLanguageCode
     let strings = presentationData.strings
     var entries: [LuxGramEntry] = []
@@ -439,11 +437,9 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .readReceipts, settingName: .disableStoryReadReceipt, value: SGSimpleSettings.shared.disableStoryReadReceipt, text: disableStoryReadReceiptTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .readReceipts, text: i18n("DISABLE_STORY_READ_RECEIPT_SUBTITLE", lang)))
 
-    // MARK: - LuxGram — Double Bottom
     let doubleBottomTitle = (lang == "ru" ? "Двойное дно" : "Double Bottom")
     entries.append(.disclosure(id: id.count, section: .readReceipts, link: .doubleBottom, text: doubleBottomTitle))
 
-    // MARK: - LuxGram — Chat Password
     let chatPasswordTitle = (lang == "ru" ? "Пароль на чат" : "Chat Password")
     entries.append(.disclosure(id: id.count, section: .readReceipts, link: .chatPassword, text: chatPasswordTitle))
 
@@ -527,7 +523,6 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Текущий: " : "Current: ") + boldFontLabelApp))
     entries.append(.fontSizeMultiplierSlider(id: id.count, section: .appearance, settingName: .fontReplacementSize, value: max(50, min(150, SGSimpleSettings.shared.fontReplacementSizeMultiplier))))
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Размер шрифта (50–150%)." : "Font size (50–150%).")))
-    // MARK: - LuxGram — Liquid Glass
     entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "ЖИДКОЕ СТЕКЛО" : "LIQUID GLASS"), badge: nil))
     let liquidGlassTitle = (lang == "ru" ? "Жидкое стекло" : "Liquid Glass")
     let liquidGlassNotice = (lang == "ru"
@@ -535,7 +530,6 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
         : "Applies frosted-glass effect to navigation bar, tabs and toolbars. Takes effect immediately.")
     entries.append(.toggle(id: id.count, section: .appearance, settingName: .liquidGlassEnabled, value: SGSimpleSettings.shared.liquidGlassEnabled, text: liquidGlassTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .appearance, text: liquidGlassNotice))
-    // MARK: - End LuxGram
 
     entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "ТЕКСТ И ЧИСЛА" : "TEXT & NUMBERS"), badge: nil))
     let disableCompactNumbersTitle = (lang == "ru" ? "Полные числа вместо округления" : "Full numbers instead of rounding")
@@ -572,11 +566,9 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .other, settingName: .feelRichEnabled, value: SGSimpleSettings.shared.feelRichEnabled, text: feelRichTitle, enabled: true))
     entries.append(.disclosure(id: id.count, section: .other, link: .feelRichAmount, text: (lang == "ru" ? "Изменить сумму" : "Change amount") + " (\(SGSimpleSettings.shared.feelRichStarsAmount))"))
 
-    // MARK: - LuxGram — Voice Morpher
     let voiceMorpherTitle = (lang == "ru" ? "Изменение голоса" : "Voice Morpher")
     entries.append(.disclosure(id: id.count, section: .other, link: .voiceMorpher, text: voiceMorpherTitle))
 
-    // MARK: - LuxGram — Plugins
     let pluginsTitle = (lang == "ru" ? "Плагины" : "Plugins")
     entries.append(.toggle(id: id.count, section: .other, settingName: .pluginSystemEnabled, value: SGSimpleSettings.shared.pluginSystemEnabled, text: pluginsTitle, enabled: true))
     if SGSimpleSettings.shared.pluginSystemEnabled {
@@ -635,7 +627,7 @@ private func gleGramEntries(presentationData: PresentationData, contentSettingsC
     return filterSGItemListUIEntrires(entries: filteredEntries, by: state.searchQuery)
 }
 
-public func gleGramSettingsController(context: AccountContext) -> ViewController {
+public func luxGramSettingsController(context: AccountContext) -> ViewController {
     let access = cachedAggregateAccess()
 
     // Primary gate: server-provided access flag (verified through integrity layers)
@@ -649,7 +641,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
     let granted = hasAccess && (!fragmentsReady || accumulatorOK)
 
     if !granted, let promoData = cachedAggregatePromo() {
-        return gleGramPaywallController(context: context, promo: promoData.promo, trialAvailable: promoData.trialAvailable)
+        return luxGramPaywallController(context: context, promo: promoData.promo, trialAvailable: promoData.trialAvailable)
     }
 
     var presentControllerImpl: ((ViewController, ViewControllerPresentationArguments?) -> Void)?
@@ -755,11 +747,9 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 SGSimpleSettings.shared.disableCompactNumbers = value
             case .disableZalgoText:
                 SGSimpleSettings.shared.disableZalgoText = value
-            // MARK: - LuxGram — Liquid Glass
             case .liquidGlassEnabled:
                 SGSimpleSettings.shared.liquidGlassEnabled = value
                 NotificationCenter.default.post(name: .luxgramLiquidGlassDidChange, object: nil)
-            // MARK: - End LuxGram
             case .fakeLocationEnabled:
                 SGSimpleSettings.shared.fakeLocationEnabled = value
             case .keepRemovedChannels:
@@ -919,7 +909,6 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 // TODO: LuxGram — TabOrganizerController disabled (CallListSettings.tabOrder not in 12.5)
                 return
             }
-            // MARK: - LuxGram — Double Bottom
             else if link == .doubleBottom {
                 #if canImport(DoubleBottom)
                 pushControllerImpl?(doubleBottomSettingsController(context: context))
@@ -935,7 +924,6 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 #endif
                 return
             }
-            // MARK: - LuxGram — Chat Password
             else if link == .chatPassword {
                 #if canImport(ChatPassword)
                 pushControllerImpl?(protectedChatsSettingsController(context: context))
@@ -951,7 +939,6 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 #endif
                 return
             }
-            // MARK: - LuxGram — Voice Morpher
             else if link == .voiceMorpher {
                 #if canImport(VoiceMorpher)
                 let pd = context.sharedContext.currentPresentationData.with { $0 }
@@ -1256,8 +1243,8 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
                 let name = EnginePeer(info.peer).displayTitle(strings: presentationData.strings, displayOrder: presentationData.nameDisplayOrder)
                 return (recordId: recordId, peerId: peerId, name: name)
             }
-            let allEntries = gleGramEntries(presentationData: presentationData, contentSettingsConfiguration: contentSettingsConfiguration, state: tabState, mediaBoxBasePath: context.account.postbox.mediaBox.basePath, accounts: accounts)
-            let entriesFilteredByTab = gleGramEntriesFiltered(by: tab, entries: allEntries)
+            let allEntries = luxGramEntries(presentationData: presentationData, contentSettingsConfiguration: contentSettingsConfiguration, state: tabState, mediaBoxBasePath: context.account.postbox.mediaBox.basePath, accounts: accounts)
+            let entriesFilteredByTab = luxGramEntriesFiltered(by: tab, entries: allEntries)
             let entries = filterSGItemListUIEntrires(entries: entriesFilteredByTab, by: tabState.searchQuery)
             let controllerState = ItemListControllerState(
                 presentationData: ItemListPresentationData(presentationData),
@@ -1298,8 +1285,7 @@ public func gleGramSettingsController(context: AccountContext) -> ViewController
             let name = EnginePeer(info.peer).displayTitle(strings: presentationData.strings, displayOrder: presentationData.nameDisplayOrder)
             return (recordId: recordId, peerId: peerId, name: name)
         }
-        let entries = gleGramRootEntries(presentationData: presentationData, accounts: accounts)
-        // MARK: - LuxGram liquid glass header with tab buttons
+        let entries = luxGramRootEntries(presentationData: presentationData, accounts: accounts)
         let headerItem = LuxGramHeaderItem(
             theme: presentationData.theme,
             title: "LuxGram",

@@ -140,12 +140,10 @@ public extension Message {
     }
     
     var containsSecretMedia: Bool {
-        // MARK: - LuxGram - Ghost Mode: Allow saving protected content if enabled
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.enableSavingProtectedContent {
             return false
         }
-        // MARK: LuxGram - Allow screenshots of view-once media when saving self-destructing messages is enabled
         if SGSimpleSettings.shared.enableSavingSelfDestructingMessages {
             return false
         }

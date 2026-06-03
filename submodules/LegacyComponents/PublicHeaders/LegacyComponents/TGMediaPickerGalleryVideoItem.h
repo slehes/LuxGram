@@ -14,8 +14,6 @@
 
 @end
 
-
-
 @interface TGMediaPickerGalleryFetchResultItem : TGMediaPickerGalleryItem <TGModernGallerySelectableItem, TGModernGalleryEditableItem>
 
 @property (nonatomic, readonly) TGMediaPickerGalleryItem<TGModernGallerySelectableItem, TGModernGalleryEditableItem> *backingItem;

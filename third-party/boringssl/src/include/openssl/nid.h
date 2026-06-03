@@ -65,7 +65,6 @@
 extern "C" {
 #endif
 
-
 /* The nid library provides numbered values for ASN.1 object identifiers and
  * other symbols. These values are used by other libraries to identify
  * cryptographic primitives.
@@ -78,7 +77,6 @@ extern "C" {
  *
  * These values should not be used outside of a single process; they are not
  * stable identifiers. */
-
 
 #define SN_undef "UNDEF"
 #define LN_undef "undefined"
@@ -4254,7 +4252,6 @@ extern "C" {
 
 #define SN_X25519Kyber768Draft00 "X25519Kyber768Draft00"
 #define NID_X25519Kyber768Draft00 964
-
 
 #if defined(__cplusplus)
 } /* extern C */

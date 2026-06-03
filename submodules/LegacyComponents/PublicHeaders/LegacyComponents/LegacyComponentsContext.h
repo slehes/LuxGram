@@ -28,7 +28,6 @@ typedef enum {
 
 @end
 
-
 @protocol LegacyComponentsContext;
 
 @protocol LegacyComponentsOverlayWindowManager <NSObject>

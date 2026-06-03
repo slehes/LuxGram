@@ -14,7 +14,6 @@
 
 #ifdef UPSAMPLE_MERGING_SUPPORTED
 
-
 /* Private subobject */
 
 typedef struct {

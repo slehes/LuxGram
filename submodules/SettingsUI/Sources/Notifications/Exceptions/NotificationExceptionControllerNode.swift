@@ -938,7 +938,6 @@ final class NotificationExceptionsControllerNode: ViewControllerTracingNode {
     }
 }
 
-
 private struct NotificationExceptionsSearchContainerTransition {
     let deletions: [ListViewDeleteItem]
     let insertions: [ListViewInsertItem]
@@ -955,7 +954,6 @@ private func preparedNotificationExceptionsSearchContainerTransition(presentatio
     
     return NotificationExceptionsSearchContainerTransition(deletions: deletions, insertions: insertions, updates: updates, isSearching: isSearching)
 }
-
 
 private final class NotificationExceptionsSearchContainerNode: SearchDisplayControllerContentNode {
     private let dimNode: ASDisplayNode

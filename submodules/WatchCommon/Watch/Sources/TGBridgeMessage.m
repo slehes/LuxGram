@@ -232,7 +232,6 @@ NSString *const TGBridgeMessagesArrayKey = @"messages";
 
 @end
 
-
 @implementation TGBridgeTextCheckingResult
 
 @end

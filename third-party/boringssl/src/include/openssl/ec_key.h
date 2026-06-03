@@ -78,10 +78,8 @@
 extern "C" {
 #endif
 
-
 // ec_key.h contains functions that handle elliptic-curve points that are
 // public/private keys.
-
 
 // EC key objects.
 //
@@ -212,7 +210,6 @@ OPENSSL_EXPORT size_t EC_KEY_priv2oct(const EC_KEY *key, uint8_t *out,
 // |OPENSSL_free| when done.
 OPENSSL_EXPORT size_t EC_KEY_priv2buf(const EC_KEY *key, uint8_t **out_buf);
 
-
 // Key generation.
 
 // EC_KEY_generate_key generates a random, private key, calculates the
@@ -239,7 +236,6 @@ OPENSSL_EXPORT int EC_KEY_generate_key_fips(EC_KEY *key);
 OPENSSL_EXPORT EC_KEY *EC_KEY_derive_from_secret(const EC_GROUP *group,
                                                  const uint8_t *secret,
                                                  size_t secret_len);
-
 
 // Serialisation.
 
@@ -288,7 +284,6 @@ OPENSSL_EXPORT int EC_KEY_marshal_curve_name(CBB *cbb, const EC_GROUP *group);
 // many callers.
 OPENSSL_EXPORT EC_GROUP *EC_KEY_parse_parameters(CBS *cbs);
 
-
 // ex_data functions.
 //
 // These functions are wrappers. See |ex_data.h| for details.
@@ -299,7 +294,6 @@ OPENSSL_EXPORT int EC_KEY_get_ex_new_index(long argl, void *argp,
                                            CRYPTO_EX_free *free_func);
 OPENSSL_EXPORT int EC_KEY_set_ex_data(EC_KEY *r, int idx, void *arg);
 OPENSSL_EXPORT void *EC_KEY_get_ex_data(const EC_KEY *r, int idx);
-
 
 // ECDSA method.
 
@@ -329,7 +323,6 @@ struct ecdsa_method_st {
 
   int flags;
 };
-
 
 // Deprecated functions.
 
@@ -378,7 +371,6 @@ OPENSSL_EXPORT EC_KEY *o2i_ECPublicKey(EC_KEY **out_key, const uint8_t **inp,
 //
 // Use |EC_POINT_point2cbb| instead.
 OPENSSL_EXPORT int i2o_ECPublicKey(const EC_KEY *key, unsigned char **outp);
-
 
 #if defined(__cplusplus)
 }  // extern C

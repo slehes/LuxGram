@@ -544,7 +544,6 @@ final class ContactMultiselectionControllerNode: ASDisplayNode {
     }
 }
 
-
 private final class FooterPanelNode: ASDisplayNode {
     struct Content: Equatable {
         let title: String

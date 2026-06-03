@@ -14,7 +14,6 @@
 #import "NBPhoneMetaData.h"
 #import "NBNumberFormat.h"
 
-
 @interface NSArray (NBAdditions)
 - (id)customSafeObjectAtIndex:(NSUInteger)index;
 @end
@@ -31,7 +30,6 @@
     }
 }
 @end
-
 
 @interface NBAsYouTypeFormatter ()
 
@@ -51,7 +49,6 @@
 @property (nonatomic, strong, readwrite) NBPhoneMetaData *currentMetaData_, *defaultMetaData_, *EMPTY_METADATA_;
 
 @end
-
 
 @implementation NBAsYouTypeFormatter
 
@@ -361,7 +358,6 @@
     return self.EMPTY_METADATA_;
 };
 
-
 /**
  * @return {BOOL} YES if a new template is created as opposed to reusing the
  *     existing template.
@@ -407,7 +403,6 @@
     return NO;
 };
 
-
 /**
  * @param {string} leadingThreeDigits first three digits of entered number.
  * @private
@@ -440,7 +435,6 @@
     [self narrowDownPossibleFormats_:leadingDigits];
 };
 
-
 /**
  * @param {string} format
  * @return {BOOL}
@@ -455,7 +449,6 @@
         [self.ELIGIBLE_FORMAT_PATTERN_ firstMatchInString:format options:0 range:NSMakeRange(0, [format length])];
     return (matchResult != nil);
 };
-
 
 /**
  * @param {string} leadingDigits
@@ -494,7 +487,6 @@
     self.possibleFormats_ = possibleFormats;
 };
 
-
 /**
  * @param {i18n.phonenumbers.NumberFormat} format
  * @return {BOOL}
@@ -532,7 +524,6 @@
     return NO;
 };
 
-
 /**
  * Gets a formatting template which can be used to efficiently format a
  * partial number where digits are added one by one.
@@ -568,7 +559,6 @@
     template = [self.phoneUtil_ replaceStringByRegex:template regex:@"9" withTemplate:self.DIGIT_PLACEHOLDER_];
     return template;
 };
-
 
 /**
  * Clears the internal state of the formatter, so it can be reused.
@@ -683,7 +673,6 @@
     return self.currentOutput_;
 }
 
-
 /**
  * Same as {@link #inputDigit}, but remembers the position where
  * {@code nextChar} is inserted, so that it can be retrieved later by using
@@ -702,7 +691,6 @@
     self.currentOutput_ = [self inputDigitWithOptionToRememberPosition_:nextChar rememberPosition:YES];
     return self.currentOutput_;
 };
-
 
 /**
  * @param {string} nextChar
@@ -830,7 +818,6 @@
     _isSuccessfulFormatting = NO;
 };
 
-
 /**
  * @return {string}
  * @private
@@ -842,7 +829,6 @@
     [self.possibleFormats_ removeAllObjects];
     return [self attemptToChooseFormattingPattern_];
 };
-
 
 /**
  * Some national prefixes are a substring of others. If extracting the shorter
@@ -877,7 +863,6 @@
     return self.nationalPrefixExtracted_ != [self removeNationalPrefixFromNationalNumber_];
 };
 
-
 /**
  * @param {string} nextChar
  * @return {BOOL}
@@ -893,7 +878,6 @@
     
     return isDigitPattern || (self.accruedInput_.length == 1 && isPlusPattern);
 };
-
 
 /**
  * Check to see if there is an exact pattern match for these digits. If so, we
@@ -938,7 +922,6 @@
     return @"";
 };
 
-
 /**
  * Combines the national number with any prefix (IDD/+ and country code or
  * national prefix) that was collected. A space will be inserted between them if
@@ -965,7 +948,6 @@
         return [NSString stringWithFormat:@"%@%@", self.prefixBeforeNationalNumber_, nationalNumber];
     }
 };
-
 
 /**
  * Returns the current position in the partially formatted phone number of the
@@ -999,7 +981,6 @@
     return currentOutputIndex;
 };
 
-
 /**
  * Attempts to set the formatting template and returns a string which contains
  * the formatted version of the digits entered so far.
@@ -1025,7 +1006,6 @@
         return [self appendNationalNumber_:nationalNumber];
     }
 }
-
 
 /**
  * Invokes inputDigitHelper on each digit of the national number accrued, and
@@ -1053,7 +1033,6 @@
     }
 };
 
-
 /**
  * @return {BOOL} YES if the current country is a NANPA country and the
  *     national number begins with the national prefix.
@@ -1074,7 +1053,6 @@
     return ([nationalNumber characterAtIndex:0] == '1') && ([nationalNumber characterAtIndex:1] != '0') &&
         ([nationalNumber characterAtIndex:1] != '1');
 };
-
 
 /**
  * Returns the national prefix extracted, or an empty string if it is not
@@ -1117,7 +1095,6 @@
     return [nationalNumber substringWithRange:NSMakeRange(0, startOfNationalNumber)];
 };
 
-
 /**
  * Extracts IDD and plus sign to prefixBeforeNationalNumber when they are
  * available, and places the remaining input into nationalNumber.
@@ -1154,7 +1131,6 @@
     }
     return NO;
 };
-
 
 /**
  * Extracts the country calling code from the beginning of nationalNumber to
@@ -1200,7 +1176,6 @@
     return YES;
 };
 
-
 /**
  * Accrues digits and the plus sign to accruedInputWithoutFormatting for later
  * use. If nextChar contains a digit in non-ASCII format (e.g. the full-width
@@ -1236,7 +1211,6 @@
     
     return normalizedChar;
 };
-
 
 /**
  * @param {string} nextChar
@@ -1278,7 +1252,6 @@
         return self.accruedInput_;
     }
 };
-
 
 /**
  * Returns the formatted number.

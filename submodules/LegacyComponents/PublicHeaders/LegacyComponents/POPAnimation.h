@@ -139,7 +139,6 @@ When combined with the autoreverses property, a singular animation is effectivel
 
 @end
 
-
 @interface NSObject (POP)
 
 /**

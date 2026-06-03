@@ -13,8 +13,6 @@ UIColor * color(UInt32 rgb, UInt32 alpha) {
     return [UIColor colorWithRed:((rgb >> 16) & 0xff) / 255.0 green: ((rgb >> 8) & 0xff) / 255.0 blue: (rgb & 0xff) / 255.0 alpha: alpha];
 }
 
-
-
 NSDictionary<NSString *, UIColor *> *light = @{
     @"comment": color(0x708090, 1.0), 
     @"block-comment": color(0x708090, 1.0),
@@ -75,8 +73,6 @@ NSDictionary<NSString *, UIColor *> *dark = @{
     @"class-name": color(0xf8c555, 1.0),
 };
 
-
-
 std::string dataToString(NSData *nsData) {
     const void *dataBytes = [nsData bytes];
     NSUInteger dataLength = [nsData length];
@@ -108,7 +104,6 @@ NSString* stringToNSString(const std::string& cppString) {
 
 @end
 
-
 @interface Brush : NSObject
 @property (nonatomic, strong) UIFont *font;
 @property (nonatomic, strong) UIColor *color;
@@ -125,7 +120,6 @@ NSString* stringToNSString(const std::string& cppString) {
 }
 
 @end
-
 
 void applyString(NSString * string, NSMutableAttributedString * attributed, Brush *brush) {
     if (string != nil) {
@@ -216,7 +210,6 @@ Brush *makeBrush(std::string alias, std::string type, SyntaxterTheme * theme, Br
     return string;
 }
 
-
 - (void) paint:(const TokenListNode &)node string: (NSMutableAttributedString *) string brush:(Brush *)upperBrash theme: (SyntaxterTheme *) theme {
     if (node.isSyntax())
     {
@@ -240,6 +233,5 @@ Brush *makeBrush(std::string alias, std::string type, SyntaxterTheme * theme, Br
         applyString(stringViewToNSString(child.value()), string, upperBrash);
     }
 }
-
 
 @end

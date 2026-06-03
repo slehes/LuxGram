@@ -25,7 +25,6 @@
 
 #include "../internal.h"
 
-
 // abi_test provides routines for verifying that functions satisfy platform ABI
 // requirements.
 namespace abi_test {
@@ -405,7 +404,6 @@ bool UnwindTestsEnabled();
   abi_test::internal::CheckGTest(#__VA_ARGS__, __FILE__, __LINE__, false, \
                                  __VA_ARGS__)
 
-
 // Internal functions.
 
 #if defined(SUPPORTS_ABI_TEST)
@@ -477,6 +475,5 @@ int abi_test_set_direction_flag(void);
 
 }  // extern "C"
 #endif  // SUPPORTS_ABI_TEST
-
 
 #endif  // OPENSSL_HEADER_ABI_TEST_H

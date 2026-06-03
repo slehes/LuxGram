@@ -63,7 +63,6 @@
 
 @end
 
-
 @implementation WKInterfaceGroup (TGInterface)
 
 + (void)load
@@ -95,7 +94,6 @@
 }
 
 @end
-
 
 @implementation WKInterfaceLabel (TGInterface)
 
@@ -156,7 +154,6 @@
 
 @end
 
-
 @implementation WKInterfaceButton (TGInterface)
 
 + (void)load
@@ -200,7 +197,6 @@
 }
 
 @end
-
 
 @implementation WKInterfaceMap (TGInterface)
 

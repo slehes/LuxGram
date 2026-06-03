@@ -44,7 +44,6 @@ public struct Verifier {
     storage.tableCount
   }
 
-
   /// Initializer for the verifier
   /// - Parameters:
   ///   - buffer: Bytebuffer that is required to be verified

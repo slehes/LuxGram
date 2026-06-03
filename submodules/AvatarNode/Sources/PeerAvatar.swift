@@ -461,7 +461,6 @@ public func drawPeerAvatarLetters(context: CGContext, size: CGSize, round: Bool 
     context.textPosition = textPosition
 }
 
-
 public enum AvatarBackgroundColor {
     case blue
     case yellow

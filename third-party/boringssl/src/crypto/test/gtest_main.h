@@ -33,7 +33,6 @@ OPENSSL_MSVC_PRAGMA(warning(pop))
 
 #include "../internal.h"
 
-
 BSSL_NAMESPACE_BEGIN
 
 class TestEventListener : public testing::EmptyTestEventListener {
@@ -88,6 +87,5 @@ inline void SetupGoogleTest() {
 }
 
 BSSL_NAMESPACE_END
-
 
 #endif  // OPENSSL_HEADER_CRYPTO_TEST_GTEST_MAIN_H

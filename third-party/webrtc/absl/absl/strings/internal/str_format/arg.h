@@ -663,7 +663,6 @@ class FormatArgImpl {
 
 ABSL_INTERNAL_FORMAT_DISPATCH_OVERLOADS_EXPAND_(extern);
 
-
 }  // namespace str_format_internal
 ABSL_NAMESPACE_END
 }  // namespace absl

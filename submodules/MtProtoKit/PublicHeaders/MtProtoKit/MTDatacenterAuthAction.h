@@ -2,7 +2,6 @@
 
 #import <MtProtoKit/MTDatacenterAuthInfo.h>
 
-
 @class MTContext;
 
 @interface MTDatacenterAuthAction : NSObject

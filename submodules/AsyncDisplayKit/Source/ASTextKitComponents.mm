@@ -132,7 +132,6 @@
   [super setContentOffset:contentOffset];
 }
 
-
 @end
 
 @interface ASTextKitComponents ()

@@ -21,7 +21,6 @@
 
 @property (nonatomic, assign) NSTimeInterval maximumLength;
 
-
 @property (nonatomic, assign) bool isPlaying;
 @property (nonatomic, assign) NSTimeInterval value;
 - (void)setValue:(NSTimeInterval)value resetPosition:(bool)resetPosition;

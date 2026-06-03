@@ -36,7 +36,6 @@ const NSUInteger TGNeoChatsControllerForwardLimit = 20 * 2;
 
 @end
 
-
 @interface TGNeoChatsController () <TGTableDataSource>
 {
     TGBridgeContext *_context;

@@ -64,7 +64,6 @@
 
 @end
 
-
 @implementation TGBridgeMediaSignals
 
 + (SSignal *)thumbnailWithPeerId:(int64_t)peerId messageId:(int32_t)messageId size:(CGSize)size notification:(bool)notification

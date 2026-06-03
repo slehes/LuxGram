@@ -298,7 +298,6 @@ public final class LoadingOverlayNode: ASDisplayNode {
     }
 }
 
-
 private final class PeerInfoScreenPersonalChannelItemNode: PeerInfoScreenItemNode {
     private let containerNode: ContextControllerSourceNode
     private let contextSourceNode: ContextExtractedContentContainingNode

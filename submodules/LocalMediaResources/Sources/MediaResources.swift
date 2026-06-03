@@ -449,7 +449,6 @@ public final class LocalFileGifMediaResource: TelegramMediaResource {
     }
 }
 
-
 public struct BundleResourceId {
     public let nameHash: Int64
     

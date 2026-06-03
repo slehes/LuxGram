@@ -42,13 +42,11 @@
 #define days_since_2000_Jan_0(y,m,d) \
 (367L*(y)-((7*((y)+(((m)+9)/12)))/4)+((275*(m))/9)+(d)-730530L)
 
-
 #if defined(__IPHONE_8_0) || defined (__MAC_10_10)
 #define EDGregorianCalendar NSCalendarIdentifierGregorian
 #else
 #define EDGregorianCalendar NSGregorianCalendar
 #endif
-
 
 #pragma mark - Readwrite accessors only private
 @interface EDSunriseSet()
@@ -301,16 +299,13 @@ __sunriset__( year, month, day, lon, lat, -35.0/60.0, 1, rise, set )
     return rc;
 }  /* __sunriset__ */
 
-
 @end
-
 
 #pragma mark - Private Implementation
 
 @implementation EDSunriseSet(Private)
 
 static const int kSecondsInHour= 60.0*60.0;
-
 
 -(NSDate*)utcTime:(NSDateComponents*)dateComponents withOffset:(NSTimeInterval)interval
 {
@@ -412,7 +407,6 @@ static const int kSecondsInHour= 60.0*60.0;
 
 @end
 
-
 #pragma mark - Public Implementation
 
 @implementation EDSunriseSet
@@ -442,6 +436,4 @@ static const int kSecondsInHour= 60.0*60.0;
 }
 
 @end
-
-
 

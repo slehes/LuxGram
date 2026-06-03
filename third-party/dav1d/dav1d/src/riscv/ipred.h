@@ -38,7 +38,6 @@ decl_angular_ipred_fn(BF(dav1d_ipred_smooth, rvv));
 decl_angular_ipred_fn(BF(dav1d_ipred_smooth_v, rvv));
 decl_angular_ipred_fn(BF(dav1d_ipred_smooth_h, rvv));
 
-
 decl_pal_pred_fn(BF(dav1d_pal_pred, rvv));
 
 static ALWAYS_INLINE void intra_pred_dsp_init_riscv(Dav1dIntraPredDSPContext *const c) {

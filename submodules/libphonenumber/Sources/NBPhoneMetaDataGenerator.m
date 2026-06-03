@@ -19,9 +19,7 @@
 
 NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 
-
 @implementation NBPhoneMetaDataGenerator
-
 
 - (id)init
 {
@@ -33,11 +31,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     return self;
 }
-
-
-
-
-
 
 - (void)generateMetadataClasses
 {
@@ -67,7 +60,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
         NSLog(@"Error for creating metadata classes : %@", exception.reason);
     }
 }
-
 
 - (void)createClassWithDictionary:(NSDictionary*)data name:(NSString*)name isTestData:(BOOL)isTest
 {
@@ -109,7 +101,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return resMedata;
 }
 
-
 - (NSString *)genRandStringLength:(int)len
 {
     NSMutableString *randomString = [NSMutableString stringWithCapacity: len];
@@ -121,7 +112,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return randomString;
 }
 
-
 - (NSString*)indentTab:(int)depth
 {
     NSMutableString *resTab = [[NSMutableString alloc] initWithString:@""];
@@ -131,7 +121,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
     return resTab;
 }
-
 
 - (NSString *)getSRCDirectoryPath {
     NSString *documentsDirectory = [self documentsDirectory];
@@ -145,20 +134,17 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
 	return [paths objectAtIndex:0];
 }
 
-
 - (NSDictionary *)generateMetaData
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"PhoneNumberMetaData" ofType:@"json"];
     return [self parseJSON:filePath];
 }
 
-
 - (NSDictionary *)generateMetaDataWithTest
 {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"PhoneNumberMetaDataForTesting" ofType:@"json"];
     return [self parseJSON:filePath];
 }
-
 
 - (NSDictionary *)parseJSON:(NSString*)filePath
 {
@@ -175,7 +161,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     
     return jsonRes;
 }
-
 
 - (NSString *)generateSourceCodeWith:(NSDictionary*)data name:(NSString*)name type:(int)type isTestData:(BOOL)isTest
 {
@@ -255,7 +240,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return contents;
 }
 
-
 - (NSString *)generateMappingSourceCodeWith:(NSDictionary*)data name:(NSString*)name type:(int)type isTestData:(BOOL)isTest
 {
     NSMutableString *contents = [[NSMutableString alloc] init];
@@ -299,7 +283,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return contents;
 }
 
-
 - (NSString *)stringForSourceCode:(id)value
 {
     if (value && [value isKindOfClass:[NSString class]]) {
@@ -310,7 +293,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return @"nil";
 }
 
-
 - (NSString *)numberForSourceCode:(id)value
 {
     if (value && [value isKindOfClass:[NSNumber class]]) {
@@ -318,7 +300,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     }
     return @"nil";
 }
-
 
 - (NSString *)phoneNumberDescWithData:(id)value name:(NSString *)varName
 {
@@ -329,14 +310,12 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return contents;
 }
 
-
 - (NSString *)phoneNumberDescWithData:(id)value
 {
     NSString *initSentance = [NSString stringWithFormat:@"[[NBPhoneNumberDesc alloc] initWithNationalNumberPattern:%@ withPossibleNumberPattern:%@ withExample:%@]",
                               STR_VAL([value customSafeObjectAtIndex:2]), STR_VAL([value customSafeObjectAtIndex:3]), STR_VAL([value customSafeObjectAtIndex:6])];
     return initSentance;
 }
-
 
 - (NSString *)phoneNumberFormatWithData:(id)value name:(NSString *)varName
 {
@@ -376,7 +355,6 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     return contents;
 }
 
-
 - (NSString *)phoneNumberFormatArrayWithData:(id)value name:(NSString *)varName
 {
     NSMutableString *contents = [[NSMutableString alloc] init];
@@ -398,6 +376,5 @@ NSString *letters = @"abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
     [contents appendFormat:@"        %@ = %@;\n", varName, arrayName];
     return contents;
 }
-
 
 @end

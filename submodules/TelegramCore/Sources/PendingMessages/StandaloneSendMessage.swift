@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public enum StandaloneMedia {
     case image(Data)
     case file(data: Data, mimeType: String, attributes: [TelegramMediaFileAttribute])

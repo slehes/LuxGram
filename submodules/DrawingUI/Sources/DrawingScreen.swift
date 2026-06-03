@@ -457,7 +457,6 @@ private final class BlurredGradientComponent: Component {
     }
 }
 
-
 enum DrawingScreenTransition {
     case animateIn
     case animateOut

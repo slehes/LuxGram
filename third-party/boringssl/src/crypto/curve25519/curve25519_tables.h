@@ -15,7 +15,6 @@
 // This file is generated from
 //    ./make_curve25519_tables.py > curve25519_tables.h
 
-
 static const fe d = {{
 #if defined(OPENSSL_64_BIT)
     929955233495203, 466365720129213, 1662059464998953, 2033849074728123,

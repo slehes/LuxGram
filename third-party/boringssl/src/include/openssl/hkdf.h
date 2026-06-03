@@ -21,9 +21,7 @@
 extern "C" {
 #endif
 
-
 // HKDF.
-
 
 // HKDF computes HKDF (as specified by RFC 5869) of initial keying material
 // |secret| with |salt| and |info| using |digest|, and outputs |out_len| bytes
@@ -57,7 +55,6 @@ OPENSSL_EXPORT int HKDF_expand(uint8_t *out_key, size_t out_len,
                                const EVP_MD *digest, const uint8_t *prk,
                                size_t prk_len, const uint8_t *info,
                                size_t info_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

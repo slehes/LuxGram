@@ -32,7 +32,6 @@ const CGFloat TGMediaGroupCellHeight = 86.0f;
 
 @end
 
-
 @interface TGMediaGroupCell ()
 {
     NSArray *_imageViews;

@@ -451,7 +451,6 @@ public func getGTranslateLang(_ userLang: String) -> String {
             break
     }
 
-
     // Fix for pt-br and other regional langs
     // https://cloud.go
     // ogle.com/tran
@@ -463,11 +462,9 @@ public func getGTranslateLang(_ userLang: String) -> String {
     return lang
 }
 
-
 public enum TranslateFetchError {
     case network
 }
-
 
 let TranslateSessionConfiguration = URLSessionConfiguration.ephemeral
 
@@ -515,7 +512,6 @@ public func requestTranslateUrl(url: URL) -> Signal<String, TranslateFetchError>
     }
 }
 
-
 public func gtranslate(_ text: String, _ toLang: String) -> Signal<String, TranslateFetchError> {
     // 1) Preserve *all* line breaks, including empty ones
     let lines = text.components(separatedBy: "\n")
@@ -545,7 +541,6 @@ public func gtranslate(_ text: String, _ toLang: String) -> Signal<String, Trans
         return joined.isEmpty ? text : joined
     }
 }
-
 
 public func gtranslateSentence(_ text: String, _ toLang: String) -> Signal<String, TranslateFetchError> {
     return Signal { subscriber in
@@ -611,7 +606,6 @@ public func gtranslateSplitTextBySentences(_ text: String, maxChunkLength: Int =
 
     return chunks
 }
-
 
 extension String {
     var htmlDecoded: String {

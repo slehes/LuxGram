@@ -497,7 +497,6 @@ static inline int writeOggPage(ogg_page *page, TGDataItem *fileItem)
     return true;
 }
 
-
 - (bool)beginAppendWithDataItem:(TGDataItem *)dataItem
 {
     if (dataItem.data.length == 0) {

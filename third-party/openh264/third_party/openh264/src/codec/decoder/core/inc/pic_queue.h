@@ -34,13 +34,11 @@
 #ifndef WELS_PICTURE_QUEUE_H__
 #define WELS_PICTURE_QUEUE_H__
 
-
 #include "picture.h"
 
 namespace WelsDec {
 
 #define   PICTURE_RESOLUTION_ALIGNMENT      32
-
 
 typedef struct TagPicBuff {
   PPicture*      ppPic;

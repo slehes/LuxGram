@@ -967,7 +967,6 @@ extension PeerInfoScreenNode {
                                 }
                             })
                         })))
-                    // MARK: Swiftgram
                     } else {
                         items.append(.action(ContextMenuActionItem(text: presentationData.strings.Group_Info_AdminLog, icon: { theme in
                             generateTintedImage(image: UIImage(bundleImageName: "Peer Info/RefProgram/IntroListEye"), color: theme.contextMenu.primaryColor)

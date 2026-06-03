@@ -86,7 +86,6 @@ private func fractionalValueToCurrencyAmount(value: Double, currency: String) ->
     }
 }
 
-
 public extension Notification.Name {
     static let SGIAPHelperPurchaseNotification = Notification.Name("SGIAPPurchaseNotification")
     static let SGIAPHelperErrorNotification = Notification.Name("SGIAPErrorNotification")
@@ -347,7 +346,6 @@ private extension NSDecimalNumber {
     }
 }
 
-
 public func getPurchaceReceiptData() -> Data? {
     var receiptData: Data?
     if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL, FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
@@ -361,7 +359,6 @@ public func getPurchaceReceiptData() -> Data? {
     }
     return receiptData
 }
-
 
 extension SKPaymentTransactionState {
     var description: String {

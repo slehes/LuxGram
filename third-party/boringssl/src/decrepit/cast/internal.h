@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 extern const uint32_t CAST_S_table0[256];
 extern const uint32_t CAST_S_table1[256];
 extern const uint32_t CAST_S_table2[256];
@@ -72,7 +71,6 @@ extern const uint32_t CAST_S_table4[256];
 extern const uint32_t CAST_S_table5[256];
 extern const uint32_t CAST_S_table6[256];
 extern const uint32_t CAST_S_table7[256];
-
 
 #if defined(__cplusplus)
 }  // extern C

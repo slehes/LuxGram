@@ -27,7 +27,6 @@ public struct AuthorizationLayoutItem {
         self.spacingAfter = spacingAfter
     }
 
-
     public init(view: UIView, size: CGSize, spacingBefore: AuthorizationLayoutItemSpacing, spacingAfter: AuthorizationLayoutItemSpacing) {
         self.view = view
         self.size = size

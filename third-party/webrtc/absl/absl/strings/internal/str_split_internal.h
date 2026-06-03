@@ -252,7 +252,6 @@ using ShouldUseLifetimeBoundForPair = std::integral_constant<
               (std::is_same<First, absl::string_view>::value ||
                std::is_same<Second, absl::string_view>::value)>;
 
-
 // This class implements the range that is returned by absl::StrSplit(). This
 // class has templated conversion operators that allow it to be implicitly
 // converted to a variety of types that the caller may have specified on the

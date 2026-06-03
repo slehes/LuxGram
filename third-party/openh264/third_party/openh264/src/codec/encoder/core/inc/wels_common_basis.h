@@ -68,7 +68,6 @@ typedef struct TagMVComponentUnit {             // each LIST_0/LIST_1
   int8_t        iRefIndexCache[5 * 6];          // Luma only: 5 x 6 = 30 bytes
 } SMVComponentUnit, *PMVComponentUnit;
 
-
 typedef struct TagParaSetOffsetVariable {
   int32_t       iParaSetIdDelta[MAX_DQ_LAYER_NUM/*+1*/];//mark delta between SPS_ID_in_bs and sps_id_in_encoder, can be minus, for each dq-layer
 //need not extra +1 due no MGS and FMO case so far
@@ -99,8 +98,6 @@ typedef struct TagParaSetOffset {
   uint32_t uiInUsePpsNum;
 } SParaSetOffset;
 
-
-
 /* Position Offset structure */
 typedef struct TagCropOffset {
   int16_t       iCropLeft;
@@ -108,7 +105,6 @@ typedef struct TagCropOffset {
   int16_t       iCropTop;
   int16_t       iCropBottom;
 } SCropOffset;
-
 
 /* Transform Type */
 
@@ -154,7 +150,6 @@ enum {
   Inter8x8      = 5,
   PSkip         = 6
 };
-
 
 }
 #endif//WELS_COMMON_BASIS_H__

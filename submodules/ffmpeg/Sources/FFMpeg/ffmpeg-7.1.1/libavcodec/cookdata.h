@@ -66,8 +66,6 @@ static const int vpr_tab[7] = {
     10, 10, 10, 5, 5, 4, 4,
 };
 
-
-
 /* VLC data */
 
 #define MAX_COOK_VLC_ENTRIES 520
@@ -120,7 +118,6 @@ static const uint8_t envelope_quant_index_huffsyms[13][24] = {
     { 12, 10, 11, 13, 14,  9, 15,  8, 16, 17,  6,  7,
       18,  5, 19,  4, 20,  0,  1,  2,  3, 21, 22, 23 },
 };
-
 
 static const uint8_t cvh_huffcounts[7][16] = {
     {  1,  0,  0,  2,  2,  5,  8, 15, 31, 33, 28, 17, 15,  8,  8,   8  },

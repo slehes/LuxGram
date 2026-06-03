@@ -17,7 +17,6 @@
 
 #include <openssl/base.h>
 
-
 #if defined(OPENSSL_LINUX)
 
 #include <sys/syscall.h>
@@ -59,6 +58,5 @@
 #endif
 
 #endif  // OPENSSL_LINUX
-
 
 #endif  // OPENSSL_HEADER_CRYPTO_RAND_GETRANDOM_FILLIN_H

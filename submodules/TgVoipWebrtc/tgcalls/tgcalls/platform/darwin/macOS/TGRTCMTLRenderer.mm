@@ -21,7 +21,6 @@
 #include "api/video/video_rotation.h"
 #include "rtc_base/checks.h"
 
-
 MTLFrameSize MTLAspectFitted(MTLFrameSize from, MTLFrameSize to) {
     double scale = std::min(
         from.width / std::max(1., double(to.width)),
@@ -42,18 +41,12 @@ MTLFrameSize MTLAspectFilled(MTLFrameSize from, MTLFrameSize to) {
     };
 }
 
-
-
-
 static NSString *const pipelineDescriptorLabel = @"RTCPipeline";
 static NSString *const commandBufferLabel = @"RTCCommandBuffer";
 static NSString *const renderEncoderLabel = @"RTCEncoder";
 static NSString *const renderEncoderDebugGroup = @"RTCDrawFrame";
 
-
 static TGRTCMetalContextHolder *metalContext = nil;
-
-
 
 bool initMetal() {
     if (metalContext == nil) {
@@ -145,7 +138,6 @@ static inline void getCubeVertexData(size_t frameWidth,
 
 }
 
-
 @synthesize rotationOverride = _rotationOverride;
 
 - (instancetype)init {
@@ -211,7 +203,6 @@ static inline void getCubeVertexData(size_t frameWidth,
 - (id<MTLDevice>)currentMetalDevice {
   return metalContext.device;
 }
-
 
 - (void)uploadTexturesToRenderEncoder:(id<MTLRenderCommandEncoder>)renderEncoder {
 //  RTC_NOTREACHED() << "Virtual method not implemented in subclass.";
@@ -303,7 +294,6 @@ static inline void getCubeVertexData(size_t frameWidth,
 
 #pragma mark - GPU methods
 
-
 - (id<MTLTexture>)createTextureWithUsage:(MTLTextureUsage) usage size:(MTLFrameSize)size {
     MTLTextureDescriptor *rgbTextureDescriptor = [MTLTextureDescriptor
                                                   texture2DDescriptorWithPixelFormat:MTLPixelFormatBGRA8Unorm
@@ -325,7 +315,6 @@ static inline void getCubeVertexData(size_t frameWidth,
     
     return renderEncoder;
 }
-
 
 - (id<MTLTexture>)convertYUVtoRGV:(id<MTLBuffer>)buffer {
     id<MTLTexture> rgbTexture = _rgbTexture;
@@ -595,7 +584,6 @@ static inline void getCubeVertexData(size_t frameWidth,
     [commandBuffer addCompletedHandler:^(id<MTLCommandBuffer> _Nonnull) {
         dispatch_semaphore_signal(inflight);
     }];
-
 
     [commandBuffer addScheduledHandler:^(id<MTLCommandBuffer> _Nonnull) {
         [drawable present];

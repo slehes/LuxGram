@@ -90,7 +90,6 @@ CGSize TGWatchStickerSizeForScreen(TGScreenType screenType)
 
 @end
 
-
 int TGLocalizedStaticVersion = 0;
 
 static NSBundle *customLocalizationBundle = nil;
@@ -199,7 +198,6 @@ NSString *TGLocalizedInternal(NSString *s)
     return s;
 }
 
-// MARK: Swiftgram
 NSString *TGLocalized(NSString *s) {
     NSString *result = TGLocalizedInternal(s);
     return [result stringByReplacingOccurrencesOfString:@"Telegram" withString:@"Swiftgram"];

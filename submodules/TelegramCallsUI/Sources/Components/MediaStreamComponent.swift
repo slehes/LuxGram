@@ -1664,7 +1664,6 @@ private final class StreamTitleComponent: Component {
     }
 }
 
-
 private final class OriginInfoComponent: CombinedComponent {
     let strings: PresentationStrings
     let participantsCount: Int

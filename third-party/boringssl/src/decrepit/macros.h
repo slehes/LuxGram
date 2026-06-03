@@ -59,7 +59,6 @@
 
 #include "../crypto/internal.h"
 
-
 // NOTE - c is not incremented as per n2l
 #define n2ln(c, l1, l2, n)                  \
   {                                         \
@@ -132,6 +131,5 @@
 #define n2l(c, l)                                                         \
   (l = ((uint32_t)(*((c)++))) << 24L, l |= ((uint32_t)(*((c)++))) << 16L, \
    l |= ((uint32_t)(*((c)++))) << 8L, l |= ((uint32_t)(*((c)++))))
-
 
 #endif  // OPENSSL_HEADER_DECREPIT_MACROS_H

@@ -206,7 +206,6 @@ POPAnimationState *POPAnimationGetState(POPAnimation *a)
 
 @end
 
-
 #pragma mark - POPPropertyAnimation
 
 #pragma mark - POPBasicAnimation

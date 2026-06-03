@@ -40,7 +40,6 @@
 // Used to mark special pointers
 void DebugMemDontCheckThis(void *Ptr);
 
-
 cmsBool IsGoodVal(const char *title, cmsFloat64Number in, cmsFloat64Number out, cmsFloat64Number max);
 cmsBool IsGoodFixed15_16(const char *title, cmsFloat64Number in, cmsFloat64Number out);
 cmsBool IsGoodFixed8_8(const char *title, cmsFloat64Number in, cmsFloat64Number out);
@@ -73,7 +72,6 @@ cmsInt32Number CheckOptimizationPlugin(void);
 cmsInt32Number CheckIntentPlugin(void);
 cmsInt32Number CheckTransformPlugin(void);
 cmsInt32Number CheckMutexPlugin(void);
-
 
 // Zoo
 void CheckProfileZOO(void);

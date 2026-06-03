@@ -37,7 +37,6 @@
     };                           \
   }
 
-
 namespace webrtc {
 
 webrtc::scoped_refptr<AudioDeviceModule> CreateAudioDeviceModule(bool bypass_voice_processing) {

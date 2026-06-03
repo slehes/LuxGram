@@ -11,8 +11,6 @@ import YuvConversion
 
 private let bufferCount = 32
 
-
-
 #if os(macOS)
 private let deviceColorSpace: CGColorSpace = {
     if #available(OSX 10.11.2, *) {

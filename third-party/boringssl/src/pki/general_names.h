@@ -11,7 +11,6 @@
 
 #include <openssl/base.h>
 
-
 #include "cert_error_id.h"
 
 namespace bssl {

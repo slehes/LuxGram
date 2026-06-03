@@ -956,7 +956,6 @@ public final class MediaScrubberComponent: Component {
     }
 }
 
-
 private class TrackView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelegate {
     fileprivate let clippingView: UIView
     fileprivate let scrollView: UIScrollView
@@ -1624,7 +1623,6 @@ private class TrackView: UIView, UIScrollViewDelegate, UIGestureRecognizerDelega
     }
 }
 
-
 public class TrimView: UIView {
     fileprivate let leftHandleView = HandleView()
     fileprivate let rightHandleView = HandleView()
@@ -2010,7 +2008,6 @@ public class TrimView: UIView {
     }
 }
 
-
 private class VideoFrameLayer: SimpleShapeLayer {
     private let stripeLayer = SimpleShapeLayer()
     
@@ -2033,7 +2030,6 @@ private final class HandleView: UIImageView {
     }
 }
 
-
 private let audioContentMaskImage = generateImage(CGSize(width: 100.0, height: 50.0), rotatedContext: { size, context in
     context.clear(CGRect(origin: .zero, size: size))
     
@@ -2045,7 +2041,6 @@ private let audioContentMaskImage = generateImage(CGSize(width: 100.0, height: 5
     
     context.drawLinearGradient(gradient, start: CGPoint(x: 0.0, y: 0.0), end: CGPoint(x: size.width, y: 0.0), options: CGGradientDrawingOptions())
 })?.stretchableImage(withLeftCapWidth: 40, topCapHeight: 0)
-
 
 private extension MediaScrubberComponent.Track {
     var isAudio: Bool {

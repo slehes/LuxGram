@@ -3,7 +3,6 @@ import SwiftSignalKit
 import MtProtoKit
 import TelegramApi
 
-
 public enum ConfirmTwoStepRecoveryEmailError {
     case invalidEmail
     case invalidCode

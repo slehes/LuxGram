@@ -259,7 +259,6 @@ struct sctp_udpencaps {
 
 /* notification event structures */
 
-
 /* association change event */
 struct sctp_assoc_change {
 	uint16_t sac_type;
@@ -373,7 +372,6 @@ struct sctp_sender_dry_event {
 	sctp_assoc_t sender_dry_assoc_id;
 };
 
-
 /* Stream reset event - subscribe to SCTP_STREAM_RESET_EVENT */
 struct sctp_stream_reset_event {
 	uint16_t strreset_type;
@@ -393,7 +391,6 @@ struct sctp_stream_reset_event {
 #define SCTP_STREAM_RESET_INCOMING      0x00000001
 #define SCTP_STREAM_RESET_OUTGOING      0x00000002
 
-
 /* Assoc reset event - subscribe to SCTP_ASSOC_RESET_EVENT */
 struct sctp_assoc_reset_event {
 	uint16_t assocreset_type;
@@ -407,7 +404,6 @@ struct sctp_assoc_reset_event {
 #define SCTP_ASSOC_RESET_DENIED        0x0004
 #define SCTP_ASSOC_RESET_FAILED        0x0008
 
-
 /* Stream change event - subscribe to SCTP_STREAM_CHANGE_EVENT */
 struct sctp_stream_change_event {
 	uint16_t strchange_type;
@@ -420,7 +416,6 @@ struct sctp_stream_change_event {
 
 #define SCTP_STREAM_CHANGE_DENIED	0x0004
 #define SCTP_STREAM_CHANGE_FAILED	0x0008
-
 
 /* SCTP send failed event */
 struct sctp_send_failed_event {
@@ -478,8 +473,6 @@ struct sctp_event_subscribe {
 	uint8_t sctp_stream_reset_event;
 };
 
-
-
 /* Flags that go into the sinfo->sinfo_flags field */
 #define SCTP_DATA_LAST_FRAG   0x0001 /* tail part of the message could not be sent */
 #define SCTP_DATA_NOT_FRAG    0x0003 /* complete message could not be sent */
@@ -511,7 +504,6 @@ struct sctp_event_subscribe {
 #define PR_SCTP_BUF_ENABLED(x)    (PR_SCTP_POLICY(x) == SCTP_PR_SCTP_BUF)
 #define PR_SCTP_RTX_ENABLED(x)    (PR_SCTP_POLICY(x) == SCTP_PR_SCTP_RTX)
 #define PR_SCTP_INVALID_POLICY(x) (PR_SCTP_POLICY(x) > SCTP_PR_SCTP_RTX)
-
 
 /*
  * user socket options: socket API defined
@@ -684,7 +676,6 @@ struct sctp_hmacalgo {
 #define SCTP_AUTH_HMAC_ID_SHA384  0x0005
 #define SCTP_AUTH_HMAC_ID_SHA512  0x0006
 
-
 struct sctp_sack_info {
 	sctp_assoc_t sack_assoc_id;
 	uint32_t sack_delay;
@@ -733,7 +724,6 @@ struct sctp_status {
 #define SCTP_SHUTDOWN_ACK_SENT  0x0040
 #define SCTP_SHUTDOWN_PENDING   0x0080
 
-
 #define SCTP_ACTIVE       0x0001  /* SCTP_ADDR_REACHABLE */
 #define SCTP_INACTIVE     0x0002  /* neither SCTP_ADDR_REACHABLE
                                      nor SCTP_ADDR_UNCONFIRMED */
@@ -760,13 +750,11 @@ struct sctp_authchunk {
 	uint8_t sauth_chunk;
 };
 
-
 struct sctp_get_nonce_values {
 	sctp_assoc_t gn_assoc_id;
 	uint32_t gn_peers_tag;
 	uint32_t gn_local_tag;
 };
-
 
 /*
  * Main SCTP chunk types
@@ -1043,7 +1031,6 @@ usrsctp_set_upcall(struct socket *so,
 
 int
 usrsctp_get_events(struct socket *so);
-
 
 void
 usrsctp_handle_timers(uint32_t elapsed_milliseconds);

@@ -345,7 +345,6 @@
 	(void)pthread_mutex_unlock(&SCTP_BASE_INFO(ipi_pktlog_mtx))
 #endif
 
-
 /*
  * The INP locks we will use for locking an SCTP endpoint, so for example if
  * we want to change something at the endpoint level for example random_store
@@ -516,7 +515,6 @@
 #endif
 
 #endif /* SCTP_PER_SOCKET_LOCKING */
-
 
 /*
  * common locks

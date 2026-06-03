@@ -186,7 +186,6 @@
         return nil;
     }
 
-
     return bestFormat;
 }
 
@@ -451,7 +450,6 @@ void VideoCapturerInterfaceImpl::setOnPause(std::function<void(bool)> pause) {
         }
     });
 }
-
 
 int VideoCapturerInterfaceImpl::getRotation() {
     __block int value = 0;

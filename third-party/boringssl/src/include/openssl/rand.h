@@ -21,14 +21,11 @@
 extern "C" {
 #endif
 
-
 // Random number generation.
-
 
 // RAND_bytes writes |len| bytes of random data to |buf| and returns one. In the
 // event that sufficient random data can not be obtained, |abort| is called.
 OPENSSL_EXPORT int RAND_bytes(uint8_t *buf, size_t len);
-
 
 // Obscure functions.
 
@@ -65,7 +62,6 @@ OPENSSL_EXPORT void RAND_reset_for_fuzzing(void);
 // from BoringSSL. This function is not FIPS compliant.
 OPENSSL_EXPORT void RAND_get_system_entropy_for_custom_prng(uint8_t *buf,
                                                             size_t len);
-
 
 // Deprecated functions
 
@@ -120,7 +116,6 @@ OPENSSL_EXPORT const RAND_METHOD *RAND_get_rand_method(void);
 
 // RAND_set_rand_method returns one.
 OPENSSL_EXPORT int RAND_set_rand_method(const RAND_METHOD *);
-
 
 #if defined(__cplusplus)
 }  // extern C

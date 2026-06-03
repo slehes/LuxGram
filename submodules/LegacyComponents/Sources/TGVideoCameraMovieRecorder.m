@@ -13,7 +13,6 @@ typedef enum {
 	TGMovieRecorderStatusFailed
 } TGMovieRecorderStatus;
 
-
 @interface TGVideoCameraMovieRecorder ()
 {
 	TGMovieRecorderStatus _status;
@@ -45,7 +44,6 @@ typedef enum {
     bool _wasPaused;
 }
 @end
-
 
 @implementation TGVideoCameraMovieRecorder
 

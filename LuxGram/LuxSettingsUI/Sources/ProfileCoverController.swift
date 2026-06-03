@@ -1,4 +1,3 @@
-// MARK: LuxGram – Profile cover: photo/video as profile background (visible only to you)
 import Foundation
 import UIKit
 import Display

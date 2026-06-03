@@ -1,7 +1,6 @@
 import Foundation
 import SwiftSignalKit
 
-
 public func requestsDownload(url: URL) -> Signal<(Data, URLResponse?), Error?> {
     return Signal { subscriber in
         let completed = Atomic<Bool>(value: false)
@@ -47,7 +46,6 @@ public func requestsGet(url: URL) -> Signal<(Data, URLResponse?), Error?> {
         }
     }
 }
-
 
 public func requestsCustom(request: URLRequest) -> Signal<(Data, URLResponse?), Error?> {
     return Signal { subscriber in

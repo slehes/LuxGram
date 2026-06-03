@@ -142,7 +142,6 @@ struct DecryptedRawMessage {
     uint32_t counter = 0;
 };
 
-
 } // namespace tgcalls
 
 #endif

@@ -37,7 +37,6 @@
 #include "pixfmt.h"
 #include "version.h"
 
-
 /**
  * @defgroup lavu_frame AVFrame
  * @ingroup lavu_data
@@ -254,7 +253,6 @@ enum AVActiveFormatDescription {
     AV_AFD_16_9_SP_14_9 = 14,
     AV_AFD_SP_4_3       = 15,
 };
-
 
 /**
  * Structure to hold side data for an AVFrame.
@@ -795,7 +793,6 @@ typedef struct AVFrame {
     int64_t duration;
 } AVFrame;
 
-
 /**
  * Allocate an AVFrame and set its fields to default values.  The resulting
  * struct must be freed using av_frame_free().
@@ -997,7 +994,6 @@ AVFrameSideData *av_frame_get_side_data(const AVFrame *frame,
  * Remove and free all side data instances of the given type.
  */
 void av_frame_remove_side_data(AVFrame *frame, enum AVFrameSideDataType type);
-
 
 /**
  * Flags for frame cropping.

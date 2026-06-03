@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension TelegramMediaTodo.Item {
     init(apiItem: Api.TodoItem) {
         switch apiItem {

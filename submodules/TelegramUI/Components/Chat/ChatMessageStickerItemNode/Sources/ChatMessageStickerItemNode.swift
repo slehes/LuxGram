@@ -53,7 +53,6 @@ public class ChatMessageStickerItemNode: ChatMessageItemView {
     private let fetchDisposable = MetaDisposable()
     
     private var suggestedPostInfoNode: ChatMessageSuggestedPostInfoNode?
-    // MARK: Swiftgram
     public var sizeCoefficient: Float = 1.0
     
     private var viaBotNode: TextNode?

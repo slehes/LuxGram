@@ -24,7 +24,6 @@
 
 #include <stdint.h>
 
-
 /**
   * @file
   * @brief Public header for libavutil CAST5 algorithm

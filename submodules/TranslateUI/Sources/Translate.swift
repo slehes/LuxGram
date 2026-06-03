@@ -185,8 +185,7 @@ public func canTranslateChats(context: AccountContext) -> Bool {
     default:
         break
     }
-    return chatTranslationAvailable || true // MARK: Swiftgram
-}
+    return chatTranslationAvailable || true}
 
 public func canTranslateText(context: AccountContext, text: String, showTranslate: Bool, showTranslateIfTopical: Bool = false, ignoredLanguages: [String]?) -> (canTranslate: Bool, language: String?) {
     guard showTranslate || showTranslateIfTopical, text.count > 0 else {
@@ -205,8 +204,7 @@ public func canTranslateText(context: AccountContext, text: String, showTranslat
     default:
         break
     }
-    translateButtonAvailable = true // MARK: Swiftgram
-    let showTranslate = showTranslate && translateButtonAvailable
+    translateButtonAvailable = true    let showTranslate = showTranslate && translateButtonAvailable
         
     if #available(iOS 12.0, *) {
         if context.sharedContext.immediateExperimentalUISettings.disableLanguageRecognition {

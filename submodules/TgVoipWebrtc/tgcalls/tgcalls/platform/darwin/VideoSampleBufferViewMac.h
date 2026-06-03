@@ -11,8 +11,6 @@
 
 @interface VideoSampleBufferView : NSView
 
-
-
 @property(nonatomic) CALayerContentsGravity _Nullable videoContentMode;
 @property(nonatomic, getter=isEnabled) BOOL enabled;
 @property(nonatomic, nullable) NSValue* rotationOverride;

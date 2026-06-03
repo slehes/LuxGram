@@ -55,9 +55,7 @@
 extern "C" {
 #endif
 
-
 // Raw AES functions.
-
 
 #define AES_ENCRYPT 1
 #define AES_DECRYPT 0
@@ -100,7 +98,6 @@ OPENSSL_EXPORT void AES_encrypt(const uint8_t *in, uint8_t *out,
 // and |out| pointers may overlap.
 OPENSSL_EXPORT void AES_decrypt(const uint8_t *in, uint8_t *out,
                                 const AES_KEY *key);
-
 
 // Block cipher modes.
 
@@ -150,7 +147,6 @@ OPENSSL_EXPORT void AES_cfb128_encrypt(const uint8_t *in, uint8_t *out,
                                        size_t len, const AES_KEY *key,
                                        uint8_t *ivec, int *num, int enc);
 
-
 // AES key wrap.
 //
 // These functions implement AES Key Wrap mode, as defined in RFC 3394. They
@@ -173,7 +169,6 @@ OPENSSL_EXPORT int AES_wrap_key(const AES_KEY *key, const uint8_t *iv,
 OPENSSL_EXPORT int AES_unwrap_key(const AES_KEY *key, const uint8_t *iv,
                                   uint8_t *out, const uint8_t *in,
                                   size_t in_len);
-
 
 // AES key wrap with padding.
 //
@@ -198,7 +193,6 @@ OPENSSL_EXPORT int AES_wrap_key_padded(const AES_KEY *key, uint8_t *out,
 OPENSSL_EXPORT int AES_unwrap_key_padded(const AES_KEY *key, uint8_t *out,
                                          size_t *out_len, size_t max_out,
                                          const uint8_t *in, size_t in_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

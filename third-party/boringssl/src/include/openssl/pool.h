@@ -23,13 +23,11 @@
 extern "C" {
 #endif
 
-
 // Buffers and buffer pools.
 //
 // |CRYPTO_BUFFER|s are simply reference-counted blobs. A |CRYPTO_BUFFER_POOL|
 // is an intern table for |CRYPTO_BUFFER|s. This allows for a single copy of a
 // given blob to be kept in memory and referenced from multiple places.
-
 
 DEFINE_STACK_OF(CRYPTO_BUFFER)
 
@@ -86,7 +84,6 @@ OPENSSL_EXPORT size_t CRYPTO_BUFFER_len(const CRYPTO_BUFFER *buf);
 
 // CRYPTO_BUFFER_init_CBS initialises |out| to point at the data from |buf|.
 OPENSSL_EXPORT void CRYPTO_BUFFER_init_CBS(const CRYPTO_BUFFER *buf, CBS *out);
-
 
 #if defined(__cplusplus)
 }  // extern C

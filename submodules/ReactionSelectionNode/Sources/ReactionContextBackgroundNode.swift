@@ -37,7 +37,6 @@ private func generateBubbleShadowImage(shadow: UIColor, diameter: CGFloat, shado
     })?.stretchableImage(withLeftCapWidth: Int(shadowBlur + diameter / 2.0), topCapHeight: Int(shadowBlur + diameter / 2.0))
 }
 
-
 final class ReactionContextBackgroundNode: ASDisplayNode {
     struct GlassParams {
         var isDark: Bool

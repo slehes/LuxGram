@@ -644,7 +644,6 @@ private final class ParagraphComponent: CombinedComponent {
     }
 }
 
-
 public class AdsInfoScreen: ViewController {
     public enum Mode: Equatable {
         case channel

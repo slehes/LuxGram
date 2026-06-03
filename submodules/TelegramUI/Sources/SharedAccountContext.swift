@@ -1,4 +1,3 @@
-// MARK: Swiftgram
 import SGIAP
 import SGPayWall
 import SGProUI
@@ -280,7 +279,6 @@ public final class SharedAccountContextImpl: SharedAccountContext {
     }
     private var experimentalUISettingsDisposable: Disposable?
 
-    // MARK: Swiftgram
     private var immediateSGStatusValue = Atomic<SGStatus>(value: SGStatus.default)
     public var immediateSGStatus: SGStatus {
         return self.immediateSGStatusValue.with { $0 }
@@ -532,7 +530,6 @@ public final class SharedAccountContextImpl: SharedAccountContext {
                 GlassBackgroundView.useCustomGlassImpl = settings.fakeGlass
             }
         })
-        // MARK: Swiftgram
         let immediateSGStatusValue = self.immediateSGStatusValue
         self.sgStatusDisposable = (self.accountManager.sharedData(keys: [ApplicationSpecificSharedDataKeys.sgStatus])
         |> deliverOnMainQueue).start(next: { sharedData in
@@ -1132,10 +1129,8 @@ public final class SharedAccountContextImpl: SharedAccountContext {
         self.callPeerDisposable?.dispose()
     }
     
-    // MARK: Swiftgram
     var didPerformSGUISettingsMigration = false
     //
-    // MARK: Swiftgram
     func sgPrimaryAccountContextForMigration() -> AccountContext? {
         return self.activeAccountsValue?.primary
     }
@@ -1143,7 +1138,6 @@ public final class SharedAccountContextImpl: SharedAccountContext {
     private var didPerformAccountSettingsImport = false
     
     private func performAccountSettingsImportIfNecessary() {
-        // MARK: Swiftgram
         self.performSGUISettingsMigrationIfNecessary()
         //
         if self.didPerformAccountSettingsImport {
@@ -1863,12 +1857,10 @@ public final class SharedAccountContextImpl: SharedAccountContext {
         return OverlayAudioPlayerControllerImpl(context: context, chatLocation: chatLocation, type: type, initialMessageId: initialMessageId, initialOrder: initialOrder, playlistLocation: playlistLocation, parentNavigationController: parentNavigationController)
     }
     
-    // MARK: - LuxGram - Font settings notification
     public func notifyFontSettingsChanged() {
         Display.Font.clearCache()
     }
 
-    // MARK: - LuxGram - Process overdue ghost-delayed messages for all accounts
     public func processOverdueGhostDelayedMessagesForAllAccounts() {
         let _ = (self.activeAccountContexts
             |> take(1)
@@ -4505,9 +4497,6 @@ private func useFlatModalCallsPresentation(context: AccountContext) -> Bool {
     return true
 }
 
-
-
-// MARK: Swiftgram
 extension SharedAccountContextImpl {
     func initSGIAP(isMainApp: Bool) {
         if isMainApp {

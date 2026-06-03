@@ -650,7 +650,6 @@ const CGFloat TGMenuSheetInterSectionSpacing = 8.0f;
     }
 }
 
-
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
     CGFloat bottomContentOffset = (scrollView.contentSize.height - scrollView.frame.size.height);

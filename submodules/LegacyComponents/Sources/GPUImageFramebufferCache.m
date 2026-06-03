@@ -22,7 +22,6 @@
 
 @end
 
-
 @implementation GPUImageFramebufferCache
 
 #pragma mark -

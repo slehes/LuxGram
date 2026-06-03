@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import MtProtoKit
 
-
 private func messageKey(key: SecretChatKey, msgKey: UnsafeRawPointer, mode: SecretChatEncryptionMode) -> (aesKey: Data, aesIv: Data) {
     switch mode {
         case .v1:

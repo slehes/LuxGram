@@ -373,5 +373,4 @@ int av_image_fill_color(uint8_t * const dst_data[4], const ptrdiff_t dst_linesiz
  * @}
  */
 
-
 #endif /* AVUTIL_IMGUTILS_H */

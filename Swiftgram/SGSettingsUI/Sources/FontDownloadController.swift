@@ -1,4 +1,3 @@
-// MARK: LuxGram - Download fonts from the internet (search + list)
 import SGSimpleSettings
 import Foundation
 import UIKit

@@ -27,7 +27,6 @@
     return [self initWithNationalNumberPattern:nnp withPossibleNumberPattern:pnp withExample:exp];
 }
 
-
 - (id)initWithNationalNumberPattern:(NSString *)nnp withPossibleNumberPattern:(NSString *)pnp withExample:(NSString *)exp
 {
     self = [self init];
@@ -42,7 +41,6 @@
 
 }
 
-
 - (id)init
 {
     self = [super init];
@@ -52,7 +50,6 @@
     
     return self;
 }
-
 
 - (id)initWithCoder:(NSCoder*)coder
 {
@@ -64,7 +61,6 @@
     return self;
 }
 
-
 - (void)encodeWithCoder:(NSCoder*)coder
 {
     [coder encodeObject:self.nationalNumberPattern forKey:@"nationalNumberPattern"];
@@ -72,13 +68,11 @@
     [coder encodeObject:self.exampleNumber forKey:@"exampleNumber"];
 }
 
-
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"nationalNumberPattern[%@] possibleNumberPattern[%@] exampleNumber[%@]",
             self.nationalNumberPattern, self.possibleNumberPattern, self.exampleNumber];
 }
-
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -90,7 +84,6 @@
     
 	return phoneDescCopy;
 }
-
 
 - (BOOL)isEqual:(id)object
 {

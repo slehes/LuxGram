@@ -76,9 +76,7 @@
 extern "C" {
 #endif
 
-
 // EVP abstracts over public/private key algorithms.
-
 
 // Public key objects.
 //
@@ -140,7 +138,6 @@ OPENSSL_EXPORT int EVP_PKEY_id(const EVP_PKEY *pkey);
 // otherwise.
 OPENSSL_EXPORT int EVP_PKEY_type(int nid);
 
-
 // Getting and setting concrete public key types.
 //
 // The following functions get and set the underlying public key in an
@@ -192,7 +189,6 @@ OPENSSL_EXPORT int EVP_PKEY_set_type(EVP_PKEY *pkey, int type);
 OPENSSL_EXPORT int EVP_PKEY_cmp_parameters(const EVP_PKEY *a,
                                            const EVP_PKEY *b);
 
-
 // ASN.1 functions
 
 // EVP_parse_public_key decodes a DER-encoded SubjectPublicKeyInfo structure
@@ -229,7 +225,6 @@ OPENSSL_EXPORT EVP_PKEY *EVP_parse_private_key(CBS *cbs);
 // structure (RFC 5208) and appends the result to |cbb|. It returns one on
 // success and zero on error.
 OPENSSL_EXPORT int EVP_marshal_private_key(CBB *cbb, const EVP_PKEY *key);
-
 
 // Raw keys
 //
@@ -271,7 +266,6 @@ OPENSSL_EXPORT int EVP_PKEY_get_raw_private_key(const EVP_PKEY *pkey,
 // type does not support a raw format, or the buffer is too small.
 OPENSSL_EXPORT int EVP_PKEY_get_raw_public_key(const EVP_PKEY *pkey,
                                                uint8_t *out, size_t *out_len);
-
 
 // Signing
 
@@ -328,7 +322,6 @@ OPENSSL_EXPORT int EVP_DigestSign(EVP_MD_CTX *ctx, uint8_t *out_sig,
                                   size_t *out_sig_len, const uint8_t *data,
                                   size_t data_len);
 
-
 // Verifying
 
 // EVP_DigestVerifyInit sets up |ctx| for a signature verification operation
@@ -374,7 +367,6 @@ OPENSSL_EXPORT int EVP_DigestVerify(EVP_MD_CTX *ctx, const uint8_t *sig,
                                     size_t sig_len, const uint8_t *data,
                                     size_t len);
 
-
 // Signing (old functions)
 
 // EVP_SignInit_ex configures |ctx|, which must already have been initialised,
@@ -410,7 +402,6 @@ OPENSSL_EXPORT int EVP_SignUpdate(EVP_MD_CTX *ctx, const void *data,
 OPENSSL_EXPORT int EVP_SignFinal(const EVP_MD_CTX *ctx, uint8_t *sig,
                                  unsigned int *out_sig_len, EVP_PKEY *pkey);
 
-
 // Verifying (old functions)
 
 // EVP_VerifyInit_ex configures |ctx|, which must already have been
@@ -445,7 +436,6 @@ OPENSSL_EXPORT int EVP_VerifyUpdate(EVP_MD_CTX *ctx, const void *data,
 OPENSSL_EXPORT int EVP_VerifyFinal(EVP_MD_CTX *ctx, const uint8_t *sig,
                                    size_t sig_len, EVP_PKEY *pkey);
 
-
 // Printing
 
 // EVP_PKEY_print_public prints a textual representation of the public key in
@@ -462,7 +452,6 @@ OPENSSL_EXPORT int EVP_PKEY_print_private(BIO *out, const EVP_PKEY *pkey,
 // |pkey| to |out|. Returns one on success or zero otherwise.
 OPENSSL_EXPORT int EVP_PKEY_print_params(BIO *out, const EVP_PKEY *pkey,
                                          int indent, ASN1_PCTX *pctx);
-
 
 // Password stretching.
 //
@@ -507,7 +496,6 @@ OPENSSL_EXPORT int EVP_PBE_scrypt(const char *password, size_t password_len,
                                   uint64_t N, uint64_t r, uint64_t p,
                                   size_t max_mem, uint8_t *out_key,
                                   size_t key_len);
-
 
 // Public key contexts.
 //
@@ -699,7 +687,6 @@ OPENSSL_EXPORT int EVP_PKEY_paramgen_init(EVP_PKEY_CTX *ctx);
 // or zero on error.
 OPENSSL_EXPORT int EVP_PKEY_paramgen(EVP_PKEY_CTX *ctx, EVP_PKEY **out_pkey);
 
-
 // Generic control functions.
 
 // EVP_PKEY_CTX_set_signature_md sets |md| as the digest to be used in a
@@ -711,7 +698,6 @@ OPENSSL_EXPORT int EVP_PKEY_CTX_set_signature_md(EVP_PKEY_CTX *ctx,
 // signature operation. It returns one on success or zero on error.
 OPENSSL_EXPORT int EVP_PKEY_CTX_get_signature_md(EVP_PKEY_CTX *ctx,
                                                  const EVP_MD **out_md);
-
 
 // RSA specific control functions.
 
@@ -804,7 +790,6 @@ OPENSSL_EXPORT int EVP_PKEY_CTX_set0_rsa_oaep_label(EVP_PKEY_CTX *ctx,
 OPENSSL_EXPORT int EVP_PKEY_CTX_get0_rsa_oaep_label(EVP_PKEY_CTX *ctx,
                                                     const uint8_t **out_label);
 
-
 // EC specific control functions.
 
 // EVP_PKEY_CTX_set_ec_paramgen_curve_nid sets the curve used for
@@ -812,7 +797,6 @@ OPENSSL_EXPORT int EVP_PKEY_CTX_get0_rsa_oaep_label(EVP_PKEY_CTX *ctx,
 // on success and zero on error.
 OPENSSL_EXPORT int EVP_PKEY_CTX_set_ec_paramgen_curve_nid(EVP_PKEY_CTX *ctx,
                                                           int nid);
-
 
 // Deprecated functions.
 
@@ -1036,7 +1020,6 @@ OPENSSL_EXPORT int EVP_PKEY_CTX_set_dsa_paramgen_q_bits(EVP_PKEY_CTX *ctx,
 // Use the |EVP_PKEY_assign_*| functions instead.
 OPENSSL_EXPORT int EVP_PKEY_assign(EVP_PKEY *pkey, int type, void *key);
 
-
 // Preprocessor compatibility section (hidden).
 //
 // Historically, a number of APIs were implemented in OpenSSL as macros and
@@ -1050,7 +1033,6 @@ OPENSSL_EXPORT int EVP_PKEY_assign(EVP_PKEY *pkey, int type, void *key);
 #define EVP_PKEY_CTX_set0_rsa_oaep_label EVP_PKEY_CTX_set0_rsa_oaep_label
 #endif
 
-
 // Nodejs compatibility section (hidden).
 //
 // These defines exist for node.js, with the hope that we can eliminate the
@@ -1058,7 +1040,6 @@ OPENSSL_EXPORT int EVP_PKEY_assign(EVP_PKEY *pkey, int type, void *key);
 
 #define EVPerr(function, reason) \
   ERR_put_error(ERR_LIB_EVP, 0, reason, __FILE__, __LINE__)
-
 
 #if defined(__cplusplus)
 }  // extern C

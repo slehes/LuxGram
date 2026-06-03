@@ -1520,7 +1520,6 @@ private class ReorderingGestureRecognizer: UIGestureRecognizer {
     }
 }
 
-
 private func generateShadowImage(corners: CACornerMask, radius: CGFloat) -> UIImage? {
     return generateImage(CGSize(width: 120.0, height: 120), rotatedContext: { size, context in
         context.clear(CGRect(origin: CGPoint(), size: size))

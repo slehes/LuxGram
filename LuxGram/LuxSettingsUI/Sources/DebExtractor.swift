@@ -1,4 +1,3 @@
-// MARK: LuxGram – Extract .dylib from .deb packages (Cydia-style tweaks)
 import Foundation
 import Compression
 

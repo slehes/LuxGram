@@ -4,7 +4,6 @@ import Postbox
 public typealias EngineExportedPeerInvitation = ExportedInvitation
 public typealias EngineSecretChatKeyFingerprint = SecretChatKeyFingerprint
 
-
 public enum EnginePeerCachedInfoItem<T> {
     case known(T)
     case unknown

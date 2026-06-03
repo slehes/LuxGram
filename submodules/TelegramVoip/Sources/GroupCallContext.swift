@@ -15,7 +15,6 @@ public func callLogsPath(account: Account) -> String {
 }
 #endif
 
-
 final class ContextQueueImpl: NSObject, OngoingCallThreadLocalContextQueueWebrtc {
     private let queue: Queue
     
@@ -1078,7 +1077,6 @@ public final class OngoingGroupCallContext {
                 }
             })
         }
-
 
         func video(endpointId: String) -> Signal<OngoingGroupCallContext.VideoFrameData, NoError> {
             let queue = self.queue

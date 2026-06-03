@@ -27,7 +27,6 @@
 #include "cbs.h"
 #include "packet.h"
 
-
 typedef struct CBSBSFType {
     enum AVCodecID codec_id;
 
@@ -92,7 +91,6 @@ void ff_cbs_bsf_generic_close(AVBSFContext *bsf);
  */
 int ff_cbs_bsf_generic_filter(AVBSFContext *bsf, AVPacket *pkt);
 
-
 // Options for element manipulation.
 enum {
     // Pass this element through unchanged.
@@ -132,6 +130,5 @@ enum {
         { .i64 = BSF_ELEMENT_REMOVE  }, .flags = opt_flags, .unit = name }, \
     { "extract", NULL, 0, AV_OPT_TYPE_CONST, \
         { .i64 = BSF_ELEMENT_EXTRACT }, .flags = opt_flags, .unit = name } \
-
 
 #endif /* AVCODEC_CBS_BSF_H */

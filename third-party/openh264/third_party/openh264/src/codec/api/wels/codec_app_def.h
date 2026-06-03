@@ -30,8 +30,6 @@
  *
  */
 
-
-
 #ifndef WELS_VIDEO_CODEC_APPLICATION_DEFINITION_H__
 #define WELS_VIDEO_CODEC_APPLICATION_DEFINITION_H__
 /**
@@ -51,10 +49,8 @@
 #define MAX_RTP_PAYLOAD_LEN             1000
 #define AVERAGE_RTP_PAYLOAD_LEN         800
 
-
 #define SAVED_NALUNIT_NUM_TMP           ( (MAX_SPATIAL_LAYER_NUM*MAX_QUALITY_LAYER_NUM) + 1 + MAX_SPATIAL_LAYER_NUM )  ///< SPS/PPS + SEI/SSEI + PADDING_NAL
 #define MAX_SLICES_NUM_TMP              ( ( MAX_NAL_UNITS_IN_LAYER - SAVED_NALUNIT_NUM_TMP ) / 3 )
-
 
 #define AUTO_REF_PIC_COUNT  -1          ///< encoder selects the number of reference frame automatically
 #define UNSPECIFIED_BIT_RATE 0          ///< to do: add detail comment
@@ -425,7 +421,6 @@ typedef enum {
   CM_NUM_ENUM
 } EColorMatrix;
 
-
 /**
 * @brief Enumerate the type of sample aspect ratio
 */
@@ -447,7 +442,6 @@ typedef enum {
 
   ASP_EXT_SAR = 255
 } ESampleAspectRatio;
-
 
 /**
 * @brief  Structure for spatial layer configuration

@@ -330,7 +330,6 @@ const CGSize TGPhotoPaintingMaxSize = { 1920.0f, 1920.0f };
 
 #pragma mark - Undo & Redo
 
-
 - (TGPaintingData *)_prepareResultData
 {
     TGPaintingData *resultData = _resultData;

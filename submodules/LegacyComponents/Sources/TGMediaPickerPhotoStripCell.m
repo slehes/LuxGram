@@ -354,7 +354,6 @@ NSString *const TGMediaPickerPhotoStripCellKind = @"PhotoStripCell";
 
 @end
 
-
 @implementation TGMediaPickerPhotoStripDeleteButton
 
 - (instancetype)initWithFrame:(CGRect)frame

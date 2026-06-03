@@ -467,7 +467,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 final class MonetizationIntroScreen: ViewControllerComponentContainer {
     private let context: AccountContext
     private var openMore: (() -> Void)?

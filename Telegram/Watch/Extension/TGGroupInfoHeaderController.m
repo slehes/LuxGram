@@ -18,8 +18,6 @@ NSString *const TGGroupInfoHeaderIdentifier = @"TGGroupInfoHeader";
 
 @implementation TGGroupInfoHeaderController
 
-
-
 - (void)updateWithGroupChat:(TGBridgeChat *)chat users:(NSDictionary *)users context:(TGBridgeContext *)context
 {
     self.nameLabel.text = chat.groupTitle;

@@ -2,7 +2,6 @@ import Foundation
 import SwiftSignalKit
 import TelegramApi
 
-
 public struct DeepLinkInfo {
     public let message: String
     public let entities: [MessageTextEntity]

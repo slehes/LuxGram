@@ -13,7 +13,6 @@ import Cocoa
 import UIKit
 #endif
 
-
 enum BaseConstants {
     static let defaultRange: ClosedRange<CGFloat> = 0...1
     static let minimumAxisYLabelsDistance: CGFloat = 85

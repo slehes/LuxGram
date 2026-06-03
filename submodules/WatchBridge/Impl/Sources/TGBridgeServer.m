@@ -621,11 +621,9 @@
     
 }
 
-
 - (void)sessionDidBecomeInactive:(nonnull WCSession *)session {
     
 }
-
 
 - (void)sessionDidDeactivate:(nonnull WCSession *)session {
     
@@ -665,7 +663,6 @@
 }
 
 @end
-
 
 @interface TGBridgeSignalManager()
 {

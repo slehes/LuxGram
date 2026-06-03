@@ -383,7 +383,6 @@ static const int encoderPacketSizeInBytes = 16000 / 1000 * 60 * 2;
 
 @end
 
-
 @interface ATQueue ()
 {
     dispatch_queue_t _nativeQueue;

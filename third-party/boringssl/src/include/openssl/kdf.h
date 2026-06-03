@@ -21,9 +21,7 @@
 extern "C" {
 #endif
 
-
 // KDF support for EVP.
-
 
 // HKDF-specific functions.
 //
@@ -82,7 +80,6 @@ OPENSSL_EXPORT int EVP_PKEY_CTX_set1_hkdf_salt(EVP_PKEY_CTX *ctx,
 OPENSSL_EXPORT int EVP_PKEY_CTX_add1_hkdf_info(EVP_PKEY_CTX *ctx,
                                                const uint8_t *info,
                                                size_t info_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -522,7 +522,6 @@ private final class NavigationButtonItemNode: ImmediateTextNode {
     }
 }
 
-
 public final class NavigationButtonNodeImpl: ContextControllerSourceNode, NavigationButtonNode {
     private let isGlass: Bool
     private var isBack: Bool = false

@@ -813,7 +813,6 @@ public func stickerPackEditTitleController(context: AccountContext, forceDark: B
     return controller
 }
 
-
 public func importStickerPackShortNameController(context: AccountContext, title: String, text: String, placeholder: String, value: String?, maxLength: Int, existingAlertController: AlertController?, apply: @escaping (String?) -> Void) -> AlertController {
     let presentationData = context.sharedContext.currentPresentationData.with { $0 }
     var dismissImpl: ((Bool) -> Void)?

@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 // block128_f is the type of an AES block cipher implementation.
 //
 // Unlike upstream OpenSSL, it and the other functions in this file hard-code
@@ -90,7 +89,6 @@ OPENSSL_INLINE void CRYPTO_xor16(uint8_t out[16], const uint8_t a[16],
   }
 }
 
-
 // CTR.
 
 // ctr128_f is the type of a function that performs CTR-mode encryption.
@@ -116,7 +114,6 @@ void CRYPTO_ctr128_encrypt_ctr32(const uint8_t *in, uint8_t *out, size_t len,
                                  const AES_KEY *key, uint8_t ivec[16],
                                  uint8_t ecount_buf[16], unsigned *num,
                                  ctr128_f ctr);
-
 
 // GCM.
 //
@@ -249,7 +246,6 @@ OPENSSL_EXPORT int CRYPTO_gcm128_finish(GCM128_CONTEXT *ctx, const uint8_t *tag,
 OPENSSL_EXPORT void CRYPTO_gcm128_tag(GCM128_CONTEXT *ctx, uint8_t *tag,
                                       size_t len);
 
-
 // GCM assembly.
 
 void gcm_init_nohw(u128 Htable[16], const uint64_t H[2]);
@@ -328,7 +324,6 @@ void aes_gcm_dec_kernel(const uint8_t *in, uint64_t in_bits, void *out,
 #endif
 #endif  // OPENSSL_NO_ASM
 
-
 // CBC.
 
 // cbc128_f is the type of a function that performs CBC-mode encryption.
@@ -351,7 +346,6 @@ void CRYPTO_cbc128_decrypt(const uint8_t *in, uint8_t *out, size_t len,
                            const AES_KEY *key, uint8_t ivec[16],
                            block128_f block);
 
-
 // OFB.
 
 // CRYPTO_ofb128_encrypt encrypts (or decrypts, it's the same with OFB mode)
@@ -362,7 +356,6 @@ void CRYPTO_cbc128_decrypt(const uint8_t *in, uint8_t *out, size_t len,
 void CRYPTO_ofb128_encrypt(const uint8_t *in, uint8_t *out, size_t len,
                            const AES_KEY *key, uint8_t ivec[16], unsigned *num,
                            block128_f block);
-
 
 // CFB.
 
@@ -392,7 +385,6 @@ size_t CRYPTO_cts128_encrypt_block(const uint8_t *in, uint8_t *out, size_t len,
                                    const AES_KEY *key, uint8_t ivec[16],
                                    block128_f block);
 
-
 // POLYVAL.
 //
 // POLYVAL is a polynomial authenticator that operates over a field very
@@ -419,7 +411,6 @@ void CRYPTO_POLYVAL_update_blocks(struct polyval_ctx *ctx, const uint8_t *in,
 
 // CRYPTO_POLYVAL_finish writes the accumulator from |ctx| to |out|.
 void CRYPTO_POLYVAL_finish(const struct polyval_ctx *ctx, uint8_t out[16]);
-
 
 #if defined(__cplusplus)
 }  // extern C

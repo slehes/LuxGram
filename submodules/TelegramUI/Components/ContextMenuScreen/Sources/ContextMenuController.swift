@@ -107,5 +107,3 @@ public final class ContextMenuControllerImpl: ViewController, KeyShortcutRespond
     }
 }
 
-
-

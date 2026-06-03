@@ -61,7 +61,6 @@ void WelsQuant4x4Dc_c (int16_t* pDct, int16_t iFF,  int16_t iMF);
 void WelsQuantFour4x4_c (int16_t* pDct, const int16_t* pFF, const int16_t* pQpTable);
 void WelsQuantFour4x4Max_c (int16_t* pDct, const int16_t* pF, const int16_t* pQpTable, int16_t* pMax);
 
-
 /****************************************************************************
  * DCT functions
  ****************************************************************************/

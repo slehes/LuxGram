@@ -23,9 +23,7 @@
 extern "C" {
 #endif
 
-
 // Time functions.
-
 
 // OPENSSL_posix_to_tm converts a int64_t POSIX time value in |time|, which must
 // be in the range of year 0000 to 9999, to a broken out time value in |tm|. It
@@ -42,7 +40,6 @@ OPENSSL_EXPORT int OPENSSL_tm_to_posix(const struct tm *tm, int64_t *out);
 // failure. It is a failure if the converted time can not be represented in a
 // time_t, or if the tm contains out of range values.
 OPENSSL_EXPORT int OPENSSL_timegm(const struct tm *tm, time_t *out);
-
 
 #if defined(__cplusplus)
 }  // extern C

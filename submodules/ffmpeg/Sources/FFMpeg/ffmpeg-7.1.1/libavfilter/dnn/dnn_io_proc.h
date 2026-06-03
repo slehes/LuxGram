@@ -23,7 +23,6 @@
  * DNN input&output process between AVFrame and DNNData.
  */
 
-
 #ifndef AVFILTER_DNN_DNN_IO_PROC_H
 #define AVFILTER_DNN_DNN_IO_PROC_H
 

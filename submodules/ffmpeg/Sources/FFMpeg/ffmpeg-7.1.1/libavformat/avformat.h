@@ -411,7 +411,6 @@ struct AVFrame;
 
 /* packet functions */
 
-
 /**
  * Allocate and read the payload of a packet and initialize its
  * fields with default values.
@@ -422,7 +421,6 @@ struct AVFrame;
  * @return >0 (read size) if OK, AVERROR_xxx otherwise
  */
 int av_get_packet(AVIOContext *s, AVPacket *pkt, int size);
-
 
 /**
  * Read data and append it to the current content of the AVPacket.
@@ -533,7 +531,6 @@ typedef struct AVOutputFormat {
      * choice first". The arrays are all terminated by AV_CODEC_ID_NONE.
      */
     const struct AVCodecTag * const *codec_tag;
-
 
     const AVClass *priv_class; ///< AVClass for the private context
 } AVOutputFormat;
@@ -1252,7 +1249,6 @@ typedef struct AVChapter {
     AVDictionary *metadata;
 } AVChapter;
 
-
 /**
  * Callback used by devices to communicate with application.
  */
@@ -1664,7 +1660,6 @@ typedef struct AVFormatContext {
  *   write it into the file
  */
 #define AVFMT_EVENT_FLAG_METADATA_UPDATED 0x0001
-
 
     /**
      * Avoid negative timestamps during muxing.
@@ -2172,7 +2167,6 @@ AVProgram *av_new_program(AVFormatContext *s, int id);
 /**
  * @}
  */
-
 
 /**
  * Allocate an AVFormatContext for an output format.
@@ -2718,11 +2712,9 @@ enum AVCodecID av_guess_codec(const AVOutputFormat *fmt, const char *short_name,
 int av_get_output_timestamp(struct AVFormatContext *s, int stream,
                             int64_t *dts, int64_t *wall);
 
-
 /**
  * @}
  */
-
 
 /**
  * @defgroup lavf_misc Utility functions
@@ -2767,7 +2759,6 @@ void av_hex_dump_log(void *avcl, int level, const uint8_t *buf, int size);
  * @param st AVStream that the packet belongs to
  */
 void av_pkt_dump2(FILE *f, const AVPacket *pkt, int dump_payload, const AVStream *st);
-
 
 /**
  * Send a nice dump of a packet to the log.
@@ -2878,7 +2869,6 @@ const AVIndexEntry *avformat_index_get_entry_from_timestamp(AVStream *st,
 int av_add_index_entry(AVStream *st, int64_t pos, int64_t timestamp,
                        int size, int distance, int flags);
 
-
 /**
  * Split a URL string into components.
  *
@@ -2905,7 +2895,6 @@ void av_url_split(char *proto,         int proto_size,
                   char *path,          int path_size,
                   const char *url);
 
-
 /**
  * Print detailed information about the input or output format, such as
  * duration, bitrate, streams, container, programs, metadata, side data,
@@ -2920,7 +2909,6 @@ void av_dump_format(AVFormatContext *ic,
                     int index,
                     const char *url,
                     int is_output);
-
 
 #define AV_FRAME_FILENAME_FLAGS_MULTIPLE 1 ///< Allow multiple %d
 
@@ -3098,7 +3086,6 @@ int avformat_transfer_internal_stream_timing_info(const AVOutputFormat *ofmt,
 attribute_deprecated
 AVRational av_stream_get_codec_timebase(const AVStream *st);
 #endif
-
 
 /**
  * @}

@@ -8,7 +8,6 @@ import Display
 import TelegramPresentationData
 import AccountContext
 
-
 struct AppBadge: Identifiable, Hashable {
     let id: UUID = .init()
     let displayName: String
@@ -17,7 +16,6 @@ struct AppBadge: Identifiable, Hashable {
 
 func getAvailableAppBadges() -> [AppBadge] {
     var appBadges: [AppBadge] = [
-        // MARK: - LuxGram official badges
         .init(displayName: "LuxGram Black", assetName: "LuxGramBlackAppBadge"),
         .init(displayName: "LuxGram Green", assetName: "LuxGramGreenAppBadge"),
         // Colour variants

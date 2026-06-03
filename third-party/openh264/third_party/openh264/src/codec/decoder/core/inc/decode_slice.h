@@ -101,4 +101,3 @@ void WelsBlockZero8x8_c (int16_t* block, int32_t stride);
 
 #endif //WELS_DECODE_SLICE_H__
 
-

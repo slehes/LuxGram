@@ -232,7 +232,6 @@
     PD(   0,   0), E2(   2,   2), E2(   6,   6), E2(  12,  12), E2(  20,  20),\
     E2(  32,  32), E2(  46,  46)
 
-
 /**
  * Pack two delta values (a,b) into one 16-bit word
  * according with endianness of the host machine.
@@ -318,7 +317,6 @@ static const int32_t delta_tab_3_2_m10[79]  = { TAB_3_2 };
 static const int32_t delta_tab_3_3_m10[79]  = { TAB_3_3 };
 static const int32_t delta_tab_3_4_m10[79]  = { TAB_3_4 };
 static const int32_t delta_tab_3_5_m10[79]  = { TAB_3_5 };
-
 
 typedef struct vqEntry {
     const int16_t  *deltas;     ///< delta tables for 4x4 block modes

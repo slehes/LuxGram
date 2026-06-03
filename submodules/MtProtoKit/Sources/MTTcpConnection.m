@@ -542,7 +542,6 @@ static NSMutableData *MTCreateSafariClientHello(NSString *domain, id<EncryptionP
     return executeGenerationCode(provider, domainData);
 }
 
-
 @interface MTTcpConnectionData : NSObject
 
 @property (nonatomic, strong, readonly) NSString *ip;

@@ -3,7 +3,6 @@ import SwiftSignalKit
 import Postbox
 import TelegramApi
 
-
 public enum ChatOwnershipTransferError {
     case generic
     case twoStepAuthMissing

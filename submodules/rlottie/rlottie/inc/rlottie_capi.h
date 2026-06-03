@@ -231,7 +231,6 @@ LOT_EXPORT void lottie_animation_render_async(Lottie_Animation *animation, size_
  */
 LOT_EXPORT uint32_t *lottie_animation_render_flush(Lottie_Animation *animation);
 
-
 /**
  *  @brief Request to change the properties of this animation object.
  *  Keypath should conatin object names separated by (.) and can handle globe(**) or wildchar(*)

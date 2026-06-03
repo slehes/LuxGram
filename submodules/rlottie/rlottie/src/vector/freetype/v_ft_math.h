@@ -20,7 +20,6 @@
 
 #include "v_ft_types.h"
 
-
 /*************************************************************************/
 /*                                                                       */
 /* The min and max functions missing in C.  As usual, be careful not to  */
@@ -124,15 +123,12 @@ SW_FT_Long
 SW_FT_DivFix( SW_FT_Long  a,
            SW_FT_Long  b );
 
-
-
   /*************************************************************************/
   /*                                                                       */
   /* <Section>                                                             */
   /*   computations                                                        */
   /*                                                                       */
   /*************************************************************************/
-
 
   /*************************************************************************
    *
@@ -146,7 +142,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    */
   typedef SW_FT_Fixed  SW_FT_Angle;
 
-
   /*************************************************************************
    *
    * @macro:
@@ -157,7 +152,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    *
    */
 #define SW_FT_ANGLE_PI  ( 180L << 16 )
-
 
   /*************************************************************************
    *
@@ -170,7 +164,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    */
 #define SW_FT_ANGLE_2PI  ( SW_FT_ANGLE_PI * 2 )
 
-
   /*************************************************************************
    *
    * @macro:
@@ -182,7 +175,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    */
 #define SW_FT_ANGLE_PI2  ( SW_FT_ANGLE_PI / 2 )
 
-
   /*************************************************************************
    *
    * @macro:
@@ -193,7 +185,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    *
    */
 #define SW_FT_ANGLE_PI4  ( SW_FT_ANGLE_PI / 4 )
-
 
   /*************************************************************************
    *
@@ -218,7 +209,6 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Fixed
   SW_FT_Sin( SW_FT_Angle  angle );
 
-
   /*************************************************************************
    *
    * @function:
@@ -242,7 +232,6 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Fixed
   SW_FT_Cos( SW_FT_Angle  angle );
 
-
   /*************************************************************************
    *
    * @function:
@@ -261,7 +250,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    */
   SW_FT_Fixed
   SW_FT_Tan( SW_FT_Angle  angle );
-
 
   /*************************************************************************
    *
@@ -287,7 +275,6 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Atan2( SW_FT_Fixed  x,
             SW_FT_Fixed  y );
 
-
   /*************************************************************************
    *
    * @function:
@@ -311,7 +298,6 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Angle
   SW_FT_Angle_Diff( SW_FT_Angle  angle1,
                  SW_FT_Angle  angle2 );
-
 
   /*************************************************************************
    *
@@ -339,7 +325,6 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Vector_Unit( SW_FT_Vector*  vec,
                   SW_FT_Angle    angle );
 
-
   /*************************************************************************
    *
    * @function:
@@ -361,7 +346,6 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Vector_Rotate( SW_FT_Vector*  vec,
                     SW_FT_Angle    angle );
 
-
   /*************************************************************************
    *
    * @function:
@@ -381,7 +365,6 @@ SW_FT_DivFix( SW_FT_Long  a,
    */
   SW_FT_Fixed
   SW_FT_Vector_Length( SW_FT_Vector*  vec );
-
 
   /*************************************************************************
    *
@@ -408,7 +391,6 @@ SW_FT_DivFix( SW_FT_Long  a,
                       SW_FT_Fixed   *length,
                       SW_FT_Angle   *angle );
 
-
   /*************************************************************************
    *
    * @function:
@@ -433,6 +415,5 @@ SW_FT_DivFix( SW_FT_Long  a,
   SW_FT_Vector_From_Polar( SW_FT_Vector*  vec,
                         SW_FT_Fixed    length,
                         SW_FT_Angle    angle );
-
 
 #endif // V_FT_MATH_H

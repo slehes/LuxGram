@@ -91,7 +91,6 @@ struct uio {
 	enum	uio_rw uio_rw;		/* operation */
 };
 
-
 /* __Userspace__ */
 
 /*
@@ -373,7 +372,6 @@ extern userland_cond_t accept_cond;
 #define SCTP_EVENT_WRITE	0x0002	/* socket is writeable */
 #define SCTP_EVENT_ERROR	0x0004	/* socket has an error state */
 
-
 /*-------------------------------------------------------------*/
 /*-------------------------------------------------------------*/
 /*                   __Userspace__                             */
@@ -395,8 +393,6 @@ void	socantrcvmore(struct socket *so);
 void	socantsendmore(struct socket *so);
 void	sofree(struct socket *so);
 
-
-
 /* -------------- */
 /* --- macros --- */
 /* -------------- */
@@ -417,7 +413,6 @@ void	sofree(struct socket *so);
 		ACCEPT_UNLOCK();					\
 	}								\
 } while (0)
-
 
 /* replacing imin with min (user_environment.h) */
 #define	sbspace(sb) \
@@ -488,7 +483,6 @@ extern void sctp_finish(void);
  */
 #define	sb_notify(sb)	(((sb)->sb_flags & (SB_WAIT | SB_SEL | SB_ASYNC | \
     SB_UPCALL | SB_AIO | SB_KNOTE)) != 0)
-
 
 /*
  * In sorwakeup() and sowwakeup(), acquire the socket buffer lock to

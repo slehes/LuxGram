@@ -31,7 +31,6 @@ func addMessageMediaResourceIdsToRemove(message: Message, resourceIds: inout [Me
     }
 }
 
-// MARK: - LuxGram - Force-delete message ids (bypasses "save deleted messages" marking).
 /// Returns the message ids that were actually deleted.
 public func _internal_forceDeleteMessages(transaction: Transaction, mediaBox: MediaBox, ids: [MessageId], deleteMedia: Bool = true, manualAddMessageThreadStatsDifference: ((MessageThreadKey, Int, Int) -> Void)? = nil) -> [MessageId] {
     let idsToDelete = ids
@@ -72,7 +71,6 @@ public func _internal_forceDeleteMessages(transaction: Transaction, mediaBox: Me
 /// Returns the message ids that were actually deleted (not marked as saved-deleted).
 @discardableResult
 public func _internal_deleteMessages(transaction: Transaction, mediaBox: MediaBox, ids: [MessageId], deleteMedia: Bool = true, manualAddMessageThreadStatsDifference: ((MessageThreadKey, Int, Int) -> Void)? = nil) -> [MessageId] {
-    // MARK: LuxGram - Mark messages as deleted instead of actually deleting them
     #if canImport(SGDeletedMessages)
     let savedSnapshots = SGDeletedMessages.saveSnapshots(
         ids: ids,
@@ -161,7 +159,6 @@ public func _internal_deleteMessages(transaction: Transaction, mediaBox: MediaBo
     return idsToDelete
 }
 
-// MARK: - LuxGram - Safely delete messages in range, preserving saved deleted messages
 func _internal_deleteMessagesInRangeSafely(transaction: Transaction, mediaBox: MediaBox, peerId: PeerId, namespace: MessageId.Namespace, minId: MessageId.Id, maxId: MessageId.Id, forEachMedia: ((Media) -> Void)?) {
     #if canImport(SGDeletedMessages)
     guard SGDeletedMessages.showDeletedMessages else {

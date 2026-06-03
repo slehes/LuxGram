@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension RichText {
     init(apiText: Api.RichText) {
         switch apiText {

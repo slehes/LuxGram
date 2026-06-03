@@ -6,9 +6,7 @@
 
 #import "NBNumberFormat.h"
 
-
 @implementation NBNumberFormat
-
 
 - (id)initWithPattern:(NSString *)pattern withFormat:(NSString *)format withLeadingDigitsPatterns:(NSMutableArray *)leadingDigitsPatterns withNationalPrefixFormattingRule:(NSString *)nationalPrefixFormattingRule whenFormatting:(BOOL)nationalPrefixOptionalWhenFormatting withDomesticCarrierCodeFormattingRule:(NSString *)domesticCarrierCodeFormattingRule
 {
@@ -24,7 +22,6 @@
     return self;
 }
 
-
 - (id)init
 {
     self = [super init];
@@ -37,13 +34,11 @@
     return self;
 }
 
-
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"[pattern:%@, format:%@, leadingDigitsPattern:%@, nationalPrefixFormattingRule:%@, nationalPrefixOptionalWhenFormatting:%@, domesticCarrierCodeFormattingRule:%@]",
             self.pattern, self.format, self.leadingDigitsPatterns, self.nationalPrefixFormattingRule, self.nationalPrefixOptionalWhenFormatting?@"Y":@"N", self.domesticCarrierCodeFormattingRule];
 }
-
 
 - (id)copyWithZone:(NSZone *)zone
 {
@@ -68,7 +63,6 @@
 	return phoneFormatCopy;
 }
 
-
 - (id)initWithCoder:(NSCoder*)coder
 {
     if (self = [super init]) {
@@ -82,7 +76,6 @@
     return self;
 }
 
-
 - (void)encodeWithCoder:(NSCoder*)coder
 {
     [coder encodeObject:self.pattern forKey:@"pattern"];
@@ -92,6 +85,5 @@
     [coder encodeObject:[NSNumber numberWithBool:self.nationalPrefixOptionalWhenFormatting] forKey:@"nationalPrefixOptionalWhenFormatting"];
     [coder encodeObject:self.domesticCarrierCodeFormattingRule forKey:@"domesticCarrierCodeFormattingRule"];
 }
-
 
 @end

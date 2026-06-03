@@ -81,7 +81,6 @@ private func gridNodeLayoutForContainerLayout(_ layout: ContainerViewLayout) -> 
     return .fixed(itemSize: CGSize(width: side, height: side), fillWidth: true, lineSpacing: 1.0, itemSpacing: 1.0)
 }
 
-
 private struct WebSearchRecentQueryStableId: Hashable {
     let query: String
 }

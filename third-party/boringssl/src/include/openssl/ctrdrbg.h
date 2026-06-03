@@ -21,9 +21,7 @@
 extern "C" {
 #endif
 
-
 // FIPS pseudo-random number generator.
-
 
 // CTR-DRBG state objects.
 //
@@ -67,7 +65,6 @@ OPENSSL_EXPORT int CTR_DRBG_generate(CTR_DRBG_STATE *drbg, uint8_t *out,
 
 // CTR_DRBG_clear zeroises the state of |drbg|.
 OPENSSL_EXPORT void CTR_DRBG_clear(CTR_DRBG_STATE *drbg);
-
 
 #if defined(__cplusplus)
 }  // extern C

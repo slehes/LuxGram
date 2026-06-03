@@ -259,7 +259,6 @@ struct {								\
 	   (var);							\
 	   (var) = STAILQ_NEXT((var), field))
 
-
 #define	STAILQ_FOREACH_SAFE(var, head, field, tvar)			\
 	for ((var) = STAILQ_FIRST((head));				\
 	    (var) && ((tvar) = STAILQ_NEXT((var), field), 1);		\
@@ -334,7 +333,6 @@ struct {								\
 	if (STAILQ_EMPTY(head2))					\
 		(head2)->stqh_last = &STAILQ_FIRST(head2);		\
 } while (0)
-
 
 /*
  * List declarations.

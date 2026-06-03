@@ -65,14 +65,12 @@
 extern "C" {
 #endif
 
-
 // DH contains functions for performing Diffie-Hellman key agreement in
 // multiplicative groups.
 //
 // This module is deprecated and retained for legacy reasons only. It is not
 // considered a priority for performance or hardening work. Do not use it in
 // new code. Use X25519 or ECDH with P-256 instead.
-
 
 // Allocation and destruction.
 
@@ -85,7 +83,6 @@ OPENSSL_EXPORT void DH_free(DH *dh);
 
 // DH_up_ref increments the reference count of |dh| and returns one.
 OPENSSL_EXPORT int DH_up_ref(DH *dh);
-
 
 // Properties.
 
@@ -134,7 +131,6 @@ OPENSSL_EXPORT int DH_set0_pqg(DH *dh, BIGNUM *p, BIGNUM *q, BIGNUM *g);
 // |DH_generate_key| will use the bit length of p.
 OPENSSL_EXPORT int DH_set_length(DH *dh, unsigned priv_length);
 
-
 // Standard parameters.
 
 // DH_get_rfc7919_2048 returns the group `ffdhe2048` from
@@ -172,7 +168,6 @@ OPENSSL_EXPORT BIGNUM *BN_get_rfc3526_prime_6144(BIGNUM *ret);
 // and returned. It returns NULL on allocation failure.
 OPENSSL_EXPORT BIGNUM *BN_get_rfc3526_prime_8192(BIGNUM *ret);
 
-
 // Parameter generation.
 
 #define DH_GENERATOR_2 2
@@ -188,7 +183,6 @@ OPENSSL_EXPORT BIGNUM *BN_get_rfc3526_prime_8192(BIGNUM *ret);
 // complete.
 OPENSSL_EXPORT int DH_generate_parameters_ex(DH *dh, int prime_bits,
                                              int generator, BN_GENCB *cb);
-
 
 // Diffie-Hellman operations.
 
@@ -229,7 +223,6 @@ OPENSSL_EXPORT int DH_compute_key_hashed(DH *dh, uint8_t *out, size_t *out_len,
                                          size_t max_out_len,
                                          const BIGNUM *peers_key,
                                          const EVP_MD *digest);
-
 
 // Utility functions.
 
@@ -273,7 +266,6 @@ OPENSSL_EXPORT int DH_check_pub_key(const DH *dh, const BIGNUM *pub_key,
 // it. It returns the new |DH| or NULL on error.
 OPENSSL_EXPORT DH *DHparams_dup(const DH *dh);
 
-
 // ASN.1 functions.
 
 // DH_parse_parameters decodes a DER-encoded DHParameter structure (PKCS #3)
@@ -285,7 +277,6 @@ OPENSSL_EXPORT DH *DH_parse_parameters(CBS *cbs);
 // (PKCS #3) and appends the result to |cbb|. It returns one on success and zero
 // on error.
 OPENSSL_EXPORT int DH_marshal_parameters(CBB *cbb, const DH *dh);
-
 
 // Deprecated functions.
 
@@ -329,7 +320,6 @@ OPENSSL_EXPORT int i2d_DHparams(const DH *in, unsigned char **outp);
 // primitive such as X25519 or ECDH with P-256 instead.
 OPENSSL_EXPORT int DH_compute_key(uint8_t *out, const BIGNUM *peers_key,
                                   DH *dh);
-
 
 #if defined(__cplusplus)
 }  // extern C

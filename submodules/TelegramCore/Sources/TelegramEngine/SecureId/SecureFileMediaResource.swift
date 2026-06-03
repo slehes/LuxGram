@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension SecureFileMediaResource: TelegramCloudMediaResource, TelegramMultipartFetchableResource, EncryptedMediaResource {
     func apiInputLocation(fileReference: Data?) -> Api.InputFileLocation? {
         return Api.InputFileLocation.inputSecureFileLocation(.init(id: self.file.id, accessHash: self.file.accessHash))

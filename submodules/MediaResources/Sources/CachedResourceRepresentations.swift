@@ -370,7 +370,6 @@ public final class CachedPreparedPatternWallpaperRepresentation: CachedMediaReso
     }
 }
 
-
 public final class CachedPreparedSvgRepresentation: CachedMediaResourceRepresentation {
     public let keepDuration: CachedMediaRepresentationKeepDuration = .general
     

@@ -68,7 +68,6 @@
 extern "C" {
 #endif
 
-
 // Wrapper functions for time functions.
 
 // OPENSSL_gmtime converts a time_t value in |time| which must be in the range
@@ -257,7 +256,6 @@ typedef struct ASN1_EXTERN_FUNCS_st {
   ASN1_ex_d2i *asn1_ex_d2i;
   ASN1_ex_i2d *asn1_ex_i2d;
 } ASN1_EXTERN_FUNCS;
-
 
 #if defined(__cplusplus)
 }  // extern C

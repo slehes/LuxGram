@@ -301,7 +301,6 @@ public class SGSimpleSettings {
         case notificationMutedAccountRecordIds
         case gatedFeatureKeys
         case unlockedFeatureKeys
-        // MARK: - LuxGram — Liquid Glass
         case liquidGlassEnabled
     }
     
@@ -1088,7 +1087,6 @@ public class SGSimpleSettings {
     @UserDefault(key: Keys.chatExportEnabled.rawValue)
     public var chatExportEnabled: Bool
 
-    // MARK: - LuxGram — Liquid Glass
     @UserDefault(key: Keys.liquidGlassEnabled.rawValue)
     public var liquidGlassEnabled: Bool
 
@@ -1233,7 +1231,6 @@ public class SGSimpleSettings {
         }
     }
     
-    // MARK: Swiftgram - Keep Removed Channels
     public var removedChannels: [Int64] {
         get {
             if let data = UserDefaults.standard.data(forKey: "removedChannels"),
@@ -1264,7 +1261,6 @@ public class SGSimpleSettings {
         removedChannels.removeAll { $0 == peerId }
     }
     
-    // MARK: Swiftgram - Keep Removed User Chats
     public var removedUserChats: [Int64] {
         get {
             if let data = UserDefaults.standard.data(forKey: "removedUserChats"),

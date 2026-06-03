@@ -49,7 +49,6 @@ private func adjustSaturationInContext(context: DrawingContext, saturation: CGFl
     vImageMatrixMultiply_ARGB8888(&buffer, &buffer, &matrix, divisor, nil, nil, vImage_Flags(kvImageDoNotTile))
 }
 
-
 private func generateBlurredThumbnail(image: UIImage, adjustSaturation: Bool = false) -> UIImage? {
     let thumbnailContextSize = CGSize(width: 32.0, height: 32.0)
     guard let thumbnailContext = DrawingContext(size: thumbnailContextSize, scale: 1.0) else {
@@ -517,7 +516,6 @@ public final class DirectMediaImageCache {
         
         return GetMediaResult(image: resultImage, blurredImage: blurredImage, loadSignal: self.getLoadSignal(width: size, aspectRatio: 1.0, userLocation: .other, userContentType: .avatar, resource: resource, resourceSizeLimit: 1 * 1024 * 1024))
     }
-
 
     public func getImage(peer: PeerReference, story: EngineStoryItem, media: Media, width: Int, aspectRatio: CGFloat, possibleWidths: [Int], includeBlurred: Bool = false, synchronous: Bool) -> GetMediaResult? {
         if synchronous {

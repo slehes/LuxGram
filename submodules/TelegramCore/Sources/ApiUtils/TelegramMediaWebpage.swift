@@ -3,7 +3,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 func telegramMediaWebpageAttributeFromApiWebpageAttribute(_ attribute: Api.WebPageAttribute) -> TelegramMediaWebpageAttribute? {
     switch attribute {
     case let .webPageAttributeTheme(webPageAttributeThemeData):

@@ -42,7 +42,6 @@ class U2netpInput : MLFeatureProvider {
 
 }
 
-
 /// Model Prediction Output Type
 @available(macOS 11.0, iOS 14.0, tvOS 14.0, watchOS 7.0, *)
 class U2netpOutput : MLFeatureProvider {
@@ -101,7 +100,6 @@ class U2netpOutput : MLFeatureProvider {
         self.provider = features
     }
 }
-
 
 /// Class for model loading and prediction
 @available(macOS 11.0, iOS 14.0, tvOS 14.0, watchOS 7.0, *)

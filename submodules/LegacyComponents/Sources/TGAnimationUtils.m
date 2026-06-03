@@ -40,7 +40,6 @@ NSString *kCAMediaTimingFunctionSpring = @"kCAMediaTimingFunctionSpring";
 
 @end
 
-
 static CABasicAnimation * _Nonnull makeSpringAnimation(NSString * _Nonnull keyPath) {
     CASpringAnimation *springAnimation = [CASpringAnimation animationWithKeyPath:keyPath];
     springAnimation.mass = 3.0f;

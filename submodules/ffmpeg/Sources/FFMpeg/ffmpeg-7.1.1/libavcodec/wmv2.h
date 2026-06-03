@@ -29,7 +29,6 @@
 #define SKIP_TYPE_ROW  2
 #define SKIP_TYPE_COL  3
 
-
 typedef struct WMV2Context {
     WMV2DSPContext wdsp;
     int hshift;
@@ -42,7 +41,6 @@ void ff_mspel_motion(MpegEncContext *s,
                      uint8_t *const *ref_picture,
                      const op_pixels_func (*pix_op)[4],
                      int motion_x, int motion_y, int h);
-
 
 static av_always_inline int wmv2_get_cbp_table_index(MpegEncContext *s, int cbp_index)
 {

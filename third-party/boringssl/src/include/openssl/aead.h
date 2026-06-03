@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // Authenticated Encryption with Additional Data.
 //
 // AEAD couples confidentiality and integrity in a single primitive. AEAD
@@ -86,7 +85,6 @@ extern "C" {
 // overwritten before it is read. This situation will cause an error.
 //
 // The "seal" and "open" operations return one on success and zero on error.
-
 
 // AEAD algorithms.
 
@@ -186,7 +184,6 @@ OPENSSL_EXPORT const EVP_AEAD *EVP_aead_aes_128_ccm_matter(void);
 // constant-time AES-GCM.
 OPENSSL_EXPORT int EVP_has_aes_hardware(void);
 
-
 // Utility functions.
 
 // EVP_AEAD_key_length returns the length, in bytes, of the keys used by
@@ -205,7 +202,6 @@ OPENSSL_EXPORT size_t EVP_AEAD_max_overhead(const EVP_AEAD *aead);
 // is the largest value that can be passed as |tag_len| to
 // |EVP_AEAD_CTX_init|.
 OPENSSL_EXPORT size_t EVP_AEAD_max_tag_len(const EVP_AEAD *aead);
-
 
 // AEAD operations.
 
@@ -387,7 +383,6 @@ OPENSSL_EXPORT int EVP_AEAD_CTX_open_gather(
 // not been set.
 OPENSSL_EXPORT const EVP_AEAD *EVP_AEAD_CTX_aead(const EVP_AEAD_CTX *ctx);
 
-
 // TLS-specific AEAD algorithms.
 //
 // These AEAD primitives do not meet the definition of generic AEADs. They are
@@ -424,7 +419,6 @@ OPENSSL_EXPORT const EVP_AEAD *EVP_aead_aes_128_gcm_tls13(void);
 // 1.3 nonce construction.
 OPENSSL_EXPORT const EVP_AEAD *EVP_aead_aes_256_gcm_tls13(void);
 
-
 // Obscure functions.
 
 // evp_aead_direction_t denotes the direction of an AEAD operation.
@@ -456,7 +450,6 @@ OPENSSL_EXPORT int EVP_AEAD_CTX_tag_len(const EVP_AEAD_CTX *ctx,
                                         size_t *out_tag_len,
                                         const size_t in_len,
                                         const size_t extra_in_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

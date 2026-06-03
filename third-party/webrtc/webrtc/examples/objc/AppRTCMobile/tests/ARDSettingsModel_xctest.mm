@@ -17,7 +17,6 @@
 #import "ARDSettingsModel+Private.h"
 #import "ARDSettingsStore.h"
 
-
 @interface ARDSettingsModelTests : XCTestCase {
   ARDSettingsModel *_model;
 }

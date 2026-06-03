@@ -3,7 +3,6 @@ import Postbox
 import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
-// MARK: - LuxGram
 #if canImport(SGDeletedMessages)
 import SGDeletedMessages
 #endif
@@ -267,7 +266,6 @@ private func requestEditMessageInternal(accountPeerId: PeerId, postbox: Postbox,
                                                     updatedMedia = previousMessage.media
                                                 }
 
-                                                // MARK: - LuxGram - Save original text on edit (like Nicegram)
                                                 #if canImport(SGDeletedMessages)
                                                 #if canImport(SGSimpleSettings)
                                                 if SGSimpleSettings.shared.saveEditHistory {

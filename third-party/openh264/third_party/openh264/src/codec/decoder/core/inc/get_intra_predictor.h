@@ -188,4 +188,3 @@ void WelsDecoderI4x4LumaPredH_mmi (uint8_t* pPred, const int32_t kiStride);
 
 #endif //WELS_GET_INTRA_PREDICTOR_H__
 
-

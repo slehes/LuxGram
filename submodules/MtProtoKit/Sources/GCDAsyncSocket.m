@@ -67,7 +67,6 @@
 
 #endif
 
-
 #if 0
 
 // Logging Enabled - See log level below
@@ -132,7 +131,6 @@ static const int logLevel = LOG_LEVEL_VERBOSE;
  * This makes invalid file descriptor comparisons easier to read.
 **/
 #define SOCKET_NULL -1
-
 
 NSString *const GCDAsyncSocketException = @"GCDAsyncSocketException";
 NSString *const GCDAsyncSocketErrorDomain = @"GCDAsyncSocketErrorDomain";
@@ -915,7 +913,6 @@ enum GCDAsyncSocketConfig
 	return -1;
 }
 
-
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -950,7 +947,6 @@ enum GCDAsyncSocketConfig
 	return self;
 }
 
-
 @end
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -979,7 +975,6 @@ enum GCDAsyncSocketConfig
 	}
 	return self;
 }
-
 
 @end
 
@@ -2305,7 +2300,6 @@ enum GCDAsyncSocketConfig
 	[self endConnectTimeout];
 	[self closeWithError:error];
 }
-
 
 - (void)setUsageCalculationInfo:(MTNetworkUsageCalculationInfo *)usageCalculationInfo {
     dispatch_async(socketQueue, ^{

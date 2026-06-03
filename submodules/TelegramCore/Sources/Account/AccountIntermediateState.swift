@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 struct PeerChatInfo {
     var notificationSettings: PeerNotificationSettings
 }

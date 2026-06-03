@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 #if !defined(OPENSSL_NO_ASM)
 
 #if defined(OPENSSL_X86) || defined(OPENSSL_X86_64)
@@ -62,7 +61,6 @@ OPENSSL_INLINE int vpaes_capable(void) { return CRYPTO_is_NEON_capable(); }
 #endif
 
 #endif  // !NO_ASM
-
 
 #if defined(HWAES)
 
@@ -117,12 +115,10 @@ OPENSSL_INLINE void aes_hw_ctr32_encrypt_blocks(const uint8_t *in, uint8_t *out,
 
 #endif  // !HWAES
 
-
 #if defined(HWAES_ECB)
 void aes_hw_ecb_encrypt(const uint8_t *in, uint8_t *out, size_t length,
                         const AES_KEY *key, const int enc);
 #endif  // HWAES_ECB
-
 
 #if defined(BSAES)
 // Note |bsaes_cbc_encrypt| requires |enc| to be zero.
@@ -160,7 +156,6 @@ OPENSSL_INLINE void vpaes_decrypt_key_to_bsaes(AES_KEY *out_bsaes,
   abort();
 }
 #endif  // !BSAES
-
 
 #if defined(VPAES)
 // On platforms where VPAES gets defined (just above), then these functions are
@@ -207,7 +202,6 @@ OPENSSL_INLINE void vpaes_cbc_encrypt(const uint8_t *in, uint8_t *out,
 }
 #endif  // !VPAES
 
-
 int aes_nohw_set_encrypt_key(const uint8_t *key, unsigned bits,
                              AES_KEY *aeskey);
 int aes_nohw_set_decrypt_key(const uint8_t *key, unsigned bits,
@@ -219,7 +213,6 @@ void aes_nohw_ctr32_encrypt_blocks(const uint8_t *in, uint8_t *out,
                                    const uint8_t ivec[16]);
 void aes_nohw_cbc_encrypt(const uint8_t *in, uint8_t *out, size_t len,
                           const AES_KEY *key, uint8_t *ivec, const int enc);
-
 
 #if defined(__cplusplus)
 }  // extern C

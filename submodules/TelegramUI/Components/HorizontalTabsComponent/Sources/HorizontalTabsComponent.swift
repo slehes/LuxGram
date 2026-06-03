@@ -145,7 +145,6 @@ private final class ReorderingGestureRecognizer: UIGestureRecognizer, UIGestureR
     }
 }
 
-
 public final class HorizontalTabsComponent: Component {
     public final class Tab: Equatable {
         public typealias Id = AnyHashable

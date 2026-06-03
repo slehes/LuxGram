@@ -59,7 +59,6 @@
 extern "C" {
 #endif
 
-
 // This is a generic 32-bit "collector" for message digest algorithms. It
 // collects input character stream into chunks of 32-bit values and invokes the
 // block function that performs the actual hash calculations.
@@ -186,7 +185,6 @@ static inline void crypto_md32_final(crypto_md32_block_func block_func,
   *num = 0;
   OPENSSL_memset(data, 0, block_size);
 }
-
 
 #if defined(__cplusplus)
 }  // extern C

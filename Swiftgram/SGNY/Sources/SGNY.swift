@@ -4,7 +4,6 @@ import AsyncDisplayKit
 import Display
 import SGSimpleSettings
 
-
 class WallpaperNYNode: ASDisplayNode {
     private var emitterLayer: CAEmitterLayer?
     
@@ -69,7 +68,6 @@ class WallpaperNYNode: ASDisplayNode {
         }
     }
 }
-
 
 func paintImage(_ image: UIImage, to: CGColor) -> UIImage {
     let rect = CGRect(origin: .zero, size: image.size)

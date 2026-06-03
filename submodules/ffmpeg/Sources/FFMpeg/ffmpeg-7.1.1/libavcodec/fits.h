@@ -61,7 +61,6 @@ typedef struct FITSHeader {
     double data_max;
 } FITSHeader;
 
-
 /**
  * Initialize a single header line
  * @param header pointer to the header

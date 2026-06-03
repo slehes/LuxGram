@@ -41,7 +41,6 @@
 #ifndef WELS_MANAGE_DEC_REF_H__
 #define WELS_MANAGE_DEC_REF_H__
 
-
 #include "typedefs.h"
 #include "decoder_context.h"
 
@@ -58,5 +57,4 @@ int32_t WelsMarkAsRef (PWelsDecoderContext pCtx, PPicture pLastDec = NULL);
 } // namespace WelsDec
 
 #endif//WELS_MANAGE_DEC_REF_H__
-
 

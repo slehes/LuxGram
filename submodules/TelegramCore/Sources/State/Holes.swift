@@ -1147,7 +1147,6 @@ func fetchChatListHole(postbox: Postbox, network: Network, accountPeerId: PeerId
             transaction.updateCurrentPeerNotificationSettings(fetchedChats.notificationSettings)
             let _ = transaction.addMessages(fetchedChats.storeMessages, location: .UpperHistoryBlock)
             let _ = transaction.addMessages(additionalMessages, location: .Random)
-            // MARK: - LuxGram - Bump maxKnownId for saved-deleted tops
             var readStates = fetchedChats.readStates
             #if canImport(SGDeletedMessages)
             if SGDeletedMessages.showDeletedMessages {
@@ -1239,7 +1238,6 @@ func fetchChatListHole(postbox: Postbox, network: Network, accountPeerId: PeerId
             }
             
             if let replacePinnedItemIds = fetchedChats.pinnedItemIds {
-                // MARK: - LuxGram - Unlimited pinned chats with local premium
                 let serverPinned = replacePinnedItemIds.map(PinnedItemId.peer)
                 let unlimitedPinned: Bool
                 #if canImport(SGSimpleSettings)

@@ -1512,7 +1512,6 @@ public struct CurvesValue: Equatable, Codable {
     }
 }
 
-
 private let toolEpsilon: Float = 0.005
 public extension MediaEditorValues {
     var hasAdjustments: Bool {
@@ -1880,7 +1879,6 @@ private let hasHEVCHardwareEncoder: Bool = {
     }
     return result == noErr
 }()
-
 
 func targetSize(cropSize: CGSize, rotateSideward: Bool = false) -> CGSize {
     let blockSize: CGFloat = 16.0

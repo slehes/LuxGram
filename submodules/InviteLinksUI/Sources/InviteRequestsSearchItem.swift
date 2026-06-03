@@ -95,7 +95,6 @@ final class SearchNavigationContentNode: NavigationBarContentNode, ItemListContr
     }
 }
 
-
 final class InviteRequestsSearchItem: ItemListControllerSearch {
     let context: AccountContext
     let peerId: EnginePeer.Id
@@ -221,7 +220,6 @@ private final class InviteRequestsSearchItemNode: ItemListControllerSearchNode {
     }
 }
 
-
 private final class InviteRequestsSearchContainerInteraction {
     let openPeer: (EnginePeer) -> Void
     let approveRequest: (EnginePeer) -> Void
@@ -311,7 +309,6 @@ private func inviteRequestsSearchContainerPreparedRecentTransition(from fromEntr
     
     return InviteRequestsSearchContainerTransition(deletions: deletions, insertions: insertions, updates: updates, isSearching: isSearching, isEmpty: isEmpty, query: query)
 }
-
 
 public final class InviteRequestsSearchContainerNode: SearchDisplayControllerContentNode {
     private let context: AccountContext

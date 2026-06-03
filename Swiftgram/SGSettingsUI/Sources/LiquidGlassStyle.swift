@@ -1,4 +1,3 @@
-// MARK: - LuxGram Liquid Glass
 
 public extension Notification.Name {
     static let luxgramLiquidGlassDidChange = Notification.Name("com.luxgramapp.LiquidGlassDidChange")

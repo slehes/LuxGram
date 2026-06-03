@@ -1,4 +1,3 @@
-// MARK: - LuxGram Double Bottom
 // From Nicegram NGData/Sources/NGSettings.swift - only SystemNGSettings for Double Bottom
 import Foundation
 

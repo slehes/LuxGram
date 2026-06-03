@@ -27,7 +27,6 @@ extern "C" {
 #if !defined(OPENSSL_NO_ASM) && defined(OPENSSL_X86_64)
 #define RSAZ_ENABLED
 
-
 // RSAZ_1024_mod_exp_avx2 sets |result| to |base_norm| raised to |exponent|
 // modulo |m_norm|. |base_norm| must be fully-reduced and |exponent| must have
 // the high bit set (it is 1024 bits wide). |RR| and |k0| must be |RR| and |n0|,
@@ -52,7 +51,6 @@ OPENSSL_INLINE int rsaz_avx2_preferred(void) {
   }
   return CRYPTO_is_AVX2_capable();
 }
-
 
 // Assembly functions.
 
@@ -97,7 +95,6 @@ void rsaz_1024_gather5_avx2(BN_ULONG val[40], const BN_ULONG tbl[32 * 18],
 // the modulus instead of zero. This function should be followed by a call to
 // |bn_reduce_once|.
 void rsaz_1024_red2norm_avx2(BN_ULONG norm[16], const BN_ULONG red[40]);
-
 
 #endif  // !OPENSSL_NO_ASM && OPENSSL_X86_64
 

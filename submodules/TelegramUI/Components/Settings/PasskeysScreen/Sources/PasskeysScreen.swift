@@ -122,7 +122,6 @@ final class PasskeysScreenComponent: Component {
                     guard let self, let component = self.component else {
                         return
                     }
-                    // MARK: LuxGram
                     if let tgUrl = URL(string: "tg://settings/privacy") {
                         UIApplication.shared.open(tgUrl, options: [:], completionHandler: { success in
                             if !success, let tgDLUrl = URL(string: "https://get.telegram.org/") {
@@ -239,7 +238,6 @@ final class PasskeysScreenComponent: Component {
                             try await updater.reportUnknownPublicKeyCredential(relyingPartyIdentifier: "telegram.org", credentialID: credentialId)
                         } catch let e {
                             Logger.shared.log("Passkeys", "reportUnknownPublicKeyCredential error: \(e). Retrying with another domain")
-                            // MARK: LuxGram
                             do {
                                 try await updater.reportUnknownPublicKeyCredential(relyingPartyIdentifier: "swiftgram.app", credentialID: credentialId)
                             } catch let e {

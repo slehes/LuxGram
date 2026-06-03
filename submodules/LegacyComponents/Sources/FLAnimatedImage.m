@@ -6,12 +6,10 @@
 //  Copyright (c) 2013-2014 Flipboard. All rights reserved.
 //
 
-
 #import "FLAnimatedImage.h"
 #import <ImageIO/ImageIO.h>
 #import <MobileCoreServices/MobileCoreServices.h>
 #import <CoreGraphics/CoreGraphics.h>
-
 
 // From vm_param.h, define for iOS 8.0 or higher to build on device.
 #ifndef BYTE_SIZE
@@ -19,7 +17,6 @@
 #endif
 
 #define MEGABYTE (1024 * 1024)
-
 
 // An animated image's data size (dimensions * frameCount) category; its value is the max allowed memory (in MB).
 // E.g.: A 100x200px GIF with 30 frames is ~2.3MB in our pixel format and would fall into the `FLAnimatedImageDataSizeCategoryAll` category.
@@ -36,7 +33,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     FLAnimatedImageFrameCacheSizeGrowAfterMemoryWarning = 2, // If we can produce the frames faster than we consume, one frame ahead will already result in a stutter-free playback.
     FLAnimatedImageFrameCacheSizeDefault = 5                 // Build up a comfy buffer window to cope with CPU hiccups etc.
 };
-
 
 @interface FLAnimatedImage ()
 {
@@ -63,7 +59,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
 
 @end
 
-
 @implementation FLAnimatedImage
 
 #pragma mark - Accessors
@@ -86,7 +81,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return frameCacheSizeCurrent;
 }
 
-
 - (void)setFrameCacheSizeMax:(NSUInteger)frameCacheSizeMax
 {
     if (_frameCacheSizeMax != frameCacheSizeMax) {
@@ -102,7 +96,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
         }
     }
 }
-
 
 #pragma mark Private
 
@@ -122,7 +115,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     }
 }
 
-
 // Explicit synthesizing for `readonly` property with overridden getter.
 @synthesize weakProxy = _weakProxy;
 
@@ -135,7 +127,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return _weakProxy;
 }
 
-
 #pragma mark - Life Cycle
 
 - (id)init
@@ -143,7 +134,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     NSLog(@"Error: Use `-initWithAnimatedGIFData:` and supply the animated GIF data as an argument to initialize an object of type `FLAnimatedImage`.");
     return nil;
 }
-
 
 - (instancetype)initWithAnimatedGIFData:(NSData *)data imageDrawingBlock:(UIImage *(^)(UIImage *))imageDrawingBlock
 {
@@ -312,7 +302,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return self;
 }
 
-
 - (void)dealloc
 {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
@@ -332,7 +321,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     }
 #endif
 }
-
 
 #pragma mark - Public Methods
 
@@ -378,7 +366,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     
     return image;
 }
-
 
 // Only called once from `-imageLazilyCachedAtIndex` but factored into its own method for logical grouping.
 - (void)addFrameIndexesToCache:(NSIndexSet *)frameIndexesToAddToCache
@@ -432,7 +419,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     });
 }
 
-
 + (CGSize)sizeForImage:(id)image
 {
     CGSize imageSize = CGSizeZero;
@@ -456,7 +442,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return imageSize;
 }
 
-
 #pragma mark - Private Methods
 #pragma mark Frame Loading
 
@@ -477,7 +462,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     
     return image;
 }
-
 
 #pragma mark Frame Caching
 
@@ -513,7 +497,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return indexesToCache;
 }
 
-
 - (void)purgeFrameCacheIfNeeded
 {
     // Purge frames that are currently cached but don't need to be.
@@ -533,7 +516,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     }
 }
 
-
 - (void)growFrameCacheSizeAfterMemoryWarning:(NSNumber *)frameCacheSize
 {
     self.frameCacheSizeMaxInternal = [frameCacheSize unsignedIntegerValue];
@@ -544,13 +526,11 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     [self.weakProxy performSelector:@selector(resetFrameCacheSizeMaxInternal) withObject:nil afterDelay:kResetDelay];
 }
 
-
 - (void)resetFrameCacheSizeMaxInternal
 {
     self.frameCacheSizeMaxInternal = FLAnimatedImageFrameCacheSizeNoLimit;
     NSLog(@"Verbose: Reset frame cache size max (current frame cache size: %lu) for animated image: %@", (unsigned long)self.frameCacheSizeCurrent, self);
 }
-
 
 #pragma mark System Memory Warnings Notification Handler
 
@@ -590,7 +570,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     
     // Note: It's not possible to get the level of a memory warning with a public API: http://stackoverflow.com/questions/2915247/iphone-os-memory-warnings-what-do-the-different-levels-mean/2915477#2915477
 }
-
 
 #pragma mark Image Decoding
 
@@ -664,7 +643,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return predrawnImage;
 }
 
-
 #pragma mark - Description
 
 - (NSString *)description
@@ -677,9 +655,7 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return description;
 }
 
-
 @end
-
 
 #pragma mark - FLWeakProxy
 
@@ -688,7 +664,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
 @property (nonatomic, weak) id target;
 
 @end
-
 
 @implementation FLWeakProxy
 
@@ -703,7 +678,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     return weakProxy;
 }
 
-
 #pragma mark Forwarding Messages
 
 - (id)forwardingTargetForSelector:(SEL)__unused selector
@@ -711,7 +685,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     // Keep it lightweight: access the ivar directly
     return _target;
 }
-
 
 #pragma mark - NSWeakProxy Method Overrides
 #pragma mark Handling Unimplemented Methods
@@ -725,7 +698,6 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     [invocation setReturnValue:&nullPointer];
 }
 
-
 - (NSMethodSignature *)methodSignatureForSelector:(SEL)__unused selector
 {
     // We only get here if `forwardingTargetForSelector:` returns nil.
@@ -735,6 +707,5 @@ typedef NS_ENUM(NSUInteger, FLAnimatedImageFrameCacheSize) {
     // See https://www.mikeash.com/pyblog/friday-qa-2010-02-26-futures.html and https://github.com/steipete/PSTDelegateProxy/issues/1 for examples of using a method signature cache.
     return [NSObject instanceMethodSignatureForSelector:@selector(init)];
 }
-
 
 @end

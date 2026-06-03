@@ -119,7 +119,6 @@ private struct ThemeSettingsThemeEntry: Comparable, Identifiable {
     }
 }
 
-
 private class ThemeSettingsThemeIconItem: ListViewItem {
     let context: AccountContext
     let emoticon: String?

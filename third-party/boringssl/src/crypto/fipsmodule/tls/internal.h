@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // tls1_prf calculates |out_len| bytes of the TLS PDF, using |digest|, and
 // writes them to |out|. It returns one on success and zero on error.
 OPENSSL_EXPORT int CRYPTO_tls1_prf(const EVP_MD *digest,
@@ -38,7 +37,6 @@ OPENSSL_EXPORT int CRYPTO_tls13_hkdf_expand_label(
     const uint8_t *secret, size_t secret_len,            //
     const uint8_t *label, size_t label_len,              //
     const uint8_t *hash, size_t hash_len);
-
 
 #if defined(__cplusplus)
 }

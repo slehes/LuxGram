@@ -12,7 +12,6 @@ NSString *const TGBotKeyboardControllerIdentifier = @"TGBotKeyboardController";
 
 @end
 
-
 @interface TGBotKeyboardController () <TGTableDataSource>
 {
     TGBotKeyboardControllerContext *_context;

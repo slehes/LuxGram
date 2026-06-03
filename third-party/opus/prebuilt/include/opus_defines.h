@@ -236,7 +236,6 @@ extern "C" {
 
 /**@}*/
 
-
 /** @defgroup opus_encoderctls Encoder related CTLs
   *
   * These are convenience macros for use with the \c opus_encode_ctl
@@ -447,7 +446,6 @@ extern "C" {
   * @hideinitializer */
 #define OPUS_GET_SIGNAL(x) OPUS_GET_SIGNAL_REQUEST, __opus_check_int_ptr(x)
 
-
 /** Configures the encoder's intended application.
   * The initial value is a mandatory argument to the encoder_create function.
   * @see OPUS_GET_APPLICATION
@@ -647,7 +645,6 @@ extern "C" {
 /** Provide external DNN weights from binary object (only when explicitly built without the weights)
   * @hideinitializer */
 #define OPUS_SET_DNN_BLOB(data, len) OPUS_SET_DNN_BLOB_REQUEST, __opus_check_void_ptr(data), __opus_check_int(len)
-
 
 /**@}*/
 

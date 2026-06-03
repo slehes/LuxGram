@@ -6,7 +6,6 @@
 
 #import <Foundation/Foundation.h>
 
-
 @interface NBPhoneNumberDesc : NSObject
 
 // from phonemetadata.pb.js

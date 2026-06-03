@@ -469,7 +469,6 @@ public class ItemListDisclosureItemNode: ListViewItemNode, ItemListItemNode {
                 labelBadgeColor = item.presentationData.theme.list.itemSecondaryTextColor
                 labelFont = defaultLabelFont
             }
-            // MARK: Swiftgram
             let labelMaximumNumberOfLines: Int
             if case .multilineDetailText = item.labelStyle {
                 labelMaximumNumberOfLines = 0
@@ -531,7 +530,6 @@ public class ItemListDisclosureItemNode: ListViewItemNode, ItemListItemNode {
             case .detailText, .multilineDetailText:
                 height = verticalInset * 2.0 + titleLayout.size.height + titleSpacing + labelLayout.size.height
             default:
-                // MARK: Swiftgram
                 height = verticalInset * 2.0 + max(titleLayout.size.height, labelLayout.size.height)
                 //
             }

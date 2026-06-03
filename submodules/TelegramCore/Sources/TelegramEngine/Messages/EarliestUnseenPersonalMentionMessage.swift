@@ -3,7 +3,6 @@ import Postbox
 import SwiftSignalKit
 import MtProtoKit
 
-
 public enum EarliestUnseenPersonalMentionMessageResult: Equatable {
     case loading
     case result(MessageId?)

@@ -13,7 +13,6 @@ import Cocoa
 import UIKit
 #endif
 
-
 extension CGFloat {
     func roundedUpToPixelGrid() -> CGFloat {
         return (self * deviceScale).rounded(.up) / deviceScale

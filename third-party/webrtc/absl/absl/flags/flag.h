@@ -137,7 +137,6 @@ const CommandLineFlag& GetFlagReflectionHandle(const absl::Flag<T>& f) {
 ABSL_NAMESPACE_END
 }  // namespace absl
 
-
 // ABSL_FLAG()
 //
 // This macro defines an `absl::Flag<T>` instance of a specified type `T`:

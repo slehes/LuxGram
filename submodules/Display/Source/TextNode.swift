@@ -34,7 +34,6 @@ private final class TextNodeSpoiler {
     }
 }
 
-
 private final class TextNodeEmbeddedItem {
     let range: NSRange
     let frame: CGRect

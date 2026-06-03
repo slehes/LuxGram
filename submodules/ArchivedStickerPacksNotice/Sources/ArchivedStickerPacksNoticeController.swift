@@ -57,7 +57,6 @@ private func preparedTransition(from fromEntries: [ArchivedStickersNoticeEntry],
     return ArchivedStickersNoticeTransition(deletions: deletions, insertions: insertions, updates: updates)
 }
 
-
 private final class ArchivedStickersNoticeAlertContentNode: AlertContentNode {
     private let presentationData: PresentationData
     private let archivedStickerPacks: [(StickerPackCollectionInfo, StickerPackItem?)]

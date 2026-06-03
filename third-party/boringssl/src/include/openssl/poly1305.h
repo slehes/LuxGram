@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 typedef uint8_t poly1305_state[512];
 
 // CRYPTO_poly1305_init sets up |state| so that it can be used to calculate an
@@ -40,7 +39,6 @@ OPENSSL_EXPORT void CRYPTO_poly1305_update(poly1305_state *state,
 // byte authentication tag to |mac|.
 OPENSSL_EXPORT void CRYPTO_poly1305_finish(poly1305_state *state,
                                            uint8_t mac[16]);
-
 
 #if defined(__cplusplus)
 }  // extern C

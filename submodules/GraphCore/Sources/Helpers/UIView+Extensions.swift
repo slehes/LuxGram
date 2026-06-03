@@ -19,7 +19,6 @@ public typealias GView = NSView
 public typealias GView = UIView
 #endif
 
-
 public extension GView {
     static let oneDevicePixel: CGFloat = (1.0 / max(2, min(1, deviceScale)))
 }

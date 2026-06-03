@@ -1150,7 +1150,6 @@ func _internal_updatedChatListFilters(postbox: Postbox, hiddenIds: Signal<Set<In
                 return true
             }
         }
-        // MARK: Swiftgram
         if filters.count > 1 && SGSimpleSettings.shared.allChatsHidden {
             filters.removeAll { $0 == .allChats }
         }
@@ -1384,7 +1383,6 @@ final class SynchronizeChatListFiltersOperation: PostboxCoding {
         encoder.encodeObject(self.content, forKey: "c")
     }
 }
-
 
 private final class ManagedSynchronizeChatListFiltersOperationsHelper {
     var operationDisposables: [Int32: Disposable] = [:]

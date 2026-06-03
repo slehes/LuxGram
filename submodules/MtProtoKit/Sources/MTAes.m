@@ -206,7 +206,6 @@ static void ctr128_inc_aligned(unsigned char *counter)
     } while (n);
 }
 
-
 @interface MTAesCtr () {
     CCCryptorRef _cryptor;
     

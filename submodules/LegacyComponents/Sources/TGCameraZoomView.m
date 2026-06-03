@@ -505,7 +505,6 @@
 
 @end
 
-
 @interface TGCameraZoomWheelView ()
 {
     bool _hasUltrawideCamera;
@@ -811,7 +810,6 @@
         self.panGesture(gestureRecognizer);
     }
 }
-
 
 - (void)setZoomLevel:(CGFloat)zoomLevel {
     [self setZoomLevel:zoomLevel panning:false];

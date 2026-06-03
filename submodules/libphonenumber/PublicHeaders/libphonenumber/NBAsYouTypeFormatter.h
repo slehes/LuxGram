@@ -7,9 +7,7 @@
 
 #import <Foundation/Foundation.h>
 
-
 @class NBAsYouTypeFormatter;
-
 
 @interface NBAsYouTypeFormatter : NSObject
 

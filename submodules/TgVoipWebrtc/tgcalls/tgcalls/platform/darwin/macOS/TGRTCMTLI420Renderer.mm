@@ -20,7 +20,6 @@
 
 #import "TGRTCMTLRenderer+Private.h"
 
-
 @implementation TGRTCMTLI420Renderer {
   // Textures.
   id<MTLTexture> _yTexture;
@@ -36,15 +35,12 @@
   int _chromaHeight;
 }
 
-
-
 - (void)getWidth:(nonnull int *)width
           height:(nonnull int *)height
          ofFrame:(nonnull RTC_OBJC_TYPE(RTCVideoFrame) *)frame {
   *width = frame.width;
   *height = frame.height;
 }
-
 
 - (BOOL)setupTexturesForFrame:(nonnull RTC_OBJC_TYPE(RTCVideoFrame) *)frame {
   if (![super setupTexturesForFrame:frame]) {

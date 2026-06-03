@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension RestrictionRule {
     convenience init(apiReason: Api.RestrictionReason) {
         switch apiReason {

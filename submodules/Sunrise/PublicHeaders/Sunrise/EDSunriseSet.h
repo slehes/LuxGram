@@ -43,7 +43,6 @@
 @property (readonly, strong) NSDateComponents* localAstronomicalTwilightStart;
 @property (readonly, strong) NSDateComponents* localAstronomicalTwilightEnd;
 
-
 -(instancetype)initWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude NS_DESIGNATED_INITIALIZER;
 +(instancetype)sunrisesetWithDate:(NSDate*)date timezone:(NSTimeZone*)timezone latitude:(double)latitude longitude:(double)longitude;
 -(instancetype) init __attribute__((unavailable("init not available. Use initWithDate:timeZone:latitude:longitude: instead")));

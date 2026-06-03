@@ -62,7 +62,6 @@ func _internal_resetAccountState(postbox: Postbox, network: Network, accountPeer
                 transaction.updateCurrentPeerNotificationSettings(fetchedChats.notificationSettings)
                 let _ = transaction.addMessages(fetchedChats.storeMessages, location: .UpperHistoryBlock)
                 let _ = transaction.addMessages(additionalMessages, location: .Random)
-                // MARK: - LuxGram - Bump maxKnownId for saved-deleted tops
                 var readStates = fetchedChats.readStates
                 #if canImport(SGDeletedMessages)
                 if SGDeletedMessages.showDeletedMessages {
@@ -164,7 +163,6 @@ func _internal_resetAccountState(postbox: Postbox, network: Network, accountPeer
                 }
                 
                 if let replacePinnedItemIds = fetchedChats.pinnedItemIds {
-                    // MARK: - LuxGram - Unlimited pinned chats with local premium
                     let serverPinned = replacePinnedItemIds.map(PinnedItemId.peer)
                     let unlimitedPinned: Bool
                     #if canImport(SGSimpleSettings)

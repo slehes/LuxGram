@@ -163,7 +163,6 @@ typedef struct G723_1_Context {
     G723_1_ChannelContext ch[2];
 } G723_1_Context;
 
-
 /**
  * Scale vector contents based on the largest of their absolutes.
  */
@@ -189,7 +188,6 @@ void ff_g723_1_get_residual(int16_t *residual, int16_t *prev_excitation,
  * Generate a train of dirac functions with period as pitch lag.
  */
 void ff_g723_1_gen_dirac_train(int16_t *buf, int pitch_lag);
-
 
 /**
  * Generate adaptive codebook excitation.

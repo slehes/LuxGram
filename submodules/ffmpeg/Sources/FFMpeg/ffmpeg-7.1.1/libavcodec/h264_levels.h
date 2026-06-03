@@ -19,7 +19,6 @@
 #ifndef AVCODEC_H264_LEVELS_H
 #define AVCODEC_H264_LEVELS_H
 
-
 #include <stdint.h>
 
 typedef struct H264LevelDescriptor {
@@ -46,6 +45,5 @@ const H264LevelDescriptor *ff_h264_guess_level(int profile_idc,
                                                int framerate,
                                                int width, int height,
                                                int max_dec_frame_buffering);
-
 
 #endif /* AVCODEC_H264_LEVELS_H */

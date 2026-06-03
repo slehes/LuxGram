@@ -110,7 +110,6 @@ extern "C" {
 
 * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *
 
-
 this package consists of programs which perform fast fourier
 transforms for both complex and real periodic sequences and
 certain other symmetric sequences that are listed below.
@@ -140,7 +139,6 @@ certain other symmetric sequences that are listed below.
 17.  cffti     initialize cfftf and cfftb
 18.  cfftf     forward transform of a complex periodic sequence
 19.  cfftb     unnormalized inverse of cfftf
-
 
 ******************************************************************
 
@@ -193,7 +191,6 @@ wsave   a work array which must be dimensioned at least 2*n+15.
         transforms can be obtained faster than the first.
         the same wsave array can be used by rfftf and rfftb.
 
-
 output parameters
 
 r       r(1) = the sum from i=1 to i=n of r(i)
@@ -224,7 +221,6 @@ r       r(1) = the sum from i=1 to i=n of r(i)
 wsave   contains results which must not be destroyed between
         calls of rfftf or rfftb.
 
-
 ******************************************************************
 
 subroutine rfftb(n,r,wsave)
@@ -252,7 +248,6 @@ wsave   a work array which must be dimensioned at least 2*n+15.
         repeated so long as n remains unchanged thus subsequent
         transforms can be obtained faster than the first.
         the same wsave array can be used by rfftf and rfftb.
-
 
 output parameters
 
@@ -328,7 +323,6 @@ n       the length of the sequence to be transformed.  the method
         is most efficient when n+1 is the product of small primes.
 
 x       an array which contains the sequence to be transformed
-
 
 wsave   a work array with dimension at least int(2.5*n+15)
         in the program that calls sint. the wsave array must be
@@ -470,7 +464,6 @@ by 4*n.
 the array wsave which is used by subroutine sinqf must be
 initialized by calling subroutine sinqi(n,wsave).
 
-
 input parameters
 
 n       the length of the array x to be transformed.  the method
@@ -521,7 +514,6 @@ by 4*n.
 
 the array wsave which is used by subroutine sinqb must be
 initialized by calling subroutine sinqi(n,wsave).
-
 
 input parameters
 
@@ -596,7 +588,6 @@ by 4*n.
 the array wsave which is used by subroutine cosqf must be
 initialized by calling subroutine cosqi(n,wsave).
 
-
 input parameters
 
 n       the length of the array x to be transformed.  the method
@@ -645,7 +636,6 @@ by 4*n.
 
 the array wsave which is used by subroutine cosqb must be
 initialized by calling subroutine cosqi(n,wsave).
-
 
 input parameters
 
@@ -721,7 +711,6 @@ initialized by calling subroutine cffti(n,wsave).
 
 input parameters
 
-
 n      the length of the complex sequence c. the method is
        more efficient when n is the product of small primes. n
 
@@ -767,7 +756,6 @@ the array wsave which is used by subroutine cfftb must be
 initialized by calling subroutine cffti(n,wsave).
 
 input parameters
-
 
 n      the length of the complex sequence c. the method is
        more efficient when n is the product of small primes.

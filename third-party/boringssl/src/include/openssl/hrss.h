@@ -94,7 +94,6 @@ OPENSSL_EXPORT void HRSS_marshal_public_key(
 OPENSSL_EXPORT int HRSS_parse_public_key(
     struct HRSS_public_key *out, const uint8_t in[HRSS_PUBLIC_KEY_BYTES]);
 
-
 #if defined(__cplusplus)
 }  // extern C
 #endif

@@ -220,7 +220,6 @@ static UIColor *defaultTintColor = nil;
   if (!(self = [super init]))
     return nil;
 
-
   static dispatch_once_t onceToken;
   dispatch_once(&onceToken, ^{
     // Default UIKit color is an RGB color

@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 typedef struct conf_section_st CONF_SECTION;
 
 DEFINE_LHASH_OF(CONF_SECTION)
@@ -46,7 +45,6 @@ CONF_VALUE *CONF_VALUE_new(void);
 OPENSSL_EXPORT int CONF_parse_list(
     const char *list, char sep, int remove_whitespace,
     int (*list_cb)(const char *elem, size_t len, void *usr), void *arg);
-
 
 #if defined(__cplusplus)
 }  // extern C

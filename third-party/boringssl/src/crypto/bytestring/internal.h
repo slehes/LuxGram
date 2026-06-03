@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // CBS_asn1_ber_to_der reads a BER element from |in|. If it finds
 // indefinite-length elements or constructed strings then it converts the BER
 // data to DER, sets |out| to the converted contents and |*out_storage| to a
@@ -65,7 +64,6 @@ OPENSSL_EXPORT int CBS_get_asn1_implicit_string(CBS *in, CBS *out,
 //
 // This function may be used to help implement legacy i2d ASN.1 functions.
 int CBB_finish_i2d(CBB *cbb, uint8_t **outp);
-
 
 #if defined(__cplusplus)
 }  // extern C

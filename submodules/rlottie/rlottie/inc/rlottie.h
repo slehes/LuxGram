@@ -487,7 +487,6 @@ template<> struct MapType<std::integral_constant<Property, Property::TrAnchor>>:
 template<> struct MapType<std::integral_constant<Property, Property::TrPosition>>: Point_Type{};
 template<> struct MapType<std::integral_constant<Property, Property::TrScale>>: Size_Type{};
 
-
 }  // namespace lotplayer
 
 #endif  // _RLOTTIE_H_

@@ -56,7 +56,6 @@ typedef struct {
   long    body_fill;             /* elements stored; fill mark */
   long    body_returned;         /* elements of fill returned */
 
-
   int     *lacing_vals;      /* The values that will go to the segment table */
   ogg_int64_t *granule_vals; /* granulepos values for headers. Not compact
                                 this way, but it is simple coupled to the
@@ -201,7 +200,6 @@ extern long     ogg_page_pageno(const ogg_page *og);
 extern int      ogg_page_packets(const ogg_page *og);
 
 extern void     ogg_packet_clear(ogg_packet *op);
-
 
 #ifdef __cplusplus
 }

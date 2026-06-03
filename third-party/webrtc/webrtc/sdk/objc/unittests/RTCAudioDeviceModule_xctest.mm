@@ -38,7 +38,6 @@ typedef int32_t(^RecordedDataIsAvailableBlock)(const void* audioSamples,
                                                const bool keyPressed,
                                                uint32_t& newMicLevel);
 
-
 // This class implements the AudioTransport API and forwards all methods to the appropriate blocks.
 class MockAudioTransport : public webrtc::AudioTransport {
 public:

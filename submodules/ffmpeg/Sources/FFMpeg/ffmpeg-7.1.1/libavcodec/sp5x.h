@@ -131,7 +131,6 @@ static const uint8_t sp5x_data_dht[] = {
     0xF3, 0xF4, 0xF5, 0xF6, 0xF7, 0xF8, 0xF9, 0xFA
 };
 
-
 static const uint8_t sp5x_qscale_five_quant_table[][64]=
 {
     /* index 5, Q60 */

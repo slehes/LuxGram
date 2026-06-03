@@ -99,7 +99,6 @@ static const uint32_t g_kuiPrefix8BitsTable[16] = {
   0, 0, 1, 1, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 3, 3
 };
 
-
 static inline uint32_t GetPrefixBits (uint32_t uiValue) {
   uint32_t iNumBit = 0;
 
@@ -182,7 +181,6 @@ static inline uint32_t BsGetUe (PBitStringAux pBs, uint32_t* pCode) {
   *pCode = ((1u << iLeadingZeroBits) - 1 + iValue);
   return ERR_NONE;
 }
-
 
 /*
  *  Read signed exp golomb codes
@@ -283,7 +281,6 @@ if (val > upper_bound) {\
   return ret_code;\
 }\
 }while(0)
-
 
 #define WELS_CHECK_SE_BOTH_WARNING(val, lower_bound, upper_bound, syntax_name) do {\
 if ((val < lower_bound) || (val > upper_bound)) {\

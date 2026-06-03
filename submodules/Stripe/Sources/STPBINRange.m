@@ -20,7 +20,6 @@
 
 @end
 
-
 @implementation STPBINRange
 
 + (NSArray<STPBINRange *> *)allRanges {

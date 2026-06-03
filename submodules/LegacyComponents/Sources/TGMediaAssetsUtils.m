@@ -115,7 +115,6 @@
 
 @end
 
-
 @implementation TGMediaAssetsCollectionViewIncrementalUpdater
 
 + (void)updateCollectionView:(UICollectionView *)collectionView withChange:(TGMediaAssetFetchResultChange *)__unused change completion:(void (^)(bool incremental))completion
@@ -186,7 +185,6 @@
 }
 
 @end
-
 
 @implementation TGMediaAssetsSaveToCameraRoll
 
@@ -259,7 +257,6 @@
 }
 
 @end
-
 
 @implementation TGMediaAssetsDateUtils
 

@@ -23,7 +23,6 @@
 #ifndef __CRC32_H__
 #define __CRC32_H__
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif

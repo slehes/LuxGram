@@ -63,9 +63,7 @@
 extern "C" {
 #endif
 
-
 // RC4.
-
 
 struct rc4_key_st {
   uint32_t x, y;
@@ -82,12 +80,10 @@ OPENSSL_EXPORT void RC4_set_key(RC4_KEY *rc4key, unsigned len,
 OPENSSL_EXPORT void RC4(RC4_KEY *key, size_t len, const uint8_t *in,
                         uint8_t *out);
 
-
 // Deprecated functions.
 
 // RC4_options returns the string "rc4(ptr,int)".
 OPENSSL_EXPORT const char *RC4_options(void);
-
 
 #if defined(__cplusplus)
 }  // extern C

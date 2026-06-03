@@ -1,7 +1,6 @@
 import Foundation
 import TelegramApi
 
-
 public enum SecureIdValueContentErrorKey: Hashable {
     case value(SecureIdValueKey)
     case field(SecureIdValueContentErrorField)

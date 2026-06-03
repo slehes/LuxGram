@@ -179,11 +179,6 @@
     }
 #endif // (__mips_isa_rev >= 6)
 
-
-
-
-
-
 /* Description : Load vector elements with stride.
  * Arguments   : Inputs  - psrc    (source pointer to load from)
  *                       - stride

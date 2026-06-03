@@ -97,7 +97,6 @@ static inline int ff_ccfifo_getoutputsize(const CCFifo *ccf)
     return ccf->expected_cc_count * CC_BYTES_PER_ENTRY;
 }
 
-
 /**
  * Insert CC data from the FIFO into an AVFrame (as side data)
  *

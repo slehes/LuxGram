@@ -67,9 +67,7 @@
 extern "C" {
 #endif
 
-
 // rsa.h contains functions for handling encryption and signature using RSA.
-
 
 // Allocation and destruction.
 //
@@ -107,7 +105,6 @@ OPENSSL_EXPORT void RSA_free(RSA *rsa);
 // RSA_up_ref increments the reference count of |rsa| and returns one. It does
 // not mutate |rsa| for thread-safety purposes and may be used concurrently.
 OPENSSL_EXPORT int RSA_up_ref(RSA *rsa);
-
 
 // Properties.
 
@@ -163,7 +160,6 @@ OPENSSL_EXPORT void RSA_get0_crt_params(const RSA *rsa, const BIGNUM **out_dmp1,
                                         const BIGNUM **out_dmq1,
                                         const BIGNUM **out_iqmp);
 
-
 // Setting individual properties.
 //
 // These functions allow setting individual properties of an |RSA| object. This
@@ -209,7 +205,6 @@ OPENSSL_EXPORT int RSA_set0_factors(RSA *rsa, BIGNUM *p, BIGNUM *q);
 OPENSSL_EXPORT int RSA_set0_crt_params(RSA *rsa, BIGNUM *dmp1, BIGNUM *dmq1,
                                        BIGNUM *iqmp);
 
-
 // Key generation.
 
 // RSA_generate_key_ex generates a new RSA key where the modulus has size
@@ -227,7 +222,6 @@ OPENSSL_EXPORT int RSA_generate_key_ex(RSA *rsa, int bits, const BIGNUM *e,
 // additional checks for FIPS compliance. The public exponent is always 65537
 // and |bits| must be either 2048 or 3072.
 OPENSSL_EXPORT int RSA_generate_key_fips(RSA *rsa, int bits, BN_GENCB *cb);
-
 
 // Encryption / Decryption
 //
@@ -314,7 +308,6 @@ OPENSSL_EXPORT int RSA_public_encrypt(size_t flen, const uint8_t *from,
 // convention. Use |RSA_decrypt| instead.
 OPENSSL_EXPORT int RSA_private_decrypt(size_t flen, const uint8_t *from,
                                        uint8_t *to, RSA *rsa, int padding);
-
 
 // Signing / Verification
 //
@@ -474,7 +467,6 @@ OPENSSL_EXPORT int RSA_private_encrypt(size_t flen, const uint8_t *from,
 OPENSSL_EXPORT int RSA_public_decrypt(size_t flen, const uint8_t *from,
                                       uint8_t *to, RSA *rsa, int padding);
 
-
 // Utility functions.
 
 // RSA_size returns the number of bytes in the modulus, which is also the size
@@ -561,7 +553,6 @@ OPENSSL_EXPORT int RSA_add_pkcs1_prefix(uint8_t **out_msg, size_t *out_msg_len,
                                         const uint8_t *digest,
                                         size_t digest_len);
 
-
 // ASN.1 functions.
 
 // RSA_parse_public_key parses a DER-encoded RSAPublicKey structure (RFC 8017)
@@ -607,7 +598,6 @@ OPENSSL_EXPORT int RSA_marshal_private_key(CBB *cbb, const RSA *rsa);
 OPENSSL_EXPORT int RSA_private_key_to_bytes(uint8_t **out_bytes,
                                             size_t *out_len, const RSA *rsa);
 
-
 // Obscure RSA variants.
 //
 // These functions allow creating RSA keys with obscure combinations of
@@ -649,7 +639,6 @@ OPENSSL_EXPORT RSA *RSA_new_private_key_large_e(
     const BIGNUM *q, const BIGNUM *dmp1, const BIGNUM *dmq1,
     const BIGNUM *iqmp);
 
-
 // ex_data functions.
 //
 // See |ex_data.h| for details.
@@ -660,7 +649,6 @@ OPENSSL_EXPORT int RSA_get_ex_new_index(long argl, void *argp,
                                         CRYPTO_EX_free *free_func);
 OPENSSL_EXPORT int RSA_set_ex_data(RSA *rsa, int idx, void *arg);
 OPENSSL_EXPORT void *RSA_get_ex_data(const RSA *rsa, int idx);
-
 
 // Flags.
 
@@ -691,12 +679,10 @@ OPENSSL_EXPORT void *RSA_get_ex_data(const RSA *rsa, int idx);
 // such keys.
 #define RSA_FLAG_LARGE_PUBLIC_EXPONENT 0x80
 
-
 // RSA public exponent values.
 
 #define RSA_3 0x3
 #define RSA_F4 0x10001
-
 
 // Deprecated functions.
 
@@ -787,7 +773,6 @@ OPENSSL_EXPORT const RSA_PSS_PARAMS *RSA_get0_pss_params(const RSA *rsa);
 // https://crbug.com/boringssl/602.
 OPENSSL_EXPORT RSA *RSA_new_method_no_e(const ENGINE *engine, const BIGNUM *n);
 
-
 struct rsa_meth_st {
   struct openssl_method_common_st common;
 
@@ -825,7 +810,6 @@ struct rsa_meth_st {
 
   int flags;
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

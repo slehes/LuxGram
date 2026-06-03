@@ -9,7 +9,6 @@
 
 @end
 
-
 @interface TGMessageEditDateContentProperty : NSObject <PSCoding>
 
 @property (nonatomic, readonly) NSTimeInterval editDate;
@@ -17,7 +16,6 @@
 - (instancetype)initWithEditDate:(NSTimeInterval)editDate;
 
 @end
-
 
 @interface TGMessageGroupedIdContentProperty : NSObject <PSCoding>
 

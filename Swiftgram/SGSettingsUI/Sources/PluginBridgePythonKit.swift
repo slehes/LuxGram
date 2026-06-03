@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Plugin bridge via PythonKit (Swift ↔ Python)
 //
 // Uses PythonKit (https://github.com/pvieito/PythonKit) when available.
 // exteraGram plugins import Android/Java (base_plugin, org.telegram.messenger, etc.);

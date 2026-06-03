@@ -10,7 +10,6 @@ public struct ImageRepresentationWithReference: Equatable {
     }
 }
 
-
 public struct VideoRepresentationWithReference: Equatable {
     public let representation: TelegramMediaImage.VideoRepresentation
     public let reference: MediaResourceReference

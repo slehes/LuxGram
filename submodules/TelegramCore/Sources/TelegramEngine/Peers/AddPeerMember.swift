@@ -345,7 +345,6 @@ func _internal_addChannelMembers(account: Account, peerId: PeerId, memberIds: [P
     |> switchToLatest
 }
 
-
 public enum SendBotRequestedPeerError {
     case generic
 }

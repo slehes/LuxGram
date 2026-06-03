@@ -149,7 +149,6 @@ typedef struct AmfContext {
     int                 pa_high_motion_quality_boost_mode;
     int                 pa_adaptive_mini_gop;
 
-
 } AmfContext;
 
 extern const AVCodecHWConfigInternal *const ff_amfenc_hw_configs[];

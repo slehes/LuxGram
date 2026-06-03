@@ -1768,7 +1768,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
         } else if case let .groupReference(groupReference) = item.content {
             storyState = groupReference.storyState
         }
-        // MARK: Swiftgram
         let sgCompactChatList = SGSimpleSettings.shared.compactChatList
         let sgCompactMessagePreview = SGCompactMessagePreviewLayout.isEnabled()
         let sgAvatarScaleDivisor: CGFloat = SGCompactMessagePreviewLayout.avatarScaleDivisor(compactChatList: sgCompactChatList, compactMessagePreview: sgCompactMessagePreview)
@@ -1932,7 +1931,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                     isForumAvatar = true
                 }
             }
-            // MARK: Swiftgram
             var avatarDiameter = min(60.0, floor(item.presentationData.fontSize.baseDisplaySize * 60.0 / 17.0)) / sgAvatarScaleDivisor
             
             if case let .peer(peerData) = item.content, let customMessageListData = peerData.customMessageListData, customMessageListData.commandPrefix != nil {
@@ -2185,7 +2183,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
         let currentCustomTextEntities = self.cachedCustomTextEntities
         
         
-        // MARK: Swiftgram
         let sgCompactChatList = SGSimpleSettings.shared.compactChatList
         let sgCompactMessagePreview = SGCompactMessagePreviewLayout.isEnabled()
         let sgAvatarScaleDivisor: CGFloat = SGCompactMessagePreviewLayout.avatarScaleDivisor(compactChatList: sgCompactChatList, compactMessagePreview: sgCompactMessagePreview)
@@ -2448,7 +2445,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
             }
             
             let enableChatListPhotos = true
-            // MARK: Swiftgram
             // if changed, adjust setupItem accordingly
             var avatarDiameter = min(60.0, floor(item.presentationData.fontSize.baseDisplaySize * 60.0 / 17.0)) / sgAvatarScaleDivisor
             let avatarLeftInset: CGFloat
@@ -2518,7 +2514,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                     contentData = .group(peers: groupPeers)
                     hideAuthor = true
             }
-            // MARK: Swiftgram
             let sgInlineAuthorPrefix = sgCompactMessagePreview && !hideAuthor
             if sgCompactChatList || sgCompactMessagePreview { hideAuthor = true };
             var attributedText: NSAttributedString
@@ -2548,7 +2543,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                     }
                 }
             }
-            // MARK: Swiftgram
             if sgCompactChatList || sgInlineAuthorPrefix { useInlineAuthorPrefix = true };
             if useInlineAuthorPrefix {
                 if case let .user(author) = messages.last?.author {
@@ -3379,7 +3373,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 currentCredibilityIconContent = .premium(color: item.presentationData.theme.list.itemAccentColor)
                             }
                             
-                            // MARK: - LuxGram - official channel badge
                             var isLuxGramOfficialChannel = false
                             #if canImport(SGSimpleSettings)
                             let glegramChannelIds: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
@@ -3389,7 +3382,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 isLuxGramOfficialChannel = true
                             }
                             #endif
-                            // MARK: - End LuxGram
 
                             if !isLuxGramOfficialChannel, peer.isVerified {
                                 currentCredibilityIconContent = .verified(fillColor: item.presentationData.theme.list.itemCheckColors.fillColor, foregroundColor: item.presentationData.theme.list.itemCheckColors.foregroundColor, sizeType: .compact)
@@ -3398,7 +3390,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 currentVerifiedIconContent = .animation(content: .customEmoji(fileId: verificationIconFileId), size: CGSize(width: 32.0, height: 32.0), placeholderColor: item.presentationData.theme.list.mediaPlaceholderColor, themeColor: item.presentationData.theme.list.itemAccentColor, loopMode: .count(0))
                             }
 
-                            // MARK: - LuxGram - SGSupporters badges
                             #if canImport(SGSupporters)
                             if case let .user(user) = peer {
                                 let serverBadges = SGSupporters.badges(forUserId: user.id.id._internalGetInt64Value())
@@ -3415,7 +3406,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 }
                             }
                             #endif
-                            // MARK: - End LuxGram
                         }
                     default:
                         break
@@ -3441,7 +3431,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                         currentCredibilityIconContent = .premium(color: item.presentationData.theme.list.itemAccentColor)
                     }
                     
-                    // MARK: - LuxGram - official channel badge (chat peer)
                     #if canImport(SGSimpleSettings)
                     let glegramChannelIds2: Set<Int64> = [-1003574063854, -1003791606969, -1003618396753]
                     let isLuxGramChannel2 = peer.addressName?.lowercased() == "glegramios" || glegramChannelIds2.contains(peer.id.toInt64())
@@ -3473,7 +3462,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                         }
                     }
                     #endif
-                    // MARK: - End LuxGram
                 }
             }
             if let currentSecretIconImage = currentSecretIconImage {
@@ -3672,7 +3660,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                 textMaxWidth -= 18.0
             }
             
-            // MARK: Swiftgram
             let sgChatListMaxLines: Int
             if sgCompactMessagePreview {
                 sgChatListMaxLines = 1
@@ -3684,7 +3671,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
             let maxTitleLines: Int
             switch item.index {
             case .forum:
-                // MARK: Swiftgram
                 if sgCompactChatList { maxTitleLines = 1 } else {
                 maxTitleLines = 2
                 }
@@ -3814,7 +3800,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                 peerRevealOptions = [
                                     ItemListRevealOption(key: RevealOptionKey.hidePsa.rawValue, title: item.presentationData.strings.ChatList_HideAction, icon: deleteIcon, color: item.presentationData.theme.list.itemDisclosureActions.inactive.fillColor, textColor: item.presentationData.theme.list.itemDisclosureActions.neutral1.foregroundColor)
                                 ]
-                                // MARK: Swiftgram
                                 if SGSimpleSettings.shared.disableDeleteChatSwipeOption { peerRevealOptions.removeLast() }
                                 peerLeftRevealOptions = []
                             } else if case let .peer(peerData) = item.content, let customMessageListData = peerData.customMessageListData {
@@ -3824,7 +3809,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                                         ItemListRevealOption(key: RevealOptionKey.edit.rawValue, title: item.presentationData.strings.ChatList_ItemMenuEdit, icon: .none, color: item.presentationData.theme.list.itemDisclosureActions.neutral2.fillColor, textColor: item.presentationData.theme.list.itemDisclosureActions.neutral2.foregroundColor),
                                         ItemListRevealOption(key: RevealOptionKey.delete.rawValue, title: item.presentationData.strings.ChatList_ItemMenuDelete, icon: .none, color: item.presentationData.theme.list.itemDisclosureActions.destructive.fillColor, textColor: item.presentationData.theme.list.itemDisclosureActions.destructive.foregroundColor)
                                     ]
-                                    // MARK: Swiftgram
                                     if SGSimpleSettings.shared.disableDeleteChatSwipeOption { peerRevealOptions.removeLast() }
                                 } else {
                                     peerRevealOptions = []
@@ -3868,7 +3852,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                 peerRevealOptions = []
                 peerLeftRevealOptions = []
             }
-            // MARK: Swiftgram
             if sgCompactChatList {
                 peerRevealOptions = peerRevealOptions.map { option in
                     ItemListRevealOption(key: option.key, title: option.title, icon: .none, color: option.color, textColor: option.textColor)
@@ -3900,7 +3883,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                 itemHeight += titleSpacing
                 itemHeight += authorSpacing
             }
-            // MARK: Swiftgram
             itemHeight = itemHeight / (sgCompactChatList ? 1.5 : 1.0)
             let rawContentRect = CGRect(origin: CGPoint(x: 2.0, y: layoutOffset + floor(item.presentationData.fontSize.itemListBaseFontSize * 8.0 / 17.0)), size: CGSize(width: rawContentWidth, height: itemHeight - 12.0 - 9.0))
             
@@ -4059,7 +4041,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                     var avatarScaleOffset: CGFloat = 0.0
                     var avatarScale: CGFloat = 1.0
                     if let inlineNavigationLocation = item.interaction.inlineNavigationLocation {
-                        // MARK: Swiftgram
                         let targetAvatarScale: CGFloat = floor(item.presentationData.fontSize.itemListBaseFontSize * 54.0 / 17.0) / sgAvatarScaleDivisor / avatarFrame.width
                         avatarScale = targetAvatarScale * inlineNavigationLocation.progress + 1.0 * (1.0 - inlineNavigationLocation.progress)
                         
@@ -4413,7 +4394,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                     strongSelf.statusNode.fontSize = item.presentationData.fontSize.itemListBaseFontSize
                     let _ = strongSelf.statusNode.transitionToState(statusState, animated: animateContent)
                     
-                    // MARK: Swiftgram
                     let sizeFactor = item.presentationData.fontSize.itemListBaseFontSize / 17.0
                     let sgCompactMessagePreviewBadgeOffset = SGCompactMessagePreviewLayout.badgeOffset(sizeFactor: sizeFactor, compactMessagePreview: sgCompactMessagePreview, compactChatList: sgCompactChatList)
 
@@ -4451,7 +4431,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                         let actionButtonBottomInset = floor(item.presentationData.fontSize.itemListBaseFontSize * 4.0 / 17.0)
                         
                         var actionButtonSize = CGSize(width: actionButtonTitleNodeLayout.size.width + actionButtonSideInset * 2.0, height: actionButtonTitleNodeLayout.size.height + actionButtonTopInset + actionButtonBottomInset)
-                        // MARK: Swiftgram
                         let sgActionButtonScaleDivisor: CGFloat = sgCompactChatList ? 1.5 : 1.0
                         if sgCompactChatList {
                             let sgCompactActionButtonSideInset = floor(item.presentationData.fontSize.itemListBaseFontSize * 3.0 / 17.0)
@@ -4517,7 +4496,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                         }
                     }
                     
-                    // MARK: Swiftgram
                     let sgCompactMessagePreviewVerticalOffset: CGFloat = SGCompactMessagePreviewLayout.textVerticalOffset(sizeFactor: sizeFactor, compactMessagePreview: sgCompactMessagePreview, compactChatList: sgCompactChatList, hasAuthorLine: !authorLayout.height.isZero)
                     let sgCompactMessagePreviewTitleTextSpacing: CGFloat = SGCompactMessagePreviewLayout.titleTextSpacing(sizeFactor: sizeFactor, compactMessagePreview: sgCompactMessagePreview, compactChatList: sgCompactChatList, hasAuthorLine: !authorLayout.height.isZero)
                     //
@@ -4730,7 +4708,6 @@ public class ChatListItemNode: ItemListRevealOptionsItemNode {
                     
                     if !itemTags.isEmpty {
                         let sizeFactor = item.presentationData.fontSize.itemListBaseFontSize / 17.0
-                        // MARK: Swiftgram
                         let sgCompactMessagePreviewTagListOffset = max(0.0, SGCompactMessagePreviewLayout.textBlockOffset(sizeFactor: sizeFactor, compactMessagePreview: sgCompactMessagePreview, compactChatList: sgCompactChatList, hasAuthorLine: false) - floorToScreenPixels(4.0 * sizeFactor))
                         //
                         

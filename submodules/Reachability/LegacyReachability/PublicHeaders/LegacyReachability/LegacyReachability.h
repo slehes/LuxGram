@@ -14,7 +14,6 @@ typedef enum : NSInteger {
 
 extern NSString *kReachabilityChangedNotification;
 
-
 @interface LegacyReachability : NSObject
 
 @property (nonatomic, copy) void (^reachabilityChanged)(NetworkStatus status);
@@ -34,7 +33,6 @@ extern NSString *kReachabilityChangedNotification;
  */
 + (instancetype)reachabilityForInternetConnection;
 
-
 #pragma mark reachabilityForLocalWiFi
 //reachabilityForLocalWiFi has been removed from the sample.  See ReadMe.md for more information.
 //+ (instancetype)reachabilityForLocalWiFi;
@@ -53,6 +51,5 @@ extern NSString *kReachabilityChangedNotification;
 - (BOOL)connectionRequired;
 
 @end
-
 
 #endif

@@ -368,7 +368,6 @@ private final class ThemeColorsGridContext: AttachmentMediaPickerContext {
     }
 }
 
-
 public func standaloneColorPickerController(
     context: AccountContext,
     updatedPresentationData: (initial: PresentationData, signal: Signal<PresentationData, NoError>)? = nil,

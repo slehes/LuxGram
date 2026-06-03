@@ -183,7 +183,6 @@ func _internal_dismissServerProvidedSuggestion(account: Account, suggestion: Str
     |> ignoreValues
 }
 
-
 public enum PeerSpecificServerProvidedSuggestion: String {
     case convertToGigagroup = "CONVERT_GIGAGROUP"
 }
@@ -227,15 +226,12 @@ func _internal_dismissPeerSpecificServerProvidedSuggestion(account: Account, pee
     }
 }
 
-
-// MARK: Swiftgram
 private var dismissedSGSuggestionsPromise = ValuePromise<Set<String>>(Set())
 private var dismissedSGSuggestions: Set<String> = Set() {
     didSet {
         dismissedSGSuggestionsPromise.set(dismissedSGSuggestions)
     }
 }
-
 
 public func dismissSGProvidedSuggestion(suggestionId: String) {
     dismissedSGSuggestions.insert(suggestionId)
@@ -283,6 +279,4 @@ public func getSGProvidedSuggestions(account: Account) -> Signal<Data?, NoError>
     }
     |> distinctUntilChanged
 }
-
-
 

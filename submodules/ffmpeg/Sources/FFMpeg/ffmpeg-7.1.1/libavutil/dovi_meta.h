@@ -23,7 +23,6 @@
  * DOVI configuration
  */
 
-
 #ifndef AVUTIL_DOVI_META_H
 #define AVUTIL_DOVI_META_H
 

@@ -580,7 +580,6 @@ public func authController(sharedContext: SharedAccountContext, updatedPresentat
     return controller
 }
 
-
 private final class ProgressAlertContentNode: AlertContentNode {
     private let theme: AlertControllerTheme
     private let strings: PresentationStrings

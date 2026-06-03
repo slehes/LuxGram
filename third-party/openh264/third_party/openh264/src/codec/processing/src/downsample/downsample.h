@@ -49,7 +49,6 @@
 
 WELSVP_NAMESPACE_BEGIN
 
-
 typedef void (HalveDownsampleFunc) (uint8_t* pDst, const int32_t kiDstStride,
                                     uint8_t* pSrc, const int32_t kiSrcStride,
                                     const int32_t kiSrcWidth, const int32_t kiSrcHeight);
@@ -80,7 +79,6 @@ typedef struct {
   PGeneralDownsampleFunc        pfGeneralRatioLuma;
   PGeneralDownsampleFunc        pfGeneralRatioChroma;
 } SDownsampleFuncs;
-
 
 #ifdef X86_ASM
 WELSVP_EXTERN_C_BEGIN
@@ -173,7 +171,6 @@ void GeneralBilinearAccurateDownsampler_AArch64_neon (uint8_t* pDst, const int32
 
 WELSVP_EXTERN_C_END
 #endif
-
 
 class CDownsampling : public IStrategy {
  public:

@@ -63,9 +63,7 @@
 extern "C" {
 #endif
 
-
 // Memory and string functions, see also mem.h.
-
 
 // buf_mem_st (aka |BUF_MEM|) is a generic buffer object used by OpenSSL.
 struct buf_mem_st {
@@ -97,7 +95,6 @@ OPENSSL_EXPORT size_t BUF_MEM_grow_clean(BUF_MEM *buf, size_t len);
 // error.
 OPENSSL_EXPORT int BUF_MEM_append(BUF_MEM *buf, const void *in, size_t len);
 
-
 // Deprecated functions.
 
 // BUF_strdup calls |OPENSSL_strdup|.
@@ -117,7 +114,6 @@ OPENSSL_EXPORT size_t BUF_strlcpy(char *dst, const char *src, size_t dst_size);
 
 // BUF_strlcat calls |OPENSSL_strlcat|.
 OPENSSL_EXPORT size_t BUF_strlcat(char *dst, const char *src, size_t dst_size);
-
 
 #if defined(__cplusplus)
 }  // extern C

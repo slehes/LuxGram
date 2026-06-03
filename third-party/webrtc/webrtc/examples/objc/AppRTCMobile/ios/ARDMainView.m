@@ -111,7 +111,6 @@ static CGFloat const kCallControlMargin = 8;
                        forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:_startLoopbackCallButton];
 
-
     // Used to test what happens to sounds when calls are in progress.
     _audioLoopButton = [UIButton buttonWithType:UIButtonTypeSystem];
     _audioLoopButton.titleLabel.font = controlFont;

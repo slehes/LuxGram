@@ -5,7 +5,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 public struct TelegramPeerPhoto {
     public let image: TelegramMediaImage
     public let reference: TelegramMediaImageReference?

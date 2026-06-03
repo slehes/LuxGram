@@ -125,7 +125,6 @@ public func sgHardReset(dataPath: String, present: ((UIViewController) -> ())?) 
                     }
                 }
 
-
                 NSLog("[SG.DBReset] Done. Reset All completed")
                 let successAlert = UIAlertController(
                     title: "Reset All completed",

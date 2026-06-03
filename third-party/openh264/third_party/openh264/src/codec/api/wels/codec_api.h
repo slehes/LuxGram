@@ -262,9 +262,6 @@ typedef unsigned char bool;
   * @endcode
   */
 
-
-
-
 #ifdef __cplusplus
 /**
 * @brief Endocder definition
@@ -338,8 +335,6 @@ class ISVCEncoder {
   virtual ~ISVCEncoder() {}
 };
 
-
-
 /**
 * @brief Decoder definition
 */
@@ -407,7 +402,6 @@ class ISVCDecoder {
       unsigned char** ppDst,
       SBufferInfo* pDstInfo) = 0;
 
-
   /**
   * @brief   This function gets a decoded ready frame remaining in buffers after the last frame has been decoded.
   * Use GetOption with option DECODER_OPTION_NUM_OF_FRAMES_REMAINING_IN_BUFFER to get the number of frames remaining in buffers.
@@ -466,7 +460,6 @@ class ISVCDecoder {
   virtual long EXTAPI GetOption (DECODER_OPTION eOptionId, void* pOption) = 0;
   virtual ~ISVCDecoder() {}
 };
-
 
 extern "C"
 {
@@ -544,13 +537,11 @@ typedef void (*WelsTraceCallback) (void* ctx, int level, const char* string);
 */
 int  WelsCreateSVCEncoder (ISVCEncoder** ppEncoder);
 
-
 /** @brief   Destroy encoder
 *   @param   pEncoder encoder
  *  @return  void
 */
 void WelsDestroySVCEncoder (ISVCEncoder* pEncoder);
-
 
 /** @brief   Get the capability of decoder
  *  @param   pDecCapability  decoder capability
@@ -558,13 +549,11 @@ void WelsDestroySVCEncoder (ISVCEncoder* pEncoder);
 */
 int WelsGetDecoderCapability (SDecoderCapability* pDecCapability);
 
-
 /** @brief   Create decoder
  *  @param   ppDecoder decoder
  *  @return  0 - success; otherwise - failed;
 */
 long WelsCreateDecoder (ISVCDecoder** ppDecoder);
-
 
 /** @brief   Destroy decoder
  *  @param   pDecoder  decoder

@@ -102,8 +102,6 @@ Boolean CFStringCopyUTF8String(CFStringRef aString, char (&pText)[C_Size]) {
     return CFStringGetCString(aString, pText, maxSize, kCFStringEncodingUTF8);
 }
 
-
-
 uint32_t GetNumberInputStreams(CMIODeviceID devID)
 {
     uint32 size = 0;
@@ -129,8 +127,6 @@ OSStatus GetInputStreams(CMIODeviceID devID, uint32_t&
     //std::sort(firstItem, lastItem);
     return 0;
 }
-
-
 
 @implementation TGCMIODevice
 

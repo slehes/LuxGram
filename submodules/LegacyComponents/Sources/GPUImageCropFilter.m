@@ -1,6 +1,5 @@
 #import "GPUImageCropFilter.h"
 
-
 NSString *const kGPUImageCropFragmentShaderString =  SHADER_STRING
 (
  varying highp vec2 texCoord;
@@ -12,7 +11,6 @@ NSString *const kGPUImageCropFragmentShaderString =  SHADER_STRING
      gl_FragColor = texture2D(sourceImage, texCoord);
  }
 );
-
 
 @interface GPUImageCropFilter ()
 

@@ -252,7 +252,6 @@ void freedomUIKit_decorated4_1(id self, SEL _cmd, id arg1)
     TGLegacyLog(@"invoke %@", NSStringFromSelector(_cmd));
 }
 
-
 void freedomUIKit_decorated4_2(id self, SEL _cmd)
 {
     static void (*nativeImpl)(id, SEL) = NULL;

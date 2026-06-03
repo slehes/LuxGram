@@ -351,7 +351,6 @@ static BROTLI_INLINE size_t BackwardMatchLengthCode(const BackwardMatch* self) {
 #undef JUMP
 #undef HASHER
 
-
 #define HASHER() HROLLING
 #define JUMP 1
 #include "hash_rolling_inc.h"  /* NOLINT(build/include) */

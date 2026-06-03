@@ -120,7 +120,6 @@ final class ThemeGridSearchColorsNode: ASDisplayNode {
     }
 }
 
-
 class ThemeGridSearchColorsItem: ListViewItem {
     let account: Account
     let theme: PresentationTheme

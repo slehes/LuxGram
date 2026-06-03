@@ -45,7 +45,6 @@
 
 @end
 
-
 @interface TGPhotoPaintEntitySelectionView : UIView
 
 @property (nonatomic, weak) TGPhotoPaintEntityView *entityView;

@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension InstantPageCaption {
     convenience init(apiCaption: Api.PageCaption) {
         switch apiCaption {

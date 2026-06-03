@@ -219,4 +219,3 @@ enum {
 
 #endif//WELS_ERROR_CODE_H__
 
-

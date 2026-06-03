@@ -22,7 +22,6 @@
 extern "C" {
 #endif
 
-
 // DILITHIUM_GENERATE_KEY_ENTROPY is the number of bytes of uniformly random
 // entropy necessary to generate a key pair.
 #define DILITHIUM_GENERATE_KEY_ENTROPY 32
@@ -43,7 +42,6 @@ OPENSSL_EXPORT void DILITHIUM_sign_deterministic(
     uint8_t out_encoded_signature[DILITHIUM_SIGNATURE_BYTES],
     const struct DILITHIUM_private_key *private_key, const uint8_t *msg,
     size_t msg_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

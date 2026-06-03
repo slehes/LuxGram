@@ -148,7 +148,6 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
   ASEventLog *_eventLog;
 #endif
 
-
   // Layout support
   ASLayoutElementStyle *_style;
   std::atomic<ASPrimitiveTraitCollection> _primitiveTraitCollection;
@@ -185,7 +184,6 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
   /// Starts at 1.
   std::atomic<NSUInteger> _layoutVersion;
 
-
   // Layout Spec performance measurement
   ASDisplayNodePerformanceMeasurementOptions _measurementOptions;
   NSTimeInterval _layoutSpecTotalTime;
@@ -193,14 +191,12 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
   NSTimeInterval _layoutComputationTotalTime;
   NSInteger _layoutComputationNumberOfPasses;
 
-
   // View Loading
   ASDisplayNodeViewBlock _viewBlock;
   ASDisplayNodeLayerBlock _layerBlock;
   NSMutableArray<ASDisplayNodeDidLoadBlock> *_onDidLoadBlocks;
   Class _viewClass; // nil -> _ASDisplayView
   Class _layerClass; // nil -> _ASDisplayLayer
-
 
   // Placeholder support
   UIImage *_placeholderImage;
@@ -210,7 +206,6 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
   // keeps track of nodes/subnodes that have not finished display, used with placeholders
   ASWeakSet *_pendingDisplayNodes;
 
-
   // Corner Radius support
   CGFloat _cornerRadius;
   ASCornerRoundingType _cornerRoundingType;
@@ -218,7 +213,6 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
 
   ASDisplayNodeContextModifier _willDisplayNodeContentWithRenderingContext;
   ASDisplayNodeContextModifier _didDisplayNodeContentWithRenderingContext;
-
 
   // Accessibility support
   BOOL _isAccessibilityElement;
@@ -241,7 +235,6 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
   UIBezierPath *_accessibilityPath;
   BOOL _isAccessibilityContainer;
 
-
   // Safe Area support
   // These properties are used on iOS 10 and lower, where safe area is not supported by UIKit.
   UIEdgeInsets _fallbackSafeAreaInsets;
@@ -251,7 +244,6 @@ AS_EXTERN NSString * const ASRenderingEngineDidDisplayNodesScheduledBeforeTimest
   BOOL _automaticallyRelayoutOnLayoutMarginsChanges;
 
   BOOL _isViewControllerRoot;
-
 
 #pragma mark - ASDisplayNode (Debugging)
   ASLayout *_unflattenedLayout;

@@ -410,7 +410,6 @@ public enum DeviceModel: CaseIterable, Equatable {
     }
     
     private init() {
-        // MARK: Swiftgram
         #if targetEnvironment(simulator)
         let modelCode = ProcessInfo.processInfo.environment["SIMULATOR_MODEL_IDENTIFIER"]
         #else

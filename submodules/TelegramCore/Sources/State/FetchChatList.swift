@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 enum FetchChatListLocation {
     case general
     case group(PeerGroupId)

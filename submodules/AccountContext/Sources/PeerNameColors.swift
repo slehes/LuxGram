@@ -33,7 +33,6 @@ public class PeerNameColors: Equatable {
         private let _main: UIColor
         private let _secondary: UIColor?
         private let _tertiary: UIColor?
-        // MARK: Swiftgram
         public var main: UIColor {
             let currentSaturation = SGSimpleSettings.shared.accountColorsSaturation
             if currentSaturation == 0 {
@@ -391,7 +390,6 @@ public extension PeerCollectibleColor {
     }
 }
 
-// MARK: Swiftgram
 extension UIColor {
     func withReducedSaturation(_ factor: CGFloat) -> UIColor {
         var hue: CGFloat = 0

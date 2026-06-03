@@ -589,7 +589,6 @@ BN_ULONG bn_reduce_once(BN_ULONG *r, const BN_ULONG *a, BN_ULONG carry,
 BN_ULONG bn_reduce_once_in_place(BN_ULONG *r, BN_ULONG carry, const BN_ULONG *m,
                                  BN_ULONG *tmp, size_t num);
 
-
 // Constant-time non-modular arithmetic.
 //
 // The following functions implement non-modular arithmetic in constant-time
@@ -652,7 +651,6 @@ void bn_mont_ctx_init(BN_MONT_CTX *mont);
 // bn_mont_ctx_cleanup releases memory associated with |mont|, without freeing
 // |mont| itself.
 void bn_mont_ctx_cleanup(BN_MONT_CTX *mont);
-
 
 // Constant-time modular arithmetic.
 //
@@ -719,7 +717,6 @@ int bn_mod_inverse_secret_prime(BIGNUM *out, const BIGNUM *a, const BIGNUM *p,
 // If |*pmont| is already non-NULL then it does nothing and returns one.
 int BN_MONT_CTX_set_locked(BN_MONT_CTX **pmont, CRYPTO_MUTEX *lock,
                            const BIGNUM *mod, BN_CTX *bn_ctx);
-
 
 // Low-level operations for small numbers.
 //
@@ -796,7 +793,6 @@ void bn_mod_exp_mont_small(BN_ULONG *r, const BN_ULONG *a, size_t num,
 void bn_mod_inverse0_prime_mont_small(BN_ULONG *r, const BN_ULONG *a,
                                       size_t num, const BN_MONT_CTX *mont);
 
-
 // Word-based byte conversion functions.
 
 // bn_big_endian_to_words interprets |in_len| bytes from |in| as a big-endian,
@@ -814,7 +810,6 @@ void bn_big_endian_to_words(BN_ULONG *out, size_t out_len, const uint8_t *in,
 // leading zeros.
 void bn_words_to_big_endian(uint8_t *out, size_t out_len, const BN_ULONG *in,
                             size_t in_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

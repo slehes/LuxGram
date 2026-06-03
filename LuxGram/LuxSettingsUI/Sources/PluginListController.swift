@@ -1,4 +1,3 @@
-// MARK: LuxGram – Plugin list (like Active sites: icon, name, author, description, switch; Settings below)
 import Foundation
 import UIKit
 import ObjectiveC

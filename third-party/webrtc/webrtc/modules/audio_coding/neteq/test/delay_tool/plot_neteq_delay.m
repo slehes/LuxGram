@@ -141,7 +141,6 @@ if noplot==0
     axis([ax2(1:3) ax1(4)])
 end
 
-
 % calculate delays and other parameters
 
 delayskip_ix = find(send_t-send_t(1)>=delayskip*1000, 1 );
@@ -170,8 +169,6 @@ if not(isempty(delaypoints))
 else
     delayvalues=[];
 end
-
-
 
 % SUBFUNCTIONS %
 

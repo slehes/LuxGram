@@ -103,7 +103,6 @@
     }];
 }
 
-
 - (UIImage *)image
 {
     if (_image != nil)

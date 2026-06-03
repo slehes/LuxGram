@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 protocol TelegramCloudMediaResource: TelegramMediaResource {
     func apiInputLocation(fileReference: Data?) -> Api.InputFileLocation?
 }

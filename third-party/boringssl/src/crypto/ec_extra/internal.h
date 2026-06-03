@@ -23,7 +23,6 @@
 extern "C" {
 #endif
 
-
 // Hash-to-curve.
 //
 // Internal |EC_JACOBIAN| versions of the corresponding public APIs.
@@ -69,7 +68,6 @@ OPENSSL_EXPORT int ec_hash_to_curve_p384_xmd_sha512_sswu_draft07(
 OPENSSL_EXPORT int ec_hash_to_scalar_p384_xmd_sha512_draft07(
     const EC_GROUP *group, EC_SCALAR *out, const uint8_t *dst, size_t dst_len,
     const uint8_t *msg, size_t msg_len);
-
 
 #if defined(__cplusplus)
 }  // extern C

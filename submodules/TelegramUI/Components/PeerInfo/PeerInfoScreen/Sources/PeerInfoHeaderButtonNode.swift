@@ -25,7 +25,7 @@ enum PeerInfoHeaderButtonKey: Hashable {
 
 enum PeerInfoHeaderButtonIcon {
     case message
-    case discussion // MARK: LuxGram
+    case discussion
     case call
     case videoCall
     case voiceChat
@@ -155,8 +155,7 @@ final class PeerInfoHeaderButtonNode: HighlightableButtonNode {
                 switch icon {
                 case .message:
                     imageName = "Peer Info/ButtonMessage"
-                case .discussion: imageName = "Chat/Empty Chat/ChannelMessages" // MARK: LuxGram
-                case .call:
+                case .discussion: imageName = "Chat/Empty Chat/ChannelMessages"                case .call:
                     imageName = "Peer Info/ButtonCall"
                 case .videoCall:
                     imageName = "Peer Info/ButtonVideo"

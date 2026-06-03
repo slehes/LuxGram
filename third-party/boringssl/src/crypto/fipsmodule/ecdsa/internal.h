@@ -21,7 +21,6 @@
 extern "C" {
 #endif
 
-
 // ecdsa_sign_with_nonce_for_known_answer_test behaves like |ECDSA_do_sign| but
 // takes a fixed nonce. This function is used as part of known-answer tests in
 // the FIPS module.
@@ -36,7 +35,6 @@ ECDSA_SIG *ecdsa_sign_with_nonce_for_known_answer_test(const uint8_t *digest,
 // to prevent an infinite loop.
 int ecdsa_do_verify_no_self_test(const uint8_t *digest, size_t digest_len,
                                  const ECDSA_SIG *sig, const EC_KEY *eckey);
-
 
 #if defined(__cplusplus)
 }

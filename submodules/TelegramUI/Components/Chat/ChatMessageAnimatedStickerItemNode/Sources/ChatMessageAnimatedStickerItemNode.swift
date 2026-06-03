@@ -116,7 +116,6 @@ public class ChatMessageAnimatedStickerItemNode: ChatMessageItemView {
     private let disposable = MetaDisposable()
     private let disposables = DisposableSet()
     
-    // MARK: Swiftgram
     public var sizeCoefficient: Float = 1.0
 
     private var viaBotNode: TextNode?

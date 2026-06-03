@@ -1047,7 +1047,6 @@ static inline void fillPlane32(uint8_t *plane, int stride, int width, int height
     }
 }
 
-
 #define MAX_SLICE_PLANES 4
 
 /// Slice plane

@@ -63,7 +63,6 @@
 extern "C" {
 #endif
 
-
 struct env_md_st {
   // type contains a NID identifing the digest function. (For example,
   // NID_md5.)
@@ -103,7 +102,6 @@ struct evp_md_pctx_ops {
   // to be copied.
   EVP_PKEY_CTX* (*dup) (EVP_PKEY_CTX *pctx);
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

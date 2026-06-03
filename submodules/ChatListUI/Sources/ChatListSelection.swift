@@ -56,7 +56,6 @@ func chatListSelectionOptions(context: AccountContext, peerIds: Set<EnginePeer.I
     }
 }
 
-
 func forumSelectionOptions(context: AccountContext, peerId: EnginePeer.Id, threadIds: Set<Int64>) -> Signal<ChatListSelectionOptions, NoError> {
     return context.engine.data.get(
         TelegramEngine.EngineData.Item.Peer.Peer(id: peerId),

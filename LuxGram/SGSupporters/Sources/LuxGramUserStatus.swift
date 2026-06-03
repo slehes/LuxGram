@@ -1,7 +1,5 @@
 import Foundation
 
-// MARK: - LuxGram check_user response models
-
 public struct LuxGramUserStatus: Equatable {
     public let userId: String
     public let badges: [LuxGramBadge]

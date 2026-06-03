@@ -327,7 +327,6 @@ public func textWithEntitiesAlertController(theme: AlertControllerTheme, title: 
     return controller
 }
 
-
 public func textWithEntitiesAlertController(alertContext: AlertControllerContext, title: NSAttributedString?, text: NSAttributedString, actions: [TextAlertAction], actionLayout: TextAlertContentActionLayout = .horizontal, allowInputInset: Bool = true, dismissAutomatically: Bool = true) -> AlertController {
     let theme = alertContext.theme
     

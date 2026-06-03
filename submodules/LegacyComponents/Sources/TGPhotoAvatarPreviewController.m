@@ -18,7 +18,6 @@
 #import "TGMediaPickerGalleryVideoScrubber.h"
 #import <LegacyComponents/TGModernGalleryVideoView.h>
 
-
 #import <LegacyComponents/TGPhotoPaintStickersContext.h>
 
 #import "TGPhotoDrawingController.h"

@@ -11,17 +11,10 @@
 //const float extern Pi=3.14;
 //const float extern Pi2=6.28;
 
-
-
-
-
-
-
 static inline CGFloat DtoR(CGFloat a)
 {
     return (CGFloat)(a*M_PI/180.0);
 }
-
 
 static inline CGFloat rnd(CGFloat a, CGFloat b)
 {
@@ -44,7 +37,6 @@ static inline NSInteger sign(CGFloat a)
 {
     return a >= 0 ? 1 : -1;
 }
-
 
 static inline CGPoint CGRectCenter(CGRect rect) {
     return CGPointMake(CGRectGetMidX(rect), CGRectGetMidY(rect));
@@ -131,8 +123,6 @@ static inline CGRect CGRectScaledToFitRectSmall(CGRect innerRect, CGRect boundin
     return result;
 }
 
-
-
 static inline CGRect CGRectScaledToFitRectI(CGRect innerRect, CGRect boundingRect, BOOL centralize) {
     return CGRectRoundComponents(CGRectScaledToFitRect(innerRect, boundingRect, centralize));
 }
@@ -172,7 +162,6 @@ static inline CGRect  CGRectChangedCenterY(CGRect rect, CGFloat centerY) {
 static inline CGRect  CGRectChangedCenterX(CGRect rect, CGFloat centerX) {
     return CGRectMake(centerX - rect.size.width / 2.0f, rect.origin.y, rect.size.width, rect.size.height);
 }
-
 
 static inline CGRect  CGRectWithIndent(CGRect rect, NSInteger indent) {
     return CGRectMake(rect.origin.x-indent, rect.origin.y-indent, rect.size.width+indent*2,rect.size.height+indent*2);

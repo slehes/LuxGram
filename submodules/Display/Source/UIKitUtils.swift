@@ -834,7 +834,6 @@ private func makeLayerSubtreeSnapshotAsView(layer: CALayer) -> UIView? {
     return view
 }
 
-
 public func findParentScrollView(view: UIView?) -> UIScrollView? {
     if let view = view {
         if let view = view as? UIScrollView {

@@ -383,7 +383,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 final class WebAppSecureStorageTransferScreen: ViewControllerComponentContainer {
     init(
         context: AccountContext,

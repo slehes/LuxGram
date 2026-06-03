@@ -2,7 +2,6 @@ import Foundation
 import SwiftSignalKit
 import Postbox
 
-
 func initializedAppSettingsAfterLogin(transaction: Transaction, appVersion: String, syncContacts: Bool) {
     updateAppChangelogState(transaction: transaction, { state in
         var state = state

@@ -30,7 +30,6 @@
 #include <unistd.h>
 #endif
 
-
 struct FileDeleter {
   void operator()(FILE *f) const {
     if (f != nullptr) {

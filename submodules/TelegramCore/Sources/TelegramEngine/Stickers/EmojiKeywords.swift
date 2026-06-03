@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 private let refreshTimeout: Int32 = 60 * 60
 
 private enum SearchEmojiKeywordsIntermediateResult {

@@ -4,7 +4,6 @@ import SwiftSignalKit
 import TelegramApi
 import MtProtoKit
 
-
 private final class ManagedPendingPeerNotificationSettingsHelper {
     var operationDisposables: [PeerId: (PeerNotificationSettings, Disposable)] = [:]
     

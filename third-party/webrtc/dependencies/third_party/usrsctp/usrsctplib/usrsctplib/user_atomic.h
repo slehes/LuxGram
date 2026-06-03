@@ -243,7 +243,6 @@ atomic_fetchadd_int(volatile void *n, u_int v)
 	return (v);
 }
 
-
 #ifdef CPU_DISABLE_CMPXCHG
 
 static __inline int

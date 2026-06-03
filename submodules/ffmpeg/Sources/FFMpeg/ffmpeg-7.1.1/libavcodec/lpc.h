@@ -85,7 +85,6 @@ typedef struct LPCContext {
     LLSModel lls_models[2];
 } LPCContext;
 
-
 /**
  * Calculate LPC coefficients for multiple orders
  */

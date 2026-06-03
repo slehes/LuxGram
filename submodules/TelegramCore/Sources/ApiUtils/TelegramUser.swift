@@ -48,7 +48,6 @@ extension PeerVerification {
     }
 }
 
-
 extension TelegramUser {
     convenience init(user: Api.User) {
         switch user {

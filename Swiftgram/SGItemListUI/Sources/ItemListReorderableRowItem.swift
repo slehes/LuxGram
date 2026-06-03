@@ -1,4 +1,3 @@
-// MARK: Swiftgram – reorderable row for tab organizer and hidden settings tabs
 import Foundation
 import UIKit
 import Display

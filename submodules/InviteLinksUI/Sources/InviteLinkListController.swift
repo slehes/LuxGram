@@ -987,7 +987,6 @@ public func inviteLinkListController(context: AccountContext, updatedPresentatio
     return controller
 }
 
-
 public final class InviteLinkContextExtractedContentSource: ContextExtractedContentSource {
     public var keepInPlace: Bool
     public let ignoreContentTouches: Bool = true

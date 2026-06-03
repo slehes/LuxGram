@@ -9,7 +9,6 @@ import AppKit
 import TGUIKit
 #endif
 
-
 import IOSurface
 import ShelfPack
 

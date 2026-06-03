@@ -225,7 +225,6 @@ final class DialIndicatorComponent: Component {
     }
 }
 
-
 final class ColorSwatchComponent: Component {
     let innerColor: UIColor
     let outerColor: UIColor

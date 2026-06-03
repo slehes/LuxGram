@@ -23,7 +23,6 @@
 
 #include "cbs_h265.h"
 
-
 typedef struct H265LevelDescriptor {
     char        name[4];    // Large enough for all current levels like "4.1"
     uint8_t     level_idc;
@@ -69,9 +68,7 @@ typedef struct H265ProfileDescriptor {
     uint8_t max_dpb_pic_buf;
 } H265ProfileDescriptor;
 
-
 const H265ProfileDescriptor *ff_h265_get_profile(const H265RawProfileTierLevel *ptl);
-
 
 /**
  * Guess the level of a stream from some parameters.

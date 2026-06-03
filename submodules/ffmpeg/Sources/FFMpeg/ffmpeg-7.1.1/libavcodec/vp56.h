@@ -204,7 +204,6 @@ struct vp56_context {
     int discard_frame;
 };
 
-
 /**
  * Initializes an VP56Context. Expects its caller to clean up
  * in case of error.
@@ -215,7 +214,6 @@ int ff_vp56_free_context(VP56Context *s);
 void ff_vp56_init_dequant(VP56Context *s, int quantizer);
 int ff_vp56_decode_frame(AVCodecContext *avctx, AVFrame *frame,
                          int *got_frame, AVPacket *avpkt);
-
 
 /**
  * vp56 specific range coder implementation

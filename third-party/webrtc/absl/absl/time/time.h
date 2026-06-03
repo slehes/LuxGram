@@ -705,7 +705,6 @@ bool ParseDuration(absl::string_view dur_string, Duration* d);
 // `absl::ParseDuration()`.
 bool AbslParseFlag(absl::string_view text, Duration* dst, std::string* error);
 
-
 // AbslUnparseFlag()
 //
 // Unparses a Duration value into a command-line string representation using

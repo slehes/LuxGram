@@ -225,7 +225,6 @@ typedef struct AVHDRVividColorToneMappingParams {
     AVHDRVivid3SplineParams three_spline[2];
 } AVHDRVividColorToneMappingParams;
 
-
 /**
  * Color transform parameters at a processing window in a dynamic metadata for
  * CUVA 005.1:2021.

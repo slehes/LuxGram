@@ -6,7 +6,6 @@
 //  Copyright (c) 2014 IntroOpenGL. All rights reserved.
 //
 
-
 typedef enum
 {
     Default=0,

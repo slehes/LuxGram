@@ -85,7 +85,6 @@ func _internal_revokePersistentPeerExportedInvitation(account: Account, peerId: 
     } |> switchToLatest
 }
 
-
 public enum CreatePeerExportedInvitationError {
     case generic
 }
@@ -263,7 +262,6 @@ func _internal_peerExportedInvitations(account: Account, peerId: PeerId, revoked
         }
     } |> switchToLatest
 }
-
 
 public enum DeletePeerExportedInvitationError {
     case generic

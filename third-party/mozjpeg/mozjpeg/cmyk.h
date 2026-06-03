@@ -18,7 +18,6 @@
 #define JPEG_INTERNALS
 #include <jpeglib.h>
 
-
 /* Fully reversible */
 
 INLINE
@@ -43,7 +42,6 @@ rgb_to_cmyk(JSAMPLE r, JSAMPLE g, JSAMPLE b, JSAMPLE *c, JSAMPLE *m,
   *k = (JSAMPLE)(255.0 - ktmp * 255.0 + 0.5);
 }
 
-
 /* Fully reversible only for C/M/Y/K values generated with rgb_to_cmyk() */
 
 INLINE
@@ -55,6 +53,5 @@ cmyk_to_rgb(JSAMPLE c, JSAMPLE m, JSAMPLE y, JSAMPLE k, JSAMPLE *r, JSAMPLE *g,
   *g = (JSAMPLE)((double)m * (double)k / 255.0 + 0.5);
   *b = (JSAMPLE)((double)y * (double)k / 255.0 + 0.5);
 }
-
 
 #endif /* CMYK_H */

@@ -120,7 +120,6 @@ private final class ToolIconComponent: Component {
     }
 }
 
-
 private final class MediaToolsScreenComponent: Component {
     typealias EnvironmentType = ViewControllerComponentContainer.Environment
     

@@ -4786,7 +4786,6 @@ private func pipPositionForLocation(layout: ContainerViewLayout, position: CGPoi
     return position
 }
 
-
 private func generateAddIcon(color: UIColor) -> UIImage? {
     return generateImage(CGSize(width: 30.0, height: 30.0), contextGenerator: { size, context in
         context.clear(CGRect(origin: .zero, size: size))
@@ -4803,7 +4802,6 @@ private func generateAddIcon(color: UIColor) -> UIImage? {
         context.strokePath()
     })
 }
-
 
 private func generateAddLabel(strings: PresentationStrings, color: UIColor) -> UIImage? {
     let titleString = NSAttributedString(string: strings.StoryFeed_AddStory, font: Font.regular(11.0), textColor: color, paragraphAlignment: .center)

@@ -1114,7 +1114,6 @@ public final class WallpaperBackgroundNodeImpl: ASDisplayNode, WallpaperBackgrou
         }
     }
     
-    // MARK: Swiftgram
     private var NYNode: WallpaperNYNode?
     //
 

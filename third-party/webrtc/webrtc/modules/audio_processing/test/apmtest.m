@@ -175,7 +175,6 @@ if ~strcmp(task, 'list')
   end
 end
 
-
 function [nErrOut, nCases] = recurseDir(inpath, outpath, refpath, ...
     outfile, progname, opt, simulateMode, nErr, nCases, task, casenumber, ...
     legacy)
@@ -192,7 +191,6 @@ nErrOut = nErr;
 for i=3:length(dirs) % skip . and ..
   nDirs = nDirs + dirs(i).isdir;
 end
-
 
 if nDirs == 0
   nCases = nCases + 1;

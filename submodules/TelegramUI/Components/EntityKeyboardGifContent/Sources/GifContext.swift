@@ -151,7 +151,6 @@ public func paneGifSearchForQuery(context: AccountContext, query: String, offset
     }
 }
 
-
 public final class GifContext {
     private var componentValue: EntityKeyboardGifContent? {
         didSet {

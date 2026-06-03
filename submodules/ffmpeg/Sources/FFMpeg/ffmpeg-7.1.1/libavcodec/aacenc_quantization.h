@@ -33,7 +33,6 @@
 #include "aacenc.h"
 #include "put_bits.h"
 
-
 float ff_quantize_and_encode_band_cost(AACEncContext *s, PutBitContext *pb,
                                        const float *in, float *quant, const float *scaled,
                                        int size, int scale_idx, int cb,

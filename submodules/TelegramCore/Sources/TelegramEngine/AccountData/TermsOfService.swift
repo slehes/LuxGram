@@ -4,7 +4,6 @@ import Postbox
 import SwiftSignalKit
 import MtProtoKit
 
-
 public struct TermsOfServiceUpdate: Equatable {
     public let id: String
     public let text: String

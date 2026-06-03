@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 private enum MessagePreParsingError: Error {
     case invalidChatState
     case malformedData

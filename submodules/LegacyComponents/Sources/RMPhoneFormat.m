@@ -114,9 +114,7 @@
 #endif
 }
 
-
 @end
-
 
 @interface RuleSet : NSObject
 
@@ -206,9 +204,7 @@
     return res;
 }
 
-
 @end
-
 
 @interface CallingCodeInfo : NSObject
 
@@ -306,7 +302,6 @@
     
     return res;
 }
-
 
 @end
 
@@ -749,6 +744,5 @@ static NSMutableDictionary *flagRules = nil;
     NSLog(@"extra3 calling codes: %@", extra3CallingCodes);
 }
 #endif
-
 
 @end

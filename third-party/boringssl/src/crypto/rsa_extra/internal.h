@@ -54,7 +54,6 @@
  * copied and put under another distribution licence
  * [including the GNU Public Licence.] */
 
-
 #ifndef OPENSSL_HEADER_RSA_EXTRA_INTERNAL_H
 #define OPENSSL_HEADER_RSA_EXTRA_INTERNAL_H
 
@@ -62,13 +61,11 @@
 extern "C" {
 #endif
 
-
 int RSA_padding_check_PKCS1_OAEP_mgf1(uint8_t *out, size_t *out_len,
                                       size_t max_out, const uint8_t *from,
                                       size_t from_len, const uint8_t *param,
                                       size_t param_len, const EVP_MD *md,
                                       const EVP_MD *mgf1md);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -52,7 +52,6 @@ static const int64_t kNanosecondsPerSecond = 1000000000;
 -(void)applyPixelBuffer:(CVPixelBufferRef)pixelBuffer timeStampNs:(int64_t)timeStampNs;
 @end
 
-
 void decompressionSessionDecodeFrameCallback(void *decompressionOutputRefCon,
                                              void *sourceFrameRefCon,
                                              OSStatus status,
@@ -68,7 +67,6 @@ void decompressionSessionDecodeFrameCallback(void *decompressionOutputRefCon,
         [manager applyPixelBuffer:imageBuffer timeStampNs: CMTimeGetSeconds(presentationTimeStamp) * kNanosecondsPerSecond];
     }
 }
-
 
 static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_refptr<webrtc::VideoTrackSourceInterface> nativeSource) {
     webrtc::VideoTrackSourceProxy *proxy_source =
@@ -91,7 +89,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
     
 }
 
-
 - (void)start  {
     
     __weak VideoCMIOCapture *weakSelf = self;
@@ -100,7 +97,6 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
         [weakSelf apply:sampleBuffer];
     }];
 }
-
 
 -(void)apply:(CMSampleBufferRef)sampleBuffer {
     if (CMSampleBufferGetNumSamples(sampleBuffer) != 1 || !CMSampleBufferIsValid(sampleBuffer) ||
@@ -232,6 +228,5 @@ static tgcalls::DarwinVideoTrackSource *getObjCVideoSource(const rtc::scoped_ref
         CFRelease(_decompressionSession);
     }
 }
-
 
 @end

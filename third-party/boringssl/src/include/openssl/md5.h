@@ -63,9 +63,7 @@
 extern "C" {
 #endif
 
-
 // MD5.
-
 
 // MD5_CBLOCK is the block size of MD5.
 #define MD5_CBLOCK 64
@@ -100,7 +98,6 @@ struct md5_state_st {
   uint8_t data[MD5_CBLOCK];
   unsigned num;
 };
-
 
 #if defined(__cplusplus)
 }  // extern C

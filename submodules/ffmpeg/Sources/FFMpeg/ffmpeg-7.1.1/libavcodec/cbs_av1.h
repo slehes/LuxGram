@@ -25,7 +25,6 @@
 #include "av1.h"
 #include "cbs.h"
 
-
 typedef struct AV1RawOBUHeader {
     uint8_t obu_forbidden_bit;
     uint8_t obu_type;
@@ -396,7 +395,6 @@ typedef struct AV1RawPadding {
     size_t       payload_size;
 } AV1RawPadding;
 
-
 typedef struct AV1RawOBU {
     AV1RawOBUHeader header;
 
@@ -483,6 +481,5 @@ typedef struct CodedBitstreamAV1Context {
     uint8_t feature_enabled[AV1_MAX_SEGMENTS][AV1_SEG_LVL_MAX];
     int16_t feature_value[AV1_MAX_SEGMENTS][AV1_SEG_LVL_MAX];
 } CodedBitstreamAV1Context;
-
 
 #endif /* AVCODEC_CBS_AV1_H */

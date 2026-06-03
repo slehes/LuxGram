@@ -30,7 +30,6 @@ private func totalDiskSpace() -> Int64 {
     }
 }
 
-// MARK: Swiftgram
 private let maximumCacheSizeValues: [Int32] = {
     let diskSpace = totalDiskSpace()
     if diskSpace > 100 * 1024 * 1024 * 1024 {
@@ -84,7 +83,6 @@ final class StorageKeepSizeComponent: Component {
         private weak var state: EmptyComponentState?
         
         override init(frame: CGRect) {
-            // MARK: Swiftgram
             self.titles = (0 ..< 5).map { _ in ComponentView<Empty>() }
             self.slider = ComponentView<Empty>()
             
@@ -144,8 +142,7 @@ final class StorageKeepSizeComponent: Component {
                 component: AnyComponent(
                     SliderComponent(
                         content: .discrete(.init(
-                            valueCount: 5, // MARK: Swiftgram
-                            value: maximumCacheSizeValues.firstIndex(where: { $0 == component.value }) ?? 0,
+                            valueCount: 5,                            value: maximumCacheSizeValues.firstIndex(where: { $0 == component.value }) ?? 0,
                             markPositions: true,
                             valueUpdated: { value in
                                 let sizeValue = maximumCacheSizeValues[value]

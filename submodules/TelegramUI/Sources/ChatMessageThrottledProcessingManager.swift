@@ -74,7 +74,6 @@ final class ChatMessageThrottledProcessingManager {
     }
 }
 
-
 final class ChatMessageVisibleThrottledProcessingManager {
     private let queue = Queue.mainQueue()
     

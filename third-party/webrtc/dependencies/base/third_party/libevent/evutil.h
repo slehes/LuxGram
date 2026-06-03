@@ -160,10 +160,8 @@ int evutil_make_socket_nonblocking(int sock);
 #define	evutil_timerisset(tvp)	((tvp)->tv_sec || (tvp)->tv_usec)
 #endif
 
-
 /* big-int related functions */
 ev_int64_t evutil_strtoll(const char *s, char **endptr, int base);
-
 
 #ifdef _EVENT_HAVE_GETTIMEOFDAY
 #define evutil_gettimeofday(tv, tz) gettimeofday((tv), (tz))

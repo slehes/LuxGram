@@ -9,7 +9,6 @@ import SGSimpleSettings
 
 private typealias SignalKitTimer = SwiftSignalKit.Timer
 
-
 private final class AccountPresenceManagerImpl {
     private let queue: Queue
     private let network: Network
@@ -19,7 +18,6 @@ private final class AccountPresenceManagerImpl {
     private let currentRequestDisposable = MetaDisposable()
     private var onlineTimer: SignalKitTimer?
 
-    // MARK: - LuxGram - AyuGram-style ghost mode: periodic offline packet timer
     private var ghostOfflineTimer: SignalKitTimer?
 
     private var wasOnline: Bool = false
@@ -48,8 +46,6 @@ private final class AccountPresenceManagerImpl {
         self.onlineTimer?.invalidate()
         self.ghostOfflineTimer?.invalidate()
     }
-
-    // MARK: - LuxGram - Ghost Mode helpers (AyuGram pattern)
 
     /// Returns true if any ghost mode option is currently active.
     private func isGhostModeActive() -> Bool {
@@ -90,7 +86,6 @@ private final class AccountPresenceManagerImpl {
     }
 
     private func updatePresence(_ isOnline: Bool) {
-        // MARK: - LuxGram - Ghost Mode: AyuGram-style periodic offline packet
         #if canImport(SGSimpleSettings)
         if self.isGhostModeActive() {
             if isOnline {

@@ -610,7 +610,6 @@ static const AVFilterPad vsrc_coreimagesrc_outputs[] = {
     {"filter",          "names and options of filters to apply", OFFSET(filter_string),   AV_OPT_TYPE_STRING, {.str = NULL},    .flags = FLAGS}, \
     {"output_rect",     "output rectangle within output image",  OFFSET(output_rect),     AV_OPT_TYPE_STRING, {.str = NULL},    .flags = FLAGS},
 
-
 // definitions for coreimage video filter
 static const AVOption coreimage_options[] = {
     FILTER_OPTIONS

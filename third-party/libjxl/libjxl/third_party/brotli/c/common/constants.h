@@ -86,7 +86,6 @@
    (see kLargeWindowDistanceCodeLimits). */
 #define BROTLI_MAX_ALLOWED_DISTANCE 0x7FFFFFFC
 
-
 /* Specification: 4. Encoding of Literal Insertion Lengths and Copy Lengths */
 #define BROTLI_NUM_INS_COPY_CODES 24
 

@@ -65,7 +65,6 @@ private let formatter: DateFormatter? = {
     return formatter
 }()
 
-
 private class StatusBarItemNode: ASDisplayNode {
     var statusBarStyle: StatusBarStyle
     var targetView: UIView

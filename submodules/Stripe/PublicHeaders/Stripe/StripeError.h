@@ -51,7 +51,6 @@ FOUNDATION_EXPORT NSString * __nonnull const STPCardDeclined;
 FOUNDATION_EXPORT NSString * __nonnull const STPProcessingError;
 FOUNDATION_EXPORT NSString * __nonnull const STPIncorrectCVC;
 
-
 @interface NSError(Stripe)
 
 + (nullable NSError *)stp_errorFromStripeResponse:(nullable NSDictionary *)jsonDictionary;
@@ -69,6 +68,5 @@ FOUNDATION_EXPORT NSString * __nonnull const STPIncorrectCVC;
 + (nonnull NSString *)stp_cardErrorDeclinedUserMessage;
 + (nonnull NSString *)stp_cardErrorProcessingErrorUserMessage;
 + (nonnull NSString *)stp_unexpectedErrorMessage;
-
 
 @end

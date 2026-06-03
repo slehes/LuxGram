@@ -2,7 +2,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public enum UpdateChannelSlowModeError {
     case generic
     case tooManyChannels

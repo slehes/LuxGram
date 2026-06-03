@@ -725,7 +725,6 @@ CGFloat TGSeparatorHeight()
     return value;
 }
 
-
 bool TGIsPad()
 {
     static bool value = false;
@@ -849,7 +848,6 @@ bool TGWriteJPEGRepresentationToFile(UIImage *image, CGFloat compressionRate, NS
     
     return succeed;
 }
-
 
 static bool readCGFloat(NSString *string, int &position, CGFloat &result) {
     int start = position;

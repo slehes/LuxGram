@@ -53,7 +53,6 @@ extern int maxsockets;
  */
 extern int hz;
 
-
 /* The following two ints define a range of available ephemeral ports. */
 extern int ipport_firstauto, ipport_lastauto;
 

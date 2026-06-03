@@ -55,7 +55,6 @@ typedef struct TrellisBandCodingPath {
     int run;
 } TrellisBandCodingPath;
 
-
 static void codebook_trellis_rate(AACEncContext *s, SingleChannelElement *sce,
                                   int win, int group_len, const float lambda)
 {
@@ -187,6 +186,5 @@ static void codebook_trellis_rate(AACEncContext *s, SingleChannelElement *sce,
         put_bits(&s->pb, run_bits, count);
     }
 }
-
 
 #endif /* AVCODEC_AACCODER_TRELLIS_H */

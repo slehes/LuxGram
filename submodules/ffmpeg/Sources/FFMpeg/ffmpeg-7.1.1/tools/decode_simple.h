@@ -29,7 +29,6 @@
 #include "libavutil/dict.h"
 #include "libavutil/frame.h"
 
-
 typedef struct DecodeContext {
     AVFormatContext *demuxer;
     AVStream        *stream;

@@ -30,7 +30,6 @@
 
 #include "../internal.h"
 
-
 // hexdump writes |msg| to |fp| followed by the hex encoding of |len| bytes
 // from |in|.
 void hexdump(FILE *fp, const char *msg, const void *in, size_t len);
@@ -72,6 +71,5 @@ std::string EncodeHex(bssl::Span<const uint8_t> in);
 // ErrorEquals asserts that |err| is an error with library |lib| and reason
 // |reason|.
 testing::AssertionResult ErrorEquals(uint32_t err, int lib, int reason);
-
 
 #endif  // OPENSSL_HEADER_CRYPTO_TEST_TEST_UTIL_H

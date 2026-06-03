@@ -366,7 +366,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 public final class AccountFreezeInfoScreen: ViewControllerComponentContainer {
     private let context: AccountContext
     

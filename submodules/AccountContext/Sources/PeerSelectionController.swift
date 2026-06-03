@@ -39,7 +39,6 @@ public struct ChatListNodePeersFilter: OptionSet {
     public static let includeSelf = ChatListNodePeersFilter(rawValue: 1 << 7)
 }
 
-
 public enum ChatListDisabledPeerReason {
     case generic
     case premiumRequired

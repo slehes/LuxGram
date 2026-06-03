@@ -2,7 +2,6 @@ import Postbox
 import TelegramApi
 import SwiftSignalKit
 
-
 public enum ChannelHistoryAvailabilityError {
     case generic
     case hasNotPermissions

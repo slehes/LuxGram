@@ -4,7 +4,6 @@ import MtProtoKit
 import SwiftSignalKit
 import TelegramApi
 
-
 func apiSecureValueType(value: SecureIdValue) -> Api.SecureValueType {
     let type: Api.SecureValueType
     switch value {

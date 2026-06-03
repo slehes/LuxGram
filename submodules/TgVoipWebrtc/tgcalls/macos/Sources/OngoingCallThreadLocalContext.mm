@@ -134,7 +134,6 @@
 
 @end
 
-
 @interface VideoSampleBufferView (VideoViewImpl) <OngoingCallThreadLocalContextWebrtcVideoView, OngoingCallThreadLocalContextWebrtcVideoViewImpl>
 
 @property (nonatomic, readwrite) OngoingCallVideoOrientationWebrtc orientation;
@@ -325,7 +324,6 @@
 }
 
 @end
-
 
 namespace {
 
@@ -1184,7 +1182,6 @@ static void (*InternalVoipLoggingFunction)(NSString *) = NULL;
     }
 }
 
-
 - (void)addSignalingData:(NSData *)data {
     if (_tgVoip) {
         std::vector<uint8_t> mappedData;
@@ -1214,7 +1211,6 @@ static void (*InternalVoipLoggingFunction)(NSString *) = NULL;
         }
     }
 }
-
 
 - (GroupCallDisposable * _Nonnull)addVideoOutputWithIsIncoming:(bool)isIncoming sink:(void (^_Nonnull)(CallVideoFrameData * _Nonnull))sink {
     int sinkId = _nextSinkId;
@@ -1246,7 +1242,6 @@ static void (*InternalVoipLoggingFunction)(NSString *) = NULL;
         }];
     }];
 }
-
 
 - (void)makeIncomingVideoView:(void (^_Nonnull)(UIView<OngoingCallThreadLocalContextWebrtcVideoView> * _Nullable))completion {
     if (_tgVoip) {
@@ -1326,7 +1321,6 @@ static void (*InternalVoipLoggingFunction)(NSString *) = NULL;
     }
 }
 
-
 @end
 
 namespace {
@@ -1383,7 +1377,6 @@ private:
 }
 
 @end
-
 
 @implementation GroupCallThreadLocalContext
 
@@ -1491,8 +1484,6 @@ encryptDecrypt:(NSData * _Nullable (^ _Nullable)(NSData * _Nonnull, int64_t, boo
                 return std::vector<uint8_t>((uint8_t *)result.bytes, ((uint8_t *)result.bytes) + result.length);
             };
         }
-
-
 
         __weak GroupCallThreadLocalContext *weakSelf = self;
         _instance.reset(new tgcalls::GroupInstanceCustomImpl((tgcalls::GroupInstanceDescriptor){
@@ -1949,7 +1940,6 @@ encryptDecrypt:(NSData * _Nullable (^ _Nullable)(NSData * _Nonnull, int64_t, boo
     }
 }
 
-
 - (GroupCallDisposable * _Nonnull)addVideoOutputWithEndpointId:(NSString * _Nonnull)endpointId sink:(void (^_Nonnull)(CallVideoFrameData * _Nonnull))sink {
     int sinkId = _nextSinkId;
     _nextSinkId += 1;
@@ -2071,7 +2061,6 @@ encryptDecrypt:(NSData * _Nullable (^ _Nullable)(NSData * _Nonnull, int64_t, boo
 }
 
 @end
-
 
 @implementation OngoingGroupCallIncomingVideoStats
 

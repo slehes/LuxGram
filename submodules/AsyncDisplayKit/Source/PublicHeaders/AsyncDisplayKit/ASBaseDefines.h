@@ -135,7 +135,6 @@
 
 #define ASOVERLOADABLE __attribute__((overloadable))
 
-
 #if __has_attribute(noescape)
 #define AS_NOESCAPE __attribute__((noescape))
 #else

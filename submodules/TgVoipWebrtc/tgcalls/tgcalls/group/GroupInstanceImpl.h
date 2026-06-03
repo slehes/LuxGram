@@ -59,7 +59,6 @@ struct GroupActivitiesUpdate {
     std::vector<GroupActivityUpdate> updates;
 };
 
-
 class BroadcastPartTask {
 public:
     virtual ~BroadcastPartTask() = default;

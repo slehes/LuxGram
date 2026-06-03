@@ -885,7 +885,6 @@ private final class PremiumGiftScreenComponent: CombinedComponent {
         }
         
         func buy() {
-            // MARK: Swiftgram
             let presentationData = self.context.sharedContext.currentPresentationData.with { $0 }
             let alertController = textAlertController(context: self.context, title: i18n("Common.OpenTelegram", presentationData.strings.baseLanguageCode), text: i18n("Common.UseTelegramForPremium", presentationData.strings.baseLanguageCode), actions: [TextAlertAction(type: .defaultAction, title: presentationData.strings.Common_OK, action: {})])
             self.present(alertController)

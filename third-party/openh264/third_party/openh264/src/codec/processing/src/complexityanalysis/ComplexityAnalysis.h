@@ -79,7 +79,6 @@ class CComplexityAnalysis : public IStrategy {
   SComplexityAnalysisParam m_sComplexityAnalysisParam;
 };
 
-
 //for screen content
 
 class CComplexityAnalysisScreen : public IStrategy {
@@ -100,7 +99,6 @@ class CComplexityAnalysisScreen : public IStrategy {
   GetIntraPredPtr m_pIntraFunc[2];
   SComplexityAnalysisScreenParam m_ComplexityAnalysisParam;
 };
-
 
 WELSVP_NAMESPACE_END
 

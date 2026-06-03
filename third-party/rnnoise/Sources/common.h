@@ -9,7 +9,6 @@
 #define RNN_INLINE inline
 #define OPUS_INLINE inline
 
-
 /** RNNoise wrapper for malloc(). To do your own dynamic allocation, all you need t
 o do is replace this function and rnnoise_free */
 #ifndef OVERRIDE_RNNOISE_ALLOC
@@ -42,7 +41,5 @@ static RNN_INLINE void rnnoise_free (void *ptr)
 #ifndef OVERRIDE_RNN_CLEAR
 #define RNN_CLEAR(dst, n) (memset((dst), 0, (n)*sizeof(*(dst))))
 #endif
-
-
 
 #endif

@@ -29,7 +29,6 @@ public extension Peer {
             break
         }
         
-        // MARK: LuxGram
         let chatId = self.id.id._internalGetInt64Value()
         if contentSettings.appConfiguration.sgWebSettings.global.forceReasons.contains(chatId) {
             return "Unavailable in LuxGram due to App Store Guidelines"
@@ -242,7 +241,6 @@ public extension Peer {
     }
     
     var isCopyProtectionEnabled: Bool {
-        // MARK: - LuxGram - Allow saving protected content if enabled
         #if canImport(SGSimpleSettings)
         if SGSimpleSettings.shared.enableSavingProtectedContent {
             return false
@@ -317,8 +315,7 @@ public extension Peer {
     }
     
     var nameColor: PeerColor? {
-        if SGSimpleSettings.shared.accountColorsSaturation == 0 { // MARK: LuxGram
-            return nil
+        if SGSimpleSettings.shared.accountColorsSaturation == 0 {            return nil
         }
         switch self {
         case let user as TelegramUser:

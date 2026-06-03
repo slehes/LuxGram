@@ -49,7 +49,6 @@ private final class UnauthorizedUpdateMessageService: NSObject, MTMessageService
     }
 }
 
-
 final class UnauthorizedAccountStateManager {
     private let queue = Queue()
     private let network: Network

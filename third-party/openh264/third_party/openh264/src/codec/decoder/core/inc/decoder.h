@@ -129,7 +129,6 @@ int32_t WelsDecodeBs (PWelsDecoderContext pCtx, const uint8_t* kpBsBuf, const in
 int32_t WelsRequestMem (PWelsDecoderContext pCtx, const int32_t kiMbWidth, const int32_t kiMbHeight,
                         bool& bReallocFlag);
 
-
 /*
  *  free memory dynamically allocated during decoder
  */

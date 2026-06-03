@@ -66,7 +66,6 @@ typedef struct SnowDWTContext {
                              int add, uint8_t *dst8);
 } SnowDWTContext;
 
-
 #define DWT_97 0
 #define DWT_53 1
 

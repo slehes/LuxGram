@@ -20,7 +20,6 @@ NSString *const kGPUImageTwoInputTextureVertexShaderString = SHADER_STRING
  }
 );
 
-
 @implementation GPUImageTwoInputFilter
 
 #pragma mark -

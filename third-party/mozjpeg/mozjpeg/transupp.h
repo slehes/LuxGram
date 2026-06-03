@@ -96,7 +96,6 @@ extern "C" {
  * be aware of the option to know how many components to work on.
  */
 
-
 /*
  * Codes for supported types of image transformations.
  */
@@ -178,7 +177,6 @@ typedef struct {
   int iMCU_sample_height;
 } jpeg_transform_info;
 
-
 #if TRANSFORMS_SUPPORTED
 
 /* Parse a crop specification (written in X11 geometry style) */
@@ -212,7 +210,6 @@ EXTERN(boolean) jtransform_perfect_transform(JDIMENSION image_width,
 #define jtransform_execute_transformation       jtransform_execute_transform
 
 #endif /* TRANSFORMS_SUPPORTED */
-
 
 /*
  * Support for copying optional markers from source to destination file.

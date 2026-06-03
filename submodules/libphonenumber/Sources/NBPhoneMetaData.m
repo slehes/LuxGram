@@ -8,9 +8,7 @@
 #import "NBPhoneNumberDesc.h"
 #import "NBNumberFormat.h"
 
-
 @implementation NBPhoneMetaData
-
 
 - (id)init
 {
@@ -27,13 +25,11 @@
     return self;
 }
 
-
 - (NSString *)description
 {
     return [NSString stringWithFormat:@"* codeID[%@] countryCode[%@] generalDesc[%@] fixedLine[%@] mobile[%@] tollFree[%@] premiumRate[%@] sharedCost[%@] personalNumber[%@] voip[%@] pager[%@] uan[%@] emergency[%@] voicemail[%@] noInternationalDialling[%@] internationalPrefix[%@] preferredInternationalPrefix[%@] nationalPrefix[%@] preferredExtnPrefix[%@] nationalPrefixForParsing[%@] nationalPrefixTransformRule[%@] sameMobileAndFixedLinePattern[%@] numberFormats[%@] intlNumberFormats[%@] mainCountryForCode[%@] leadingDigits[%@] leadingZeroPossible[%@]",
              _codeID, _countryCode, _generalDesc, _fixedLine, _mobile, _tollFree, _premiumRate, _sharedCost, _personalNumber, _voip, _pager, _uan, _emergency, _voicemail, _noInternationalDialling, _internationalPrefix, _preferredInternationalPrefix, _nationalPrefix, _preferredExtnPrefix, _nationalPrefixForParsing, _nationalPrefixTransformRule, _sameMobileAndFixedLinePattern?@"Y":@"N", _numberFormats, _intlNumberFormats, _mainCountryForCode?@"Y":@"N", _leadingDigits, _leadingZeroPossible?@"Y":@"N"];
 }
-
 
 - (id)initWithCoder:(NSCoder*)coder
 {
@@ -69,7 +65,6 @@
     return self;
 }
 
-
 - (void)encodeWithCoder:(NSCoder*)coder
 {
     [coder encodeObject:_generalDesc forKey:@"generalDesc"];
@@ -100,6 +95,5 @@
     [coder encodeObject:_leadingDigits forKey:@"leadingDigits"];
     [coder encodeObject:[NSNumber numberWithBool:_leadingZeroPossible] forKey:@"leadingZeroPossible"];
 }
-
 
 @end

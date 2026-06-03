@@ -57,7 +57,6 @@ NS_ASSUME_NONNULL_END
   return [self calculateLayoutThatFits:resolvedRange];\
 }\
 
-
 #pragma mark - ASLayoutElementExtensibility
 
 // Provides extension points for elments that comply to ASLayoutElement like ASLayoutSpec to add additional

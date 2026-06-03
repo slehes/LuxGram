@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public class EditedMessageAttribute: MessageAttribute {
     public let date: Int32
     public let isHidden: Bool

@@ -517,7 +517,6 @@ private final class GiftAttributeListContextItemNode: ASDisplayNode, ContextMenu
     }
 }
 
-
 private func stringTokens(_ string: String) -> [ValueBoxKey] {
     let nsString = string.folding(options: .diacriticInsensitive, locale: .current).lowercased() as NSString
     

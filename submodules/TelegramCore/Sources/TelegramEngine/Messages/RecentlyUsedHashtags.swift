@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import SwiftSignalKit
 
-
 private struct RecentHashtagItemId {
     public let rawValue: MemoryBuffer
     

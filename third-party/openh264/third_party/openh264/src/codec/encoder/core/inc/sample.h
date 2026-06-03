@@ -62,7 +62,6 @@ extern "C" {
 
 #if defined (X86_ASM)
 
-
 int32_t WelsSampleSatd8x8_sse2 (uint8_t*, int32_t, uint8_t*, int32_t);
 int32_t WelsSampleSatd16x8_sse2 (uint8_t*, int32_t, uint8_t*, int32_t);
 int32_t WelsSampleSatd8x16_sse2 (uint8_t*, int32_t, uint8_t*, int32_t);
@@ -90,7 +89,6 @@ int32_t WelsSampleSatd16x16_avx2 (uint8_t*, int32_t, uint8_t*, int32_t);
 #endif//X86_ASM
 
 #if defined (HAVE_NEON)
-
 
 int32_t WelsSampleSatd8x8_neon (uint8_t*, int32_t, uint8_t*, int32_t);
 int32_t WelsSampleSatd16x8_neon (uint8_t*, int32_t, uint8_t*, int32_t);

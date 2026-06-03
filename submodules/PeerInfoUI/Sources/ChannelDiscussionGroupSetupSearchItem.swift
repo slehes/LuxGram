@@ -317,4 +317,3 @@ private final class ChannelDiscussionSearchNavigationContentNode: NavigationBarC
     }
 }
 
-

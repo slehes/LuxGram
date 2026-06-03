@@ -103,5 +103,4 @@ AVVideoHint *av_video_hint_alloc(size_t nb_rects,
 AVVideoHint *av_video_hint_create_side_data(AVFrame *frame,
                                             size_t nb_rects);
 
-
 #endif /* AVUTIL_VIDEO_HINT_H */

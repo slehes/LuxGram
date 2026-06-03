@@ -38,7 +38,6 @@
  *************************************************************************************
  */
 
-
 #ifndef _WELS_LIST_H_
 #define _WELS_LIST_H_
 
@@ -239,7 +238,6 @@ class CWelsList {
     pList[iMaxIndex].pNextNode = NULL;
   }
 
-
   void CleanOneNode (SNode<TNodeType>* pSNode) {
     pSNode->pPointer = NULL;
     pSNode->pPrevNode = NULL;
@@ -277,11 +275,7 @@ class CWelsNonDuplicatedList : public CWelsList<TNodeType> {
 
 };
 
-
 }
 
-
 #endif
-
-
 

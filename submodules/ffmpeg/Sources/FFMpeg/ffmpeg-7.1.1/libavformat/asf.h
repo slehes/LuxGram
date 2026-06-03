@@ -61,7 +61,6 @@ typedef struct ASFMainHeader {
                                  *   individual media streams */
 } ASFMainHeader;
 
-
 typedef struct ASFIndex {
     uint32_t packet_number;
     uint16_t packet_count;
@@ -113,9 +112,7 @@ extern const AVMetadataConv ff_asf_metadata_conv[];
 int ff_asf_handle_byte_array(AVFormatContext *s, const char *name,
                              int val_len);
 
-
 #define ASF_PACKET_FLAG_ERROR_CORRECTION_PRESENT 0x80 //1000 0000
-
 
 //   ASF data packet structure
 //   =========================
@@ -130,7 +127,6 @@ int ff_asf_handle_byte_array(AVFormatContext *s, const char *name,
 //  -----------------------------------
 // | Padding Data                      |
 //  -----------------------------------
-
 
 // PPI_FLAG - Payload parsing information flags
 #define ASF_PPI_FLAG_MULTIPLE_PAYLOADS_PRESENT 1

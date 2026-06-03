@@ -248,7 +248,6 @@ private func preparedSettingsSearchContainerRecentTransition(from fromEntries: [
     return SettingsSearchContainerRecentTransition(deletions: deletions, insertions: insertions, updates: updates, isEmpty: toEntries.isEmpty)
 }
 
-
 public final class SettingsSearchContainerNode: SearchDisplayControllerContentNode {
     private let listNode: ListView
     private let recentListNode: ListView

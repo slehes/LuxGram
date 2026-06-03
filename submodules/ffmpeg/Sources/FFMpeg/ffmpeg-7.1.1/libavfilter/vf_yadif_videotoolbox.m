@@ -194,7 +194,6 @@ static av_cold void do_uninit(AVFilterContext *ctx) API_AVAILABLE(macos(10.11), 
     }
 }
 
-
 static av_cold void yadif_videotoolbox_uninit(AVFilterContext *ctx)
 {
     if (@available(macOS 10.11, iOS 8.0, *)) {

@@ -378,7 +378,6 @@ static NSData *base64_decode(NSString *str) {
     return ret;
 }
 
-
 + (NSString *)decryptString:(NSString *)str privateKey:(NSString *)privKey{
     NSData *data = base64_decode(str);
     data = [MTRsa decryptData:data privateKey:privKey];

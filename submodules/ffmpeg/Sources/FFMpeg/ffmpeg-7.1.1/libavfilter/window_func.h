@@ -18,7 +18,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-
 #ifndef AVFILTER_WINDOW_FUNC_H
 #define AVFILTER_WINDOW_FUNC_H
 
@@ -58,7 +57,6 @@ enum WindowFunc     { WFUNC_RECT, WFUNC_HANNING, WFUNC_HAMMING, WFUNC_BLACKMAN,
         { "poisson",  "Poisson",          0, AV_OPT_TYPE_CONST, {.i64=WFUNC_POISSON},  0, 0, flag, .unit = "win_func" }, \
         { "bohman",   "Bohman",           0, AV_OPT_TYPE_CONST, {.i64=WFUNC_BOHMAN},   0, 0, flag, .unit = "win_func" }, \
         { "kaiser",   "Kaiser",           0, AV_OPT_TYPE_CONST, {.i64=WFUNC_KAISER},   0, 0, flag, .unit = "win_func" }
-
 
 static inline void generate_window_func(float *lut, int N, int win_func,
                                         float *overlap)

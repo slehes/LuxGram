@@ -20,7 +20,6 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston, MA 02110-1301 USA
  */
 
-
 /**
  * @file
  * AMR narrowband data and definitions
@@ -718,7 +717,6 @@ static const int16_t lsf_3_1[256][3] = {
 {  323,  338, 1774}, {  578, 1107,  852}, {   22,  594,  934},
 { -143,  718,  446}
 };
-
 
 static const int16_t lsf_3_2[512][3] = {
 {   50,   71,   -9}, { -338, -698,-1407}, {  102, -138, -820},
@@ -1432,7 +1430,6 @@ static const uint8_t track_position[16] = {
 /** 3-bit Gray code to binary lookup table */
 static const uint8_t gray_decode[8] = { 0, 5, 15, 10, 25, 30, 20, 35 };
 
-
 // gain tables
 
 /** scalar quantized pitch gain table for 7.95 and 12.2 kbps modes */
@@ -1617,7 +1614,6 @@ static const uint16_t gains_low[64][2] = {
 { 6062,  614}, { 9338, 9256}, {13271, 1761}, {13271, 3522}, { 2457, 1966},
 {11468, 5529}, {10485,  737}, {11632, 3194}, { 1474,  778}
 };
-
 
 // pre-processing tables
 

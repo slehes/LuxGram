@@ -208,7 +208,6 @@ public enum CutoutTarget {
     case all
 }
 
-
 func refineEdges(_ maskImage: CIImage) -> CIImage? {
     let maskImage = maskImage.clampedToExtent()
     

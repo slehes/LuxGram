@@ -70,7 +70,6 @@
 extern "C" {
 #endif
 
-
 // Legacy ASN.1 library.
 //
 // This header is part of OpenSSL's ASN.1 implementation. It is retained for
@@ -80,7 +79,6 @@ extern "C" {
 // iterates on these issues.
 //
 // Use the new |CBS| and |CBB| library in <openssl/bytestring.h> instead.
-
 
 // Tag constants.
 //
@@ -192,7 +190,6 @@ OPENSSL_EXPORT unsigned long ASN1_tag2bit(int tag);
 // number for a universal type, or |V_ASN1_NEG_*|.
 OPENSSL_EXPORT const char *ASN1_tag2str(int tag);
 
-
 // API conventions.
 //
 // The following sample functions document the calling conventions used by
@@ -245,7 +242,6 @@ int i2d_SAMPLE(const SAMPLE *in, uint8_t **outp);
 // is only valid with a wrapper.
 typedef void *d2i_of_void(void **, const unsigned char **, long);
 typedef int i2d_of_void(const void *, unsigned char **);
-
 
 // ASN.1 types.
 //
@@ -412,7 +408,6 @@ OPENSSL_EXPORT void *ASN1_item_unpack(const ASN1_STRING *oct,
 OPENSSL_EXPORT ASN1_STRING *ASN1_item_pack(void *obj, const ASN1_ITEM *it,
                                            ASN1_STRING **out);
 
-
 // Booleans.
 //
 // This library represents ASN.1 BOOLEAN values with |ASN1_BOOLEAN|, which is an
@@ -458,7 +453,6 @@ OPENSSL_EXPORT int i2d_ASN1_BOOLEAN(ASN1_BOOLEAN a, unsigned char **outp);
 DECLARE_ASN1_ITEM(ASN1_BOOLEAN)
 DECLARE_ASN1_ITEM(ASN1_TBOOLEAN)
 DECLARE_ASN1_ITEM(ASN1_FBOOLEAN)
-
 
 // Strings.
 //
@@ -796,7 +790,6 @@ OPENSSL_EXPORT int ASN1_STRING_TABLE_add(int nid, long minsize, long maxsize,
                                          unsigned long mask,
                                          unsigned long flags);
 
-
 // Multi-strings.
 //
 // A multi-string, or "MSTRING", is an |ASN1_STRING| that represents a CHOICE of
@@ -871,7 +864,6 @@ OPENSSL_EXPORT int i2d_DISPLAYTEXT(const ASN1_STRING *in, uint8_t **outp);
 // DISPLAYTEXT is an |ASN1_ITEM| whose ASN.1 type is X.509 DisplayText (RFC
 // 5280) and C type is |ASN1_STRING*|.
 DECLARE_ASN1_ITEM(DISPLAYTEXT)
-
 
 // Bit strings.
 //
@@ -989,7 +981,6 @@ OPENSSL_EXPORT int ASN1_BIT_STRING_get_bit(const ASN1_BIT_STRING *str, int n);
 OPENSSL_EXPORT int ASN1_BIT_STRING_check(const ASN1_BIT_STRING *str,
                                          const unsigned char *flags,
                                          int flags_len);
-
 
 // Integers and enumerated values.
 //
@@ -1143,7 +1134,6 @@ OPENSSL_EXPORT ASN1_ENUMERATED *BN_to_ASN1_ENUMERATED(const BIGNUM *bn,
 // |BIGNUM| on success instead, which the caller must release with |BN_free|.
 OPENSSL_EXPORT BIGNUM *ASN1_ENUMERATED_to_BN(const ASN1_ENUMERATED *ai,
                                              BIGNUM *bn);
-
 
 // Time.
 //
@@ -1371,7 +1361,6 @@ OPENSSL_EXPORT int ASN1_TIME_to_posix(const ASN1_TIME *t, int64_t *out);
 
 // TODO(davidben): Expand and document function prototypes generated in macros.
 
-
 // NULL values.
 //
 // This library represents the ASN.1 NULL value by a non-NULL pointer to the
@@ -1397,7 +1386,6 @@ OPENSSL_EXPORT int i2d_ASN1_NULL(const ASN1_NULL *in, uint8_t **outp);
 
 // ASN1_NULL is an |ASN1_ITEM| with ASN.1 type NULL and C type |ASN1_NULL*|.
 DECLARE_ASN1_ITEM(ASN1_NULL)
-
 
 // Object identifiers.
 //
@@ -1447,7 +1435,6 @@ OPENSSL_EXPORT ASN1_OBJECT *c2i_ASN1_OBJECT(ASN1_OBJECT **out,
 // ASN1_OBJECT is an |ASN1_ITEM| with ASN.1 type OBJECT IDENTIFIER and C type
 // |ASN1_OBJECT*|.
 DECLARE_ASN1_ITEM(ASN1_OBJECT)
-
 
 // Arbitrary elements.
 
@@ -1607,7 +1594,6 @@ OPENSSL_EXPORT ASN1_SEQUENCE_ANY *d2i_ASN1_SET_ANY(ASN1_SEQUENCE_ANY **out,
 OPENSSL_EXPORT int i2d_ASN1_SET_ANY(const ASN1_SEQUENCE_ANY *in,
                                     uint8_t **outp);
 
-
 // Human-readable output.
 //
 // The following functions output types in some human-readable format. These
@@ -1731,7 +1717,6 @@ OPENSSL_EXPORT int i2a_ASN1_STRING(BIO *bp, const ASN1_STRING *a, int type);
 OPENSSL_EXPORT int i2t_ASN1_OBJECT(char *buf, int buf_len,
                                    const ASN1_OBJECT *a);
 
-
 // Low-level encoding functions.
 
 // ASN1_get_object parses a BER element from up to |max_len| bytes at |*inp|. It
@@ -1778,7 +1763,6 @@ OPENSSL_EXPORT int ASN1_put_eoc(unsigned char **outp);
 // Use |CBB_add_asn1| instead.
 OPENSSL_EXPORT int ASN1_object_size(int constructed, int length, int tag);
 
-
 // Function declaration macros.
 //
 // The following macros declare functions for ASN.1 types. Prefer writing the
@@ -1817,7 +1801,6 @@ OPENSSL_EXPORT int ASN1_object_size(int constructed, int length, int tag);
 #define DECLARE_ASN1_ALLOC_FUNCTIONS_name(type, name) \
   OPENSSL_EXPORT type *name##_new(void);              \
   OPENSSL_EXPORT void name##_free(type *a);
-
 
 // Deprecated functions.
 
@@ -1950,7 +1933,6 @@ OPENSSL_EXPORT long ASN1_INTEGER_get(const ASN1_INTEGER *a);
 // WARNING: This function's return value cannot distinguish errors from -1.
 // Use |ASN1_ENUMERATED_get_uint64| and |ASN1_ENUMERATED_get_int64| instead.
 OPENSSL_EXPORT long ASN1_ENUMERATED_get(const ASN1_ENUMERATED *a);
-
 
 #if defined(__cplusplus)
 }  // extern C

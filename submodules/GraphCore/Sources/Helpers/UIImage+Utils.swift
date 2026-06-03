@@ -88,4 +88,3 @@ func generateImage(_ size: CGSize, contextGenerator: (CGSize, CGContext) -> Void
     #endif
 }
 
-

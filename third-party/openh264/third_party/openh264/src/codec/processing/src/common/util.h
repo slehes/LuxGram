@@ -96,10 +96,7 @@ inline EMethods WelsVpGetValidMethod (int32_t a) {
   return WelsStaticCast (EMethods, WELS_CLAMP (iMethod, METHOD_NULL + 1, METHOD_MASK - 1));
 }
 
-
-
 WELSVP_NAMESPACE_END
 
 #endif
-
 

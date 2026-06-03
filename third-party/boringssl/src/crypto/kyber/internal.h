@@ -22,7 +22,6 @@
 extern "C" {
 #endif
 
-
 // KYBER_ENCAP_ENTROPY is the number of bytes of uniformly random entropy
 // necessary to encapsulate a secret. The entropy will be leaked to the
 // decapsulating party.

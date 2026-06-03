@@ -3,7 +3,6 @@ import SwiftSignalKit
 import Postbox
 import TelegramApi
 
-
 private typealias SignalKitTimer = SwiftSignalKit.Timer
 
 public enum PeerNearby {

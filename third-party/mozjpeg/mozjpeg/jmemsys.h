@@ -20,7 +20,6 @@
  * symbol supplied in jconfig.h.
  */
 
-
 /*
  * These two functions are used to allocate and release small chunks of
  * memory.  (Typically the total amount requested through jpeg_get_small is
@@ -88,7 +87,6 @@ EXTERN(size_t) jpeg_mem_available(j_common_ptr cinfo, size_t min_bytes_needed,
                                   size_t max_bytes_needed,
                                   size_t already_allocated);
 
-
 /*
  * This structure holds whatever state is needed to access a single
  * backing-store object.  The read/write/close method pointers are called
@@ -97,7 +95,6 @@ EXTERN(size_t) jpeg_mem_available(j_common_ptr cinfo, size_t min_bytes_needed,
  */
 
 #define TEMP_NAME_LENGTH   64   /* max length of a temporary file's name */
-
 
 #ifdef USE_MSDOS_MEMMGR         /* DOS-specific junk */
 
@@ -115,7 +112,6 @@ typedef union {
 #ifdef USE_MAC_MEMMGR           /* Mac-specific junk */
 #include <Files.h>
 #endif /* USE_MAC_MEMMGR */
-
 
 typedef struct backing_store_struct *backing_store_ptr;
 
@@ -148,7 +144,6 @@ typedef struct backing_store_struct {
 #endif
 } backing_store_info;
 
-
 /*
  * Initial opening of a backing-store object.  This must fill in the
  * read/write/close pointers in the object.  The read/write routines
@@ -160,7 +155,6 @@ typedef struct backing_store_struct {
 EXTERN(void) jpeg_open_backing_store(j_common_ptr cinfo,
                                      backing_store_ptr info,
                                      long total_bytes_needed);
-
 
 /*
  * These routines take care of any system-dependent initialization and

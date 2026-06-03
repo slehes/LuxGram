@@ -94,7 +94,6 @@
 
 @end
 
-
 @interface PGTintTool ()
 {
     PGPhotoProcessPassParameter *_shadowsIntensityParameter;
@@ -213,7 +212,6 @@
     
     return nil;
 }
-
 
 - (NSString *)ancillaryShaderString
 {

@@ -666,7 +666,6 @@ const AVFilter *av_filter_iterate(void **opaque);
  */
 const AVFilter *avfilter_get_by_name(const char *name);
 
-
 /**
  * Initialize a filter with the supplied parameters.
  *
@@ -1340,7 +1339,6 @@ int avfilter_graph_send_command(AVFilterGraph *graph, const char *target, const 
  *       from the filter is provided, also AVFILTER_CMD_FLAG_ONE is not supported.
  */
 int avfilter_graph_queue_command(AVFilterGraph *graph, const char *target, const char *cmd, const char *arg, int flags, double ts);
-
 
 /**
  * Dump a graph into a human-readable string representation.

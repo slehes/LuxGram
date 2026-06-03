@@ -62,7 +62,6 @@
 extern "C" {
 #endif
 
-
 struct pkcs8_priv_key_info_st {
   ASN1_INTEGER *version;
   X509_ALGOR *pkeyalg;
@@ -128,7 +127,6 @@ int PKCS5_pbe2_encrypt_init(CBB *out, EVP_CIPHER_CTX *ctx,
 // pkcs12_iterations_acceptable returns one if |iterations| is a reasonable
 // number of PBKDF2 iterations and zero otherwise.
 int pkcs12_iterations_acceptable(uint64_t iterations);
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -299,14 +299,11 @@ public func generateSmallHorizontalStretchableFilledCircleImage(diameter: CGFloa
     })?.stretchableImage(withLeftCapWidth: Int(diameter / 2), topCapHeight: Int(diameter / 2))
 }
 
-
-// MARK: Swiftgram
 public func generateTintedImage(image: UIImage?, color: UIColor, backgroundColor: UIColor? = nil, customSize: CGSize? = nil) -> UIImage? {
     guard let image = image else {
         return nil
     }
     
-    // MARK: Swiftgram
     var imageSize = image.size
     if let strongCustomSize = customSize {
         imageSize = strongCustomSize

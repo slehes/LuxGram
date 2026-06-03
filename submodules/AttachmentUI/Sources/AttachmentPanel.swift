@@ -128,7 +128,6 @@ private final class IconComponent: Component {
     }
 }
 
-
 private final class AttachButtonComponent: CombinedComponent {
     enum Style {
         case glass

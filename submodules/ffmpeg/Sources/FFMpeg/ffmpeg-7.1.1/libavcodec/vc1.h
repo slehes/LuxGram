@@ -261,7 +261,6 @@ typedef struct VC1Context{
     int a_avail, c_avail;
     uint8_t *mb_type_base, *mb_type[3];
 
-
     /** Luma compensation parameters */
     //@{
     uint8_t lumscale;

@@ -501,7 +501,6 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
     if case .standard(.embedded) = chatPresentationInterfaceState.mode {
         isEmbeddedMode = true
     }
-    // MARK: LuxGram
     var canReveal = false
     if !chatPresentationInterfaceState.copyProtectionEnabled {
         outer: for message in messages {
@@ -1408,7 +1407,6 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
             }
         }
         
-        // MARK: - LuxGram - Allow saving protected content and self-destructing messages if enabled
         let canSaveSecretMedia: Bool
         #if canImport(SGSimpleSettings)
         canSaveSecretMedia = SGSimpleSettings.shared.enableSavingProtectedContent || SGSimpleSettings.shared.enableSavingSelfDestructingMessages
@@ -2107,7 +2105,6 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
         if !isPinnedMessages, !isReplyThreadHead, data.canSelect {
             sgActionsIndex = actions.count
             var didAddSeparator = false
-            // MARK: LuxGram
             if let authorId = message.author?.id {
                 let action: ContextMenuItem = .action(ContextMenuActionItem(text: i18n("ContextMenu.SelectFromUser", chatPresentationInterfaceState.strings.baseLanguageCode), icon: { theme in
                     return generateTintedImage(image: UIImage(bundleImageName: "Chat/Context Menu/SelectAll"), color: theme.actionSheet.primaryTextColor)
@@ -2229,7 +2226,6 @@ func contextMenuForChatPresentationInterfaceState(chatPresentationInterfaceState
             canViewStats = canViewReadStats(message: message, participantCount: infoSummaryData.participantCount, isMessageRead: isMessageRead, isPremium: isPremium, appConfig: appConfig)
         }
 
-        // MARK: LuxGram
         if !sgActions.isEmpty {
             if !actions.isEmpty {
                 if let sgActionsIndex = sgActionsIndex {

@@ -24,7 +24,6 @@
 #include "h264_ps.h"
 #include "sei.h"
 
-
 /**
  * pic_struct in picture timing SEI message
  */

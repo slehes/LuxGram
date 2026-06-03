@@ -27,7 +27,6 @@ struct MessageFilterKeywordInputFieldModifier: ViewModifier {
     }
 }
 
-
 @available(iOS 13.0, *)
 struct MessageFilterKeywordInputView: View {
     @Environment(\.lang) var lang: String

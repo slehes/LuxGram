@@ -13,20 +13,17 @@
 
 @end
 
-
 @interface TGPaintFaceEye : TGPaintFaceFeature
 
 @property (nonatomic, readonly, getter=isClosed) bool closed;
 
 @end
 
-
 @interface TGPaintFaceMouth : TGPaintFaceFeature
 
 @property (nonatomic, readonly, getter=isSmiling) bool smiling;
 
 @end
-
 
 @interface TGPaintFace : NSObject
 
@@ -47,7 +44,6 @@
 
 @end
 
-
 @interface TGPaintFaceDetector : NSObject
 
 + (SSignal *)detectFacesInImage:(UIImage *)image originalSize:(CGSize)originalSize;
@@ -55,7 +51,6 @@
 + (SSignal *)detectFacesInItem:(id<TGMediaEditableItem>)item editingContext:(TGMediaEditingContext *)editingContext;
 
 @end
-
 
 @interface TGPaintFaceUtils : NSObject
 

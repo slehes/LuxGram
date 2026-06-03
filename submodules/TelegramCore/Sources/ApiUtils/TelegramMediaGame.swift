@@ -2,7 +2,6 @@ import Foundation
 import Postbox
 import TelegramApi
 
-
 extension TelegramMediaGame {
     convenience init(apiGame: Api.Game) {
         switch apiGame {

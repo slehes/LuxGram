@@ -37,7 +37,6 @@
 #endif
 #define DLLCALL
 
-
 /**
  * @addtogroup TurboJPEG
  * TurboJPEG API.  This API provides an interface for generating, decoding, and
@@ -75,7 +74,6 @@
  *
  * @{
  */
-
 
 /**
  * The number of chrominance subsampling options
@@ -154,7 +152,6 @@ static const int tjMCUWidth[TJ_NUMSAMP]  = { 8, 16, 16, 8, 8, 32 };
  * - 32x8 for 4:1:1
  */
 static const int tjMCUHeight[TJ_NUMSAMP] = { 8, 8, 16, 8, 16, 8 };
-
 
 /**
  * The number of pixel formats
@@ -307,7 +304,6 @@ static const int tjPixelSize[TJ_NUMPF] = {
   3, 3, 4, 4, 4, 4, 1, 4, 4, 4, 4, 4
 };
 
-
 /**
  * The number of JPEG colorspaces
  */
@@ -371,7 +367,6 @@ enum TJCS {
   TJCS_YCCK
 };
 
-
 /**
  * Rows in the packed-pixel source/destination image are stored in bottom-up
  * (Windows, OpenGL) order rather than in top-down (X11) order.
@@ -434,7 +429,6 @@ enum TJCS {
  */
 #define TJFLAG_LIMITSCANS  32768
 
-
 /**
  * The number of error codes
  */
@@ -454,7 +448,6 @@ enum TJERR {
    */
   TJERR_FATAL
 };
-
 
 /**
  * The number of transform operations
@@ -509,7 +502,6 @@ enum TJXOP {
   TJXOP_ROT270
 };
 
-
 /**
  * This option will cause #tjTransform() to return an error if the transform is
  * not perfect.  Lossless transforms operate on MCU blocks, whose size depends
@@ -558,7 +550,6 @@ enum TJXOP {
  * destination image.
  */
 #define TJXOPT_COPYNONE  64
-
 
 /**
  * Scaling factor
@@ -665,7 +656,6 @@ typedef struct tjtransform {
  */
 typedef void *tjhandle;
 
-
 /**
  * Pad the given width to the nearest multiple of 4
  */
@@ -680,11 +670,9 @@ typedef void *tjhandle;
   (((dimension) * scalingFactor.num + scalingFactor.denom - 1) / \
    scalingFactor.denom)
 
-
 #ifdef __cplusplus
 extern "C" {
 #endif
-
 
 /**
  * Create a TurboJPEG compressor instance.
@@ -693,7 +681,6 @@ extern "C" {
  * (see #tjGetErrorStr2().)
  */
 DLLEXPORT tjhandle tjInitCompress(void);
-
 
 /**
  * Compress a packed-pixel RGB, grayscale, or CMYK image into a JPEG image.
@@ -758,7 +745,6 @@ DLLEXPORT int tjCompress2(tjhandle handle, const unsigned char *srcBuf,
                           int width, int pitch, int height, int pixelFormat,
                           unsigned char **jpegBuf, unsigned long *jpegSize,
                           int jpegSubsamp, int jpegQual, int flags);
-
 
 /**
  * Compress a unified planar YUV image into a JPEG image.
@@ -825,7 +811,6 @@ DLLEXPORT int tjCompressFromYUV(tjhandle handle, const unsigned char *srcBuf,
                                 unsigned char **jpegBuf,
                                 unsigned long *jpegSize, int jpegQual,
                                 int flags);
-
 
 /**
  * Compress a set of Y, U (Cb), and V (Cr) image planes into a JPEG image.
@@ -900,7 +885,6 @@ DLLEXPORT int tjCompressFromYUVPlanes(tjhandle handle,
                                       unsigned long *jpegSize, int jpegQual,
                                       int flags);
 
-
 /**
  * The maximum size of the buffer (in bytes) required to hold a JPEG image with
  * the given parameters.  The number of bytes returned by this function is
@@ -925,7 +909,6 @@ DLLEXPORT int tjCompressFromYUVPlanes(tjhandle handle,
  */
 DLLEXPORT unsigned long tjBufSize(int width, int height, int jpegSubsamp);
 
-
 /**
  * The size of the buffer (in bytes) required to hold a unified planar YUV
  * image with the given parameters.
@@ -946,7 +929,6 @@ DLLEXPORT unsigned long tjBufSize(int width, int height, int jpegSubsamp);
  */
 DLLEXPORT unsigned long tjBufSizeYUV2(int width, int align, int height,
                                       int subsamp);
-
 
 /**
  * The size of the buffer (in bytes) required to hold a YUV image plane with
@@ -972,7 +954,6 @@ DLLEXPORT unsigned long tjBufSizeYUV2(int width, int align, int height,
 DLLEXPORT unsigned long tjPlaneSizeYUV(int componentID, int width, int stride,
                                        int height, int subsamp);
 
-
 /**
  * The plane width of a YUV image plane with the given parameters.  Refer to
  * @ref YUVnotes "YUV Image Format Notes" for a description of plane width.
@@ -989,7 +970,6 @@ DLLEXPORT unsigned long tjPlaneSizeYUV(int componentID, int width, int stride,
  */
 DLLEXPORT int tjPlaneWidth(int componentID, int width, int subsamp);
 
-
 /**
  * The plane height of a YUV image plane with the given parameters.  Refer to
  * @ref YUVnotes "YUV Image Format Notes" for a description of plane height.
@@ -1005,7 +985,6 @@ DLLEXPORT int tjPlaneWidth(int componentID, int width, int subsamp);
  * -1 if the arguments are out of bounds.
  */
 DLLEXPORT int tjPlaneHeight(int componentID, int height, int subsamp);
-
 
 /**
  * Encode a packed-pixel RGB or grayscale image into a unified planar YUV
@@ -1061,7 +1040,6 @@ DLLEXPORT int tjEncodeYUV3(tjhandle handle, const unsigned char *srcBuf,
                            int width, int pitch, int height, int pixelFormat,
                            unsigned char *dstBuf, int align, int subsamp,
                            int flags);
-
 
 /**
  * Encode a packed-pixel RGB or grayscale image into separate Y, U (Cb), and
@@ -1122,7 +1100,6 @@ DLLEXPORT int tjEncodeYUVPlanes(tjhandle handle, const unsigned char *srcBuf,
                                 int pixelFormat, unsigned char **dstPlanes,
                                 int *strides, int subsamp, int flags);
 
-
 /**
  * Create a TurboJPEG decompressor instance.
  *
@@ -1130,7 +1107,6 @@ DLLEXPORT int tjEncodeYUVPlanes(tjhandle handle, const unsigned char *srcBuf,
  * (see #tjGetErrorStr2().)
  */
 DLLEXPORT tjhandle tjInitDecompress(void);
-
 
 /**
  * Retrieve information about a JPEG image without decompressing it, or prime
@@ -1175,7 +1151,6 @@ DLLEXPORT int tjDecompressHeader3(tjhandle handle,
                                   int *height, int *jpegSubsamp,
                                   int *jpegColorspace);
 
-
 /**
  * Returns a list of fractional scaling factors that the JPEG decompressor
  * supports.
@@ -1187,7 +1162,6 @@ DLLEXPORT int tjDecompressHeader3(tjhandle handle,
  * error is encountered (see #tjGetErrorStr2().)
  */
 DLLEXPORT tjscalingfactor *tjGetScalingFactors(int *numScalingFactors);
-
 
 /**
  * Decompress a JPEG image into a packed-pixel RGB, grayscale, or CMYK image.
@@ -1246,7 +1220,6 @@ DLLEXPORT int tjDecompress2(tjhandle handle, const unsigned char *jpegBuf,
                             int width, int pitch, int height, int pixelFormat,
                             int flags);
 
-
 /**
  * Decompress a JPEG image into a unified planar YUV image.  This function
  * performs JPEG decompression but leaves out the color conversion step, so a
@@ -1297,7 +1270,6 @@ DLLEXPORT int tjDecompress2(tjhandle handle, const unsigned char *jpegBuf,
 DLLEXPORT int tjDecompressToYUV2(tjhandle handle, const unsigned char *jpegBuf,
                                  unsigned long jpegSize, unsigned char *dstBuf,
                                  int width, int align, int height, int flags);
-
 
 /**
  * Decompress a JPEG image into separate Y, U (Cb), and V (Cr) image
@@ -1358,7 +1330,6 @@ DLLEXPORT int tjDecompressToYUVPlanes(tjhandle handle,
                                       unsigned char **dstPlanes, int width,
                                       int *strides, int height, int flags);
 
-
 /**
  * Decode a unified planar YUV image into a packed-pixel RGB or grayscale
  * image.  This function performs color conversion (which is accelerated in the
@@ -1413,7 +1384,6 @@ DLLEXPORT int tjDecodeYUV(tjhandle handle, const unsigned char *srcBuf,
                           int align, int subsamp, unsigned char *dstBuf,
                           int width, int pitch, int height, int pixelFormat,
                           int flags);
-
 
 /**
  * Decode a set of Y, U (Cb), and V (Cr) image planes into a packed-pixel RGB
@@ -1475,7 +1445,6 @@ DLLEXPORT int tjDecodeYUVPlanes(tjhandle handle,
                                 unsigned char *dstBuf, int width, int pitch,
                                 int height, int pixelFormat, int flags);
 
-
 /**
  * Create a new TurboJPEG transformer instance.
  *
@@ -1483,7 +1452,6 @@ DLLEXPORT int tjDecodeYUVPlanes(tjhandle handle,
  * occurred (see #tjGetErrorStr2().)
  */
 DLLEXPORT tjhandle tjInitTransform(void);
-
 
 /**
  * Losslessly transform a JPEG image into another JPEG image.  Lossless
@@ -1552,7 +1520,6 @@ DLLEXPORT int tjTransform(tjhandle handle, const unsigned char *jpegBuf,
                           unsigned char **dstBufs, unsigned long *dstSizes,
                           tjtransform *transforms, int flags);
 
-
 /**
  * Destroy a TurboJPEG compressor, decompressor, or transformer instance.
  *
@@ -1562,7 +1529,6 @@ DLLEXPORT int tjTransform(tjhandle handle, const unsigned char *jpegBuf,
  * @return 0 if successful, or -1 if an error occurred (see #tjGetErrorStr2().)
  */
 DLLEXPORT int tjDestroy(tjhandle handle);
-
 
 /**
  * Allocate a byte buffer for use with TurboJPEG.  You should always use this
@@ -1578,7 +1544,6 @@ DLLEXPORT int tjDestroy(tjhandle handle);
  * @sa tjFree()
  */
 DLLEXPORT unsigned char *tjAlloc(int bytes);
-
 
 /**
  * Load a packed-pixel image from disk into memory.
@@ -1626,7 +1591,6 @@ DLLEXPORT unsigned char *tjLoadImage(const char *filename, int *width,
                                      int align, int *height, int *pixelFormat,
                                      int flags);
 
-
 /**
  * Save a packed-pixel image from memory to disk.
  *
@@ -1663,7 +1627,6 @@ DLLEXPORT int tjSaveImage(const char *filename, unsigned char *buffer,
                           int width, int pitch, int height, int pixelFormat,
                           int flags);
 
-
 /**
  * Free a byte buffer previously allocated by TurboJPEG.  You should always use
  * this function to free JPEG destination buffer(s) that were automatically
@@ -1677,7 +1640,6 @@ DLLEXPORT int tjSaveImage(const char *filename, unsigned char *buffer,
  */
 DLLEXPORT void tjFree(unsigned char *buffer);
 
-
 /**
  * Returns a descriptive error message explaining why the last command failed.
  *
@@ -1690,7 +1652,6 @@ DLLEXPORT void tjFree(unsigned char *buffer);
  */
 DLLEXPORT char *tjGetErrorStr2(tjhandle handle);
 
-
 /**
  * Returns a code indicating the severity of the last error.  See
  * @ref TJERR "Error codes".
@@ -1702,7 +1663,6 @@ DLLEXPORT char *tjGetErrorStr2(tjhandle handle);
  * @ref TJERR "Error codes".
  */
 DLLEXPORT int tjGetErrorCode(tjhandle handle);
-
 
 /* Backward compatibility functions and macros (nothing to see here) */
 

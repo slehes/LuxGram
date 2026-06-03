@@ -26,14 +26,11 @@
 // thread.h.
 #include <openssl/thread.h>
 
-
 #if defined(__cplusplus)
 extern "C" {
 #endif
 
-
 // crypto.h contains functions for initializing the crypto library.
-
 
 // CRYPTO_library_init initializes the crypto library. It must be called if the
 // library is built with BORINGSSL_NO_STATIC_INITIALIZER. Otherwise, it does
@@ -80,7 +77,6 @@ OPENSSL_EXPORT void CRYPTO_pre_sandbox_init(void);
 OPENSSL_EXPORT int CRYPTO_needs_hwcap2_workaround(void);
 #endif  // OPENSSL_ARM && OPENSSL_LINUX && !OPENSSL_STATIC_ARMCAP
 
-
 // FIPS monitoring
 
 // FIPS_mode returns zero unless BoringSSL is built with BORINGSSL_FIPS, in
@@ -103,7 +99,6 @@ enum fips_counter_t {
 // function denoted by |counter| has been used. This always returns zero unless
 // BoringSSL was built with BORINGSSL_FIPS_COUNTERS defined.
 OPENSSL_EXPORT size_t FIPS_read_counter(enum fips_counter_t counter);
-
 
 // Deprecated functions.
 
@@ -195,7 +190,6 @@ OPENSSL_EXPORT int FIPS_query_algorithm_status(const char *algorithm);
 // CRYPTO_has_broken_NEON returns zero.
 OPENSSL_EXPORT int CRYPTO_has_broken_NEON(void);
 #endif
-
 
 #if defined(__cplusplus)
 }  // extern C

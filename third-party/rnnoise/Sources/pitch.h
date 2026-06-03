@@ -47,7 +47,6 @@ void pitch_search(const opus_val16 *x_lp, opus_val16 *y,
 opus_val16 remove_doubling(opus_val16 *x, int maxperiod, int minperiod,
       int N, int *T0, int prev_period, opus_val16 prev_gain);
 
-
 /* OPT: This is the kernel you really want to optimize. It gets used a lot
    by the prefilter and by the PLC. */
 static OPUS_INLINE void xcorr_kernel(const opus_val16 * x, const opus_val16 * y, opus_val32 sum[4], int len)

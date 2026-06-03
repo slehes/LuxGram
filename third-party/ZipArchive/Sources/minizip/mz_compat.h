@@ -184,7 +184,6 @@ ZEXPORT int     unzOpenCurrentFile3(unzFile file, int *method, int *level, int r
 ZEXPORT int     unzReadCurrentFile(unzFile file, void *buf, uint32_t len);
 ZEXPORT int     unzCloseCurrentFile(unzFile file);
 
-
 ZEXPORT int     unzGetCurrentFileInfo(unzFile file, unz_file_info *pfile_info, char *filename,
     uint16_t filename_size, void *extrafield, uint16_t extrafield_size, char *comment,
     uint16_t comment_size);

@@ -399,7 +399,6 @@ private final class SheetContainerComponent: CombinedComponent {
     }
 }
 
-
 public class GiftUnpinScreen: ViewControllerComponentContainer {
     public init(
         context: AccountContext,

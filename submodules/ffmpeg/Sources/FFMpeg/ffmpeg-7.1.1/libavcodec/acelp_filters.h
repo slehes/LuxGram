@@ -94,7 +94,6 @@ void ff_acelp_interpolatef(float *out, const float *in,
                            const float *filter_coeffs, int precision,
                            int frac_pos, int filter_length, int length);
 
-
 /**
  * high-pass filtering and upscaling (4.2.5 of G.729).
  * @param[out]     out   output buffer for filtered speech data
@@ -147,6 +146,5 @@ void ff_acelp_apply_order_2_transfer_function(float *out, const float *in,
  * @param size the size of the samples array
  */
 void ff_tilt_compensation(float *mem, float tilt, float *samples, int size);
-
 
 #endif /* AVCODEC_ACELP_FILTERS_H */

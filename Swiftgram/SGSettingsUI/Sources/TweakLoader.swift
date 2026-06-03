@@ -1,4 +1,3 @@
-// MARK: Swiftgram – Load .dylib tweaks at startup (no Python, no .plugin)
 import Foundation
 import SGSimpleSettings
 

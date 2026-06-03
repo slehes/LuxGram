@@ -43,7 +43,6 @@
 #include <stdlib.h>
 #include <string>
 
-
 class CReadConfig {
  public:
   CReadConfig();

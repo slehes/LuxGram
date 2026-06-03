@@ -19,8 +19,6 @@ final class MutableFailedMessageIdsView {
     
 }
 
-
-
 public final class FailedMessageIdsView {
     public let ids: Set<MessageId>
 

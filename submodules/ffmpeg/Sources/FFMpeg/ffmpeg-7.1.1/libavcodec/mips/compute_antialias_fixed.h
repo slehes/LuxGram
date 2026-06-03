@@ -75,7 +75,6 @@ static void compute_antialias_mips_fixed(MPADecodeContext *s,
         n = SBLIMIT - 1;
     }
 
-
     ptr = g->sb_hybrid + 18;
 
     for(i = n;i > 0;i--) {

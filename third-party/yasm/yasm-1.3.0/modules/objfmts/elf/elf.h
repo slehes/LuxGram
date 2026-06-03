@@ -213,7 +213,6 @@ typedef enum {
     STV_PROTECTED = 3           /* Not preemptable, not exported */
 } elf_symbol_vis;
 
-
 /* internal only object definitions */
 #ifdef YASM_OBJFMT_ELF_INTERNAL
 
@@ -251,7 +250,6 @@ typedef enum {
 
 #define RELOC32_ALIGN 4
 #define RELOC64_ALIGN 8
-
 
 /* elf relocation type - index of semantics
  *
@@ -423,7 +421,6 @@ struct elf_symtab_entry {
 extern const yasm_assoc_data_callback elf_section_data;
 extern const yasm_assoc_data_callback elf_symrec_data;
 extern const yasm_assoc_data_callback elf_ssym_symrec_data;
-
 
 const elf_machine_handler *elf_set_arch(struct yasm_arch *arch,
                                         yasm_symtab *symtab,

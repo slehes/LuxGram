@@ -25,31 +25,23 @@
  * @author Thilo Borgmann <thilo.borgmann _at_ mail.de>
  */
 
-
 #ifndef AVCODEC_BGMC_H
 #define AVCODEC_BGMC_H
 
-
 #include "get_bits.h"
-
 
 int ff_bgmc_init(void *logctx, uint8_t **cf_lut, int **cf_lut_status);
 
-
 void ff_bgmc_end(uint8_t **cf_lut, int **cf_lut_status);
-
 
 int ff_bgmc_decode_init(GetBitContext *gb,
                       unsigned int *h, unsigned int *l, unsigned int *v);
 
-
 void ff_bgmc_decode_end(GetBitContext *gb);
-
 
 void ff_bgmc_decode(GetBitContext *gb, unsigned int num, int32_t *dst,
                  int delta, unsigned int sx,
                  unsigned int *h, unsigned int *l, unsigned int *v,
                  uint8_t *cf_lut, int *cf_lut_status);
-
 
 #endif /* AVCODEC_BGMC_H */

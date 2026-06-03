@@ -1101,7 +1101,6 @@ BOOL _fileIsSymbolicLink(const unz_file_info *fileInfo);
     return [SSZipArchive createZipFileAtPath:path withContentsOfDirectory:directoryPath keepParentDirectory:NO withPassword:password];
 }
 
-
 + (BOOL)createZipFileAtPath:(NSString *)path withContentsOfDirectory:(NSString *)directoryPath keepParentDirectory:(BOOL)keepParentDirectory withPassword:(nullable NSString *)password {
     return [SSZipArchive createZipFileAtPath:path
                      withContentsOfDirectory:directoryPath
@@ -1183,7 +1182,6 @@ BOOL _fileIsSymbolicLink(const unz_file_info *fileInfo);
     }
     return self;
 }
-
 
 - (BOOL)open
 {

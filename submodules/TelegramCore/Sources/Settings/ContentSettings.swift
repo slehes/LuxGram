@@ -29,7 +29,6 @@ extension ContentSettings {
                 addContentRestrictionReasons = addContentRestrictionReasonsData
             }
         }
-        // MARK: Swiftgram
         reasons += appConfiguration.sgWebSettings.user.expandedContentReasons()
         self.init(ignoreContentRestrictionReasons: Set(reasons), addContentRestrictionReasons: addContentRestrictionReasons, appConfiguration: appConfiguration)
     }

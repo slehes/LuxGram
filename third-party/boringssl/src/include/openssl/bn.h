@@ -133,7 +133,6 @@
 extern "C" {
 #endif
 
-
 // BN provides support for working with arbitrary sized integers. For example,
 // although the largest integer supported by the compiler might be 64 bits, BN
 // will allow you to work with much larger numbers.
@@ -146,7 +145,6 @@ extern "C" {
 // Many functions in BN scale quadratically or higher in the bit length of their
 // input. Callers at this layer are assumed to have capped input sizes within
 // their performance tolerances.
-
 
 // BN_ULONG is the native word size when working with big integers.
 //
@@ -171,7 +169,6 @@ typedef uint32_t BN_ULONG;
 #else
 #error "Must define either OPENSSL_32_BIT or OPENSSL_64_BIT"
 #endif
-
 
 // Allocation and freeing.
 
@@ -202,7 +199,6 @@ OPENSSL_EXPORT void BN_clear(BIGNUM *bn);
 
 // BN_value_one returns a static BIGNUM with value 1.
 OPENSSL_EXPORT const BIGNUM *BN_value_one(void);
-
 
 // Basic functions.
 
@@ -238,7 +234,6 @@ OPENSSL_EXPORT void BN_set_negative(BIGNUM *bn, int sign);
 
 // BN_is_negative returns one if |bn| is negative and zero otherwise.
 OPENSSL_EXPORT int BN_is_negative(const BIGNUM *bn);
-
 
 // Conversion functions.
 
@@ -332,7 +327,6 @@ OPENSSL_EXPORT BN_ULONG BN_get_word(const BIGNUM *bn);
 // returns zero.
 OPENSSL_EXPORT int BN_get_u64(const BIGNUM *bn, uint64_t *out);
 
-
 // ASN.1 functions.
 
 // BN_parse_asn1_unsigned parses a non-negative DER INTEGER from |cbs| writes
@@ -342,7 +336,6 @@ OPENSSL_EXPORT int BN_parse_asn1_unsigned(CBS *cbs, BIGNUM *ret);
 // BN_marshal_asn1 marshals |bn| as a non-negative DER INTEGER and appends the
 // result to |cbb|. It returns one on success and zero on failure.
 OPENSSL_EXPORT int BN_marshal_asn1(CBB *cbb, const BIGNUM *bn);
-
 
 // BIGNUM pools.
 //
@@ -379,7 +372,6 @@ OPENSSL_EXPORT BIGNUM *BN_CTX_get(BN_CTX *ctx);
 // BN_CTX_end invalidates all |BIGNUM|s returned from |BN_CTX_get| since the
 // matching |BN_CTX_start| call.
 OPENSSL_EXPORT void BN_CTX_end(BN_CTX *ctx);
-
 
 // Simple arithmetic
 
@@ -441,7 +433,6 @@ OPENSSL_EXPORT BN_ULONG BN_div_word(BIGNUM *numerator, BN_ULONG divisor);
 // appropriate errors on the error queue.
 OPENSSL_EXPORT int BN_sqrt(BIGNUM *out_sqrt, const BIGNUM *in, BN_CTX *ctx);
 
-
 // Comparison functions
 
 // BN_cmp returns a value less than, equal to or greater than zero if |a| is
@@ -480,7 +471,6 @@ OPENSSL_EXPORT int BN_is_odd(const BIGNUM *bn);
 
 // BN_is_pow2 returns 1 if |a| is a power of two, and 0 otherwise.
 OPENSSL_EXPORT int BN_is_pow2(const BIGNUM *a);
-
 
 // Bitwise operations.
 
@@ -527,7 +517,6 @@ OPENSSL_EXPORT int BN_mask_bits(BIGNUM *a, int n);
 // the number of factors of two which divide it. It returns zero if |bn| is
 // zero.
 OPENSSL_EXPORT int BN_count_low_zero_bits(const BIGNUM *bn);
-
 
 // Modulo arithmetic.
 
@@ -613,7 +602,6 @@ OPENSSL_EXPORT int BN_mod_lshift1_quick(BIGNUM *r, const BIGNUM *a,
 // values of |p|.
 OPENSSL_EXPORT BIGNUM *BN_mod_sqrt(BIGNUM *in, const BIGNUM *a, const BIGNUM *p,
                                    BN_CTX *ctx);
-
 
 // Random and prime number generation.
 
@@ -802,7 +790,6 @@ OPENSSL_EXPORT int BN_is_prime_fasttest_ex(const BIGNUM *candidate, int checks,
 OPENSSL_EXPORT int BN_is_prime_ex(const BIGNUM *candidate, int checks,
                                   BN_CTX *ctx, BN_GENCB *cb);
 
-
 // Number theory functions
 
 // BN_gcd sets |r| = gcd(|a|, |b|). It returns one on success and zero
@@ -847,7 +834,6 @@ OPENSSL_EXPORT int BN_mod_inverse_blinded(BIGNUM *out, int *out_no_inverse,
 // zero.
 int BN_mod_inverse_odd(BIGNUM *out, int *out_no_inverse, const BIGNUM *a,
                        const BIGNUM *n, BN_CTX *ctx);
-
 
 // Montgomery arithmetic.
 
@@ -894,7 +880,6 @@ OPENSSL_EXPORT int BN_mod_mul_montgomery(BIGNUM *r, const BIGNUM *a,
                                          const BIGNUM *b,
                                          const BN_MONT_CTX *mont, BN_CTX *ctx);
 
-
 // Exponentiation.
 
 // BN_exp sets |r| equal to |a|^{|p|}. It does so with a square-and-multiply
@@ -922,7 +907,6 @@ OPENSSL_EXPORT int BN_mod_exp_mont_consttime(BIGNUM *rr, const BIGNUM *a,
                                              const BIGNUM *p, const BIGNUM *m,
                                              BN_CTX *ctx,
                                              const BN_MONT_CTX *mont);
-
 
 // Deprecated functions
 
@@ -990,7 +974,6 @@ OPENSSL_EXPORT BIGNUM *BN_secure_new(void);
 // BN_le2bn calls |BN_lebin2bn|.
 OPENSSL_EXPORT BIGNUM *BN_le2bn(const uint8_t *in, size_t len, BIGNUM *ret);
 
-
 // Private functions
 
 struct bignum_st {
@@ -1039,7 +1022,6 @@ OPENSSL_EXPORT unsigned BN_num_bits_word(BN_ULONG l);
 // higher-level cryptographic algorithms exposed by other modules. Consumers
 // within the library should call the appropriate timing-sensitive algorithm
 // directly.
-
 
 #if defined(__cplusplus)
 }  // extern C

@@ -6,7 +6,6 @@ import MtProtoKit
 
 private typealias SignalKitTimer = SwiftSignalKit.Timer
 
-
 private final class NotificationAutolockReportManagerImpl {
     private let queue: Queue
     private let network: Network

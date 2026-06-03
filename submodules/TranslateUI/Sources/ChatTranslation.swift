@@ -144,7 +144,6 @@ public func updateChatTranslationStateInteractively(engine: TelegramEngine, peer
     }
 }
 
-
 @available(iOS 12.0, *)
 private let languageRecognizer = NLLanguageRecognizer()
 
@@ -167,7 +166,6 @@ public func translateMessageIds(context: AccountContext, messageIds: [EngineMess
                         }
                     }
                 }
-                // MARK: Swiftgram
                 guard forQuickTranslate || message.author?.id != context.account.peerId else {
                     continue
                 }

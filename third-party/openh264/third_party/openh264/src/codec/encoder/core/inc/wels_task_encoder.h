@@ -106,7 +106,6 @@ class CWelsLoadBalancingSlicingEncodingTask : public CWelsSliceEncodingTask {
   int64_t m_iSliceStart;
 };
 
-
 class CWelsConstrainedSizeSlicingEncodingTask : public CWelsLoadBalancingSlicingEncodingTask {
  public:
   CWelsConstrainedSizeSlicingEncodingTask (WelsCommon::IWelsTaskSink* pSink, sWelsEncCtx* pCtx,
@@ -120,7 +119,6 @@ class CWelsConstrainedSizeSlicingEncodingTask : public CWelsLoadBalancingSlicing
   }
 
 };
-
 
 class CWelsUpdateMbMapTask : public CWelsBaseTask {
  public:

@@ -228,7 +228,6 @@ public func requestApplicationIcons(engine: TelegramEngine, source: String = "ma
         }
 }
 
-
 /*
  return Signal { subscriber in
      let fetchDispsable = fetchedMediaResource(mediaBox: engine.account.postbox.mediaBox, userLocation: .other, userContentType: .other, reference: MediaResourceReference.media(media: AnyMediaReference.message(message: MessageReference(message), media: media), resource: media.resource)).start()

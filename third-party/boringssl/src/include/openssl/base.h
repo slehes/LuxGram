@@ -53,7 +53,6 @@
 #ifndef OPENSSL_HEADER_BASE_H
 #define OPENSSL_HEADER_BASE_H
 
-
 // This file should be the first included by all BoringSSL headers.
 
 #include <stddef.h>
@@ -84,7 +83,6 @@
 #if defined(__cplusplus)
 extern "C" {
 #endif
-
 
 #if defined(__APPLE__)
 // Note |TARGET_OS_MAC| is set for all Apple OS variants. |TARGET_OS_OSX|
@@ -163,7 +161,6 @@ extern "C" {
 #define OPENSSL_END_ALLOW_DEPRECATED
 
 #endif
-
 
 #if defined(__GNUC__) || defined(__clang__)
 // MinGW has two different printf implementations. Ensure the format macro

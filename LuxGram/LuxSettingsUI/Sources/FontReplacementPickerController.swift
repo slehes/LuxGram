@@ -1,4 +1,3 @@
-// MARK: LuxGram - Font replacement picker (A-Font style)
 import SGSimpleSettings
 import Foundation
 import UIKit

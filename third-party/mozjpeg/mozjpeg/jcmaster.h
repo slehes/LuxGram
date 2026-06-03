@@ -10,7 +10,6 @@
  * This file contains the master control structures for the JPEG compressor.
  */
 
-
 /* Private state */
 
 typedef enum {

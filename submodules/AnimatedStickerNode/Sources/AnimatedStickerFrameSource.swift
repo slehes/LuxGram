@@ -45,7 +45,6 @@ final class AnimatedStickerFrameSourceWrapper {
     }
 }
 
-
 public final class AnimatedStickerCachedFrameSource: AnimatedStickerFrameSource {
     private let queue: Queue
     private var data: Data
@@ -560,7 +559,6 @@ private final class AnimatedStickerDirectFrameSourceCache {
         }
     }
 }
-
 
 public final class AnimatedStickerDirectFrameSource: AnimatedStickerFrameSource {
     private let queue: Queue

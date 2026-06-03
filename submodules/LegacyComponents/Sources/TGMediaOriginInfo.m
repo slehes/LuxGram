@@ -325,7 +325,6 @@
     return info;
 }
 
-
 + (instancetype)mediaOriginInfoForDocumentAttachment:(TGDocumentMediaAttachment *)document
 {
     if ([document.stickerPackReference isKindOfClass:[TGStickerPackIdReference class]])

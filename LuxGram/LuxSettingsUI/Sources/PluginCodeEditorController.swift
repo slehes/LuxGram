@@ -1,4 +1,3 @@
-// MARK: LuxGram – Plugin code editor (create/edit JS plugins inline)
 import Foundation
 import UIKit
 import Display

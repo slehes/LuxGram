@@ -134,5 +134,4 @@ const uint8_t ff_qexp[QROOT] = {
 /* table generated at runtime */
 int ff_scale_mv_ref[MAX_REF_FRAMES][MAX_REF_FRAMES];
 
-
 #endif /* AVCODEC_SNOW_H */

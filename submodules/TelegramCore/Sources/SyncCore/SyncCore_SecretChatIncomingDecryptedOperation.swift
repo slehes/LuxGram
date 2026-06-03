@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public struct SecretChatOperationSequenceInfo: PostboxCoding {
     public let topReceivedOperationIndex: Int32
     public let operationIndex: Int32

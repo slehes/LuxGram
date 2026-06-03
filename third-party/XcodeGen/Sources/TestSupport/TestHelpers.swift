@@ -125,7 +125,6 @@ extension XCTestCase {
     }
 }
 
-
 public func skipIfNecessary() throws {
     #if os(Linux) && swift(<6.0.2)
         // https://github.com/swiftlang/swift-foundation/pull/1002

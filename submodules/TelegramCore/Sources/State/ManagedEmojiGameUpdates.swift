@@ -59,7 +59,6 @@ extension EmojiGameInfo {
     }
 }
 
-
 public func currentEmojiGameInfo(transaction: Transaction) -> EmojiGameInfo {
     if let entry = transaction.getPreferencesEntry(key: PreferencesKeys.emojiGameInfo())?.get(EmojiGameInfo.self) {
         return entry

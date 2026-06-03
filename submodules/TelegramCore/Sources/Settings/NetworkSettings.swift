@@ -3,7 +3,6 @@ import Postbox
 import SwiftSignalKit
 import MtProtoKit
 
-
 public func updateNetworkSettingsInteractively(postbox: Postbox, network: Network, _ f: @escaping (NetworkSettings) -> NetworkSettings) -> Signal<Void, NoError> {
     return postbox.transaction { transaction -> Void in
         updateNetworkSettingsInteractively(transaction: transaction, network: network, f)

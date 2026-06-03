@@ -1,13 +1,10 @@
-// MARK: LuxGram
 import SGDebugUI
 import SGSimpleSettings
 import SGSettingsUI
 import SGStrings
-// MARK: - LuxGram
 #if canImport(SGSupporters)
 import SGSupporters
 #endif
-// MARK: - End LuxGram
 import CountrySelectionUI
 import Foundation
 import UIKit
@@ -170,7 +167,7 @@ enum PeerInfoContextSubject {
 enum PeerInfoSettingsSection {
     case swiftgram
     case swiftgramPro
-    case gleGram // MARK: - LuxGram
+    case luxGram
     case avatar
     case edit
     case proxy
@@ -282,8 +279,7 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
     
     private(set) var validLayout: (ContainerViewLayout, CGFloat)?
     private(set) var nearestChatParticipant: (String?, Int32?) = (nil, nil)
-    private(set) var showProfileId: Bool = SGSimpleSettings.shared.showProfileId // MARK: LuxGram
-    private(set) var data: PeerInfoScreenData?
+    private(set) var showProfileId: Bool = SGSimpleSettings.shared.showProfileId    private(set) var data: PeerInfoScreenData?
     
     var state = PeerInfoState(
         isEditing: false,
@@ -2493,7 +2489,6 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
             guard let strongSelf = self else {
                 return
             }
-            // MARK: LuxGram
             strongSelf.showProfileId = SGSimpleSettings.shared.showProfileId
             //
             strongSelf.nearestChatParticipant = nearestChatParticipant
@@ -4173,8 +4168,7 @@ final class PeerInfoScreenNode: ViewControllerTracingNode, PeerInfoScreenNodePro
         }
     }
         
-    public func openParticipantsSection(section: PeerInfoParticipantsSection) { // MARK: LuxGram
-        guard let data = self.data, let peer = data.peer else {
+    public func openParticipantsSection(section: PeerInfoParticipantsSection) {        guard let data = self.data, let peer = data.peer else {
             return
         }
         switch section {
@@ -7082,7 +7076,6 @@ public final class PeerInfoScreenImpl: ViewController, PeerInfoScreen, KeyShortc
         
         var items: [ContextMenuItem] = []
 
-        // MARK: LuxGram
         #if DEBUG
         items.append(.action(ContextMenuActionItem(text: "LuxGram Debug", icon: { theme in
             return generateTintedImage(image: nil, color: theme.contextMenu.primaryColor)
@@ -7480,11 +7473,6 @@ struct ClearPeerHistory {
     }
 }
 
-
-
-
-
-// MARK: LuxGram
 extension PeerInfoScreenImpl {
 
     public func tabBarItemContextActionRawUIView(sourceView: UIView, gesture: ContextGesture?) {
@@ -7496,7 +7484,6 @@ extension PeerInfoScreenImpl {
         
         var items: [ContextMenuItem] = []
 
-        // MARK: LuxGram
         #if DEBUG
         items.append(.action(ContextMenuActionItem(text: "LuxGram Debug", icon: { theme in
             return generateTintedImage(image: nil, color: theme.contextMenu.primaryColor)

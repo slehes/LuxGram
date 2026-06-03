@@ -27,7 +27,6 @@ typedef enum
 
 @end
 
-
 @interface TGMediaAssetImageFileAttributes : NSObject
 
 @property (nonatomic, strong) NSString *fileName;
@@ -36,7 +35,6 @@ typedef enum
 @property (nonatomic, assign) NSUInteger fileSize;
 
 @end
-
 
 @interface TGMediaAssetImageSignals : NSObject
 

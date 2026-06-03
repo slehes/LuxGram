@@ -37,7 +37,6 @@ NS_ASSUME_NONNULL_BEGIN
 @interface ASLayoutSpec () <ASLayoutElementTransition>
 @end
 
-
 #pragma mark - ASLayoutTransition
 
 AS_SUBCLASSING_RESTRICTED

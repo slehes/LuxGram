@@ -324,7 +324,6 @@ private func contentNodeMessagesAndClassesForItem(_ item: ChatMessageItem) -> ([
                     }
                     
                     
-                    // MARK: Swiftgram
                     var message = message
                     if message.canRevealContent(contentSettings: item.context.currentContentSettings.with { $0 }) {
                         let originalTextLength = message.text.count
@@ -1273,7 +1272,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                 if let shareButtonNode = strongSelf.shareButtonNode, shareButtonNode.frame.contains(point) {
                     return .fail
                 }
-                // MARK: Swiftgram
                 if let quickTranslateButtonNode = strongSelf.quickTranslateButtonNode, quickTranslateButtonNode.frame.contains(point) {
                     return .fail
                 }
@@ -1779,7 +1777,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
         
         let isFailed = item.content.firstMessage.effectivelyFailed(timestamp: item.context.account.network.getApproximateRemoteTimestamp())
         
-        // MARK: Swiftgram
         var sgLocalNeedsQuickTranslateButton = false /* SGSimpleSettings.defaultValues[SGSimpleSettings.Keys.quickTranslateButton.rawValue] as! Bool*/
         if let strongSelf = selfReference.value {
             if strongSelf.needsQuickTranslateButton {
@@ -1790,7 +1787,7 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
         }
         
         var needsShareButton = false
-        var mayHaveSeparateCommentsButton = false // MARK: Swiftgram
+        var mayHaveSeparateCommentsButton = false
         var needsSummarizeButton = false
     
         if incoming, case let .customChatContents(contents) = item.associatedData.subject, case .hashTagSearch = contents.kind {
@@ -1848,8 +1845,7 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                     needsShareButton = true
                 }
             }
-            // var mayHaveSeparateCommentsButton = false // MARK: Swiftgram
-            if !needsShareButton {
+            // var mayHaveSeparateCommentsButton = false            if !needsShareButton {
                 loop: for media in item.message.media {
                     if media is TelegramMediaGame || media is TelegramMediaInvoice {
                         needsShareButton = true
@@ -2386,7 +2382,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                 } else if effectiveAuthor.isVerified {
                     currentCredibilityIcon = (.verified(fillColor: item.presentationData.theme.theme.list.itemCheckColors.fillColor, foregroundColor: item.presentationData.theme.theme.list.itemCheckColors.foregroundColor, sizeType: .compact), nil)
                 } else {
-                    // MARK: - LuxGram
                     #if canImport(SGSimpleSettings)
                     let effectiveIsPremium = SGSimpleSettings.shared.isPremium(peerId: effectiveAuthor.id.id._internalGetInt64Value(), accountPeerId: item.context.account.peerId.id._internalGetInt64Value(), isPremium: effectiveAuthor.isPremium)
                     #else
@@ -2395,7 +2390,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                     if effectiveIsPremium {
                         currentCredibilityIcon = (.premium(color: color.withMultipliedAlpha(0.4)), nil)
                     }
-                    // MARK: - End LuxGram
                 }
             }
             if let rawAuthorNameColor = authorNameColor {
@@ -2471,7 +2465,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
         var mosaicStatusSizeAndApply: (CGSize, (ListViewItemUpdateAnimation) -> ChatMessageDateAndStatusNode)?
         
         if let mosaicRange = mosaicRange {
-            // MARK: Swiftgram
             var maxDimensions = layoutConstants.image.maxDimensions
             if renderWideChannelPosts {
                 maxDimensions.width = maximumContentWidth
@@ -2483,7 +2476,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                 }
                 return size
             }/*, TODO(swiftgram): fillWidth: SGSimpleSettings.shared.wideChannelPosts */)
-            // MARK: Swiftgram
             if innerSize.height > maxSize.height, maxDimensions.width != layoutConstants.image.maxDimensions.width {
                 maxDimensions.width = max(round(maxDimensions.width * maxSize.height / innerSize.height), layoutConstants.image.maxDimensions.width)
                 maxSize = maxDimensions.fittedToWidthOrSmaller(maximumContentWidth - layoutConstants.image.bubbleInsets.left - layoutConstants.image.bubbleInsets.right)
@@ -5095,7 +5087,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
             shareButtonNode.removeFromSupernode()
         }
         
-        // MARK: Swiftgram
         // TODO(swiftgram): Move business-logic up to hierarchy
         if strongSelf.needsQuickTranslateButton && incoming && !item.message.text.isEmpty && item.message.adAttribute == nil {
             if strongSelf.quickTranslateButtonNode == nil {
@@ -5331,7 +5322,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                 animation.animator.updateAlpha(layer: shareButtonNode.layer, alpha: (isCurrentlyPlayingMedia || isSidePanelOpen) ? 0.0 : 1.0, completion: nil)
                 animation.animator.updateScale(layer: shareButtonNode.layer, scale: (isCurrentlyPlayingMedia || isSidePanelOpen) ? 0.001 : 1.0, completion: nil)
             }
-            // MARK: Swiftgram
             if let quickTranslateButtonNode = strongSelf.quickTranslateButtonNode {
                 let currentBackgroundFrame = strongSelf.backgroundNode.frame
                 let buttonSize = quickTranslateButtonNode.update(hasTranslation: false /*item.message.attributes.first(where: { $0 is QuickTranslationMessageAttribute }) as? QuickTranslationMessageAttribute != nil*/, presentationData: item.presentationData, controllerInteraction: item.controllerInteraction, chatLocation: item.chatLocation, subject: item.associatedData.subject, message: item.message, account: item.context.account, disableComments: disablesComments)
@@ -5413,7 +5403,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
                 animation.animator.updateScale(layer: shareButtonNode.layer, scale: (isCurrentlyPlayingMedia || isSidePanelOpen) ? 0.001 : 1.0, completion: nil)
             }
 
-            // MARK: Swiftgram
             if let quickTranslateButtonNode = strongSelf.quickTranslateButtonNode {
                 let buttonSize = quickTranslateButtonNode.update(hasTranslation: false /*item.message.attributes.first(where: { $0 is QuickTranslationMessageAttribute }) as? QuickTranslationMessageAttribute != nil*/, presentationData: item.presentationData, controllerInteraction: item.controllerInteraction, chatLocation: item.chatLocation, subject: item.associatedData.subject, message: item.message, account: item.context.account, disableComments: disablesComments)
                 
@@ -6284,7 +6273,6 @@ public class ChatMessageBubbleItemNode: ChatMessageItemView, ChatMessagePreviewI
         if let shareButtonNode = self.shareButtonNode, shareButtonNode.frame.contains(point) {
             return shareButtonNode.view.hitTest(self.view.convert(point, to: shareButtonNode.view), with: event)
         }
-        // MARK: Swiftgram
         if let quickTranslateButtonNode = self.quickTranslateButtonNode, quickTranslateButtonNode.frame.contains(point) {
             return quickTranslateButtonNode.view.hitTest(self.view.convert(point, to: quickTranslateButtonNode.view), with: event)
         }

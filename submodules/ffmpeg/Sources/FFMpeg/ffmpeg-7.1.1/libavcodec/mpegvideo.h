@@ -554,7 +554,6 @@ typedef struct MpegEncContext {
     int intra_penalty;
 } MpegEncContext;
 
-
 /**
  * Set the given MpegEncContext to common defaults (same for encoding
  * and decoding).  The changed fields will not depend upon the prior

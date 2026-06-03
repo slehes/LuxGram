@@ -63,13 +63,11 @@
 extern "C" {
 #endif
 
-
 // Digest functions.
 //
 // An EVP_MD abstracts the details of a specific hash function allowing code to
 // deal with the concept of a "hash function" without needing to know exactly
 // which hash function it is.
-
 
 // Hash algorithms.
 //
@@ -97,7 +95,6 @@ OPENSSL_EXPORT const EVP_MD *EVP_get_digestbynid(int nid);
 // EVP_get_digestbyobj returns an |EVP_MD| for the given |ASN1_OBJECT|, or NULL
 // if no such digest is known.
 OPENSSL_EXPORT const EVP_MD *EVP_get_digestbyobj(const ASN1_OBJECT *obj);
-
 
 // Digest contexts.
 //
@@ -138,7 +135,6 @@ OPENSSL_EXPORT void EVP_MD_CTX_move(EVP_MD_CTX *out, EVP_MD_CTX *in);
 // EVP_MD_CTX_reset calls |EVP_MD_CTX_cleanup| followed by |EVP_MD_CTX_init|. It
 // returns one.
 OPENSSL_EXPORT int EVP_MD_CTX_reset(EVP_MD_CTX *ctx);
-
 
 // Digest operations.
 
@@ -189,7 +185,6 @@ OPENSSL_EXPORT int EVP_Digest(const void *data, size_t len, uint8_t *md_out,
                               unsigned int *md_out_size, const EVP_MD *type,
                               ENGINE *impl);
 
-
 // Digest function accessors.
 //
 // These functions allow code to learn details about an abstract hash
@@ -223,7 +218,6 @@ OPENSSL_EXPORT size_t EVP_MD_block_size(const EVP_MD *md);
 // |EVP_MD| in BoringSSL.
 #define EVP_MD_FLAG_XOF 4
 
-
 // Digest operation accessors.
 
 // EVP_MD_CTX_md returns the underlying digest function, or NULL if one has not
@@ -243,7 +237,6 @@ OPENSSL_EXPORT size_t EVP_MD_CTX_block_size(const EVP_MD_CTX *ctx);
 // |ctx|.
 OPENSSL_EXPORT int EVP_MD_CTX_type(const EVP_MD_CTX *ctx);
 
-
 // ASN.1 functions.
 //
 // These functions allow code to parse and serialize AlgorithmIdentifiers for
@@ -259,7 +252,6 @@ OPENSSL_EXPORT const EVP_MD *EVP_parse_digest_algorithm(CBS *cbs);
 // structure and appends the result to |cbb|. It returns one on success and zero
 // on error.
 OPENSSL_EXPORT int EVP_marshal_digest_algorithm(CBB *cbb, const EVP_MD *md);
-
 
 // Deprecated functions.
 
@@ -307,7 +299,6 @@ OPENSSL_EXPORT void EVP_MD_CTX_set_flags(EVP_MD_CTX *ctx, int flags);
 // EVP_MD_nid calls |EVP_MD_type|.
 OPENSSL_EXPORT int EVP_MD_nid(const EVP_MD *md);
 
-
 struct evp_md_pctx_ops;
 
 struct env_md_ctx_st {
@@ -325,7 +316,6 @@ struct env_md_ctx_st {
   // manipulate |pctx|.
   const struct evp_md_pctx_ops *pctx_ops;
 } /* EVP_MD_CTX */;
-
 
 #if defined(__cplusplus)
 }  // extern C

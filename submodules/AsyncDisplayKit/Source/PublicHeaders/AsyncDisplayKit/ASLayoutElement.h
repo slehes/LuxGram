@@ -182,7 +182,6 @@ AS_EXTERN NSString * const ASLayoutElementStyleLayoutPositionProperty;
  */
 @property (nullable, nonatomic, weak, readonly) id<ASLayoutElementStyleDelegate> delegate;
 
-
 #pragma mark - Sizing
 
 /**

@@ -34,7 +34,6 @@
  * Public libavutil channel layout APIs header.
  */
 
-
 /**
  * @defgroup lavu_audio_channels Audio channels
  * @ingroup lavu_audio
@@ -155,7 +154,6 @@ enum AVChannelOrder {
      */
     FF_CHANNEL_ORDER_NB
 };
-
 
 /**
  * @defgroup channel_masks Audio channel masks

@@ -92,7 +92,6 @@ class IWelsParametersetStrategy {
   virtual int32_t GetSpsIdx (const int32_t iIdx) = 0;
 };
 
-
 class  CWelsParametersetIdConstant : public IWelsParametersetStrategy {
  public:
 
@@ -211,7 +210,6 @@ class  CWelsParametersetIdIncreasing : public CWelsParametersetIdNonConstant {
   CWelsParametersetIdIncreasing (const bool bSimulcastAVC,
                                  const int32_t kiSpatialLayerNum): CWelsParametersetIdNonConstant (bSimulcastAVC, kiSpatialLayerNum) {};
 
-
   virtual int32_t GetPpsIdOffset (const int32_t iPpsId);
   virtual int32_t GetSpsIdOffset (const int32_t iPpsId, const int32_t iSpsId);
 
@@ -226,7 +224,6 @@ class  CWelsParametersetIdIncreasing : public CWelsParametersetIdNonConstant {
   void DebugPps (const int32_t kiPpsId);
   void DebugSpsPps (const int32_t iPpsId, const int32_t iSpsId);
 };
-
 
 class  CWelsParametersetSpsListing : public CWelsParametersetIdNonConstant {
  public:

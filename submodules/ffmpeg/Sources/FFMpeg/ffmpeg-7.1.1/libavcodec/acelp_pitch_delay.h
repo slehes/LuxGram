@@ -255,7 +255,6 @@ float ff_amr_set_fixed_gain(float fixed_gain_factor, float fixed_mean_energy,
                             float *prediction_error, float energy_mean,
                             const float *pred_table);
 
-
 /**
  * Decode the adaptive codebook index to the integer and fractional parts
  * of the pitch lag for one subframe at 1/3 fractional precision.

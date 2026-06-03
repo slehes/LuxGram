@@ -313,8 +313,6 @@ public final class GlassBarButtonComponent: Component {
     }
 }
 
-
-
 public final class BarComponentHostView: UIView {
     private let hostView = ComponentHostView<Empty>()
     

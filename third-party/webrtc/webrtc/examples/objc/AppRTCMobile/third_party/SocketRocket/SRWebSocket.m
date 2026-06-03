@@ -14,7 +14,6 @@
 //   limitations under the License.
 //
 
-
 #import "SRWebSocket.h"
 
 #if TARGET_OS_IPHONE
@@ -48,7 +47,6 @@
 #error SocketRocket must be compiled with ARC enabled
 #endif
 
-
 typedef enum  {
     SROpCodeTextFrame = 0x1,
     SROpCodeBinaryFrame = 0x2,
@@ -80,13 +78,11 @@ static inline void SRFastLog(NSString *format, ...);
 
 @end
 
-
 @interface NSString (SRWebSocket)
 
 - (NSString *)stringBySHA1ThenBase64Encoding;
 
 @end
-
 
 @interface NSURL (SRWebSocket)
 
@@ -96,13 +92,11 @@ static inline void SRFastLog(NSString *format, ...);
 
 @end
 
-
 @interface _SRRunLoopThread : NSThread
 
 @property (nonatomic, readonly) NSRunLoop *runLoop;
 
 @end
-
 
 static NSString *newSHA1String(const char *bytes, size_t length) {
     uint8_t md[CC_SHA1_DIGEST_LENGTH];
@@ -128,7 +122,6 @@ static NSString *newSHA1String(const char *bytes, size_t length) {
 }
 
 @end
-
 
 @implementation NSString (SRWebSocket)
 
@@ -208,7 +201,6 @@ typedef void (^data_callback)(SRWebSocket *webSocket,  NSData *data);
 @property (nonatomic) dispatch_queue_t delegateDispatchQueue;
 
 @end
-
 
 @implementation SRWebSocket {
     NSInteger _webSocketVersion;
@@ -475,7 +467,6 @@ static __strong NSData *CRLFCRLF;
         };
     }];
 }
-
 
 - (void)_readHTTPHeader;
 {
@@ -760,7 +751,6 @@ static __strong NSData *CRLFCRLF;
     }];
 }
 
-
 static inline BOOL closeCodeIsValid(int closeCode) {
     if (closeCode < 1000) {
         return NO;
@@ -971,7 +961,6 @@ static const uint8_t SRRsvMask          = 0x70;
 static const uint8_t SRMaskMask         = 0x80;
 static const uint8_t SRPayloadLenMask   = 0x7F;
 
-
 - (void)_readFrameContinue;
 {
     assert((_currentFrameCount == 0 && _currentFrameOpcode == 0) || (_currentFrameCount > 0 && _currentFrameOpcode > 0));
@@ -1144,7 +1133,6 @@ static const uint8_t SRPayloadLenMask   = 0x7F;
     [self _pumpScanner];
 }
 
-
 static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
 
 - (void)_readUntilHeaderCompleteWithCallback:(data_callback)dataHandler;
@@ -1176,7 +1164,6 @@ static const char CRLFCRLFBytes[] = {'\r', '\n', '\r', '\n'};
     };
     [self _addConsumerWithScanner:consumer callback:dataHandler];
 }
-
 
 // Returns true if did work
 - (BOOL)_innerPumpScanner {
@@ -1513,7 +1500,6 @@ static const size_t SRFrameHeaderOverhead = 32;
 
 @end
 
-
 @implementation SRIOConsumer
 
 @synthesize bytesNeeded = _bytesNeeded;
@@ -1532,9 +1518,7 @@ static const size_t SRFrameHeaderOverhead = 32;
     assert(_scanner || _bytesNeeded);
 }
 
-
 @end
-
 
 @implementation SRIOConsumerPool {
     NSUInteger _poolSize;
@@ -1579,7 +1563,6 @@ static const size_t SRFrameHeaderOverhead = 32;
 }
 
 @end
-
 
 @implementation  NSURLRequest (CertificateAdditions)
 
@@ -1639,7 +1622,6 @@ static inline void SRFastLog(NSString *format, ...)  {
     NSLog(@"[SR] %@", formattedString);
 #endif
 }
-
 
 #ifdef HAS_ICU
 
@@ -1726,7 +1708,6 @@ static NSRunLoop *networkRunLoop = nil;
 }
 
 @end
-
 
 @implementation _SRRunLoopThread {
     dispatch_group_t _waitGroup;

@@ -1,7 +1,6 @@
 import Foundation
 import Postbox
 
-
 public func currentLimitsConfiguration(transaction: Transaction) -> LimitsConfiguration {
     if let entry = transaction.getPreferencesEntry(key: PreferencesKeys.limitsConfiguration)?.get(LimitsConfiguration.self) {
         return entry

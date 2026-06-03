@@ -72,7 +72,6 @@ void  pp_postprocess(const uint8_t * src[3], const int srcStride[3],
                      const int8_t *QP_store,  int QP_stride,
                      pp_mode *mode, pp_context *ppContext, int pict_type);
 
-
 /**
  * Return a pp_mode or NULL if an error occurred.
  *

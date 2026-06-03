@@ -12,7 +12,6 @@
 /*                                                                       */
 typedef signed long  SW_FT_Fixed;
 
-
 /*************************************************************************/
 /*                                                                       */
 /* <Type>                                                                */
@@ -22,7 +21,6 @@ typedef signed long  SW_FT_Fixed;
 /*    A typedef for the int type.                                        */
 /*                                                                       */
 typedef signed int  SW_FT_Int;
-
 
 /*************************************************************************/
 /*                                                                       */
@@ -34,7 +32,6 @@ typedef signed int  SW_FT_Int;
 /*                                                                       */
 typedef unsigned int  SW_FT_UInt;
 
-
 /*************************************************************************/
 /*                                                                       */
 /* <Type>                                                                */
@@ -44,7 +41,6 @@ typedef unsigned int  SW_FT_UInt;
 /*    A typedef for signed long.                                         */
 /*                                                                       */
 typedef signed long  SW_FT_Long;
-
 
 /*************************************************************************/
 /*                                                                       */
@@ -66,7 +62,6 @@ typedef unsigned long SW_FT_ULong;
 /*                                                                       */
 typedef signed short  SW_FT_Short;
 
-
 /*************************************************************************/
 /*                                                                       */
 /* <Type>                                                                */
@@ -76,7 +71,6 @@ typedef signed short  SW_FT_Short;
 /*    A simple typedef for the _unsigned_ char type.                     */
 /*                                                                       */
 typedef unsigned char  SW_FT_Byte;
-
 
 /*************************************************************************/
 /*                                                                       */
@@ -89,8 +83,6 @@ typedef unsigned char  SW_FT_Byte;
 /*                                                                       */
 typedef unsigned char  SW_FT_Bool;
 
-
-
 /*************************************************************************/
 /*                                                                       */
 /* <Type>                                                                */
@@ -101,7 +93,6 @@ typedef unsigned char  SW_FT_Bool;
 /*    as a successful operation.                                         */
 /*                                                                       */
 typedef int  SW_FT_Error;
-
 
 /*************************************************************************/
 /*                                                                       */
@@ -114,7 +105,6 @@ typedef int  SW_FT_Error;
 /*    units, or 16.16, or 26.6 fixed-point pixel coordinates.            */
 /*                                                                       */
 typedef signed long  SW_FT_Pos;
-
 
 /*************************************************************************/
 /*                                                                       */
@@ -136,13 +126,11 @@ typedef struct  SW_FT_Vector_
 
 } SW_FT_Vector;
 
-
 typedef long long int           SW_FT_Int64;
 typedef unsigned long long int  SW_FT_UInt64;
 
 typedef signed int              SW_FT_Int32;
 typedef unsigned int            SW_FT_UInt32;
-
 
 #define SW_FT_BOOL( x )  ( (SW_FT_Bool)( x ) )
 
@@ -155,6 +143,5 @@ typedef unsigned int            SW_FT_UInt32;
 #ifndef FALSE
 #define FALSE  0
 #endif
-
 
 #endif // V_FT_TYPES_H

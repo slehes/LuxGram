@@ -8,7 +8,6 @@
 #include "api/scoped_refptr.h"
 #include "api/media_stream_interface.h"
 
-
 @protocol CapturerInterface
 - (void)start;
 - (void)stop;

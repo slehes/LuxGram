@@ -14,7 +14,6 @@
  * optimizations.  Most users will not need to touch this file.
  */
 
-
 /*
  * Maximum number of components (color channels) allowed in JPEG image.
  * To meet the letter of Rec. ITU-T T.81 | ISO/IEC 10918-1, set this to 255.
@@ -25,7 +24,6 @@
  */
 
 #define MAX_COMPONENTS  10      /* maximum number of image components */
-
 
 /*
  * Basic data types.
@@ -53,7 +51,6 @@ typedef unsigned char JSAMPLE;
 
 #endif /* BITS_IN_JSAMPLE == 8 */
 
-
 #if BITS_IN_JSAMPLE == 12
 /* JSAMPLE should be the smallest type that will hold the values 0..4095.
  * On nearly all machines "short" will do nicely.
@@ -67,7 +64,6 @@ typedef short JSAMPLE;
 
 #endif /* BITS_IN_JSAMPLE == 12 */
 
-
 /* Representation of a DCT frequency coefficient.
  * This should be a signed value of at least 16 bits; "short" is usually OK.
  * Again, we allocate large arrays of these, but you can change to int
@@ -75,7 +71,6 @@ typedef short JSAMPLE;
  */
 
 typedef short JCOEF;
-
 
 /* Compressed datastreams are represented as arrays of JOCTET.
  * These must be EXACTLY 8 bits wide, at least once they are written to
@@ -85,7 +80,6 @@ typedef short JCOEF;
 
 typedef unsigned char JOCTET;
 #define GETJOCTET(value)  (value)
-
 
 /* These typedefs are used for various table entries and so forth.
  * They must be at least as wide as specified; but making them too big
@@ -156,7 +150,6 @@ typedef unsigned int JDIMENSION;
 
 #define JPEG_MAX_DIMENSION  65500L  /* a tad under 64K to prevent overflows */
 
-
 /* These macros are used in all function definitions and extern declarations.
  * You could modify them if you need to change function linkage conventions;
  * in particular, you'll need to do that to make the library a Windows DLL.
@@ -173,7 +166,6 @@ typedef unsigned int JDIMENSION;
 /* a reference to a GLOBAL function: */
 #define EXTERN(type)            extern type
 
-
 /* Originally, this macro was used as a way of defining function prototypes
  * for both modern compilers as well as older compilers that did not support
  * prototype parameters.  libjpeg-turbo has never supported these older,
@@ -183,14 +175,12 @@ typedef unsigned int JDIMENSION;
 
 #define JMETHOD(type, methodname, arglist)  type (*methodname) arglist
 
-
 /* libjpeg-turbo no longer supports platforms that have far symbols (MS-DOS),
  * but again, some software relies on this macro.
  */
 
 #undef FAR
 #define FAR
-
 
 /*
  * On a few systems, type boolean and/or its values FALSE, TRUE may appear
@@ -209,7 +199,6 @@ typedef int boolean;
 #define TRUE    1
 #endif
 
-
 /*
  * The remaining options affect code selection within the JPEG library,
  * but they don't need to be visible to most applications using the library.
@@ -222,7 +211,6 @@ typedef int boolean;
 #endif
 
 #ifdef JPEG_INTERNAL_OPTIONS
-
 
 /*
  * These defines indicate whether to include various optional functions.
@@ -266,7 +254,6 @@ typedef int boolean;
 #define QUANT_2PASS_SUPPORTED       /* 2-pass color quantization? */
 
 /* more capability options later, no doubt */
-
 
 /*
  * The RGB_RED, RGB_GREEN, RGB_BLUE, and RGB_PIXELSIZE macros are a vestigial
@@ -368,7 +355,6 @@ static const int rgb_pixelsize[JPEG_NUMCS] = {
 #define MULTIPLIER  short       /* prefer 16-bit with SIMD for parellelism */
 #endif
 #endif
-
 
 /* FAST_FLOAT should be either float or double, whichever is done faster
  * by your compiler.  (Note that this type is only used in the floating point

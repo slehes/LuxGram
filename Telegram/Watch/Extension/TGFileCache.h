@@ -18,5 +18,4 @@
 - (bool)hasDataForKey:(NSString *)key;
 - (NSURL *)urlForKey:(NSString *)key;
 
-
 @end

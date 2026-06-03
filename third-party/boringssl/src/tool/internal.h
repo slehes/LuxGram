@@ -147,5 +147,4 @@ extern const size_t kDERRSAPrivate2048Len;
 extern const uint8_t kDERRSAPrivate4096[];
 extern const size_t kDERRSAPrivate4096Len;
 
-
 #endif  // !OPENSSL_HEADER_TOOL_INTERNAL_H

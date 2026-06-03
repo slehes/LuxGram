@@ -319,7 +319,6 @@ typedef unsigned int swift_uint4  __attribute__((__ext_vector_type__(4)));
 
 #if defined(__OBJC__)
 
-
 @class NSString;
 @class RecaptchaClient;
 @class NSError;
@@ -443,7 +442,6 @@ SWIFT_CLASS("_TtC19RecaptchaEnterprise15RecaptchaClient")
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
 
-
 SWIFT_CLASS("_TtC19RecaptchaEnterprise17RecaptchaConstant")
 @interface RecaptchaConstant : NSObject
 SWIFT_CLASS_PROPERTY(@property (nonatomic, class, readonly, copy) NSString * _Nonnull clientVersion;)
@@ -499,7 +497,6 @@ typedef SWIFT_ENUM(NSInteger, RecaptchaErrorCode, open) {
   RecaptchaErrorCodeErrorCodeInternalError = 100,
 };
 
-
 /// Swift implementation for RecaptchaTokenSwift that holds the response of a successful
 /// execute call.
 SWIFT_CLASS("_TtC19RecaptchaEnterprise14RecaptchaToken") SWIFT_DEPRECATED_MSG("Newer implementations return the Token as a string.")
@@ -510,8 +507,6 @@ SWIFT_CLASS("_TtC19RecaptchaEnterprise14RecaptchaToken") SWIFT_DEPRECATED_MSG("N
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
-
-
 
 #endif
 #if __has_attribute(external_source_symbol)

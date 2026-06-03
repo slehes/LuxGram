@@ -3110,7 +3110,6 @@ public func StickerPackScreen(
     return controller
 }
 
-
 private final class StickerPackContextReferenceContentSource: ContextReferenceContentSource {
     private let controller: ViewController
     private let sourceView: UIView
@@ -3124,7 +3123,6 @@ private final class StickerPackContextReferenceContentSource: ContextReferenceCo
         return ContextControllerReferenceViewInfo(referenceView: self.sourceView, contentAreaInScreenSpace: UIScreen.main.bounds)
     }
 }
-
 
 private func generateShadowImage() -> UIImage? {
     return generateImage(CGSize(width: 220.0, height: 220.0), rotatedContext: { size, context in
@@ -3155,7 +3153,6 @@ private func generateArrowImage(color: UIColor) -> UIImage? {
         try? drawSvgPath(context, path: "M183.219,208.89 H206.781 C205.648,208.89 204.567,209.371 203.808,210.214 L197.23,217.523 C196.038,218.848 193.962,218.848 192.77,217.523 L186.192,210.214 C185.433,209.371 184.352,208.89 183.219,208.89 Z ")
     })
 }
-
 
 private class ReorderingGestureRecognizer: UIGestureRecognizer {
     private let shouldBegin: (CGPoint) -> (allowed: Bool, requiresLongPress: Bool, itemNode: StickerPackPreviewGridItemNode?)

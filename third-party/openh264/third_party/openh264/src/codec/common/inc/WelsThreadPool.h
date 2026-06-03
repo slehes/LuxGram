@@ -38,7 +38,6 @@
  *************************************************************************************
  */
 
-
 #ifndef _WELS_THREAD_POOL_H_
 #define _WELS_THREAD_POOL_H_
 
@@ -48,7 +47,6 @@
 #include "WelsList.h"
 
 namespace WelsCommon {
-
 
 class  CWelsThreadPool : public CWelsThread, public IWelsTaskThreadSink {
  public:
@@ -74,7 +72,6 @@ class  CWelsThreadPool : public CWelsThread, public IWelsTaskThreadSink {
   int32_t        GetThreadNum() const {
     return m_iMaxThreadNum;
   }
-
 
  protected:
   WELS_THREAD_ERROR_CODE Init();
@@ -117,8 +114,5 @@ class  CWelsThreadPool : public CWelsThread, public IWelsTaskThreadSink {
 
 }
 
-
 #endif
-
-
 

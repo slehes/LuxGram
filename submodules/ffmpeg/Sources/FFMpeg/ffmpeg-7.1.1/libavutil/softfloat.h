@@ -45,7 +45,6 @@ static const SoftFloat FLOAT_100000     = { 0x30D40000,  17};                   
 static const SoftFloat FLOAT_0999999    = { 0x3FFFFBCE,   0};                   ///< 0.999999
 static const SoftFloat FLOAT_MIN        = { 0x20000000,   MIN_EXP};
 
-
 /**
  * Convert a SoftFloat to a double precision float.
  */

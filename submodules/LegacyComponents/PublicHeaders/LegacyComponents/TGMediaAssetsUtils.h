@@ -19,13 +19,11 @@
 
 @end
 
-
 @interface TGMediaAssetsCollectionViewIncrementalUpdater : NSObject
 
 + (void)updateCollectionView:(UICollectionView *)collectionView withChange:(TGMediaAssetFetchResultChange *)change completion:(void (^)(bool incremental))completion;
 
 @end
-
 
 @interface TGMediaAssetsSaveToCameraRoll : NSObject
 
@@ -34,7 +32,6 @@
 + (void)saveVideoAtURL:(NSURL *)url;
 
 @end
-
 
 @interface TGMediaAssetsDateUtils : NSObject
 

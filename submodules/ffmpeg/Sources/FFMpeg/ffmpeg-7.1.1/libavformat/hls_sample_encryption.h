@@ -36,7 +36,6 @@
 #include "libavcodec/packet.h"
 #include "avformat.h"
 
-
 #define HLS_MAX_ID3_TAGS_DATA_LEN       138
 #define HLS_MAX_AUDIO_SETUP_DATA_LEN    10
 
@@ -54,7 +53,6 @@ typedef struct HLSAudioSetupInfo {
     uint8_t             setup_data_length;
     uint8_t             setup_data[HLS_MAX_AUDIO_SETUP_DATA_LEN];
 } HLSAudioSetupInfo;
-
 
 void ff_hls_senc_read_audio_setup_info(HLSAudioSetupInfo *info, const uint8_t *buf, size_t size);
 

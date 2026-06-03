@@ -33,7 +33,6 @@ typedef enum {
     DASH_TMPL_ID_TIME,
 } DASHTmplId;
 
-
 void ff_dash_fill_tmpl_params(char *dst, size_t buffer_size, const char *template, int rep_id, int number, int bit_rate, int64_t time);
 
 #endif /* AVFORMAT_DASH_H */

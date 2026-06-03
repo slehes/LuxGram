@@ -10,7 +10,6 @@ import Cocoa
 import TgVoipWebrtc
 import SwiftSignalKit
 
-
 public enum OngoingCallVideoOrientation {
     case rotation0
     case rotation90
@@ -34,8 +33,6 @@ public extension OngoingCallVideoOrientation {
         }
     }
 }
-
-
 
 public final class OngoingCallContextPresentationCallVideoView {
     public let view: NSView
@@ -69,8 +66,6 @@ public final class OngoingCallContextPresentationCallVideoView {
         self.renderToSize = renderToSize
     }
 }
-
-
 
 public final class OngoingCallVideoCapturer {
     public let impl: OngoingCallThreadLocalContextVideoCapturer

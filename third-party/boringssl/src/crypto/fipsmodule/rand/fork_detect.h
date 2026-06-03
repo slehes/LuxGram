@@ -38,7 +38,6 @@
 extern "C" {
 #endif
 
-
 // crypto_get_fork_generation returns the fork generation number for the current
 // process, or zero if not supported on the platform. The fork generation number
 // is a non-zero, strictly-monotonic counter with the property that, if queried

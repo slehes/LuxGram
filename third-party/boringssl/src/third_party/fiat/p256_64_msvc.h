@@ -42,7 +42,6 @@ typedef uint64_t fiat_p256_non_montgomery_domain_field_element[4];
 
 #define fiat_p256_value_barrier_u64(x) (x)
 
-
 /*
  * The function fiat_p256_addcarryx_u64 is an addition with carry.
  *

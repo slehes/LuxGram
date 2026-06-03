@@ -154,7 +154,6 @@ struct spake2_ctx_st {
   char disable_password_scalar_hack;
 };
 
-
 extern const uint8_t k25519Precomp[32][8][3][32];
 
 #if defined(__cplusplus)

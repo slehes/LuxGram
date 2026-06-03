@@ -43,7 +43,6 @@ private class SimpleCapturePreviewLayer: AVCaptureVideoPreviewLayer {
     }
 }
 
-
 public class CameraSimplePreviewView: UIView {
     func updateOrientation() {
         guard self.videoPreviewLayer.connection?.isVideoOrientationSupported == true else {

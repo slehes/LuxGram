@@ -66,7 +66,6 @@
 extern "C" {
 #endif
 
-
 // Config files.
 //
 // This library handles OpenSSL's config files, which look like:
@@ -84,7 +83,6 @@ extern "C" {
 // untrusted input as a config file risks string injection and denial of service
 // vulnerabilities.
 
-
 struct conf_value_st {
   char *section;
   char *name;
@@ -93,7 +91,6 @@ struct conf_value_st {
 
 DEFINE_STACK_OF(CONF_VALUE)
 DECLARE_LHASH_OF(CONF_VALUE)
-
 
 // NCONF_new returns a fresh, empty |CONF|, or NULL on error. The |method|
 // argument must be NULL.
@@ -126,7 +123,6 @@ OPENSSL_EXPORT const char *NCONF_get_string(const CONF *conf,
                                             const char *section,
                                             const char *name);
 
-
 // Deprecated functions
 
 // These defines do nothing but are provided to make old code easier to
@@ -148,7 +144,6 @@ OPENSSL_EXPORT void OPENSSL_config(const char *config_name);
 
 // OPENSSL_no_config does nothing.
 OPENSSL_EXPORT void OPENSSL_no_config(void);
-
 
 #if defined(__cplusplus)
 }  // extern C

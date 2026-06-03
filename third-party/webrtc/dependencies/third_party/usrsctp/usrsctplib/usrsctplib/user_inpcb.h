@@ -369,5 +369,4 @@ void	ipport_tick(void *xtp);
  */
 void	db_print_inpcb(struct inpcb *inp, const char *name, int indent);
 
-
 #endif /* !_NETINET_IN_PCB_H_ */

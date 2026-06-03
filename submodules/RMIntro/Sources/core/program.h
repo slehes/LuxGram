@@ -29,9 +29,6 @@ typedef struct {
     GLint u_alpha_loaction;
 } GradientProgram;
 
-
-
-
 TextureProgram get_texture_program(GLuint program);
 ColorProgram get_color_program(GLuint program);
 GradientProgram get_gradient_program(GLuint program);
