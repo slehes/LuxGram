@@ -34,36 +34,6 @@ jobs:
           distribution: temurin
           java-version: '21'
 
-      - name: Setup codesigning
-        run: |
-          TEAM_ID="6W9S44UXF2"
-          KP="$RUNNER_TEMP/luxgram.keychain"
-          KPW="luxgram-keychain-password"
-          CERT_DIR="build-system/fake-codesigning/certs"
-          P12="$CERT_DIR/SelfSigned.p12"
-
-          pip3 install cryptography --quiet 2>/dev/null || true
-          python3 scripts/gen_p12.py "$P12" "$TEAM_ID"
-          echo "P12: $(ls -lh $P12)"
-
-          security create-keychain -p "$KPW" "$KP"
-          security set-keychain-settings -lut 21600 "$KP"
-          security unlock-keychain -p "$KPW" "$KP"
-          security import "$P12" -k "$KP" -P "luxgram" \
-            -T /usr/bin/codesign -T /usr/bin/security -T /usr/bin/productbuild
-
-          EXISTING=$(security list-keychains -d user | xargs)
-          security list-keychains -d user -s "$KP" $EXISTING
-          security set-key-partition-list \
-            -S apple-tool:,apple:,codesign: -s -k "$KPW" "$KP"
-
-          sudo security add-trusted-cert -d -r trustAsRoot \
-            -k /Library/Keychains/System.keychain /tmp/lux.crt || true
-
-          security find-identity -v "$KP" | head -5
-          echo "FAKE_KEYCHAIN_PATH=$KP" >> "$GITHUB_ENV"
-          echo "FAKE_KEYCHAIN_PASSWORD=$KPW" >> "$GITHUB_ENV"
-
       - name: Write build configuration
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
@@ -90,17 +60,6 @@ jobs:
             json.dump(cfg, f, indent='\t')
           print('Config: bundle_id =', cfg['bundle_id'], 'team_id =', team_id)
           "
-
-      - name: Regenerate provisioning profiles with new cert
-        run: |
-          python3 build-system/Make/GenerateProfiles.py \
-            --sourcePath=build-system/fake-codesigning/profiles \
-            --destinationPath=build-system/fake-codesigning/profiles \
-            --certsPath=build-system/fake-codesigning/certs \
-            --sourceTeamId=C67CF9S4VU \
-            --targetTeamId=6W9S44UXF2 \
-            --sourceBundleId=ph.telegra.Telegraph \
-            --targetBundleId=app.luxgram.com
 
       - name: Restore libvpx build/make directory
         run: |
