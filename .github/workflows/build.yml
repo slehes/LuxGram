@@ -185,6 +185,7 @@ jobs:
             --buildNumber="$BN" \
             --target LuxGram \
             --configuration=release_arm64 \
+            --disableProvisioningProfiles \
             --outputBuildArtifactsPath="build/artifacts"
 
       # 9 — Upload artifact ─────────────────────────────────────────────────
