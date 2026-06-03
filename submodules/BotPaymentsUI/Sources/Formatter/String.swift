@@ -19,7 +19,6 @@ public protocol CurrencyString {
 //Currency String Extension
 extension String: CurrencyString {
 
-    // MARK: Properties
     
     /// Informs with the string represents the value of zero
     public var representsZero: Bool {
@@ -40,7 +39,6 @@ extension String: CurrencyString {
         return distance(from: endIndex, to: indexAfterLastNumber)
     }
 
-    // MARK: Functions
     
     /// Updates a currency string decimal separator position based on
     /// the amount of decimal digits desired
@@ -61,8 +59,6 @@ extension String: CurrencyString {
         return replacingOccurrences(of:"[^0-9]", with: "", options: .regularExpression)
     }
 }
-
-// MARK: - Static constants
 
 extension String {
     public static let negativeSymbol = "-"

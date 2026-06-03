@@ -66,7 +66,6 @@ private func removeProfileCoverMedia() {
     try? fm.removeItem(at: dir.appendingPathComponent(profileCoverVideoName))
 }
 
-// MARK: - Preview row (image/video or placeholder)
 private final class ProfileCoverPreviewItem: ListViewItem, ItemListItem {
     let presentationData: ItemListPresentationData
     let sectionId: ItemListSectionId
@@ -177,7 +176,6 @@ private final class ProfileCoverPreviewItemNode: ListViewItemNode {
     }
 }
 
-// MARK: - Controller
 private enum ProfileCoverEntry: ItemListNodeEntry {
     case previewHeader(id: Int, text: String)
     case preview(id: Int, path: String, isVideo: Bool)

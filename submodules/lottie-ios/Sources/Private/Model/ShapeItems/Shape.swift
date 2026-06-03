@@ -10,8 +10,6 @@ import Foundation
 /// An item that defines an custom shape
 final class Shape: ShapeItem {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Shape.CodingKeys.self)
     path = try container.decode(KeyframeGroup<BezierPath>.self, forKey: .path)
@@ -33,8 +31,6 @@ final class Shape: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The Path
   let path: KeyframeGroup<BezierPath>
 
@@ -46,8 +42,6 @@ final class Shape: ShapeItem {
     try container.encode(path, forKey: .path)
     try container.encodeIfPresent(direction, forKey: .direction)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case path = "ks"

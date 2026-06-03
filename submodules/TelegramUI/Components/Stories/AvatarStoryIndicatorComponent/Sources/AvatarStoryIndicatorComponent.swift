@@ -229,7 +229,6 @@ private struct CurveVertex {
         self.outTangent = outTangent
     }
     
-    // MARK: Internal
     
     let point: CGPoint
     

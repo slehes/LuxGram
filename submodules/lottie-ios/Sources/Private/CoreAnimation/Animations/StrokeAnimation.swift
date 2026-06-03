@@ -4,8 +4,6 @@
 import Foundation
 import QuartzCore
 
-// MARK: - StrokeShapeItem
-
 /// A `ShapeItem` that represents a stroke
 protocol StrokeShapeItem: OpacityAnimationModel {
   var strokeColor: KeyframeGroup<Color>? { get }
@@ -16,19 +14,13 @@ protocol StrokeShapeItem: OpacityAnimationModel {
   var dashPattern: [DashElement]? { get }
 }
 
-// MARK: - Stroke + StrokeShapeItem
-
 extension Stroke: StrokeShapeItem {
   var strokeColor: KeyframeGroup<Color>? { color }
 }
 
-// MARK: - GradientStroke + StrokeShapeItem
-
 extension GradientStroke: StrokeShapeItem {
   var strokeColor: KeyframeGroup<Color>? { nil }
 }
-
-// MARK: - CAShapeLayer + StrokeShapeItem
 
 extension CAShapeLayer {
   /// Adds animations for properties related to the given `Stroke` object (`strokeColor`, `lineWidth`, etc)

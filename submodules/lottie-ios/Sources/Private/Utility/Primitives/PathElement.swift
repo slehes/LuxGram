@@ -17,8 +17,6 @@ import Foundation
 ///
 struct PathElement {
 
-  // MARK: Lifecycle
-
   /// Initializes a new path with length of 0
   init(vertex: CurveVertex) {
     length = 0
@@ -30,8 +28,6 @@ struct PathElement {
     self.length = length
     self.vertex = vertex
   }
-
-  // MARK: Internal
 
   /// The absolute Length of the path element.
   let length: CGFloat

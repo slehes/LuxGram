@@ -5,8 +5,6 @@ import QuartzCore
 
 extension CAShapeLayer {
 
-  // MARK: Internal
-
   /// Adds animations for the given `Rectangle` to this `CALayer`
   @nonobjc
   func addAnimations(
@@ -23,8 +21,6 @@ extension CAShapeLayer {
       break
     }
   }
-
-  // MARK: Private
 
   @nonobjc
   private func addStarAnimation(

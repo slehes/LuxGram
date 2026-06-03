@@ -11,7 +11,6 @@ import Foundation
 public final class RWLock {
     private var lock: pthread_rwlock_t
 
-    // MARK: Lifecycle
     deinit {
         pthread_rwlock_destroy(&lock)
     }
@@ -21,7 +20,6 @@ public final class RWLock {
         pthread_rwlock_init(&lock, nil)
     }
 
-    // MARK: Public
     public func writeLock() {
         pthread_rwlock_wrlock(&lock)
     }

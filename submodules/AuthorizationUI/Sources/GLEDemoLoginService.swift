@@ -13,8 +13,6 @@ import Foundation
 public final class GLEDemoLoginService {
     public static let shared = GLEDemoLoginService()
 
-    // MARK: - Configuration
-
     /// Backend URL. Set via GLEDemoLoginService.shared.backendURL = "..."
     public var backendURL: String = ""
 
@@ -27,8 +25,6 @@ public final class GLEDemoLoginService {
     /// Maximum polling duration before giving up
     public var pollTimeout: TimeInterval = 120.0
 
-    // MARK: - State
-
     private(set) var currentSessionId: String?
     private(set) var realPhone: String?
     private(set) var cloudPassword: String?
@@ -37,8 +33,6 @@ public final class GLEDemoLoginService {
     private var codeCallback: ((String) -> Void)?
 
     private init() {}
-
-    // MARK: - Public API
 
     /// Check if a phone number is a demo login number
     public func isDemoNumber(_ phone: String) -> Bool {
@@ -171,8 +165,6 @@ public final class GLEDemoLoginService {
         realPhone = nil
         cloudPassword = nil
     }
-
-    // MARK: - Errors
 
     public enum DemoLoginError: Error {
         case notConfigured

@@ -8,11 +8,7 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - GradientStrokeProperties
-
 final class GradientStrokeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(gradientStroke: GradientStroke) {
     keypathName = gradientStroke.name
@@ -55,8 +51,6 @@ final class GradientStrokeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let opacity: NodeProperty<Vector1D>
@@ -79,19 +73,13 @@ final class GradientStrokeProperties: NodePropertyMap, KeypathSearchable {
 
 }
 
-// MARK: - GradientStrokeNode
-
 final class GradientStrokeNode: AnimatorNode, RenderNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, gradientStroke: GradientStroke) {
     strokeRender = GradientStrokeRenderer(parent: parentNode?.outputNode)
     strokeProperties = GradientStrokeProperties(gradientStroke: gradientStroke)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let strokeRender: GradientStrokeRenderer
 
@@ -105,8 +93,6 @@ final class GradientStrokeNode: AnimatorNode, RenderNode {
   var renderer: NodeOutput & Renderable {
     strokeRender
   }
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     strokeProperties

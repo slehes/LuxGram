@@ -10,8 +10,6 @@ import Foundation
 /// An item that define an ellipse shape
 final class Group: ShapeItem {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Group.CodingKeys.self)
     items = try container.decode([ShapeItem].self, ofFamily: ShapeType.self, forKey: .items)
@@ -24,8 +22,6 @@ final class Group: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// A list of shape items.
   let items: [ShapeItem]
 
@@ -34,8 +30,6 @@ final class Group: ShapeItem {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(items, forKey: .items)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case items = "it"

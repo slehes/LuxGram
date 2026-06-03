@@ -37,8 +37,6 @@ public class CurrencyUITextFieldDelegate: NSObject {
     }
 }
 
-// MARK: - UITextFieldDelegate
-
 extension CurrencyUITextFieldDelegate: UITextFieldDelegate {
     
     @discardableResult
@@ -115,8 +113,6 @@ extension CurrencyUITextFieldDelegate: UITextFieldDelegate {
         }
     }
 }
-
-// MARK: - Private
 
 extension CurrencyUITextFieldDelegate {
 

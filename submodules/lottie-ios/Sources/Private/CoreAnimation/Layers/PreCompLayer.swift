@@ -3,12 +3,8 @@
 
 import QuartzCore
 
-// MARK: - PreCompLayer
-
 /// The `CALayer` type responsible for rendering `PreCompLayerModel`s
 final class PreCompLayer: BaseCompositionLayer {
-
-  // MARK: Lifecycle
 
   init(preCompLayer: PreCompLayerModel) {
     self.preCompLayer = preCompLayer
@@ -30,8 +26,6 @@ final class PreCompLayer: BaseCompositionLayer {
     timeRemappingInterpolator = typedLayer.timeRemappingInterpolator
     super.init(layer: typedLayer)
   }
-
-  // MARK: Internal
 
   /// Post-init setup for `PreCompLayer`s.
   /// Should always be called after `PreCompLayer.init(preCompLayer:)`.
@@ -80,14 +74,10 @@ final class PreCompLayer: BaseCompositionLayer {
     try setupChildAnimations(context: contextForChildren)
   }
 
-  // MARK: Private
-
   private let preCompLayer: PreCompLayerModel
   private var timeRemappingInterpolator: KeyframeInterpolator<AnimationFrameTime>?
 
 }
-
-// MARK: CustomLayoutLayer
 
 extension PreCompLayer: CustomLayoutLayer {
   func layout(superlayerBounds: CGRect) {

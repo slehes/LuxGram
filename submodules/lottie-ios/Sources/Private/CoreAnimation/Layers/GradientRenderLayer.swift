@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - GradientRenderLayer
-
 /// A `CAGradientLayer` subclass used to render a gradient _outside_ the normal layer bounds
 ///
 ///  - `GradientFill.startPoint` and `GradientFill.endPoint` are expressed
@@ -20,8 +18,6 @@ import QuartzCore
 ///    the gradient can be drawn outside of the `gradientReferenceBounds`.
 ///
 final class GradientRenderLayer: CAGradientLayer {
-
-  // MARK: Internal
 
   /// The reference bounds within this layer that the gradient's
   /// `startPoint` and `endPoint` should be calculated relative to
@@ -53,8 +49,6 @@ final class GradientRenderLayer: CAGradientLayer {
       y: CGFloat(pointInBounds.y) / bounds.height)
   }
 
-  // MARK: Private
-
   /// Extra padding around the `gradientReferenceBounds` where the gradient is also rendered
   ///  - This specific value is arbitrary and can be increased if necessary.
   ///    Theoretically this should be "infinite", to match the behavior of
@@ -77,8 +71,6 @@ final class GradientRenderLayer: CAGradientLayer {
   }
 
 }
-
-// MARK: CustomLayoutLayer
 
 extension GradientRenderLayer: CustomLayoutLayer {
   func layout(superlayerBounds: CGRect) {

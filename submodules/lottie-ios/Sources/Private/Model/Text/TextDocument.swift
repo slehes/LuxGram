@@ -7,19 +7,13 @@
 
 import Foundation
 
-// MARK: - TextJustification
-
 enum TextJustification: Int, Codable {
   case left
   case right
   case center
 }
 
-// MARK: - TextDocument
-
 final class TextDocument: Codable, DictionaryInitializable, AnyInitializable {
-
-  // MARK: Lifecycle
 
   init(dictionary: [String: Any]) throws {
     text = try dictionary.value(for: CodingKeys.text)
@@ -64,8 +58,6 @@ final class TextDocument: Codable, DictionaryInitializable, AnyInitializable {
     try self.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The Text
   let text: String
 
@@ -102,8 +94,6 @@ final class TextDocument: Codable, DictionaryInitializable, AnyInitializable {
   let textFramePosition: Vector3D?
 
   let textFrameSize: Vector3D?
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case text = "t"

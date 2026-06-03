@@ -7,16 +7,12 @@
 
 import Foundation
 
-// MARK: - LineCap
-
 enum LineCap: Int, Codable {
   case none
   case butt
   case round
   case square
 }
-
-// MARK: - LineJoin
 
 enum LineJoin: Int, Codable {
   case none
@@ -25,12 +21,8 @@ enum LineJoin: Int, Codable {
   case bevel
 }
 
-// MARK: - GradientStroke
-
 /// An item that define an ellipse shape
 final class GradientStroke: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: GradientStroke.CodingKeys.self)
@@ -102,8 +94,6 @@ final class GradientStroke: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The opacity of the fill
   let opacity: KeyframeGroup<Vector1D>
 
@@ -161,8 +151,6 @@ final class GradientStroke: ShapeItem {
     try colorsContainer.encode(colors, forKey: .colors)
     try container.encodeIfPresent(dashPattern, forKey: .dashPattern)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case opacity = "o"

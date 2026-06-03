@@ -36,8 +36,6 @@ import SGFakeLocation
 import FaceScanScreen
 #endif
 
-// MARK: - Back button helper
-
 private class BackButtonTarget: NSObject {
     private weak var controller: UIViewController?
 
@@ -342,7 +340,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     
     entries.append(.searchInput(id: id.count, section: .search, title: NSAttributedString(string: "🔍"), text: state.searchQuery ?? "", placeholder: strings.Common_Search))
     
-    // MARK: Messages
     entries.append(.header(id: id.count, section: .messages, text: i18n("Settings.DeletedMessages.Header", lang), badge: nil))
 
     let showDeleted = SGSimpleSettings.shared.showDeletedMessages
@@ -371,7 +368,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .messages, settingName: .enableLocalMessageEditing, value: SGSimpleSettings.shared.enableLocalMessageEditing, text: localEditTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .messages, text: localEditNotice))
     
-    // MARK: Chat list / Read all
     entries.append(.header(id: id.count, section: .chatList, text: i18n("READ_ALL_HEADER", lang), badge: nil))
     entries.append(.action(id: id.count, section: .chatList, actionType: "markAllReadLocal" as AnyHashable, text: i18n("READ_ALL_LOCAL_TITLE", lang), kind: .generic))
     entries.append(.notice(id: id.count, section: .chatList, text: i18n("READ_ALL_LOCAL_SUBTITLE", lang)))
@@ -384,7 +380,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .chatList, settingName: .keepRemovedChannels, value: SGSimpleSettings.shared.keepRemovedChannels, text: keepRemovedTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .chatList, text: keepRemovedNotice))
 
-    // MARK: Online status / Ghost mode
     entries.append(.header(id: id.count, section: .onlineStatus, text: (lang == "ru" ? "ОНЛАЙН-СТАТУС" : "ONLINE STATUS"), badge: nil))
     entries.append(.toggle(id: id.count, section: .onlineStatus, settingName: .disableOnlineStatus, value: SGSimpleSettings.shared.disableOnlineStatus, text: i18n("DISABLE_ONLINE_STATUS_TITLE", lang), enabled: true))
     entries.append(.notice(id: id.count, section: .onlineStatus, text: i18n("DISABLE_ONLINE_STATUS_SUBTITLE", lang)))
@@ -427,7 +422,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .onlineStatus, settingName: .disableEmojiAcknowledgementStatus, value: SGSimpleSettings.shared.disableEmojiAcknowledgementStatus, text: i18n("DISABLE_EMOJI_ACKNOWLEDGEMENT_STATUS_TITLE", lang), enabled: true))
     entries.append(.notice(id: id.count, section: .onlineStatus, text: i18n("DISABLE_EMOJI_ACKNOWLEDGEMENT_STATUS_SUBTITLE", lang)))
     
-    // MARK: Read receipts
     entries.append(.header(id: id.count, section: .readReceipts, text: (lang == "ru" ? "ОТЧЁТЫ О ПРОЧТЕНИИ" : "READ RECEIPTS"), badge: nil))
     let disableMessageReadReceiptTitle = (lang == "ru" ? "Отчёты: сообщения" : i18n("DISABLE_MESSAGE_READ_RECEIPT_TITLE", lang))
     entries.append(.toggle(id: id.count, section: .readReceipts, settingName: .disableMessageReadReceipt, value: SGSimpleSettings.shared.disableMessageReadReceipt, text: disableMessageReadReceiptTitle, enabled: true))
@@ -445,7 +439,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .readReceipts, settingName: .disableStoryReadReceipt, value: SGSimpleSettings.shared.disableStoryReadReceipt, text: disableStoryReadReceiptTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .readReceipts, text: i18n("DISABLE_STORY_READ_RECEIPT_SUBTITLE", lang)))
     
-    // MARK: Content / security / ads
     entries.append(.header(id: id.count, section: .content, text: (lang == "ru" ? "КОНТЕНТ И БЕЗОПАСНОСТЬ" : "CONTENT & SECURITY"), badge: nil))
     let disableAllAdsTitle = (lang == "ru" ? "Отключить рекламу" : i18n("DISABLE_ALL_ADS_TITLE", lang))
     entries.append(.toggle(id: id.count, section: .content, settingName: .disableAllAds, value: SGSimpleSettings.shared.disableAllAds, text: disableAllAdsTitle, enabled: true))
@@ -466,7 +459,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .content, settingName: .disableSecretChatBlurOnScreenshot, value: SGSimpleSettings.shared.disableSecretChatBlurOnScreenshot, text: disableSecretBlurTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .content, text: i18n("DISABLE_SECRET_CHAT_BLUR_ON_SCREENSHOT_SUBTITLE", lang)))
     
-    // MARK: 18+ / Sensitive content (server-side)
     if let contentSettingsConfiguration {
         let canAdjust = contentSettingsConfiguration.canAdjustSensitiveContent
         let sensitiveTitle = (lang == "ru" ? "Разрешить 18+ контент" : presentationData.strings.Settings_SensitiveContent)
@@ -494,17 +486,14 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
         entries.append(.notice(id: id.count, section: .content, text: (lang == "ru" ? "Загрузка настроек… (нужен доступ к серверу Telegram)" : "Loading settings… (requires Telegram server access)")))
     }
     
-    // MARK: Local premium
     entries.append(.header(id: id.count, section: .localPremium, text: i18n("Settings.Other.LocalPremium", lang), badge: nil))
     entries.append(.toggle(id: id.count, section: .localPremium, settingName: .enableLocalPremium, value: SGSimpleSettings.shared.enableLocalPremium, text: i18n("Settings.Other.EnableLocalPremium", lang), enabled: true))
     entries.append(.notice(id: id.count, section: .localPremium, text: i18n("Settings.Other.LocalPremium.Notice", lang)))
     
-    // MARK: Interface (appearance tab: only tab organizer)
     entries.append(.header(id: id.count, section: .interface, text: (lang == "ru" ? "ИНТЕРФЕЙС" : "INTERFACE"), badge: nil))
     entries.append(.disclosure(id: id.count, section: .interface, link: .tabOrganizer, text: (lang == "ru" ? "Органайзер таббара" : "Tab Bar Organizer")))
     entries.append(.notice(id: id.count, section: .interface, text: (lang == "ru" ? "Порядок и видимость вкладок внизу экрана (Чаты, Контакты, Звонки, Настройки)." : "Order and visibility of bottom tabs (Chats, Contacts, Calls, Settings).")))
     
-    // MARK: Оформление (Appearance)
     entries.append(.header(id: id.count, section: .appearance, text: (lang == "ru" ? "ОБЛОЖКА ПРОФИЛЯ" : "PROFILE COVER"), badge: nil))
     entries.append(.disclosure(id: id.count, section: .appearance, link: .profileCover, text: (lang == "ru" ? "Обложка профиля" : "Profile cover")))
     entries.append(.notice(id: id.count, section: .appearance, text: (lang == "ru" ? "Фото или видео вместо цвета в профиле (видно только вам)." : "Photo or video instead of color in profile (visible only to you).")))
@@ -546,7 +535,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .appearance, settingName: .disableZalgoText, value: SGSimpleSettings.shared.disableZalgoText, text: disableZalgoTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .appearance, text: disableZalgoNotice))
 
-    // MARK: Other (Другие функции)
     entries.append(.header(id: id.count, section: .other, text: (lang == "ru" ? "ДРУГИЕ ФУНКЦИИ" : "OTHER"), badge: nil))
     let chatExportTitle = (lang == "ru" ? "Экспорт чата" : "Export chat")
     let chatExportNotice = (lang == "ru"
@@ -576,7 +564,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .other, settingName: .feelRichEnabled, value: SGSimpleSettings.shared.feelRichEnabled, text: feelRichTitle, enabled: true))
     entries.append(.disclosure(id: id.count, section: .other, link: .feelRichAmount, text: (lang == "ru" ? "Изменить сумму" : "Change amount") + " (\(SGSimpleSettings.shared.feelRichStarsAmount))"))
 
-    // MARK: Per-account notification mute
     if accounts.count > 1 {
         let notifHeader = lang == "ru" ? "УВЕДОМЛЕНИЯ" : "NOTIFICATIONS"
         entries.append(.header(id: id.count, section: .notifications, text: notifHeader, badge: nil))
@@ -592,7 +579,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
         entries.append(.notice(id: id.count, section: .notifications, text: notifNotice))
     }
 
-    // MARK: Fake Location
     entries.append(.header(id: id.count, section: .fakeLocation, text: (lang == "ru" ? "ФЕЙКОВАЯ ГЕОЛОКАЦИЯ" : "FAKE LOCATION"), badge: nil))
     let fakeLocationTitle = (lang == "ru" ? "Включить фейковую геолокацию" : "Enable Fake Location")
     let fakeLocationNotice = (lang == "ru"
@@ -613,7 +599,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
         entries.append(.notice(id: id.count, section: .fakeLocation, text: noCoordsText))
     }
     
-    // MARK: Подглядеть онлайн (Peek online)
     entries.append(.header(id: id.count, section: .onlineStatusRecording, text: (lang == "ru" ? "ПОДГЛЯДЕТЬ ОНЛАЙН" : "PEEK ONLINE"), badge: nil))
     let peekOnlineTitle = (lang == "ru" ? "Включить «Подглядеть онлайн»" : "Enable «Peek online»")
     let peekOnlineNotice = (lang == "ru"
@@ -622,7 +607,6 @@ private func luxGramEntries(presentationData: PresentationData, contentSettingsC
     entries.append(.toggle(id: id.count, section: .onlineStatusRecording, settingName: .enableOnlineStatusRecording, value: SGSimpleSettings.shared.enableOnlineStatusRecording, text: peekOnlineTitle, enabled: true))
     entries.append(.notice(id: id.count, section: .onlineStatusRecording, text: peekOnlineNotice))
     
-    // MARK: Gated features — hide toggles that are gated and not unlocked
     let filteredEntries = filterGatedFeatures(entries: entries)
 
     return filterSGItemListUIEntrires(entries: filteredEntries, by: state.searchQuery)

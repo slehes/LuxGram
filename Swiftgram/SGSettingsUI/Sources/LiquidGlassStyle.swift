@@ -11,8 +11,6 @@ import UIKit
 import SGSimpleSettings
 #endif
 
-// MARK: - Public API
-
 public final class LiquidGlassStyle {
 
     public static let shared = LiquidGlassStyle()
@@ -53,8 +51,6 @@ public final class LiquidGlassStyle {
         #endif
     }
 
-    // MARK: - NavigationBar
-
     private func applyNavigationBar() {
         let appearance = UINavigationBarAppearance()
         appearance.configureWithTransparentBackground()
@@ -87,8 +83,6 @@ public final class LiquidGlassStyle {
         UINavigationBar.appearance().compactAppearance = appearance
         UINavigationBar.appearance().tintColor = nil
     }
-
-    // MARK: - TabBar
 
     private func applyTabBar() {
         let appearance = UITabBarAppearance()
@@ -125,8 +119,6 @@ public final class LiquidGlassStyle {
         UITabBar.appearance().unselectedItemTintColor = nil
     }
 
-    // MARK: - Toolbar
-
     private func applyToolbar() {
         let appearance = UIToolbarAppearance()
         appearance.configureWithTransparentBackground()
@@ -149,8 +141,6 @@ public final class LiquidGlassStyle {
         UIToolbar.appearance().tintColor = nil
     }
 
-    // MARK: - Table / Collection backgrounds
-
     private func applyBackgrounds() {
         UITableView.appearance().backgroundColor = UIColor(white: 0, alpha: 0)
     }
@@ -158,8 +148,6 @@ public final class LiquidGlassStyle {
     private func removeBackgrounds() {
         UITableView.appearance().backgroundColor = nil
     }
-
-    // MARK: - Helpers
 
     private func glassBlurStyle() -> UIBlurEffect.Style {
         if #available(iOS 16.0, *) {
@@ -172,8 +160,6 @@ public final class LiquidGlassStyle {
         return UIColor(white: 1.0, alpha: 0.07)
     }
 }
-
-// MARK: - UIView extension: add glass layer to any view
 
 public extension UIView {
     /// Wraps the view in a frosted-glass overlay. Call only when liquidGlass is enabled.

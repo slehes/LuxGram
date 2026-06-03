@@ -187,7 +187,6 @@ public final class MediaStreamComponent: CombinedComponent {
                             strongSelf.deactivatePictureInPictureIfVisible.invoke(Void())
                         })
                     } else {
-                        // MARK: TODO: fullscreen ui toggle
                     }
                 }
             })
@@ -1249,8 +1248,6 @@ public final class MediaStreamComponentController: ViewControllerComponentContai
         })
     }
 }
-
-// MARK: - Subcomponents
 
 private final class NavigationBarComponent: CombinedComponent {
     let topInset: CGFloat

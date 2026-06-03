@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - TrimPathProperties
-
 final class TrimPathProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(trim: Trim) {
     keypathName = trim.name
@@ -28,8 +24,6 @@ final class TrimPathProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   let keypathProperties: [String: AnyNodeProperty]
   let properties: [AnyNodeProperty]
   let keypathName: String
@@ -40,11 +34,7 @@ final class TrimPathProperties: NodePropertyMap, KeypathSearchable {
   let type: TrimType
 }
 
-// MARK: - TrimPathNode
-
 final class TrimPathNode: AnimatorNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, trim: Trim, upstreamPaths: [PathOutputNode]) {
     outputNode = PassThroughOutputNode(parent: parentNode?.outputNode)
@@ -52,8 +42,6 @@ final class TrimPathNode: AnimatorNode {
     properties = TrimPathProperties(trim: trim)
     self.upstreamPaths = upstreamPaths
   }
-
-  // MARK: Internal
 
   let properties: TrimPathProperties
 
@@ -64,7 +52,6 @@ final class TrimPathNode: AnimatorNode {
   var lastUpdateFrame: CGFloat? = nil
   var isEnabled = true
 
-  // MARK: Animator Node
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties
   }
@@ -274,8 +261,6 @@ final class TrimPathNode: AnimatorNode {
     }
 
   }
-
-  // MARK: Fileprivate
 
   fileprivate let upstreamPaths: [PathOutputNode]
 }

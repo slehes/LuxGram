@@ -1,13 +1,9 @@
 // Created by eric_horacek on 12/9/20.
 // Copyright © 2020 Airbnb Inc. All rights reserved.
 
-// MARK: - LottieLogger
-
 /// A shared logger that allows consumers to intercept Lottie assertions and warning messages to pipe
 /// into their own logging systems.
 public final class LottieLogger {
-
-  // MARK: Lifecycle
 
   public init(
     assert: @escaping Assert = Swift.assert,
@@ -23,8 +19,6 @@ public final class LottieLogger {
     _assertionFailure = assertionFailure
     _warn = warn
   }
-
-  // MARK: Public
 
   /// Logs that an assertion occurred.
   public typealias Assert = (
@@ -81,15 +75,11 @@ public final class LottieLogger {
     _warn(message(), fileID, line)
   }
 
-  // MARK: Private
-
   private let _assert: Assert
   private let _assertionFailure: AssertionFailure
   private let _warn: Warn
 
 }
-
-// MARK: - LottieLogger + printToConsole
 
 extension LottieLogger {
   /// A `LottieLogger` instance that always prints to the console (by calling `print`)

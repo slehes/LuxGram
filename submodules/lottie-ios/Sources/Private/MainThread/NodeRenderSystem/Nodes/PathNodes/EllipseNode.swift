@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - EllipseNodeProperties
-
 final class EllipseNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(ellipse: Ellipse) {
     keypathName = ellipse.name
@@ -26,8 +22,6 @@ final class EllipseNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let direction: PathDirection
@@ -38,19 +32,13 @@ final class EllipseNodeProperties: NodePropertyMap, KeypathSearchable {
   let properties: [AnyNodeProperty]
 }
 
-// MARK: - EllipseNode
-
 final class EllipseNode: AnimatorNode, PathNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, ellipse: Ellipse) {
     pathOutput = PathOutputNode(parent: parentNode?.outputNode)
     properties = EllipseNodeProperties(ellipse: ellipse)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   static let ControlPointConstant: CGFloat = 0.55228
 
@@ -62,8 +50,6 @@ final class EllipseNode: AnimatorNode, PathNode {
   var hasLocalUpdates = false
   var hasUpstreamUpdates = false
   var lastUpdateFrame: CGFloat? = nil
-
-  // MARK: Animator Node
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties

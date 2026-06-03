@@ -11,14 +11,10 @@ import Foundation
 /// A value provider that produces an array of values from an array of Keyframe Interpolators
 final class GroupInterpolator<ValueType>: ValueProvider where ValueType: Interpolatable {
 
-  // MARK: Lifecycle
-
   /// Initialize with an array of array of keyframes.
   init(keyframeGroups: ContiguousArray<ContiguousArray<Keyframe<ValueType>>>) {
     keyframeInterpolators = ContiguousArray(keyframeGroups.map({ KeyframeInterpolator(keyframes: $0) }))
   }
-
-  // MARK: Internal
 
   let keyframeInterpolators: ContiguousArray<KeyframeInterpolator<ValueType>>
 

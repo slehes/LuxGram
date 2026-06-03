@@ -173,8 +173,6 @@ public struct LuxGramBetaConfig: Equatable {
     }
 }
 
-// MARK: - JSON serialization for cache
-
 extension LuxGramUserStatus {
     public func toJSON() -> [String: Any] {
         var dict: [String: Any] = [

@@ -6,8 +6,6 @@ import QuartzCore
 /// The `CALayer` type responsible for rendering `TextLayer`s
 final class TextLayer: BaseCompositionLayer {
 
-  // MARK: Lifecycle
-
   init(
     textLayerModel: TextLayerModel,
     context: LayerContext)
@@ -33,8 +31,6 @@ final class TextLayer: BaseCompositionLayer {
     textLayerModel = typedLayer.textLayerModel
     super.init(layer: typedLayer)
   }
-
-  // MARK: Internal
 
   func configureRenderLayer(with context: LayerContext) throws {
     // We can't use `CATextLayer`, because it doesn't support enough features we use.
@@ -72,8 +68,6 @@ final class TextLayer: BaseCompositionLayer {
     renderLayer.transform = CATransform3DIdentity
     renderLayer.position = text.textFramePosition?.pointValue ?? .zero
   }
-
-  // MARK: Private
 
   private let textLayerModel: TextLayerModel
   private let renderLayer = CoreTextRenderLayer()

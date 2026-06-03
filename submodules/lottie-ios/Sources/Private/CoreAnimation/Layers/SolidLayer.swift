@@ -3,11 +3,7 @@
 
 import QuartzCore
 
-// MARK: - SolidLayer
-
 final class SolidLayer: BaseCompositionLayer {
-
-  // MARK: Lifecycle
 
   init(_ solidLayer: SolidLayerModel) {
     self.solidLayer = solidLayer
@@ -29,8 +25,6 @@ final class SolidLayer: BaseCompositionLayer {
     solidLayer = typedLayer.solidLayer
     super.init(layer: typedLayer)
   }
-
-  // MARK: Private
 
   private let solidLayer: SolidLayerModel
 

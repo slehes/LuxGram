@@ -29,8 +29,6 @@ extension FillRule {
   }
 }
 
-// MARK: - FillRenderer
-
 /// A rendered for a Path Fill
 final class FillRenderer: PassThroughOutputNode, Renderable {
   var shouldRenderInContext = false

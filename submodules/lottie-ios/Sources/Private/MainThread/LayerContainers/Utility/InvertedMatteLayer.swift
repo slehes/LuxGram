@@ -13,8 +13,6 @@ import QuartzCore
 /// WARNING: This is experimental and probably not very performant.
 final class InvertedMatteLayer: CALayer, CompositionLayerDelegate {
 
-  // MARK: Lifecycle
-
   init(inputMatte: CompositionLayer) {
     self.inputMatte = inputMatte
     super.init()
@@ -35,8 +33,6 @@ final class InvertedMatteLayer: CALayer, CompositionLayerDelegate {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   let inputMatte: CompositionLayer?
   let wrapperLayer = CALayer()

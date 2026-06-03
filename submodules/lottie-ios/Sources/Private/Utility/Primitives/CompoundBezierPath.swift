@@ -12,8 +12,6 @@ import Foundation
 ///
 struct CompoundBezierPath {
 
-  // MARK: Lifecycle
-
   init() {
     paths = []
     length = 0
@@ -37,8 +35,6 @@ struct CompoundBezierPath {
     }
     length = l
   }
-
-  // MARK: Internal
 
   let paths: [BezierPath]
 

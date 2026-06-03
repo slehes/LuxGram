@@ -8,8 +8,6 @@
 import Foundation
 import QuartzCore
 
-// MARK: - GradientFillLayer
-
 private final class GradientFillLayer: CALayer {
 
   var start: CGPoint = .zero {
@@ -131,12 +129,8 @@ private final class GradientFillLayer: CALayer {
 
 }
 
-// MARK: - GradientFillRenderer
-
 /// A rendered for a Path Fill
 final class GradientFillRenderer: PassThroughOutputNode, Renderable {
-
-  // MARK: Lifecycle
 
   override init(parent: NodeOutput?) {
     super.init(parent: parent)
@@ -157,8 +151,6 @@ final class GradientFillRenderer: PassThroughOutputNode, Renderable {
     ]
     gradientLayer.actions = maskLayer.actions
   }
-
-  // MARK: Internal
 
   var shouldRenderInContext = false
 
@@ -233,8 +225,6 @@ final class GradientFillRenderer: PassThroughOutputNode, Renderable {
     gradientLayer.opacity = Float(opacity)
     gradientLayer.type = type
   }
-
-  // MARK: Private
 
   private let gradientLayer = GradientFillLayer()
   private let maskLayer = CAShapeLayer()

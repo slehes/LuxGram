@@ -8,12 +8,8 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - BezierPath
-
 /// A container that holds instructions for creating a single, unbroken Bezier Path.
 struct BezierPath {
-
-  // MARK: Lifecycle
 
   /// Initializes a new Bezier Path.
   init(startPoint: CurveVertex) {
@@ -27,8 +23,6 @@ struct BezierPath {
     length = 0
     closed = false
   }
-
-  // MARK: Internal
 
   /// The elements of the path
   private(set) var elements: [PathElement]
@@ -163,8 +157,6 @@ struct BezierPath {
     return trimPathAtLengths(positions: [(start: start, end: end)])
   }
 
-  // MARK: Private
-
   private func trimPathAtLengths(positions: [(start: CGFloat, end: CGFloat)]) -> [BezierPath] {
     guard positions.count > 0 else {
       return []
@@ -284,11 +276,7 @@ struct BezierPath {
 
 }
 
-// MARK: Codable
-
 extension BezierPath: Codable {
-
-  // MARK: Lifecycle
 
   init(from decoder: Decoder) throws {
     let container: KeyedDecodingContainer<BezierPath.CodingKeys>
@@ -352,8 +340,6 @@ extension BezierPath: Codable {
     elements = decodedElements
   }
 
-  // MARK: Internal
-
   /// The BezierPath container is encoded and decoded from the JSON format
   /// that defines points for a lottie animation.
   ///
@@ -391,8 +377,6 @@ extension BezierPath: Codable {
 
   }
 }
-
-// MARK: AnyInitializable
 
 extension BezierPath: AnyInitializable {
 

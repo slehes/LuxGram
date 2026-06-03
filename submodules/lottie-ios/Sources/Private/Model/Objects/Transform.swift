@@ -10,8 +10,6 @@ import Foundation
 /// The animatable transform for a layer. Controls position, rotation, scale, and opacity.
 final class Transform: Codable, DictionaryInitializable {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     /// This manual override of decode is required because we want to throw an error
     /// in the case that there is not position data.
@@ -133,8 +131,6 @@ final class Transform: Codable, DictionaryInitializable {
       opacity = KeyframeGroup(Vector1D(100))
     }
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case anchorPoint = "a"

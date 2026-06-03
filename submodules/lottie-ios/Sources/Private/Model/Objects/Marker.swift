@@ -10,14 +10,10 @@ import Foundation
 /// A time marker
 final class Marker: Codable, DictionaryInitializable {
 
-  // MARK: Lifecycle
-
   init(dictionary: [String: Any]) throws {
     name = try dictionary.value(for: CodingKeys.name)
     frameTime = try dictionary.value(for: CodingKeys.frameTime)
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case name = "cm"

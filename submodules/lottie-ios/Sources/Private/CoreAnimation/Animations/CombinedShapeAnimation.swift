@@ -25,12 +25,8 @@ extension CAShapeLayer {
   }
 }
 
-// MARK: - CombinedShapeItem
-
 /// A custom `ShapeItem` subclass that combines multiple `Shape`s into a single `KeyframeGroup`
 final class CombinedShapeItem: ShapeItem {
-
-  // MARK: Lifecycle
 
   init(shapes: KeyframeGroup<[BezierPath]>, name: String) {
     self.shapes = shapes
@@ -44,8 +40,6 @@ final class CombinedShapeItem: ShapeItem {
   required init(dictionary _: [String: Any]) throws {
     fatalError("init(dictionary:) has not been implemented")
   }
-
-  // MARK: Internal
 
   let shapes: KeyframeGroup<[BezierPath]>
 

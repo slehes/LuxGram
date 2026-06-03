@@ -100,7 +100,6 @@ class ChartView: UIControl {
         self._isTracking = false
     }
     
-    // MARK: Details View
     
     private var detailsView: ChartDetailsView!
     private var maxDetailsViewWidth: CGFloat = 0

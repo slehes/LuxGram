@@ -3,8 +3,6 @@
 
 import CoreGraphics
 
-// MARK: - Interpolatable
-
 /// A type that can be interpolated between two values
 public protocol Interpolatable: AnyInterpolatable {
   /// Interpolates the `self` to the given number by `amount`.
@@ -28,8 +26,6 @@ public protocol Interpolatable: AnyInterpolatable {
   func interpolate(to: Self, amount: CGFloat) -> Self
 }
 
-// MARK: - SpatialInterpolatable
-
 /// A type that can be interpolated between two values,
 /// additionally using optional `spatialOutTangent` and `spatialInTangent` values.
 ///  - If your implementation doesn't use the `spatialOutTangent` and `spatialInTangent`
@@ -48,8 +44,6 @@ public protocol SpatialInterpolatable: AnyInterpolatable {
     spatialInTangent: CGPoint?)
     -> Self
 }
-
-// MARK: - AnyInterpolatable
 
 /// The base protocol that is implemented by both `Interpolatable` and `SpatialInterpolatable`
 /// Types should not directly implement this protocol.
@@ -103,15 +97,9 @@ extension SpatialInterpolatable {
   }
 }
 
-// MARK: - Double + Interpolatable
-
 extension Double: Interpolatable { }
 
-// MARK: - CGFloat + Interpolatable
-
 extension CGFloat: Interpolatable { }
-
-// MARK: - Float + Interpolatable
 
 extension Float: Interpolatable { }
 
@@ -120,8 +108,6 @@ extension Interpolatable where Self: BinaryFloatingPoint {
     self + ((to - self) * Self(amount))
   }
 }
-
-// MARK: - CGRect + Interpolatable
 
 extension CGRect: Interpolatable {
   public func interpolate(to: CGRect, amount: CGFloat) -> CGRect {
@@ -133,8 +119,6 @@ extension CGRect: Interpolatable {
   }
 }
 
-// MARK: - CGSize + Interpolatable
-
 extension CGSize: Interpolatable {
   public func interpolate(to: CGSize, amount: CGFloat) -> CGSize {
     CGSize(
@@ -142,8 +126,6 @@ extension CGSize: Interpolatable {
       height: height.interpolate(to: to.height, amount: amount))
   }
 }
-
-// MARK: - CGPoint + SpatialInterpolatable
 
 extension CGPoint: SpatialInterpolatable {
   public func interpolate(
@@ -168,8 +150,6 @@ extension CGPoint: SpatialInterpolatable {
   }
 }
 
-// MARK: - Color + Interpolatable
-
 extension Color: Interpolatable {
   public func interpolate(to: Color, amount: CGFloat) -> Color {
     Color(
@@ -180,15 +160,11 @@ extension Color: Interpolatable {
   }
 }
 
-// MARK: - Vector1D + Interpolatable
-
 extension Vector1D: Interpolatable {
   public func interpolate(to: Vector1D, amount: CGFloat) -> Vector1D {
     value.interpolate(to: to.value, amount: amount).vectorValue
   }
 }
-
-// MARK: - Vector2D + SpatialInterpolatable
 
 extension Vector2D: SpatialInterpolatable {
   public func interpolate(
@@ -206,8 +182,6 @@ extension Vector2D: SpatialInterpolatable {
       .vector2dValue
   }
 }
-
-// MARK: - Vector3D + SpatialInterpolatable
 
 extension Vector3D: SpatialInterpolatable {
   public func interpolate(
@@ -237,8 +211,6 @@ extension Vector3D: SpatialInterpolatable {
       z: z.interpolate(to: to.z, amount: amount))
   }
 }
-
-// MARK: - Array + Interpolatable, AnyInterpolatable
 
 extension Array: Interpolatable, AnyInterpolatable where Element: Interpolatable {
   public func interpolate(to: [Element], amount: CGFloat) -> [Element] {

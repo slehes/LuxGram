@@ -9,8 +9,6 @@ import Foundation
 
 public class Asset: Codable, DictionaryInitializable {
 
-  // MARK: Lifecycle
-
   required public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Asset.CodingKeys.self)
     if let id = try? container.decode(String.self, forKey: .id) {
@@ -30,12 +28,8 @@ public class Asset: Codable, DictionaryInitializable {
     }
   }
 
-  // MARK: Public
-
   /// The ID of the asset
   public let id: String
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case id

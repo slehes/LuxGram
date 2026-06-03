@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - StarNodeProperties
-
 final class StarNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(star: Star) {
     keypathName = star.name
@@ -44,8 +40,6 @@ final class StarNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let keypathProperties: [String: AnyNodeProperty]
@@ -61,19 +55,13 @@ final class StarNodeProperties: NodePropertyMap, KeypathSearchable {
   let points: NodeProperty<Vector1D>
 }
 
-// MARK: - StarNode
-
 final class StarNode: AnimatorNode, PathNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, star: Star) {
     pathOutput = PathOutputNode(parent: parentNode?.outputNode)
     properties = StarNodeProperties(star: star)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   /// Magic number needed for building path data
   static let PolystarConstant: CGFloat = 0.47829
@@ -87,7 +75,6 @@ final class StarNode: AnimatorNode, PathNode {
   var hasUpstreamUpdates = false
   var lastUpdateFrame: CGFloat? = nil
 
-  // MARK: Animator Node
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties
   }

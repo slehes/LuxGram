@@ -8,11 +8,7 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - Color + Codable
-
 extension Color: Codable {
-
-  // MARK: Lifecycle
 
   public init(from decoder: Decoder) throws {
     var container = try decoder.unkeyedContainer()
@@ -56,8 +52,6 @@ extension Color: Codable {
     a = a1
   }
 
-  // MARK: Public
-
   public func encode(to encoder: Encoder) throws {
     var container = encoder.unkeyedContainer()
     try container.encode(r)
@@ -67,8 +61,6 @@ extension Color: Codable {
   }
 
 }
-
-// MARK: - Color + AnyInitializable
 
 extension Color: AnyInitializable {
 

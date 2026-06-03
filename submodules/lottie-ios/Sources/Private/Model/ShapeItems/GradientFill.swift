@@ -7,20 +7,14 @@
 
 import Foundation
 
-// MARK: - GradientType
-
 enum GradientType: Int, Codable {
   case none
   case linear
   case radial
 }
 
-// MARK: - GradientFill
-
 /// An item that define a gradient fill
 final class GradientFill: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: GradientFill.CodingKeys.self)
@@ -65,8 +59,6 @@ final class GradientFill: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The opacity of the fill
   let opacity: KeyframeGroup<Vector1D>
 
@@ -104,8 +96,6 @@ final class GradientFill: ShapeItem {
     try colorsContainer.encode(numberOfColors, forKey: .numberOfColors)
     try colorsContainer.encode(colors, forKey: .colors)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case opacity = "o"

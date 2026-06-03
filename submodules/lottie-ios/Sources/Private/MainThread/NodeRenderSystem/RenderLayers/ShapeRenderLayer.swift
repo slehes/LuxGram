@@ -11,8 +11,6 @@ import QuartzCore
 /// The layer responsible for rendering shape objects
 final class ShapeRenderLayer: ShapeContainerLayer {
 
-  // MARK: Lifecycle
-
   init(renderer: Renderable & NodeOutput) {
     self.renderer = renderer
     super.init()
@@ -55,8 +53,6 @@ final class ShapeRenderLayer: ShapeContainerLayer {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   fileprivate(set) var renderer: Renderable & NodeOutput
 

@@ -9,12 +9,8 @@ import CoreGraphics
 import Foundation
 import QuartzCore
 
-// MARK: - Vector1D + Codable
-
 /// Single value container. Needed because lottie sometimes wraps a Double in an array.
 extension Vector1D: Codable {
-
-  // MARK: Lifecycle
 
   public init(from decoder: Decoder) throws {
     /// Try to decode an array of doubles
@@ -26,22 +22,16 @@ extension Vector1D: Codable {
     }
   }
 
-  // MARK: Public
-
   public func encode(to encoder: Encoder) throws {
     var container = encoder.singleValueContainer()
     try container.encode(value)
   }
-
-  // MARK: Internal
 
   var cgFloatValue: CGFloat {
     CGFloat(value)
   }
 
 }
-
-// MARK: - Vector1D + AnyInitializable
 
 extension Vector1D: AnyInitializable {
 
@@ -66,12 +56,8 @@ extension Double {
   }
 }
 
-// MARK: - Vector2D
-
 /// Needed for decoding json {x: y:} to a CGPoint
 public struct Vector2D: Codable, Hashable {
-
-  // MARK: Lifecycle
 
   init(x: Double, y: Double) {
     self.x = x
@@ -96,15 +82,11 @@ public struct Vector2D: Codable, Hashable {
     }
   }
 
-  // MARK: Public
-
   public func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: Vector2D.CodingKeys.self)
     try container.encode(x, forKey: .x)
     try container.encode(y, forKey: .y)
   }
-
-  // MARK: Internal
 
   var x: Double
   var y: Double
@@ -113,15 +95,11 @@ public struct Vector2D: Codable, Hashable {
     CGPoint(x: x, y: y)
   }
 
-  // MARK: Private
-
   private enum CodingKeys: String, CodingKey {
     case x
     case y
   }
 }
-
-// MARK: AnyInitializable
 
 extension Vector2D: AnyInitializable {
 
@@ -159,14 +137,10 @@ extension CGPoint {
   }
 }
 
-// MARK: - Vector3D + Codable
-
 /// A three dimensional vector.
 /// These vectors are encoded and decoded from [Double]
 
 extension Vector3D: Codable {
-
-  // MARK: Lifecycle
 
   init(x: CGFloat, y: CGFloat, z: CGFloat) {
     self.x = Double(x)
@@ -196,8 +170,6 @@ extension Vector3D: Codable {
     }
   }
 
-  // MARK: Public
-
   public func encode(to encoder: Encoder) throws {
     var container = encoder.unkeyedContainer()
     try container.encode(x)
@@ -206,8 +178,6 @@ extension Vector3D: Codable {
   }
 
 }
-
-// MARK: - Vector3D + AnyInitializable
 
 extension Vector3D: AnyInitializable {
 

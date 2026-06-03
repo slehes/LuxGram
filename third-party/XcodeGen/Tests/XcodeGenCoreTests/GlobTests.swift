@@ -94,8 +94,6 @@ class GlobTests: XCTestCase {
         XCTAssertEqual(glob[0], "\(tmpDir)/bar", "indexing")
     }
 
-    // MARK: - Globstar - Bash v3
-
     func testGlobstarBashV3NoSlash() {
         // Should be the equivalent of "ls -d -1 /(tmpdir)/**"
         let pattern = "\(tmpDir)/**"
@@ -122,8 +120,6 @@ class GlobTests: XCTestCase {
         let glob = Glob(pattern: pattern, behavior: GlobBehaviorBashV3)
         XCTAssertEqual(glob.paths, ["\(tmpDir)/dir1/dir2/dir3/file2.ext"])
     }
-
-    // MARK: - Globstar - Bash v4
 
     func testGlobstarBashV4NoSlash() {
         // Should be the equivalent of "ls -d -1 /(tmpdir)/**"
@@ -191,8 +187,6 @@ class GlobTests: XCTestCase {
             "\(tmpDir)/dir1/file1.ext",
         ])
     }
-
-    // MARK: - Globstar - Gradle
 
     func testGlobstarGradleNoSlash() {
         // Should be the equivalent of

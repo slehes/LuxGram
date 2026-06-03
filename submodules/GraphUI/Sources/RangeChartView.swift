@@ -134,7 +134,6 @@ class RangeChartView: UIControl {
         }
     }
     
-    // MARK: - Touches
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         guard isEnabled else { return }
@@ -285,7 +284,6 @@ private extension RangeChartView {
         }
     }
     
-    // MARK: - Layout
     
     func layoutViews() {
         cropFrameView.frame = CGRect(x: locationInView(for: lowerBound),

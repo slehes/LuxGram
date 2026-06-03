@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - TransformModel
-
 /// This protocol mirrors the interface of `Transform`,
 /// but it also implemented by `ShapeTransform` to allow
 /// both transform types to share the same animation implementation.
@@ -28,15 +26,11 @@ protocol TransformModel {
   var rotation: KeyframeGroup<Vector1D> { get }
 }
 
-// MARK: - Transform + TransformModel
-
 extension Transform: TransformModel {
   var _position: KeyframeGroup<Vector3D>? { position }
   var _positionX: KeyframeGroup<Vector1D>? { positionX }
   var _positionY: KeyframeGroup<Vector1D>? { positionY }
 }
-
-// MARK: - ShapeTransform + TransformModel
 
 extension ShapeTransform: TransformModel {
   var anchorPoint: KeyframeGroup<Vector3D> { anchor }
@@ -45,11 +39,7 @@ extension ShapeTransform: TransformModel {
   var _positionY: KeyframeGroup<Vector1D>? { nil }
 }
 
-// MARK: - CALayer + TransformModel
-
 extension CALayer {
-
-  // MARK: Internal
 
   /// Adds transform-related animations from the given `TransformModel` to this layer
   ///  - This _doesn't_ apply `transform.opacity`, which has to be handled separately
@@ -61,8 +51,6 @@ extension CALayer {
     try addScaleAnimations(from: transformModel, context: context)
     try addRotationAnimation(from: transformModel, context: context)
   }
-
-  // MARK: Private
 
   @nonobjc
   private func addPositionAnimations(

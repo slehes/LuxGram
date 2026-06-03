@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - NodeTree
-
 final class NodeTree {
   var rootNode: AnimatorNode? = nil
   var transform: ShapeTransform? = nil

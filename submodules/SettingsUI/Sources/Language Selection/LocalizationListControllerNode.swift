@@ -586,7 +586,6 @@ final class LocalizationListControllerNode: ViewControllerTracingNode {
                     entries.append(.localizationTitle(text: presentationData.strings.Localization_InterfaceLanguage.uppercased(), section: LanguageListSection.official.rawValue))
                 }
                 
-                // MARK: Swiftrgam
                 for info in SGLocalizations {
                     if existingIds.contains(info.languageCode) {
                         continue

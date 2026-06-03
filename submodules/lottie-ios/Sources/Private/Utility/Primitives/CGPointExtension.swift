@@ -9,8 +9,6 @@ import CoreGraphics
 
 extension CGPoint: AnyInitializable {
 
-  // MARK: Lifecycle
-
   init(value: Any) throws {
     if let dictionary = value as? [String: CGFloat] {
       let x: CGFloat = try dictionary.value(for: CodingKeys.x)
@@ -25,8 +23,6 @@ extension CGPoint: AnyInitializable {
       throw InitializableError.invalidInput
     }
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String {
     case x

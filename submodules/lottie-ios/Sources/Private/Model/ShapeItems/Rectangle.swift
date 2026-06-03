@@ -10,8 +10,6 @@ import Foundation
 /// An item that define an ellipse shape
 final class Rectangle: ShapeItem {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Rectangle.CodingKeys.self)
     direction = try container.decodeIfPresent(PathDirection.self, forKey: .direction) ?? .clockwise
@@ -39,8 +37,6 @@ final class Rectangle: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The direction of the rect.
   let direction: PathDirection
 
@@ -61,8 +57,6 @@ final class Rectangle: ShapeItem {
     try container.encode(size, forKey: .size)
     try container.encode(cornerRadius, forKey: .cornerRadius)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case direction = "d"

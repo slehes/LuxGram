@@ -303,8 +303,6 @@ extension String {
   }
 }
 
-// MARK: - KeyType
-
 enum KeyType {
   case specific
   case wildcard

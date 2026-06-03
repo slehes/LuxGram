@@ -6,8 +6,6 @@ import TelegramPresentationData
 import ItemListUI
 import AppBundle
 
-// MARK: - Header Item Data
-
 public final class LuxGramHeaderItem: ItemListControllerHeaderItem {
     let theme: PresentationTheme
     let title: String
@@ -48,8 +46,6 @@ public final class LuxGramHeaderItem: ItemListControllerHeaderItem {
         return LuxGramHeaderItemNode(item: self)
     }
 }
-
-// MARK: - Glass Tab Button
 
 private final class NimbusGlassTabButton: UIControl {
     private let blurView: UIVisualEffectView
@@ -158,8 +154,6 @@ private final class NimbusGlassTabButton: UIControl {
         )
     }
 }
-
-// MARK: - Header UIView
 
 private final class NimbusHeaderView: UIView {
     private let gradientLayer = CAGradientLayer()
@@ -296,8 +290,6 @@ private final class NimbusHeaderView: UIView {
         otherButton.frame      = CGRect(x: 16 + (btnW + 12) * 2,   y: btnY, width: btnW, height: btnH)
     }
 }
-
-// MARK: - Header Item Node
 
 final class LuxGramHeaderItemNode: ItemListControllerHeaderItemNode {
     private var headerView: NimbusHeaderView?

@@ -8,8 +8,6 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - AnyNodeProperty
-
 /// A property of a node. The node property holds a provider and a container
 protocol AnyNodeProperty {
 

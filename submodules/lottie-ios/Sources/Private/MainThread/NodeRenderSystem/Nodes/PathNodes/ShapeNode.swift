@@ -8,11 +8,7 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - ShapeNodeProperties
-
 final class ShapeNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(shape: Shape) {
     keypathName = shape.name
@@ -23,8 +19,6 @@ final class ShapeNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let path: NodeProperty<BezierPath>
@@ -33,19 +27,13 @@ final class ShapeNodeProperties: NodePropertyMap, KeypathSearchable {
 
 }
 
-// MARK: - ShapeNode
-
 final class ShapeNode: AnimatorNode, PathNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, shape: Shape) {
     pathOutput = PathOutputNode(parent: parentNode?.outputNode)
     properties = ShapeNodeProperties(shape: shape)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let properties: ShapeNodeProperties
 
@@ -56,7 +44,6 @@ final class ShapeNode: AnimatorNode, PathNode {
   var hasUpstreamUpdates = false
   var lastUpdateFrame: CGFloat? = nil
 
-  // MARK: Animator Node
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties
   }

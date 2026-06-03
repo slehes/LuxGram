@@ -7,20 +7,14 @@
 
 import Foundation
 
-// MARK: - FillRule
-
 enum FillRule: Int, Codable {
   case none
   case nonZeroWinding
   case evenOdd
 }
 
-// MARK: - Fill
-
 /// An item that defines a fill render
 final class Fill: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Fill.CodingKeys.self)
@@ -46,8 +40,6 @@ final class Fill: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The opacity of the fill
   let opacity: KeyframeGroup<Vector1D>
 
@@ -63,8 +55,6 @@ final class Fill: ShapeItem {
     try container.encode(color, forKey: .color)
     try container.encode(fillRule, forKey: .fillRule)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case opacity = "o"

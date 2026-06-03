@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - LayerProperty
-
 /// A strongly typed value that can be used as the `keyPath` of a `CAAnimation`
 ///
 /// Supported key paths and their expected value types are described
@@ -25,8 +23,6 @@ struct LayerProperty<ValueRepresentation: Equatable> {
   let customizableProperty: CustomizableProperty<ValueRepresentation>?
 }
 
-// MARK: - CustomizableProperty
-
 /// A description of how a `CALayer` property can be customized dynamically
 /// at runtime using `AnimationView.setValueProvider(_:keypath:)`
 struct CustomizableProperty<ValueRepresentation> {
@@ -42,16 +38,12 @@ struct CustomizableProperty<ValueRepresentation> {
   let conversion: (Any) -> ValueRepresentation?
 }
 
-// MARK: - PropertyName
-
 /// The name of a customizable property that can be used in an `AnimationKeypath`
 ///  - These values should be shared between the two rendering engines,
 ///    since they form the public API of the `AnimationKeypath` system.
 enum PropertyName: String {
   case color = "Color"
 }
-
-// MARK: CALayer properties
 
 extension LayerProperty {
   static var position: LayerProperty<CGPoint> {
@@ -127,8 +119,6 @@ extension LayerProperty {
   }
 }
 
-// MARK: CAShapeLayer properties
-
 extension LayerProperty {
   static var path: LayerProperty<CGPath> {
     .init(
@@ -180,8 +170,6 @@ extension LayerProperty {
   }
 }
 
-// MARK: CAGradientLayer properties
-
 extension LayerProperty {
   static var colors: LayerProperty<[CGColor]> {
     .init(
@@ -211,8 +199,6 @@ extension LayerProperty {
       customizableProperty: nil /* currently unsupported */)
   }
 }
-
-// MARK: - CustomizableProperty types
 
 extension CustomizableProperty {
   static var color: CustomizableProperty<CGColor> {

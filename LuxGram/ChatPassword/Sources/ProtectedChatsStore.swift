@@ -71,8 +71,6 @@ public enum ProtectedChatsStore {
         isEnabled && protectedFolderIds.contains(folderId)
     }
 
-    // MARK: - Custom passcode (when not using device passcode)
-
     public static func setCustomPasscode(_ passcode: String) {
         let data = passcode.data(using: .utf8)!
         let query: [String: Any] = [

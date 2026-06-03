@@ -3,8 +3,6 @@ import Postbox
 import TelegramApi
 import SGSimpleSettings
 
-// MARK: - AyuGram-style Saved Attachments for SavedDeleted snapshots
-
 func sgSavedDeletedAttachmentsDirectoryPath(mediaBox: MediaBox) -> String {
     let path = mediaBox.basePath + "/saved-deleted-attachments"
     let _ = try? FileManager.default.createDirectory(atPath: path, withIntermediateDirectories: true, attributes: nil)

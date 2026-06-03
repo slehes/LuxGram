@@ -231,8 +231,6 @@ public enum WrapError: Error {
     case wrappingFailedForObject(Any)
 }
 
-// MARK: - Default protocol implementations
-
 /// Extension containing default implementations of `WrapCustomizable`. Override as you see fit.
 public extension WrapCustomizable {
     var wrapKeyStyle: WrapKeyStyle {
@@ -369,8 +367,6 @@ extension NSDate: WrappableDate {
     }
 }
 #endif
-
-// MARK: - Private
 
 private extension Wrapper {
     func wrap<T>(object: T, enableCustomizedWrapping: Bool) throws -> WrappedDictionary {
@@ -545,8 +541,6 @@ private extension Wrapper {
         return wrapped
     }
 }
-
-// MARK: - Nil Handling
 
 private protocol WrapOptional {
     var isNil: Bool { get }

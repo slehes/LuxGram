@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - MergeMode
-
 enum MergeMode: Int, Codable {
   case none
   case merge
@@ -18,12 +16,8 @@ enum MergeMode: Int, Codable {
   case exclude
 }
 
-// MARK: - Merge
-
 /// An item that define an ellipse shape
 final class Merge: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Merge.CodingKeys.self)
@@ -40,8 +34,6 @@ final class Merge: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The mode of the merge path
   let mode: MergeMode
 
@@ -50,8 +42,6 @@ final class Merge: ShapeItem {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(mode, forKey: .mode)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case mode = "mm"

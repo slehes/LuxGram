@@ -87,7 +87,6 @@ public enum PluginRunner {
     }
 }
 
-// MARK: - User display plugins (__user_display__ = True) — generic runner, no app code changes per plugin
 private func applyUserDisplayFromPlugins(accountId: Int64, user: PluginDisplayUser) -> PluginDisplayUser? {
     guard SGSimpleSettings.shared.pluginSystemEnabled,
           let data = SGSimpleSettings.shared.installedPluginsJson.data(using: .utf8),

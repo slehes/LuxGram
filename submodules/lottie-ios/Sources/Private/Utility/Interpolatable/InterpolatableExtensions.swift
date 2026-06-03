@@ -10,8 +10,6 @@ import Foundation
 
 extension Color {
 
-  // MARK: Lifecycle
-
   /// Initialize a new color with Hue Saturation and Value
   init(h: Double, s: Double, v: Double, a: Double) {
 
@@ -62,8 +60,6 @@ extension Color {
     self.a = a
   }
 
-  // MARK: Internal
-
   /// Hue Saturation Value of the color.
   var hsva: (h: Double, s: Double, v: Double, a: Double) {
     let maxValue = max(r, g, b)
@@ -98,8 +94,6 @@ extension Color {
 
 }
 
-// MARK: - CurveVertex + Interpolatable
-
 extension CurveVertex: Interpolatable {
   func interpolate(to: CurveVertex, amount: CGFloat) -> CurveVertex {
     CurveVertex(
@@ -108,8 +102,6 @@ extension CurveVertex: Interpolatable {
       outTangent: outTangent.interpolate(to: to.outTangent, amount: amount))
   }
 }
-
-// MARK: - BezierPath + Interpolatable
 
 extension BezierPath: Interpolatable {
   func interpolate(to: BezierPath, amount: CGFloat) -> BezierPath {
@@ -122,8 +114,6 @@ extension BezierPath: Interpolatable {
     return newPath
   }
 }
-
-// MARK: - TextDocument + Interpolatable
 
 extension TextDocument: Interpolatable {
   func interpolate(to: TextDocument, amount: CGFloat) -> TextDocument {

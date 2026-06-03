@@ -10,8 +10,6 @@ import Foundation
 /// Connects a LottieImageProvider to a group of image layers
 final class LayerImageProvider {
 
-  // MARK: Lifecycle
-
   init(imageProvider: AnimationImageProvider, assets: [String: ImageAsset]?) {
     self.imageProvider = imageProvider
     imageLayers = [ImageCompositionLayer]()
@@ -22,8 +20,6 @@ final class LayerImageProvider {
     }
     reloadImages()
   }
-
-  // MARK: Internal
 
   private(set) var imageLayers: [ImageCompositionLayer]
   let imageAssets: [String: ImageAsset]

@@ -11,8 +11,6 @@ import AppKit
 /// Provides an image for a lottie animation from a provided Bundle.
 public class BundleImageProvider: AnimationImageProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes an image provider with a bundle and an optional subpath.
   ///
   /// Provides images for an animation from a bundle. Additionally the provider can
@@ -25,8 +23,6 @@ public class BundleImageProvider: AnimationImageProvider {
     self.bundle = bundle
     self.searchPath = searchPath
   }
-
-  // MARK: Public
 
   public func imageForAsset(asset: ImageAsset) -> CGImage? {
 
@@ -70,8 +66,6 @@ public class BundleImageProvider: AnimationImageProvider {
     }
     return image.CGImage
   }
-
-  // MARK: Internal
 
   let bundle: Bundle
   let searchPath: String?

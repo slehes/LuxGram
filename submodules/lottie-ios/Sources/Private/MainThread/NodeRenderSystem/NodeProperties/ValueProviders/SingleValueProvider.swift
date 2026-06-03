@@ -11,13 +11,9 @@ import QuartzCore
 /// Returns a value for every frame.
 final class SingleValueProvider<ValueType: AnyInterpolatable>: ValueProvider {
 
-  // MARK: Lifecycle
-
   init(_ value: ValueType) {
     self.value = value
   }
-
-  // MARK: Internal
 
   var value: ValueType {
     didSet {
@@ -36,8 +32,6 @@ final class SingleValueProvider<ValueType: AnyInterpolatable>: ValueProvider {
   func hasUpdate(frame _: CGFloat) -> Bool {
     hasUpdate
   }
-
-  // MARK: Private
 
   private var hasUpdate = true
 }

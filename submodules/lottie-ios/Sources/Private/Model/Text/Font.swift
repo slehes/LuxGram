@@ -7,11 +7,7 @@
 
 import Foundation
 
-// MARK: - Font
-
 final class Font: Codable, DictionaryInitializable {
-
-  // MARK: Lifecycle
 
   init(dictionary: [String: Any]) throws {
     name = try dictionary.value(for: CodingKeys.name)
@@ -20,14 +16,10 @@ final class Font: Codable, DictionaryInitializable {
     ascent = try dictionary.value(for: CodingKeys.ascent)
   }
 
-  // MARK: Internal
-
   let name: String
   let familyName: String
   let style: String
   let ascent: Double
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case name = "fName"
@@ -38,19 +30,13 @@ final class Font: Codable, DictionaryInitializable {
 
 }
 
-// MARK: - FontList
-
 /// A list of fonts
 final class FontList: Codable, DictionaryInitializable {
-
-  // MARK: Lifecycle
 
   init(dictionary: [String: Any]) throws {
     let fontDictionaries: [[String: Any]] = try dictionary.value(for: CodingKeys.fonts)
     fonts = try fontDictionaries.map({ try Font(dictionary: $0) })
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case fonts = "list"

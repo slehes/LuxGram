@@ -11,8 +11,6 @@ import Foundation
 /// A CompositionLayer responsible for initializing and rendering shapes
 final class ShapeCompositionLayer: CompositionLayer {
 
-  // MARK: Lifecycle
-
   init(shapeLayer: ShapeLayerModel) {
     let results = shapeLayer.items.initializeNodeTree()
     let renderContainer = ShapeContainerLayer()
@@ -39,8 +37,6 @@ final class ShapeCompositionLayer: CompositionLayer {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   let rootNode: AnimatorNode?
   let renderContainer: ShapeContainerLayer?

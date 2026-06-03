@@ -16,12 +16,8 @@ import AppKit
 import UIKit
 #endif
 
-// MARK: - CoreTextRenderLayer
-
 /// A CALayer subclass that renders text content using CoreText
 final class CoreTextRenderLayer: CALayer {
-
-  // MARK: Public
 
   public var text: String? {
     didSet {
@@ -110,8 +106,6 @@ final class CoreTextRenderLayer: CALayer {
     setNeedsDisplay()
   }
 
-  // MARK: Internal
-
   override func action(forKey _: String) -> CAAction? {
     nil
   }
@@ -163,8 +157,6 @@ final class CoreTextRenderLayer: CALayer {
       CTFrameDraw(strokeFrame, ctx)
     }
   }
-
-  // MARK: Private
 
   private var drawingRect: CGRect = .zero
   private var drawingAnchor: CGPoint = .zero

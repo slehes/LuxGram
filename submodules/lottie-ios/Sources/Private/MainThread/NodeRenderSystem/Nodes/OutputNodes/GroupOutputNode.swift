@@ -11,14 +11,10 @@ import QuartzCore
 
 class GroupOutputNode: NodeOutput {
 
-  // MARK: Lifecycle
-
   init(parent: NodeOutput?, rootNode: NodeOutput?) {
     self.parent = parent
     self.rootNode = rootNode
   }
-
-  // MARK: Internal
 
   let parent: NodeOutput?
   let rootNode: NodeOutput?

@@ -256,8 +256,6 @@ extension RangeSet: Equatable {}
 
 extension RangeSet: Hashable where Bound: Hashable {}
 
-// MARK: - Range Collection
-
 extension RangeSet {
   /// A collection of the ranges that make up a range set.
   public struct Ranges: RandomAccessCollection {
@@ -279,8 +277,6 @@ extension RangeSet {
     Ranges(_ranges: _ranges)
   }
 }
-
-// MARK: - Collection APIs
 
 extension RangeSet {
   /// Creates a new range set containing ranges that contain only the
@@ -366,8 +362,6 @@ extension RangeSet {
     return result
   }
 }
-
-// MARK: - SetAlgebra
 
 // These methods only depend on the ranges that comprise the range set, so
 // we can provide them even when we can't provide `SetAlgebra` conformance.

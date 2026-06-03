@@ -296,7 +296,6 @@ public class UserDefaultsBackedDictionary<Key: Hashable, Value> {
         return self.keys.isEmpty
     }
 
-    // MARK: Subscript
     public subscript(key: Key) -> Value? {
         get {
             return value(forKey: key)
@@ -318,7 +317,6 @@ public class UserDefaultsBackedDictionary<Key: Hashable, Value> {
         }
     }
 
-    // MARK: Private
     @inline(__always)
     private func _set(value: Value, forKey key: Key) {
         if container == nil {

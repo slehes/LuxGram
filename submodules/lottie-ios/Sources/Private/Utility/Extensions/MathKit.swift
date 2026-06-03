@@ -21,8 +21,6 @@ extension Double {
   }
 }
 
-// MARK: - CGFloat + Interpolatable
-
 extension CGFloat {
 
   func remap(fromLow: CGFloat, fromHigh: CGFloat, toLow: CGFloat, toHigh: CGFloat) -> CGFloat {
@@ -51,8 +49,6 @@ extension CGFloat {
 
 }
 
-// MARK: - Double
-
 extension Double {
 
   func remap(fromLow: Double, fromHigh: Double, toLow: Double, toHigh: Double) -> Double {
@@ -72,8 +68,6 @@ extension Double {
 
 extension CGRect {
 
-  // MARK: Lifecycle
-
   /// Initializes a new CGRect with a center point and size.
   init(center: CGPoint, size: CGSize) {
     self.init(
@@ -82,8 +76,6 @@ extension CGRect {
       width: size.width,
       height: size.height)
   }
-
-  // MARK: Internal
 
   /// Returns the total area of the rect.
   var area: CGFloat {
@@ -190,20 +182,14 @@ extension CGSize {
   }
 }
 
-// MARK: - CGLine
-
 /// A struct that defines a line segment with two CGPoints
 struct CGLine {
-
-  // MARK: Lifecycle
 
   /// Initializes a line segment with start and end points
   init(start: CGPoint, end: CGPoint) {
     self.start = start
     self.end = end
   }
-
-  // MARK: Internal
 
   /// The Start of the line segment.
   var start: CGPoint

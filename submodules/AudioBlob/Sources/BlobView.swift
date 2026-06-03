@@ -415,7 +415,6 @@ final class BlobNode: ASDisplayNode {
         self.speedLevel = 0
     }
     
-    // MARK: Helpers
     
     private func generateNextBlob(for size: CGSize) -> [CGPoint] {
         let randomness = minRandomness + (maxRandomness - minRandomness) * speedLevel

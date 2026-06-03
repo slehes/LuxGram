@@ -76,8 +76,6 @@ extension Verifiable where Self: Scalar {
   }
 }
 
-// MARK: - ForwardOffset
-
 /// ForwardOffset is a container to wrap around the Generic type to be verified
 /// from the flatbuffers object.
 public enum ForwardOffset<U>: Verifiable where U: Verifiable {
@@ -99,8 +97,6 @@ public enum ForwardOffset<U>: Verifiable where U: Verifiable {
     try U.verify(&verifier, at: nextOffset, of: U.self)
   }
 }
-
-// MARK: - Vector
 
 /// Vector is a container to wrap around the Generic type to be verified
 /// from the flatbuffers object.
@@ -137,8 +133,6 @@ public enum Vector<U, S>: Verifiable where U: Verifiable, S: Verifiable {
     }
   }
 }
-
-// MARK: - UnionVector
 
 /// UnionVector is a container to wrap around the Generic type to be verified
 /// from the flatbuffers object.

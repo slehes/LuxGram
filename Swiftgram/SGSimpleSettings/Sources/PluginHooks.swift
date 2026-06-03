@@ -93,8 +93,6 @@ public struct PluginChatMenuItem: Sendable {
 /// userInfo: accountId (Int64), peerId (Int64), messageId (Int64), text (String), outgoing (Bool).
 public let SGPluginIncomingMessageNotificationName = Notification.Name("SGPluginIncomingMessage")
 
-// MARK: - Дополнительные хуки для кастомизации клиента
-
 /// Возвращает true, если плагин обработал URL (клиент не должен открывать его сам).
 public typealias PluginOpenUrlRunner = (String) -> Bool
 

@@ -3,7 +3,6 @@ import MachO
 import CryptoKit
 import SGLogging
 
-// MARK: - Runtime integrity verification
 //
 // Three independent layers that must ALL pass for access to be granted:
 //   1. Text-segment checksum   — detects ANY patched byte in __TEXT,__text

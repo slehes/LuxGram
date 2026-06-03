@@ -159,7 +159,6 @@ class GeneralChartComponentController: ChartThemeContainer {
         }
     }
     
-    // MARK: - Details & Interaction
     func findClosestDateTo(dateToFind: Date) -> (Date, Int)? {
         guard chartsCollection.axisValues.count > 0 else { return nil }
         var closestDate = chartsCollection.axisValues[0]
@@ -243,7 +242,6 @@ class GeneralChartComponentController: ChartThemeContainer {
         self.strings = strings
     }
 
-// MARK: - Helpers
     var prevoiusHorizontalStrideInterval: Int = -1
     func updateHorizontalLimitLabels(horizontalScalesRenderer: HorizontalScalesRenderer,
                                      horizontalRange: ClosedRange<CGFloat>,

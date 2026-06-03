@@ -9,14 +9,10 @@ import CoreGraphics
 import Foundation
 import QuartzCore
 
-// MARK: - RenderNode
-
 /// A protocol that defines a node that holds render instructions
 protocol RenderNode {
   var renderer: Renderable & NodeOutput { get }
 }
-
-// MARK: - Renderable
 
 /// A protocol that defines anything with render instructions
 protocol Renderable {

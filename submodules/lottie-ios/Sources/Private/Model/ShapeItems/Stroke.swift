@@ -10,8 +10,6 @@ import Foundation
 /// An item that define an ellipse shape
 final class Stroke: ShapeItem {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Stroke.CodingKeys.self)
     opacity = try container.decode(KeyframeGroup<Vector1D>.self, forKey: .opacity)
@@ -53,8 +51,6 @@ final class Stroke: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The opacity of the stroke
   let opacity: KeyframeGroup<Vector1D>
 
@@ -87,8 +83,6 @@ final class Stroke: ShapeItem {
     try container.encode(miterLimit, forKey: .miterLimit)
     try container.encodeIfPresent(dashPattern, forKey: .dashPattern)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case opacity = "o"

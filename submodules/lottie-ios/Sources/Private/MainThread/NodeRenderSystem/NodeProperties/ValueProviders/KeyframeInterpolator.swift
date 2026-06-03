@@ -8,18 +8,12 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - KeyframeInterpolator
-
 /// A value provider that produces a value at Time from a group of keyframes
 final class KeyframeInterpolator<ValueType>: ValueProvider where ValueType: AnyInterpolatable {
-
-  // MARK: Lifecycle
 
   init(keyframes: ContiguousArray<Keyframe<ValueType>>) {
     self.keyframes = keyframes
   }
-
-  // MARK: Internal
 
   let keyframes: ContiguousArray<Keyframe<ValueType>>
 
@@ -106,8 +100,6 @@ final class KeyframeInterpolator<ValueType>: ValueProvider where ValueType: AnyI
     }
     return true
   }
-
-  // MARK: Fileprivate
 
   fileprivate var lastUpdatedFrame: CGFloat?
 

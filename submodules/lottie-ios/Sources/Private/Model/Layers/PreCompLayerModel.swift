@@ -10,8 +10,6 @@ import Foundation
 /// A layer that holds another animation composition.
 final class PreCompLayerModel: LayerModel {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: PreCompLayerModel.CodingKeys.self)
     referenceID = try container.decode(String.self, forKey: .referenceID)
@@ -33,8 +31,6 @@ final class PreCompLayerModel: LayerModel {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The reference ID of the precomp.
   let referenceID: String
 
@@ -55,8 +51,6 @@ final class PreCompLayerModel: LayerModel {
     try container.encode(width, forKey: .width)
     try container.encode(height, forKey: .height)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case referenceID = "refId"

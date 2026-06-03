@@ -14,7 +14,6 @@ public class KeychainBackupManager {
     
     private init() {}
     
-    // MARK: - Save Credentials
     public func saveSession(id: String, _ session: Data) throws {
         // Create query dictionary
         let query: [String: Any] = [
@@ -51,7 +50,6 @@ public class KeychainBackupManager {
         }
     }
     
-    // MARK: - Retrieve Credentials
     public func retrieveSession(for id: String) throws -> Data {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -70,7 +68,6 @@ public class KeychainBackupManager {
         return sessionData
     }
     
-    // MARK: - Delete Credentials
     public func deleteSession(for id: String) throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -85,7 +82,6 @@ public class KeychainBackupManager {
         }
     }
     
-    // MARK: - Retrieve All Accounts
     public func getAllSessons() throws -> [Data] {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
@@ -109,7 +105,6 @@ public class KeychainBackupManager {
         return credentialsDataArray
     }
     
-    // MARK: - Delete All Sessions
     public func deleteAllSessions() throws {
         let query: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,

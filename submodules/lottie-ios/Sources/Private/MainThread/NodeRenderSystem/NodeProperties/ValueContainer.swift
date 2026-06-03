@@ -11,13 +11,9 @@ import Foundation
 /// A container for a node value that is Typed to T.
 class ValueContainer<T>: AnyValueContainer {
 
-  // MARK: Lifecycle
-
   init(_ value: T) {
     outputValue = value
   }
-
-  // MARK: Internal
 
   private(set) var lastUpdateFrame = CGFloat.infinity
 

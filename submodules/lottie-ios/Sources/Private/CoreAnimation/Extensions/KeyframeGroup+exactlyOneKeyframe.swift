@@ -1,8 +1,6 @@
 // Created by Cal Stephens on 1/11/22.
 // Copyright © 2022 Airbnb Inc. All rights reserved.
 
-// MARK: - KeyframeGroup + exactlyOneKeyframe
-
 extension KeyframeGroup {
   /// Retrieves the first `Keyframe` from this group,
   /// and asserts that there are not any extra keyframes that would be ignored

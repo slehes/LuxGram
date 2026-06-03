@@ -7,20 +7,14 @@
 
 import Foundation
 
-// MARK: - StarType
-
 enum StarType: Int, Codable {
   case none
   case star
   case polygon
 }
 
-// MARK: - Star
-
 /// An item that define an ellipse shape
 final class Star: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Star.CodingKeys.self)
@@ -73,8 +67,6 @@ final class Star: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The direction of the star.
   let direction: PathDirection
 
@@ -115,8 +107,6 @@ final class Star: ShapeItem {
     try container.encode(points, forKey: .points)
     try container.encode(starType, forKey: .starType)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case direction = "d"

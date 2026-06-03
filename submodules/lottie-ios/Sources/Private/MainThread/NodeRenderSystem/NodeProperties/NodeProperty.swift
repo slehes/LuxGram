@@ -11,16 +11,12 @@ import Foundation
 /// A node property that holds a reference to a T ValueProvider and a T ValueContainer.
 class NodeProperty<T>: AnyNodeProperty {
 
-  // MARK: Lifecycle
-
   init(provider: AnyValueProvider) {
     valueProvider = provider
     originalValueProvider = valueProvider
     typedContainer = ValueContainer<T>(provider.value(frame: 0) as! T)
     typedContainer.setNeedsUpdate()
   }
-
-  // MARK: Internal
 
   var valueProvider: AnyValueProvider
   var originalValueProvider: AnyValueProvider
@@ -48,8 +44,6 @@ class NodeProperty<T>: AnyNodeProperty {
   func update(frame: CGFloat) {
     typedContainer.setValue(valueProvider.value(frame: frame), forFrame: frame)
   }
-
-  // MARK: Fileprivate
 
   fileprivate var typedContainer: ValueContainer<T>
 }

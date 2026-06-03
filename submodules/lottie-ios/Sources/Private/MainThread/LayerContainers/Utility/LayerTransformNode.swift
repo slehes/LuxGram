@@ -9,11 +9,7 @@ import CoreGraphics
 import Foundation
 import QuartzCore
 
-// MARK: - LayerTransformProperties
-
 final class LayerTransformProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(transform: Transform) {
 
@@ -56,8 +52,6 @@ final class LayerTransformProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(propertyMap.values)
   }
 
-  // MARK: Internal
-
   let keypathProperties: [String: AnyNodeProperty]
   var keypathName = "Transform"
 
@@ -76,17 +70,11 @@ final class LayerTransformProperties: NodePropertyMap, KeypathSearchable {
   }
 }
 
-// MARK: - LayerTransformNode
-
 class LayerTransformNode: AnimatorNode {
-
-  // MARK: Lifecycle
 
   init(transform: Transform) {
     transformProperties = LayerTransformProperties(transform: transform)
   }
-
-  // MARK: Internal
 
   let outputNode: NodeOutput = PassThroughOutputNode(parent: nil)
 
@@ -101,8 +89,6 @@ class LayerTransformNode: AnimatorNode {
   var opacity: Float = 1
   var localTransform: CATransform3D = CATransform3DIdentity
   var globalTransform: CATransform3D = CATransform3DIdentity
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     transformProperties

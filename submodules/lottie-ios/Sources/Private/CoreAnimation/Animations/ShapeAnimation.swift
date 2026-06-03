@@ -79,8 +79,6 @@ extension CAShapeLayer {
 
 extension Trim {
 
-  // MARK: Fileprivate
-
   /// The `strokeStart` and `strokeEnd` keyframes to apply to a `CAShapeLayer`
   ///  - `CAShapeLayer` requires that `strokeStart` be less than `strokeEnd`.
   ///  - Since this isn't a requirement in the Lottie schema, there are
@@ -96,8 +94,6 @@ extension Trim {
       return (strokeStart: start, strokeEnd: end)
     }
   }
-
-  // MARK: Private
 
   /// Checks whether or not the value for `trim.start` is greater
   /// than the value for every `trim.end` at every keyframe.

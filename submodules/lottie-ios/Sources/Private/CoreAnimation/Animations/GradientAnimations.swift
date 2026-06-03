@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - GradientShapeItem
-
 /// A `ShapeItem` that represents a gradient
 protocol GradientShapeItem: OpacityAnimationModel {
   var startPoint: KeyframeGroup<Vector3D> { get }
@@ -14,19 +12,11 @@ protocol GradientShapeItem: OpacityAnimationModel {
   var colors: KeyframeGroup<[Double]> { get }
 }
 
-// MARK: - GradientFill + GradientShapeItem
-
 extension GradientFill: GradientShapeItem { }
-
-// MARK: - GradientStroke + GradientShapeItem
 
 extension GradientStroke: GradientShapeItem { }
 
-// MARK: - GradientRenderLayer + GradientShapeItem
-
 extension GradientRenderLayer {
-
-  // MARK: Internal
 
   /// Adds gradient-related animations to this layer, from the given `GradientFill`
   func addGradientAnimations(for gradient: GradientShapeItem, context: LayerAnimationContext) throws {
@@ -63,8 +53,6 @@ extension GradientRenderLayer {
       break
     }
   }
-
-  // MARK: Private
 
   private func addLinearGradientAnimations(
     for gradient: GradientShapeItem,

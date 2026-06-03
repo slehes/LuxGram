@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - KeyframeGroup
-
 /// Used for coding/decoding a group of Keyframes by type.
 ///
 /// Keyframe data is wrapped in a dictionary { "k" : KeyframeData }.
@@ -16,8 +14,6 @@ import Foundation
 /// This helper object is needed to properly decode the json.
 
 final class KeyframeGroup<T> {
-
-  // MARK: Lifecycle
 
   init(keyframes: ContiguousArray<Keyframe<T>>) {
     self.keyframes = keyframes
@@ -27,8 +23,6 @@ final class KeyframeGroup<T> {
     keyframes = [Keyframe(value)]
   }
 
-  // MARK: Internal
-
   enum KeyframeWrapperKey: String, CodingKey {
     case keyframeData = "k"
   }
@@ -36,8 +30,6 @@ final class KeyframeGroup<T> {
   let keyframes: ContiguousArray<Keyframe<T>>
 
 }
-
-// MARK: Decodable
 
 extension KeyframeGroup: Decodable where T: Decodable {
   convenience init(from decoder: Decoder) throws {
@@ -94,8 +86,6 @@ extension KeyframeGroup: Decodable where T: Decodable {
   }
 }
 
-// MARK: Encodable
-
 extension KeyframeGroup: Encodable where T: Encodable {
   func encode(to encoder: Encoder) throws {
     var container = encoder.container(keyedBy: KeyframeWrapperKey.self)
@@ -123,8 +113,6 @@ extension KeyframeGroup: Encodable where T: Encodable {
     }
   }
 }
-
-// MARK: DictionaryInitializable
 
 extension KeyframeGroup: DictionaryInitializable where T: AnyInitializable {
   convenience init(dictionary: [String: Any]) throws {
@@ -166,15 +154,11 @@ extension KeyframeGroup: DictionaryInitializable where T: AnyInitializable {
   }
 }
 
-// MARK: Equatable
-
 extension KeyframeGroup: Equatable where T: Equatable {
   static func == (_ lhs: KeyframeGroup<T>, _ rhs: KeyframeGroup<T>) -> Bool {
     lhs.keyframes == rhs.keyframes
   }
 }
-
-// MARK: Hashable
 
 extension KeyframeGroup: Hashable where T: Hashable {
   func hash(into hasher: inout Hasher) {

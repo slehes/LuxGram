@@ -9,11 +9,7 @@ import CoreGraphics
 import Foundation
 import QuartzCore
 
-// MARK: - GroupNodeProperties
-
 final class GroupNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(transform: ShapeTransform?) {
     if let transform = transform {
@@ -46,8 +42,6 @@ final class GroupNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName = "Transform"
 
   var childKeypaths: [KeypathSearchable] = []
@@ -74,13 +68,8 @@ final class GroupNodeProperties: NodePropertyMap, KeypathSearchable {
   }
 }
 
-// MARK: - GroupNode
-
 final class GroupNode: AnimatorNode {
 
-  // MARK: Lifecycle
-
-  // MARK: Initializer
   init(name: String, parentNode: AnimatorNode?, tree: NodeTree) {
     self.parentNode = parentNode
     keypathName = name
@@ -96,9 +85,6 @@ final class GroupNode: AnimatorNode {
     }
   }
 
-  // MARK: Internal
-
-  // MARK: Properties
   let groupOutput: GroupOutputNode
 
   let properties: GroupNodeProperties
@@ -106,8 +92,6 @@ final class GroupNode: AnimatorNode {
   let rootNode: AnimatorNode?
 
   var container = ShapeContainerLayer()
-
-  // MARK: Keypath Searchable
 
   let keypathName: String
 
@@ -121,8 +105,6 @@ final class GroupNode: AnimatorNode {
   var keypathLayer: CALayer? {
     container
   }
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties

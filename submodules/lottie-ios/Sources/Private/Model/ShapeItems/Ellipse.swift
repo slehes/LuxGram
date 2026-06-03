@@ -7,20 +7,14 @@
 
 import Foundation
 
-// MARK: - PathDirection
-
 enum PathDirection: Int, Codable {
   case clockwise = 1
   case userSetClockwise = 2
   case counterClockwise = 3
 }
 
-// MARK: - Ellipse
-
 /// An item that define an ellipse shape
 final class Ellipse: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Ellipse.CodingKeys.self)
@@ -46,8 +40,6 @@ final class Ellipse: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The direction of the ellipse.
   let direction: PathDirection
 
@@ -64,8 +56,6 @@ final class Ellipse: ShapeItem {
     try container.encode(position, forKey: .position)
     try container.encode(size, forKey: .size)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case direction = "d"

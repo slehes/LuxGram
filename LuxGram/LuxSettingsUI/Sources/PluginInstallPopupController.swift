@@ -174,7 +174,6 @@ public final class PluginInstallPopupController: ViewController {
     }
 }
 
-// MARK: - Content node (icon, name, version, description, Install, checkbox)
 private final class PluginInstallPopupContentNode: ViewControllerTracingNode {
     weak var controller: PluginInstallPopupController?
     var installAction: ((Bool) -> Void)?

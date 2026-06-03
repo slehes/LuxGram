@@ -12,8 +12,6 @@ import UIKit
 /// Provides an image for a lottie animation from a provided Bundle.
 public class FilepathImageProvider: AnimationImageProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes an image provider with a specific filepath.
   ///
   /// - Parameter filepath: The absolute filepath containing the images.
@@ -25,8 +23,6 @@ public class FilepathImageProvider: AnimationImageProvider {
   public init(filepath: URL) {
     self.filepath = filepath
   }
-
-  // MARK: Public
 
   public func imageForAsset(asset: ImageAsset) -> CGImage? {
 
@@ -52,8 +48,6 @@ public class FilepathImageProvider: AnimationImageProvider {
     LottieLogger.shared.assertionFailure("Could not find image \"\(asset.name)\" in bundle")
     return nil
   }
-
-  // MARK: Internal
 
   let filepath: URL
 }

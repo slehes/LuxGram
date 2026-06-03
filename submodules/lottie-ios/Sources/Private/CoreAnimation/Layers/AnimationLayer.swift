@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - AnimationLayer
-
 /// A type of `CALayer` that can be used in a Lottie animation
 ///  - Layers backed by a `LayerModel` subclass should subclass `BaseCompositionLayer`
 protocol AnimationLayer: CALayer {
@@ -12,8 +10,6 @@ protocol AnimationLayer: CALayer {
   /// using the given `LayerAnimationContext`
   func setupAnimations(context: LayerAnimationContext) throws
 }
-
-// MARK: - LayerAnimationContext
 
 // Context describing the timing parameters of the current animation
 struct LayerAnimationContext {

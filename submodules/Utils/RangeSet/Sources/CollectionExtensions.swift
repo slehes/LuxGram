@@ -9,8 +9,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-// MARK: Subscripts
-
 extension Collection {
   /// Accesses a view of this collection with the elements at the given
   /// indices.
@@ -48,8 +46,6 @@ extension MutableCollection {
   }
 }
 
-// MARK: - moveSubranges(_:to:)
-
 extension MutableCollection {
   /// Moves the elements in the given subranges to just before the element at
   /// the specified index.
@@ -86,8 +82,6 @@ extension MutableCollection {
     return start..<end
   }
 }
-
-// MARK: - removeSubranges(_:) / removingSubranges(_:)
 
 extension RangeReplaceableCollection {
   /// Removes the elements at the given indices.
@@ -206,8 +200,6 @@ extension Collection {
     return self[inversion]
   }
 }
-
-// MARK: - subranges(where:) / subranges(of:)
 
 extension Collection {
   /// Returns the indices of all the elements that match the given predicate.

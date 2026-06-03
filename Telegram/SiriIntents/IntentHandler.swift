@@ -356,7 +356,6 @@ class DefaultIntentHandler: INExtension, INSendMessageIntentHandling, INSearchFo
         }))
     }
     
-    // MARK: - INSendMessageIntentHandling
     
      public func resolveRecipients(for intent: INSendMessageIntent, with completion: @escaping ([INPersonResolutionResult]) -> Void) {
         guard CNContactStore.authorizationStatus(for: .contacts) == .authorized else {
@@ -513,7 +512,6 @@ class DefaultIntentHandler: INExtension, INSendMessageIntentHandling, INSearchFo
         }))
     }
     
-    // MARK: - INSearchForMessagesIntentHandling
     
     public func resolveAttributes(for intent: INSearchForMessagesIntent, with completion: @escaping (INMessageAttributeOptionsResolutionResult) -> Void) {
         completion(.success(with: .unread))
@@ -575,7 +573,6 @@ class DefaultIntentHandler: INExtension, INSendMessageIntentHandling, INSearchFo
         }))
     }
     
-    // MARK: - INSetMessageAttributeIntentHandling
     
     public func resolveAttribute(for intent: INSetMessageAttributeIntent, with completion: @escaping (INMessageAttributeResolutionResult) -> Void) {
         let supportedAttributes: [INMessageAttribute] = [.read, .unread]
@@ -657,7 +654,6 @@ class DefaultIntentHandler: INExtension, INSendMessageIntentHandling, INSearchFo
         }))
     }
     
-    // MARK: - INStartAudioCallIntentHandling
     public func resolveContacts(for intent: INStartCallIntent, with completion: @escaping ([INStartCallContactResolutionResult]) -> Void) {
         if let appGroupUrl = self.appGroupUrl {
             let rootPath = rootPathForBasePath(appGroupUrl.path)
@@ -722,7 +718,6 @@ class DefaultIntentHandler: INExtension, INSendMessageIntentHandling, INSearchFo
         }))
     }
     
-    // MARK: - INSearchCallHistoryIntentHandling
     
     @available(iOSApplicationExtension 11.0, iOS 11.0, *)
     public func resolveCallTypes(for intent: INSearchCallHistoryIntent, with completion: @escaping (INCallRecordTypeOptionsResolutionResult) -> Void) {

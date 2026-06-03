@@ -14,16 +14,12 @@ import UIKit
 @objc
 public final class CompatibleAnimation: NSObject {
 
-  // MARK: Lifecycle
-
   @objc
   public init(name: String, bundle: Bundle = Bundle.main) {
     self.name = name
     self.bundle = bundle
     super.init()
   }
-
-  // MARK: Internal
 
   internal var animation: Animation? {
     Animation.named(name, bundle: bundle)
@@ -34,8 +30,6 @@ public final class CompatibleAnimation: NSObject {
     CompatibleAnimation(name: name)
   }
 
-  // MARK: Private
-
   private let name: String
   private let bundle: Bundle
 }
@@ -43,8 +37,6 @@ public final class CompatibleAnimation: NSObject {
 /// An Objective-C compatible wrapper around Lottie's AnimationView.
 @objc
 public final class CompatibleAnimationView: UIView {
-
-  // MARK: Lifecycle
 
   @objc
   public init(compatibleAnimation: CompatibleAnimation) {
@@ -64,8 +56,6 @@ public final class CompatibleAnimationView: UIView {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Public
 
   @objc
   public var compatibleAnimation: CompatibleAnimation? {
@@ -301,8 +291,6 @@ public final class CompatibleAnimationView: UIView {
   public func frameTime(forMarker named: String) -> CGFloat {
     animationView.frameTime(forMarker: named) ?? 0
   }
-
-  // MARK: Private
 
   private let animationView: AnimationView
 

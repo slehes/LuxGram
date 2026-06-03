@@ -10,8 +10,6 @@ import QuartzCore
 
 extension CGFloat {
 
-  // MARK: Internal
-
   var squared: CGFloat {
     self * self
   }
@@ -68,8 +66,6 @@ extension CGFloat {
       + 3.0 * c2 * t_ * tt
       + end * ttt;
   }
-
-  // MARK: Fileprivate
 
   fileprivate static func SolveQuadratic(_ a: CGFloat, _ b: CGFloat, _ c: CGFloat) -> CGFloat {
     var result = (-b + sqrt(b.squared - 4 * a * c)) / (2 * a);

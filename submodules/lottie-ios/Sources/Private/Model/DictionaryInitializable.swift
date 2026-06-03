@@ -7,21 +7,15 @@
 
 import Foundation
 
-// MARK: - InitializableError
-
 enum InitializableError: Error {
   case invalidInput
 }
-
-// MARK: - DictionaryInitializable
 
 protocol DictionaryInitializable {
 
   init(dictionary: [String: Any]) throws
 
 }
-
-// MARK: - AnyInitializable
 
 protocol AnyInitializable {
 
@@ -52,8 +46,6 @@ extension Dictionary {
   }
 
 }
-
-// MARK: - Array + AnyInitializable
 
 extension Array: AnyInitializable where Element == Double {
 

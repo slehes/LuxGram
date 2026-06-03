@@ -722,8 +722,6 @@ class SchemeGeneratorTests: XCTestCase {
         XCTAssertEqual(xcSchemeManagement.schemeUserState![0].orderHint, nil)
     }
 
-    // MARK: - Helpers
-
     private func makeWatchScheme(appType: PBXProductType, extensionType: PBXProductType) throws -> XCScheme {
         let watchExtension = Target(
             name: "WatchExtension",

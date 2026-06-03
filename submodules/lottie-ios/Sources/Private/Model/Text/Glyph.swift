@@ -10,8 +10,6 @@ import Foundation
 /// A model that holds a vector character
 final class Glyph: Codable, DictionaryInitializable {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Glyph.CodingKeys.self)
     character = try container.decode(String.self, forKey: .character)
@@ -46,8 +44,6 @@ final class Glyph: Codable, DictionaryInitializable {
     }
   }
 
-  // MARK: Internal
-
   /// The character
   let character: String
 
@@ -78,8 +74,6 @@ final class Glyph: Codable, DictionaryInitializable {
     var shapeContainer = container.nestedContainer(keyedBy: ShapeKey.self, forKey: .shapeWrapper)
     try shapeContainer.encode(shapes, forKey: .shapes)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case character = "ch"

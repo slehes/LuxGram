@@ -10,8 +10,6 @@ import QuartzCore
 import UIKit
 import Display
 
-// MARK: - LottieBackgroundBehavior
-
 /// Describes the behavior of an AnimationView when the app is moved to the background.
 public enum LottieBackgroundBehavior {
   /// Stop the animation and reset it to the beginning of its current play time. The completion block is called.
@@ -35,8 +33,6 @@ public enum LottieBackgroundBehavior {
   ///  - This mode should not be used with the Main Thread rendering engine.
   case continuePlaying
 
-  // MARK: Public
-
   /// The default background behavior, based on the rendering engine being used to play the animation.
   ///  - Playing an animation using the Main Thread rendering engine comes with CPU overhead,
   ///    so the animation should be paused or stopped when the `AnimationView` is not visible.
@@ -52,8 +48,6 @@ public enum LottieBackgroundBehavior {
   }
 }
 
-// MARK: - LottieLoopMode
-
 /// Defines animation loop behavior
 public enum LottieLoopMode {
   /// Animation is played once then stops.
@@ -67,8 +61,6 @@ public enum LottieLoopMode {
   /// Animation will play forward, then backwards a defined amount of times.
   case repeatBackwards(Float)
 }
-
-// MARK: Equatable
 
 extension LottieLoopMode: Equatable {
   public static func == (lhs: LottieLoopMode, rhs: LottieLoopMode) -> Bool {
@@ -86,14 +78,8 @@ extension LottieLoopMode: Equatable {
   }
 }
 
-// MARK: - AnimationView
-
 @IBDesignable
 final public class AnimationView: AnimationViewBase {
-
-  // MARK: Lifecycle
-
-  // MARK: - Public (Initializers)
 
   /// Initializes an AnimationView with an animation.
   public init(
@@ -144,8 +130,6 @@ final public class AnimationView: AnimationViewBase {
     super.init(coder: aDecoder)
     commonInit()
   }
-
-  // MARK: Public
 
   /// The configuration that this `AnimationView` uses when playing its animation
   public let configuration: LottieConfiguration
@@ -737,8 +721,6 @@ final public class AnimationView: AnimationViewBase {
     return animation.frameTime(forMarker: named)
   }
 
-  // MARK: Internal
-
   var animationLayer: RootAnimationLayer? = nil
 
   /// Set animation name from Interface Builder
@@ -946,8 +928,6 @@ final public class AnimationView: AnimationViewBase {
       updateAnimationForBackgroundState()
     }
   }
-
-  // MARK: Fileprivate
 
   fileprivate var animationContext: AnimationContext?
   fileprivate var _activeAnimationName: String = AnimationView.animationName
@@ -1305,16 +1285,12 @@ final public class AnimationView: AnimationViewBase {
     updateRasterizationState()
   }
 
-  // MARK: Private
-
   static private let animationName = "Lottie"
 
   /// The `LottieBackgroundBehavior` that was specified manually by setting `self.backgroundBehavior`
   private var _backgroundBehavior: LottieBackgroundBehavior?
 
 }
-
-// MARK: - LottieLoopMode + caAnimationConfiguration
 
 extension LottieLoopMode {
   /// The `CAAnimation` configuration that reflects this mode

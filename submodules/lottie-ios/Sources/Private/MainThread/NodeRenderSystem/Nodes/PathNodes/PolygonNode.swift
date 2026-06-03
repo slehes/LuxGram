@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - PolygonNodeProperties
-
 final class PolygonNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(star: Star) {
     keypathName = star.name
@@ -32,8 +28,6 @@ final class PolygonNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   var childKeypaths: [KeypathSearchable] = []
@@ -49,19 +43,13 @@ final class PolygonNodeProperties: NodePropertyMap, KeypathSearchable {
   let points: NodeProperty<Vector1D>
 }
 
-// MARK: - PolygonNode
-
 final class PolygonNode: AnimatorNode, PathNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, star: Star) {
     pathOutput = PathOutputNode(parent: parentNode?.outputNode)
     properties = PolygonNodeProperties(star: star)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   /// Magic number needed for constructing path.
   static let PolygonConstant: CGFloat = 0.25
@@ -74,8 +62,6 @@ final class PolygonNode: AnimatorNode, PathNode {
   var hasLocalUpdates = false
   var hasUpstreamUpdates = false
   var lastUpdateFrame: CGFloat? = nil
-
-  // MARK: Animator Node
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties

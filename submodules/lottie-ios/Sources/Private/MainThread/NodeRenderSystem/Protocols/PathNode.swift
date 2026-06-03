@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - PathNode
-
 protocol PathNode {
   var pathOutput: PathOutputNode { get }
 }

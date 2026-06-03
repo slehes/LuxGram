@@ -7,19 +7,13 @@
 
 import Foundation
 
-// MARK: - TrimType
-
 enum TrimType: Int, Codable {
   case simultaneously = 1
   case individually = 2
 }
 
-// MARK: - Trim
-
 /// An item that define an ellipse shape
 final class Trim: ShapeItem {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Trim.CodingKeys.self)
@@ -45,8 +39,6 @@ final class Trim: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The start of the trim
   let start: KeyframeGroup<Vector1D>
 
@@ -66,8 +58,6 @@ final class Trim: ShapeItem {
     try container.encode(offset, forKey: .offset)
     try container.encode(trimType, forKey: .trimType)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case start = "s"

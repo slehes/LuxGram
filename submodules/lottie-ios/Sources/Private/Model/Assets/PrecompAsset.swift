@@ -9,8 +9,6 @@ import Foundation
 
 final class PrecompAsset: Asset {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: PrecompAsset.CodingKeys.self)
     layers = try container.decode([LayerModel].self, ofFamily: LayerType.self, forKey: .layers)
@@ -22,8 +20,6 @@ final class PrecompAsset: Asset {
     layers = try [LayerModel].fromDictionaries(layerDictionaries)
     try super.init(dictionary: dictionary)
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case layers

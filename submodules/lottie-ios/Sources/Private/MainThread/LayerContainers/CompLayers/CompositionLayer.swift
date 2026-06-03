@@ -8,12 +8,8 @@
 import Foundation
 import QuartzCore
 
-// MARK: - CompositionLayer
-
 /// The base class for a child layer of CompositionContainer
 class CompositionLayer: CALayer, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(layer: LayerModel, size: CGSize) {
     transformNode = LayerTransformNode(transform: layer.transform)
@@ -80,8 +76,6 @@ class CompositionLayer: CALayer, KeypathSearchable {
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: Internal
-
   weak var layerDelegate: CompositionLayerDelegate?
 
   let transformNode: LayerTransformNode
@@ -96,8 +90,6 @@ class CompositionLayer: CALayer, KeypathSearchable {
   let outFrame: CGFloat
   let startFrame: CGFloat
   let timeStretch: CGFloat
-
-  // MARK: Keypath Searchable
 
   let keypathName: String
 
@@ -153,8 +145,6 @@ class CompositionLayer: CALayer, KeypathSearchable {
     contentsScale = renderScale
   }
 }
-
-// MARK: - CompositionLayerDelegate
 
 protocol CompositionLayerDelegate: AnyObject {
   func frameUpdated(frame: CGFloat)

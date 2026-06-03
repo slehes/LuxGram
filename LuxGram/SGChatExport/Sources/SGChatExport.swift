@@ -6,11 +6,7 @@ import TelegramCore
 import SGLogging
 #endif
 
-// MARK: - Constants
-
 private let messagesPerPage = 1000
-
-// MARK: - Export Progress
 
 public enum SGChatExportProgress {
     case preparing
@@ -19,8 +15,6 @@ public enum SGChatExportProgress {
     case done(URL)
     case error(String)
 }
-
-// MARK: - Peer Display Name Helper
 
 private func peerDisplayName(_ peer: Peer?) -> String {
     guard let peer = peer else { return "Unknown" }
@@ -48,16 +42,12 @@ private func userpicColorIndex(_ peer: Peer?) -> Int {
     return Int(abs(id) % 8) + 1
 }
 
-// MARK: - Chat Title Helper
-
 private func chatTitle(peerId: PeerId, transaction: Transaction) -> String {
     if let peer = transaction.getPeer(peerId) {
         return peerDisplayName(peer)
     }
     return "Chat"
 }
-
-// MARK: - HTML Escaping
 
 private func htmlEscape(_ text: String) -> String {
     return text
@@ -66,8 +56,6 @@ private func htmlEscape(_ text: String) -> String {
         .replacingOccurrences(of: ">", with: "&gt;")
         .replacingOccurrences(of: "\"", with: "&quot;")
 }
-
-// MARK: - Date Formatting
 
 private let dateFormatter: DateFormatter = {
     let f = DateFormatter()
@@ -105,15 +93,11 @@ private func timeZoneSuffix() -> String {
     return String(format: "UTC%+03d:%02d", hours, minutes)
 }
 
-// MARK: - Duration Formatting
-
 private func formatDuration(_ seconds: Int) -> String {
     let m = seconds / 60
     let s = seconds % 60
     return String(format: "%02d:%02d", m, s)
 }
-
-// MARK: - Media Info
 
 private struct MediaFileInfo {
     let sourceResourcePath: String?
@@ -263,8 +247,6 @@ private func mediaInfoForMessage(
     return nil
 }
 
-// MARK: - Reactions HTML
-
 private func reactionsHTML(for message: Message) -> String {
     var reactionsAttr: ReactionsMessageAttribute?
     for attr in message.attributes {
@@ -298,8 +280,6 @@ private func reactionsHTML(for message: Message) -> String {
     return html
 }
 
-// MARK: - Reply HTML
-
 private func replyHTML(for message: Message) -> String {
     for attr in message.attributes {
         if let replyAttr = attr as? ReplyMessageAttribute {
@@ -313,8 +293,6 @@ private func replyHTML(for message: Message) -> String {
     }
     return ""
 }
-
-// MARK: - Forward Info HTML
 
 private func forwardHTML(
     _ message: Message,
@@ -348,8 +326,6 @@ private func forwardHTML(
     return body
 }
 
-// MARK: - Message Text Processing
-
 private func processMessageText(_ text: String) -> String {
     guard !text.isEmpty else { return "" }
 
@@ -370,8 +346,6 @@ private func processMessageText(_ text: String) -> String {
 
     return result
 }
-
-// MARK: - Service Message Text
 
 private func serviceMessageText(_ message: Message) -> String? {
     for media in message.media {
@@ -442,8 +416,6 @@ private func serviceMessageText(_ message: Message) -> String? {
     return nil
 }
 
-// MARK: - HTML Page Generation
-
 private func htmlHeader(chatName: String) -> String {
     return """
     <!DOCTYPE html>
@@ -476,8 +448,6 @@ private func htmlFooter() -> String {
     </html>
     """
 }
-
-// MARK: - Export Engine
 
 public struct SGChatExport {
 

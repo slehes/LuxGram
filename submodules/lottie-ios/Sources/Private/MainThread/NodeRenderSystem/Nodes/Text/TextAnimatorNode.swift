@@ -9,11 +9,7 @@ import CoreGraphics
 import Foundation
 import QuartzCore
 
-// MARK: - TextAnimatorNodeProperties
-
 final class TextAnimatorNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(textAnimator: TextAnimator) {
     keypathName = textAnimator.name
@@ -101,8 +97,6 @@ final class TextAnimatorNodeProperties: NodePropertyMap, KeypathSearchable {
     self.properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   let keypathName: String
 
   let anchor: NodeProperty<Vector3D>?
@@ -131,17 +125,11 @@ final class TextAnimatorNodeProperties: NodePropertyMap, KeypathSearchable {
   }
 }
 
-// MARK: - TextOutputNode
-
 final class TextOutputNode: NodeOutput {
-
-  // MARK: Lifecycle
 
   init(parent: TextOutputNode?) {
     parentTextNode = parent
   }
-
-  // MARK: Internal
 
   var parentTextNode: TextOutputNode?
   var isEnabled = true
@@ -211,8 +199,6 @@ final class TextOutputNode: NodeOutput {
     true
   }
 
-  // MARK: Fileprivate
-
   fileprivate var _xform: CATransform3D?
   fileprivate var _opacity: CGFloat?
   fileprivate var _strokeColor: CGColor?
@@ -221,19 +207,13 @@ final class TextOutputNode: NodeOutput {
   fileprivate var _strokeWidth: CGFloat?
 }
 
-// MARK: - TextAnimatorNode
-
 class TextAnimatorNode: AnimatorNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: TextAnimatorNode?, textAnimator: TextAnimator) {
     textOutputNode = TextOutputNode(parent: parentNode?.textOutputNode)
     textAnimatorProperties = TextAnimatorNodeProperties(textAnimator: textAnimator)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let textOutputNode: TextOutputNode
 
@@ -248,8 +228,6 @@ class TextAnimatorNode: AnimatorNode {
   var outputNode: NodeOutput {
     textOutputNode
   }
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     textAnimatorProperties

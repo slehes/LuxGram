@@ -1,14 +1,10 @@
 // Created by Cal Stephens on 1/24/22.
 // Copyright © 2022 Airbnb Inc. All rights reserved.
 
-// MARK: - Keyframe
-
 /// A keyframe with a single value, and timing information
 /// about when the value should be displayed and how it
 /// should be interpolated.
 public final class Keyframe<T> {
-
-  // MARK: Lifecycle
 
   /// Initialize a value-only keyframe with no time data.
   public init(
@@ -44,8 +40,6 @@ public final class Keyframe<T> {
     self.spatialOutTangent = spatialOutTangent
   }
 
-  // MARK: Public
-
   /// The value of the keyframe
   public let value: T
   /// The time in frames of the keyframe.
@@ -63,8 +57,6 @@ public final class Keyframe<T> {
   public let spatialOutTangent: Vector3D?
 }
 
-// MARK: Equatable
-
 extension Keyframe: Equatable where T: Equatable {
   public static func == (lhs: Keyframe<T>, rhs: Keyframe<T>) -> Bool {
     lhs.value == rhs.value
@@ -76,8 +68,6 @@ extension Keyframe: Equatable where T: Equatable {
       && lhs.spatialOutTangent == rhs.spatialOutTangent
   }
 }
-
-// MARK: Hashable
 
 extension Keyframe: Hashable where T: Hashable {
   public func hash(into hasher: inout Hasher) {

@@ -10,8 +10,6 @@ import Foundation
 /// A layer that holds vector shape objects.
 final class ShapeLayerModel: LayerModel {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: ShapeLayerModel.CodingKeys.self)
     items = try container.decode([ShapeItem].self, ofFamily: ShapeType.self, forKey: .items)
@@ -24,8 +22,6 @@ final class ShapeLayerModel: LayerModel {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// A list of shape items.
   let items: [ShapeItem]
 
@@ -34,8 +30,6 @@ final class ShapeLayerModel: LayerModel {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(items, forKey: .items)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case items = "shapes"

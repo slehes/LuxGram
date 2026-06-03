@@ -11,8 +11,6 @@ import Foundation
 /// A `ValueProvider` that returns a CGSize Value
 public final class SizeValueProvider: ValueProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes with a block provider
   public init(block: @escaping SizeValueBlock) {
     self.block = block
@@ -26,8 +24,6 @@ public final class SizeValueProvider: ValueProvider {
     hasUpdate = true
   }
 
-  // MARK: Public
-
   /// Returns a CGSize for a CGFloat(Frame Time)
   public typealias SizeValueBlock = (CGFloat) -> CGSize
 
@@ -36,8 +32,6 @@ public final class SizeValueProvider: ValueProvider {
       hasUpdate = true
     }
   }
-
-  // MARK: ValueProvider Protocol
 
   public var valueType: Any.Type {
     Vector3D.self
@@ -61,8 +55,6 @@ public final class SizeValueProvider: ValueProvider {
     }
     return hasUpdate
   }
-
-  // MARK: Private
 
   private var hasUpdate = true
 

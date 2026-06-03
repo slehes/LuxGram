@@ -10,13 +10,9 @@ import Foundation
 
 class PassThroughOutputNode: NodeOutput {
 
-  // MARK: Lifecycle
-
   init(parent: NodeOutput?) {
     self.parent = parent
   }
-
-  // MARK: Internal
 
   let parent: NodeOutput?
 

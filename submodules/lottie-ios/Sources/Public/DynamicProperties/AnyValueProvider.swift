@@ -8,8 +8,6 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - AnyValueProvider
-
 /// `AnyValueProvider` is a protocol that return animation data for a property at a
 /// given time. Every frame an `AnimationView` queries all of its properties and asks
 /// if their ValueProvider has an update. If it does the AnimationView will read the
@@ -35,8 +33,6 @@ extension AnyValueProvider {
     typeErasedStorage.value(frame: frame)
   }
 }
-
-// MARK: - ValueProvider
 
 /// A base protocol for strongly-typed Value Providers
 protocol ValueProvider: AnyValueProvider {
@@ -65,8 +61,6 @@ extension ValueProvider {
   }
 }
 
-// MARK: - ValueProviderStorage
-
 /// The underlying storage of a `ValueProvider`
 public enum ValueProviderStorage<T: AnyInterpolatable> {
   /// The value provider stores a single value that is used on all frames
@@ -84,8 +78,6 @@ public enum ValueProviderStorage<T: AnyInterpolatable> {
   ///  - This is only supported by the main-thread rendering engine
   case closure((AnimationFrameTime) -> T)
 
-  // MARK: Internal
-
   func value(frame: AnimationFrameTime) -> T {
     switch self {
     case .singleValue(let value):
@@ -100,8 +92,6 @@ public enum ValueProviderStorage<T: AnyInterpolatable> {
   }
 }
 
-// MARK: - AnyValueProviderStorage
-
 /// A type-erased representation of `ValueProviderStorage`
 public enum AnyValueProviderStorage {
   /// The value provider stores a single value that is used on all frames
@@ -114,8 +104,6 @@ public enum AnyValueProviderStorage {
 
   /// The value provider stores a closure that is invoked on every frame
   case closure((AnimationFrameTime) -> Any)
-
-  // MARK: Internal
 
   func value(frame: AnimationFrameTime) -> Any {
     switch self {

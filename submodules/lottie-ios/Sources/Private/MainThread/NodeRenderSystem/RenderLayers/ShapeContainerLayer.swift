@@ -11,8 +11,6 @@ import QuartzCore
 /// The base layer that holds Shapes and Shape Renderers
 class ShapeContainerLayer: CALayer {
 
-  // MARK: Lifecycle
-
   override init() {
     super.init()
     actions = [
@@ -35,8 +33,6 @@ class ShapeContainerLayer: CALayer {
     }
     super.init(layer: layer)
   }
-
-  // MARK: Internal
 
   private(set) var renderLayers: [ShapeContainerLayer] = []
 

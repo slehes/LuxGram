@@ -12,8 +12,6 @@ import AccountContext
 import SGDeletedMessages
 #endif
 
-// MARK: - Entry
-
 private enum SavedDeletedListEntry: ItemListNodeEntry {
     case search(id: Int, query: String)
     case empty(id: Int, text: String)
@@ -77,8 +75,6 @@ private enum SavedDeletedListEntry: ItemListNodeEntry {
     }
 }
 
-// MARK: - Arguments
-
 private final class SearchQueryRef {
     var value: String = ""
 }
@@ -97,16 +93,12 @@ private final class SavedDeletedListArguments {
     }
 }
 
-// MARK: - Date formatting
-
 private let dateFormatter: DateFormatter = {
     let f = DateFormatter()
     f.dateStyle = .medium
     f.timeStyle = .short
     return f
 }()
-
-// MARK: - Entries builder (full list, no filter)
 
 #if canImport(SGDeletedMessages)
 private func savedDeletedListEntries(
@@ -193,8 +185,6 @@ private func filterSavedDeletedListEntries(_ entries: [SavedDeletedListEntry], b
     return filtered
 }
 #endif
-
-// MARK: - Controller
 
 public func savedDeletedMessagesListController(context: AccountContext) -> ViewController {
     #if canImport(SGDeletedMessages)

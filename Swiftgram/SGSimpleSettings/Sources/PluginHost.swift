@@ -38,8 +38,6 @@ public final class PluginHost {
     /// Выполнить блок в фоне.
     public var runOnBackground: ((@escaping () -> Void) -> Void)?
 
-    // MARK: - Настройки плагина (get_setting / set_setting в Python)
-
     private let pluginSettingsPrefix = "sg_plugin_"
 
     /// Reads a plugin setting string (UserDefaults key: sg_plugin_{pluginId}_{key}).

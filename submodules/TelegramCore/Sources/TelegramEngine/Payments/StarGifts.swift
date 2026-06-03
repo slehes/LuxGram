@@ -3204,8 +3204,6 @@ public final class ProfileGiftsContext {
     }
 }
 
-// MARK: - CraftGiftsContext
-
 private final class CraftGiftsContextImpl {
     private let queue: Queue
     private let account: Account

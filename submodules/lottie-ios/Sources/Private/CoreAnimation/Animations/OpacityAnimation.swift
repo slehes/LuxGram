@@ -3,34 +3,20 @@
 
 import QuartzCore
 
-// MARK: - OpacityAnimationModel
-
 protocol OpacityAnimationModel {
   /// The opacity animation to apply to a `CALayer`
   var opacity: KeyframeGroup<Vector1D> { get }
 }
 
-// MARK: - Transform + OpacityAnimationModel
-
 extension Transform: OpacityAnimationModel { }
-
-// MARK: - ShapeTransform + OpacityAnimationModel
 
 extension ShapeTransform: OpacityAnimationModel { }
 
-// MARK: - Fill + OpacityAnimationModel
-
 extension Fill: OpacityAnimationModel { }
-
-// MARK: - GradientFill + OpacityAnimationModel
 
 extension GradientFill: OpacityAnimationModel { }
 
-// MARK: - Stroke + OpacityAnimationModel
-
 extension Stroke: OpacityAnimationModel { }
-
-// MARK: - GradientStroke + OpacityAnimationModel
 
 extension GradientStroke: OpacityAnimationModel { }
 

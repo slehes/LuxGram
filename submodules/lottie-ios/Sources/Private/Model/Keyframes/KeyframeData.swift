@@ -8,16 +8,12 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - KeyframeData
-
 /// A generic class used to parse and remap keyframe json.
 ///
 /// Keyframe json has a couple of different variations and formats depending on the
 /// type of keyframea and also the version of the JSON. By parsing the raw data
 /// we can reconfigure it into a constant format.
 final class KeyframeData<T> {
-
-  // MARK: Lifecycle
 
   init(
     startValue: T?,
@@ -38,8 +34,6 @@ final class KeyframeData<T> {
     self.spatialInTangent = spatialInTangent
     self.spatialOutTangent = spatialOutTangent
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case startValue = "s"
@@ -79,15 +73,9 @@ final class KeyframeData<T> {
   }
 }
 
-// MARK: Encodable
-
 extension KeyframeData: Encodable where T: Encodable { }
 
-// MARK: Decodable
-
 extension KeyframeData: Decodable where T: Decodable { }
-
-// MARK: DictionaryInitializable
 
 extension KeyframeData: DictionaryInitializable where T: AnyInitializable {
   convenience init(dictionary: [String: Any]) throws {

@@ -28,8 +28,6 @@ extension Animation {
     CGSize(width: width, height: height)
   }
 
-  // MARK: Animation (Loading)
-
   /// Loads an animation model from a bundle by its name. Returns `nil` if an animation is not found.
   ///
   /// - Parameter name: The name of the json file without the json extension. EG "StarAnimation"
@@ -203,8 +201,6 @@ extension Animation {
       task.resume()
     }
   }
-
-  // MARK: Animation (Helpers)
 
   /// Markers are a way to describe a point in time by a key name.
   ///

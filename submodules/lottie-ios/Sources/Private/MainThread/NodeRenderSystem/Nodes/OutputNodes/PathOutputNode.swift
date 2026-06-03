@@ -11,13 +11,9 @@ import Foundation
 /// A node that has an output of a BezierPath
 class PathOutputNode: NodeOutput {
 
-  // MARK: Lifecycle
-
   init(parent: NodeOutput?) {
     self.parent = parent
   }
-
-  // MARK: Internal
 
   let parent: NodeOutput?
 

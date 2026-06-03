@@ -73,7 +73,6 @@ public class SGSimpleSettings {
             SGLogger.shared.log("SGSimpleSettings", "Unable to migrate showRepostToStory. Shared UserDefaults suite is not available for '\(APP_GROUP_IDENTIFIER)'.")
         }
         
-        // MARK: AppBadge default migration
         // Older builds used an empty value which resulted in the classic badge being shown.
         if self.customAppBadge.isEmpty || self.customAppBadge == "Components/AppBadge" {
             self.customAppBadge = "SkyAppBadge"
@@ -221,7 +220,6 @@ public class SGSimpleSettings {
         case chatListLines
         case showDeletedMessages
         case saveEditHistory
-        // MARK: Saved Deleted Messages (AyuGram-style)
         case saveDeletedMessagesMedia
         case saveDeletedMessagesReactions
         case saveDeletedMessagesForBots
@@ -772,8 +770,6 @@ public class SGSimpleSettings {
         notificationMutedAccountRecordIds = current
     }
 
-    // MARK: - Gated Features
-
     @UserDefault(key: Keys.gatedFeatureKeys.rawValue)
     public var gatedFeatureKeys: [String]
 
@@ -884,7 +880,6 @@ public class SGSimpleSettings {
     @UserDefault(key: Keys.saveEditHistory.rawValue)
     public var saveEditHistory: Bool
     
-    // MARK: Saved Deleted Messages (AyuGram-style)
     @UserDefault(key: Keys.saveDeletedMessagesMedia.rawValue)
     public var saveDeletedMessagesMedia: Bool
     

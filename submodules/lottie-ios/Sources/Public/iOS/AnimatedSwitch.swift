@@ -15,8 +15,6 @@ import UIKit
 /// Both the 'On' and 'Off' have an animation play range associated with their state.
 open class AnimatedSwitch: AnimatedControl {
 
-  // MARK: Lifecycle
-
   public override init(
     animation: Animation,
     configuration: LottieConfiguration = .shared)
@@ -66,8 +64,6 @@ open class AnimatedSwitch: AnimatedControl {
     super.init(coder: aDecoder)
     accessibilityTraits = UIAccessibilityTraits.button
   }
-
-  // MARK: Public
 
   /// Defines what happens when the user taps the switch while an
   /// animation is still in flight
@@ -124,10 +120,6 @@ open class AnimatedSwitch: AnimatedControl {
     updateOnState(isOn: _isOn, animated: true, shouldFireHaptics: false)
   }
 
-  // MARK: Internal
-
-  // MARK: Animation State
-
   func updateOnState(isOn: Bool, animated: Bool, shouldFireHaptics: Bool) {
     _isOn = isOn
     var startProgress = isOn ? onStartProgress : offStartProgress
@@ -176,16 +168,12 @@ open class AnimatedSwitch: AnimatedControl {
       })
   }
 
-  // MARK: Fileprivate
-
   fileprivate var onStartProgress: CGFloat = 0
   fileprivate var onEndProgress: CGFloat = 1
   fileprivate var offStartProgress: CGFloat = 1
   fileprivate var offEndProgress: CGFloat = 0
   fileprivate var _isOn = false
   fileprivate var hapticGenerator: ImpactGenerator
-
-  // MARK: Private
 
   private func updateAccessibilityLabel() {
     accessibilityValue = _isOn ? NSLocalizedString("On", comment: "On") : NSLocalizedString("Off", comment: "Off")
@@ -194,13 +182,9 @@ open class AnimatedSwitch: AnimatedControl {
 }
 #endif
 
-// MARK: - ImpactGenerator
-
 protocol ImpactGenerator {
   func generateImpact()
 }
-
-// MARK: - NullHapticGenerator
 
 class NullHapticGenerator: ImpactGenerator {
   func generateImpact() {
@@ -212,13 +196,9 @@ class NullHapticGenerator: ImpactGenerator {
 @available(iOS 10.0, *)
 class HapticGenerator: ImpactGenerator {
 
-  // MARK: Internal
-
   func generateImpact() {
     impact.impactOccurred()
   }
-
-  // MARK: Fileprivate
 
   fileprivate let impact = UIImpactFeedbackGenerator(style: .light)
 }

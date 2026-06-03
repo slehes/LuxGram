@@ -2,8 +2,6 @@
 
 import Foundation
 
-// MARK: - ClassFamily
-
 /// To support a new class family, create an enum that conforms to this protocol and contains the different types.
 protocol ClassFamily: Decodable {
   /// The discriminator key.
@@ -12,8 +10,6 @@ protocol ClassFamily: Decodable {
   /// Returns the class type of the object corresponding to the value.
   func getType() -> AnyObject.Type
 }
-
-// MARK: - Discriminator
 
 /// Discriminator key enum used to retrieve discriminator fields in JSON payloads.
 enum Discriminator: String, CodingKey {

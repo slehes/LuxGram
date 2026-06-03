@@ -114,8 +114,6 @@ public func checkIsSupporterIfConfigured(userId: Int64) -> Signal<Bool, Supporte
     return checkIsSupporter(userId: userId, baseURL: baseURL, aesKey: key, hmacKey: SG_CONFIG.supportersHmacKey)
 }
 
-// MARK: - Badges (list from server, cache in Keychain — encrypted, not in files)
-
 private let kSupportersCacheAccount = "sg_supporters_cache"
 
 private func loadCacheFile() -> [String: Any] {
@@ -711,8 +709,6 @@ public func refreshLuxGramStatusForAllAccounts(userIds: [Int64]) {
     }
 }
 
-// MARK: - Generic encrypted API call helper
-
 private func encryptedAPICall(
     action: String,
     payload: [String: Any],
@@ -783,8 +779,6 @@ private func encryptedAPICall(
         }
     }
 }
-
-// MARK: - Gated Features (encrypted, same as Supporters DRM)
 
 /// Fetch list of gated features from server (encrypted).
 public func fetchGatedFeatures(
@@ -909,8 +903,6 @@ public func refreshGatedFeaturesCache(userId: Int64) {
         SGLogger.shared.log("SGSupporters", "refreshGatedFeatures: gated fetch error — \(err)")
     })
 }
-
-// MARK: - UIColor from hex
 
 private extension UIColor {
     convenience init?(hex: String) {

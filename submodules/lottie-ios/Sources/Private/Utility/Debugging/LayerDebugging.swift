@@ -8,8 +8,6 @@
 import Foundation
 import QuartzCore
 
-// MARK: - LayerDebugStyle
-
 struct LayerDebugStyle {
   let anchorColor: CGColor
   let boundsColor: CGColor
@@ -17,19 +15,13 @@ struct LayerDebugStyle {
   let boundsWidth: CGFloat
 }
 
-// MARK: - LayerDebugging
-
 protocol LayerDebugging {
   var debugStyle: LayerDebugStyle { get }
 }
 
-// MARK: - CustomLayerDebugging
-
 protocol CustomLayerDebugging {
   func layerForDebugging() -> CALayer
 }
-
-// MARK: - DebugLayer
 
 class DebugLayer: CALayer {
   init(style: LayerDebugStyle) {
@@ -62,8 +54,6 @@ extension CALayer {
   }
 
 }
-
-// MARK: - CompositionLayer + CustomLayerDebugging
 
 extension CompositionLayer: CustomLayerDebugging {
   func layerForDebugging() -> CALayer {
@@ -117,15 +107,11 @@ extension CALayer {
   }
 }
 
-// MARK: - MainThreadAnimationLayer + LayerDebugging
-
 extension MainThreadAnimationLayer: LayerDebugging {
   var debugStyle: LayerDebugStyle {
     LayerDebugStyle.topLayerStyle()
   }
 }
-
-// MARK: - NullCompositionLayer + LayerDebugging
 
 extension NullCompositionLayer: LayerDebugging {
   var debugStyle: LayerDebugStyle {
@@ -133,15 +119,11 @@ extension NullCompositionLayer: LayerDebugging {
   }
 }
 
-// MARK: - ShapeCompositionLayer + LayerDebugging
-
 extension ShapeCompositionLayer: LayerDebugging {
   var debugStyle: LayerDebugStyle {
     LayerDebugStyle.shapeLayerStyle()
   }
 }
-
-// MARK: - ShapeRenderLayer + LayerDebugging
 
 extension ShapeRenderLayer: LayerDebugging {
   var debugStyle: LayerDebugStyle {

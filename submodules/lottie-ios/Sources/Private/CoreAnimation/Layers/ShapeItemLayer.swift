@@ -3,13 +3,9 @@
 
 import QuartzCore
 
-// MARK: - ShapeItemLayer
-
 /// A CALayer type that renders an array of `[ShapeItem]`s,
 /// from a `Group` in a `ShapeLayerModel`.
 final class ShapeItemLayer: BaseAnimationLayer {
-
-  // MARK: Lifecycle
 
   /// Initializes a `ShapeItemLayer` that renders a `Group` from a `ShapeLayerModel`
   /// - Parameters:
@@ -48,8 +44,6 @@ final class ShapeItemLayer: BaseAnimationLayer {
     super.init(layer: typedLayer)
   }
 
-  // MARK: Internal
-
   /// An item that can be displayed by this layer
   struct Item {
     /// A `ShapeItem` that should be rendered by this layer
@@ -82,8 +76,6 @@ final class ShapeItemLayer: BaseAnimationLayer {
         context: context)
     }
   }
-
-  // MARK: Private
 
   private struct GradientLayers {
     /// The `CALayer` that renders the actual gradient
@@ -222,8 +214,6 @@ final class ShapeItemLayer: BaseAnimationLayer {
   }
 
 }
-
-// MARK: - [ShapeItem] helpers
 
 extension Array where Element == ShapeItemLayer.Item {
   /// The first `ShapeItem` in this array of the given type

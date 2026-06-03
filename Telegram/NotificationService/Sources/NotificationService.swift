@@ -2723,8 +2723,6 @@ final class NotificationService: UNNotificationServiceExtension {
 
 typealias CMJImage = UIImage
 
-// MARK: - Public Namespace
-
 /// A lightweight utility for turning ordinary bitmap images into ``NSAdaptiveImageGlyph`` (Apple “Genmoji”) objects.
 ///
 /// ## Overview
@@ -2752,7 +2750,6 @@ typealias CMJImage = UIImage
 ///
 public struct Customoji {
 
-    // MARK: Library-scoped Errors
     /// Errors that can be thrown by ``Customoji``.
     public enum Error: Swift.Error, LocalizedError {
         /// The input image is not square and ``makeGlyph(from:description:identifier:tileSizes:cropToSquare:heicQuality:)`` was called with `cropToSquare == false`.
@@ -2813,7 +2810,6 @@ public struct Customoji {
     /// Maximum allowed side length (in pixels) to guard against excessive memory consumption.
     private static let maxSide = 4_096
 
-    // MARK: - Synchronous Builder
     #if swift(>=5.10)
         @available(iOS 18.0, macCatalyst 18.0, macOS 15.0, *)
         /// Generates an ``NSAdaptiveImageGlyph`` synchronously on the **current** thread.
@@ -2849,7 +2845,6 @@ public struct Customoji {
         }
     #endif
 
-    // MARK: - AttributedString Utilities
     #if swift(>=5.10)
         @available(iOS 18.0, macCatalyst 18.0, macOS 15.0, *)
         /// Breaks an ``NSAttributedString`` that may contain adaptive-image glyphs into three parts.
@@ -2917,7 +2912,6 @@ public struct Customoji {
         }
     #endif
 
-    // MARK: - Helper: Pixel-Side Validation
     /// Ensures that the image’s **longer edge** does not exceed ``maxSide`` pixels, guarding against
     /// excessive memory usage during HEIC encoding.
     private static func validatePixelSide(of image: CMJImage) throws {
@@ -2939,7 +2933,6 @@ public struct Customoji {
 //  Public-facing symbols have already been documented above.
 // =============================================================
 
-// MARK: - Core Builder
 @available(iOS 18.0, macCatalyst 18.0, macOS 15.0, *)
 extension Customoji {
     @Sendable fileprivate static func coreMakeGlyph(
@@ -2965,7 +2958,6 @@ extension Customoji {
     }
 }
 
-// MARK: - HEIC Encoder
 @available(iOS 18.0, macCatalyst 18.0, macOS 15.0, *)
 extension Customoji {
     fileprivate static func heicData(
@@ -3026,7 +3018,6 @@ extension Customoji {
     }
 }
 
-// MARK: - CGImage Helpers
 extension CGImage {
     /// Returns a copy whose longer edge equals `side` pixels. *Assumes the input is already square.*
     fileprivate func scaled(to side: Int) -> CGImage? {
@@ -3062,7 +3053,6 @@ extension CGImage {
     }
 }
 
-// MARK: - Image Extraction Helpers
 extension Customoji {
     fileprivate static func extractCGImage(from image: CMJImage) throws
         -> CGImage
@@ -3108,7 +3098,6 @@ extension Customoji {
     #endif
 }
 
-// MARK: - Square Enforcement
 extension Customoji {
     fileprivate static func ensureSquare(_ cg: CGImage, cropIfNeeded: Bool)
         throws -> CGImage
@@ -3132,7 +3121,6 @@ extension Customoji {
     }
 }
 
-// MARK: - Tile Size Validation
 extension Customoji {
     fileprivate static func validatedTileSizes(_ sizes: [Int], max: Int) throws
         -> [Int]

@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - LayerContext
-
 /// Context available when constructing an `AnimationLayer`
 struct LayerContext {
   let animation: Animation
@@ -19,8 +17,6 @@ struct LayerContext {
     return context
   }
 }
-
-// MARK: - LayerModel + makeAnimationLayer
 
 extension LayerModel {
   /// Constructs an `AnimationLayer` / `CALayer` that represents this `LayerModel`

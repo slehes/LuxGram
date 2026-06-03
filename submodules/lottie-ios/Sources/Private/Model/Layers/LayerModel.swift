@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - LayerType + ClassFamily
-
 /// Used for mapping a heterogeneous list to classes for parsing.
 extension LayerType: ClassFamily {
   static var discriminator: Discriminator = .type
@@ -31,8 +29,6 @@ extension LayerType: ClassFamily {
   }
 }
 
-// MARK: - LayerType
-
 public enum LayerType: Int, Codable {
   case precomp
   case solid
@@ -46,16 +42,12 @@ public enum LayerType: Int, Codable {
   }
 }
 
-// MARK: - MatteType
-
 public enum MatteType: Int, Codable {
   case none
   case add
   case invert
   case unknown
 }
-
-// MARK: - BlendMode
 
 public enum BlendMode: Int, Codable {
   case normal
@@ -76,12 +68,8 @@ public enum BlendMode: Int, Codable {
   case luminosity
 }
 
-// MARK: - LayerModel
-
 /// A base top container for shapes, images, and other view objects.
 class LayerModel: Codable, DictionaryInitializable {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: LayerModel.CodingKeys.self)
@@ -140,8 +128,6 @@ class LayerModel: Codable, DictionaryInitializable {
     hidden = (try? dictionary.value(for: CodingKeys.hidden)) ?? false
   }
 
-  // MARK: Internal
-
   /// The readable name of the layer
   let name: String
 
@@ -181,8 +167,6 @@ class LayerModel: Codable, DictionaryInitializable {
   let matte: MatteType?
 
   let hidden: Bool
-
-  // MARK: Fileprivate
 
   fileprivate enum CodingKeys: String, CodingKey {
     case name = "nm"

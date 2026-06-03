@@ -9,8 +9,6 @@ import Foundation
 
 import TelegramStringFormatting
 
-// MARK: - Currency protocols
-
 public protocol CurrencyFormatting {
     var maxDigitsCount: Int { get }
     var decimalDigits: Int { get set }
@@ -28,8 +26,6 @@ public protocol CurrencyAdjusting {
     func formattedStringWithAdjustedDecimalSeparator(from string: String) -> String?
     func formattedStringAdjustedToFitAllowedValues(from string: String) -> String?
 }
-
-// MARK: - Currency formatter
 
 public class CurrencyFormatter: CurrencyFormatting {
     
@@ -229,7 +225,6 @@ public class CurrencyFormatter: CurrencyFormatting {
         numberFormatter.string(from: 0) ?? "0.0"
     }
     
-    //MARK: - INIT
     
     /// Handler to initialize a new style.
     public typealias InitHandler = ((CurrencyFormatter) -> (Void))
@@ -252,7 +247,6 @@ public class CurrencyFormatter: CurrencyFormatting {
     }
 }
 
-// MARK: Format
 extension CurrencyFormatter {
     
     /// Returns a currency string from a given double value.
@@ -281,8 +275,6 @@ extension CurrencyFormatter {
         string.numeralFormat()
     }
 }
-
-// MARK: - Currency adjusting conformance
 
 extension CurrencyFormatter: CurrencyAdjusting {
 

@@ -8,8 +8,6 @@
 import Foundation
 import QuartzCore
 
-// MARK: - NodePropertyMap
-
 protocol NodePropertyMap {
   var properties: [AnyNodeProperty] { get }
 }

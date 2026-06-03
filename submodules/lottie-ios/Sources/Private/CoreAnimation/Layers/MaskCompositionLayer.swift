@@ -3,12 +3,8 @@
 
 import QuartzCore
 
-// MARK: - MaskCompositionLayer
-
 /// The CALayer type responsible for rendering the `Mask` of a `BaseCompositionLayer`
 final class MaskCompositionLayer: CALayer {
-
-  // MARK: Lifecycle
 
   init(masks: [Mask]) {
     maskLayers = masks.map(MaskLayer.init(mask:))
@@ -34,8 +30,6 @@ final class MaskCompositionLayer: CALayer {
     super.init(layer: typedLayer)
   }
 
-  // MARK: Internal
-
   override func layoutSublayers() {
     super.layoutSublayers()
 
@@ -44,13 +38,9 @@ final class MaskCompositionLayer: CALayer {
     }
   }
 
-  // MARK: Private
-
   private let maskLayers: [MaskLayer]
 
 }
-
-// MARK: AnimationLayer
 
 extension MaskCompositionLayer: AnimationLayer {
   func setupAnimations(context: LayerAnimationContext) throws {
@@ -60,12 +50,8 @@ extension MaskCompositionLayer: AnimationLayer {
   }
 }
 
-// MARK: - MaskLayer
-
 extension MaskCompositionLayer {
   final class MaskLayer: CAShapeLayer {
-
-    // MARK: Lifecycle
 
     init(mask: Mask) {
       maskModel = mask
@@ -88,14 +74,10 @@ extension MaskCompositionLayer {
       super.init(layer: typedLayer)
     }
 
-    // MARK: Private
-
     private let maskModel: Mask
 
   }
 }
-
-// MARK: - MaskCompositionLayer.MaskLayer + AnimationLayer
 
 extension MaskCompositionLayer.MaskLayer: AnimationLayer {
   func setupAnimations(context: LayerAnimationContext) throws {

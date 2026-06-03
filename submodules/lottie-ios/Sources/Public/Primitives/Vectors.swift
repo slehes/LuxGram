@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - Vector1D
-
 public struct Vector1D: Hashable {
 
   public init(_ value: Double) {
@@ -18,8 +16,6 @@ public struct Vector1D: Hashable {
   public let value: Double
 
 }
-
-// MARK: - Vector3D
 
 /// A three dimensional vector.
 /// These vectors are encoded and decoded from [Double]

@@ -4,11 +4,7 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - CachedImageProvider
-
 private final class CachedImageProvider: AnimationImageProvider {
-
-  // MARK: Lifecycle
 
   /// Initializes an image provider with an image provider
   ///
@@ -17,8 +13,6 @@ private final class CachedImageProvider: AnimationImageProvider {
   public init(imageProvider: AnimationImageProvider) {
     self.imageProvider = imageProvider
   }
-
-  // MARK: Public
 
   public func imageForAsset(asset: ImageAsset) -> CGImage? {
     if let image = imageCache.object(forKey: asset.id as NSString) {
@@ -30,8 +24,6 @@ private final class CachedImageProvider: AnimationImageProvider {
     }
     return nil
   }
-
-  // MARK: Internal
 
   let imageCache: NSCache<NSString, CGImage> = .init()
   let imageProvider: AnimationImageProvider

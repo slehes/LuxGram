@@ -3,12 +3,8 @@
 
 import QuartzCore
 
-// MARK: - ImageLayer
-
 /// The `CALayer` type responsible for rendering `ImageLayerModel`s
 final class ImageLayer: BaseCompositionLayer {
-
-  // MARK: Lifecycle
 
   init(
     imageLayer: ImageLayerModel,
@@ -34,8 +30,6 @@ final class ImageLayer: BaseCompositionLayer {
     super.init(layer: typedLayer)
   }
 
-  // MARK: Internal
-
   func setupImage(context: LayerContext) {
     guard
       let imageAsset = context.animation.assetLibrary?.imageAssets[imageLayer.referenceID],
@@ -51,14 +45,10 @@ final class ImageLayer: BaseCompositionLayer {
     setNeedsLayout()
   }
 
-  // MARK: Private
-
   private let imageLayer: ImageLayerModel
   private var imageAsset: ImageAsset?
 
 }
-
-// MARK: CustomLayoutLayer
 
 extension ImageLayer: CustomLayoutLayer {
   func layout(superlayerBounds: CGRect) {

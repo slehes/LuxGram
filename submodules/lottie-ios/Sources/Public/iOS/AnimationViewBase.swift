@@ -13,8 +13,6 @@ import UIKit
 /// Enables the `AnimationView` implementation to be shared across platforms.
 public class AnimationViewBase: UIView {
 
-  // MARK: Public
-
   public override var contentMode: UIView.ContentMode {
     didSet {
       setNeedsLayout()
@@ -30,8 +28,6 @@ public class AnimationViewBase: UIView {
     super.layoutSubviews()
     layoutAnimation()
   }
-
-  // MARK: Internal
 
   var viewLayer: CALayer? {
     layer

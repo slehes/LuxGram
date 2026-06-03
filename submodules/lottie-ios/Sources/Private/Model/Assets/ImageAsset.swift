@@ -7,11 +7,7 @@
 
 import Foundation
 
-// MARK: - ImageAsset
-
 public final class ImageAsset: Asset {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: ImageAsset.CodingKeys.self)
@@ -29,8 +25,6 @@ public final class ImageAsset: Asset {
     height = try dictionary.value(for: CodingKeys.height)
     try super.init(dictionary: dictionary)
   }
-
-  // MARK: Public
 
   /// Image name
   public let name: String
@@ -52,8 +46,6 @@ public final class ImageAsset: Asset {
     try container.encode(height, forKey: .height)
   }
 
-  // MARK: Internal
-
   enum CodingKeys: String, CodingKey {
     case name = "p"
     case directory = "u"
@@ -63,8 +55,6 @@ public final class ImageAsset: Asset {
 }
 
 extension Data {
-
-  // MARK: Lifecycle
 
   /// Initializes `Data` from an `ImageAsset`.
   ///
@@ -99,8 +89,6 @@ extension Data {
       try? self.init(contentsOf: url)
     }
   }
-
-  // MARK: Internal
 
   internal struct DataURLReadOptions: OptionSet {
     let rawValue: Int

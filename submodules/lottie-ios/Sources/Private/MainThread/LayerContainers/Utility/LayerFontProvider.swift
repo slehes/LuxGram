@@ -11,15 +11,11 @@ import Foundation
 /// Connects a LottieFontProvider to a group of text layers
 final class LayerFontProvider {
 
-  // MARK: Lifecycle
-
   init(fontProvider: AnimationFontProvider) {
     self.fontProvider = fontProvider
     textLayers = []
     reloadTexts()
   }
-
-  // MARK: Internal
 
   private(set) var textLayers: [TextCompositionLayer]
 

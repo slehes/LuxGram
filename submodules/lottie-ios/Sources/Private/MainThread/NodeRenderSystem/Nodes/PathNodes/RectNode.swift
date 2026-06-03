@@ -8,11 +8,7 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - RectNodeProperties
-
 final class RectNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(rectangle: Rectangle) {
     keypathName = rectangle.name
@@ -30,8 +26,6 @@ final class RectNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let keypathProperties: [String: AnyNodeProperty]
@@ -44,19 +38,13 @@ final class RectNodeProperties: NodePropertyMap, KeypathSearchable {
 
 }
 
-// MARK: - RectangleNode
-
 final class RectangleNode: AnimatorNode, PathNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, rectangle: Rectangle) {
     properties = RectNodeProperties(rectangle: rectangle)
     pathOutput = PathOutputNode(parent: parentNode?.outputNode)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let properties: RectNodeProperties
 
@@ -65,8 +53,6 @@ final class RectangleNode: AnimatorNode, PathNode {
   var hasLocalUpdates = false
   var hasUpstreamUpdates = false
   var lastUpdateFrame: CGFloat? = nil
-
-  // MARK: Animator Node
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     properties
@@ -89,8 +75,6 @@ final class RectangleNode: AnimatorNode, PathNode {
   }
 
 }
-
-// MARK: - BezierPath + rectangle
 
 extension BezierPath {
   /// Constructs a `BezierPath` in the shape of a rectangle, optionally with rounded corners

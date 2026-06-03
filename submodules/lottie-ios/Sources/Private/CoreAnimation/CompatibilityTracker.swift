@@ -1,8 +1,6 @@
 // Created by Cal Stephens on 5/4/22.
 // Copyright © 2022 Airbnb Inc. All rights reserved.
 
-// MARK: - CompatibilityIssue
-
 /// A compatibility issue that was encountered while setting up an animation with the Core Animation engine
 struct CompatibilityIssue: CustomStringConvertible {
   let message: String
@@ -13,18 +11,12 @@ struct CompatibilityIssue: CustomStringConvertible {
   }
 }
 
-// MARK: - CompatibilityTracker
-
 /// A type that tracks whether or not an animation is compatible with the Core Animation engine
 final class CompatibilityTracker {
-
-  // MARK: Lifecycle
 
   init(mode: Mode) {
     self.mode = mode
   }
-
-  // MARK: Internal
 
   /// How compatibility issues should be handled
   enum Mode {
@@ -78,16 +70,12 @@ final class CompatibilityTracker {
     issues = []
   }
 
-  // MARK: Private
-
   private let mode: Mode
 
   /// Compatibility issues encountered while setting up the animation
   private var issues = [CompatibilityIssue]()
 
 }
-
-// MARK: - CompatibilityTrackerProviding
 
 protocol CompatibilityTrackerProviding {
   var compatibilityTracker: CompatibilityTracker { get }
@@ -111,15 +99,11 @@ extension CompatibilityTrackerProviding {
   }
 }
 
-// MARK: - LayerContext + CompatibilityTrackerProviding
-
 extension LayerContext: CompatibilityTrackerProviding {
   var compatibilityIssueContext: String {
     layerName
   }
 }
-
-// MARK: - LayerAnimationContext + CompatibilityTrackerProviding
 
 extension LayerAnimationContext: CompatibilityTrackerProviding {
   var compatibilityIssueContext: String {

@@ -6,8 +6,6 @@ import UIKit
 
 extension CALayer {
 
-  // MARK: Internal
-
   /// Constructs a `CAKeyframeAnimation` that reflects the given keyframes,
   /// and adds it to this `CALayer`.
   @nonobjc
@@ -32,8 +30,6 @@ extension CALayer {
       add(defaultAnimation, timedWith: context)
     }
   }
-
-  // MARK: Private
 
   /// Constructs a `CAAnimation` that reflects the given keyframes
   ///  - If the value can be applied directly to the CALayer using KVC,

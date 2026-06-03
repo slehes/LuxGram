@@ -8,8 +8,6 @@ import PresentationDataUtils
 import AccountContext
 import SGSimpleSettings
 
-// MARK: - State
-
 private final class PluginCodeEditorStateHolder {
     var name: String
     var code: String
@@ -23,8 +21,6 @@ private struct PluginCodeEditorState: Equatable {
     var name: String
     var code: String
 }
-
-// MARK: - Entries
 
 private enum PluginCodeEditorEntry: ItemListNodeEntry {
     case nameInput(id: Int, text: String, placeholder: String)
@@ -93,8 +89,6 @@ private enum PluginCodeEditorEntry: ItemListNodeEntry {
     }
 }
 
-// MARK: - Arguments
-
 private final class PluginCodeEditorArguments {
     var updatedName: (String) -> Void = { _ in }
     var updatedCode: (String) -> Void = { _ in }
@@ -104,8 +98,6 @@ private final class PluginCodeEditorNavActions {
     var cancel: (() -> Void)?
     var done: (() -> Void)?
 }
-
-// MARK: - Entries builder
 
 private func pluginCodeEditorEntries(state: PluginCodeEditorState, presentationData: PresentationData) -> [PluginCodeEditorEntry] {
     let lang = presentationData.strings.baseLanguageCode
@@ -118,8 +110,6 @@ private func pluginCodeEditorEntries(state: PluginCodeEditorState, presentationD
     entries.append(.notice(id: 2, text: noticeText))
     return entries
 }
-
-// MARK: - Controller
 
 public func pluginCodeEditorController(context: AccountContext, existingPlugin: PluginInfo?, initialCode: String, onSave: @escaping (PluginInfo) -> Void) -> ViewController {
     let initialName = existingPlugin?.metadata.name ?? ""

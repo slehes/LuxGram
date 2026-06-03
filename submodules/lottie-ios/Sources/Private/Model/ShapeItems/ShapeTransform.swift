@@ -10,8 +10,6 @@ import Foundation
 /// An item that define an ellipse shape
 final class ShapeTransform: ShapeItem {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: ShapeTransform.CodingKeys.self)
     anchor = try container
@@ -87,8 +85,6 @@ final class ShapeTransform: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// Anchor Point
   let anchor: KeyframeGroup<Vector3D>
 
@@ -121,8 +117,6 @@ final class ShapeTransform: ShapeItem {
     try container.encode(skew, forKey: .skew)
     try container.encode(skewAxis, forKey: .skewAxis)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case anchor = "a"

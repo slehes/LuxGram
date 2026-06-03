@@ -4,12 +4,8 @@
 import Foundation
 import QuartzCore
 
-// MARK: - CoreAnimationLayer
-
 /// The root `CALayer` of the Core Animation rendering engine
 final class CoreAnimationLayer: BaseAnimationLayer {
-
-  // MARK: Lifecycle
 
   /// Initializes a `CALayer` that renders the given animation using `CAAnimation`s.
   ///  - This initializer is throwing, but will only throw when using
@@ -50,8 +46,6 @@ final class CoreAnimationLayer: BaseAnimationLayer {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   /// Timing-related configuration to apply to this layer's child `CAAnimation`s
   ///  - This is effectively a configurable subset of `CAMediaTiming`
@@ -148,8 +142,6 @@ final class CoreAnimationLayer: BaseAnimationLayer {
       }
     }
   }
-
-  // MARK: Private
 
   private struct AnimationConfiguration: Equatable {
     let animationContext: AnimationContext
@@ -285,8 +277,6 @@ final class CoreAnimationLayer: BaseAnimationLayer {
   }
 
 }
-
-// MARK: RootAnimationLayer
 
 extension CoreAnimationLayer: RootAnimationLayer {
 
@@ -446,8 +436,6 @@ extension CoreAnimationLayer: RootAnimationLayer {
   }
 
 }
-
-// MARK: - CALayer + allSublayers
 
 extension CALayer {
   /// All of the layers in the layer tree that are descendants from this later

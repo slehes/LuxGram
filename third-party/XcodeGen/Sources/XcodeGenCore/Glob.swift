@@ -104,19 +104,13 @@ public class Glob: Collection {
         clearCaches()
     }
 
-    // MARK: Subscript Support
-
     public subscript(i: Int) -> String {
         paths[i]
     }
 
-    // MARK: Protocol of IndexableBase
-
     public func index(after i: Int) -> Int {
         i + 1
     }
-
-    // MARK: Private
 
     private var globalFlags = GLOB_TILDE | GLOB_BRACE | GLOB_MARK
 

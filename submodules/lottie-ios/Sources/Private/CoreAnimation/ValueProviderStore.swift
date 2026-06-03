@@ -3,13 +3,9 @@
 
 import QuartzCore
 
-// MARK: - ValueProviderStore
-
 /// Registration and storage for `AnyValueProvider`s that can dynamically
 /// provide custom values for `AnimationKeypath`s within an `Animation`.
 final class ValueProviderStore {
-
-  // MARK: Internal
 
   /// Registers an `AnyValueProvider` for the given `AnimationKeypath`
   func setValueProvider(_ valueProvider: AnyValueProvider, keypath: AnimationKeypath) {
@@ -77,8 +73,6 @@ final class ValueProviderStore {
 
     return KeyframeGroup(keyframes: ContiguousArray(typedKeyframes))
   }
-
-  // MARK: Private
 
   private var valueProviders = [(keypath: AnimationKeypath, valueProvider: AnyValueProvider)]()
 

@@ -11,8 +11,6 @@ import QuartzCore
 
 final class ImageCompositionLayer: CompositionLayer {
 
-  // MARK: Lifecycle
-
   init(imageLayer: ImageLayerModel, size: CGSize) {
     imageReferenceID = imageLayer.referenceID
     super.init(layer: imageLayer, size: size)
@@ -33,8 +31,6 @@ final class ImageCompositionLayer: CompositionLayer {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   let imageReferenceID: String
 

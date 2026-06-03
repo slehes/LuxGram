@@ -26,10 +26,6 @@ import UIKit
 /// NOTE: Do not initialize directly. This is intended to be subclassed.
 open class AnimatedControl: UIControl {
 
-  // MARK: Lifecycle
-
-  // MARK: Initializers
-
   public init(
     animation: Animation,
     configuration: LottieConfiguration = .shared)
@@ -53,10 +49,6 @@ open class AnimatedControl: UIControl {
     super.init(coder: aDecoder)
     commonInit()
   }
-
-  // MARK: Open
-
-  // MARK: UIControl Overrides
 
   open override var isEnabled: Bool {
     didSet {
@@ -104,8 +96,6 @@ open class AnimatedControl: UIControl {
 
   }
 
-  // MARK: Public
-
   /// The animation view in which the animation is rendered.
   public let animationView: AnimationView
 
@@ -137,8 +127,6 @@ open class AnimatedControl: UIControl {
     animationView.setValueProvider(valueProvider, keypath: keypath)
   }
 
-  // MARK: Internal
-
   var stateMap: [UInt: String] = [:]
 
   func updateForState() {
@@ -157,8 +145,6 @@ open class AnimatedControl: UIControl {
       }
     }
   }
-
-  // MARK: Fileprivate
 
   fileprivate func commonInit() {
     animationView.clipsToBounds = false

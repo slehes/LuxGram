@@ -10,8 +10,6 @@ import QuartzCore
 
 final class PreCompositionLayer: CompositionLayer {
 
-  // MARK: Lifecycle
-
   init(
     precomp: PreCompLayerModel,
     asset: PrecompAsset,
@@ -87,8 +85,6 @@ final class PreCompositionLayer: CompositionLayer {
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: Internal
-
   let frameRate: CGFloat
   let remappingNode: NodeProperty<Vector1D>?
 
@@ -114,8 +110,6 @@ final class PreCompositionLayer: CompositionLayer {
     super.updateRenderScale()
     animationLayers.forEach( { $0.renderScale = renderScale } )
   }
-
-  // MARK: Fileprivate
 
   fileprivate var animationLayers: [CompositionLayer]
 }

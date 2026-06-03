@@ -3,12 +3,8 @@
 
 import QuartzCore
 
-// MARK: - BaseCompositionLayer
-
 /// The base type of `AnimationLayer` that can contain other `AnimationLayer`s
 class BaseCompositionLayer: BaseAnimationLayer {
-
-  // MARK: Lifecycle
 
   init(layerModel: LayerModel) {
     baseLayerModel = layerModel
@@ -33,8 +29,6 @@ class BaseCompositionLayer: BaseAnimationLayer {
     baseLayerModel = typedLayer.baseLayerModel
     super.init(layer: typedLayer)
   }
-
-  // MARK: Internal
 
   /// Whether or not this layer render should render any visible content
   var renderLayerContents: Bool { true }
@@ -70,8 +64,6 @@ class BaseCompositionLayer: BaseAnimationLayer {
   func setupChildAnimations(context: LayerAnimationContext) throws {
     try super.setupAnimations(context: context)
   }
-
-  // MARK: Private
 
   private let baseLayerModel: LayerModel
 

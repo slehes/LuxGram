@@ -9,8 +9,6 @@
 //
 //===----------------------------------------------------------------------===//
 
-// MARK: _rotate(in:shiftingToStart:)
-
 extension MutableCollection {
   /// Rotates the elements of the collection so that the element at `middle`
   /// ends up first.
@@ -114,8 +112,6 @@ extension MutableCollection {
   }
 }
 
-// MARK: - _stablePartition(count:range:by:)
-
 extension MutableCollection {
   /// Moves all elements satisfying `belongsInSecondPartition` into a suffix
   /// of the collection, preserving their relative order, and returns the
@@ -177,8 +173,6 @@ extension MutableCollection {
     return _rotate(in: j..<k, shiftingToStart: i)
   }
 }
-
-// MARK: - partitioningIndex(where:)
 
 extension Collection {
   /// Returns the index of the first element in the collection that matches

@@ -11,8 +11,6 @@ import Foundation
 /// A single vertex with an in and out tangent
 struct CurveVertex {
 
-  // MARK: Lifecycle
-
   /// Initializes a curve point with absolute values
   init(_ inTangent: CGPoint, _ point: CGPoint, _ outTangent: CGPoint) {
     self.point = point
@@ -33,8 +31,6 @@ struct CurveVertex {
     self.inTangent = inTangent
     self.outTangent = outTangent
   }
-
-  // MARK: Internal
 
   let point: CGPoint
 

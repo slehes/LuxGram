@@ -10,8 +10,6 @@ import Foundation
 /// A `ValueProvider` that returns a CGPoint Value
 public final class PointValueProvider: ValueProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes with a block provider
   public init(block: @escaping PointValueBlock) {
     self.block = block
@@ -25,8 +23,6 @@ public final class PointValueProvider: ValueProvider {
     hasUpdate = true
   }
 
-  // MARK: Public
-
   /// Returns a CGPoint for a CGFloat(Frame Time)
   public typealias PointValueBlock = (CGFloat) -> CGPoint
 
@@ -35,8 +31,6 @@ public final class PointValueProvider: ValueProvider {
       hasUpdate = true
     }
   }
-
-  // MARK: ValueProvider Protocol
 
   public var valueType: Any.Type {
     Vector3D.self
@@ -60,8 +54,6 @@ public final class PointValueProvider: ValueProvider {
     }
     return hasUpdate
   }
-
-  // MARK: Private
 
   private var hasUpdate = true
 

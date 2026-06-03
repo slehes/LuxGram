@@ -348,8 +348,6 @@ class SliderPercentageItemNode: ListViewItemNode {
     }
 }
 
-// MARK: - SliderDelaySecondsItem (Ghost mode: message send delay 0 / 12 / 30 / 45 sec)
-
 private let kDelaySecondsValues: [Int32] = [0, 12, 30, 45]
 
 private func indexForDelaySeconds(_ value: Int32) -> Int {
@@ -551,8 +549,6 @@ class SliderDelaySecondsItemNode: ListViewItemNode {
         item.updated(delaySecondsForIndex(idx))
     }
 }
-
-// MARK: - SliderFontSizeMultiplierItem (50–150%)
 
 public class SliderFontSizeMultiplierItem: ListViewItem, ItemListItem {
     let theme: PresentationTheme

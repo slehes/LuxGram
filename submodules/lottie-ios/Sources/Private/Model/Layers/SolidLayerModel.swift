@@ -10,8 +10,6 @@ import Foundation
 /// A layer that holds a solid color.
 final class SolidLayerModel: LayerModel {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: SolidLayerModel.CodingKeys.self)
     colorHex = try container.decode(String.self, forKey: .colorHex)
@@ -26,8 +24,6 @@ final class SolidLayerModel: LayerModel {
     height = try dictionary.value(for: CodingKeys.height)
     try super.init(dictionary: dictionary)
   }
-
-  // MARK: Internal
 
   /// The color of the solid in Hex // Change to value provider.
   let colorHex: String
@@ -45,8 +41,6 @@ final class SolidLayerModel: LayerModel {
     try container.encode(width, forKey: .width)
     try container.encode(height, forKey: .height)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case colorHex = "sc"

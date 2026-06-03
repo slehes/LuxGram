@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - ShapeType + ClassFamily
-
 /// Used for mapping a heterogeneous list to classes for parsing.
 extension ShapeType: ClassFamily {
 
@@ -48,8 +46,6 @@ extension ShapeType: ClassFamily {
   }
 }
 
-// MARK: - ShapeType
-
 enum ShapeType: String, Codable {
   case ellipse = "el"
   case fill = "fl"
@@ -72,12 +68,8 @@ enum ShapeType: String, Codable {
   }
 }
 
-// MARK: - ShapeItem
-
 /// An item belonging to a Shape Layer
 class ShapeItem: Codable, DictionaryInitializable {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: ShapeItem.CodingKeys.self)
@@ -102,8 +94,6 @@ class ShapeItem: Codable, DictionaryInitializable {
     self.hidden = hidden
   }
 
-  // MARK: Internal
-
   /// The name of the shape
   let name: String
 
@@ -111,8 +101,6 @@ class ShapeItem: Codable, DictionaryInitializable {
   let type: ShapeType
 
   let hidden: Bool
-
-  // MARK: Fileprivate
 
   fileprivate enum CodingKeys: String, CodingKey {
     case name = "nm"

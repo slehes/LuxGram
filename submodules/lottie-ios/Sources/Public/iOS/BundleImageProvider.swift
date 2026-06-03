@@ -14,8 +14,6 @@ import UIKit
 /// The BundleImageProvider is initialized with a bundle and an optional searchPath.
 public class BundleImageProvider: AnimationImageProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes an image provider with a bundle and an optional subpath.
   ///
   /// Provides images for an animation from a bundle. Additionally the provider can
@@ -28,8 +26,6 @@ public class BundleImageProvider: AnimationImageProvider {
     self.bundle = bundle
     self.searchPath = searchPath
   }
-
-  // MARK: Public
 
   public func imageForAsset(asset: ImageAsset) -> CGImage? {
 
@@ -81,8 +77,6 @@ public class BundleImageProvider: AnimationImageProvider {
     }
     return image.cgImage
   }
-
-  // MARK: Internal
 
   let bundle: Bundle
   let searchPath: String?

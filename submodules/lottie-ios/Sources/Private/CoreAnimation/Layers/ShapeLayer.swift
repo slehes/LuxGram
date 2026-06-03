@@ -3,12 +3,8 @@
 
 import QuartzCore
 
-// MARK: - ShapeLayer
-
 /// The CALayer type responsible for rendering `ShapeLayerModel`s
 final class ShapeLayer: BaseCompositionLayer {
-
-  // MARK: Lifecycle
 
   init(shapeLayer: ShapeLayerModel, context: LayerContext) throws {
     self.shapeLayer = shapeLayer
@@ -31,18 +27,12 @@ final class ShapeLayer: BaseCompositionLayer {
     super.init(layer: typedLayer)
   }
 
-  // MARK: Private
-
   private let shapeLayer: ShapeLayerModel
 
 }
 
-// MARK: - GroupLayer
-
 /// The CALayer type responsible for rendering `Group`s
 final class GroupLayer: BaseAnimationLayer {
-
-  // MARK: Lifecycle
 
   init(group: Group, inheritedItems: [ShapeItemLayer.Item], context: LayerContext) throws {
     self.group = group
@@ -67,8 +57,6 @@ final class GroupLayer: BaseAnimationLayer {
     super.init(layer: typedLayer)
   }
 
-  // MARK: Internal
-
   override func setupAnimations(context: LayerAnimationContext) throws {
     try super.setupAnimations(context: context)
 
@@ -77,8 +65,6 @@ final class GroupLayer: BaseAnimationLayer {
       try addOpacityAnimation(for: shapeTransform, context: context)
     }
   }
-
-  // MARK: Private
 
   private let group: Group
 
@@ -236,8 +222,6 @@ extension Collection {
     return (trueElements, falseElements)
   }
 }
-
-// MARK: - ShapeRenderGroup
 
 /// A group of `ShapeItem`s that should be rendered together as a single unit
 struct ShapeRenderGroup {

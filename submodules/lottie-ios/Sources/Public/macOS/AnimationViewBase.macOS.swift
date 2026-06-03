@@ -29,8 +29,6 @@ public enum LottieContentMode: Int {
 /// Enables the `AnimationView` implementation to be shared across platforms.
 public class AnimationViewBase: NSView {
 
-  // MARK: Public
-
   public override var wantsUpdateLayer: Bool {
     true
   }
@@ -57,8 +55,6 @@ public class AnimationViewBase: NSView {
     layoutAnimation()
     CATransaction.commit()
   }
-
-  // MARK: Internal
 
   var screenScale: CGFloat {
     NSApp.mainWindow?.backingScaleFactor ?? 1

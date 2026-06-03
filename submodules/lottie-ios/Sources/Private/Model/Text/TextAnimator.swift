@@ -9,8 +9,6 @@ import Foundation
 
 final class TextAnimator: Codable, DictionaryInitializable {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: TextAnimator.CodingKeys.self)
     name = try container.decodeIfPresent(String.self, forKey: .name) ?? ""
@@ -89,8 +87,6 @@ final class TextAnimator: Codable, DictionaryInitializable {
     }
   }
 
-  // MARK: Internal
-
   let name: String
 
   /// Anchor
@@ -134,8 +130,6 @@ final class TextAnimator: Codable, DictionaryInitializable {
     try animatorContainer.encodeIfPresent(strokeWidth, forKey: .strokeWidth)
     try animatorContainer.encodeIfPresent(tracking, forKey: .tracking)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
 //    case textSelector = "s" TODO

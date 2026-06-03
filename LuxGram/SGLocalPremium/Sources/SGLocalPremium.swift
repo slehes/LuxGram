@@ -9,8 +9,6 @@ public class SGLocalPremium {
 
     private init() {}
 
-    // MARK: - Account Configuration
-
     public func setAccountPeerId(_ peerId: Int64, namespace: Int32) {
         self.currentAccountId = "\(namespace)_\(peerId)"
         self.currentAccountPeerId = (id: peerId, namespace: namespace)
@@ -23,8 +21,6 @@ public class SGLocalPremium {
         return "\(key)_\(accountId)"
     }
 
-    // MARK: - Main Setting (Per-Account)
-
     public var emulatePremium: Bool {
         get {
             return UserDefaults.standard.bool(forKey: accountKey("localPremiumEmulate"))
@@ -35,8 +31,6 @@ public class SGLocalPremium {
         }
     }
 
-    // MARK: - Computed Properties
-
     public var showPremiumBadge: Bool { return emulatePremium }
     public var unlimitedPinnedChats: Bool { return emulatePremium }
     public var unlimitedFolders: Bool { return emulatePremium }
@@ -44,8 +38,6 @@ public class SGLocalPremium {
     public var unlimitedSavedMessageTags: Bool { return emulatePremium }
     public var allowFolderReordering: Bool { return emulatePremium }
     public var shouldDisableServerSync: Bool { return emulatePremium }
-
-    // MARK: - Limit Overrides
 
     public func getMaxPinnedChatCount(_ original: Int32) -> Int32 {
         if unlimitedPinnedChats {
@@ -67,8 +59,6 @@ public class SGLocalPremium {
         }
         return original
     }
-
-    // MARK: - Folder Reordering
 
     public func canReorderAllChats(isPremium: Bool) -> Bool {
         if isPremium {

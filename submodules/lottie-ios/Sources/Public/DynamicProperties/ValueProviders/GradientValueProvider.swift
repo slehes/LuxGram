@@ -11,8 +11,6 @@ import Foundation
 /// A `ValueProvider` that returns a Gradient Color Value.
 public final class GradientValueProvider: ValueProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes with a block provider.
   public init(
     block: @escaping ColorsValueBlock,
@@ -35,8 +33,6 @@ public final class GradientValueProvider: ValueProvider {
     hasUpdate = true
   }
 
-  // MARK: Public
-
   /// Returns a [Color] for a CGFloat(Frame Time).
   public typealias ColorsValueBlock = (CGFloat) -> [Color]
   /// Returns a [Double](Color locations) for a CGFloat(Frame Time).
@@ -57,8 +53,6 @@ public final class GradientValueProvider: ValueProvider {
       hasUpdate = true
     }
   }
-
-  // MARK: ValueProvider Protocol
 
   public var valueType: Any.Type {
     [Double].self
@@ -84,8 +78,6 @@ public final class GradientValueProvider: ValueProvider {
     }
     return hasUpdate
   }
-
-  // MARK: Private
 
   private var hasUpdate = true
 

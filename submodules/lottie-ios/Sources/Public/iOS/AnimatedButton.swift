@@ -11,8 +11,6 @@ import UIKit
 /// An interactive button that plays an animation when pressed.
 open class AnimatedButton: AnimatedControl {
 
-  // MARK: Lifecycle
-
   public override init(
     animation: Animation,
     configuration: LottieConfiguration = .shared)
@@ -29,8 +27,6 @@ open class AnimatedButton: AnimatedControl {
   required public init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
   }
-
-  // MARK: Public
 
   /// Sets the play range for the given UIControlEvent.
   public func setPlayRange(fromProgress: AnimationProgressTime, toProgress: AnimationProgressTime, event: UIControl.Event) {
@@ -69,8 +65,6 @@ open class AnimatedButton: AnimatedControl {
       animationView.play(fromProgress: playrange.from, toProgress: playrange.to, loopMode: LottieLoopMode.playOnce)
     }
   }
-
-  // MARK: Fileprivate
 
   fileprivate var rangesForEvents: [UInt : (from: CGFloat, to: CGFloat)] =
     [UIControl.Event.touchUpInside.rawValue : (from: 0, to: 1)]

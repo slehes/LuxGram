@@ -3,8 +3,6 @@
 
 import QuartzCore
 
-// MARK: - CALayer + fillBoundsOfSuperlayer
-
 extension CALayer {
   /// Updates the `bounds` of this layer to fill the bounds of its `superlayer`
   /// without setting `frame` (which is not permitted if the layer can rotate)
@@ -26,8 +24,6 @@ extension CALayer {
     }
   }
 }
-
-// MARK: - CustomLayoutLayer
 
 /// A `CALayer` that sets a custom `bounds` and `anchorPoint` relative to its superlayer
 protocol CustomLayoutLayer: CALayer {

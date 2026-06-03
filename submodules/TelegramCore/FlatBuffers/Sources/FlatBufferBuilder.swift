@@ -102,8 +102,6 @@ public struct FlatBufferBuilder {
       count: Int(_bb.size))
   }
 
-  // MARK: - Init
-
   /// Initialize the buffer with a size
   /// - Parameters:
   ///   - initialSize: Initial size for the buffer
@@ -134,8 +132,6 @@ public struct FlatBufferBuilder {
     _vtableStorage.clear()
     _bb.clear()
   }
-
-  // MARK: - Create Tables
 
   /// Checks if the required fields were serialized into the buffer
   /// - Parameters:
@@ -308,8 +304,6 @@ public struct FlatBufferBuilder {
     return vTableOffset
   }
 
-  // MARK: - Builds Buffer
-
   /// Asserts to see if the object is not nested
   @inline(__always)
   @usableFromInline
@@ -382,8 +376,6 @@ public struct FlatBufferBuilder {
   mutating internal func track(offset: UOffset, at position: VOffset) {
     _vtableStorage.add(loc: (offset: offset, position: position))
   }
-
-  // MARK: - Inserting Vectors
 
   /// ``startVector(_:elementSize:)`` creates a new vector within buffer
   ///
@@ -623,8 +615,6 @@ public struct FlatBufferBuilder {
     return endVector(len: structs.count)
   }
 
-  // MARK: - Inserting Structs
-
   /// Writes a ``NativeStruct`` into the ``ByteBuffer``
   ///
   /// Adds a native struct that's build and padded according
@@ -675,8 +665,6 @@ public struct FlatBufferBuilder {
     _bb.push(struct: s, size: size)
     return Offset(offset: _bb.size)
   }
-
-  // MARK: - Inserting Strings
 
   /// Insets a string into the buffer of type `UTF8`
   ///
@@ -732,8 +720,6 @@ public struct FlatBufferBuilder {
     return offset
   }
 
-  // MARK: - Inseting offsets
-
   /// Writes the ``Offset`` of an already written table
   ///
   /// Writes the ``Offset`` of a table if not empty into the
@@ -756,8 +742,6 @@ public struct FlatBufferBuilder {
   mutating public func push(element o: Offset) -> UOffset {
     push(element: refer(to: o.o))
   }
-
-  // MARK: - Inserting Scalars to Buffer
 
   /// Writes a ``Scalar`` value into ``ByteBuffer``
   ///

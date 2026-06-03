@@ -9,8 +9,6 @@ import Foundation
 
 extension AnimationView {
 
-  // MARK: Lifecycle
-
   /// Loads a Lottie animation from a JSON file in the supplied bundle.
   ///
   /// - Parameter name: The string name of the lottie animation with no file
@@ -94,13 +92,9 @@ extension AnimationView {
     self.init(animation: animation, imageProvider: provider)
   }
 
-  // MARK: Public
-
   public typealias DownloadClosure = (Error?) -> Void
 
 }
-
-// MARK: - LottieDownloadError
 
 enum LottieDownloadError: Error {
   case downloadFailed

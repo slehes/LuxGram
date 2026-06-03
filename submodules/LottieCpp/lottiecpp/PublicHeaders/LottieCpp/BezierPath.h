@@ -71,7 +71,6 @@ public:
     ///
     std::vector<std::shared_ptr<BezierPathContents>> trim(float fromLength, float toLength, float offsetLength);
     
-    // MARK: Private
     
     std::vector<std::shared_ptr<BezierPathContents>> trimPathAtLengths(std::vector<BezierTrimPathPosition> const &positions);
 };

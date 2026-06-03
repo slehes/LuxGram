@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - GradientFillProperties
-
 final class GradientFillProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(gradientfill: GradientFill) {
     keypathName = gradientfill.name
@@ -31,8 +27,6 @@ final class GradientFillProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let opacity: NodeProperty<Vector1D>
@@ -48,19 +42,13 @@ final class GradientFillProperties: NodePropertyMap, KeypathSearchable {
 
 }
 
-// MARK: - GradientFillNode
-
 final class GradientFillNode: AnimatorNode, RenderNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, gradientFill: GradientFill) {
     fillRender = GradientFillRenderer(parent: parentNode?.outputNode)
     fillProperties = GradientFillProperties(gradientfill: gradientFill)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let fillRender: GradientFillRenderer
 
@@ -74,8 +62,6 @@ final class GradientFillNode: AnimatorNode, RenderNode {
   var renderer: NodeOutput & Renderable {
     fillRender
   }
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     fillProperties

@@ -7,7 +7,6 @@ private let serviceName = "LuxGramDoubleBottom"
 private let secretPasscodeAccountKey = "secret"
 
 public enum DoubleBottomPasscodeStore {
-    // MARK: - Secret passcode (second password -> show only 1 account)
 
     public static func setSecretPasscode(_ passcode: String) {
         let data = passcode.data(using: .utf8)!
@@ -58,8 +57,6 @@ public enum DoubleBottomPasscodeStore {
         }
         return string
     }
-
-    // MARK: - Per-account passcodes (hidden accounts)
 
     public static func setPasscode(_ passcode: String, forAccountId accountId: Int64) {
         let account = "\(accountId)"

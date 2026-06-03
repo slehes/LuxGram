@@ -41,11 +41,7 @@ extension TextJustification {
   }
 }
 
-// MARK: - TextCompositionLayer
-
 final class TextCompositionLayer: CompositionLayer {
-
-  // MARK: Lifecycle
 
   init(textLayer: TextLayerModel, textProvider: AnimationTextProvider, fontProvider: AnimationFontProvider) {
     var rootNode: TextAnimatorNode?
@@ -85,8 +81,6 @@ final class TextCompositionLayer: CompositionLayer {
 
     super.init(layer: layer)
   }
-
-  // MARK: Internal
 
   let rootNode: TextAnimatorNode?
   let textDocument: KeyframeInterpolator<TextDocument>?

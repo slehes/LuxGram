@@ -14,13 +14,9 @@ import DoubleBottom
 import SGSimpleSettings
 import TelegramStringFormatting
 
-// MARK: - Section (Nicegram: DoubleBottomControllerSection)
-
 private enum DoubleBottomControllerSection: Int32 {
     case isOn = 0
 }
-
-// MARK: - Entry (Nicegram: isOn + info)
 
 private enum DoubleBottomEntry: ItemListNodeEntry {
     case isOn(String, Bool, Bool)  // title, value, enabled
@@ -71,8 +67,6 @@ private enum DoubleBottomEntry: ItemListNodeEntry {
     }
 }
 
-// MARK: - Arguments (Nicegram: DoubleBottomControllerArguments)
-
 private final class DoubleBottomArguments {
     let context: AccountContext
     let updated: (Bool) -> Void
@@ -81,8 +75,6 @@ private final class DoubleBottomArguments {
         self.updated = updated
     }
 }
-
-// MARK: - Controller (logic from Nicegram DoubleBottomListController)
 
 public func doubleBottomSettingsController(context: AccountContext) -> ViewController {
     let lang = context.sharedContext.currentPresentationData.with { $0 }.strings.baseLanguageCode
@@ -179,8 +171,6 @@ public func doubleBottomSettingsController(context: AccountContext) -> ViewContr
 
     return ItemListController(context: context, state: signal)
 }
-
-// MARK: - Passcode check (Nicegram: check(passcode:challengeData:) for device passcode validation)
 
 public func doubleBottomCheckPasscode(_ passcode: String, challengeData: PostboxAccessChallengeData) -> Bool {
     let passcodeType: PasscodeEntryFieldType

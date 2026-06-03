@@ -29,11 +29,7 @@ extension MaskMode {
   }
 }
 
-// MARK: - MaskContainerLayer
-
 final class MaskContainerLayer: CALayer {
-
-  // MARK: Lifecycle
 
   init(masks: [Mask]) {
     super.init()
@@ -70,13 +66,9 @@ final class MaskContainerLayer: CALayer {
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: Internal
-
   func updateWithFrame(frame: CGFloat, forceUpdates: Bool) {
     maskLayers.forEach({ $0.updateWithFrame(frame: frame, forceUpdates: forceUpdates) })
   }
-
-  // MARK: Fileprivate
 
   fileprivate var maskLayers: [MaskLayer] = []
 }
@@ -91,11 +83,7 @@ extension CGRect {
   }
 }
 
-// MARK: - MaskLayer
-
 private class MaskLayer: CALayer {
-
-  // MARK: Lifecycle
 
   init(mask: Mask) {
     properties = MaskNodeProperties(mask: mask)
@@ -120,8 +108,6 @@ private class MaskLayer: CALayer {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   let properties: MaskNodeProperties?
 
@@ -156,11 +142,7 @@ private class MaskLayer: CALayer {
   }
 }
 
-// MARK: - MaskNodeProperties
-
 private class MaskNodeProperties: NodePropertyMap {
-
-  // MARK: Lifecycle
 
   init(mask: Mask) {
     mode = mask.mode
@@ -175,8 +157,6 @@ private class MaskNodeProperties: NodePropertyMap {
     ]
     properties = Array(propertyMap.values)
   }
-
-  // MARK: Internal
 
   var propertyMap: [String: AnyNodeProperty]
 

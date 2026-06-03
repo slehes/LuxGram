@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - Renderer
-
 final class GradientStrokeRenderer: PassThroughOutputNode, Renderable {
-
-  // MARK: Lifecycle
 
   override init(parent: NodeOutput?) {
     strokeRender = StrokeRenderer(parent: nil)
@@ -20,8 +16,6 @@ final class GradientStrokeRenderer: PassThroughOutputNode, Renderable {
     strokeRender.color = CGColor(colorSpace: CGColorSpaceCreateDeviceRGB(), components: [1, 1, 1, 1])
     super.init(parent: parent)
   }
-
-  // MARK: Internal
 
   var shouldRenderInContext = true
 

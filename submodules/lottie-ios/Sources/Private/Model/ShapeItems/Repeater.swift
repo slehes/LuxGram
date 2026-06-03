@@ -10,8 +10,6 @@ import Foundation
 /// An item that define an ellipse shape
 final class Repeater: ShapeItem {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Repeater.CodingKeys.self)
     copies = try container.decodeIfPresent(KeyframeGroup<Vector1D>.self, forKey: .copies) ?? KeyframeGroup(Vector1D(0))
@@ -77,8 +75,6 @@ final class Repeater: ShapeItem {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The number of copies to repeat
   let copies: KeyframeGroup<Vector1D>
 
@@ -116,8 +112,6 @@ final class Repeater: ShapeItem {
     try transformContainer.encode(anchorPoint, forKey: .anchorPoint)
     try transformContainer.encode(scale, forKey: .scale)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case copies = "c"

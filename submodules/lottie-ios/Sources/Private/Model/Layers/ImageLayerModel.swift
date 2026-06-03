@@ -10,8 +10,6 @@ import Foundation
 /// A layer that holds an image.
 final class ImageLayerModel: LayerModel {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: ImageLayerModel.CodingKeys.self)
     referenceID = try container.decode(String.self, forKey: .referenceID)
@@ -23,8 +21,6 @@ final class ImageLayerModel: LayerModel {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The reference ID of the image.
   let referenceID: String
 
@@ -33,8 +29,6 @@ final class ImageLayerModel: LayerModel {
     var container = encoder.container(keyedBy: CodingKeys.self)
     try container.encode(referenceID, forKey: .referenceID)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case referenceID = "refId"

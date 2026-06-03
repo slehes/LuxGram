@@ -7,8 +7,6 @@
 
 import Foundation
 
-// MARK: - MaskMode
-
 enum MaskMode: String, Codable {
   case add = "a"
   case subtract = "s"
@@ -19,11 +17,7 @@ enum MaskMode: String, Codable {
   case none = "n"
 }
 
-// MARK: - Mask
-
 final class Mask: Codable, DictionaryInitializable {
-
-  // MARK: Lifecycle
 
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Mask.CodingKeys.self)
@@ -57,8 +51,6 @@ final class Mask: Codable, DictionaryInitializable {
       expansion = KeyframeGroup(Vector1D(0))
     }
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case mode

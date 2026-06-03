@@ -9,8 +9,6 @@ import Foundation
 
 final class AssetLibrary: Codable, AnyInitializable {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     var container = try decoder.unkeyedContainer()
     var containerForKeys = container
@@ -59,8 +57,6 @@ final class AssetLibrary: Codable, AnyInitializable {
     self.precompAssets = precompAssets
     self.imageAssets = imageAssets
   }
-
-  // MARK: Internal
 
   /// The Assets
   let assets: [String: Asset]

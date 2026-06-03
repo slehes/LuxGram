@@ -1,8 +1,6 @@
 // Created by Cal Stephens on 12/13/21.
 // Copyright © 2021 Airbnb Inc. All rights reserved.
 
-// MARK: - LottieConfiguration
-
 /// Global configuration options for Lottie animations
 public struct LottieConfiguration: Hashable {
 
@@ -26,8 +24,6 @@ public struct LottieConfiguration: Hashable {
 
 }
 
-// MARK: - RenderingEngineOption
-
 public enum RenderingEngineOption: Hashable {
   /// Uses the Core Animation engine for supported animations, and falls back to using
   /// the Main Thread engine for animations that use features not supported by the
@@ -48,8 +44,6 @@ public enum RenderingEngineOption: Hashable {
   public static var coreAnimation: RenderingEngineOption { .specific(.coreAnimation) }
 }
 
-// MARK: - RenderingEngine
-
 /// The rendering engine implementation to use when displaying an animation
 public enum RenderingEngine: Hashable {
   /// The Main Thread rendering engine, which supports all Lottie features
@@ -63,11 +57,7 @@ public enum RenderingEngine: Hashable {
   case coreAnimation
 }
 
-// MARK: - RenderingEngineOption + RawRepresentable, CustomStringConvertible
-
 extension RenderingEngineOption: RawRepresentable, CustomStringConvertible {
-
-  // MARK: Lifecycle
 
   public init?(rawValue: String) {
     if rawValue == "Automatic" {
@@ -78,8 +68,6 @@ extension RenderingEngineOption: RawRepresentable, CustomStringConvertible {
       return nil
     }
   }
-
-  // MARK: Public
 
   public var rawValue: String {
     switch self {
@@ -96,11 +84,7 @@ extension RenderingEngineOption: RawRepresentable, CustomStringConvertible {
 
 }
 
-// MARK: - RenderingEngine + RawRepresentable, CustomStringConvertible
-
 extension RenderingEngine: RawRepresentable, CustomStringConvertible {
-
-  // MARK: Lifecycle
 
   public init?(rawValue: String) {
     switch rawValue {
@@ -112,8 +96,6 @@ extension RenderingEngine: RawRepresentable, CustomStringConvertible {
       return nil
     }
   }
-
-  // MARK: Public
 
   public var rawValue: String {
     switch self {
@@ -128,8 +110,6 @@ extension RenderingEngine: RawRepresentable, CustomStringConvertible {
     rawValue
   }
 }
-
-// MARK: - DecodingStrategy
 
 /// How animation files should be decoded
 public enum DecodingStrategy: Hashable {

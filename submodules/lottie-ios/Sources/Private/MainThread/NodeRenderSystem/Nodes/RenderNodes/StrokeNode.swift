@@ -8,11 +8,7 @@
 import Foundation
 import QuartzCore
 
-// MARK: - StrokeNodeProperties
-
 final class StrokeNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(stroke: Stroke) {
     keypathName = stroke.name
@@ -45,8 +41,6 @@ final class StrokeNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   let keypathName: String
   let keypathProperties: [String: AnyNodeProperty]
   let properties: [AnyNodeProperty]
@@ -64,20 +58,14 @@ final class StrokeNodeProperties: NodePropertyMap, KeypathSearchable {
 
 }
 
-// MARK: - StrokeNode
-
 /// Node that manages stroking a path
 final class StrokeNode: AnimatorNode, RenderNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, stroke: Stroke) {
     strokeRender = StrokeRenderer(parent: parentNode?.outputNode)
     strokeProperties = StrokeNodeProperties(stroke: stroke)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let strokeRender: StrokeRenderer
 
@@ -91,8 +79,6 @@ final class StrokeNode: AnimatorNode, RenderNode {
   var renderer: NodeOutput & Renderable {
     strokeRender
   }
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     strokeProperties
@@ -128,8 +114,6 @@ final class StrokeNode: AnimatorNode, RenderNode {
   }
 
 }
-
-// MARK: - [DashElement] + shapeLayerConfiguration
 
 extension Array where Element == DashElement {
   typealias ShapeLayerConfiguration = (

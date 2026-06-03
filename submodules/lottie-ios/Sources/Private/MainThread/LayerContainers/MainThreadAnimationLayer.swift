@@ -9,15 +9,11 @@ import Foundation
 import QuartzCore
 import UIKit
 
-// MARK: - MainThreadAnimationLayer
-
 /// The base `CALayer` for the Main Thread rendering engine
 ///
 /// This layer holds a single composition container and allows for animation of
 /// the currentFrame property.
 final class MainThreadAnimationLayer: CALayer, RootAnimationLayer {
-
-  // MARK: Lifecycle
 
   init(
     animation: Animation,
@@ -95,11 +91,7 @@ final class MainThreadAnimationLayer: CALayer, RootAnimationLayer {
     fatalError("init(coder:) has not been implemented")
   }
 
-  // MARK: Public
-
   public var respectAnimationFrameRate = false
-
-  // MARK: CALayer Animations
 
   override public class func needsDisplay(forKey key: String) -> Bool {
     if key == "currentFrame" {
@@ -135,8 +127,6 @@ final class MainThreadAnimationLayer: CALayer, RootAnimationLayer {
     }
     animationLayers.forEach { $0.displayWithFrame(frame: newFrame, forceUpdates: false) }
   }
-
-  // MARK: Internal
 
   /// The animatable Current Frame Property
   @NSManaged var currentFrame: CGFloat
@@ -271,14 +261,10 @@ final class MainThreadAnimationLayer: CALayer, RootAnimationLayer {
     return results
   }
 
-  // MARK: Fileprivate
-
   fileprivate let layerImageProvider: LayerImageProvider
   fileprivate let layerTextProvider: LayerTextProvider
   fileprivate let layerFontProvider: LayerFontProvider
 }
-
-// MARK: - BlankImageProvider
 
 private class BlankImageProvider: AnimationImageProvider {
   func imageForAsset(asset _: ImageAsset) -> CGImage? {

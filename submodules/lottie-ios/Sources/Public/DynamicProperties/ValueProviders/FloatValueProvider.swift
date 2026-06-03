@@ -11,8 +11,6 @@ import Foundation
 /// A `ValueProvider` that returns a CGFloat Value
 public final class FloatValueProvider: ValueProvider {
 
-  // MARK: Lifecycle
-
   /// Initializes with a block provider
   public init(block: @escaping CGFloatValueBlock) {
     self.block = block
@@ -26,8 +24,6 @@ public final class FloatValueProvider: ValueProvider {
     hasUpdate = true
   }
 
-  // MARK: Public
-
   /// Returns a CGFloat for a CGFloat(Frame Time)
   public typealias CGFloatValueBlock = (CGFloat) -> CGFloat
 
@@ -36,8 +32,6 @@ public final class FloatValueProvider: ValueProvider {
       hasUpdate = true
     }
   }
-
-  // MARK: ValueProvider Protocol
 
   public var valueType: Any.Type {
     Vector1D.self
@@ -61,8 +55,6 @@ public final class FloatValueProvider: ValueProvider {
     }
     return hasUpdate
   }
-
-  // MARK: Private
 
   private var hasUpdate = true
 

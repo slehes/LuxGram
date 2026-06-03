@@ -13,11 +13,7 @@ import Foundation
 /// The default size of the cache is 100.
 public class LRUAnimationCache: AnimationCacheProvider {
 
-  // MARK: Lifecycle
-
   public init() { }
-
-  // MARK: Public
 
   /// The global shared Cache.
   public static let sharedCache = LRUAnimationCache()
@@ -52,8 +48,6 @@ public class LRUAnimationCache: AnimationCacheProvider {
       }
     }
   }
-
-  // MARK: Fileprivate
 
   fileprivate var cacheMap: [String: Animation] = [:]
   fileprivate var lruList: [String] = []

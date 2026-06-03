@@ -7,22 +7,16 @@
 
 import Foundation
 
-// MARK: - CoordinateSpace
-
 public enum CoordinateSpace: Int, Codable {
   case type2d
   case type3d
 }
-
-// MARK: - Animation
 
 /// The `Animation` model is the top level model object in Lottie.
 ///
 /// An `Animation` holds all of the animation data backing a Lottie Animation.
 /// Codable, see JSON schema [here](https://github.com/airbnb/lottie-web/tree/master/docs/json).
 public final class Animation: Codable, DictionaryInitializable {
-
-  // MARK: Lifecycle
 
   required public init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: Animation.CodingKeys.self)
@@ -96,8 +90,6 @@ public final class Animation: Codable, DictionaryInitializable {
     }
   }
 
-  // MARK: Public
-
   /// The start time of the composition in frameTime.
   public let startFrame: AnimationFrameTime
 
@@ -112,8 +104,6 @@ public final class Animation: Codable, DictionaryInitializable {
     guard let markers = markers else { return [] }
     return markers.map { $0.name }
   }
-
-  // MARK: Internal
 
   enum CodingKeys: String, CodingKey {
     case version = "v"

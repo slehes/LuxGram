@@ -8,8 +8,6 @@
 import Foundation
 import QuartzCore
 
-// MARK: - NodeOutput
-
 /// Defines the basic outputs of an animator node.
 ///
 protocol NodeOutput {
@@ -24,8 +22,6 @@ protocol NodeOutput {
 
   var isEnabled: Bool { get set }
 }
-
-// MARK: - AnimatorNode
 
 /// The Animator Node is the base node in the render system tree.
 ///
@@ -63,8 +59,6 @@ protocol AnimatorNode: AnyObject, KeypathSearchable {
   var hasLocalUpdates: Bool { get set }
   var hasUpstreamUpdates: Bool { get set }
   var lastUpdateFrame: CGFloat? { get set }
-
-  // MARK: Optional
 
   /// Marks if updates to this node affect nodes downstream.
   func localUpdatesPermeateDownstream() -> Bool

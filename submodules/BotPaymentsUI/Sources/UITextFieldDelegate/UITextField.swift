@@ -9,8 +9,6 @@ import UIKit
 
 public extension UITextField {
 
-    // MARK: Public
-
     var selectedTextRangeOffsetFromEnd: Int {
         return offset(from: endOfDocument, to: selectedTextRange?.end ?? endOfDocument)
     }
@@ -27,8 +25,6 @@ public extension UITextField {
     func updateSelectedTextRange(lastOffsetFromEnd: Int) {
         adjustSelectedTextRange(lastOffsetFromEnd: lastOffsetFromEnd)
     }
-
-    // MARK: Private
 
     /// Adjust the selected text range to match the best position.
     private func adjustSelectedTextRange(lastOffsetFromEnd: Int) {

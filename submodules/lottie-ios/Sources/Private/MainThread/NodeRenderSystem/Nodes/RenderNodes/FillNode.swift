@@ -8,11 +8,7 @@
 import CoreGraphics
 import Foundation
 
-// MARK: - FillNodeProperties
-
 final class FillNodeProperties: NodePropertyMap, KeypathSearchable {
-
-  // MARK: Lifecycle
 
   init(fill: Fill) {
     keypathName = fill.name
@@ -26,8 +22,6 @@ final class FillNodeProperties: NodePropertyMap, KeypathSearchable {
     properties = Array(keypathProperties.values)
   }
 
-  // MARK: Internal
-
   var keypathName: String
 
   let opacity: NodeProperty<Vector1D>
@@ -39,19 +33,13 @@ final class FillNodeProperties: NodePropertyMap, KeypathSearchable {
 
 }
 
-// MARK: - FillNode
-
 final class FillNode: AnimatorNode, RenderNode {
-
-  // MARK: Lifecycle
 
   init(parentNode: AnimatorNode?, fill: Fill) {
     fillRender = FillRenderer(parent: parentNode?.outputNode)
     fillProperties = FillNodeProperties(fill: fill)
     self.parentNode = parentNode
   }
-
-  // MARK: Internal
 
   let fillRender: FillRenderer
 
@@ -65,8 +53,6 @@ final class FillNode: AnimatorNode, RenderNode {
   var renderer: NodeOutput & Renderable {
     fillRender
   }
-
-  // MARK: Animator Node Protocol
 
   var propertyMap: NodePropertyMap & KeypathSearchable {
     fillProperties

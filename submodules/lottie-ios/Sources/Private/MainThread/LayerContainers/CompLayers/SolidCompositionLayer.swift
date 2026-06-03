@@ -10,8 +10,6 @@ import QuartzCore
 
 final class SolidCompositionLayer: CompositionLayer {
 
-  // MARK: Lifecycle
-
   init(solid: SolidLayerModel) {
     let components = solid.colorHex.hexColorComponents()
     colorProperty =
@@ -38,8 +36,6 @@ final class SolidCompositionLayer: CompositionLayer {
   required init?(coder _: NSCoder) {
     fatalError("init(coder:) has not been implemented")
   }
-
-  // MARK: Internal
 
   let colorProperty: NodeProperty<Color>?
   let solidShape = CAShapeLayer()

@@ -10,8 +10,6 @@ import Foundation
 /// A layer that holds text.
 final class TextLayerModel: LayerModel {
 
-  // MARK: Lifecycle
-
   required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: TextLayerModel.CodingKeys.self)
     let textContainer = try container.nestedContainer(keyedBy: TextCodingKeys.self, forKey: .textGroup)
@@ -29,8 +27,6 @@ final class TextLayerModel: LayerModel {
     try super.init(dictionary: dictionary)
   }
 
-  // MARK: Internal
-
   /// The text for the layer
   let text: KeyframeGroup<TextDocument>
 
@@ -44,8 +40,6 @@ final class TextLayerModel: LayerModel {
     try textContainer.encode(text, forKey: .text)
     try textContainer.encode(animators, forKey: .animators)
   }
-
-  // MARK: Private
 
   private enum CodingKeys: String, CodingKey {
     case textGroup = "t"

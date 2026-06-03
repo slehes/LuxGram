@@ -12,7 +12,6 @@ extension UIView {
     static let oneDevicePixel: CGFloat = (1.0 / max(2, min(1, UIScreen.main.scale)))
 }
 
-// MARK: UIView+Animation
 public extension UIView {
     func bringToFront() {
         superview?.bringSubviewToFront(self)
