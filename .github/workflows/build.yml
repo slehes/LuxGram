@@ -36,9 +36,7 @@ jobs:
 
       - name: Patch rules_apple — allow provisioning_profile=None on device builds
         run: |
-          BZL="build-system/bazel-rules/rules_apple/apple/internal/partials/provisioning_profile.bzl"
-          python3 scripts/patch_provisioning_profile.py "$BZL"
-          grep -n -A2 "if not profile_artifact" "$BZL"
+          python3 scripts/patch_provisioning_profile.py build-system/bazel-rules/rules_apple
 
       - name: Write build configuration
         env:

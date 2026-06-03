@@ -1,37 +1,34 @@
 #!/usr/bin/env python3
-"""Patch rules_apple provisioning_profile.bzl for CI: replace fail() with early return."""
+"""Patch rules_apple for CI: remove provisioning_profile device-build requirements."""
 import sys
+import os
 
-path = sys.argv[1]
-src = open(path).read()
+rules_apple_dir = sys.argv[1]
 
-old = '    if not profile_artifact:\n        fail(\n            "\\n".join([\n                "ERROR: In {}:".format(str(rule_label)),\n                "Building for device, but no provisioning_profile attribute was set.",\n            ]),\n        )'
-new = '    if not profile_artifact:\n        return struct(bundle_files = [])  # CI: skip'
+patches = [
+    # provisioning_profile.bzl: replace fail() with early return
+    (
+        os.path.join(rules_apple_dir, "apple/internal/partials/provisioning_profile.bzl"),
+        '    if not profile_artifact:\n        fail(\n            "\\n".join([\n                "ERROR: In {}:".format(str(rule_label)),\n                "Building for device, but no provisioning_profile attribute was set.",\n            ]),\n        )',
+        '    if not profile_artifact:\n        return struct(bundle_files = [])  # CI: skip',
+    ),
+    # codesigning_support.bzl: neutralize the validate_provisioning_profile check
+    (
+        os.path.join(rules_apple_dir, "apple/internal/codesigning_support.bzl"),
+        '    if (platform_prerequisites.platform.is_device and\n        rule_descriptor.requires_signing_for_device and\n        not provisioning_profile):\n        fail("The provisioning_profile attribute must be set for device " +\n             "builds on this platform (%s)." %\n             platform_prerequisites.platform_type)',
+        '    if False:  # CI: skip provisioning profile validation\n        pass',
+    ),
+]
 
-if old in src:
-    src = src.replace(old, new)
-    open(path, 'w').write(src)
-    print(f"Patched OK: {path}")
-else:
-    print(f"Pattern not found in {path} — may already be patched or file changed")
-    print("Attempting fallback: replacing 'if not profile_artifact:' block")
-    lines = src.splitlines()
-    out = []
-    i = 0
-    while i < len(lines):
-        if lines[i].strip() == 'if not profile_artifact:' and i + 1 < len(lines) and 'fail(' in lines[i+1]:
-            out.append(lines[i])
-            out.append('        return struct(bundle_files = [])  # CI: skip')
-            # skip until matching closing paren of fail(...)
-            i += 1
-            depth = 0
-            while i < len(lines):
-                depth += lines[i].count('(') - lines[i].count(')')
-                i += 1
-                if depth <= 0:
-                    break
-        else:
-            out.append(lines[i])
-            i += 1
-    open(path, 'w').write('\n'.join(out) + '\n')
-    print(f"Fallback patch applied: {path}")
+for path, old, new in patches:
+    if not os.path.exists(path):
+        print(f"SKIP (not found): {path}")
+        continue
+    src = open(path).read()
+    if old in src:
+        open(path, 'w').write(src.replace(old, new))
+        print(f"Patched OK: {path}")
+    elif new in src:
+        print(f"Already patched: {path}")
+    else:
+        print(f"WARNING: pattern not found in {path}")
