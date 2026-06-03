@@ -34,6 +34,42 @@ jobs:
           distribution: temurin
           java-version: '21'
 
+      - name: Setup codesigning
+        run: |
+          TEAM_ID="6W9S44UXF2"
+          KP="$RUNNER_TEMP/luxgram.keychain"
+          KPW="luxgram-keychain-password"
+          CERT_DIR="build-system/fake-codesigning/certs"
+          P12="$CERT_DIR/SelfSigned.p12"
+
+          # Use homebrew OpenSSL (supports -legacy) to generate a PKCS12 that
+          # macOS security import can accept. LibreSSL lacks -legacy support.
+          OPENSSL="$(brew --prefix openssl@3)/bin/openssl"
+          $OPENSSL req -x509 -newkey rsa:2048 \
+            -keyout /tmp/lux.key -out /tmp/lux.crt \
+            -days 3650 -nodes \
+            -subj "/CN=Apple Distribution: LuxGram ($TEAM_ID)/OU=SELFSIGNED/C=US"
+          $OPENSSL pkcs12 -export \
+            -out "$P12" -inkey /tmp/lux.key -in /tmp/lux.crt \
+            -legacy -passout pass:
+          echo "P12: $(ls -lh $P12)"
+
+          security create-keychain -p "$KPW" "$KP"
+          security set-keychain-settings -lut 21600 "$KP"
+          security unlock-keychain -p "$KPW" "$KP"
+          security import "$P12" -k "$KP" -P "" \
+            -T /usr/bin/codesign -T /usr/bin/security -T /usr/bin/productbuild
+
+          EXISTING=$(security list-keychains -d user | xargs)
+          security list-keychains -d user -s "$KP" $EXISTING
+          security set-key-partition-list \
+            -S apple-tool:,apple:,codesign: -s -k "$KPW" "$KP"
+
+          sudo security add-trusted-cert -d -r trustAsRoot \
+            -k /Library/Keychains/System.keychain /tmp/lux.crt || true
+
+          security find-identity -v "$KP" | head -5
+
       - name: Write build configuration
         env:
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
@@ -60,6 +96,17 @@ jobs:
             json.dump(cfg, f, indent='\t')
           print('Config: bundle_id =', cfg['bundle_id'], 'team_id =', team_id)
           "
+
+      - name: Regenerate provisioning profiles with new cert
+        run: |
+          python3 build-system/Make/GenerateProfiles.py \
+            --sourcePath=build-system/fake-codesigning/profiles \
+            --destinationPath=build-system/fake-codesigning/profiles \
+            --certsPath=build-system/fake-codesigning/certs \
+            --sourceTeamId=C67CF9S4VU \
+            --targetTeamId=6W9S44UXF2 \
+            --sourceBundleId=ph.telegra.Telegraph \
+            --targetBundleId=app.luxgram.com
 
       - name: Restore libvpx build/make directory
         run: |
@@ -103,8 +150,6 @@ jobs:
             --buildNumber="$BN" \
             --target LuxGram \
             --configuration=release_arm64 \
-            --disableProvisioningProfiles \
-            --disableExtensions \
             --outputBuildArtifactsPath="build/artifacts"
 
       - name: Upload IPA
