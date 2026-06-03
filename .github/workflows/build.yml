@@ -49,15 +49,18 @@ jobs:
             -keyout /tmp/lux.key -out /tmp/lux.crt \
             -days 3650 -nodes \
             -subj "/CN=Apple Distribution: LuxGram ($TEAM_ID)/OU=SELFSIGNED/C=US"
+          P12_PASSWORD="luxgram"
+          echo "P12_PASSWORD=$P12_PASSWORD" >> "$GITHUB_ENV"
+
           $OPENSSL pkcs12 -export \
             -out "$P12" -inkey /tmp/lux.key -in /tmp/lux.crt \
-            -legacy -passout pass:
+            -legacy -passout "pass:$P12_PASSWORD"
           echo "P12: $(ls -lh $P12)"
 
           security create-keychain -p "$KPW" "$KP"
           security set-keychain-settings -lut 21600 "$KP"
           security unlock-keychain -p "$KPW" "$KP"
-          security import "$P12" -k "$KP" -P "" \
+          security import "$P12" -k "$KP" -P "$P12_PASSWORD" \
             -T /usr/bin/codesign -T /usr/bin/security -T /usr/bin/productbuild
 
           EXISTING=$(security list-keychains -d user | xargs)
