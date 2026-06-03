@@ -792,7 +792,7 @@ public extension TelegramEngine {
             |> ignoreValues
         }
 
-        /        public func markAllChatsAsReadLocallyOnly(items: [(groupId: EngineChatList.Group, filterPredicate: ChatListFilterPredicate?)]) -> Signal<Void, NoError> {
+        public func markAllChatsAsReadLocallyOnly(items: [(groupId: EngineChatList.Group, filterPredicate: ChatListFilterPredicate?)]) -> Signal<Void, NoError> {
             let account = self.account
             return self.account.postbox.transaction { transaction -> Void in
                 for (groupId, filterPredicate) in items {
