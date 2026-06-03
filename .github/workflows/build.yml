@@ -48,13 +48,16 @@ jobs:
             -days 3650 -nodes \
             -subj "/CN=Apple Distribution: LuxGram ($TEAM_ID)/OU=SELFSIGNED/C=US"
 
-          # 2 — Pack into p12 (empty password)
+          # 2 — Pack into p12 using legacy PBE so macOS security import accepts it
           openssl pkcs12 -export \
             -in /tmp/lux.crt -inkey /tmp/lux.key \
-            -out "$P12" -passout pass: -legacy 2>/dev/null || \
+            -out "$P12" -passout pass: \
+            -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1 \
+            -legacy 2>/dev/null || \
           openssl pkcs12 -export \
             -in /tmp/lux.crt -inkey /tmp/lux.key \
-            -out "$P12" -passout pass:
+            -out "$P12" -passout pass: \
+            -keypbe PBE-SHA1-3DES -certpbe PBE-SHA1-3DES -macalg SHA1
 
           echo "Generated: $(ls -lh $P12)"
 
