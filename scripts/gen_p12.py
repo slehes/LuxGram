@@ -34,7 +34,7 @@ p12_data = pkcs12.serialize_key_and_certificates(
     key=key,
     cert=cert,
     cas=None,
-    encryption_algorithm=serialization.BestAvailableEncryption(b""),
+    encryption_algorithm=serialization.BestAvailableEncryption(b"luxgram"),
 )
 open(p12_path, "wb").write(p12_data)
 open("/tmp/lux.crt", "wb").write(cert.public_bytes(serialization.Encoding.PEM))
