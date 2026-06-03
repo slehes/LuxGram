@@ -253,7 +253,9 @@ public final class InAppPurchaseManager: NSObject {
     private func requestProducts() {
         if ({ return true }()) { return }        Logger.shared.log("InAppPurchaseManager", "Requesting products")
         let productRequest = SKProductsRequest(productIdentifiers: Set(productIdentifiers))
+        #if swift(<6.0)
         productRequest.delegate = self
+        #endif
         productRequest.start()
         
         self.productRequest = productRequest
@@ -382,18 +384,20 @@ public final class InAppPurchaseManager: NSObject {
     }
 }
 
+#if swift(<6.0)
 extension InAppPurchaseManager: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         self.productRequest = nil
-        
+
         Queue.mainQueue().async {
             let products = response.products.map { Product(skProduct: $0) }
-             
+
             Logger.shared.log("InAppPurchaseManager", "Received products \(products.map({ $0.skProduct.productIdentifier }).joined(separator: ", "))")
             self.productsPromise.set(.single(products))
         }
     }
 }
+#endif
 
 private func getReceiptData() -> Data? {
     var receiptData: Data?
@@ -407,6 +411,7 @@ private func getReceiptData() -> Data? {
     return receiptData
 }
 
+#if swift(<6.0)
 extension InAppPurchaseManager: SKPaymentTransactionObserver {
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         self.stateQueue.async {
@@ -628,6 +633,7 @@ extension InAppPurchaseManager: SKPaymentTransactionObserver {
         let _ = enqueueMessages(account: engine.account, peerId: engine.account.peerId, messages: [message]).start()
     }
 }
+#endif
 
 private final class PendingInAppPurchaseState: Codable {
     enum CodingKeys: String, CodingKey {
