@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Сборка LuxGram для симулятора
 #
 # Использование:
@@ -13,7 +13,8 @@ cd "$(dirname "$0")/.."
 
 BAZEL="${BAZEL:-}"
 [ -z "$BAZEL" ] && [ -x "./build-input/bazel-8.4.2-darwin-arm64" ] && BAZEL="./build-input/bazel-8.4.2-darwin-arm64"
-BAZEL="${BAZEL:-bazel}"
+[ -z "$BAZEL" ] && BAZEL=$(which bazel 2>/dev/null)
+[ -z "$BAZEL" ] && BAZEL="bazel"
 
 BUILD_NUMBER="${BUILD_NUMBER:-10003}"
 TELEGRAM_VERSION="${TELEGRAM_VERSION:-12.3}"
