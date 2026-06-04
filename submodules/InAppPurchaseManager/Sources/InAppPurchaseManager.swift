@@ -377,10 +377,22 @@ public final class InAppPurchaseManager: NSObject {
     }
     
     public func getReceiptPurchases() -> [ReceiptPurchase] {
-        guard let data = getReceiptData(), let receipt = parseReceipt(data) else {
+        guard let data = self.getReceiptData(), let receipt = parseReceipt(data) else {
             return []
         }
         return receipt.purchases.map { ReceiptPurchase(productId: $0.productId, transactionId: $0.transactionId, expirationDate: $0.expirationDate) }
+    }
+
+    private func getReceiptData() -> Data? {
+        var receiptData: Data?
+        if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL, FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
+            do {
+                receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
+            } catch {
+                Logger.shared.log("InAppPurchaseManager", "Couldn't read receipt data with error: \(error.localizedDescription)")
+            }
+        }
+        return receiptData
     }
 }
 
@@ -398,18 +410,6 @@ extension InAppPurchaseManager: SKProductsRequestDelegate {
     }
 }
 #endif
-
-private func getReceiptData() -> Data? {
-    var receiptData: Data?
-    if let appStoreReceiptURL = Bundle.main.appStoreReceiptURL, FileManager.default.fileExists(atPath: appStoreReceiptURL.path) {
-        do {
-            receiptData = try Data(contentsOf: appStoreReceiptURL, options: .alwaysMapped)
-        } catch {
-            Logger.shared.log("InAppPurchaseManager", "Couldn't read receipt data with error: \(error.localizedDescription)")
-        }
-    }
-    return receiptData
-}
 
 #if swift(<6.0)
 extension InAppPurchaseManager: SKPaymentTransactionObserver {
@@ -490,7 +490,7 @@ extension InAppPurchaseManager: SKPaymentTransactionObserver {
                 var completion: Signal<Never, NoError> = .never()
                 
                 let products = self.availableProducts
-                |> filter { products in
+                |> filter { (products: [InAppPurchaseManager.Product]) -> Bool in
                     return !products.isEmpty
                 }
                 |> take(1)
@@ -526,7 +526,7 @@ extension InAppPurchaseManager: SKPaymentTransactionObserver {
                 
                 completion = updatePendingInAppPurchaseState(engine: self.engine, productId: productIdentifier, content: nil)
                 
-                let receiptData = getReceiptData() ?? Data()
+                let receiptData = self.getReceiptData() ?? Data()
 #if DEBUG
                 self.debugSaveReceipt(receiptData: receiptData)
 #endif
@@ -577,7 +577,7 @@ extension InAppPurchaseManager: SKPaymentTransactionObserver {
                 Logger.shared.log("InAppPurchaseManager", "Transactions restoration finished")
                 self.onRestoreCompletion = nil
                 
-                if let receiptData = getReceiptData() {
+                if let receiptData = self.getReceiptData() {
                     let signal: Signal<Never, AssignAppStoreTransactionError>
                     switch self.engine {
                     case let .authorized(engine):
