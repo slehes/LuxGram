@@ -142,8 +142,11 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
             os.makedirs(os.path.dirname(cached_path), exist_ok=True)
             shutil.copyfile(bazel_path, cached_path)
 
-    if not os.access(bazel_path, os.X_OK):
-        st = os.stat(bazel_path)
-        os.chmod(bazel_path, st.st_mode | stat.S_IEXEC)
-
-    return bazel_path
+    if os.path.isfile(bazel_path):
+        if not os.access(bazel_path, os.X_OK):
+            st = os.stat(bazel_path)
+            os.chmod(bazel_path, st.st_mode | stat.S_IEXEC)
+        return bazel_path
+    else:
+        print(f"Error: Bazel could not be located or downloaded at {bazel_path}")
+        sys.exit(1)
