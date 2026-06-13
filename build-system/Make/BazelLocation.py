@@ -142,7 +142,7 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
             os.makedirs(os.path.dirname(cached_path), exist_ok=True)
             shutil.copyfile(bazel_path, cached_path)
 
-    if not os.access(bazel_path, os.X_OK):
+    if os.path.isfile(bazel_path) and not os.access(bazel_path, os.X_OK):
         st = os.stat(bazel_path)
         os.chmod(bazel_path, st.st_mode | stat.S_IEXEC)
 
