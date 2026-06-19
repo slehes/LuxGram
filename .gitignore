@@ -13,6 +13,7 @@ build-input/configuration-repository/
 build-input/configuration-repository-workdir/
 
 # IDE
+__pycache__/
 .DS_Store
 *.xcworkspace
 *.xcodeproj
