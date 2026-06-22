@@ -12,6 +12,8 @@ build-system/real-codesigning/profiles/*.mobileprovision
 build-input/configuration-repository/
 build-input/configuration-repository-workdir/
 
+__pycache__/
+
 # IDE
 .DS_Store
 *.xcworkspace
