@@ -528,7 +528,8 @@ def resolve_configuration(base_path, bazel_command_line: BazelCommandLine, argum
     os.makedirs(provisioning_path, exist_ok=True)
 
     # Skip copying provisioning profiles if --disableProvisioningProfiles is set
-    provisioning_profiles_path_to_use = provisioning_path if not (arguments.disableProvisioningProfiles) else None
+    disable_provisioning_profiles = getattr(arguments, 'disableProvisioningProfiles', False)
+    provisioning_profiles_path_to_use = provisioning_path if not disable_provisioning_profiles else None
 
     codesigning_data = resolve_codesigning(
         arguments=arguments,
@@ -550,11 +551,12 @@ def resolve_configuration(base_path, bazel_command_line: BazelCommandLine, argum
         for file_name in os.listdir(provisioning_path):
             if file_name.endswith('.mobileprovision'):
                 provisioning_profile_files.append(file_name)
-    elif arguments.disableProvisioningProfiles:
+    elif disable_provisioning_profiles:
         # Copy a real provisioning profile so Bazel can validate it, even though select will choose None
         # This allows Bazel to check all select branches without errors
-        if arguments.codesigningInformationPath:
-            source_profile = os.path.join(arguments.codesigningInformationPath, 'profiles', 'Telegram.mobileprovision')
+        codesigning_information_path = getattr(arguments, 'codesigningInformationPath', None)
+        if codesigning_information_path:
+            source_profile = os.path.join(codesigning_information_path, 'profiles', 'Telegram.mobileprovision')
             if os.path.exists(source_profile):
                 dest_profile = os.path.join(provisioning_path, 'Telegram.mobileprovision')
                 shutil.copyfile(source_profile, dest_profile)
