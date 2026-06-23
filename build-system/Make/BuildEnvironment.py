@@ -121,6 +121,9 @@ def get_bazel_version(bazel_path):
 
 
 def get_xcode_version():
+    if platform.system().lower() == 'linux':
+        return "16.0"
+
     xcode_path = run_executable_with_output('xcode-select', ['-p']).strip('\n')
     if not os.path.isdir(xcode_path):
         print('The path reported by \'xcode-select -p\' does not exist')

@@ -61,11 +61,20 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
     if not os.path.isdir(build_input_dir):
         os.mkdir(build_input_dir)
 
+    import platform
     versions = BuildEnvironmentVersions(base_path=os.getcwd())
-    if is_apple_silicon():
+    bazel_version_sha256 = versions.bazel_version_sha256
+
+    if platform.system().lower() == 'linux':
+        arch = 'linux-x86_64'
+        # MARK: LuxGram — use correct Linux SHA256 for Bazel 8.4.2
+        if versions.bazel_version == '8.4.2':
+            bazel_version_sha256 = '4dc8e99dfa802e252dac176d08201fd15c542ae78c448c8a89974b6f387c282c'
+    elif is_apple_silicon():
         arch = 'darwin-arm64'
     else:
         arch = 'darwin-x86_64'
+
     bazel_name = 'bazel-{version}-{arch}'.format(version=versions.bazel_version, arch=arch)
     bazel_path = '{}/build-input/{}'.format(base_path, bazel_name)
 
@@ -97,10 +106,10 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
                 shutil.copyfile(cached_path, bazel_path)
 
 
-    if os.path.isfile(bazel_path) and versions.bazel_version_sha256 is not None:
+    if os.path.isfile(bazel_path) and bazel_version_sha256 is not None:
         test_sha256 = calculate_sha256(bazel_path)
-        if test_sha256 != versions.bazel_version_sha256:
-            print(f"Bazel at {bazel_path} does not match SHA256 {versions.bazel_version_sha256}, removing")
+        if test_sha256 != bazel_version_sha256:
+            print(f"Bazel at {bazel_path} does not match SHA256 {bazel_version_sha256}, removing")
             os.remove(bazel_path)
 
 
@@ -116,10 +125,10 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
             bazel_path
         ])
 
-        if os.path.isfile(bazel_path) and versions.bazel_version_sha256 is not None:
+        if os.path.isfile(bazel_path) and bazel_version_sha256 is not None:
             test_sha256 = calculate_sha256(bazel_path)
-            if test_sha256 != versions.bazel_version_sha256:
-                print(f"Bazel at {bazel_path} does not match SHA256 {versions.bazel_version_sha256}, removing")
+            if test_sha256 != bazel_version_sha256:
+                print(f"Bazel at {bazel_path} does not match SHA256 {bazel_version_sha256}, removing")
                 os.remove(bazel_path)
 
         if resolved_cache_host is not None and versions.bazel_version_sha256 is not None:
@@ -142,7 +151,7 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
             os.makedirs(os.path.dirname(cached_path), exist_ok=True)
             shutil.copyfile(bazel_path, cached_path)
 
-    if not os.access(bazel_path, os.X_OK):
+    if os.path.isfile(bazel_path) and not os.access(bazel_path, os.X_OK):
         st = os.stat(bazel_path)
         os.chmod(bazel_path, st.st_mode | stat.S_IEXEC)
 
