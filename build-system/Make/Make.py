@@ -209,17 +209,10 @@ class BazelCommandLine:
         combined_arguments = []
         if self.bazel_user_root is not None:
             combined_arguments += ['--output_user_root={}'.format(self.bazel_user_root)]
-        # MARK: LuxGram — use system JDK to avoid SIGBUS crash with embedded JDK 24 on macOS 15.7.4+
-        import shutil
-        java_home_bin = shutil.which('java')
-        if java_home_bin:
-            import subprocess as _sp
-            try:
-                java_home = _sp.check_output(['/usr/libexec/java_home', '-v', '21'], text=True).strip()
-                if java_home:
-                    combined_arguments += ['--server_javabase={}'.format(java_home)]
-            except Exception:
-                pass
+        # MARK: LuxGram — use system JDK
+        java_home = os.environ.get('JAVA_HOME')
+        if java_home:
+            combined_arguments += ['--server_javabase={}'.format(java_home)]
         # MARK: End LuxGram
         return combined_arguments
 
