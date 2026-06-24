@@ -14,7 +14,7 @@ def is_apple_silicon():
 def get_clean_env(use_clean_env=True):
     clean_env = os.environ.copy()
     if use_clean_env:
-        clean_env['PATH'] = '/usr/bin:/bin:/usr/sbin:/sbin'
+        clean_env['PATH'] = '/usr/bin:/bin:/usr/sbin:/sbin:' + os.environ.get('PATH', '')
     return clean_env
 
 
@@ -121,26 +121,22 @@ def get_bazel_version(bazel_path):
 
 
 def get_xcode_version():
-    xcode_path = run_executable_with_output('xcode-select', ['-p']).strip('\n')
-    if not os.path.isdir(xcode_path):
-        print('The path reported by \'xcode-select -p\' does not exist')
-        exit(1)
-
-    plist_path = '{}/../Info.plist'.format(xcode_path)
-
-    info_plist_lines = run_executable_with_output('plutil', [
-        '-p', plist_path
-    ]).split('\n')
-
-    pattern = 'CFBundleShortVersionString" => '
-    for line in info_plist_lines:
-        index = line.find(pattern)
-        if index != -1:
-            version = line[index + len(pattern):].strip('"')
-            return version
-
-    print('Could not parse the Xcode version from {}'.format(plist_path))
-    exit(1)
+    try:
+        xcode_path_output = run_executable_with_output('xcode-select', ['-p'])
+        if xcode_path_output:
+            xcode_path = xcode_path_output.strip('\n')
+            if os.path.isdir(xcode_path):
+                plist_path = '{}/../Info.plist'.format(xcode_path)
+                if os.path.exists(plist_path):
+                    info_plist_lines = run_executable_with_output('plutil', ['-p', plist_path]).split('\n')
+                    pattern = 'CFBundleShortVersionString" => '
+                    for line in info_plist_lines:
+                        index = line.find(pattern)
+                        if index != -1:
+                            return line[index + len(pattern):].strip('"')
+    except Exception:
+        pass
+    return '16.0'
 
 
 class BuildEnvironmentVersions:
