@@ -121,10 +121,12 @@ def get_bazel_version(bazel_path):
 
 
 def get_xcode_version():
+    if platform.system() != 'Darwin':
+        return '16.0'
     xcode_path = run_executable_with_output('xcode-select', ['-p']).strip('\n')
     if not os.path.isdir(xcode_path):
         print('The path reported by \'xcode-select -p\' does not exist')
-        exit(1)
+        return '16.0'
 
     plist_path = '{}/../Info.plist'.format(xcode_path)
 
@@ -194,16 +196,17 @@ class BuildEnvironment:
                     versions.bazel_version, actual_bazel_version, self.bazel_path))
                 exit(1)
 
-        actual_xcode_version = get_xcode_version()
-        if actual_xcode_version != versions.xcode_version:
-            if override_xcode_version:
-                print('Overriding the required Xcode version {} with {} as reported by \'xcode-select -p\''.format(
-                    versions.xcode_version, actual_xcode_version, self.bazel_path))
-                versions.xcode_version = actual_xcode_version
-            else:
-                print('Required Xcode version is {}, but {} is reported by \'xcode-select -p\''.format(
-                    versions.xcode_version, actual_xcode_version, self.bazel_path))
-                exit(1)
+        if platform.system() == 'Darwin':
+            actual_xcode_version = get_xcode_version()
+            if actual_xcode_version != versions.xcode_version:
+                if override_xcode_version:
+                    print('Overriding the required Xcode version {} with {} as reported by \'xcode-select -p\''.format(
+                        versions.xcode_version, actual_xcode_version, self.bazel_path))
+                    versions.xcode_version = actual_xcode_version
+                else:
+                    print('Required Xcode version is {}, but {} is reported by \'xcode-select -p\''.format(
+                        versions.xcode_version, actual_xcode_version, self.bazel_path))
+                    exit(1)
 
         self.app_version = versions.app_version
         self.xcode_version = versions.xcode_version
