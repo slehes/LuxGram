@@ -528,7 +528,7 @@ def resolve_configuration(base_path, bazel_command_line: BazelCommandLine, argum
     os.makedirs(provisioning_path, exist_ok=True)
 
     # Skip copying provisioning profiles if --disableProvisioningProfiles is set
-    provisioning_profiles_path_to_use = provisioning_path if not (arguments.disableProvisioningProfiles) else None
+    provisioning_profiles_path_to_use = provisioning_path if not (getattr(arguments, 'disableProvisioningProfiles', False)) else None
 
     codesigning_data = resolve_codesigning(
         arguments=arguments,
