@@ -62,10 +62,17 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
         os.mkdir(build_input_dir)
 
     versions = BuildEnvironmentVersions(base_path=os.getcwd())
-    if is_apple_silicon():
+
+    if sys.platform == 'linux':
+        arch = 'linux-x86_64'
+        # Override SHA256 for Linux if it's 8.4.2
+        if versions.bazel_version == '8.4.2':
+            versions.bazel_version_sha256 = '4dc8e99dfa802e252dac176d08201fd15c542ae78c448c8a89974b6f387c282c'
+    elif is_apple_silicon():
         arch = 'darwin-arm64'
     else:
         arch = 'darwin-x86_64'
+
     bazel_name = 'bazel-{version}-{arch}'.format(version=versions.bazel_version, arch=arch)
     bazel_path = '{}/build-input/{}'.format(base_path, bazel_name)
 

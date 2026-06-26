@@ -1,0 +1,4 @@
+module(
+    name = "build_configuration",
+    version = "1.0",
+)
