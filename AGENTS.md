@@ -1,1 +1,2 @@
-swiftgram-scripts/AGENTS.md
+# AGENTS.md
+Placeholder file to resolve broken symlink.
