@@ -310,8 +310,8 @@ class BazelCommandLine:
         if self.enable_sandbox:
             combined_arguments += ['--spawn_strategy=sandboxed']
 
-        if self.disable_provisioning_profiles:
-            combined_arguments += ['--//Telegram:disableProvisioningProfiles']
+        if getattr(self, 'disable_provisioning_profiles', False):
+            combined_arguments += ['--//Telegram:disableProvisioningProfiles=True']
         if self.disable_extensions:
             combined_arguments += ['--//Telegram:disableExtensions=True']
 
@@ -528,7 +528,7 @@ def resolve_configuration(base_path, bazel_command_line: BazelCommandLine, argum
     os.makedirs(provisioning_path, exist_ok=True)
 
     # Skip copying provisioning profiles if --disableProvisioningProfiles is set
-    provisioning_profiles_path_to_use = provisioning_path if not (arguments.disableProvisioningProfiles) else None
+    provisioning_profiles_path_to_use = provisioning_path if not (getattr(arguments, 'disableProvisioningProfiles', False)) else None
 
     codesigning_data = resolve_codesigning(
         arguments=arguments,
@@ -550,10 +550,10 @@ def resolve_configuration(base_path, bazel_command_line: BazelCommandLine, argum
         for file_name in os.listdir(provisioning_path):
             if file_name.endswith('.mobileprovision'):
                 provisioning_profile_files.append(file_name)
-    elif arguments.disableProvisioningProfiles:
+    elif getattr(arguments, 'disableProvisioningProfiles', False):
         # Copy a real provisioning profile so Bazel can validate it, even though select will choose None
         # This allows Bazel to check all select branches without errors
-        if arguments.codesigningInformationPath:
+        if getattr(arguments, 'codesigningInformationPath', None):
             source_profile = os.path.join(arguments.codesigningInformationPath, 'profiles', 'Telegram.mobileprovision')
             if os.path.exists(source_profile):
                 dest_profile = os.path.join(provisioning_path, 'Telegram.mobileprovision')
