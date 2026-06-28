@@ -62,12 +62,27 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
         os.mkdir(build_input_dir)
 
     versions = BuildEnvironmentVersions(base_path=os.getcwd())
-    if is_apple_silicon():
-        arch = 'darwin-arm64'
+    import platform
+    current_os = platform.system().lower()
+    if current_os == 'darwin':
+        if is_apple_silicon():
+            arch = 'darwin-arm64'
+        else:
+            arch = 'darwin-x86_64'
+    elif current_os == 'linux':
+        machine = platform.machine().lower()
+        if machine in ['arm64', 'aarch64']:
+            arch = 'linux-arm64'
+        else:
+            arch = 'linux-x86_64'
     else:
-        arch = 'darwin-x86_64'
+        raise Exception('Unsupported OS: {}'.format(current_os))
+
     bazel_name = 'bazel-{version}-{arch}'.format(version=versions.bazel_version, arch=arch)
     bazel_path = '{}/build-input/{}'.format(base_path, bazel_name)
+
+    if current_os == 'linux' and arch == 'linux-x86_64' and versions.bazel_version == '8.4.2':
+        versions.bazel_version_sha256 = '4dc8e99dfa802e252dac176d08201fd15c542ae78c448c8a89974b6f387c282c'
 
     resolved_cache_host = resolve_cache_host(cache_host_or_path)
     resolved_cache_path = resolve_cache_path(cache_host_or_path, cache_dir)
@@ -142,7 +157,7 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
             os.makedirs(os.path.dirname(cached_path), exist_ok=True)
             shutil.copyfile(bazel_path, cached_path)
 
-    if not os.access(bazel_path, os.X_OK):
+    if os.path.isfile(bazel_path) and not os.access(bazel_path, os.X_OK):
         st = os.stat(bazel_path)
         os.chmod(bazel_path, st.st_mode | stat.S_IEXEC)
 
