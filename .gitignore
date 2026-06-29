@@ -28,5 +28,9 @@ hs_err_*.log
 
 # Large binaries
 build-input/bazel-*
+
+# Python
+__pycache__/
+*.py[cod]
 scripts/Telegram
 third-party/opus/prebuilt/*/libopus.a
