@@ -1,4 +1,4 @@
-#!/bin/zsh
+#!/bin/bash
 # Продакшн-сборка LuxGram (IPA, release_arm64)
 #
 # Использование:

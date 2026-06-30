@@ -30,3 +30,8 @@ hs_err_*.log
 build-input/bazel-*
 scripts/Telegram
 third-party/opus/prebuilt/*/libopus.a
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.class
