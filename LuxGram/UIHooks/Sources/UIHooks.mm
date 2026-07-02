@@ -250,6 +250,11 @@ static void installCallConfirmHook(void) {
 
 // MARK: - 5. Siri Authorization Bypass
 
+static void _siri_noop(id self, SEL _cmd) {}
+static id _siri_nil(id self, SEL _cmd) { return nil; }
+static NSInteger _siri_status(id self, SEL _cmd) { return 0; }
+static void _siri_auth(id self, SEL _cmd, void (^routine)(NSInteger)) { if (routine) routine(0); }
+
 static void installSiriBypassHook(void) {
     @try {
         [[NSBundle bundleWithPath:@"/System/Library/Frameworks/Intents.framework"] load];
@@ -258,31 +263,23 @@ static void installSiriBypassHook(void) {
     Class cls = objc_getClass("INPreferences");
     if (!cls) { UHLog(@"INPreferences not found, Siri bypass skipped"); return; }
 
-    // Block +initialize to prevent class setup
     Method m = class_getClassMethod(cls, @selector(initialize));
-    if (m) { method_setImplementation(m, (IMP)(void (^)(id, SEL))^(id self, SEL _cmd) {}); }
+    if (m) { method_setImplementation(m, (IMP)_siri_noop); }
 
-    // Block alloc, new, sharedPreferences
-    for (SEL sel in @[@selector(alloc), @selector(new), @selector(sharedPreferences)]) {
-        Method cm = class_getClassMethod(cls, sel);
-        if (cm) { method_setImplementation(cm, (IMP)(id (^)(id, SEL))^(id self, SEL _cmd) { return nil; }); }
+    SEL sels[] = {@selector(alloc), @selector(new), @selector(sharedPreferences)};
+    for (int i = 0; i < 3; i++) {
+        Method cm = class_getClassMethod(cls, sels[i]);
+        if (cm) { method_setImplementation(cm, (IMP)_siri_nil); }
     }
 
-    // Block instance init
     Method im = class_getInstanceMethod(cls, @selector(init));
-    if (im) { method_setImplementation(im, (IMP)(id (^)(id, SEL))^(id self, SEL _cmd) { return nil; }); }
+    if (im) { method_setImplementation(im, (IMP)_siri_nil); }
 
-    // siriAuthorizationStatus -> 0 (not determined)
     Method sa = class_getClassMethod(cls, @selector(siriAuthorizationStatus));
-    if (sa) { method_setImplementation(sa, (IMP)(NSInteger (^)(id, SEL))^(id self, SEL _cmd) { return 0; }); }
+    if (sa) { method_setImplementation(sa, (IMP)_siri_status); }
 
-    // requestSiriAuthorization: -> callback(0)
     Method ra = class_getClassMethod(cls, @selector(requestSiriAuthorization:));
-    if (ra) {
-        method_setImplementation(ra, (IMP)(void (^)(id, SEL, void (^)(NSInteger)))^(id self, SEL _cmd, void (^routine)(NSInteger)) {
-            if (routine) routine(0);
-        });
-    }
+    if (ra) { method_setImplementation(ra, (IMP)_siri_auth); }
 
     UHLog(@"Hooked INPreferences (Siri bypass)");
 }
@@ -297,8 +294,10 @@ static BOOL _replaced_isVoice(id self, SEL _cmd) {
     }
     if (((BOOL (*)(id, SEL))_orig_isVoice)(self, _cmd)) return YES;
     @try {
-        NSString *mime = [(id)self mimeType];
-        if ([mime hasPrefix:@"audio/"]) return YES;
+        if ([self respondsToSelector:@selector(mimeType)]) {
+            NSString *mime = [self performSelector:@selector(mimeType)];
+            if ([mime hasPrefix:@"audio/"]) return YES;
+        }
     } @catch (NSException *e) {}
     return NO;
 }
