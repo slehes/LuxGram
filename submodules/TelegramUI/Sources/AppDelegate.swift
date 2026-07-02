@@ -355,6 +355,12 @@ private func extractAccountManagerState(records: AccountRecordsView<TelegramAcco
         }
         #endif
 
+        // MARK: - LuxGram
+        #if canImport(UIHooks)
+        LuxGramInstallUIHooks()
+        #endif
+        // MARK: - End LuxGram
+
         let _ = voipTokenPromise.get().start(next: { token in
             self.voipDeviceToken.set(.single(token))
         })

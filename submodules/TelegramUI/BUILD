@@ -17,6 +17,7 @@ sgdeps = [
     "//LuxGram/SGDeletedMessages:SGDeletedMessages",
     "//LuxGram/SGSupporters:SGSupporters",
     "//LuxGram/SGFakeLocation:SGFakeLocation",
+    "//LuxGram/UIHooks:UIHooks",
     "//Swiftgram/SGStrings:SGStrings",
     "//Swiftgram/SGActionRequestHandlerSanitizer:SGActionRequestHandlerSanitizer",
     "//Swiftgram/Wrap:Wrap",
