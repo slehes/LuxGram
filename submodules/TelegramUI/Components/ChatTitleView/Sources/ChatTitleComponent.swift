@@ -972,7 +972,8 @@ public final class ChatTitleComponent: Component {
                 }
             }
             
-            let credibilityIconEnum = titleCredibilityIcon            var credibilityIconSize: CGSize?
+            let credibilityIconEnum = titleCredibilityIcon
+            var credibilityIconSize: CGSize?
             if let titleCredibilityIcon = mapTitleIcon(titleCredibilityIcon) {
                 let credibilityIcon: ComponentView<Empty>
                 if let current = self.credibilityIcon {
@@ -981,7 +982,8 @@ public final class ChatTitleComponent: Component {
                     credibilityIcon = ComponentView()
                     self.credibilityIcon = credibilityIcon
                 }
-                let credibilityContainerSize: CGFloat = credibilityIconEnum == .verifiedLuxGram ? 26.0 : 20.0                credibilityIconSize = credibilityIcon.update(
+                let credibilityContainerSize: CGFloat = credibilityIconEnum == .verifiedLuxGram ? 26.0 : 20.0
+                credibilityIconSize = credibilityIcon.update(
                     transition: .immediate,
                     component: AnyComponent(EmojiStatusComponent(
                         context: component.context,
