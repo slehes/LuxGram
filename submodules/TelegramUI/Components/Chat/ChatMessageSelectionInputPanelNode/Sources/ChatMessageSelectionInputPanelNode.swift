@@ -286,7 +286,9 @@ public final class ChatMessageSelectionInputPanelNode: ChatInputPanelNode {
         self.view.addSubview(self.deleteButton)
         self.view.addSubview(self.reportButton)
         self.view.addSubview(self.forwardButton)
-        self.view.addSubview(self.cloudButton)        self.view.addSubview(self.forwardHideNamesButton)        self.view.addSubview(self.shareButton)
+        self.view.addSubview(self.cloudButton)
+        self.view.addSubview(self.forwardHideNamesButton)
+        self.view.addSubview(self.shareButton)
         self.view.addSubview(self.tagButton)
         self.view.addSubview(self.tagEditButton)
         

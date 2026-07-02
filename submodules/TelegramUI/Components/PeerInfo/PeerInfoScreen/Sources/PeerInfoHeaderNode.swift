@@ -2423,7 +2423,8 @@ final class PeerInfoHeaderNode: ASDisplayNode {
                 buttonIcon = .message
             case .discussion:
                 buttonText = presentationData.strings.PeerInfo_ButtonDiscuss
-                buttonIcon = .discussion            case .call:
+                buttonIcon = .discussion
+            case .call:
                 buttonText = presentationData.strings.PeerInfo_ButtonCall
                 buttonIcon = .call
             case .videoCall:

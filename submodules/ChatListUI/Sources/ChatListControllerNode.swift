@@ -533,7 +533,8 @@ public final class ChatListContainerNode: ASDisplayNode, ASGestureRecognizerDele
         
         self.applyItemNodeAsCurrent(id: .all, itemNode: itemNode)
         
-        let panRecognizer = InteractiveTransitionGestureRecognizer(target: self, action: #selector(self.panGesture(_:)), allowedDirections: { [weak self] _ in            guard let self, self.availableFilters.count > 1 || (self.controller?.isStoryPostingAvailable == true && !(self.context.sharedContext.callManager?.hasActiveCall ?? false) && !SGSimpleSettings.shared.disableSwipeToRecordStory) else {
+        let panRecognizer = InteractiveTransitionGestureRecognizer(target: self, action: #selector(self.panGesture(_:)), allowedDirections: { [weak self] _ in
+            guard let self, self.availableFilters.count > 1 || (self.controller?.isStoryPostingAvailable == true && !(self.context.sharedContext.callManager?.hasActiveCall ?? false) && !SGSimpleSettings.shared.disableSwipeToRecordStory) else {
                 return []
             }
             guard case .chatList(.root) = self.location else {

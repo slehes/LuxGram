@@ -363,7 +363,8 @@ func chatContextMenuItems(context: AccountContext, peerId: PeerId, promoInfo: Ch
                             }
                         }
                         
-                        let archiveEnabled = !isSavedMessages && peerId != PeerId(namespace: Namespaces.Peer.CloudUser, id: PeerId.Id._internalFromInt64Value(777000)) /* && peerId == context.account.peerId                        if let group = peerGroup {
+                        let archiveEnabled = !isSavedMessages && peerId != PeerId(namespace: Namespaces.Peer.CloudUser, id: PeerId.Id._internalFromInt64Value(777000)) /* && peerId == context.account.peerId */
+                        if let group = peerGroup {
                             if archiveEnabled {
                                 let isArchived = group == .archive
                                 items.append(.action(ContextMenuActionItem(text: isArchived ? strings.ChatList_Context_Unarchive : strings.ChatList_Context_Archive, icon: { theme in generateTintedImage(image: UIImage(bundleImageName: isArchived ? "Chat/Context Menu/Unarchive" : "Chat/Context Menu/Archive"), color: theme.contextMenu.primaryColor) }, action: { _, f in

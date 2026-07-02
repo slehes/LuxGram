@@ -462,7 +462,8 @@ final class LocalizationListControllerNode: ViewControllerTracingNode {
         default:
             break
         }
-        chatTranslationAvailable = true; translateButtonAvailable = true        let previousState = Atomic<LocalizationListState?>(value: nil)
+        chatTranslationAvailable = true; translateButtonAvailable = true
+        let previousState = Atomic<LocalizationListState?>(value: nil)
         let previousEntriesHolder = Atomic<([LanguageListEntry], PresentationTheme, PresentationStrings)?>(value: nil)
         self.listDisposable = combineLatest(
             queue: .mainQueue(),

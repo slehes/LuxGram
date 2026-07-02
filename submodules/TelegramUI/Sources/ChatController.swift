@@ -9415,7 +9415,7 @@ public final class ChatControllerImpl: TelegramBaseController, ChatController, G
     }
     
     func displayMediaRecordingTooltip() {
-        if ({ return true })() { return }        guard let peer = self.presentationInterfaceState.renderedPeer?.peer else {
+        guard let peer = self.presentationInterfaceState.renderedPeer?.peer else {
             return
         }
         
