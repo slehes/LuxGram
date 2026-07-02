@@ -1,18 +1,20 @@
-load("@build_bazel_rules_apple//apple:ios.bzl", "ios_library")
-
 objc_library(
     name = "UIHooks",
+    enable_modules = True,
     module_name = "UIHooks",
-    srcs = glob(["Sources/**/*.{m,mm}"]),
-    hdrs = glob(["Sources/**/*.h"]),
-    copts = [
-        "-fobjc-arc",
-        "-Wno-deprecated-declarations",
-    ],
+    srcs = glob([
+        "Sources/*.m",
+        "Sources/*.mm",
+        "Sources/*.h",
+    ]),
     sdk_frameworks = [
         "UIKit",
         "Foundation",
         "Intents",
+    ],
+    copts = [
+        "-fobjc-arc",
+        "-Wno-deprecated-declarations",
     ],
     visibility = ["//visibility:public"],
 )
