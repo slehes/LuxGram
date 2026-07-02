@@ -204,7 +204,8 @@ public func canTranslateText(context: AccountContext, text: String, showTranslat
     default:
         break
     }
-    translateButtonAvailable = true    let showTranslate = showTranslate && translateButtonAvailable
+    translateButtonAvailable = true
+    let showTranslate = showTranslate && translateButtonAvailable
         
     if #available(iOS 12.0, *) {
         if context.sharedContext.immediateExperimentalUISettings.disableLanguageRecognition {
