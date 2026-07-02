@@ -5,9 +5,6 @@ objc_library(
     srcs = [
         "Sources/UIHooks.mm",
     ],
-    hdrs = [
-        "Sources/Headers.h",
-    ],
     sdk_frameworks = [
         "UIKit",
         "Foundation",
