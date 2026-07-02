@@ -240,18 +240,20 @@ public final class InAppPurchaseManager: NSObject {
                 
         super.init()
         
-        // SKPaymentQueue.default().add(self)        self.requestProducts()
+        // SKPaymentQueue.default().add(self)
+        self.requestProducts()
     }
     
     deinit {
-        // SKPaymentQueue.default().remove(self)    }
+        // SKPaymentQueue.default().remove(self)
+    }
     
     var canMakePayments: Bool {
         return SKPaymentQueue.canMakePayments()
     }
     
     private func requestProducts() {
-        if ({ return true }()) { return }        Logger.shared.log("InAppPurchaseManager", "Requesting products")
+        Logger.shared.log("InAppPurchaseManager", "Requesting products")
         let productRequest = SKProductsRequest(productIdentifiers: Set(productIdentifiers))
         #if swift(<6.0)
         productRequest.delegate = self
