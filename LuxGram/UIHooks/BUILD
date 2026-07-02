@@ -2,11 +2,12 @@ objc_library(
     name = "UIHooks",
     enable_modules = True,
     module_name = "UIHooks",
-    srcs = glob([
-        "Sources/*.m",
-        "Sources/*.mm",
-        "Sources/*.h",
-    ]),
+    srcs = [
+        "Sources/UIHooks.mm",
+    ],
+    hdrs = [
+        "Sources/Headers.h",
+    ],
     sdk_frameworks = [
         "UIKit",
         "Foundation",
