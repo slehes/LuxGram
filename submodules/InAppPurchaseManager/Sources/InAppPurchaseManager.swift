@@ -240,12 +240,12 @@ public final class InAppPurchaseManager: NSObject {
                 
         super.init()
         
-        // SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(self)
         self.requestProducts()
     }
     
     deinit {
-        // SKPaymentQueue.default().remove(self)
+        SKPaymentQueue.default().remove(self)
     }
     
     var canMakePayments: Bool {
@@ -312,7 +312,7 @@ public final class InAppPurchaseManager: NSObject {
         let payment = SKMutablePayment(product: product.skProduct)
         payment.applicationUsername = accountPeerId
         payment.quantity = Int(quantity)
-        // SKPaymentQueue.default().add(payment)        
+        SKPaymentQueue.default().add(payment)
         let productIdentifier = payment.productIdentifier
         let signal = Signal<PurchaseState, PurchaseError> { subscriber in
             let disposable = MetaDisposable()

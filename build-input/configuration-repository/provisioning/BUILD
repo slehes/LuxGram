@@ -1,0 +1,11 @@
+exports_files([
+    "Telegram.mobileprovision",
+    "WatchApp.mobileprovision",
+    "Share.mobileprovision",
+    "NotificationContent.mobileprovision",
+    "Widget.mobileprovision",
+    "Intents.mobileprovision",
+    "BroadcastUpload.mobileprovision",
+    "NotificationService.mobileprovision",
+    "WatchExtension.mobileprovision",
+])
