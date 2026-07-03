@@ -121,6 +121,9 @@ def get_bazel_version(bazel_path):
 
 
 def get_xcode_version():
+    if platform.system() != 'Darwin':
+        return '16.0'
+
     xcode_path = run_executable_with_output('xcode-select', ['-p']).strip('\n')
     if not os.path.isdir(xcode_path):
         print('The path reported by \'xcode-select -p\' does not exist')
@@ -196,9 +199,12 @@ class BuildEnvironment:
 
         actual_xcode_version = get_xcode_version()
         if actual_xcode_version != versions.xcode_version:
-            if override_xcode_version:
-                print('Overriding the required Xcode version {} with {} as reported by \'xcode-select -p\''.format(
-                    versions.xcode_version, actual_xcode_version, self.bazel_path))
+            if override_xcode_version or platform.system() != 'Darwin':
+                if platform.system() != 'Darwin':
+                    print('Using dummy Xcode version {} on {}'.format(actual_xcode_version, platform.system()))
+                else:
+                    print('Overriding the required Xcode version {} with {} as reported by \'xcode-select -p\''.format(
+                        versions.xcode_version, actual_xcode_version, self.bazel_path))
                 versions.xcode_version = actual_xcode_version
             else:
                 print('Required Xcode version is {}, but {} is reported by \'xcode-select -p\''.format(
