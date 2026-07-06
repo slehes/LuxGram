@@ -77,7 +77,7 @@ private extension NSDecimalNumber {
     }
 }
 
-public final class InAppPurchaseManager: NSObject {
+@MainActor public final class InAppPurchaseManager: NSObject {
     public final class Product: Equatable {
         private lazy var numberFormatter: NumberFormatter = {
             let numberFormatter = NumberFormatter()
@@ -240,12 +240,12 @@ public final class InAppPurchaseManager: NSObject {
                 
         super.init()
         
-        // SKPaymentQueue.default().add(self)
+        SKPaymentQueue.default().add(self)
         self.requestProducts()
     }
     
     deinit {
-        // SKPaymentQueue.default().remove(self)
+        SKPaymentQueue.default().remove(self)
     }
     
     var canMakePayments: Bool {
@@ -312,7 +312,7 @@ public final class InAppPurchaseManager: NSObject {
         let payment = SKMutablePayment(product: product.skProduct)
         payment.applicationUsername = accountPeerId
         payment.quantity = Int(quantity)
-        // SKPaymentQueue.default().add(payment)        
+        SKPaymentQueue.default().add(payment)
         let productIdentifier = payment.productIdentifier
         let signal = Signal<PurchaseState, PurchaseError> { subscriber in
             let disposable = MetaDisposable()
@@ -398,7 +398,6 @@ public final class InAppPurchaseManager: NSObject {
     }
 }
 
-#if swift(<6.0)
 extension InAppPurchaseManager: SKProductsRequestDelegate {
     public func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
         self.productRequest = nil
@@ -411,9 +410,7 @@ extension InAppPurchaseManager: SKProductsRequestDelegate {
         }
     }
 }
-#endif
 
-#if swift(<6.0)
 extension InAppPurchaseManager: SKPaymentTransactionObserver {
     public func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         self.stateQueue.async {
@@ -635,7 +632,6 @@ extension InAppPurchaseManager: SKPaymentTransactionObserver {
         let _ = enqueueMessages(account: engine.account, peerId: engine.account.peerId, messages: [message]).start()
     }
 }
-#endif
 
 private final class PendingInAppPurchaseState: Codable {
     enum CodingKeys: String, CodingKey {
