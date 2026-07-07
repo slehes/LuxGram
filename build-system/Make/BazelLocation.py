@@ -62,10 +62,14 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
         os.mkdir(build_input_dir)
 
     versions = BuildEnvironmentVersions(base_path=os.getcwd())
-    if is_apple_silicon():
-        arch = 'darwin-arm64'
+    import platform
+    if platform.system() == 'Darwin':
+        if is_apple_silicon():
+            arch = 'darwin-arm64'
+        else:
+            arch = 'darwin-x86_64'
     else:
-        arch = 'darwin-x86_64'
+        arch = 'linux-x86_64'
     bazel_name = 'bazel-{version}-{arch}'.format(version=versions.bazel_version, arch=arch)
     bazel_path = '{}/build-input/{}'.format(base_path, bazel_name)
 
@@ -99,8 +103,13 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
 
     if os.path.isfile(bazel_path) and versions.bazel_version_sha256 is not None:
         test_sha256 = calculate_sha256(bazel_path)
-        if test_sha256 != versions.bazel_version_sha256:
-            print(f"Bazel at {bazel_path} does not match SHA256 {versions.bazel_version_sha256}, removing")
+
+        expected_sha256 = versions.bazel_version_sha256
+        if arch == 'linux-x86_64' and versions.bazel_version == '8.4.2':
+            expected_sha256 = '4dc8e99dfa802e252dac176d08201fd15c542ae78c448c8a89974b6f387c282c'
+
+        if test_sha256 != expected_sha256:
+            print(f"Bazel at {bazel_path} does not match SHA256 {expected_sha256}, removing")
             os.remove(bazel_path)
 
 
@@ -118,9 +127,15 @@ def locate_bazel(base_path, cache_host_or_path, cache_dir):
 
         if os.path.isfile(bazel_path) and versions.bazel_version_sha256 is not None:
             test_sha256 = calculate_sha256(bazel_path)
-            if test_sha256 != versions.bazel_version_sha256:
-                print(f"Bazel at {bazel_path} does not match SHA256 {versions.bazel_version_sha256}, removing")
-                os.remove(bazel_path)
+
+            expected_sha256 = versions.bazel_version_sha256
+            if arch == 'linux-x86_64' and versions.bazel_version == '8.4.2':
+                expected_sha256 = '4dc8e99dfa802e252dac176d08201fd15c542ae78c448c8a89974b6f387c282c'
+
+            if test_sha256 != expected_sha256:
+                print(f"Bazel at {bazel_path} does not match SHA256 {expected_sha256}, removing")
+                if os.path.isfile(bazel_path):
+                    os.remove(bazel_path)
 
         if resolved_cache_host is not None and versions.bazel_version_sha256 is not None:
             http_cache_host = transform_cache_host_into_http(resolved_cache_host)
